@@ -4,7 +4,7 @@ tagMenu: defaultNodeMenu
 #can be assigned.
 If [ TEMP::ksection = "" ]
 Perform Script [ “defaultSectionMenu” ]
-Show Custom Dialog [ Message: "All nodes are assigned to sections. Select a section ﬁrst, then click the 'node' button. If no nodes exist, you can add a new one or continue to look in the other sections."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "All nodes are assigned to a library. You need to go the backup layout in admin mode and type in the words New Library, and then restart this database."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -88,4 +88,4 @@ Refresh Window
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current ﬁle ]
 #
-January 7, 平成26 16:14:29 Imagination Quality Management.fp7 - defaultNodeMenu -1-
+January 28, 平成26 15:54:56 Empty Library copy.fp7 - defaultNodeMenu -1-
