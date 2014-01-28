@@ -1,7 +1,10 @@
 tagMenu: defaultTestLocationMenu
 #
 If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
+Halt Script
+Else If [ tempSetup::kdefaultHealth = "" ]
+Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button (you can always change your mind)."; Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -101,4 +104,4 @@ Set Field [ TEMP::pulldownAttribute; groupTest::_Lgroup ]
 #
 #Return to tag menu layout.
 Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
-January 7, 平成26 16:07:49 Imagination Quality Management.fp7 - defaultTestLocationMenu -1-
+January 28, 平成26 15:52:43 Empty Library copy.fp7 - defaultTestLocationMenu -1-
