@@ -7,10 +7,10 @@ If [ TEMP::ksection = "" ]
 Show Custom Dialog [ Message: "Select a section from the Tag Menus window for records that you create to be placed into."; Buttons: “OK” ]
 Halt Script
 Else If [ tempSetup::kdefaultHealth = "" ]
-Show Custom Dialog [ Message: "Select a health/copyright type from the health section."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button (you can always change your mind)."; Buttons: “OK” ]
 Halt Script
 Else If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -46,4 +46,4 @@ Perform Script [ “menuKey” ]
 Select Window [ Name: "Learn"; Current ﬁle ]
 Set Variable [ $$stoploadCitation ]
 Perform Script [ “loadCitation” ]
-January 7, 平成26 18:11:10 Imagination Quality Management.fp7 - learn -1-
+January 28, 平成26 15:57:41 Empty Library copy.fp7 - learn -1-
