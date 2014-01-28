@@ -1,7 +1,7 @@
 tagMenu: defaultHealthMenu
 #
 If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
 Halt Script
 End If
 #Set citationMatch to color menu button with inUse color.
@@ -75,4 +75,4 @@ Refresh Window
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current ﬁle ]
 #
-January 7, 平成26 16:15:02 Imagination Quality Management.fp7 - defaultHealthMenu -1-
+January 28, 平成26 15:46:59 Empty Library copy.fp7 - defaultHealthMenu -1-
