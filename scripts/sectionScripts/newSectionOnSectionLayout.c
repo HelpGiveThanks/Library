@@ -1,8 +1,21 @@
 sectionScripts: newSectionOnSectionLayout
 #
 If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Buttons: “OK” ]
-Halt Script
+#
+#When running the create new library script, this script
+#is the last script to be called. The two steps disabled
+#below used to halt the process and then I would
+#manually have to go the backup layout and type in
+#the word newLibrary to create the trigger for the start
+#added below, the script now does that for me.
+// Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Buttons: “OK” ]
+// Halt Script
+Go to Layout [ “backup” (backup) ]
+Set Field [ backup::newLibrary; "newLibrary" ]
+Show Custom Dialog [ Message: "This library is now ready for use. It will close. When users next open it they will be asked if they want to use it as a new empty library or import records from an old Library version into it."; Buttons: “OK” ]
+Close Window [ Name: "Tag Menus"; Current ﬁle ]
+Close Window [ Name: "Setup"; Current ﬁle ]
+Exit Script [ ]
 End If
 #
 #Create new section record.
@@ -28,4 +41,4 @@ Go to Field [ ruleSection::name ]
 #Assign section as default section.
 Perform Script [ “setDefaultSection” ]
 #
-January 28, 平成26 16:03:24 Empty Library copy.fp7 - newSectionOnSectionLayout -1-
+January 28, 平成26 17:28:09 Empty Library.fp7 - newSectionOnSectionLayout -1-
