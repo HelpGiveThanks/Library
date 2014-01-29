@@ -7,9 +7,8 @@ Delete All Records
 [ No dialog ]
 New Record/Request
 If [ backup::newLibrary = "234874920347574weidf792342f9823984" ]
-Set Field [ tempSetup::ﬁleName; TEMP::ﬁleName ]
-Show Custom Dialog [ Message: "Are you sure you want to delete the data in this library to make a new empty one? If you are not sure, DO NOT CLICK any of the buttons. Instead, check the folder where this library is located and make sure this is a copy of the orignal and not the original.
-Next click either the stop or proceed button."; Buttons: “stop”, “proceed” ]
+Show Custom Dialog [ Message: "Are you sure you want to delete the data in " & TEMP::ﬁleName & " to make it a new empty one? If you are not sure, DO NOT CLICK any of the buttons. Instead, check the folder where this library is located and make sure this is a copy of the orignal and
+not the original. Next click either the stop or proceed button."; Buttons: “stop”, “proceed” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Field [ backup::newLibrary; "" ]
 Go to Layout [ “defaultSetup” (tempSetup) ]
@@ -106,22 +105,22 @@ Show All Records
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ Get ( FilePath ) = MemorySwitch::path ]
+Exit Loop If [ Get ( FilePath ) = MemorySwitch::<Field Missing> ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ Get ( FilePath ) ≠ MemorySwitch::path ]
+If [ Get ( FilePath ) ≠ MemorySwitch::<Field Missing> ]
 New Record/Request
-Set Field [ MemorySwitch::path; TEMP::ﬁlePath ]
-Set Field [ MemorySwitch::name; TEMP::ﬁleName ]
+Set Field [ MemorySwitch::<File Missing>; TEMP::ﬁlePath ]
+Set Field [ MemorySwitch::<File Missing>; TEMP::ﬁleName ]
 End If
-Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
+Set Field [ MemorySwitch::<File Missing>; Get ( FilePath ) ]
 #
 #Report version number to Memory Switch Table.
-Set Field [ MemorySwitch::versionLibrary; tempSetup::verionNumber ]
+Set Field [ MemorySwitch::<File Missing>; tempSetup::verionNumber ]
 #
-January 7, 平成26 11:58:54 Imagination Quality Management.fp7 - startDatabase -1-startclose: startDatabase
-#
+Go to Layout [ “defaultSetup” (tempSetup) ]
+January 28, 平成26 17:32:13 Empty Library.fp7 - startDatabase -1-startclose: startDatabase
 Go to Layout [ “defaultSetup” (tempSetup) ]
 #
 #Show regular menus if Admin logs in only.
@@ -145,4 +144,4 @@ Show Custom Dialog [ Message: "Import is almost complete! Now select yourself as
 #
 End If
 #
-January 7, 平成26 11:58:54 Imagination Quality Management.fp7 - startDatabase -2-
+January 28, 平成26 17:32:13 Empty Library.fp7 - startDatabase -2-
