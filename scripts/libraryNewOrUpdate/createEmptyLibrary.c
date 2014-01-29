@@ -91,6 +91,7 @@ Delete All Records
 [ No dialog ]
 #
 Go to Layout [ “defaultSetup” (tempSetup) ]
+#
 Perform Script [ “startDatabase” ]
 Set Field [ tempSetup::ﬁleName; Get ( FileName ) ]
 #
@@ -119,8 +120,8 @@ Perform Script [ “addTagToMainRecord” ]
 Set Variable [ $$stopAddBack ]
 #
 #Assign node to ﬁrst created section as its creator.
-Go to Layout [ “tableGroupTag” (groupTest) ]
-January 28, 平成26 16:01:53 Empty Library copy.fp7 - createEmptyLibrary -1-libraryNewOrUpdate: createEmptyLibrary
+January 28, 平成26 17:30:08 Empty Library.fp7 - createEmptyLibrary -1-libraryNewOrUpdate: createEmptyLibrary
+#Assign node to ﬁrst created section as its creator.
 Go to Layout [ “tableGroupTag” (groupTest) ]
 Perform Find [ Speciﬁed Find Requests: Find Records; Criteria: groupTest::kRecordCreatorNode: “1” ]
 [ Restore ]
@@ -148,4 +149,4 @@ Show Custom Dialog [ Message: "Change the name of the ﬁrst node to your name s
 End If
 End If
 #
-January 28, 平成26 16:01:53 Empty Library copy.fp7 - createEmptyLibrary -2-
+January 28, 平成26 17:30:08 Empty Library.fp7 - createEmptyLibrary -2-
