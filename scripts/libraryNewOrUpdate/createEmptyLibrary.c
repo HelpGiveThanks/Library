@@ -120,7 +120,7 @@ Set Variable [ $$stopAddBack ]
 #
 #Assign node to ﬁrst created section as its creator.
 Go to Layout [ “tableGroupTag” (groupTest) ]
-January 7, 平成26 12:03:58 Imagination Quality Management.fp7 - createEmptyLibrary -1-libraryNewOrUpdate: createEmptyLibrary
+January 28, 平成26 16:01:53 Empty Library copy.fp7 - createEmptyLibrary -1-libraryNewOrUpdate: createEmptyLibrary
 Go to Layout [ “tableGroupTag” (groupTest) ]
 Perform Find [ Speciﬁed Find Requests: Find Records; Criteria: groupTest::kRecordCreatorNode: “1” ]
 [ Restore ]
@@ -130,7 +130,8 @@ Go to Record/Request/Page
 [ First ]
 Set Field [ groupTest::kRecordCreatorNode; $$OldNodeID ]
 Set Field [ groupTest::kSectionCreatorNodesCreator; $$OldNodeID ]
-Set Field [ groupTest::aboutSection; "I will use this library section to make static memories of my thoughts about and experiences of _________________ to help me remember them and to also analyze, test, and so improve my critical thinking about _________________ ." ]
+Set Field [ groupTest::aboutSection; "This library is for noting what we learn about _________________, collecting references to it, and testing or collecting samples of ___________________ to improve the quality of our thinking and doing or __________________ quality (if
+_________________ is a thing not a person)." ]
 #
 #Assign node to ﬁrst created node group as its creator.
 Go to Record/Request/Page
@@ -140,11 +141,11 @@ Go to Layout [ “defaultSetup” (tempSetup) ]
 #
 #Inform user of next steps.
 If [ $$OldNodeID ≠ "" ]
-Show Custom Dialog [ Message: "Change the name of the ﬁrst node to your name as you will be the creator of these records."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Change the name of the ﬁrst node to your name since you will be the creator of new library records."; Buttons: “OK” ]
 Set Variable [ $$OldNodeID ]
 Else
-Show Custom Dialog [ Message: "Change the name of the ﬁrst node to your name as you will be the creator of new records."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Change the name of the ﬁrst node to your name since you will be the creator of new library records."; Buttons: “OK” ]
 End If
 End If
 #
-January 7, 平成26 12:03:58 Imagination Quality Management.fp7 - createEmptyLibrary -2-
+January 28, 平成26 16:01:53 Empty Library copy.fp7 - createEmptyLibrary -2-
