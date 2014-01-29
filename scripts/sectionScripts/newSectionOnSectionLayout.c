@@ -9,7 +9,8 @@ End If
 New Record/Request
 Set Field [ ruleSection::ksection; ruleSection::_Lgroup ]
 Set Field [ ruleSection::match; "section" ]
-Set Field [ ruleSection::aboutSection; "I will use this library section to make static memories of my thoughts about and experiences of _________________ to help me remember them and to also analyze, test, and so improve my critical thinking about _________________ ." ]
+Set Field [ ruleSection::aboutSection; "This library is for noting what we learn about _________________, collecting references to it, and testing or collecting samples of ___________________ to improve the quality of our thinking and doing or __________________ quality (if
+_________________ is a thing not a person)." ]
 Set Field [ ruleSection::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 #Capture the name in case the node is deleted, and
 #and the section is not requiring the system to replace
@@ -20,11 +21,11 @@ Set Field [ ruleSection::CaptionORinuseCheck; TEMP::DEFAULTNodePrimaryName ]
 #If we need to recreate this section's creator node
 #we will need to know who created its creator node.
 Set Field [ ruleSection::kSectionCreatorNodesCreator; nodeLockSection::kRecordCreatorNode ]
-Set Field [ ruleSection::name; "section " & ruleSection::_Lgroup ]
-Set Field [ ruleSection::nameSpelling; "section " & groupTest::_Lgroup ]
+Set Field [ ruleSection::name; "Empty Library" ]
+Set Field [ ruleSection::nameSpelling; "Empty Library" ]
 Go to Field [ ruleSection::name ]
 #
 #Assign section as default section.
 Perform Script [ “setDefaultSection” ]
 #
-January 7, 平成26 12:13:17 Imagination Quality Management.fp7 - newSectionOnSectionLayout -1-
+January 28, 平成26 16:03:24 Empty Library copy.fp7 - newSectionOnSectionLayout -1-
