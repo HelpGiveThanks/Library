@@ -8,10 +8,10 @@ If [ TEMP::ksection = "" ]
 Show Custom Dialog [ Message: "Select a section from the Tag Menus window for records that you create to be placed into."; Buttons: “OK” ]
 Halt Script
 Else If [ tempSetup::kdefaultHealth = "" ]
-Show Custom Dialog [ Message: "Select a health/copyright type from the health section."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button (you can always change your mind)."; Buttons: “OK” ]
 Halt Script
 Else If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -120,10 +120,10 @@ Perform Script [ “loadCitation” ]
 Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
-January 7, 平成26 17:50:36 Imagination Quality Management.fp7 - editCitation -1-reference(citation): editCitation
+January 28, 平成26 16:00:04 Empty Library copy.fp7 - editCitation -1-reference(citation): editCitation
 Scroll Window
 [ Home ]
 #
 #
 End If
-January 7, 平成26 17:50:36 Imagination Quality Management.fp7 - editCitation -2-
+January 28, 平成26 16:00:04 Empty Library copy.fp7 - editCitation -2-
