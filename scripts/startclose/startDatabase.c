@@ -105,22 +105,22 @@ Show All Records
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ Get ( FilePath ) = MemorySwitch::<Field Missing> ]
+Exit Loop If [ Get ( FilePath ) = MemorySwitch::path ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ Get ( FilePath ) ≠ MemorySwitch::<Field Missing> ]
+If [ Get ( FilePath ) ≠ MemorySwitch::path ]
 New Record/Request
-Set Field [ MemorySwitch::<File Missing>; TEMP::ﬁlePath ]
-Set Field [ MemorySwitch::<File Missing>; TEMP::ﬁleName ]
+Set Field [ MemorySwitch::path; TEMP::ﬁlePath ]
+Set Field [ MemorySwitch::name; TEMP::ﬁleName ]
 End If
-Set Field [ MemorySwitch::<File Missing>; Get ( FilePath ) ]
+Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
 #
 #Report version number to Memory Switch Table.
-Set Field [ MemorySwitch::<File Missing>; tempSetup::verionNumber ]
+Set Field [ MemorySwitch::versionLibrary; tempSetup::verionNumber ]
 #
 Go to Layout [ “defaultSetup” (tempSetup) ]
-January 28, 平成26 17:32:13 Empty Library.fp7 - startDatabase -1-startclose: startDatabase
+January 28, 平成26 17:40:14 Empty Library.fp7 - startDatabase -1-startclose: startDatabase
 Go to Layout [ “defaultSetup” (tempSetup) ]
 #
 #Show regular menus if Admin logs in only.
@@ -144,4 +144,4 @@ Show Custom Dialog [ Message: "Import is almost complete! Now select yourself as
 #
 End If
 #
-January 28, 平成26 17:32:13 Empty Library.fp7 - startDatabase -2-
+January 28, 平成26 17:40:14 Empty Library.fp7 - startDatabase -2-
