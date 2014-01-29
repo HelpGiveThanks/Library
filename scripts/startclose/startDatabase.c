@@ -38,7 +38,7 @@ Perform Script [ “createEmptyLibrary” ]
 Set Field [ backup::newLibrary; "" ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 2 ]
-Show Custom Dialog [ Message: "On some imports FileMaker crashes. Cancel this import and duplicate this LibraryNEW ﬁle if you do not have an extra in case this happens. If it does happen, delete the updated library, and try again."; Buttons: “OK”, “cancel” ]
+Show Custom Dialog [ Message: "On some imports FileMaker crashes. Cancel this import and duplicate this Empty Library ﬁle if you do not have an extra in case this happens. If it does happen, delete the updated library, and try again."; Buttons: “OK”, “cancel” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Close Window [ Current Window ]
 Exit Script [ ]
@@ -120,7 +120,7 @@ Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
 Set Field [ MemorySwitch::versionLibrary; tempSetup::verionNumber ]
 #
 Go to Layout [ “defaultSetup” (tempSetup) ]
-January 28, 平成26 17:40:14 Empty Library.fp7 - startDatabase -1-startclose: startDatabase
+January 28, 平成26 17:56:38 Empty Library.fp7 - startDatabase -1-startclose: startDatabase
 Go to Layout [ “defaultSetup” (tempSetup) ]
 #
 #Show regular menus if Admin logs in only.
@@ -144,4 +144,4 @@ Show Custom Dialog [ Message: "Import is almost complete! Now select yourself as
 #
 End If
 #
-January 28, 平成26 17:40:14 Empty Library.fp7 - startDatabase -2-
+January 28, 平成26 17:56:38 Empty Library.fp7 - startDatabase -2-
