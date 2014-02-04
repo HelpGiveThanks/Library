@@ -23,8 +23,14 @@ Set Field [ backup::newLibrary; "234874920347574weidf792342f9823984" ]
 #
 #Ask user what to name this new library.
 Go to Layout [ original layout ]
+#
+#A copy not a clone must be created because some
+#records are neccessary to running the Library and
+#are removed when cloning the Library.
 Save a Copy as [ ]
 [ copy of current ﬁle ]
+#
+#If the user decides to cancel the script then stop the process.
 If [ Get (LastError) = 1 ]
 Go to Layout [ “backup” (backup) ]
 Set Field [ backup::newLibrary; "" ]
@@ -36,6 +42,7 @@ End If
 Go to Layout [ “backup” (backup) ]
 Set Field [ backup::newLibrary; "" ]
 Go to Layout [ original layout ]
+Show Custom Dialog [ Message: "Now open your new library. You will be asked if you want to delete the records in it. Make sure it is the copy of your current library ﬁle and then proceed with the delete."; Buttons: “OK” ]
 Exit Script [ ]
 #
 Else If [ backup::newLibrary = "234874920347574weidf792342f9823984" or backup::newLibrary = "newLibrary" ]
@@ -113,14 +120,14 @@ Perform Script [ “newCitationMenuGroup” ]
 If [ $$OldNodeID ≠ "" ]
 Set Field [ tagMenus::_Ltag; $$OldNodeID ]
 End If
+February 3, 平成26 16:42:47 Imagination Quality Management.fp7 - createEmptyLibrary -1-libraryNewOrUpdate: createEmptyLibrary
+End If
 Set Variable [ $$OldNodeID; Value:tagMenus::_Ltag ]
 Set Field [ ruleTagMenuGroups::kRecordCreatorNode; $$OldNodeID ]
 Set Field [ tagMenus::tag; "lastName, ﬁrstName" ]
 Perform Script [ “addTagToMainRecord” ]
 Set Variable [ $$stopAddBack ]
 #
-#Assign node to ﬁrst created section as its creator.
-January 28, 平成26 17:30:08 Empty Library.fp7 - createEmptyLibrary -1-libraryNewOrUpdate: createEmptyLibrary
 #Assign node to ﬁrst created section as its creator.
 Go to Layout [ “tableGroupTag” (groupTest) ]
 Perform Find [ Speciﬁed Find Requests: Find Records; Criteria: groupTest::kRecordCreatorNode: “1” ]
@@ -149,4 +156,4 @@ Show Custom Dialog [ Message: "Change the name of the ﬁrst node to your name s
 End If
 End If
 #
-January 28, 平成26 17:30:08 Empty Library.fp7 - createEmptyLibrary -2-
+February 3, 平成26 16:42:47 Imagination Quality Management.fp7 - createEmptyLibrary -2-
