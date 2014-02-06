@@ -1,4 +1,4 @@
-startclose: about
+startclose: moreInfo
 New Window [ Name: "More Info"; Left: Get ( WindowDesktopWidth ) - (Get ( WindowDesktopWidth ) / 2 ) ]
 Go to Layout [ “about” (tempSetup) ]
 Adjust Window
