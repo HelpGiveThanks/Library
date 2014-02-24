@@ -1,0 +1,2 @@
+[Learn TagMenus 108] fix conditional formatting so it only shows when reference records are referenced:  
+ValueCount ( $$ref  ) - Length ( Filter ( $$ref ; "L" )  )  ≠ Length ( Filter ( $$ref ; "L" )  ) - Length ( Filter ( $$ref ; "L" )  )
