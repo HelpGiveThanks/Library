@@ -3,11 +3,23 @@ tagMenu: addORremoveRefTagStep1
 #conditional formatting.
 Go to Field [ ]
 #
-#Determine if user is looking at nodes or keywords.
+#Determine if user is looking at cite or ref.
+#NOTE: The cite idea is no longer being used. So,
+#when here is time to properly test, these cite script
+#steps need to be removed. END NOTE
 If [ $$citationMatch = "cite" ]
 Perform Script [ “addTagToMainRecord” ]
 Else If [ $$citationMatch = "ref" ]
 If [ Right ( Get (LayoutName) ; 7 ) = "RefCite" ]
+#
+#Check if tagging would cause record to reference itself.
+If [ testlearn::_Ltestlearn = $$citation ]
+Show Custom Dialog [ Message: "Records cannot reference themselves."; Buttons: “OK” ]
+Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Halt Script
+End If
+#
+#Complete process.
 Perform Script [ “addORremoveCiteOrRefTLTag” ]
 Select Window [ Name: "Learn"; Current ﬁle ]
 Refresh Window
@@ -16,4 +28,4 @@ Exit Script [ ]
 End If
 Perform Script [ “addORremoveCitationOrReferenceRefTag” ]
 End If
-January 7, 平成26 16:26:21 Imagination Quality Management.fp7 - addORremoveRefTagStep1 -1-
+February 24, 平成26 10:26:34 Imagination Quality Management.fp7 - addORremoveRefTagStep1 -1-

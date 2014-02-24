@@ -117,7 +117,7 @@ Go to Record/Request/Page
 #
 Loop
 Set Variable [ $copy; Value://previous records
-Case ( $copy = "" ; "" ; $copy & ¶ & ¶ & ¶ & ¶ ) &
+Case ( $copy = "" ; "" ; $copy & ¶ & ¶) &
 //text
 Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence &
 //node
@@ -143,21 +143,15 @@ tagTLKeywordPrimary::tag &
 Case ( testlearn::OtherKeyWords = "" ; "" ;
 //other keyword
 Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) &
- ¶ &
 //URL
 Case ( testlearn::URL ≠ "" ; ¶ & testlearn::URL &
 //URLdate
-Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" ) &
-//citation
-Case ( testlearn::kcitation = "" ; "" ; ¶ & "Citation" & ¶ &
-testlearnCite::concatenateLongPASTE & citeCite::referenceForPASTE ) &
-//references
-Case ( testlearn::kcreference ≠ "" ; ¶ & "References" ; "" )
+Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" )
 //ﬁnsih text color
  ; RGB ( 119 ; 119 ; 119 ) ) ]
-January 7, 平成26 12:05:06 Imagination Quality Management.fp7 - sampleCopyForPasting -1-libraryNewOrUpdate: sampleCopyForPasting
+February 24, 平成26 10:30:14 Imagination Quality Management.fp7 - sampleCopyForPasting -1-libraryNewOrUpdate: sampleCopyForPasting
 Set Variable [ $copy; Value://previous records
-Case ( $copy = "" ; "" ; $copy & ¶ & ¶ & ¶ & ¶ ) &
+Case ( $copy = "" ; "" ; $copy & ¶ & ¶) &
 //text
 Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence &
 //node
@@ -183,16 +177,10 @@ tagTLKeywordPrimary::tag &
 Case ( testlearn::OtherKeyWords = "" ; "" ;
 //other keyword
 Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) &
- ¶ &
 //URL
 Case ( testlearn::URL ≠ "" ; ¶ & testlearn::URL &
 //URLdate
-Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" ) &
-//citation
-Case ( testlearn::kcitation = "" ; "" ; ¶ & "Citation" & ¶ &
-testlearnCite::concatenateLongPASTE & citeCite::referenceForPASTE ) &
-//references
-Case ( testlearn::kcreference ≠ "" ; ¶ & "References" ; "" )
+Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" )
 //ﬁnsih text color
  ; RGB ( 119 ; 119 ; 119 ) ) ]
 #
@@ -203,6 +191,15 @@ Else
 Set Variable [ $evidence; Value:1 ]
 End If
 If [ testlearn::kcreference ≠ "" ]
+Go to Object [ Object Name: "ref1" ]
+If [ refReference::referenceForReferenceWindow ≠ "" ]
+Set Variable [ $copy; Value:$copy & ¶ &
+//grey text
+TextColor (
+//references
+Case ( testlearn::kcreference ≠ "" ; "References" ; "" )
+//ﬁnsih text color
+ ; RGB ( 119 ; 119 ; 119 ) ) ]
 Loop
 Go to Object [ Object Name: "ref1" ]
 Exit Loop If [ Get (LastError) = 101 ]
@@ -217,11 +214,12 @@ Go to Portal Row
 [ Select; Next; Exit after last ]
 End Loop
 End If
+End If
+Go to Record/Request/Page
+[ Next; Exit after last ]
 Set Variable [ $copy; Value:$copy & ¶ &
 //grey text
 TextColor ( "_______________________________________________" ; RGB ( 119 ; 119 ; 119 ) ) ]
-Go to Record/Request/Page
-[ Next; Exit after last ]
 Exit Loop If [ (
 FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 1 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶
 or
@@ -284,11 +282,11 @@ $sample & ¶ & ¶ & $copy ]
 #Now create copy text and display it.
 Select Window [ Name: "Print/Copy"; Current ﬁle ]
 Else
+February 24, 平成26 10:30:14 Imagination Quality Management.fp7 - sampleCopyForPasting -2-libraryNewOrUpdate: sampleCopyForPasting
 If [ $layoutName = "learn4EDIT" ]
 Set Variable [ $sample; Value://author and copyright date
 TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & " " ]
 Else
-January 7, 平成26 12:05:06 Imagination Quality Management.fp7 - sampleCopyForPasting -2-libraryNewOrUpdate: sampleCopyForPasting
 Set Variable [ $sample; Value://Sample Title
 "Unsaved group of records ordered by date and time of creation!!! This action is not advised for publishing purposes. Instead, use the theorize tag to create a saved set of records ordered by you to make the strongest case you can make for publishing sets of records." & ¶ &
 //author and copyright date
@@ -308,4 +306,4 @@ Set Field [ TEMP::paste; TextSize ( $copy ; 12 ) ]
 Go to Field [ ]
 Scroll Window
 [ Home ]
-January 7, 平成26 12:05:06 Imagination Quality Management.fp7 - sampleCopyForPasting -3-
+February 24, 平成26 10:30:14 Imagination Quality Management.fp7 - sampleCopyForPasting -3-
