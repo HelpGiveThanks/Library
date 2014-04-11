@@ -8,12 +8,18 @@ If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & reference::ﬁleName ; " " ; "%20" ) ]
 [ No dialog ]
 End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's x folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
+End If
 Else If [ FilterValues ( reference::kﬁleLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & reference::ﬁleName ; " " ; "%20" ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & reference::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
+End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's main folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 Exit Script [ ]
 Else If [ FilterValues ( reference::kﬁleLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
@@ -28,7 +34,7 @@ Case ( Left ( reference::ﬁleName ; 1 ) = "/" ; Substitute ( reference::ﬁleNa
 [ No dialog ]
 End If
 If [ Get (LastError) = 5 ]
-Show Custom Dialog [ Message: "The ﬁle has been moved, deleted, or the external drive this ﬁle is on is not plugged in. The ﬁle path is " & tagRefFolderPath::tag & "/" & reference::ﬁleName; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into " & tagRefFolderPath::tag & "," & " or the external drive it is on is not plugged in, or it's name was changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 End If
 #
@@ -40,12 +46,18 @@ If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citeCite::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
 End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's x folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
+End If
 Else If [ FilterValues ( citeCite::kﬁleLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citeCite::ﬁleName ; " " ; "%20" ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citeCite::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
+End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's main folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 Exit Script [ ]
 Else If [ FilterValues ( citeCite::kﬁleLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
@@ -60,7 +72,7 @@ Case ( Left ( citeCite::ﬁleName ; 1 ) = "/" ; Substitute ( citeCite::ﬁleName
 [ No dialog ]
 End If
 If [ Get (LastError) = 5 ]
-Show Custom Dialog [ Message: "The ﬁle has been moved, deleted, or the external drive this ﬁle is on is not plugged in. The ﬁle path is " & TLciteFolderPath::tag & "/" & citeCite::ﬁleName; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into " & tagRefFolderPath::tag & "," & " or the external drive it is on is not plugged in, or it's name was changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 End If
 #
@@ -75,6 +87,9 @@ If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & refReference::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
 End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's x folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
+End If
 Else If [ FilterValues ( refReference::kﬁleLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
 If [ ValueCount ( testlearn::kcreference ) > 1 ]
 Show Custom Dialog [ Message: "This is the ﬁrst reference attached to this record. To see all references, click the 'QV' button in the Learn window or the 'references' button in the Tag Menus window."; Buttons: “OK” ]
@@ -84,6 +99,9 @@ Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:
 If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & refReference::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
+End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's main folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 Exit Script [ ]
 Else If [ FilterValues ( refReference::kﬁleLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
@@ -99,9 +117,10 @@ Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:/" ; "ﬁle
 Case ( Left ( refReference::ﬁleName ; 1 ) = "/" ; Substitute ( refReference::ﬁleName ; " " ; " " ) ;
  "/" & Substitute ( refReference::ﬁleName ; " " ; " " ) ) ]
 [ No dialog ]
+April 11, 平成26 9:56:11 Imagination Quality Management.fp7 - showFileInTagandLearnWindows -1-learn: showFileInTagandLearnWindows
 End If
 If [ Get (LastError) = 5 ]
-Show Custom Dialog [ Message: "The ﬁle has been moved, deleted, or the external drive this ﬁle is on is not plugged in. The ﬁle path is " & TLrefFolderPath::tag & "/" & refReference::ﬁleName; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into " & tagRefFolderPath::tag & "," & " or the external drive it is on is not plugged in, or it's name was changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 End If
 #
@@ -113,14 +132,18 @@ If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citeTest::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
 End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's x folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
+End If
 Else If [ FilterValues ( citeTest::kﬁleLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citeTest::ﬁleName ; " " ; "%20" ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citeTest::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
-January 7, 平成26 17:22:33 Imagination Quality Management.fp7 - showFileInTagandLearnWindows -1-learn: showFileInTagandLearnWindows Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citeTest::ﬁleName ; " " ; " " ) ]
-[ No dialog ]
+End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's main folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 Exit Script [ ]
 Else If [ FilterValues ( citeTest::kﬁleLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
@@ -135,7 +158,7 @@ Case ( Left ( citeTest::ﬁleName ; 1 ) = "/" ; Substitute ( citeTest::ﬁleName
 [ No dialog ]
 End If
 If [ Get (LastError) = 5 ]
-Show Custom Dialog [ Message: "The ﬁle has been moved, deleted, or the external drive this ﬁle is on is not plugged in. The ﬁle path is " & citeTestFolderPath::tag & "/" & citeTest::ﬁleName; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into " & tagRefFolderPath::tag & "," & " or the external drive it is on is not plugged in, or it's name was changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 End If
 #
@@ -151,6 +174,9 @@ If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & refTest::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
 End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's x folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
+End If
 Else If [ FilterValues ( refTest::kﬁleLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
 If [ ValueCount ( testlearnReportTags::kcreference ) > 1 ]
 Show Custom Dialog [ Message: "This is the ﬁrst reference attached to this record. To see all references, click the 'edit/new' button in the main list view window, and once you are in the Learn module, click the 'QV' button in the Learn window or the 'references' button in the Learn Tag
@@ -161,6 +187,9 @@ Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:
 If [ Get ( LastError ) ≠ 0 ]
 Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "ﬁle:" ; "ﬁle:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & refTest::ﬁleName ; " " ; " " ) ]
 [ No dialog ]
+End If
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into this library's main folder, OR its name has been changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 Exit Script [ ]
 Else If [ FilterValues ( refTest::kﬁleLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
@@ -179,7 +208,7 @@ Case ( Left ( refTest::ﬁleName ; 1 ) = "/" ; Substitute ( refTest::ﬁleName ;
 [ No dialog ]
 End If
 If [ Get (LastError) = 5 ]
-Show Custom Dialog [ Message: "The ﬁle has been moved, deleted, or the external drive this ﬁle is on is not plugged in. The ﬁle path is " & refTestFolderPath::tag & "/" & refTest::ﬁleName; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The ﬁle has been deleted, moved from, or never downloaded/moved into " & tagRefFolderPath::tag & "," & " or the external drive it is on is not plugged in, or it's name was changed from " & reference::ﬁleName & "."; Buttons: “OK” ]
 End If
 End If
 #
@@ -198,4 +227,4 @@ End If
 // Open URL [ testlearn::URL ]
 [ No dialog ]
 // End If
-January 7, 平成26 17:22:33 Imagination Quality Management.fp7 - showFileInTagandLearnWindows -2-
+April 11, 平成26 9:56:11 Imagination Quality Management.fp7 - showFileInTagandLearnWindows -2-
