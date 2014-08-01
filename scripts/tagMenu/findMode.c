@@ -43,7 +43,7 @@ If [ Get (LayoutTableName) ≠ "test" ]
 If [ Left (Get (LayoutName) ; 9 ) ≠ "reference" ]
 Show Custom Dialog [ Message: "Find tagged learn records OR find tag(s)? "; Buttons: “tag(s)”, “learn”, “cancel” ]
 #
-Else If [ Left (Get (LayoutName) ; 9 ) = "reference" and $$referenceRecordOne ≠ 1 ]
+Else If [ Left (Get (LayoutName) ; 9 ) = "reference" and $$referenceRecordOne ≠ 2 ]
 #
 #Eliminate find reference option for citation menu.
 If [ $$citationMatch ≠ "cite" ]
@@ -54,7 +54,7 @@ End If
 End If
 #
 #If user selects to find tags enter find mode first.
-If [ Get ( LastMessageChoice ) = 2 and $$ClearMessageChoice ≠ 1 ]
+If [ Get ( LastMessageChoice ) = 1 and $$ClearMessageChoice ≠ 2 ]
 Enter Find Mode [ ]
 #
 #Determine if user is looking tag or reference records.
@@ -119,7 +119,7 @@ Go to Layout [ “ltagFINDNK” (tagMenus) ]
 End If
 #
 Else
-July 30, 平成26 11:14:36 Imagination Quality Management.fp7 - findMode -1-tagMenu: findMode
+August 1, 平成26 9:54:21 Imagination Quality Management.fp7 - findMode -1-tagMenu: findMode
 #Show all reference items for a section if in
 #reference mode.
 Go to Layout [ “referenceFINDNK” (tagMenus) ]
@@ -228,4 +228,4 @@ Set Variable [ $$stoploadCitation ]
 Exit Script [ ]
 End If
 #
-July 30, 平成26 11:14:36 Imagination Quality Management.fp7 - findMode -2-
+August 1, 平成26 9:54:21 Imagination Quality Management.fp7 - findMode -2-
