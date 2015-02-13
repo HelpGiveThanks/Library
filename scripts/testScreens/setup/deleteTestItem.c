@@ -22,7 +22,7 @@ Set Variable [ $testItemName; Value:If ( Char ( tagMenus::tag ) ≤ 20 ; tagMenu
 #
 #ﬁnd and show all test records that might be using
 #this item.
-New Window [ Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 Set Error Capture [ On ]
@@ -80,7 +80,7 @@ Refresh Window
 #record must also be deleted if this is the last
 #test item under it.
 If [ Get ( LastMessageChoice ) = 2 ]
-New Window [ Name: "delete tag"; Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Name: "delete tag"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 Go to Layout [ “tableTag” (tagTable) ]
 Enter Find Mode [ ]
 Set Field [ tagTable::kGroupOrTest; $group ]

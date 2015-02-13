@@ -37,8 +37,7 @@ Set Variable [ $currentSelectedTag; Value:tagMenus::_Ltag ]
 Set Variable [ $closeWindowWhenDone; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Window Title [ Current Window; New Title: "Tag Menus Change Back When Done" ]
-New Window [ Name: "Tag Menus"; Height: 1; Width: 1; Top: 1; Left: 1 ]
-// New Window [ Name: "Tag Menus"; Top: 1; Left: 1 ]
+New Window [ Name: "Tag Menus"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #
 #Make sure all tags are showing. User may be only
 #showing a few of the tags after performing a ﬁnd.
@@ -358,7 +357,7 @@ End If
 January 7, 平成26 16:24:47 Imagination Quality Management.fp7 - addORremoveTagFromCitationStep2node -3-tagMenu: addORremoveTagFromCitationStep2node
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current ﬁle ]
-New Window [ Name: "reorder"; Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Name: "reorder"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]

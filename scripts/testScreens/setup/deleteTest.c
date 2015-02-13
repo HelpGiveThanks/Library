@@ -94,7 +94,7 @@ End If
 #check if this test is the last test in its test group.
 If [ Get ( LastMessageChoice ) = 2 ]
 #
-New Window [ Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #
 Set Variable [ $section; Value:test::ksection ]
 #( a test group ﬁeld is neccessary because a section

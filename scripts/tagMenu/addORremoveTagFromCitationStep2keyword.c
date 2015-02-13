@@ -29,7 +29,7 @@ Set Variable [ $currentSelectedTag; Value:tagMenus::_Ltag ]
 Set Variable [ $closeWindowWhenDone; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Window Title [ Current Window; New Title: "Tag Menus Change Back When Done" ]
-New Window [ Name: "Tag Menus"; Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Name: "Tag Menus"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #
 #Make sure all tags are showing. User may be only
 #showing a few of the tags after performing a ﬁnd.
@@ -311,7 +311,7 @@ End If
 #Order list alphabetically to re-construct otherKey
 #ﬁeld belonging to the citation record.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-New Window [ Name: "reorder"; Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Name: "reorder"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]

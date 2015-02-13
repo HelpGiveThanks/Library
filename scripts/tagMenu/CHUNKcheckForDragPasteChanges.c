@@ -11,7 +11,7 @@ Go to Field [ ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #New window so user's window is not changed.
-New Window [ Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #
 #Loop thru all records and make sure their spelling
 #has not been changed, and if it has change it back
@@ -54,7 +54,7 @@ Go to Field [ ]
 Set Variable [ $$ID; Value:"ignore" ]
 #
 #New window so user's window is not changed.
-New Window [ Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #
 #Loop thru all records and make sure their spelling
 #has not been changed, and if it has change it back

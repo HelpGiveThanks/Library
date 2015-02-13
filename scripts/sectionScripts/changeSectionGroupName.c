@@ -13,7 +13,7 @@ Commit Records/Requests
 Set Variable [ $name; Value:groupTest::name ]
 Set Field [ groupTest::name; $name ]
 Set Variable [ $section; Value:groupTest::ksection ]
-New Window [ Height: 1; Width: 1; Top: 1; Left: 1 ]
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 Go to Layout [ “tableGroupTag” (groupTest) ]
 #
 Enter Find Mode [ ]

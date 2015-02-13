@@ -15,7 +15,7 @@ Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
 Set Variable [ $$stopLoadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 New Window [ ]
-Move/Resize Window [ Current Window; Height: 3; Width: 3; Top: 1; Left: 1 ]
+Move/Resize Window [ Current Window; Height: 3; Width: 3; Top: -1000; Left: -1000 ]
 Go to Layout [ “learn1” (testlearn) ]
 #Prepare system to stop error message about no
 #records being found as the user may not have
