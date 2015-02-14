@@ -34,7 +34,7 @@ Set Variable [ $currentSelectedTag; Value:tagMenus::_Ltag ]
 Set Variable [ $closeWindowWhenDone; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Window Title [ Current Window; New Title: "Tag Menus Change Back When Done" ]
-New Window [ Name: "Tag Menus"; Height: 1; Width: 1; Top: -1000; Left: -1000 ] ##
+New Window [ Name: "Tag Menus"; Height: 1; Width: 1; Top: -1000; Left: -1000 ] #
 #Make sure all tags are showing. User may be only
 #showing a few of the tags after performing a find.
 Enter Find Mode [ ]
@@ -106,8 +106,8 @@ Select Window [ Name: "Setup"; Current file ]
 Set Variable [ $otherNodes; Value:tempSetup::DEFAULTNodeOtherNames ]
 Else If [ Get (LastError)
 ≠ 112 ]
-February 13, 平成27 21:09:28 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -1-tagMenu: addORremoveTagFromCitationStep2node
 Set Variable [ $otherNodes; Value:testlearn::NodeOthers ]
+February 13, 平成27 20:59:27 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -1-tagMenu: addORremoveTagFromCitationStep2node
 End If
 Else If [ Get (LastError)
 ≠ 112 ]
@@ -224,8 +224,8 @@ Perform Script [ “CHUNKaddMainSectionKeysToTagRecordKeychain” ]
 End If #
 #Now close working Tag Menus window and rename
 #users Tag Menus window to Tag Menus.
-February 13, 平成27 21:09:28 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -2-tagMenu: addORremoveTagFromCitationStep2node
 Close Window [ Name: "Tag Menus"; Current file ]
+February 13, 平成27 20:59:27 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -2-tagMenu: addORremoveTagFromCitationStep2node
 Set Window Title [ Of Window: "Tag Menus Change Back When Done"; Current file; New Title: "Tag Menus" ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
@@ -338,8 +338,8 @@ End If
 // Set Variable [ $$stopLoadTagRecord; Value:1 ]
 // Go to Record/Request/Page
 [ First ]
-February 13, 平成27 21:09:28 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -3-tagMenu: addORremoveTagFromCitationStep2node
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
+February 13, 平成27 20:59:27 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -3-tagMenu: addORremoveTagFromCitationStep2node
 Select Window [ Name: "Tag Menus"; Current file ]
 New Window [ Name: "reorder"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
@@ -455,8 +455,8 @@ End If
 Else If [ Get (LastError) ≠ 112 ]
 Set Field [ reference::NodeOthers; $otherNodes & "; " & $newNode ]
 Set Variable [ $otherNodes; Value:reference::NodeOthers ]
-February 13, 平成27 21:09:28 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -4-tagMenu: addORremoveTagFromCitationStep2node
 End If
+February 13, 平成27 20:59:27 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -4-tagMenu: addORremoveTagFromCitationStep2node
 End If
 #
 #
@@ -510,4 +510,4 @@ Set Window Title [ Of Window: "Tag Menus Change Back When Done"; Current file; N
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-February 13, 平成27 21:09:28 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -5-
+February 13, 平成27 20:59:27 Stuff Library.fp7 - addORremoveTagFromCitationStep2node -5-
