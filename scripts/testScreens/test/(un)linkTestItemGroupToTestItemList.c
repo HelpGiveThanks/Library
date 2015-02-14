@@ -5,11 +5,11 @@ Go to Field [ ]
 #
 #Exit script if any of the current groups test items
 #are in use. ( At a later date, improve this script
-# so it ﬁnds the speciﬁc records in use and informs
-# user of them specﬁcially so user can ﬁnd
+# so it finds the specific records in use and informs
+# user of them specficially so user can find
 # them and know how many their are. )
 #
-#ﬁnd and show all test records that might be using
+#find and show all test records that might be using
 #any item in this group.
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
@@ -39,11 +39,11 @@ Perform Find [ ]
 Go to Record/Request/Page
 [ First ]
 #
-#The ﬁrst loop checks for each test item.
+#The first loop checks for each test item.
 Set Variable [ $groupNumber; Value:1 ]
 #
 #
-#The ﬁrst loop checks for each test item.
+#The first loop checks for each test item.
 Loop
 Set Variable [ $item; Value:GetValue ( $check ; $groupNumber ) ]
 #
@@ -99,7 +99,7 @@ End If
 #from the current test-item list.
 Set Variable [ $addTestItemGroup; Value:addTestItemGroup::addTestItemGroup ]
 #
-#Open a new window and ﬁnd this test item group.
+#Open a new window and find this test item group.
 New Window [ ]
 Go to Layout [ “tableGroupTag” (groupTest) ]
 Enter Find Mode [ ]
