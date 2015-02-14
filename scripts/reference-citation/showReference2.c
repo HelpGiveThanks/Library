@@ -20,7 +20,7 @@ Show Custom Dialog [ Message: "Click the 'add' button above and then click this 
 Exit Script [ ]
 End If
 #
-#If the ﬁeld is blank then stop the script.
+#If the field is blank then stop the script.
 #No poin in looking for a record where there isn't one.
 If [ tagMenus::Ktitle2 = "" ]
 Exit Script [ ]
@@ -36,19 +36,19 @@ If [ TLTitle2::_Ltestlearn ≠ "" ]
 #Select the correct window and then change its
 #name if neccessary to match the table the
 #records are coming from.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 End If
 Set Window Title [ Current Window; New Title: "Learn" ]
 Go to Layout [ <unknown> ]
 #
 #Prevent record loading script during loops to
-#ﬁnd wanted record, which would slow down system.
+#find wanted record, which would slow down system.
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
 #Now loop thru all the records until the record
-#that ﬁts the key is found.
+#that fits the key is found.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -64,7 +64,7 @@ Perform Script [ “loadCitation” ]
 #Put focus back on Tag Menus window and conditionally
 #format any items that may be linked to record
 #in the other window.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #Determine if the key comes from the reference
@@ -74,19 +74,19 @@ Else If [ citationTitle2::_Lreference ≠ "" ]
 #Select the correct window and then change its
 #name if neccessary to match the table the
 #records are coming from.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 End If
 Set Window Title [ Current Window; New Title: "References" ]
 Go to Layout [ “ReferenceAddToTag” (reference) ]
 #
 #Prevent record loading script during loops to
-#ﬁnd wanted record, which would slow down system.
+#find wanted record, which would slow down system.
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
 #Now loop thru all the records until the record
-#that ﬁts the key is found.
+#that fits the key is found.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -102,7 +102,7 @@ Perform Script [ “loadCitation” ]
 #Put focus back on Tag Menus window and conditionally
 #format any items that may be linked to record
 #in the other window.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 End If
 January 7, 平成26 17:38:05 Imagination Quality Management.fp7 - showReference2 -1-

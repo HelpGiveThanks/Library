@@ -1,7 +1,7 @@
 reference(citation): internalReferences
 #
-If [ $$ﬁndmode ≠ 1 ]
-#Set testlearn internal reference ﬁeld conditional
+If [ $$findmode ≠ 1 ]
+#Set testlearn internal reference field conditional
 #formatting to green if there are any.
 Set Variable [ $$internal; Value:1 ]
 #
@@ -11,9 +11,9 @@ Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "main" ]
+Set Field [ testlearn::filterFind; "main" ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
@@ -54,7 +54,7 @@ End Loop
 // Set Variable [ $$refIsLearnRecord; Value:1 ]
 // End If
 #
-#If no records are used as a cite or ref, go to ﬁrst record.
+#If no records are used as a cite or ref, go to first record.
 If [ Get (LastError) = 101 ]
 Go to Record/Request/Page
 [ First ]
@@ -67,19 +67,19 @@ Scroll Window
 End If
 #
 #Update conditional formatting in main window.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Else If [ Get (LastError) ≠ 112 ]
 Go to Field [ ]
 End If
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
-#If in ﬁnd mode ...
-Else If [ $$ﬁndmode = 1 ]
-#Set testlearn internal reference ﬁeld conditional
+#If in find mode ...
+Else If [ $$findmode = 1 ]
+#Set testlearn internal reference field conditional
 #formatting to green if there are any.
 Set Variable [ $$internal; Value:1 ]
 #

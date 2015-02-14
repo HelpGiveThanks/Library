@@ -1,7 +1,7 @@
 tagMenu: setOrderForSampleOrTest
 #
 #Get order number user has selected then exit
-#the order ﬁeld.
+#the order field.
 Go to Field [ ]
 Set Variable [ $order; Value:testlearn::orderTest ]
 #
@@ -20,14 +20,14 @@ End If
 #sample or test record lock number. ( Remember
 #each record in the database has lock number or
 #ID number. To open the lock and see any record's
-#contents requires a key number that ﬁts the lock.
+#contents requires a key number that fits the lock.
 #So if a lock number is 123, then the key that will
-#ﬁt this lock is 123 too. ) Because the sample
-#and test key ﬁelds (think of key chains) may
+#fit this lock is 123 too. ) Because the sample
+#and test key fields (think of key chains) may
 #have several keys, because any one learn record
 #may be part of more than one sample or test.
 #the system must check each learn record's keys
-#one at a time to see if any ﬁt the current sample
+#one at a time to see if any fit the current sample
 #or test's lock. So beginning with number one
 #the system checks each key. The left most 3 numbers
 #are order numbers so below you will note that
@@ -39,7 +39,7 @@ Loop
 If [ Middle ( GetValue ( testlearn::kcsample ; $number ) ; 4 ; 42 ) & "¶" = $$tagSample & ¶ ]
 Set Variable [ $replacementValue; Value:Replace ( GetValue ( testlearn::kcsample ; $number ) ; 1 ; 3 ; $order ) ]
 #
-#When and if a key is found that ﬁts the current
+#When and if a key is found that fits the current
 #sample or test record's lock, the order number
 #the user has selected overwrites the left most
 #3 digits which by default are 999.
@@ -65,7 +65,7 @@ Exit Script [ ]
 End If
 #
 #Add 1 to the 'number' varaible after each key
-#in the key ﬁeld is checked, to direct the system
+#in the key field is checked, to direct the system
 #to check the next key.
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
@@ -76,7 +76,7 @@ Loop
 If [ Middle ( GetValue ( testlearn::kctest ; $number ) ; 4 ; 42 ) & "¶" = $$tagtest & ¶ ]
 Set Variable [ $replacementValue; Value:Replace ( GetValue ( testlearn::kctest ; $number ) ; 1 ; 3 ; $order ) ]
 #
-#When and if a key is found that ﬁts the current
+#When and if a key is found that fits the current
 #sample or test record's lock, the order number
 #the user has selected overwrites the left most
 #3 digits which by default are 999.
@@ -102,7 +102,7 @@ Exit Script [ ]
 End If
 #
 #Add 1 to the 'number' varaible after each key
-#in the key ﬁeld is checked, to direct the system
+#in the key field is checked, to direct the system
 #to check the next key.
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]

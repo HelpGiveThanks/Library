@@ -17,7 +17,7 @@ If [ ValueCount ( ruleTagMenuGroups::ksection ) > 1 ]
 #The problem is that if this tag is in use, and the
 #user moves it to a section that does not exist
 #in one of the sections using it, then in that section
-#the user will not be able to ﬁnd by this tag or
+#the user will not be able to find by this tag or
 #or remove it. The remedy would be to add
 #the group being moved to to all the sections using
 #the tag. I leaving this remedy for another day.

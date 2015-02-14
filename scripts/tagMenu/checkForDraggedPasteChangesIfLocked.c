@@ -1,6 +1,6 @@
 tagMenu: checkForDraggedPasteChangesIfLocked
 #
-#Used on test setup layouts to revert any locked ﬁelds
+#Used on test setup layouts to revert any locked fields
 #back to the original text.
 If [ //Test setup window
 nodeLockTest::orderOrLock ≠ "" or nodeLockTestGroup::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "name" ]

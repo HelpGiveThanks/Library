@@ -2,7 +2,7 @@ reference(citation): probablyNotInUse: loadCitation OLD
 #THIS OLD VERSION SCROLLS THE TAG MENU WINDOW
 #TO THE TAG LISTED IN THE LEARN WINDOW IF ANY.
 #
-#This ﬁrst section is key to stopping this script
+#This first section is key to stopping this script
 #when another script for example loops thru
 #many records each of which would trigger this
 #script and really slow down the program and
@@ -24,11 +24,11 @@ Get (LayoutName) = "learn4" ]
 Set Variable [ $$stopOpenNewTextWindow; Value:1 ]
 End If
 #
-// #Because I keep forgetting to press ﬁnd mode, this
-// #bit of script is to conﬁrm that the user really wants
-// #to add or change the tag of the ﬁrst record instead of
-// #ﬁnding records with selected tag in the reference section.
-// Select Window [ Name: "References"; Current ﬁle ]
+// #Because I keep forgetting to press find mode, this
+// #bit of script is to confirm that the user really wants
+// #to add or change the tag of the first record instead of
+// #finding records with selected tag in the reference section.
+// Select Window [ Name: "References"; Current file ]
 // If [ Get (LayoutName) = "reference" and Get (RecordNumber) = 1 ]
 // Set Variable [ $$referenceRecordOne; Value:1 ]
 // Else
@@ -40,9 +40,9 @@ End If
 #of any records in the Tag Menus window
 #that are related to the citation record that triggered
 #this script (by the user click on it, of course).
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Set Variable [ $$citation; Value:testlearn::_Ltestlearn ]
 If [ $$citationMatch = "node" ]
 Set Variable [ $$tagTest ]
@@ -105,11 +105,11 @@ Commit Records/Requests
 #
 If [ $$add = "" ]
 #Match any records in tag window and go to
-#primary tag record or to ﬁrst record if none.
+#primary tag record or to first record if none.
 #And don't run LoadTagRecord until matching is
 #done to prevent ﬂashing and slowing down script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
 If [ Get (LastError) = 112 ]
 Perform Script [ “TgotoCitationMenu” ]
@@ -259,11 +259,11 @@ Commit Records/Requests
 #
 If [ $$add = "" ]
 #Match any records in tag window and go to
-#primary tag record or to ﬁrst record if none.
+#primary tag record or to first record if none.
 #And don't run LoadTagRecord until matching is
 #done to prevent ﬂashing and slowing down script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
 Perform Script [ “TgotoCitationMenu” ]
 End If
@@ -309,6 +309,6 @@ End If
 End If
 #
 #Return to observation or reference window.
-Select Window [ Name: $windowName; Current ﬁle ]
+Select Window [ Name: $windowName; Current file ]
 Refresh Window
 January 7, 平成26 18:03:41 Imagination Quality Management.fp7 - loadCitation OLD -3-

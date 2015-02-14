@@ -3,10 +3,10 @@ tagMenu: defaultSectionMenu
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"section" ]
 Set Variable [ $$stopAddTagToCitation; Value:1 ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Set Variable [ $$citationitem; Value:TEMP::ksection ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “defaultSections” (ruleSection) ]
 #
 #
@@ -16,10 +16,10 @@ Enter Find Mode [ ]
 Set Field [ ruleSection::match; "section" ]
 Perform Find [ ]
 #
-Sort Records [ Speciﬁed Sort Order: ruleSection::name; ascending ]
+Sort Records [ Specified Sort Order: ruleSection::name; ascending ]
 [ Restore; No dialog ]
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Loop

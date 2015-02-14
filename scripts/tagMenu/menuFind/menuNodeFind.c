@@ -26,13 +26,13 @@ Perform Find [ ]
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortNode = "cat" or TEMP::sortNode = "" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortNode = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #

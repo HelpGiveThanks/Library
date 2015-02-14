@@ -51,7 +51,7 @@ Enter Find Mode [ ]
 Set Field [ ruleTagMenuTestGroups::match; TEMP::ktestItemList & ¶ ]
 Perform Find [ ]
 #
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
 ruleTagMenuTestGroups::name; ascending
 ruleTagMenuTestGroups::_Lgroup; ascending
 tagMenus::orderOrLock; based on value list: “order”
@@ -61,16 +61,16 @@ tagMenus::tag; ascending ]
 Go to Record/Request/Page
 [ First ]
 #
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "References"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Else If [ Get (LastError) ≠ 112 ]
 #
-#If in add mode, ﬁnd only records tagged with
+#If in add mode, find only records tagged with
 #current $$citationmatch.
 If [ $$add = 1 ]
 #
@@ -79,27 +79,27 @@ If [ $$add = 1 ]
 Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to test item tags, or keep the current records shown?"; Buttons: “keep”, “show” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Exit Script [ ]
 End If
 #
-#ﬁnd on learn layout ...
+#find on learn layout ...
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "testItem" ]
+Set Field [ testlearn::filterFind; "testItem" ]
 Perform Find [ ]
 #
-#ﬁnd on reference layout ...
+#find on reference layout ...
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::ﬁlterFind; "testItem" ]
+Set Field [ reference::filterFind; "testItem" ]
 Perform Find [ ]
 End If
 End If
 #
 End If
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 January 7, 平成26 15:59:32 Imagination Quality Management.fp7 - menuTestItem -1-

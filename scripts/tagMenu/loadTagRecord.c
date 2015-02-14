@@ -20,12 +20,12 @@ Go to Field [ ]
 End If
 #
 #NOTE: this script is used on the Tag Menus window
-#for Learn records to exit ﬁeld when a record is
-#is ﬁrst entered, which is a real problem on the
+#for Learn records to exit field when a record is
+#is first entered, which is a real problem on the
 #iPhone as the text edit box opens when the user
 #may have clicked only to select the record rather
 #than edit it.
-# This ﬁeld exit command is in the citation load
+# This field exit command is in the citation load
 #script along with a lot of other commands which
 #are not needed in this case. Thus I choose the
 #smaller script, which also has conditional formatting

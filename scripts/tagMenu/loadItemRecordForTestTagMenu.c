@@ -24,9 +24,9 @@ Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "main" ]
+Set Field [ testlearn::filterFind; "main" ]
 Perform Find [ ]
-Constrain Found Set [ Speciﬁed Find Requests: Omit Records; Criteria: testlearn::kctest: “=” ]
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: testlearn::kctest: “=” ]
 [ Restore ]
 Go to Record/Request/Page
 [ First ]
@@ -95,13 +95,13 @@ If [ $atLeastOneRecord ≠ 1 ]
 #learn window records tagged with it.
 Set Variable [ $$tagtest; Value:test::_Ltest ]
 #
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Refresh Window
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Set Field [ TEMP::TLTestSort; "" ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 Else If [ $atLeastOneRecord = 1 ]
@@ -118,25 +118,25 @@ Else If [ $$add = "" ]
 End If
 Refresh Window
 #
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
+#the other window, exit all fields.
 // If [ TEMP::TLTestSort = "" ]
 Set Field [ TEMP::TLTestSort; "order" ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Perform Script [ “SortTLRecordsByOrderNumber” ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 January 7, 平成26 16:06:17 Imagination Quality Management.fp7 - loadItemRecordForTestTagMenu -1-tagMenu: loadItemRecordForTestTagMenu Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$tagtest; Value:test::_Ltest ]
 // End If
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 End If
 #
@@ -146,7 +146,7 @@ End If
 #to for another record, this script will launch.
 #Problem is, because the user may want to really
 #want to add this tag to the current item in the
-#Learn window, after this script runs and ﬁnds
+#Learn window, after this script runs and finds
 #zero records for example (which could happen)
 #the add to tag script will run right after it, but
 #it will fail to sort the records in the Learn window
@@ -155,7 +155,7 @@ End If
 #do everytime. The problem is a record for this
 #tag record will exist after the addtotag script has
 #run, but this script will not know that having run
-#ﬁrst. So the user will be left wondering, "how is
+#first. So the user will be left wondering, "how is
 #that everytime I click on a new test or sample tag
 #record that has record tagged with it in the Learn
 #window, the Learn window is sorted by order number
@@ -164,7 +164,7 @@ End If
 #the sollution below is to use the 'Halt Script"
 #command, which will force the user to click
 #the add to tag button a second time to add the
-#tag (the ﬁrst time being when the user clicked
+#tag (the first time being when the user clicked
 #it to move the system focus to this record, which
 #triggered this loadItem... scirpt.
 Halt Script

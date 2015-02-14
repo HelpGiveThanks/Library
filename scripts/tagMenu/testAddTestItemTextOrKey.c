@@ -3,14 +3,14 @@ tagMenu: testAddTestItemTextOrKey
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #If text is selected then the user wants to add
-#the text of the test item to the caption ﬁeld.
+#the text of the test item to the caption field.
 If [ TEMP::textORcheck = "text" ]
 Set Variable [ $tag; Value:tagMenus::tag ]
 #
-Select Window [ Name: "Test"; Current ﬁle ]
+Select Window [ Name: "Test"; Current file ]
 Set Variable [ $caption; Value:testlearn::Caption ]
 Set Field [ testlearn::Caption; $caption & ¶ & $tag ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 Exit Script [ ]
 End If
@@ -23,7 +23,7 @@ End If
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
 #
 #If test item is in use, then remove it.
-Select Window [ Name: "Test"; Current ﬁle ]
+Select Window [ Name: "Test"; Current file ]
 Set Variable [ $number; Value:1 ]
 Loop
 If [ FilterValues ( GetValue ( testlearn::kctestItem ; $number ) ; $tag & "¶" ) = $tag & ¶ ]
@@ -35,7 +35,7 @@ Set Variable [ $number; Value:"exit" ]
 #This is essential for the unlink script on the test setup
 #module. A group that has items in use cannot be
 #unlinked until all inuse items are unlinked.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $inUseNumberOfTimes; Value:ruleTagMenuGroups::CaptionORinuseCheck ]
 Set Field [ ruleTagMenuGroups::CaptionORinuseCheck; If ( $inUseNumberOfTimes - 1 = 0 ; "" ; $inUseNumberOfTimes - 1 ) ]
 End If
@@ -56,7 +56,7 @@ End Loop
 #
 If [ $number ≠ "exit" ]
 #
-#Start by looking at the ﬁrst variable on the keychain.
+#Start by looking at the first variable on the keychain.
 Set Variable [ $number; Value:1 ]
 Loop
 #If test item is not in use add it.
@@ -67,7 +67,7 @@ Set Variable [ $number ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 #
 #
@@ -75,7 +75,7 @@ Commit Records/Requests
 #This is essential for the unlink script on the test setup
 #module. A group that has items in use cannot be
 #unlinked until all inuse items are unlinked.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $inUseNumberOfTimes; Value:ruleTagMenuGroups::CaptionORinuseCheck ]
 Set Field [ ruleTagMenuGroups::CaptionORinuseCheck; $inUseNumberOfTimes + 1 ]
 End If
@@ -94,7 +94,7 @@ Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
 End Loop
 End If
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 Go to Field [ ]

@@ -19,11 +19,11 @@ New Record/Request
 Set Field [ groupTest::ksection; TEMP::ksection ]
 #
 #Each test-item group must have a unique name and
-#the nameSpelling ﬁeld is used when the user
+#the nameSpelling field is used when the user
 #changes the name to a name already in use at
 #which point the nameSpelling name can revert
 #the user back to the former name (as the name
-#ﬁeld contains the duplicate name which is not
+#field contains the duplicate name which is not
 #allowed).
 Set Field [ groupTest::name; "test item group " & groupTest::_Lgroup ]
 Set Field [ groupTest::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
@@ -47,11 +47,11 @@ Go to Field [ ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]
 #
-#If this is the ﬁrst record to be created the layout
+#If this is the first record to be created the layout
 #must be sorted to get it to show the group for
-#this ﬁrst test item.
+#this first test item.
 If [ Get (FoundCount) = 1 ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
 ruleTagMenuTestGroups::_Lgroup; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]

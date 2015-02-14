@@ -9,12 +9,12 @@ Set Variable [ $TempLocation; Value:testlearn::kaudienceLocation ]
 Set Variable [ $TempReportNumber; Value:testlearn::kreportNumber ]
 Go to Field [ ]
 Refresh Window
-Show Custom Dialog [ Title: "!"; Message: "Delete ﬁnding number " & testlearn::recordnumberglobal & "?"; Buttons: “Cancel”, “Delete” ]
+Show Custom Dialog [ Title: "!"; Message: "Delete finding number " & testlearn::recordnumberglobal & "?"; Buttons: “Cancel”, “Delete” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 #basic administration tasks
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
-#create new inspection record setting all ﬁelds with neccessary key copies
+#create new inspection record setting all fields with neccessary key copies
 #to unlock data
 Go to Record/Request/Page
 [ Last ]
@@ -44,7 +44,7 @@ Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $TempLocation ]
 Set Field [ tagTestSubjectLocation::reportNumber; $TempReportNumber ]
 Perform Find [ ]
 Set Field [ tagTestSubjectLocation::inUse; "" ]
-#reﬁnd all location records for current library report number
+#refind all location records for current library report number
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::knode; $$contact ]
 Set Field [ tagTestSubjectLocation::reportNumber; $$reportNumber ]
@@ -87,9 +87,9 @@ End If
 End If
 #GET ID INFO as is from different location
 #Unlock Item Location
-#zero out ﬁndings for item for this contact's location
+#zero out findings for item for this contact's location
 #
-#decrease number of ﬁndings for item for this contact's location
+#decrease number of findings for item for this contact's location
 Go to Layout [ “discoveries” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kaudienceLocation; $TempLocation ]
@@ -101,7 +101,7 @@ Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $TempLocation ]
 Perform Find [ ]
 Set Field [ tagTestSubjectLocation::inUse; "" ]
-#reﬁnd all location records for this session
+#refind all location records for this session
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::knode; $$contact ]
 Set Field [ tagTestSubjectLocation::reportNumber; $$reportNumber ]

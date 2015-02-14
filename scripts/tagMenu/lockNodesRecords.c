@@ -1,7 +1,7 @@
 tagMenu: lockNodesRecords
 #
 #Capture the password for comparrison and to return
-#the password ﬁeld back to if the user fails to get the
+#the password field back to if the user fails to get the
 #password right.
 Set Variable [ $password; Value:tagMenus::orderOrLock ]
 Set Field [ TEMP::nodeLock; "" ]
@@ -27,13 +27,13 @@ End Loop
 Else If [ tagMenus::orderOrLock = "" ]
 Set Field [ TEMP::nodeLock; "" ]
 Show Custom Dialog [ Message: "Enter a password to lock this node's records. WARNING: If you can't remember this password, your records will remain locked."; Buttons: “enter”, “cancel”; Input #1: tagMenus::orderOrLock, Password, "password"; Input #2: TEMP::nodeLock, Password,
-"conﬁrm password" ]
+"confirm password" ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ tagMenus::orderOrLock; "" ]
 End If
 Loop
 If [ tagMenus::orderOrLock ≠ TEMP::nodeLock ]
-Show Custom Dialog [ Message: "Passwords did not match."; Buttons: “enter”, “cancel”; Input #1: tagMenus::orderOrLock, Password, "password"; Input #2: TEMP::nodeLock, Password, "conﬁrm password" ]
+Show Custom Dialog [ Message: "Passwords did not match."; Buttons: “enter”, “cancel”; Input #1: tagMenus::orderOrLock, Password, "password"; Input #2: TEMP::nodeLock, Password, "confirm password" ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ tagMenus::orderOrLock; "" ]
 Exit Script [ ]

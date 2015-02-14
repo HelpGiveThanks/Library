@@ -1,14 +1,14 @@
 sharedMainLayoutScripts: returnToAddRecordPUTONHOLD!!!!
 #
-#I've decided to not continue ﬁnishing this script.
+#I've decided to not continue finishing this script.
 #The idea was if the user navigated away from
 #the record they came into add mode to add to
 #this script would focus back on that record.
 #Part of the reason for this was that in add mode
 #The database was set to just keyword or node
-#in terms of noting the FilterFind ﬁeld. But that
+#in terms of noting the FilterFind field. But that
 #has now been made by dynamic by tying this noting
-#to the citation match ﬁeld. If later on this seems
+#to the citation match field. If later on this seems
 #useful this script can be polished for use. Right
 #now it just seems like giving the user too much
 #help, which looks like to many buttons on the layout!
@@ -16,7 +16,7 @@ sharedMainLayoutScripts: returnToAddRecordPUTONHOLD!!!!
 If [ $$addCitationMatch = "node" and $$addCitationMatch ≠ $$CitationMatch ]
 #
 #
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"node" ]
@@ -58,13 +58,13 @@ End If
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortNode = "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortNode = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -81,12 +81,12 @@ End Loop
 Set Variable [ $$stopLoadTagRecord ]
 Perform Script [ “loadTagRecord” ]
 #
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "References"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
 Else If [ Get (LastError) ≠ 112 ]
@@ -94,7 +94,7 @@ Go to Field [ ]
 Set Variable [ $$citationItem; Value:reference::knodePrimary ]
 End If
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 Else If [ $$addCitationMatch = "key" and $$addCitationMatch ≠ $$CitationMatch ]
@@ -140,13 +140,13 @@ End If
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortKey = "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortKey = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -163,12 +163,12 @@ End Loop
 Set Variable [ $$stopLoadTagRecord ]
 Perform Script [ “loadTagRecord” ]
 #
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "References"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Set Variable [ $$citationItem; Value:testlearn::kKeywordPrimary ]
 Else If [ Get (LastError) ≠ 112 ]
@@ -177,7 +177,7 @@ Set Variable [ $$citationItem; Value:reference::kkeywordPrimary ]
 End If
 Refresh Window
 #
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 Else If [ $$addCitationMatch = "testItem" and $$addCitationMatch ≠ $$CitationMatch ]
 #
@@ -201,7 +201,7 @@ If [ Get (FoundCount)=0 ]
 Perform Script [ “newCitationMenuGroup” ]
 End If
 #
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
 ruleTagMenuTestGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]

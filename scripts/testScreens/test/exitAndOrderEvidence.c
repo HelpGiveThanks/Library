@@ -1,6 +1,6 @@
 testScreens: test: ExitAndOrderEvidence
 Go to Field [ ]
-Sort Records [ Speciﬁed Sort Order: testlearnReportTags::orderDiscovery; based on value list: “order”
+Sort Records [ Specified Sort Order: testlearnReportTags::orderDiscovery; based on value list: “order”
 testlearnReportTags::Location; ascending
 testlearnReportTags::timestamp; ascending
 testlearnReportTags::_Ltestlearn; ascending ]

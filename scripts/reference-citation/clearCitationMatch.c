@@ -11,10 +11,10 @@ End If
 #it is neccessary at the end of this script to go
 #and refresh the other window, which makes
 #the popout calendar go away, so to make it
-#come back the system goes to the next ﬁeld
-#and back to the current ﬁeld which triggers
+#come back the system goes to the next field
+#and back to the current field which triggers
 #this script and why this next step is neccessary
-#to prevent an inﬁnite logic loop.
+#to prevent an infinite logic loop.
 If [ $$turnOffThisScript = 1 ]
 Set Variable [ $$turnOffThisScript ]
 Exit Script [ ]
@@ -36,7 +36,7 @@ Set Variable [ $$citationMatch ]
 Set Variable [ $$stopFileNameCheck; Value:1 ]
 Set Variable [ $table; Value:Get ( LayoutTableName ) ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
 New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
 End If
@@ -46,9 +46,9 @@ Else
 Go to Layout [ “learnTagWindowNoTags” (tagMenus) ]
 End If
 #
-#Return user to ﬁeld user clicked into to start this script.
-Select Window [ Name: "References"; Current ﬁle ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+#Return user to field user clicked into to start this script.
+Select Window [ Name: "References"; Current file ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Next Field
 Set Variable [ $$turnOffThisScript; Value:1 ]
 Go to Previous Field

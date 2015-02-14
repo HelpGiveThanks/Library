@@ -32,7 +32,7 @@ Show Custom Dialog [ Title: "!"; Message: "Delete evidence number " & testlearnR
 // Show Custom Dialog [ Title: "!"; Message: "Delete evidence number " & testlearnReportTags::_Number & " ? NOTE: THIS EVIDENCE IS A FAVORITE BELONGING A DIFFERENT REPORT."; Buttons: “Cancel”, “Delete” ]
 End If
 If [ Get ( LastMessageChoice ) = 2 ]
-#user may be showing favorites, so ﬁrst make sure
+#user may be showing favorites, so first make sure
 #only this reports records are showing in case this is
 #the last record for this item in which case the report
 #page for this item also needs to be deleted.
@@ -83,7 +83,7 @@ Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $TempLocation ]
 Set Field [ tagTestSubjectLocation::reportNumber; $TempReportNumber ]
 Perform Find [ ]
 Set Field [ tagTestSubjectLocation::inUse; "" ]
-#reﬁnd all location records for current library report number
+#refind all location records for current library report number
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::knode; $TempContact ]
 Set Field [ tagTestSubjectLocation::reportNumber; $$reportNumber ]
@@ -94,14 +94,14 @@ If [ InspectItems::kgaudienceLocation = $TempLocation ]
 Set Field [ InspectItems::gprogressGlobal; "status: pending" ]
 End If
 End If
-Close Window [ Name: "Report"; Current ﬁle ]
-Close Window [ Name: "Recommendations"; Current ﬁle ]
+Close Window [ Name: "Report"; Current file ]
+Close Window [ Name: "Recommendations"; Current file ]
 Perform Script [ “EditReport” ]
 Exit Script [ ]
 End If
 #switch back to this layout so don't have reassign
-#ﬁelds for inspection layout. (script was written for
-#ﬁndings layout)
+#fields for inspection layout. (script was written for
+#findings layout)
 Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
 Go to Record/Request/Page [ $record ]
 [ No dialog ]
@@ -137,9 +137,9 @@ January 7, 平成26 12:49:45 Imagination Quality Management.fp7 - reportDeleteEv
 // End If
 #GET ID INFO as is from different location
 #Unlock Item Location
-#zero out ﬁndings for item for this contact's location
+#zero out findings for item for this contact's location
 #
-#decrease number of ﬁndings for item for this contact's location
+#decrease number of findings for item for this contact's location
 Go to Layout [ “discoveries” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kaudienceLocation; $TempLocation ]
@@ -152,7 +152,7 @@ Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $TempLocation ]
 Perform Find [ ]
 Set Field [ tagTestSubjectLocation::inUse; "" ]
-// #reﬁnd all location records for this session
+// #refind all location records for this session
 // Enter Find Mode [ ]
 // Set Field [ tagTestSubjectLocation::knode; $$contact ]
 // Set Field [ tagTestSubjectLocation::reportNumber; $$reportNumber ]
@@ -208,7 +208,7 @@ End Loop
 // Enter Find Mode [ ]
 // Set Field [ testlearn::ktest; $$item ]
 // Extend Found Set [ ]
-// Sort Records [ Speciﬁed Sort Order: testlearn::kcsection; ascending
+// Sort Records [ Specified Sort Order: testlearn::kcsection; ascending
 testlearn::kreportNumber; ascending ]
 [ Restore; No dialog ]
 // Go to Record/Request/Page

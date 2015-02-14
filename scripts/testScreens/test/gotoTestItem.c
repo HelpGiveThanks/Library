@@ -1,6 +1,6 @@
 testScreens: test: gotoTestItem
 #
-#Set both a variable and temp ﬁeld with item ID
+#Set both a variable and temp field with item ID
 #or Lock number. Eventually need to pick one
 #or the other, but due to current deadline that
 #cleanup will have to come later.
@@ -12,7 +12,7 @@ Set Field [ TEMP::ktest; InspectItems::_Ltest ]
 #inserting its text into the test discovery's text box.
 Set Field [ TEMP::textORcheck; "check" ]
 #
-#Set detail temp ﬁelds for use on Tag Menus window.
+#Set detail temp fields for use on Tag Menus window.
 Set Field [ TEMP::ktestItemList; InspectItems::ktestItemList ]
 Set Field [ TEMP::ktestItemListOLD; InspectItems::ktestItemList ]
 #
@@ -20,13 +20,13 @@ Set Field [ TEMP::ktestItemListOLD; InspectItems::ktestItemList ]
 #this script.
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 #
-#This ﬁeld does show up elsewhere but I am not
+#This field does show up elsewhere but I am not
 #sure after what it does. My bad for not making
 #thorough comments during earlier developement.
 Set Field [ InspectItems::glocationNameGlobal;
 TextStyleAdd ( TEMP::LocationName ; Lowercase ) ]
 #
-#ﬁnd and show all test records.
+#find and show all test records.
 Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
@@ -67,7 +67,7 @@ Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 End If
 #
 #Group records by test subject location.
-Sort Records [ Speciﬁed Sort Order: testlearn::Location; ascending
+Sort Records [ Specified Sort Order: testlearn::Location; ascending
 testlearn::_Number; ascending ]
 [ Restore; No dialog ]
 #
@@ -75,8 +75,8 @@ testlearn::_Number; ascending ]
 #records function as visual indicators of having
 #made a decision not to create a test record
 #because NA = it was not applicable, OK=it was
-#ﬁne, and star symbol = because a test record
-#already created duplicates the ﬁnding in this
+#fine, and star symbol = because a test record
+#already created duplicates the finding in this
 #test subject location),
 Go to Record/Request/Page
 [ First ]
@@ -116,10 +116,10 @@ Perform Script [ “loadTestRecord” ]
 Set Variable [ $$testItem; Value:testlearn::kctestItem ]
 #
 #Find all details for this item.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Perform Script [ “menuTestItem” ]
 January 7, 平成26 12:26:37 Imagination Quality Management.fp7 - gotoTestItem -1-testScreens: test: gotoTestItem
 #
 #Return focus to Test window.
-Select Window [ Name: "Test"; Current ﬁle ]
+Select Window [ Name: "Test"; Current file ]
 January 7, 平成26 12:26:37 Imagination Quality Management.fp7 - gotoTestItem -2-

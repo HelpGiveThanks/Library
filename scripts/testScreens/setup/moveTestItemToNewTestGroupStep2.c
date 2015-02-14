@@ -37,7 +37,7 @@ Exit Script [ ]
 End If
 #
 #If the user decides to go ahead with the move,
-#ﬁrst delete the old group.
+#first delete the old group.
 New Window [ ]
 #
 Go to Layout [ “tableGroupTag” (groupTest) ]
@@ -49,7 +49,7 @@ Delete Record/Request
 #
 End If
 #
-#Close window opened to perform ﬁnd, and then
+#Close window opened to perform find, and then
 #set group ID of test with the new groups ID number.
 Close Window [ Current Window ]
 Set Field [ test::ktestGroup; $newGroup ]

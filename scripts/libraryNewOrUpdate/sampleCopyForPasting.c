@@ -24,7 +24,7 @@ End If
 Set Variable [ $$stopLoadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $layoutName; Value:Get ( LayoutName ) ]
-Close Window [ Name: "Print/Copy"; Current ﬁle ]
+Close Window [ Name: "Print/Copy"; Current file ]
 New Window [ Name: "Print/Copy" ]
 Go to Layout [ “learnMenuSample” (tagMenus) ]
 If [ $$citationMatch = "sample" ]
@@ -34,7 +34,7 @@ Perform Find [ ]
 If [ tagMenus::notesOrHealth = "" ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
-Close Window [ Name: "Print/Copy"; Current ﬁle ]
+Close Window [ Name: "Print/Copy"; Current file ]
 Show Custom Dialog [ Message: "Select a copyright from the pulldown menu for your theory in the Tag Menus window. If you are making a case, you probably need to select a no-remix copyright so all your points and evidence are kept together by anyone copying your work."; Buttons:
 “OK” ]
 Set Variable [ $$stopLoadCitation ]
@@ -44,9 +44,9 @@ Else If [ Get (LastError) = 400 ]
 Go to Layout [ “learnPreviewLayout” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -55,23 +55,23 @@ End If
 End If
 Go to Layout [ “learnPreviewLayout” (testlearn) ]
 #
-#If user is in QV, then ﬁnd any linked learn records.
+#If user is in QV, then find any linked learn records.
 If [ $layoutName = "learn4EDIT" ]
-Set Variable [ $ﬁndLinkedLearnRecords; Value:testlearn::_Ltestlearn ]
+Set Variable [ $findLinkedLearnRecords; Value:testlearn::_Ltestlearn ]
 Loop
 Go to Object [ Object Name: "ref2" ]
 Exit Loop If [ Get (LastError) = 101 ]
-Set Variable [ $ﬁndLinkedLearnRecords; Value:refTestLearn::_Ltestlearn & ¶ & $ﬁndLinkedLearnRecords ]
+Set Variable [ $findLinkedLearnRecords; Value:refTestLearn::_Ltestlearn & ¶ & $findLinkedLearnRecords ]
 Go to Portal Row
 [ Select; Next; Exit after last ]
 End Loop
 #
 #Determine how many keys there are.
-Set Variable [ $numberOfKeys; Value:ValueCount ($ﬁndLinkedLearnRecords ) ]
+Set Variable [ $numberOfKeys; Value:ValueCount ($findLinkedLearnRecords ) ]
 #
 #Find 1st record.
 Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; GetValue ( $ﬁndLinkedLearnRecords ; $numberOfKeys ) ]
+Set Field [ testlearn::_Ltestlearn; GetValue ( $findLinkedLearnRecords ; $numberOfKeys ) ]
 Perform Find [ ]
 Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
 #
@@ -90,7 +90,7 @@ Exit Loop If [ $numberOfKeys = 0 ]
 #
 #Find record.
 Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; GetValue ( $ﬁndLinkedLearnRecords ; $numberOfKeys ) ]
+Set Field [ testlearn::_Ltestlearn; GetValue ( $findLinkedLearnRecords ; $numberOfKeys ) ]
 Extend Found Set [ ]
 #
 #Go the next key up from the bottom of the list
@@ -98,7 +98,7 @@ Extend Found Set [ ]
 Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
 End Loop
 #
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
@@ -147,7 +147,7 @@ Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; tes
 Case ( testlearn::URL ≠ "" ; ¶ & testlearn::URL &
 //URLdate
 Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" )
-//ﬁnsih text color
+//finsih text color
  ; RGB ( 119 ; 119 ; 119 ) ) ]
 February 24, 平成26 10:30:14 Imagination Quality Management.fp7 - sampleCopyForPasting -1-libraryNewOrUpdate: sampleCopyForPasting
 Set Variable [ $copy; Value://previous records
@@ -181,7 +181,7 @@ Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; tes
 Case ( testlearn::URL ≠ "" ; ¶ & testlearn::URL &
 //URLdate
 Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" )
-//ﬁnsih text color
+//finsih text color
  ; RGB ( 119 ; 119 ; 119 ) ) ]
 #
 #Increase evidence number if point is the same.
@@ -198,7 +198,7 @@ Set Variable [ $copy; Value:$copy & ¶ &
 TextColor (
 //references
 Case ( testlearn::kcreference ≠ "" ; "References" ; "" )
-//ﬁnsih text color
+//finsih text color
  ; RGB ( 119 ; 119 ; 119 ) ) ]
 Loop
 Go to Object [ Object Name: "ref1" ]
@@ -251,7 +251,7 @@ End Loop
 #Now get sample title and previous dates of
 #publication for this sample if there are any.
 If [ $$citationMatch = "Sample" ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $sample; Value://Sample Title
 TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ &
 Case ( learnSampleWebsite::URLPubDate = "" ;
@@ -262,7 +262,7 @@ nodeLockTagMenus::tag & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & D
 sampleCopyright::tag & " " &
 //title for history
 ¶ & "Publication History" &
-Case ( learnSampleWebsite::URL = "" ; ¶ & "(This posting is the ﬁrst publication of this version of the theory and presentation of supporting evidence.)" ) ]
+Case ( learnSampleWebsite::URL = "" ; ¶ & "(This posting is the first publication of this version of the theory and presentation of supporting evidence.)" ) ]
 // Set Variable [ $sample; Value://Sample Title
 $sample & ¶ & sampleCopyright::tag & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) & " by " & nodeLockTagMenus::tag ]
 Loop
@@ -280,7 +280,7 @@ Set Variable [ $copy; Value://Sample Title and History
 $sample & ¶ & ¶ & $copy ]
 #
 #Now create copy text and display it.
-Select Window [ Name: "Print/Copy"; Current ﬁle ]
+Select Window [ Name: "Print/Copy"; Current file ]
 Else
 February 24, 平成26 10:30:14 Imagination Quality Management.fp7 - sampleCopyForPasting -2-libraryNewOrUpdate: sampleCopyForPasting
 If [ $layoutName = "learn4EDIT" ]

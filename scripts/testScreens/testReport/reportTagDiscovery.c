@@ -5,7 +5,7 @@ Set Field [ testlearnReportTags::ktestSubject; TEMP::kdefaultNodeTestSubject ]
 Set Field [ testlearnReportTags::ktest; TEMP::ktest ]
 Set Field [ testlearnReportTags::kreportNumber; TEMP::reportNumber ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: testlearnReportTags::Location; ascending
+Sort Records [ Specified Sort Order: testlearnReportTags::Location; ascending
 testlearnReportTags::timestamp; ascending
 testlearnReportTags::_Ltestlearn; ascending ]
 [ Restore; No dialog ]

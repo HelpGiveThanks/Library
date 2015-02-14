@@ -11,7 +11,7 @@ End If
 #
 If [ Get (LayoutTableName) = "tagMenus" ]
 #
-#Exit any ﬁelds so do not get can't modify error message
+#Exit any fields so do not get can't modify error message
 #because record is in use in another window.
 Go to Field [ ]
 #
@@ -25,7 +25,7 @@ New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #Loop thru all records and make sure their spelling
 #has not been changed, and if it has then change it back
 #to the way it was, unless the change was made in the
-#ﬁeld the user was just working on.
+#field the user was just working on.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -88,7 +88,7 @@ If [ tagMenus::orderOrLock ≠ "" and tagMenus::match = "health" ]
 Set Field [ tagMenus::tag; tagMenus::tagSpelling ]
 End If
 #
-#But if node is not locked, then apply changes to ﬁeld.
+#But if node is not locked, then apply changes to field.
 #Group name.
 If [ ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling
 and
@@ -139,10 +139,10 @@ Set Variable [ $$stopLoadTagRecord ]
 Close Window [ Current Window ]
 Else If [ Get (LayoutTableName) = "test" ]
 #
-#Exit any ﬁelds so do not get can't modify error message
+#Exit any fields so do not get can't modify error message
 #because record is in use in another window.
-#But ﬁrst set this stop variable, so if locked ﬁeld is
-#is a group name ﬁeld its name will not be changed.
+#But first set this stop variable, so if locked field is
+#is a group name field its name will not be changed.
 Set Variable [ $$stopChangeName; Value:1 ]
 Go to Field [ ]
 #
@@ -156,7 +156,7 @@ New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #Loop thru all records and make sure their spelling
 #has not been changed, and if it has change it back
 #to the way it was, unless the change was made in the
-#ﬁeld the user was just working on.
+#field the user was just working on.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -181,7 +181,7 @@ Set Variable [ $$stopLoadTagRecord ]
 Close Window [ Current Window ]
 Else If [ Get (LayoutTableName) = "tagLocation" ]
 #
-#Exit any ﬁelds so do not get can't modify error message
+#Exit any fields so do not get can't modify error message
 #because record is in use in another window.
 Go to Field [ ]
 #
@@ -195,7 +195,7 @@ New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #Loop thru all records and make sure their spelling
 #has not been changed, and if it has then change it back
 #to the way it was, unless the change was made in the
-#ﬁeld the user was just working on.
+#field the user was just working on.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -203,7 +203,7 @@ If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock
 Set Field [ tagLocation::tag; tagLocation::tagSpelling ]
 End If
 #
-#But if node is not locked, then apply changes to ﬁeld.
+#But if node is not locked, then apply changes to field.
 If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock = "" and tagLocation::match = "focus" ]
 Set Field [ tagLocation::tagSpelling; tagLocation::tag ]
 End If

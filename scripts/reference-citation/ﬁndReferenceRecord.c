@@ -1,26 +1,26 @@
-reference(citation): ﬁndReferenceRecord
+reference(citation): findReferenceRecord
 #
-If [ $$ﬁndMode ≠ "" ]
-Show Custom Dialog [ Message: "Cancel ﬁnd in Tag Menus window then click this button."; Buttons: “OK” ]
+If [ $$findMode ≠ "" ]
+Show Custom Dialog [ Message: "Cancel find in Tag Menus window then click this button."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
-#If user is in tag ﬁeld and has changed spelling
+#If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ $$referenceSort = 2 ]
-Sort Records [ Speciﬁed Sort Order: reference::modifyDate; descending
+Sort Records [ Specified Sort Order: reference::modifyDate; descending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 Else If [ $$referenceSort = "" ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 Else If [ $$referenceSort = 1 ]
-Sort Records [ Speciﬁed Sort Order: reference::createDate; descending
+Sort Records [ Specified Sort Order: reference::createDate; descending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 End If
@@ -30,9 +30,9 @@ End If
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
-#If the user clicks the ﬁnd button and the system is already
-#in ﬁnd mode, capture the user's current ﬁnd request
-#and then perform the requested ﬁnd.
+#If the user clicks the find button and the system is already
+#in find mode, capture the user's current find request
+#and then perform the requested find.
 #This capture is done in case nothing is found and the
 #user is asked if they want to modify their request.
 #The system puts in the captured request so that the
@@ -79,18 +79,18 @@ Set Variable [ $r37; Value:reference::library only ]
 Set Variable [ $r38; Value:reference::ISBN ]
 Set Variable [ $r39; Value:reference::URLdoi ]
 Set Variable [ $r40; Value:reference::ISSN ]
-Set Variable [ $r41; Value:reference::ﬁleName ]
-Set Variable [ $r42; Value:reference::kﬁleLocation ]
+Set Variable [ $r41; Value:reference::fileName ]
+Set Variable [ $r42; Value:reference::kfileLocation ]
 Set Variable [ $r43; Value:reference::thoughtsNotesEtc ]
 Set Variable [ $r44; Value:reference::referenceDump ]
 Perform Find [ ]
 #
-#If the system is not in ﬁnd mode and the ﬁnd button
+#If the system is not in find mode and the find button
 #is clicked then capture the current layout name
-#(to return user to it after ﬁnd), enter ﬁnd mode,
-#go to the ﬁnd layout, and await the user's ﬁnd request.
+#(to return user to it after find), enter find mode,
+#go to the find layout, and await the user's find request.
 Else
-Set Variable [ $$ﬁndReferenceLayout; Value:Get (LayoutName) ]
+Set Variable [ $$findReferenceLayout; Value:Get (LayoutName) ]
 Enter Find Mode [ ]
 Go to Layout [ “ReferenceFIND” (reference) ]
 Show/Hide Status Area
@@ -99,7 +99,7 @@ Show/Hide Text Ruler
 [ Hide ]
 Set Field [ reference::kcsection; TEMP::ksection ]
 Go to Field [ reference::referenceForReferenceWindow ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 Set Variable [ $r0; Value:reference::createDate ]
 Set Variable [ $r1; Value:reference::modifyDate ]
 Set Variable [ $r2; Value:reference::show ]
@@ -119,7 +119,7 @@ Set Variable [ $r15; Value:reference::compilationTitle ]
 Set Variable [ $r16; Value:reference::compilationEditors ]
 Set Variable [ $r17; Value:reference::compilationNumberOfEditors ]
 Set Variable [ $r18; Value:reference::conferenceIntroWords ]
-January 7, 平成26 17:42:04 Imagination Quality Management.fp7 - ﬁndReferenceRecord -1-reference(citation): ﬁndReferenceRecord
+January 7, 平成26 17:42:04 Imagination Quality Management.fp7 - findReferenceRecord -1-reference(citation): findReferenceRecord
 Set Variable [ $r19; Value:reference::conferenceTitle ]
 Set Variable [ $r20; Value:reference::conferenceSubTitle ]
 Set Variable [ $r21; Value:reference::conferenceGroupName ]
@@ -142,15 +142,15 @@ Set Variable [ $r37; Value:reference::library only ]
 Set Variable [ $r38; Value:reference::ISBN ]
 Set Variable [ $r39; Value:reference::URLdoi ]
 Set Variable [ $r40; Value:reference::ISSN ]
-Set Variable [ $r41; Value:reference::ﬁleName ]
-Set Variable [ $r42; Value:reference::kﬁleLocation ]
+Set Variable [ $r41; Value:reference::fileName ]
+Set Variable [ $r42; Value:reference::kfileLocation ]
 Set Variable [ $r43; Value:reference::thoughtsNotesEtc ]
 Set Variable [ $r44; Value:reference::referenceDump ]
 Perform Find [ ]
 End If
 #
-#If the ﬁnd fails tell the user it failed and give them
-#option to modify their request or cancel the ﬁnd.
+#If the find fails tell the user it failed and give them
+#option to modify their request or cancel the find.
 Loop
 If [ Get (LastError) = 401 ]
 Enter Find Mode [ ]
@@ -196,18 +196,18 @@ Set Field [ reference::library only; $r37 ]
 Set Field [ reference::ISBN; $r38 ]
 Set Field [ reference::URLdoi; $r39 ]
 Set Field [ reference::ISSN; $r40 ]
-Set Field [ reference::ﬁleName; $r41 ]
-Set Field [ reference::kﬁleLocation; $r42 ]
+Set Field [ reference::fileName; $r41 ]
+Set Field [ reference::kfileLocation; $r42 ]
 Set Field [ reference::thoughtsNotesEtc; $r43 ]
 Set Field [ reference::referenceDump; $r44 ]
 #
 Go to Field [ reference::referenceForReferenceWindow ]
-Show Custom Dialog [ Message: "No records match this request."; Buttons: “cancel”, “modify ﬁnd” ]
+Show Custom Dialog [ Message: "No records match this request."; Buttons: “cancel”, “modify find” ]
 #
 #If the user decides to modify their request then stay
-#in ﬁnd mode and await the users new request.
+#in find mode and await the users new request.
 If [ Get ( LastMessageChoice ) = 2 ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 Set Variable [ $r0; Value:reference::createDate ]
 Set Variable [ $r1; Value:reference::modifyDate ]
 Set Variable [ $r2; Value:reference::show ]
@@ -237,7 +237,7 @@ Set Variable [ $r25; Value:reference::issueNumber ]
 Set Variable [ $r26; Value:reference::pageNumberRange ]
 Set Variable [ $r27; Value:reference::TimeRange ]
 Set Variable [ $r28; Value:reference::publisherTypeAlternative ]
-January 7, 平成26 17:42:04 Imagination Quality Management.fp7 - ﬁndReferenceRecord -2-reference(citation): ﬁndReferenceRecord
+January 7, 平成26 17:42:04 Imagination Quality Management.fp7 - findReferenceRecord -2-reference(citation): findReferenceRecord
 Set Variable [ $r29; Value:reference::publisherLocation ]
 Set Variable [ $r30; Value:reference::pubYear ]
 Set Variable [ $r31; Value:reference::PubDate ]
@@ -250,15 +250,15 @@ Set Variable [ $r37; Value:reference::library only ]
 Set Variable [ $r38; Value:reference::ISBN ]
 Set Variable [ $r39; Value:reference::URLdoi ]
 Set Variable [ $r40; Value:reference::ISSN ]
-Set Variable [ $r41; Value:reference::ﬁleName ]
-Set Variable [ $r42; Value:reference::kﬁleLocation ]
+Set Variable [ $r41; Value:reference::fileName ]
+Set Variable [ $r42; Value:reference::kfileLocation ]
 Set Variable [ $r43; Value:reference::thoughtsNotesEtc ]
 Set Variable [ $r44; Value:reference::referenceDump ]
 #
-#If the user decides to cancel their the ﬁnd, then return
+#If the user decides to cancel their the find, then return
 #to the main record window and show all records.
 Else If [ Get ( LastMessageChoice ) = 1 ]
-Go to Layout [ $$ﬁndReferenceLayout ]
+Go to Layout [ $$findReferenceLayout ]
 Show/Hide Status Area
 [ Hide ]
 Show/Hide Text Ruler
@@ -270,21 +270,21 @@ Sort Records [ ]
 [ No dialog ]
 Go to Record/Request/Page
 [ First ]
-Set Variable [ $$ﬁndReferenceLayout ]
+Set Variable [ $$findReferenceLayout ]
 Exit Script [ ]
 End If
 Perform Find [ ]
 End If
 #
-#If the ﬁnd is successful then show the user the found
+#If the find is successful then show the user the found
 #records on the main records layout.
 Exit Loop If [ Get (LastError) = 0 ]
 End Loop
-Go to Layout [ $$ﬁndReferenceLayout ]
-Go to Layout [ $$ﬁndLearnLayout ]
-Set Variable [ $$ﬁndReferenceLayout ]
+Go to Layout [ $$findReferenceLayout ]
+Go to Layout [ $$findLearnLayout ]
+Set Variable [ $$findReferenceLayout ]
 Sort Records [ ]
 [ No dialog ]
 Go to Record/Request/Page
 [ First ]
-January 7, 平成26 17:42:04 Imagination Quality Management.fp7 - ﬁndReferenceRecord -3-
+January 7, 平成26 17:42:04 Imagination Quality Management.fp7 - findReferenceRecord -3-

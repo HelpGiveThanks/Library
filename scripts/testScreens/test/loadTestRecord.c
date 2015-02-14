@@ -11,9 +11,9 @@ Set Variable [ $$testItem ]
 Set Variable [ $$testItem; Value:testlearn::kctestItem ]
 Set Field [ TEMP::EvidenceItemNameAndNumber; testlearn::_Number & " " & InspectItems::testName ]
 Set Variable [ $windowName; Value:Get (WindowName) ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-Select Window [ Name: $windowName; Current ﬁle ]
+Select Window [ Name: $windowName; Current file ]
 Refresh Window
 // Perform Script [ “evidenceDetailDELETE?????” ]
 January 7, 平成26 12:25:06 Imagination Quality Management.fp7 - loadTestRecord -1-

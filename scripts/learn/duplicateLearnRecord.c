@@ -6,9 +6,9 @@ Show Custom Dialog [ Message: "The default node selected is locked. Select this 
 Exit Script [ ]
 End If
 #
-#If in ﬁnd mode, exit script.
-If [ $$ﬁndMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit ﬁnd mode, then click this button."; Buttons: “OK” ]
+#If in find mode, exit script.
+If [ $$findMode ≠ "" ]
+Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -32,7 +32,7 @@ Set Field [ testlearn::kNodeOther; TEMP::kdefaultNodeOther ]
 Set Field [ testlearn::NodeOthers; TEMP::DEFAULTNodeOtherNames ]
 Set Field [ testlearn::kHealth; TEMP::kdefaultHealth ]
 Set Field [ testlearn::incomplete; "incomplete" & ¶ ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Set Field [ testlearn::kKeywordPrimary; $P ]
 Set Field [ testlearn::OtherKeyWords; $Owords ]
 Set Field [ testlearn::kcitation; $citation ]
@@ -40,9 +40,9 @@ Set Field [ testlearn::Caption; $O ]
 #
 #Filemaker has a bug that is stripping out the paragraphs
 #if the script puts the O variable keys directly into the
-#other word ﬁeld. But put them into caption and then
-#from caption into the otherword key ﬁeld and everything
-#is ﬁne.
+#other word field. But put them into caption and then
+#from caption into the otherword key field and everything
+#is fine.
 Set Field [ testlearn::kcKeywordOther; testlearn::Caption ]
 Set Field [ testlearn::Caption; $caption ]
 Set Variable [ $$stoploadCitation ]

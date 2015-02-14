@@ -25,7 +25,7 @@ Set Variable [ $$stopLoadCitation; Value:1 ]
 Go to Layout [ “learn1” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; $delete ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
 If [ Get (LastError) ≠ 401 ]
 Set Variable [ $learnInUse; Value:1 ]
@@ -53,7 +53,7 @@ Set Variable [ $TagInUse; Value:1 ]
 End If
 #
 #See if tags in question are only node tags.
-Constrain Found Set [ Speciﬁed Find Requests: Omit Records; Criteria: tagTable::match: “node” ]
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: tagTable::match: “node” ]
 [ Restore ]
 If [ Get (FoundCount) = 0 ]
 Set Variable [ $OnlyNodes; Value:1 ]
@@ -113,7 +113,7 @@ Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 Exit Script [ ]
 #
-#If the user conﬁrms, then delete the section.
+#If the user confirms, then delete the section.
 Else If [ Get ( LastMessageChoice ) = 2 ]
 Delete Record/Request
 [ No dialog ]
@@ -123,9 +123,9 @@ Delete Record/Request
 If [ TEMP::ksection = $delete ]
 Set Field [ TEMP::ksection; "" ]
 Set Field [ TEMP::sectionName; "" ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 End If
 Set Variable [ $$addTagToCitation ]
 Set Variable [ $$stopLoadCitation ]

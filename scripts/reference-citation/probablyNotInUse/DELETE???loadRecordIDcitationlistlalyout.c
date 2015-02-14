@@ -1,6 +1,6 @@
 reference(citation): probablyNotInUse: DELETE???loadRecordIDcitationlistlalyout
 #REMOVED it from use after it kept resetting ID number and messing up text formatting on main TL window. It does not seem to be needed for an calc, but not sure entirely so have not deleted it yet.
-#This ﬁrst section is key to stopping this script
+#This first section is key to stopping this script
 #when another script for example loops thru
 #many records each of which would trigger this
 #script and really slow down the program and

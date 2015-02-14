@@ -11,12 +11,12 @@ tagMenu: CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain
 #it is prevented in add mode from acquiring new keys
 #which would need to be passed along to these added
 #records, and then to all of their references, and so on.
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 0 ]
 Set Variable [ $keychain; Value:testlearn::kcsection ]
 If [ testlearn::kcitation ≠ "" and $$citationMatch = "ref" ]
 Show Custom Dialog [ Message: "References can be added after the citation is removed. (Cite the source of an unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies, etc.)"; Buttons: “OK” ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Halt Script
 Else If [ testlearn::kcreference ≠ "" and $$citationMatch = "cite" ]
 If [ ValueCount ( testlearn::kcreference ) = 1 ]
@@ -24,11 +24,11 @@ Show Custom Dialog [ Message: "A citiation can be added after the referene is re
 Else
 Show Custom Dialog [ Message: "A citiation can be added after referenes are removed. (Cite the source of an unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies, etc.)"; Buttons: “OK” ]
 End If
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Halt Script
 End If
 Else If [ Get (LastError) ≠ 0 ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 Set Variable [ $keychain; Value:reference::kcsection ]
 End If
 #
@@ -37,7 +37,7 @@ Set Variable [ $numberOfKeys; Value:ValueCount ( $keychain ) ]
 #
 #Loop thru each key to see if any do not match
 #keys in the main record's keychain.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Loop
 #
 #Exit the loop when there are no more keys to check.
@@ -62,7 +62,7 @@ GetValue ( FilterValues ( testlearn::kcsection & ¶ ; GetValue ( $keychain ; $nu
 #can be added as a reference or a citation as long as
 #it is has all the tags of the record it is being added to.
 If [ testlearn::kcitation ≠ "" or testlearn::kcreference ≠ "" or reference::kcitation ≠ "" ]
-Show Custom Dialog [ Message: "This record you wish to add can be added if you ﬁrst remove the citation or references that are linked to it. Once added, these removed records can be added back."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This record you wish to add can be added if you first remove the citation or references that are linked to it. Once added, these removed records can be added back."; Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -87,7 +87,7 @@ GetValue ( FilterValues ( reference::kcsection & ¶ ; GetValue ( $keychain ; $nu
 #can be added as a reference or a citation as long as
 #it is has all the tags of the record it is being added to.
 If [ testlearn::kcitation ≠ "" or testlearn::kcreference ≠ "" or reference::kcitation ≠ "" ]
-Show Custom Dialog [ Message: "This record you wish to add can be added if you ﬁrst remove the citation or references that are linked to it. Once added, these removed records can be added back."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This record you wish to add can be added if you first remove the citation or references that are linked to it. Once added, these removed records can be added back."; Buttons: “OK” ]
 Halt Script
 End If
 #

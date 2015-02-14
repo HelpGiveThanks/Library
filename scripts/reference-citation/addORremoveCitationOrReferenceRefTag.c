@@ -2,19 +2,19 @@ reference(citation): addORremoveCitationOrReferenceRefTag
 #
 #Get current record IDs in reference or
 #observation window.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ testlearn::kcitation ≠ "" ]
 Show Custom Dialog [ Message: "References can be added after the citation is removed. (Cite the source of an unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies, etc.)"; Buttons: “OK” ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Halt Script
 End If
 Set Variable [ $$ref; Value:testlearn::kcreference ]
 Else If [ Get (LastError) ≠ 112 ]
 Set Variable [ $$ref; Value:reference::lock ]
 End If
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #If tag user clicked has not yet been selected, then add it.
 If [ reference::_Lreference & "¶" ≠ FilterValues ( $$ref ; reference::_Lreference & "¶" ) ]
@@ -36,9 +36,9 @@ Set Variable [ $newRef; Value:reference::_Lreference ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 #
 #Add reference in reference or observation window.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Set Field [ testlearn::kcreference; $newRef & "¶" & $$ref ]
 Set Variable [ $$ref; Value:testlearn::kcreference ]
 Go to Field [ ]
@@ -47,18 +47,18 @@ Set Field [ reference::lock; $newRef & "¶" & $$ref ]
 Set Variable [ $$ref; Value:reference::lock ]
 Go to Field [ ]
 End If
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 // #Sort records according to users wishes.
 // If [ TEMP::sortKey = "cat" ]
-// Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+// Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 // Else If [ TEMP::sortKey = "abc" ]
-// Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+// Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 // End If
 // Set Variable [ $$stopLoadTagRecord ]
@@ -74,9 +74,9 @@ Go to Record/Request/Page [ $recordNumber ]
 #a main record. This is because when going to
 #edit cite or reference records, only main records
 #are shown by default.
-If [ "main" & ¶ ≠ FilterValues ( reference::ﬁlterFind ; "main" & ¶ ) and Get ( LayoutTableName ) = "reference" ]
-Set Variable [ $ﬁlterFind; Value:reference::ﬁlterFind ]
-Set Field [ reference::ﬁlterFind; "main" & ¶ & $ﬁlterFind ]
+If [ "main" & ¶ ≠ FilterValues ( reference::filterFind ; "main" & ¶ ) and Get ( LayoutTableName ) = "reference" ]
+Set Variable [ $filterFind; Value:reference::filterFind ]
+Set Field [ reference::filterFind; "main" & ¶ & $filterFind ]
 End If
 #
 #If reference or learn record that tag was added
@@ -89,18 +89,18 @@ Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
 #Sort records according to users wishes.
 Freeze Window
 If [ TEMP::sortRef = "cat" ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::orderOrLock; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortRef = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Scroll Window
@@ -127,9 +127,9 @@ Set Variable [ $removeRef; Value:reference::_Lreference ]
 #
 #Set record number so can return user to it when done.
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $$ref) ≠ ValueCount ( Substitute ( $$ref ; $removeRef & "¶" ; "" ) ) ;
 Substitute ( $$ref ; $removeRef & "¶" ; "" ) ;
@@ -147,16 +147,16 @@ Set Variable [ $$ref; Value:reference::lock ]
 Go to Field [ ]
 End If
 #
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #Sort records according to users wishes.
 If [ TEMP::sortRef = "cat" ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::orderOrLock; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortRef = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 Set Variable [ $$stopLoadTagRecord ]

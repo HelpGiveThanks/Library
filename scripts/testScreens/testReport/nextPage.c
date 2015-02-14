@@ -1,5 +1,5 @@
 testScreens: testReport: NextPage
-Set Variable [ $$ﬁrst ]
+Set Variable [ $$first ]
 Set Variable [ $$last; Value:test::_Ltest ]
 Set Variable [ $library; Value:test::ksection ]
 Go to Record/Request/Page

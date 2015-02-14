@@ -37,7 +37,7 @@ View As
 [ View as List ]
 #
 #eliminate duplicate location records
-Sort Records [ Speciﬁed Sort Order: TEMP::RemoveFocusList; ascending ]
+Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
@@ -61,7 +61,7 @@ Show/Hide Status Area
 [ Lock; Hide ]
 Show/Hide Text Ruler
 [ Hide ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 Close Window [ Current Window ]
 Exit Script [ ]
 End If

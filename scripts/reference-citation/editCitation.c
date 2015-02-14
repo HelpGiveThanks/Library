@@ -35,7 +35,7 @@ Set Variable [ $$stoploadTagRecord ]
 #
 #Capture record ID so system can return user
 #after editing is complete.
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Set Variable [ $$LearnEdit; Value:testlearn::_Ltestlearn ]
 #
 #Take user to citation edit layout.
@@ -48,9 +48,9 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
-// Set Field [ reference::ﬁlterFind; "main" ]
+// Set Field [ reference::filterFind; "main" ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceWindow; ascending ]
 [ Restore; No dialog ]
 #
@@ -65,7 +65,7 @@ End Loop
 Set Variable [ $$stoploadCitation ]
 Perform Script [ “menuKey” ]
 Perform Script [ “loadCitation” ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 Set Variable [ $refRecordNumber; Value:Get ( RecordNumber ) ]
@@ -92,7 +92,7 @@ Set Variable [ $$stoploadTagRecord ]
 #
 #Capture record ID so system can return user
 #after editing is complete.
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 #
 #Take user to citation edit layout.
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -104,9 +104,9 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
-// Set Field [ reference::ﬁlterFind; "main" ]
+// Set Field [ reference::filterFind; "main" ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 #
@@ -117,7 +117,7 @@ Set Variable [ $$stoploadCitation ]
 Go to Field [ reference::knodePrimary ]
 Perform Script [ “menuKey” ]
 Perform Script [ “loadCitation” ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 January 28, 平成26 16:00:04 Empty Library copy.fp7 - editCitation -1-reference(citation): editCitation

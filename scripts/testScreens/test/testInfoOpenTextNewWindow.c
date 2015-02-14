@@ -20,5 +20,5 @@ Else If [ tagTLNodePrimary::orderOrLock ≠ "" or tagTLNodePrimary 2::orderOrLoc
 Go to Layout [ “testInfoTextLocked” (testlearnReportTags) ]
 End If
 Set Variable [ $$stopLoadCitation ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 January 7, 平成26 12:22:08 Imagination Quality Management.fp7 - TestInfoOpenTextNewWindow -1-

@@ -10,7 +10,7 @@ End If
 Set Variable [ $$stopTest; Value:1 ]
 #
 #If there are no tests, then create a new test
-#group ﬁrst and then a test for that group.
+#group first and then a test for that group.
 #All tests belong to a test groups.
 If [ Get (FoundCount) = 0 ]
 Perform Script [ “newTestGroup” ]
@@ -24,15 +24,15 @@ Set Variable [ $group; Value:test::ktestGroup ]
 #new test
 New Record/Request
 Set Field [ test::ksection; TEMP::ksection ]
-#( a test group ﬁeld is neccessary because a section
+#( a test group field is neccessary because a section
 # may have more than one test group, and so trying
-# to ﬁnd a test group using the section key and
-# the testGroup match ﬁeld would ﬁnd all groups
-# when we need the system to ﬁnd one group. )
+# to find a test group using the section key and
+# the testGroup match field would find all groups
+# when we need the system to find one group. )
 Set Field [ test::ktestGroup; $group ]
 #
 #A new test-item list is created with each new test.
-#This key ﬁeld can be changed so that the test-item
+#This key field can be changed so that the test-item
 #list for another test can be used.
 Set Field [ test::ktestItemList; test::_Ltest ]
 #
@@ -50,7 +50,7 @@ Set Field [ test::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 #
 #Set temp variables for next part of script.
 #
-#The test item list temp ﬁelds allow users to switch
+#The test item list temp fields allow users to switch
 #from their current list to another list.
 Set Field [ TEMP::ktestItemList; test::ktestItemList ]
 Set Field [ TEMP::ktestItemListOLD; test::ktestItemList ]
@@ -68,7 +68,7 @@ Set Variable [ $$focuses; Value:test::kcfocusALL ]
 #
 #
 #Go to the tag menus window.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
 New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2 ]
 Go to Layout [ “setupTestFocus” (tagLocation) ]
@@ -96,16 +96,16 @@ Perform Script [ “linkTestFocusOrUnlinkTestFocus” ]
 #
 #Go to selected tag menu window layout.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$stopLoadTagRecord ]
 Go to Layout [ $layout ]
 #
 #Set variables for new record.
-Select Window [ Name: "setup"; Current ﬁle ]
+Select Window [ Name: "setup"; Current file ]
 Set Variable [ $$ID; Value:test::_Ltest ]
 #
 #Sort records.
-Sort Records [ Speciﬁed Sort Order: ruleSection::name; ascending
+Sort Records [ Specified Sort Order: ruleSection::name; ascending
 groupTest::order; based on value list: “order”
 groupTest::name; ascending
 test::order; based on value list: “order”

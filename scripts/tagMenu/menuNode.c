@@ -1,6 +1,6 @@
 tagMenu: menuNode
 #
-#If user is in tag ﬁeld and has changed spelling
+#If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
 Go to Field [ ]
@@ -8,7 +8,7 @@ Go to Field [ ]
 #Clear sample and test tags so there conditional
 #formatting in the Learn window is removed.
 If [ $$citationMatch = "sample" or $$citationMatch = "test" ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
 Set Variable [ $$tagSample ]
@@ -16,14 +16,14 @@ Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 #
-#Sort the records by date ﬁeld, if current sort is
+#Sort the records by date field, if current sort is
 #by order number.
 If [ TEMP::TLTestSort = "order" or TEMP::TLSampleSort = "order" ]
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
-#Set the sort preference ﬁeld to date.
+#Set the sort preference field to date.
 If [ $$citationMatch = "sample" ]
 Set Field [ TEMP::TLSampleSort; "" ]
 Else If [ $$citationMatch = "test" ]
@@ -32,14 +32,14 @@ End If
 #
 End If
 End If
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"node" ]
 #
-#Set match temp tag ﬁeld to limit move pulldown
+#Set match temp tag field to limit move pulldown
 #to just the groups for this section and item type.
-#( if you're wondering why this temp ﬁeld is a
+#( if you're wondering why this temp field is a
 # a dupllicate of the citation match variable it
 # is because I didn't need it until a year into
 # writing this database. At some point, it would
@@ -91,13 +91,13 @@ Perform Find [ ]
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortNode = "cat" or TEMP::sortNode = "" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortNode = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -106,7 +106,7 @@ End If
 #the user is planning on adding to a tag
 #which means the user may want to remain in
 #add to tag mode when clicking on the node menu
-#item. In the ﬁrst phase of developement
+#item. In the first phase of developement
 #I thought if the user activitated the add mode
 #in either the keyword or node menu that the
 #user would not want to see the add button showing
@@ -124,14 +124,14 @@ January 7, 平成26 15:56:57 Imagination Quality Management.fp7 - menuNode -1-ta
 // Perform Script [ “AddLinksPicturesToTagsMode” ]
 // End If
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 #Because user may click anywhere to go to a record
 #all keys for all menu items must uploaded
 #until one is found that matches and then the
 #$$citationItem variable can be set.
-#Like when the user clicks in a non ﬁeld area
-#a space between ﬁelds that then tells ﬁlemaker
-#to go that record but not to ﬁeld belonging to
+#Like when the user clicks in a non field area
+#a space between fields that then tells filemaker
+#to go that record but not to field belonging to
 #that record.
 Go to Record/Request/Page
 [ First ]
@@ -164,12 +164,12 @@ End If
 Set Variable [ $$stopLoadTagRecord ]
 Perform Script [ “loadTagRecord” ]
 #
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "References"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
 Set Variable [ $$tagSample ]
@@ -177,7 +177,7 @@ Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 Else If [ Get (LastError) ≠ 112 ]
 #
-#If in add mode, ﬁnd only records tagged with
+#If in add mode, find only records tagged with
 #current $$citationmatch.
 If [ $$add = 1 ]
 #
@@ -186,29 +186,29 @@ If [ $$add = 1 ]
 Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to node tags, or keep the current records shown?"; Buttons: “keep”, “show” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Exit Script [ ]
 End If
 #
-#ﬁnd on reference layout ...
+#find on reference layout ...
 If [ Left (Get (LayoutName) ; 1) = "r" ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::ﬁlterFind; "node" ]
+Set Field [ reference::filterFind; "node" ]
 Perform Find [ ]
 #
-#ﬁnd on learn layout ...
+#find on learn layout ...
 Else If [ Left (Get (LayoutName) ; 1) = "l" ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "node" ]
+Set Field [ testlearn::filterFind; "node" ]
 Perform Find [ ]
 End If
 End If
 Set Variable [ $$citationItem; Value:reference::knodePrimary ]
 End If
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 January 7, 平成26 15:56:57 Imagination Quality Management.fp7 - menuNode -2-

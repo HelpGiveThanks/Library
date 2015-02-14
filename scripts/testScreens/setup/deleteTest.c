@@ -50,7 +50,7 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "main" ]
+Set Field [ testlearn::filterFind; "main" ]
 Set Field [ testlearn::kctest; "###" & $$tagTest ]
 Perform Find [ ]
 Set Variable [ $$stopLoadCitation ]
@@ -97,11 +97,11 @@ If [ Get ( LastMessageChoice ) = 2 ]
 New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #
 Set Variable [ $section; Value:test::ksection ]
-#( a test group ﬁeld is neccessary because a section
+#( a test group field is neccessary because a section
 # may have more than one test group, and so trying
-# to ﬁnd a test group using the section key and
-# the testGroup match ﬁeld would ﬁnd all groups
-# when we need the system to ﬁnd one group. )
+# to find a test group using the section key and
+# the testGroup match field would find all groups
+# when we need the system to find one group. )
 Set Variable [ $group; Value:test::ktestGroup ]
 Set Variable [ $test; Value:test::_Ltest ]
 #
@@ -136,7 +136,7 @@ Set Variable [ $$ID; Value:test::_Ltest ]
 Exit Script [ ]
 End If
 #
-#If the user pressed delete then ﬁrst the
+#If the user pressed delete then first the
 #test group is deleted.
 #
 New Window [ ]

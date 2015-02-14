@@ -6,8 +6,8 @@ Perform Script [ “menuRefAddKeyWords” ]
 Exit Script [ ]
 End If
 #
-If [ $$ﬁndmode ≠ 1 ]
-#Set testlearn internal reference ﬁeld conditional
+If [ $$findmode ≠ 1 ]
+#Set testlearn internal reference field conditional
 #formatting to transparent.
 Set Variable [ $$internal ]
 #
@@ -16,7 +16,7 @@ Go to Layout [ “learnMenu3Cite” (reference) ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Scroll Window
@@ -36,17 +36,17 @@ Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 #
 #Update conditional formatting in main window.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Else If [ Get (LastError) ≠ 112 ]
 Go to Field [ ]
 End If
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
-Else If [ $$ﬁndmode = 1 ]
-#Set testlearn internal reference ﬁeld conditional
+Select Window [ Name: "Tag Menus"; Current file ]
+Else If [ $$findmode = 1 ]
+#Set testlearn internal reference field conditional
 #formatting to transparent.
 Set Variable [ $$internal ]
 #

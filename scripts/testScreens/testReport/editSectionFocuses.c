@@ -20,7 +20,7 @@ Enter Find Mode [ ]
 Set Field [ tagLocation::ksection; TEMP::ksection ]
 Set Field [ tagLocation::match; "focus" ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: tagLocation::tag; ascending ]
+Sort Records [ Specified Sort Order: tagLocation::tag; ascending ]
 [ Restore; No dialog ]
 Perform Script [ “insureEqualityOfSpellFields” ]
 January 7, 平成26 14:31:21 Imagination Quality Management.fp7 - editSectionFocuses -1-

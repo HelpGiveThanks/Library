@@ -2,28 +2,28 @@ tagMenu: menuSample
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
-#If user is in tag ﬁeld and has changed spelling
+#If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
 Go to Field [ ]
 #
 #Clear sample and test tags.
 If [ $$citationMatch = "test" ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
 Set Variable [ $$tagSample ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 End If
 #
 #Clear order numbers.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 New Window [ Height: 1; Width: 1 ]
 Go to Layout [ “learnSCRIPTloops” (testlearn) ]
-Perform Find [ Speciﬁed Find Requests: Find Records; Criteria: testlearn::orderTest: “###” ]
+Perform Find [ Specified Find Requests: Find Records; Criteria: testlearn::orderTest: “###” ]
 [ Restore ]
 Loop
 Set Field [ testlearn::orderTest; "" ]
@@ -36,9 +36,9 @@ Set Variable [ $$stopLoadTagRecord ]
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"sample" ]
 #
-#Set match temp tag ﬁeld to limit move pulldown
+#Set match temp tag field to limit move pulldown
 #to just the groups for this section and item type.
-#( if you're wondering why this temp ﬁeld is a
+#( if you're wondering why this temp field is a
 # a dupllicate of the citation match variable it
 # is because I didn't need it until a year into
 # writing this database. At some point, it would
@@ -64,16 +64,16 @@ Perform Find [ ]
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortSample = "cat" or TEMP::sortSample = "" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortSample = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -105,7 +105,7 @@ Perform Script [ “loadItemRecordForSampleTagMenu” ]
 // If [ Middle ( GetValue ( $$sample ; $number ) ; 4 ; 42 ) & "¶" ≠ tagMenus::_Ltag & ¶ ]
 // Go to Record/Request/Page
 [ First ]
-// Select Window [ Name: "Learn"; Current ﬁle ]
+// Select Window [ Name: "Learn"; Current file ]
 // #
 // #If sort by order number is on then sort by
 // #order number.
@@ -118,7 +118,7 @@ Perform Script [ “loadItemRecordForSampleTagMenu” ]
 // End If
 // Go to Field [ ]
 // Refresh Window
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 January 7, 平成26 16:00:02 Imagination Quality Management.fp7 - menuSample -1-tagMenu: menuSample
 // Exit Script [ ]
 // End If
@@ -129,11 +129,11 @@ January 7, 平成26 16:00:02 Imagination Quality Management.fp7 - menuSample -1-
 // Set Variable [ $$sampleORTestID; Value:Get (RecordID) ]
 // Refresh Window
 // #
-// #Just in case user was in nonTag ﬁeld on this
+// #Just in case user was in nonTag field on this
 // #window when user clicked a menu button on
-// #the other window, exit all ﬁelds.
+// #the other window, exit all fields.
 // Set Variable [ $$stopLoadCitation ]
-// Select Window [ Name: "Learn"; Current ﬁle ]
+// Select Window [ Name: "Learn"; Current file ]
 // #
 // #If sort by order number is on then sort by
 // #order number.
@@ -146,5 +146,5 @@ January 7, 平成26 16:00:02 Imagination Quality Management.fp7 - menuSample -1-
 // End If
 // Go to Field [ ]
 // Refresh Window
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 January 7, 平成26 16:00:02 Imagination Quality Management.fp7 - menuSample -2-

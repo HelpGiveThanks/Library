@@ -3,7 +3,7 @@ testScreens: test: linkTestFocusOrUnlinkTestFocus
 #If tag has not yet been selected, then link it.
 Set Variable [ $focus; Value:tagLocation::_Ltag ]
 Go to Field [ ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 If [ $focus & ¶ ≠ FilterValues ( test::kcfocusALL ; $focus & "¶" ) ]
 #
 Set Variable [ $currentfocuses; Value:test::kcfocusALL ]
@@ -12,7 +12,7 @@ Set Field [ test::kcfocusALL; $focus & "¶" & $currentfocuses ]
 #Reset conditional formatting variable for focuses.
 Set Variable [ $$focuses; Value:test::kcfocusALL ]
 Go to Field [ ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 Exit Script [ ]
 End If
@@ -29,6 +29,6 @@ Substitute ( $currentfocuses ; $focus ; "" )
 Set Variable [ $$focuses; Value:test::kcfocusALL ]
 Go to Field [ ]
 #
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 January 7, 平成26 12:26:07 Imagination Quality Management.fp7 - linkTestFocusOrUnlinkTestFocus -1-

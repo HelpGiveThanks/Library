@@ -4,23 +4,23 @@ testScreens: testReport: gotoDefaultsOrReport
 #to the setup module if ...
 If [ $$learnRecord = "" and $$testTagRecord = "" ]
 #
-#If user is in tag ﬁeld and has changed spelling
+#If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
-Select Window [ Name: "References"; Current ﬁle ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
+Select Window [ Name: "Learn"; Current file ]
 If [ $$referenceSort = 2 ]
-Sort Records [ Speciﬁed Sort Order: reference::modifyDate; descending
+Sort Records [ Specified Sort Order: reference::modifyDate; descending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 Else If [ $$referenceSort = "" ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 Else If [ $$referenceSort = 1 ]
-Sort Records [ Speciﬁed Sort Order: reference::createDate; descending
+Sort Records [ Specified Sort Order: reference::createDate; descending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 End If
@@ -39,11 +39,11 @@ Set Window Title [ Current Window; New Title: "Setup" ]
 Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
 New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
 End If
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Set Variable [ $$citationitem; Value:tempSetup::ksection ]
 Set Variable [ $$citationMatch; Value:"section" ]
 Refresh Window
@@ -65,13 +65,13 @@ Set Variable [ $$RecordID ]
 #
 Set Field [ TEMP::ktest; "" ]
 #
-Set Variable [ $$ﬁndMode ]
-Set Variable [ $$ﬁrstFind ]
-Set Variable [ $$ﬁrstFindOther ]
+Set Variable [ $$findMode ]
+Set Variable [ $$firstFind ]
+Set Variable [ $$firstFindOther ]
 Set Variable [ $$found ]
 Set Variable [ $$foundOther ]
-Set Variable [ $$ﬁndLayout ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Set Variable [ $$findLayout ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"section" ]
@@ -83,10 +83,10 @@ Enter Find Mode [ ]
 Set Field [ ruleSection::match; "section" ]
 Perform Find [ ]
 #
-Sort Records [ Speciﬁed Sort Order: ruleSection::name; ascending ]
+Sort Records [ Specified Sort Order: ruleSection::name; ascending ]
 [ Restore; No dialog ]
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -114,7 +114,7 @@ Set Field [ report::kreportNumber; $$reportNumber ]
 Set Field [ report::ksection; $$library ]
 Set Field [ report::ktest; $$returnItem ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: report::ktest; ascending ]
+Sort Records [ Specified Sort Order: report::ktest; ascending ]
 [ Restore; No dialog ]
 #
 View As
@@ -125,12 +125,12 @@ January 7, 平成26 14:40:27 Imagination Quality Management.fp7 - gotoDefaultsOr
 #
 #Just in case user went to a different item before
 #returning to this item, put the item being tested
-#back in the temp ﬁeld.
+#back in the temp field.
 Set Field [ TEMP::ktest; $$returnItem ]
 Set Field [ TEMP::testName; $$returnItemName ]
 #
-#Now ﬁnd discoveries for this report item.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+#Now find discoveries for this report item.
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
 Go to Layout [ “reportTagInfo” (testlearnReportTags) ]
 Perform Script [ “reportTagInfo” ]
@@ -153,7 +153,7 @@ Set Window Title [ Current Window; New Title: "Test" ]
 #this script.
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 #
-#ﬁnd and show all test records.
+#find and show all test records.
 Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
@@ -166,11 +166,11 @@ Perform Find [ ]
 #
 #Just in case user went to a different item before
 #returning to this item, put the item being tested
-#back in the temp ﬁeld.
+#back in the temp field.
 Set Field [ TEMP::ktest; $$returnItem ]
 Set Field [ TEMP::testName; $$returnItemName ]
 #
-#This ﬁeld does show up elsewhere but I am not
+#This field does show up elsewhere but I am not
 #sure after what it does. My bad for not making
 #thorough comments during earlier developement.
 Set Field [ InspectItems::glocationNameGlobal;
@@ -211,7 +211,7 @@ Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 End If
 #
 #Group records by test subject location.
-Sort Records [ Speciﬁed Sort Order: testlearn::Location; ascending
+Sort Records [ Specified Sort Order: testlearn::Location; ascending
 testlearn::_Number; ascending ]
 [ Restore; No dialog ]
 #
@@ -219,8 +219,8 @@ testlearn::_Number; ascending ]
 #records function as visual indicators of having
 #made a decision not to create a test record
 #because NA = it was not applicable, OK=it was
-#ﬁne, and star symbol = because a test record
-#already created duplicates the ﬁnding in this
+#fine, and star symbol = because a test record
+#already created duplicates the finding in this
 #test subject location),
 Go to Record/Request/Page
 [ First ]
@@ -257,7 +257,7 @@ Set Variable [ $$sopLoadTestRecord ]
 Perform Script [ “loadTestRecord” ]
 #
 #Find all details for this item.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Perform Script [ “reportTagInfo” ]
 #
 #Now go the test record the user was on.

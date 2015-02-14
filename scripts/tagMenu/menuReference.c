@@ -3,25 +3,25 @@ tagMenu: menuReference
 #Clear sample and test tags so there conditional
 #formatting in the Learn window is removed.
 If [ $$citationMatch = "sample" or $$citationMatch = "test" ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Set Variable [ $$tagSample ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 End If
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"ref" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
-#Set testlearn internal reference ﬁeld conditional
+#Set testlearn internal reference field conditional
 #formatting to transparent.
 Set Variable [ $$internal ]
 #
@@ -37,25 +37,25 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::ﬁlterFind; "main" ]
+Set Field [ reference::filterFind; "main" ]
 Set Field [ reference::show; "show in learn" ]
 // Set Field [ reference::ktest; TEMP::ktest ]
 Perform Find [ ]
-// Constrain Found Set [ Speciﬁed Find Requests: Omit Records; Criteria: reference::knodePrimary: “=” ]
+// Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::knodePrimary: “=” ]
 [ Restore ]
-// Extend Found Set [ Speciﬁed Find Requests: Find Records; Criteria: reference::referenceNodes: “*” ]
+// Extend Found Set [ Specified Find Requests: Find Records; Criteria: reference::referenceNodes: “*” ]
 [ Restore ]
-// Constrain Found Set [ Speciﬁed Find Requests: Omit Records; Criteria: reference::Title: “=” ]
+// Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::Title: “=” ]
 [ Restore ]
 #
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::orderOrLock; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -77,15 +77,15 @@ Go to Record/Request/Page
 [ First ]
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Else If [ Get (LastError) ≠ 112 ]
 Go to Field [ ]
 End If
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Exit Script [ ]
 End If
 #
@@ -101,16 +101,16 @@ Set Variable [ $$stopLoadTagRecord ]
 #Inform user of items use on both screens.
 Set Variable [ $$citationItem; Value:reference::_Lreference ]
 Refresh Window
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "References"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Else If [ Get (LastError) ≠ 112 ]
 Go to Field [ ]
 End If
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 January 7, 平成26 16:01:01 Imagination Quality Management.fp7 - menuReference -1-

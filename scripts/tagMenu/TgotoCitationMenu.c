@@ -13,7 +13,7 @@ End If
 // Show Custom Dialog [ Message: "This reference belongs to the " & ruleRefLibraryName::name & " section." & " You can add pictures and links from any reference record to any tag, but you can only add tags to the current default section's records (name shown top left)."; Buttons: “OK” ]
 // Exit Script [ ]
 // End If
-If [ $$ﬁndMode ≠ "" ]
+If [ $$findMode ≠ "" ]
 Go to Field [ ]
 Exit Script [ ]
 End If
@@ -34,12 +34,12 @@ Set Variable [ $$citationMatch; Value:"node" ]
 End If
 Refresh Window
 #
-#Exit ﬁeld so blinking cursor doesn't show up in empty ﬁeld.
+#Exit field so blinking cursor doesn't show up in empty field.
 Go to Field [ ]
 Set Variable [ $window; Value:Get (WindowName) ]
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
 New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
 End If
@@ -67,7 +67,7 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 Go to Layout [ “learnMenu3Cite” (reference) ]
 Perform Script [ “menuCitation” ]
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Record/Request/Page
 [ First ]
@@ -86,7 +86,7 @@ Set Variable [ $$citationMatch; Value:"ref" ]
 Refresh Window
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Refresh Window
 End If
 #
@@ -98,16 +98,16 @@ Else If [ $window = "References" or $window = "Setup" ]
 #If in add mode, prevent menu scripts from changing
 #the main window's set of records.
 #Unlike learn records, reference records or created
-#for speciﬁc uses such as providing a picture
-#or link for a speciﬁc set of tags, say keyword tags.
+#for specific uses such as providing a picture
+#or link for a specific set of tags, say keyword tags.
 #So, in add mode, when clicking on a menu item
-#the system ﬁnds all the records in the main
+#the system finds all the records in the main
 #reference window for that menu item. This
 #is not helpful when the user is trying to create
 #a new record to add to a tag. So this next script
 #step stops the records shown, including and most
 #importantly the record the user is working on
-#from disappearing when the system ﬁnds only
+#from disappearing when the system finds only
 #records assigned to that menu item. This then
 #allows the user to add tags to the item neccessary
 #to make it addable to the the tag menu item the
@@ -145,7 +145,7 @@ Perform Script [ “menuRefAddKeyWords” ]
 End If
 End If
 #
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #If in add mode, allow menu scripts to once again
 #change main window records.

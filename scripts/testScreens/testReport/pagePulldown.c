@@ -1,6 +1,6 @@
 testScreens: testReport: PagePulldown
 Go to Field [ ]
-Set Variable [ $$ﬁrst ]
+Set Variable [ $$first ]
 Set Variable [ $$last ]
 Set Variable [ $record; Value:TEMP::ktest ]
 If [ test::_Ltest = $record ]

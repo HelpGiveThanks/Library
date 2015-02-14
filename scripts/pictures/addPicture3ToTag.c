@@ -18,21 +18,21 @@ End If
 #Note which button has been clicked ( 1, 2 or 3)
 #and if there is a picture to show then link it
 #to tag user is currently wanting to link it to.
-If [ reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "jpg"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "gif"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "eps"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "jp2"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "psd"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "png"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "pct"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "pcs"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = ".qt"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "sgi"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "tga"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "tif"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "bmp"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "wmf"
-or reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and Right ( reference::ﬁleName ; 3 ) = "emf"
+If [ reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "jpg"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "gif"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "eps"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "jp2"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "psd"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "png"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "pct"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "pcs"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = ".qt"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "sgi"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "tga"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "tif"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "bmp"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "wmf"
+or reference::kfileLocation ≠ "" and reference::fileName ≠ "" and Right ( reference::fileName ; 3 ) = "emf"
 or Right ( reference::URL ; 3 ) = "jpg"
 or Right ( reference::URL ; 3 ) = "gif"
 or Right ( reference::URL ; 3 ) = "eps"
@@ -53,49 +53,49 @@ reference::picture ≠ "" ]
 Set Variable [ $$name; Value:"picture" ]
 Set Variable [ $$number; Value:3 ]
 #
-#If the ﬁlterFind checkbox is not checked for the
+#If the filterFind checkbox is not checked for the
 #the current $$CitationMatch variable, then
 #these next scripts will identify that problem,
-#ﬁx it, and inform the user of what it did.
+#fix it, and inform the user of what it did.
 If [ Get ( LayoutTableName ) = "testlearn" ]
 If [ $$citationMatch = "key" ]
-If [ "keyword" & ¶ ≠ FilterValues ( testlearn::ﬁlterFind ; "keyword" & ¶ ) ]
-Set Variable [ $ﬁlterFind; Value:testlearn::ﬁlterFind ]
-Set Field [ testlearn::ﬁlterFind; "keyword" & ¶ & $ﬁlterFind ]
+If [ "keyword" & ¶ ≠ FilterValues ( testlearn::filterFind ; "keyword" & ¶ ) ]
+Set Variable [ $filterFind; Value:testlearn::filterFind ]
+Set Field [ testlearn::filterFind; "keyword" & ¶ & $filterFind ]
 // Show Custom Dialog [ Message: "The system has added this learn record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
- " citation record set. You will not have to click the 'all' button anymore to ﬁnd it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, ﬁle and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
-Else If [ $$citationMatch & ¶ ≠ FilterValues ( testlearn::ﬁlterFind ; $$citationMatch & ¶ ) ]
-Set Variable [ $ﬁlterFind; Value:testlearn::ﬁlterFind ]
-Set Field [ testlearn::ﬁlterFind; $$citationMatch & ¶ & $ﬁlterFind ]
+Else If [ $$citationMatch & ¶ ≠ FilterValues ( testlearn::filterFind ; $$citationMatch & ¶ ) ]
+Set Variable [ $filterFind; Value:testlearn::filterFind ]
+Set Field [ testlearn::filterFind; $$citationMatch & ¶ & $filterFind ]
 // Show Custom Dialog [ Message: "The system has added this learn record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
- " citation record set. You will not have to click the 'all' button anymore to ﬁnd it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, ﬁle and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
 #
 Else If [ Get ( LayoutTableName ) = "reference" ]
 If [ $$citationMatch = "key" ]
-If [ "keyword" & ¶ ≠ FilterValues ( reference::ﬁlterFind ; "keyword" & ¶) ]
-Set Variable [ $ﬁlterFind; Value:reference::ﬁlterFind ]
-Set Field [ reference::ﬁlterFind; "keyword" & ¶ & $ﬁlterFind ]
+If [ "keyword" & ¶ ≠ FilterValues ( reference::filterFind ; "keyword" & ¶) ]
+Set Variable [ $filterFind; Value:reference::filterFind ]
+Set Field [ reference::filterFind; "keyword" & ¶ & $filterFind ]
 // Show Custom Dialog [ Message: "The system has added this reference record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
- " citation record set. You will not have to click the 'all' button anymore to ﬁnd it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, ﬁle and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
-Else If [ $$citationMatch & ¶ ≠ FilterValues ( reference::ﬁlterFind ; $$citationMatch & ¶) ]
-Set Variable [ $ﬁlterFind; Value:reference::ﬁlterFind ]
-Set Field [ reference::ﬁlterFind; $$citationMatch & ¶ & $ﬁlterFind ]
+Else If [ $$citationMatch & ¶ ≠ FilterValues ( reference::filterFind ; $$citationMatch & ¶) ]
+Set Variable [ $filterFind; Value:reference::filterFind ]
+Set Field [ reference::filterFind; $$citationMatch & ¶ & $filterFind ]
 // Show Custom Dialog [ Message: "The system has added this reference record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
- " citation record set. You will not have to click the 'all' button anymore to ﬁnd it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, ﬁle and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
 End If

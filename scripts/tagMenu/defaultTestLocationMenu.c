@@ -12,7 +12,7 @@ End If
 #can be assigned.
 If [ TEMP::ksection = "" ]
 Perform Script [ “defaultSectionMenu” ]
-Show Custom Dialog [ Message: "You must select a section prior to clicking the 'test' button. All tests belong to speciﬁc sections. "; Buttons: “OK” ]
+Show Custom Dialog [ Message: "You must select a section prior to clicking the 'test' button. All tests belong to specific sections. "; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -32,15 +32,15 @@ Set Variable [ $$citationMatch; Value:"location" ]
 #
 #Locations are shown are the general locations
 #for a test. This menu will be used to create
-#speciﬁc locations for a speciﬁc test subject.
+#specific locations for a specific test subject.
 #So in the Setup window the system highlights
 #the test subject for whom the locations are going
 #to be created.
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Set Variable [ $$citationitem ]
 Set Variable [ $$testSubject; Value:tempSetup::kdefaultNodeTestSubject ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Find all test location records.
 Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
@@ -52,32 +52,32 @@ Set Field [ tagTestSubjectLocation::ksection; TEMP::ksection ]
 Perform Find [ ]
 #
 #Sort
-Sort Records [ Speciﬁed Sort Order: tagTestSubject::tag; ascending
+Sort Records [ Specified Sort Order: tagTestSubject::tag; ascending
 tagTestSubjectLocation::reportNumber; ascending
 tagTestSubjectLocation::order; based on value list: “order”
 tagTestSubjectLocation::focusName; ascending ]
 [ Restore; No dialog ]
 #
 #
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "Setup"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "Setup"; Current file ]
 Refresh Window
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
-#Clear current temp ﬁeld of location names in
+#Clear current temp field of location names in
 #case user has selected a section different from
 #the one previous, and thus with name that might
-#not match those in these temp ﬁelds.
+#not match those in these temp fields.
 Set Field [ TEMP::LocationName; "" ]
-Set Field [ TEMP::modiﬁer1name; "" ]
-Set Field [ TEMP::modiﬁer2name; "" ]
+Set Field [ TEMP::modifier1name; "" ]
+Set Field [ TEMP::modifier2name; "" ]
 Set Field [ TEMP::kfocus; "" ]
-Set Field [ TEMP::kmodiﬁer1; "" ]
-Set Field [ TEMP::kmodiﬁer2; "" ]
+Set Field [ TEMP::kmodifier1; "" ]
+Set Field [ TEMP::kmodifier2; "" ]
 Set Field [ TEMP::orderLocation; "" ]
 Set Field [ TEMP::orderMod1; "" ]
 Set Field [ TEMP::orderMod2; "" ]

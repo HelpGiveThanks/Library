@@ -12,13 +12,13 @@ Set Variable [ $tagName; Value:ruleSection::name ]
 #so before user can change the spelling.
 Set Variable [ $$stopChangeSectionName; Value:1 ]
 #
-#Remove focus from ﬁeld so can see
+#Remove focus from field so can see
 #conditional formatting.
 Go to Field [ ]
 #
 #
 #Select setup window.
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 #
 #Since sections are required, the deselect script
 #steps are not needed. When the user clicks on
@@ -30,7 +30,7 @@ Set Field [ tempSetup::sectionName; $tagName ]
 Refresh Window
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #Allow duplicate tag check script to operate.
@@ -44,7 +44,7 @@ Set Variable [ $$stopChangeSectionName ]
 #
 #Check if nodes selected -- primary, other, and
 #test subject -- are in the current section.
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Set Variable [ $nodePrimary; Value:tempSetup::kdefaultNodePrimary ]
 Set Variable [ $nodeOther; Value:tempSetup::kdefaultNodeOther ]
 Set Variable [ $nodeTestSubject; Value:tempSetup::kdefaultNodeTestSubject ]
@@ -57,7 +57,7 @@ Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #
 #PRIMARY NODE
-#Loop thru records to ﬁnd primary node.
+#Loop thru records to find primary node.
 Go to Record/Request/Page
 [ First ]
 #
@@ -96,7 +96,7 @@ Perform Find [ ]
 Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
 #
-#Finally, reﬁnd all nodes, which now includes the
+#Finally, refind all nodes, which now includes the
 #node just added.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; "node" ]
@@ -105,7 +105,7 @@ Perform Find [ ]
 End If
 #
 #TEST SUBJECT
-#Loop thru records to ﬁnd test subject node.
+#Loop thru records to find test subject node.
 Go to Record/Request/Page
 [ First ]
 #
@@ -145,7 +145,7 @@ Perform Find [ ]
 Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
 #
-#Finally, reﬁnd all nodes, which now includes the
+#Finally, refind all nodes, which now includes the
 #node just added.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; "node" ]
@@ -154,7 +154,7 @@ Perform Find [ ]
 End If
 #
 #OTHER NODES
-#Determine how many keys there are to ﬁnd for
+#Determine how many keys there are to find for
 #on the other nodes' keychain.
 Set Variable [ $numberOfNodes; Value:ValueCount ( $nodeOther ) ]
 #
@@ -170,7 +170,7 @@ Loop
 #
 #If the key matches a lock or no locks exit the loop.
 #( The get value calculation works by going to the
-# key in the list speciﬁed by the numberOfNodes
+# key in the list specified by the numberOfNodes
 # variable, set before entering the loops.
 # The system starts with the last key and with each
 # loop moves to the next key up, until there are
@@ -207,7 +207,7 @@ Perform Find [ ]
 Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
 #
-#Finally, reﬁnd all nodes, which now includes the
+#Finally, refind all nodes, which now includes the
 #node just added.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; "node" ]

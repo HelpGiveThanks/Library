@@ -3,8 +3,8 @@ testScreens: testReport: Print: PrintThingReport
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Set Variable [ $record; Value:Get (RecordNumber) ]
-Close Window [ Name: "Tag Menus"; Current ﬁle ]
-#ﬁnd all contact records, sort them, enter preview (print) mode
+Close Window [ Name: "Tag Menus"; Current file ]
+#find all contact records, sort them, enter preview (print) mode
 Go to Layout [ “PrintReport” (report) ]
 Set Variable [ $contact; Value:report::ktestSubject ]
 Enter Find Mode [ ]
@@ -12,7 +12,7 @@ Set Field [ report::ktestSubject; $contact ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Set Field [ report::ksection; $$Library ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: ruleTestReport::name; ascending
+Sort Records [ Specified Sort Order: ruleTestReport::name; ascending
 reportItem::testName; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -22,7 +22,7 @@ Go to Record/Request/Page
 #a new window to input page numbers for each item
 Enter Preview Mode
 Set Window Title [ Current Window; New Title: "Report" ]
-Move/Resize Window [ Name: "Report"; Current ﬁle; Width: Get ( ScreenWidth ) / 2; Left: 0 ]
+Move/Resize Window [ Name: "Report"; Current file; Width: Get ( ScreenWidth ) / 2; Left: 0 ]
 New Window [ Name: "Numbers"; Width: Get ( ScreenWidth ) / 2; Left: Get ( ScreenWidth ) / 2 ]
 Enter Browse Mode
 // Arrange All Windows
@@ -34,7 +34,7 @@ Set Field [ report::pagenumberTheme; 1 ]
 Set Field [ report::CurrentRecord; Get ( RecordID ) ]
 Set Variable [ $$themepage; Value:2 ]
 Set Field [ TEMP::pageNumber; 1 ]
-Select Window [ Name: "Numbers"; Current ﬁle ]
+Select Window [ Name: "Numbers"; Current file ]
 Loop
 Set Variable [ $duplicate; Value:report::ktest ]
 Go to Record/Request/Page
@@ -49,14 +49,14 @@ Scroll Window
 [ Home ]
 Go to Record/Request/Page
 [ First ]
-Pause/Resume Script [ Indeﬁnitely ]
-#reﬁnd all report records omitted for page numbering
+Pause/Resume Script [ Indefinitely ]
+#refind all report records omitted for page numbering
 Enter Find Mode [ ]
 Set Field [ report::ktestSubject; $contact ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Set Field [ report::ksection; $$Library ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: ruleTestReport::name; ascending
+Sort Records [ Specified Sort Order: ruleTestReport::name; ascending
 reportItem::testName; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -73,7 +73,7 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 Set Variable [ $path; Value:Get ( TemporaryPath ) ]
-Close Window [ Name: "Report"; Current ﬁle ]
+Close Window [ Name: "Report"; Current file ]
 Adjust Window
 [ Resize to Fit ]
 Set Zoom Level
@@ -82,7 +82,7 @@ Go to Layout [ “reportCover” (report) ]
 Enter Browse Mode
 Go to Record/Request/Page
 [ First ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 #
 #pdf report cover
 Set Variable [ $cover; Value:report::ReportCover ]
@@ -100,7 +100,7 @@ Enter Find Mode [ ]
 Set Field [ report::_Lreport; $printcover ]
 Perform Find [ ]
 If [ Left ( Get (ApplicationVersion) ; 3) = "run" and Get ( SystemPlatform ) ≠ 3 ]
-Show Custom Dialog [ Message: "The report cover, table of contents, and report should now be saved as 3 PDFs. In the print dialogue box select the PDF option (bottom left corner) and save this ﬁrst PDF as cover."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The report cover, table of contents, and report should now be saved as 3 PDFs. In the print dialogue box select the PDF option (bottom left corner) and save this first PDF as cover."; Buttons: “OK” ]
 Print [ Records being browsed; All Pages; Orientation: Portrait; Paper size: 8.5" x 11" ]
 [ Restore ]
 Else If [ Left ( Get (ApplicationVersion) ; 3) ≠ "run" or Get ( SystemPlatform ) = 3 ]
@@ -110,7 +110,7 @@ Save Records as PDF [ File Name: “$path/$pdf”; Current record ]
 [ Document - Compatibility: Acrobat 5 and later ]
 [ Pages - Number Pages From: 1; Include: All pages ]
 [ Security - Printing: High Resolution; Editing: Any except extracting pages; Enable copying; Enable Screen Reader ]
-[ Initial View - Show: Pages Panel and Page; Page Layout: Default; Magniﬁcation: 100% ]
+[ Initial View - Show: Pages Panel and Page; Page Layout: Default; Magnification: 100% ]
 [ Restore; No dialog ]
 End If
 #
@@ -121,7 +121,7 @@ Set Field [ report::ktestSubject; $contact ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Set Field [ report::ksection; $$Library ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: report::TOC; ascending
+Sort Records [ Specified Sort Order: report::TOC; ascending
 ruleTestReport::name; ascending
 reportItem::testName; ascending ]
 [ Restore; No dialog ]
@@ -148,7 +148,7 @@ Save Records as PDF [ File Name: “$path/$pdf”; Records being browsed ]
 [ Document - Compatibility: Acrobat 5 and later ]
 [ Pages - Number Pages From: 1; Include: All pages ]
 [ Security - Printing: High Resolution; Editing: Any except extracting pages; Enable copying; Enable Screen Reader ]
-[ Initial View - Show: Pages Panel and Page; Page Layout: Default; Magniﬁcation: 100% ]
+[ Initial View - Show: Pages Panel and Page; Page Layout: Default; Magnification: 100% ]
 [ Restore; Append; No dialog ]
 End If
 #
@@ -159,7 +159,7 @@ Set Field [ report::ktestSubject; $contact ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Set Field [ report::ksection; $$Library ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: ruleTestReport::name; ascending
+Sort Records [ Specified Sort Order: ruleTestReport::name; ascending
 reportItem::testName; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -175,11 +175,11 @@ Save Records as PDF [ File Name: “$path/$pdf”; Automatically open; Records b
 [ Document - Compatibility: Acrobat 5 and later ]
 [ Pages - Number Pages From: 1; Include: All pages ]
 [ Security - Printing: High Resolution; Editing: Any except extracting pages; Enable copying; Enable Screen Reader ]
-[ Initial View - Show: Pages Panel and Page; Page Layout: Default; Magniﬁcation: 100% ]
+[ Initial View - Show: Pages Panel and Page; Page Layout: Default; Magnification: 100% ]
 [ Restore; Append; No dialog ]
 End If
 Set Window Title [ Current Window; New Title: "Setup" ]
-Move/Resize Window [ Name: "Setup"; Current ﬁle; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
+Move/Resize Window [ Name: "Setup"; Current file; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
 Go to Layout [ “defaultSetup” (tempSetup) ]
 New Window [ Name: "Tag Menus"; Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2 ]
 Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]

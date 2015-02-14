@@ -25,9 +25,9 @@ Perform Script [ “addTagSectionKeysToMainRecordKeychain” ]
 Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
 #
 #Complete process of adding link to tag.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
-#Remove focus from ﬁeld so can see
+#Remove focus from field so can see
 #conditional formatting.
 Go to Field [ ]
 #
@@ -44,15 +44,15 @@ End If
 #Place key in selected slot.
 If [ tagMenus::Ktitle1 ≠ $tag and $number = 1 ]
 Set Field [ tagMenus::Ktitle1; $tag ]
-Select Window [ Name: $window; Current ﬁle ]
+Select Window [ Name: $window; Current file ]
 Exit Script [ ]
 Else If [ tagMenus::Ktitle2 ≠ $tag and $number = 2 ]
 Set Field [ tagMenus::Ktitle2; $tag ]
-Select Window [ Name: $window; Current ﬁle ]
+Select Window [ Name: $window; Current file ]
 Exit Script [ ]
 Else If [ tagMenus::Ktitle3 ≠ $tag and $number = 3 ]
 Set Field [ tagMenus::Ktitle3; $tag ]
-Select Window [ Name: $window; Current ﬁle ]
+Select Window [ Name: $window; Current file ]
 Exit Script [ ]
 End If
 #
@@ -64,5 +64,5 @@ Set Field [ tagMenus::Ktitle2; "" ]
 Else If [ tagMenus::Ktitle3 = $tag and $number = 3 ]
 Set Field [ tagMenus::Ktitle3; "" ]
 End If
-Select Window [ Name: $window; Current ﬁle ]
+Select Window [ Name: $window; Current file ]
 January 7, 平成26 16:34:51 Imagination Quality Management.fp7 - CHUNKaddLinkToTag -1-

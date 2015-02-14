@@ -15,7 +15,7 @@ Set Variable [ $$returnItem; Value:TEMP::ktest ]
 Set Variable [ $$returnItemName; Value:TEMP::testName ]
 #
 #Go to the Report window and change it to Learn.
-Select Window [ Name: "Report"; Current ﬁle ]
+Select Window [ Name: "Report"; Current file ]
 Set Window Title [ Current Window; New Title: "Learn" ]
 #
 #Find, sort, the loop to record user was on in
@@ -29,10 +29,10 @@ Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
 End If
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
 Set Variable [ $$stopLoadCitation; Value:1 ]
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -51,10 +51,10 @@ End Loop
 Set Variable [ $$stopLoadCitation ]
 #
 #Go to test menu in Tag Menus window.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “ltagNK2” (tagMenus) ]
 Perform Script [ “menuTest” ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Perform Script [ “loadCitation” ]
 #
 #
@@ -70,7 +70,7 @@ Set Variable [ $$returnItem; Value:TEMP::ktest ]
 Set Variable [ $$returnItemName; Value:TEMP::testName ]
 #
 #Go to the Test window and change it to Learn.
-Select Window [ Name: "Test"; Current ﬁle ]
+Select Window [ Name: "Test"; Current file ]
 Set Window Title [ Current Window; New Title: "Learn" ]
 #
 #Set return variable for main Test record.
@@ -87,10 +87,10 @@ Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
 End If
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
 Set Variable [ $$stopLoadCitation; Value:1 ]
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -109,14 +109,14 @@ End Loop
 Set Variable [ $$stopLoadCitation ]
 #
 #Go to keyword menu in Tag Menus window.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “ltagNK2” (tagMenus) ]
 If [ $$returnItem ≠ "" ]
 Perform Script [ “menuTest” ]
 Else If [ ]
 Perform Script [ “menuKey” ]
 End If
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Perform Script [ “loadCitation” ]
 #
 End If

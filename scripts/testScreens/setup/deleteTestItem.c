@@ -20,7 +20,7 @@ Set Variable [ $group; Value:ruleTagMenuTestGroups::_Lgroup ]
 Set Variable [ $groupName; Value:If ( Char ( ruleTagMenuTestGroups::name ) ≤ 20 ; ruleTagMenuTestGroups::name ; Left ( ruleTagMenuTestGroups::name ; 20 ) & "..." ) ]
 Set Variable [ $testItemName; Value:If ( Char ( tagMenus::tag ) ≤ 20 ; tagMenus::tag ; Left ( tagMenus::tag ; 20 ) & "..." ) ]
 #
-#ﬁnd and show all test records that might be using
+#find and show all test records that might be using
 #this item.
 New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
@@ -63,14 +63,14 @@ Show Custom Dialog [ Message: If ( $inUse = 1 ; "Current test item use = " & $in
 Exit Script [ ]
 End If
 #
-#Exit any ﬁelds and then contionally format ﬁeld
+#Exit any fields and then contionally format field
 #to be deleted by this script.
 Go to Field [ ]
 Refresh Window
 Show Custom Dialog [ Title: "!"; Message: "Delete " & $testItemName & "?"; Buttons: “Cancel”, “Delete” ]
 Refresh Window
 #
-#If the user says yes, ﬁrst make sure the record
+#If the user says yes, first make sure the record
 #is not the last record in its group. If it is and
 #the system deleted the record without deleting
 #the group too, this group would become
@@ -90,7 +90,7 @@ Perform Find [ ]
 #then the system deletes the current record without
 #any more user input.
 If [ Get (FoundCount) ≠ 1 ]
-Close Window [ Name: "Delete Tag"; Current ﬁle ]
+Close Window [ Name: "Delete Tag"; Current file ]
 Delete Record/Request
 [ No dialog ]
 Set Variable [ $delete ]
@@ -101,14 +101,14 @@ Exit Script [ ]
 #BUT if only one record is found user is asked
 #if they want to delete the category too.
 Else If [ Get (FoundCount) = 1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $deleteGroup; Value:$group ]
 Refresh Window
 #
 #The records are sorted by category to show
 #the user which category is going to be deleted.
 If [ TEMP::sortTestItem ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
@@ -131,14 +131,14 @@ End If
 If [ Get ( LastMessageChoice ) = 2 ]
 Delete Record/Request
 [ No dialog ]
-Select Window [ Name: "delete tag"; Current ﬁle ]
+Select Window [ Name: "delete tag"; Current file ]
 Go to Layout [ “tableGroupTag” (groupTest) ]
 Enter Find Mode [ ]
 Set Field [ groupTest::_Lgroup; $group ]
 Perform Find [ ]
 Delete Record/Request
 [ No dialog ]
-Close Window [ Name: "Delete Tag"; Current ﬁle ]
+Close Window [ Name: "Delete Tag"; Current file ]
 End If
 End If
 End If

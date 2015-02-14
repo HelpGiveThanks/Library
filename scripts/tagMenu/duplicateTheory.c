@@ -18,7 +18,7 @@ End If
 Set Variable [ $theoryName; Value:tagMenus::tag & " " & tagMenus::_Ltag ]
 Set Variable [ $theoryHealth; Value:tagMenus::notesOrHealth ]
 #
-#Prepare to ﬁnd old tags at bottom of script.
+#Prepare to find old tags at bottom of script.
 Set Variable [ $theoryOld; Value:tagMenus::_Ltag ]
 #
 #Stop spelling check script.
@@ -36,8 +36,8 @@ Set Variable [ $theoryNew; Value:tagMenus::_Ltag ]
 Set Field [ tagMenus::match; "sample" ]
 Go to Object [ Object Name: "tag" ]
 #
-#Go to the other window and start the ﬁnd process.
-Select Window [ Name: "Learn"; Current ﬁle ]
+#Go to the other window and start the find process.
+Select Window [ Name: "Learn"; Current file ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
@@ -56,7 +56,7 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
-#Reﬁnd all section records.
+#Refind all section records.
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
 Perform Find [ ]
@@ -70,7 +70,7 @@ End Loop
 Set Variable [ $$stoploadCitation ]
 #
 #Load new theory.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Perform Script [ “loadItemRecordForSampleTagMenu” ]
 Show Custom Dialog [ Message: "Change the tag ID number to the current verson number (v2, v3, v4, etc.) of this theory."; Buttons: “OK” ]

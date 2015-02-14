@@ -7,7 +7,7 @@ Delete All Records
 [ No dialog ]
 New Record/Request
 If [ backup::newLibrary = "234874920347574weidf792342f9823984" ]
-Show Custom Dialog [ Message: "Are you sure you want to delete the data in " & TEMP::ﬁleName & " to make it a new empty one? If you are not sure, DO NOT CLICK any of the buttons. Instead, check the folder where this library is located and make sure this is a copy of the orignal and
+Show Custom Dialog [ Message: "Are you sure you want to delete the data in " & TEMP::fileName & " to make it a new empty one? If you are not sure, DO NOT CLICK any of the buttons. Instead, check the folder where this library is located and make sure this is a copy of the orignal and
 not the original. Next click either the stop or proceed button."; Buttons: “stop”, “proceed” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Field [ backup::newLibrary; "" ]
@@ -38,7 +38,7 @@ Perform Script [ “createEmptyLibrary” ]
 Set Field [ backup::newLibrary; "" ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 2 ]
-Show Custom Dialog [ Message: "On some imports FileMaker crashes. Cancel this import and duplicate this Empty Library ﬁle if you do not have an extra in case this happens. If it does happen, delete the updated library, and try again."; Buttons: “OK”, “cancel” ]
+Show Custom Dialog [ Message: "On some imports FileMaker crashes. Cancel this import and duplicate this Empty Library file if you do not have an extra in case this happens. If it does happen, delete the updated library, and try again."; Buttons: “OK”, “cancel” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Close Window [ Current Window ]
 Exit Script [ ]
@@ -54,9 +54,9 @@ Paste [ backup::backup ]
 [ Select ]
 If [ backup::backup = "update439asdkc;liasdu;irejf.as.dkfupea;lksdfa,sm.eupqoiwendssasdeawsrre5o983498woeirf" ]
 Set Field [ backup::backup; "" ]
-Copy [ backup::ﬁlepath ]
+Copy [ backup::filepath ]
 [ Select ]
-Close Window [ Name: "Tag Menus"; Current ﬁle ]
+Close Window [ Name: "Tag Menus"; Current file ]
 Close Window [ Current Window ]
 End If
 #
@@ -98,7 +98,7 @@ End If
 #
 Perform Script [ “defaultSectionMenu” ]
 Perform Script [ “setDefaultSection” ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 #
 Go to Layout [ “startMemorySwitch” (MemorySwitch) ]
 Show All Records
@@ -111,8 +111,8 @@ Go to Record/Request/Page
 End Loop
 If [ Get ( FilePath ) ≠ MemorySwitch::path ]
 New Record/Request
-Set Field [ MemorySwitch::path; TEMP::ﬁlePath ]
-Set Field [ MemorySwitch::name; TEMP::ﬁleName ]
+Set Field [ MemorySwitch::path; TEMP::filePath ]
+Set Field [ MemorySwitch::name; TEMP::fileName ]
 End If
 Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
 #
@@ -138,7 +138,7 @@ End If
 #
 If [ $$import = 1 ]
 Set Variable [ $$import ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Perform Script [ “defaultNodeMenu” ]
 Show Custom Dialog [ Message: "Import is almost complete! Now select yourself as the default node (the one creating new records). Last, select the default copyright and your import will be done!"; Buttons: “OK” ]
 #

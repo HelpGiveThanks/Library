@@ -26,24 +26,24 @@ Set Variable [ $$citationMatch; Value:"testItem" ]
 #
 #Capture record ID so system can return user
 #after editing is complete.
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Test"; Current ﬁle ]
+Select Window [ Name: "Test"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Report"; Current ﬁle ]
+Select Window [ Name: "Report"; Current file ]
 End If
 End If
 Else If [ Get (LastError) ≠ 112 ]
 Set Variable [ $$LearnEdit; Value:testlearn::_Ltestlearn ]
 End If
 #
-#Take user to test setup layout and ﬁnd all
+#Take user to test setup layout and find all
 #test items. If coming from Library Setup window.
 Set Variable [ $$ID; Value:"ignore" ]
 Go to Layout [ “testSetup” (test) ]
-Sort Records [ Speciﬁed Sort Order: groupTest::order; based on value list: “order”
+Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order”
 groupTest::name; ascending
 test::order; based on value list: “order”
 test::testName; ascending ]
@@ -59,13 +59,13 @@ Perform Find [ ]
 #If not test exist, then make sure Tag Menus
 #also shows no items.
 If [ Get (LastError) = 401 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
-Perform Find [ Speciﬁed Find Requests: Find Records; Criteria: tagMenus::_Ltag: “"ﬁndNOrecords"” ]
+Select Window [ Name: "Tag Menus"; Current file ]
+Perform Find [ Specified Find Requests: Find Records; Criteria: tagMenus::_Ltag: “"findNOrecords"” ]
 [ Restore ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Exit Script [ ]
 End If
-Sort Records [ Speciﬁed Sort Order: groupTest::order; based on value list: “order”
+Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order”
 groupTest::name; ascending
 test::order; based on value list: “order”
 test::testName; ascending ]
@@ -107,7 +107,7 @@ End Loop
 Set Variable [ $$ID ]
 Perform Script [ “loadSetupTestRecord” ]
 // End If
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $$recordNumber ]
 [ No dialog ]
 End If

@@ -10,7 +10,7 @@ Exit Script [ ]
 End If
 #
 #First turn back any spelling changes made by dragging
-#text into ﬁeld.
+#text into field.
 Set Variable [ $$tag; Value:tagMenus::_Ltag ]
 Set Variable [ $tagSpelling; Value:tagMenus::tagSpelling ]
 Perform Script [ “insureEqualityOfSpellFields” ]
@@ -173,7 +173,7 @@ Perform Find [ ]
 If [ Get (FoundCount) > 1 ]
 #
 #Show tags under their categories.
-Sort Records [ Speciﬁed Sort Order: ruleTagSectionName::name; ascending
+Sort Records [ Specified Sort Order: ruleTagSectionName::name; ascending
 ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
@@ -217,7 +217,7 @@ Set Variable [ $$keyOLD; Value:$$key ]
 #to allow the user to choose which duplicate to
 #to add to the current library.
 If [ Get (FoundCount) > 2 ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 Set Variable [ $$key; Value:tagMenus::_Ltag ]
 #
 #If user decided to use light grey category (the
@@ -230,7 +230,7 @@ If [ $$key = $$keyOLD ]
 Close Window [ Current Window ]
 #
 #Update spelling of word in case of future changes
-#to its spelling that would then trigger the ﬁrst
+#to its spelling that would then trigger the first
 #part of this scirpt to udpate the spelling in the
 #tag list.
 Set Field [ tagMenus::tagSpelling; $newSpelling ]
@@ -290,28 +290,28 @@ Go to Layout [ “Reference” (reference) ]
 #error 301: record in use, which prevents key from
 #being replaced.
 Set Variable [ $windowName; Value:Get (WindowName) ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Setup"; Current ﬁle ]
-#The ﬁeld selected does not matter. It serves
+Select Window [ Name: "Setup"; Current file ]
+#The field selected does not matter. It serves
 #only to remove the focus.
 Go to Field [ tempSetup::kuserLocation ]
 Go to Field [ ]
 Else If [ Get (LastError) ≠ 112 ]
-#The ﬁeld selected does not matter. It serves
+#The field selected does not matter. It serves
 #only to remove the focus.
 Go to Field [ testlearn::_Number ]
 Go to Field [ ]
 End If
 Else If [ Get (LastError) ≠ 112 ]
-#The ﬁeld selected does not matter. It serves
+#The field selected does not matter. It serves
 #only to remove the focus.
 Go to Field [ reference::_Number ]
 Go to Field [ ]
 End If
-Select Window [ Name: $windowName; Current ﬁle ]
+Select Window [ Name: $windowName; Current file ]
 #
 #If user is consolidating a keyword.
 If [ $$citationMatch = "key" ]
@@ -397,7 +397,7 @@ Close Window [ Current Window ]
 #to prevent 301 error, then closing the window
 #will put the focus on that window which is not
 #the correct window, thus this next step.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Enter Find Mode [ ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection ]
@@ -406,13 +406,13 @@ Perform Find [ ]
 #
 #Sort records according to users wishes.
 If [ TEMP::sortKey = "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortKey = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -426,11 +426,11 @@ Go to Record/Request/Page
 End Loop
 #
 #Highlight changes.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 If [ $$citationMatch = "node" ]
 Set Variable [ $$citationItem; Value:tempSetup::kdefaultNodePrimary ]
 Set Variable [ $$key; Value:testlearn::kNodeOther ]
@@ -466,12 +466,12 @@ Set Variable [ $$keyOLD ]
 #This halt step was placed after discovering when
 #adding a new group because it contains a tag that
 #is spelled the same as a tag already in this section,
-#the spell/duplicate check script ends with no ﬁeld
+#the spell/duplicate check script ends with no field
 #selected, but then after the exit step was used the
-#the system would enter the ﬁeld, even though no
+#the system would enter the field, even though no
 #scripts tell the system to take any further action after
-#the exit, and on scripts are waiting to ﬁnish after
-#the spell/duclicate check script ﬁnishes. This halt
+#the exit, and on scripts are waiting to finish after
+#the spell/duclicate check script finishes. This halt
 #script step takes care of the problem the exit does not.
 Go to Field [ ]
 Halt Script
@@ -511,13 +511,13 @@ Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 #is new do the following.
 If [ tagMenus::tag ≠ tagMenus::tagSpelling and tagMenus::tagSpelling ≠ "" ]
 #Commit records so user can change spelling.
-#Without commit records the system will not ﬁnd
-#a newly added tag during the ﬁnd part script.
-Select Window [ Name: "References"; Current ﬁle ]
+#Without commit records the system will not find
+#a newly added tag during the find part script.
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Commit Records/Requests
 Else If [ Get (LastError) ≠ 112 ]
 Commit Records/Requests
@@ -525,7 +525,7 @@ End If
 Else If [ Get (LastError) ≠ 112 ]
 Commit Records/Requests
 End If
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Replace the old spelling with the new one.
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -538,10 +538,10 @@ Set Field [ tagMenus::tagSpelling; $newSpelling ]
 Go to Layout [ “Reference” (reference) ]
 #
 #
-#Error notiﬁcation needs to be turned off in case
+#Error notification needs to be turned off in case
 #a tag that has never been used has its spelling
 #changed, in which case this unused tag will
-#will not be found and give the user a notiﬁcation
+#will not be found and give the user a notification
 #to that effect.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
@@ -554,9 +554,9 @@ End If
 Perform Find [ ]
 Loop
 #
-#Add comma to last item and before ﬁrst item
+#Add comma to last item and before first item
 #in list for spelling changes script which has
-#to ﬁnd words separated by commas.
+#to find words separated by commas.
 If [ $$citationMatch = "key" ]
 Set Variable [ $tags; Value:reference::OtherKeyWords ]
 Set Field [ reference::OtherKeyWords; ", ,, " & $tags & ", ,, " ]
@@ -596,7 +596,7 @@ Else If [ $$citationMatch = "node" ]
 #nodes' spelling is identical leave others alone.
 #Reason: nodes can have same spelling and when
 #change spelling of one need to leave others alone
-#until user specﬁcally changes their spelling too.
+#until user specfically changes their spelling too.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -612,8 +612,8 @@ End Loop
 Set Variable [ $exit ]
 #
 #Sort list alphabetically and recreate otherNode
-#ﬁeld from list.
-Sort Records [ Speciﬁed Sort Order: TEMP::tempListNode; ascending ]
+#field from list.
+Sort Records [ Specified Sort Order: TEMP::tempListNode; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ Last ]
@@ -634,7 +634,7 @@ End Loop
 #will see a blank setup screen.
 New Record/Request
 #
-#Set the nodeOther ﬁeld with new alphabetized list.
+#Set the nodeOther field with new alphabetized list.
 Go to Layout [ “Reference” (reference) ]
 Set Field [ reference::NodeOthers; $tags ]
 End If
@@ -653,10 +653,10 @@ End Loop
 Go to Layout [ “learn4” (testlearn) ]
 #
 #
-#Error notiﬁcation needs to be turned off in case
+#Error notification needs to be turned off in case
 #a tag that has never been used has its spelling
 #changed, in which case this unused tag will
-#will not be found and give the user a notiﬁcation
+#will not be found and give the user a notification
 #to that effect.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
@@ -669,9 +669,9 @@ End If
 Perform Find [ ]
 Loop
 #
-#Add comma to last item and before ﬁrst item
+#Add comma to last item and before first item
 #in list for spelling changes script which has
-#to ﬁnd words separated by commas.
+#to find words separated by commas.
 If [ $$citationMatch = "key" ]
 Set Variable [ $tags; Value:testlearn::OtherKeyWords ]
 Set Field [ testlearn::OtherKeyWords; ", ,, " & $tags & ", ,, " ]
@@ -711,7 +711,7 @@ Else If [ $$citationMatch = "node" ]
 #nodes spelling is identical leave others alone.
 #Reason: nodes can have same spelling and when
 #change spelling of one need to leave others alone
-#until user specﬁcally changes their spelling too.
+#until user specfically changes their spelling too.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -727,8 +727,8 @@ January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpelling
 Set Variable [ $exit ]
 #
 #Sort list alphabetically and recreate otherNode
-#ﬁeld from list.
-Sort Records [ Speciﬁed Sort Order: TEMP::tempListNode; ascending ]
+#field from list.
+Sort Records [ Specified Sort Order: TEMP::tempListNode; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ Last ]
@@ -749,7 +749,7 @@ End Loop
 #will see a blank setup screen.
 New Record/Request
 #
-#Set the nodeOther ﬁeld with new alphabetized list.
+#Set the nodeOther field with new alphabetized list.
 Go to Layout [ “learn4” (testlearn) ]
 Set Field [ testlearn::NodeOthers; $tags ]
 End If
@@ -771,28 +771,28 @@ Go to Layout [ original layout ]
 // #Set record number so can return user to it when done.
 // Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 // #Now re-alphabetize and add new keyword to citation.
-// Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+// Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 // Go to Record/Request/Page
 [ First ]
-// Select Window [ Name: "References"; Current ﬁle ]
+// Select Window [ Name: "References"; Current file ]
 // If [ Get (LastError) = 112 ]
-// Select Window [ Name: "Learn"; Current ﬁle ]
+// Select Window [ Name: "Learn"; Current file ]
 // Set Variable [ $otherKeys; Value:testlearn::OtherKeyWords ]
 // Else If [ Get (LastError) ≠ 112 ]
 // Set Variable [ $otherKeys; Value:reference::OtherKeyWords ]
 // End If
 // #
-// #Find and set ﬁrst value in keyword list.
+// #Find and set first value in keyword list.
 // #It will not have a comma in front like the other items.
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 // Loop
 // If [ tagMenus::_Ltag & "¶" = FilterValues ( $$key ; tagMenus::_Ltag & "¶" ) ]
 // Set Variable [ $newKey; Value:tagMenus::tag ]
 // #
-// Select Window [ Name: "References"; Current ﬁle ]
+// Select Window [ Name: "References"; Current file ]
 // If [ Get (LastError) = 112 ]
-// Select Window [ Name: "Learn"; Current ﬁle ]
+// Select Window [ Name: "Learn"; Current file ]
 // Set Field [ testlearn::OtherKeyWords; $newKey ]
 // Set Variable [ $otherKeys; Value:testlearn::OtherKeyWords ]
 // Else If [ Get (LastError) ≠ 112 ]
@@ -801,7 +801,7 @@ Go to Layout [ original layout ]
 // End If
 // End If
 // #
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 // Exit Loop If [ tagMenus::_Ltag & "¶" = FilterValues ( $$key ; tagMenus::_Ltag & "¶" ) ]
 // Go to Record/Request/Page
 [ Next; Exit after last ]
@@ -814,9 +814,9 @@ Go to Layout [ original layout ]
 // If [ tagMenus::_Ltag & "¶" = FilterValues ( $$key ; tagMenus::_Ltag & "¶" ) ]
 // Set Variable [ $newKey; Value:tagMenus::tag ]
 // #
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 // If [ Get (LastError) = 112 ]
-// Select Window [ Name: "Learn"; Current ﬁle ]
+// Select Window [ Name: "Learn"; Current file ]
 // Set Field [ testlearn::OtherKeyWords; $otherKeys & ", " & $newKey ]
 // Set Variable [ $otherKeys; Value:testlearn::OtherKeyWords ]
 // Else If [ Get (LastError) ≠ 112 ]
@@ -825,17 +825,17 @@ Select Window [ Name: "References"; Current ﬁle ]
 // End If
 // End If
 // #
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 // Go to Record/Request/Page
 [ Next; Exit after last ]
 // End Loop
 #
 #Not sure why this update fails at this point.
-#The variable is correct, but the ﬁeld fails to take
+#The variable is correct, but the field fails to take
 #it, so I moved this this step up to right after old
-#spelling variable is created from tagSpelling ﬁeld.
+#spelling variable is created from tagSpelling field.
 // #Update spelling of word in case of future changes
-// #to its spelling that would then trigger the ﬁrst
+// #to its spelling that would then trigger the first
 // #part of this scirpt to udpate the spelling in the
 // #tag list.
 // Go to Record/Request/Page [ $recordNumber ]
@@ -845,13 +845,13 @@ Select Window [ Name: "References"; Current ﬁle ]
 #Sort records according to users wishes.
 If [ TEMP::sortKey = "cat" ]
 January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -7-tagMenu: changeSpellingOfKeywordOrNodeTag
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortKey = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 Set Variable [ $$stoploadCitation ]
@@ -860,7 +860,7 @@ Exit Script [ ]
 End If
 #
 #Update spelling of word in case of future changes
-#to its spelling that would then trigger the ﬁrst
+#to its spelling that would then trigger the first
 #part of this scirpt to udpate the spelling in the
 #tag list.
 Set Field [ tagMenus::tagSpelling; $newSpelling ]

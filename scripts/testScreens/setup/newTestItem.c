@@ -14,7 +14,7 @@ Exit Script [ ]
 End If
 #
 #If there are no test items, then create a new test
-#item group ﬁrst and then a test for that group.
+#item group first and then a test for that group.
 #All test items belong to test item groups, not
 #tests. This allows test item groups to be added
 #to other test's test item lists.

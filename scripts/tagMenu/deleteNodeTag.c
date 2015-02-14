@@ -16,7 +16,7 @@ Perform Script [ “deleteKeywordTag” ]
 Exit Script [ ]
 End If
 #
-#Exit ﬁeld so user can see red delete
+#Exit field so user can see red delete
 #formatting later on.
 Go to Field [ ]
 #
@@ -43,7 +43,7 @@ Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
 #Open a new window and look for tag in both
-#primary and other node ﬁelds.
+#primary and other node fields.
 New Window [ ]
 #
 #See if there is only one section and is so if this node
@@ -116,8 +116,8 @@ End If
 #Clear the inUse variable before each run thru
 #the loop. If not cleared, then last time thru
 #if this variable had a value in it, that value will
-#stay in it even if no ﬁnds are made, which then
-#tells the system that a no ﬁnd node, has ﬁnds.
+#stay in it even if no finds are made, which then
+#tells the system that a no find node, has finds.
 January 7, 平成26 16:33:14 Imagination Quality Management.fp7 - deleteNodeTag -1-tagMenu: deleteNodeTag
 #So the system must clear this variable before each
 #run thru the loop.
@@ -129,14 +129,14 @@ Go to Layout [ “tableTestLearn” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kNodePrimary; $check ]
 Set Field [ testlearn::kcsection; $section ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
 #
 #Look in main kother...
 Enter Find Mode [ ]
 Set Field [ testlearn::kNodeOther; $check & ¶ ]
 Set Field [ testlearn::kcsection; $section ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Extend Found Set [ ]
 If [ Get (FoundCount) ≠ 0 ]
 Set Variable [ $inUse; Value:Get (FoundCount) & " learn" ]
@@ -261,7 +261,7 @@ End If
 #is why the section variable would be blank.
 #In the latter case, the loop would be coming round
 #after checking all sections in the database.
-#At ﬁrst the loop is conﬁned to looking at all nodes
+#At first the loop is confined to looking at all nodes
 #in this section. Once it has done that, a script
 #step below exits the loop only to enter a loop
 #that clears the section variable and causes the
@@ -271,7 +271,7 @@ End If
 #section variable will force it out of this loop and
 #a similar script step in the outer loop will do the
 #same thereby allowing the system to follow the
-#remainder of this script to report on the ﬁndings
+#remainder of this script to report on the findings
 #made during these discovery loops.
 Exit Loop If [ ValueCount ( ruleTagMenuGroups::ksection ) = 1 or $section = "" ]
 #
@@ -297,7 +297,7 @@ Set Variable [ $sectionInUse; Value:$inUse & $addToSectionInUse ]
 #Go the next record. As this delete may have
 #been started on a record in the middle of the group
 #these next steps insure that all records are checked
-#even if that requires going to the ﬁrst record
+#even if that requires going to the first record
 #in order to eventually loop thru all records in a
 #group back to the initial record.
 Go to Record/Request/Page
@@ -345,7 +345,7 @@ Close Window [ Current Window ]
 #
 #
 #
-#Report on ﬁndings and if none delete node.
+#Report on findings and if none delete node.
 #
 #
 #
@@ -425,7 +425,7 @@ Exit Loop If [ $sectionVariableNumber = 0 ]
 End Loop
 Set Field [ ruleTagMenuGroups::ksection; $sectionKeyMinusBlanks ]
 #
-#A ﬁnd is performed to show the remaining node
+#A find is performed to show the remaining node
 #groups for this section.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
@@ -439,26 +439,26 @@ Perform Find [ ]
 If [ TEMP::sortNode = "cat"
  or
 TEMP::sortNode = "" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagSectionName::name; ascending
+Sort Records [ Specified Sort Order: ruleTagSectionName::name; ascending
 ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortNode = "abc" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagSectionName::name; ascending
+Sort Records [ Specified Sort Order: ruleTagSectionName::name; ascending
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 #Because user may click anywhere to go to a record
 #all keys for all menu items must uploaded
 #until one is found that matches and then the
 #$$citationItem variable can be set.
-#Like when the user clicks in a non ﬁeld area
-#a space between ﬁelds that then tells ﬁlemaker
-#to go that record but not to ﬁeld belonging to
+#Like when the user clicks in a non field area
+#a space between fields that then tells filemaker
+#to go that record but not to field belonging to
 #that record.
 Go to Record/Request/Page
 [ First ]
@@ -478,14 +478,14 @@ Set Variable [ $$stopLoadTagRecord ]
 Refresh Window
 #
 January 7, 平成26 16:33:14 Imagination Quality Management.fp7 - deleteNodeTag -4-tagMenu: deleteNodeTag
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "Setup"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "Setup"; Current file ]
 Refresh Window
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 End If
 Exit Script [ ]
@@ -524,7 +524,7 @@ Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 Exit Script [ ]
 #
-#If the user says yes, ﬁrst make sure the record
+#If the user says yes, first make sure the record
 #is not the last record in a group. If it is and
 #the system deleted the record without deleting
 #the group too, this group would become
@@ -544,7 +544,7 @@ Perform Find [ ]
 #then the system deletes the current record without
 #any more user input.
 If [ Get (FoundCount) ≠ 1 ]
-Close Window [ Name: "Delete Tag"; Current ﬁle ]
+Close Window [ Name: "Delete Tag"; Current file ]
 Delete Record/Request
 [ No dialog ]
 Set Variable [ $delete ]
@@ -558,13 +558,13 @@ Exit Script [ ]
 #BUT if only one record is found user is asked
 #if they want to delete the group too.
 Else If [ Get (FoundCount) = 1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #The records are sorted by group to show
 #the user which group is going to be deleted.
 If [ TEMP::sortKey ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
@@ -581,7 +581,7 @@ Delete Record/Request
 [ No dialog ]
 #
 #Delete group.
-Select Window [ Name: "delete tag"; Current ﬁle ]
+Select Window [ Name: "delete tag"; Current file ]
 Go to Layout [ “tableGroupTag” (groupTest) ]
 Enter Find Mode [ ]
 Set Field [ groupTest::_Lgroup; $group ]
@@ -591,7 +591,7 @@ Delete Record/Request
 End If
 End If
 End If
-Close Window [ Name: "Delete Tag"; Current ﬁle ]
+Close Window [ Name: "Delete Tag"; Current file ]
 Set Variable [ $delete ]
 Set Variable [ $group ]
 Refresh Window

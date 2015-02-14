@@ -4,23 +4,23 @@ Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
 // #Due to the fact that users click the add tag button
-// #when they want to ﬁnd records tagged with a tag,
+// #when they want to find records tagged with a tag,
 // #I'm making it so that users can only add tags in edit mode.
 // If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd ≠ 1 ]
-// Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags. This inconvience was put in place because users kept forgetting to click ﬁnd before click the P or O buttons."; Buttons: “OK” ]
+// Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags. This inconvience was put in place because users kept forgetting to click find before click the P or O buttons."; Buttons: “OK” ]
 // Exit Script [ ]
 // End If
 #
-// #Because I keep forgetting to press ﬁnd mode, this
-// #bit of script is to conﬁrm that the user really wants
-// #to add or change the tag of the ﬁrst record instead of
-// #ﬁnding records with selected tag.
+// #Because I keep forgetting to press find mode, this
+// #bit of script is to confirm that the user really wants
+// #to add or change the tag of the first record instead of
+// #finding records with selected tag.
 // If [ $$referenceRecordOne = 1 ]
-// Show Custom Dialog [ Message: "Did you mean to ADD this tag to the ﬁrst record or FIND reference records with this tag?"; Buttons: “ADD”, “FIND”, “Cancel” ]
+// Show Custom Dialog [ Message: "Did you mean to ADD this tag to the first record or FIND reference records with this tag?"; Buttons: “ADD”, “FIND”, “Cancel” ]
 // If [ Get ( LastMessageChoice ) = 2 ]
 // #This variable is needed becasue message choice 2
 // #gets carried over to the Find Mode Script, which then
-// #activates tag instead of reference record ﬁnd mode.
+// #activates tag instead of reference record find mode.
 // Set Variable [ $$ClearMessageChoice; Value:1 ]
 // Perform Script [ “FindMode” ]
 // Else If [ Get ( LastMessageChoice ) = 3 ]
@@ -33,7 +33,7 @@ Set Error Capture [ On ]
 #
 #
 #This script adds tags to main reference or learn
-#primary tag ﬁelds, and a chunk of it adds section
+#primary tag fields, and a chunk of it adds section
 #keys found in the learn or reference record to
 #the keyword or node tag group of the tag just
 #added, to insure that this tag shows up in every
@@ -47,7 +47,7 @@ Set Error Capture [ On ]
 #NOTE: Most of these tags except keyword and node
 #tags are universal, and so there are no section keys
 #to add to them. In the case of sample and test
-#tags, because these tags are section speciﬁc, there
+#tags, because these tags are section specific, there
 #is no reason to add keys from other sections to
 #them.
 #
@@ -89,12 +89,12 @@ Perform Script [ “CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain” ]
 #a main record. This is because when going to
 #edit cite or reference records, only main records
 #are shown by default.
-If [ "main" & ¶ ≠ FilterValues ( testlearn::ﬁlterFind ; "main" & ¶ ) and Get ( LayoutTableName ) = "testlearn" ]
-Set Variable [ $ﬁlterFind; Value:testlearn::ﬁlterFind ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ & $ﬁlterFind ]
-Else If [ "main" & ¶ ≠ FilterValues ( reference::ﬁlterFind ; "main" & ¶ ) and Get ( LayoutTableName ) = "reference" ]
-Set Variable [ $ﬁlterFind; Value:reference::ﬁlterFind ]
-Set Field [ reference::ﬁlterFind; "main" & ¶ & $ﬁlterFind ]
+If [ "main" & ¶ ≠ FilterValues ( testlearn::filterFind ; "main" & ¶ ) and Get ( LayoutTableName ) = "testlearn" ]
+Set Variable [ $filterFind; Value:testlearn::filterFind ]
+Set Field [ testlearn::filterFind; "main" & ¶ & $filterFind ]
+Else If [ "main" & ¶ ≠ FilterValues ( reference::filterFind ; "main" & ¶ ) and Get ( LayoutTableName ) = "reference" ]
+Set Variable [ $filterFind; Value:reference::filterFind ]
+Set Field [ reference::filterFind; "main" & ¶ & $filterFind ]
 End If
 #
 Else If [ 1 = 1 ]
@@ -130,7 +130,7 @@ Set Variable [ $tag; Value:tagMenus::_Ltag ]
 Set Variable [ $lock; Value:tagMenus::orderOrLock ]
 End If
 #
-#Remove focus from ﬁeld so can see
+#Remove focus from field so can see
 #conditional formatting.
 Go to Field [ ]
 #
@@ -153,8 +153,8 @@ Set Variable [ $citekeywordOther; Value:reference::kkeywordOther ]
 Set Variable [ $citekeywordOtherWords; Value:reference::OtherKeyWords ]
 Set Variable [ $citekeywordPrimary; Value:reference::kkeywordPrimary ]
 #
-Set Variable [ $ﬁlename; Value:reference::ﬁleName ]
-Set Variable [ $ﬁleLocation; Value:reference::kﬁleLocation ]
+Set Variable [ $filename; Value:reference::fileName ]
+Set Variable [ $fileLocation; Value:reference::kfileLocation ]
 Set Variable [ $folderpath; Value:reference::kfolderpath ]
 Set Variable [ $medium; Value:reference::kmedium ]
 Set Variable [ $URL; Value:reference::URL ]
@@ -171,11 +171,11 @@ End If
 // New Window [ Name: "Add Tag" ]
 #
 #Select reference, learn, or setup window.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 #
 #Check which tag user is looking at and then...
 If [ $$citationMatch = "node" ]
@@ -191,7 +191,7 @@ Set Variable [ $$PrimaryNode ]
 #
 #If primary node is not in use add it and set
 #variables to see if it was in the other node
-#ﬁeld so it can be removed from there thus
+#field so it can be removed from there thus
 #preventing the same node showing up twice.
 Else If [ tempSetup::kdefaultNodePrimary ≠ $tag ]
 Set Field [ tempSetup::kdefaultNodePrimary; $tag ]
@@ -209,10 +209,10 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 Perform Script [ “addORremoveTagFromCitationStep2node” ]
-Close Window [ Name: "reorder"; Current ﬁle ]
+Close Window [ Name: "reorder"; Current file ]
 Exit Script [ ]
 End If
 #
@@ -224,7 +224,7 @@ Set Variable [ $$health ]
 Refresh Window
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 Exit Script [ ]
 Else If [ testlearn::kHealth ≠ $tag ]
@@ -234,7 +234,7 @@ Refresh Window
 #
 January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -2-tagMenu: addTagToMainRecord
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 Exit Script [ ]
 End If
@@ -250,7 +250,7 @@ Set Field [ tempSetup::sectionName; $tagName ]
 Refresh Window
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #Allow duplicate tag check script to operate.
@@ -261,7 +261,7 @@ End If
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 #
 #Refresh the windows so changed conditional formatting
@@ -293,7 +293,7 @@ Set Variable [ $$PrimaryNode ]
 #
 #If primary node is not in use add it and set
 #variables to see if it was in the other node
-#ﬁeld so it can be removed from there thus
+#field so it can be removed from there thus
 #preventing the same node showing up twice.
 Else If [ testlearn::kNodePrimary ≠ $tag ]
 Set Field [ testlearn::kNodePrimary; $tag ]
@@ -308,10 +308,10 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 Perform Script [ “addORremoveTagFromCitationStep2node” ]
-Close Window [ Name: "reorder"; Current ﬁle ]
+Close Window [ Name: "reorder"; Current file ]
 Exit Script [ ]
 End If
 #
@@ -371,8 +371,8 @@ Set Field [ testlearn::kcitation; "" ]
 // Set Field [ testlearn::kcKeywordOther; "" ]
 // Set Field [ testlearn::OtherKeyWords; "" ]
 // #
-// Set Field [ testlearn::ﬁlename; "" ]
-// Set Field [ testlearn::kﬁleLocation; "" ]
+// Set Field [ testlearn::filename; "" ]
+// Set Field [ testlearn::kfileLocation; "" ]
 // Set Field [ testlearn::kfolderPath; "" ]
 // Set Field [ testlearn::kmedium; "" ]
 // Set Field [ testlearn::URL; "" ]
@@ -392,13 +392,13 @@ Set Variable [ $$cite; Value:Case ( $tableName = "testLearn" ; $tag & "L" ; $tag
 Refresh Window
 #
 #Ask user if OK to replace keywords.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Show Custom Dialog [ Message: "Use citation record's keywords: " &
 //KEYWORDS
 Case ( tagKeywordPrimary::tag = "" ; "" ; tagKeywordPrimary::tag ; Bold & ", " ) &
 reference::OtherKeyWords &
 "? (This will replace keywords for this record, if there are any.)"; Buttons: “no”, “yes” ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ testlearn::kKeywordPrimary; $citekeywordPrimary ]
 Set Field [ testlearn::kcKeywordOther; $citekeywordOther ]
@@ -412,13 +412,13 @@ Set Field [ testlearn::kHealth; "" ]
 #link info, because if changed, it will not change here
 #because these items not linked to citation record.
 // Set Field [ testlearn::copyrightYear; $citeCopyrightDate ]
-// Set Field [ testlearn::ﬁlename; $ﬁlename ]
-// Set Field [ testlearn::kﬁleLocation; $ﬁleLocation ]
+// Set Field [ testlearn::filename; $filename ]
+// Set Field [ testlearn::kfileLocation; $fileLocation ]
 // Set Field [ testlearn::kfolderPath; $folderpath ]
 // Set Field [ testlearn::kmedium; $medium ]
 // Set Field [ testlearn::URL; $URL ]
 // Set Field [ testlearn::URLPubDate; $URLdate ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
 End If
 #
@@ -432,7 +432,7 @@ Set Variable [ $$PrimaryKey ]
 #
 #If primary keyword is not in use add it and set
 #variables to see if it was in the other keyword
-#ﬁeld so it can be removed from there thus
+#field so it can be removed from there thus
 #preventing the same keyword showing up twice.
 Else If [ testlearn::kKeywordPrimary ≠ $tag ]
 Set Field [ testlearn::kKeywordPrimary; $tag ]
@@ -446,7 +446,7 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 Perform Script [ “addORremoveTagFromCitationStep2keyword” ]
 Exit Script [ ]
@@ -457,7 +457,7 @@ Else If [ $$citationMatch = "test" ]
 #
 #If test item is in use, then remove it.
 #
-#But ﬁrst determine if it is a discovery record.
+#But first determine if it is a discovery record.
 #Because discovery records are created in the
 #test module, and then end up here via the
 #info check box on the discovery tag menu, these
@@ -472,7 +472,7 @@ If [ testlearn::ktest ≠ "" and GetValue ( testlearn::kctest ; 2 ) = "" ]
 Show Custom Dialog [ Message: "This discovery record will be removed from this section of your database: learn section. It will still be available in the " & TEMP::sectionName & " test section as a discovery record for " & TEMP::testName & ", report " & testlearn::
 kreportNumber & "."; Buttons: “OK”, “Cancel” ]
 If [ Get ( LastMessageChoice ) = 2 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 Exit Script [ ]
 End If
@@ -484,10 +484,10 @@ Set Field [ testlearn::kctest; Substitute ( $$test ; GetValue ( testlearn::kctes
 Set Field [ testlearn::orderTest; "" ]
 #
 #If as discussed above this is a discovery record,
-#clear the ﬁlterﬁnd ﬁeld to prevent it from being
+#clear the filterfind field to prevent it from being
 #part of the learn record set and then omit it.
 If [ testlearn::ktest ≠ "" and testlearn::kctest = "" ]
-Set Field [ testlearn::ﬁlterFind; "" ]
+Set Field [ testlearn::filterFind; "" ]
 Omit Record
 End If
 Set Variable [ $$test; Value:testlearn::kctest ]
@@ -512,7 +512,7 @@ Set Variable [ $number ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 End If
 Exit Loop If [ FilterValues ( Middle ( GetValue ( testlearn::kctest ; $number ) ; 4 ; 42 ) ; $$test & "¶" ) = "" ]
@@ -562,7 +562,7 @@ Set Variable [ $number ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 End If
 Exit Loop If [ FilterValues ( Middle ( GetValue ( testlearn::kcsample ; $number ) ; 4 ; 42 ) ; $tagS & "¶" ) = "" ]
@@ -585,7 +585,7 @@ End If
 #Record must be committed if user decides to
 January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -5-tagMenu: addTagToMainRecord
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 #
 #Refresh the windows so changed conditional formatting
@@ -627,7 +627,7 @@ Set Variable [ $$PrimaryNode ]
 #
 #If primary node is not in use add it and set
 #variables to see if it was in the other node
-#ﬁeld so it can be removed from there thus
+#field so it can be removed from there thus
 #preventing the same node showing up twice.
 Else If [ reference::knodePrimary ≠ $tag ]
 Set Field [ reference::knodePrimary; $tag ]
@@ -642,10 +642,10 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 Perform Script [ “addORremoveTagFromCitationStep2node” ]
-Close Window [ Name: "reorder"; Current ﬁle ]
+Close Window [ Name: "reorder"; Current file ]
 Exit Script [ ]
 End If
 #
@@ -677,7 +677,7 @@ Set Variable [ $$cite ]
 Else If [ reference::kcitation ≠ $tag ]
 Set Field [ reference::kcitation; $tag ]
 Set Variable [ $$cite; Value:reference::kcitation ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
 End If
 #
@@ -773,7 +773,7 @@ Set Variable [ $$PrimaryKey ]
 #
 #If primary keyword is not in use add it and set
 #variables to see if it was in the other keyword
-#ﬁeld so it can be removed from there thus
+#field so it can be removed from there thus
 #preventing the same keyword showing up twice.
 Else If [ reference::kkeywordPrimary ≠ $tag ]
 Set Field [ reference::kkeywordPrimary; $tag ]
@@ -788,7 +788,7 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 Perform Script [ “addORremoveTagFromCitationStep2keyword” ]
 Exit Script [ ]
@@ -798,7 +798,7 @@ End If
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 #
 #Refresh the windows so changed conditional formatting
@@ -856,7 +856,7 @@ January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRe
 // End If
 Set Variable [ $$stoploadCitation ]
 End If
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 #
@@ -886,6 +886,6 @@ FilterValues ( Middle ( GetValue ( $$test ; 10 ) ; 4 ; 42 ) ; test::_Ltest & "¶
  = 0 ]
 Perform Script [ “loadItemRecordForTestTagMenu” ]
 End If
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -8-

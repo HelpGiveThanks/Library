@@ -13,14 +13,14 @@ End If
 #Find section tags. Section tags are library
 #sections and any brainstorm or evidence record
 #can be tagged with any section item record SO
-#ﬁnd all library sections current record is
+#find all library sections current record is
 #assigned to.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ test::ksection; TEMP::ksection ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: ruleSection::name; ascending
+Sort Records [ Specified Sort Order: ruleSection::name; ascending
 groupTest::name; ascending
 test::testName; ascending ]
 [ Restore; No dialog ]
@@ -33,17 +33,17 @@ test::testName; ascending ]
 // #Sort according to current users wishes. By default
 // #the sort will be by category which is set by editCitation script.
 // If [ TEMP::sortMedium = "cat" ]
-// Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+// Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 // Else If [ TEMP::sortMedium = "abc" ]
-// Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+// Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 // End If
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -58,7 +58,7 @@ Exit Script [ ]
 End If
 Set Variable [ $$ID; Value:test::_Ltest ]
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -75,16 +75,16 @@ End If
 #Inform user of items use on both screens.
 Set Variable [ $$citationItem; Value:test::_Ltest ]
 Refresh Window
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "References"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 End If
 Go to Field [ ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"test" ]
@@ -99,14 +99,14 @@ End If
 #Find section tags. Test tags are section
 #items. Any brainstorm or evidence record
 #can be tagged with any section item record SO
-#ﬁnd all library sections current record is
+#find all library sections current record is
 #assigned to.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ ruleSection::match; "section" ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: ruleSection::name; ascending
+Sort Records [ Specified Sort Order: ruleSection::name; ascending
 groupTest::name; ascending
 test::testName; ascending ]
 [ Restore; No dialog ]

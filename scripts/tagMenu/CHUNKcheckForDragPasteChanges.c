@@ -3,7 +3,7 @@ tagMenu: CHUNKcheckForDragPasteChanges
 #
 If [ Get (LayoutTableName) = "tagMenus" ]
 #
-#Exit any ﬁelds so do not get can't modify error message
+#Exit any fields so do not get can't modify error message
 #because record is in use in another window.
 Go to Field [ ]
 #
@@ -16,7 +16,7 @@ New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #Loop thru all records and make sure their spelling
 #has not been changed, and if it has change it back
 #to the way it was, unless the change was made in the
-#ﬁeld the user was just working on.
+#field the user was just working on.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -46,7 +46,7 @@ Set Variable [ $$stopLoadTagRecord ]
 Close Window [ Current Window ]
 Else If [ Get (LayoutTableName) = "test" ]
 #
-#Exit any ﬁelds so do not get can't modify error message
+#Exit any fields so do not get can't modify error message
 #because record is in use in another window.
 Go to Field [ ]
 #
@@ -59,7 +59,7 @@ New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 #Loop thru all records and make sure their spelling
 #has not been changed, and if it has change it back
 #to the way it was, unless the change was made in the
-#ﬁeld the user was just working on.
+#field the user was just working on.
 Go to Record/Request/Page
 [ First ]
 Loop

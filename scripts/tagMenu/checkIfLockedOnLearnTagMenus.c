@@ -8,7 +8,7 @@ or $$citationMatch = "path" ]
 Exit Script [ ]
 End If
 #Used on learn tag menus to keep user out of any
-#locked ﬁelds.
+#locked fields.
 If [ nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" ]
 Set Field [ tagMenus::tag; tagMenus::tagSpelling ]
 Go to Field [ ]

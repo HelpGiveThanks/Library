@@ -2,27 +2,27 @@ testScreens: testReport: InUsePart3
 #
 // #Determine if record is a discovery or info record.
 // #This information will be used by other parts of
-// #this script to ﬁgure out which Tag Menu layout
+// #this script to figure out which Tag Menu layout
 // #to go to when neccessary: discover or info.
 // If [ ]
 // End If
 #
 #BEGIN A
-#[by David Matson 4.18.11, last modiﬁed by ]
-#If user has selected to copy a ﬁnding from the Report window
+#[by David Matson 4.18.11, last modified by ]
+#If user has selected to copy a finding from the Report window
 #to remove it or to move it to another slot...
-If [ Get ( ActiveFieldName ) = "_kfPhoto" and $$ﬁnding = "" or
-Get ( ActiveFieldName ) = "_kfPhoto2" and $$ﬁnding = "" or
-Get ( ActiveFieldName ) = "_kfPhoto3" and $$ﬁnding = "" or
-Get ( ActiveFieldName ) = "_kfPhoto4" and $$ﬁnding = "" ]
+If [ Get ( ActiveFieldName ) = "_kfPhoto" and $$finding = "" or
+Get ( ActiveFieldName ) = "_kfPhoto2" and $$finding = "" or
+Get ( ActiveFieldName ) = "_kfPhoto3" and $$finding = "" or
+Get ( ActiveFieldName ) = "_kfPhoto4" and $$finding = "" ]
 #
 #
 #
 #BEGIN a1
-#[by David Matson 4.18.11, last modiﬁed by ]
-#If user is trying to copy blank ﬁeld
+#[by David Matson 4.18.11, last modified by ]
+#If user is trying to copy blank field
 #stop the script
-If [ $$ﬁnding = "" and Get (ActiveFieldContents) = "" ]
+If [ $$finding = "" and Get (ActiveFieldContents) = "" ]
 Go to Field [ ]
 Halt Script
 End If
@@ -32,7 +32,7 @@ End If
 #
 #
 #copy it
-Set Variable [ $$ﬁnding; Value:Get ( ActiveFieldContents ) ]
+Set Variable [ $$finding; Value:Get ( ActiveFieldContents ) ]
 Set Variable [ $$window; Value:"Report" ]
 Refresh Window
 Clear [ ]
@@ -43,29 +43,29 @@ Go to Field [ ]
 #conditional formatting: green = in use,
 #yellow = reaady to paste, normal colors = not
 #use and not copied for pasting.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LayoutName) ≠ "reportTagDiscovery" ]
 Perform Script [ “reportTagDiscovery” ]
 End If
 Go to Field [ ]
 #
-#ﬁnd the record that has been copied and cleared
+#find the record that has been copied and cleared
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ $$ﬁnding = testlearnReportTags::_Ltestlearn ]
+Exit Loop If [ $$finding = testlearnReportTags::_Ltestlearn ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
 #If it is not a discovery record, go to the info layout.
-If [ $$ﬁnding ≠ testlearnReportTags::_Ltestlearn ]
+If [ $$finding ≠ testlearnReportTags::_Ltestlearn ]
 Perform Script [ “reportTagInfo” ]
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
 Loop
-Exit Loop If [ $$ﬁnding = testlearnReportTags::_Ltestlearn ]
+Exit Loop If [ $$finding = testlearnReportTags::_Ltestlearn ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
@@ -80,7 +80,7 @@ End If
 Set Variable [ $inUse; Value:testlearnReportTags::inUse ]
 Set Field [ testlearnReportTags::inUse; Substitute ( testlearnReportTags::inUse ; $$contact & $$reportNumber & "¶" ; "" ) ]
 #
-Select Window [ Name: "Report"; Current ﬁle ]
+Select Window [ Name: "Report"; Current file ]
 Halt Script
 #[validated by David Matson 4.18.11]
 #END A
@@ -88,49 +88,49 @@ Halt Script
 #
 #
 #BEGIN B
-#[by David Matson 4.18.11, last modiﬁed by ]
+#[by David Matson 4.18.11, last modified by ]
 #
-#If user has selected to put a copied ﬁnding from the Report window,
+#If user has selected to put a copied finding from the Report window,
 #into a blank slot,
-Else If [ Get ( ActiveFieldName ) = "_kfPhoto" and Get ( ActiveFieldContents )="" and $$ﬁnding ≠ "" and $$window = "Report"
+Else If [ Get ( ActiveFieldName ) = "_kfPhoto" and Get ( ActiveFieldContents )="" and $$finding ≠ "" and $$window = "Report"
  or
-Get ( ActiveFieldName ) = "_kfPhoto2" and Get ( ActiveFieldContents )="" and $$ﬁnding ≠ "" and $$window = "Report"
+Get ( ActiveFieldName ) = "_kfPhoto2" and Get ( ActiveFieldContents )="" and $$finding ≠ "" and $$window = "Report"
  or
-Get ( ActiveFieldName ) = "_kfPhoto3" and Get ( ActiveFieldContents )="" and $$ﬁnding ≠ "" and $$window = "Report"
+Get ( ActiveFieldName ) = "_kfPhoto3" and Get ( ActiveFieldContents )="" and $$finding ≠ "" and $$window = "Report"
  or
-Get ( ActiveFieldName ) = "_kfPhoto4" and Get ( ActiveFieldContents )="" and $$ﬁnding ≠ "" and $$window = "Report" ]
+Get ( ActiveFieldName ) = "_kfPhoto4" and Get ( ActiveFieldContents )="" and $$finding ≠ "" and $$window = "Report" ]
 #paste ID in blank slot
-Set Field [ $$ﬁnding ]
+Set Field [ $$finding ]
 Go to Field [ ]
 #
 #Inform user of where tag is now located by changing
 #conditional formatting: green = in use,
 #yellow = reaady to paste, normal colors = not
 #use and not copied for pasting.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LayoutName) ≠ "reportTagDiscovery" ]
 Perform Script [ “reportTagDiscovery” ]
 End If
 Go to Field [ ]
 #
-#ﬁnd the record that has been copied and cleared
+#find the record that has been copied and cleared
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ $$ﬁnding = testlearnReportTags::_Ltestlearn ]
+Exit Loop If [ $$finding = testlearnReportTags::_Ltestlearn ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 January 7, 平成26 14:28:27 Imagination Quality Management.fp7 - InUsePart3__DavidMatsonALLValid4.18.11 -1-testScreens: testReport: InUsePart3__DavidMatsonALLValid4.18.11
 #
 #If it is not a discovery record, go to the info layout.
-If [ $$ﬁnding ≠ testlearnReportTags::_Ltestlearn ]
+If [ $$finding ≠ testlearnReportTags::_Ltestlearn ]
 Perform Script [ “reportTagInfo” ]
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
 Loop
-Exit Loop If [ $$ﬁnding = testlearnReportTags::_Ltestlearn ]
+Exit Loop If [ $$finding = testlearnReportTags::_Ltestlearn ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
@@ -144,11 +144,11 @@ End If
 Set Variable [ $inUse; Value:testlearnReportTags::inUse ]
 Set Field [ testlearnReportTags::inUse; $inUse & $$contact & $$reportNumber & "¶" ]
 #
-#clear the $$ﬁnding and $window variables
-Set Variable [ $$ﬁnding ]
+#clear the $$finding and $window variables
+Set Variable [ $$finding ]
 Set Variable [ $$window ]
 Refresh Window
-Select Window [ Name: "Report"; Current ﬁle ]
+Select Window [ Name: "Report"; Current file ]
 Refresh Window
 Halt Script
 #[validated by David Matson 4.18.11]
@@ -157,9 +157,9 @@ Halt Script
 #
 #
 #BEGIN C
-#[by David Matson 4.18.11, last modiﬁed by ]
+#[by David Matson 4.18.11, last modified by ]
 #
-#If user has selected to insert a copied ﬁnding from the Report window,
+#If user has selected to insert a copied finding from the Report window,
 #into a slot already occupied,
 #PREVENT USER FROM DOING SO. DISABLE PART C.
 Else If [ Get ( ActiveFieldName ) = "_kfPhoto" and Get ( ActiveFieldContents ) ≠ "" and $$window = "Report"
@@ -175,17 +175,17 @@ Exit Script [ ]
 // #copy the occupying records ID
 // Set Variable [ $ID; Value:Get ( ActiveFieldContents ) ]
 // #paste in the desired records ID in its place (contact and thing IDs are already there)
-// Set Field [ $$ﬁnding ]
+// Set Field [ $$finding ]
 // Go to Field [ ]
 // #now go to the Inspection Findings window, note the record the user is on
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 // Set Variable [ $record; Value:Get ( RecordNumber ) ]
 // Go to Field [ ]
 // #
 // #open new window so as to avoid scroll issue
 // New Window [ ]
 // #
-// #ﬁnd the record that has been replaced and thus removed from the Report window
+// #find the record that has been replaced and thus removed from the Report window
 // Enter Find Mode [ ]
 // Set Field [ testlearnReportTags::_Ltestlearn; $ID ]
 // Perform Find [ ]
@@ -196,16 +196,16 @@ Exit Script [ ]
 // Set Variable [ $inUse; Value:testlearnReportTags::inUse ]
 // Set Field [ testlearnReportTags::inUse; Substitute ( testlearnReportTags::inUse ; $$contact & $$reportNumber & "¶" ; "" ) ]
 // Set Variable [ $ID ]
-// #ﬁnd the record that has been inserted
+// #find the record that has been inserted
 // Enter Find Mode [ ]
-// Set Field [ testlearnReportTags::_Ltestlearn; $$ﬁnding ]
+// Set Field [ testlearnReportTags::_Ltestlearn; $$finding ]
 // Perform Find [ ]
 // #inform the user that it is being used in the Report window
 // #by adding it to the list of report sections where it is used
 // Set Variable [ $inUse; Value:testlearnReportTags::inUse ]
 // Set Field [ testlearnReportTags::inUse; testlearnReportTags::inUse & $$contact & $$reportNumber & "¶" ]
 // #
-// #ﬁnally, re-ﬁnd the records the user was looking at, and go to speciﬁc record the user was on.
+// #finally, re-find the records the user was looking at, and go to specific record the user was on.
 // Set Variable [ $contact; Value:testlearnReportTags::ktestSubject ]
 // Set Variable [ $item; Value:testlearnReportTags::ktest ]
 // Enter Find Mode [ ]
@@ -217,13 +217,13 @@ Exit Script [ ]
 // Set Field [ TEMP::showFavorites; "" ]
 // Perform Script [ “<unknown>” ]
 // Else If [ TEMP::showFavorites = "" ]
-// Sort Records [ Speciﬁed Sort Order: testlearnReportTags::_Ltestlearn; ascending ]
+// Sort Records [ Specified Sort Order: testlearnReportTags::_Ltestlearn; ascending ]
 [ Restore; No dialog ]
 // Go to Record/Request/Page [ $record ]
 [ No dialog ]
 // End If
-// #clear the $$ﬁnding and $window variables
-// Set Variable [ $$ﬁnding ]
+// #clear the $$finding and $window variables
+// Set Variable [ $$finding ]
 // Set Variable [ $$window ]
 // Close Window [ Current Window ]
 // Halt Script
@@ -233,8 +233,8 @@ Exit Script [ ]
 #
 #
 #BEGIN D
-#[by David Matson 4.18.11, last modiﬁed by ]
-#If user has selected to insert a ﬁnding from the ﬁnding window
+#[by David Matson 4.18.11, last modified by ]
+#If user has selected to insert a finding from the finding window
 #into an occupied slot on the Report window
 #PREVENT USER FROM DOING SO. DISABLE PART C.
 Else If [ Get ( ActiveFieldName ) = "_kfPhoto" and Get ( ActiveFieldContents ) ≠ "" and $$window = "Tag Menus"
@@ -252,13 +252,13 @@ Exit Script [ ]
 // #
 // #
 // #BEGIN d1
-// #[by David Matson 4.18.11, last modiﬁed by ]
-// #If user is trying to copy the same ﬁnding into the location it currently occupies
+// #[by David Matson 4.18.11, last modified by ]
+// #If user is trying to copy the same finding into the location it currently occupies
 // #stop the script
 // Set Variable [ $ID; Value:Get ( ActiveFieldContents ) ]
-// If [ $$ﬁnding = $ID ]
+// If [ $$finding = $ID ]
 // Go to Field [ ]
-// Set Variable [ $$ﬁnding ]
+// Set Variable [ $$finding ]
 // Halt Script
 // End If
 // #[validated by David Matson 4.18.11]
@@ -267,25 +267,25 @@ Exit Script [ ]
 // #
 // #
 // #paste in the desired records ID in its place (contact and thing IDs are already there)
-// Set Field [ $$ﬁnding ]
+// Set Field [ $$finding ]
 // Go to Field [ ]
 // #tell user it is now in use
 // #by adding it to the list of report sections where it is used
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 // Set Variable [ $inUse; Value:testlearnReportTags::inUse ]
 // Set Field [ testlearnReportTags::inUse; testlearnReportTags::inUse & $$contact & $$reportNumber & "¶" ]
-// #clear the $$ﬁnding variable
-// Set Variable [ $$ﬁnding ]
+// #clear the $$finding variable
+// Set Variable [ $$finding ]
 // Set Variable [ $$window ]
 // #note the record the user is on
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 // Set Variable [ $record; Value:Get ( RecordNumber ) ]
 // Go to Field [ ]
 // #
 // #open new window so as to avoid scroll issue
 // New Window [ ]
 // #
-// #ﬁnd the record that has been replaced and thus removed from the Report window
+// #find the record that has been replaced and thus removed from the Report window
 // Enter Find Mode [ ]
 // Set Field [ testlearnReportTags::_Ltestlearn; $ID ]
 // Perform Find [ ]
@@ -297,7 +297,7 @@ Exit Script [ ]
 // Set Field [ testlearnReportTags::inUse; Substitute ( testlearnReportTags::inUse ; $$contact & $$reportNumber & "¶" ; "" ) ]
 // Set Variable [ $ID ]
 // #
-// #ﬁnally, re-ﬁnd the records the user was looking at, and go to speciﬁc record the user was on.
+// #finally, re-find the records the user was looking at, and go to specific record the user was on.
 // Set Variable [ $contact; Value:testlearnReportTags::ktestSubject ]
 // Set Variable [ $item; Value:testlearnReportTags::ktest ]
 // Enter Find Mode [ ]
@@ -309,7 +309,7 @@ Exit Script [ ]
 // Set Field [ TEMP::showFavorites; "" ]
 // Perform Script [ “<unknown>” ]
 // Else If [ TEMP::showFavorites = "" ]
-// Sort Records [ Speciﬁed Sort Order: testlearnReportTags::_Ltestlearn; ascending ]
+// Sort Records [ Specified Sort Order: testlearnReportTags::_Ltestlearn; ascending ]
 [ Restore; No dialog ]
 // Go to Record/Request/Page [ $record ]
 [ No dialog ]
@@ -324,39 +324,39 @@ End If
 #
 #
 #BEGIN E
-#[by David Matson 4.16.11, last modiﬁed by same 4.18.11]
-#If user has selected to copy of a ﬁnding from the ﬁnding window
+#[by David Matson 4.16.11, last modified by same 4.18.11]
+#If user has selected to copy of a finding from the finding window
 #into a blank slot on the report window, put it in there
-Set Field [ $$ﬁnding ]
+Set Field [ $$finding ]
 Go to Field [ ]
 #
 #Inform user of where tag is now located by changing
 #conditional formatting: green = in use,
 #yellow = reaady to paste, normal colors = not
 #use and not copied for pasting.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LayoutName) ≠ "reportTagDiscovery" ]
 Perform Script [ “reportTagDiscovery” ]
 End If
 Go to Field [ ]
 #
-#ﬁnd the record that has been copied and cleared
+#find the record that has been copied and cleared
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ $$ﬁnding = testlearnReportTags::_Ltestlearn ]
+Exit Loop If [ $$finding = testlearnReportTags::_Ltestlearn ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
 #If it is not a discovery record, go to the info layout.
-If [ $$ﬁnding ≠ testlearnReportTags::_Ltestlearn ]
+If [ $$finding ≠ testlearnReportTags::_Ltestlearn ]
 Perform Script [ “reportTagInfo” ]
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
 Loop
-Exit Loop If [ $$ﬁnding = testlearnReportTags::_Ltestlearn ]
+Exit Loop If [ $$finding = testlearnReportTags::_Ltestlearn ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
@@ -371,11 +371,11 @@ January 7, 平成26 14:28:27 Imagination Quality Management.fp7 - InUsePart3__Da
 Set Variable [ $inUse; Value:testlearnReportTags::inUse ]
 Set Field [ testlearnReportTags::inUse; $inUse & $$contact & $$reportNumber & "¶" ]
 #
-#clear the $$ﬁnding and $window variables
-Set Variable [ $$ﬁnding ]
+#clear the $$finding and $window variables
+Set Variable [ $$finding ]
 Set Variable [ $$window ]
 Refresh Window
-Select Window [ Name: "Report"; Current ﬁle ]
+Select Window [ Name: "Report"; Current file ]
 Refresh Window
 #
 #END E

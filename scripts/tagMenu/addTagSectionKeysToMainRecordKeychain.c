@@ -12,13 +12,13 @@ tagMenu: addTagSectionKeysToMainRecordKeychain
 #NOTE: add section keys only to keyword and node tags.
 If [ $$citationMatch = "node" or $$citationMatch = "key" ]
 #
-#Discover ﬁrst if the section keys in the tag's
+#Discover first if the section keys in the tag's
 #keychain are also in the Main record's keychain.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $keychain; Value:ruleTagMenuGroups::ksection ]
 #
 #Capture the tag's key to determin later if it is in any
-#of this learn or reference record's key ﬁelds.
+#of this learn or reference record's key fields.
 Set Variable [ $tagKey; Value:tagMenus::_Ltag ]
 #
 #Determine how many keys there are in the tag's
@@ -27,9 +27,9 @@ Set Variable [ $numberOfKeys; Value:ValueCount ( $keychain ) ]
 #
 #Loop thru each key to see if any do not match
 #keys in the main record's keychain.
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 End If
 Loop
 #

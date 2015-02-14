@@ -25,9 +25,9 @@ Perform Script [ “addTagSectionKeysToMainRecordKeychain” ]
 Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
 #
 #Complete process of adding picture to tag.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
-#Remove focus from ﬁeld so can see
+#Remove focus from field so can see
 #conditional formatting.
 Go to Field [ ]
 #
@@ -46,15 +46,15 @@ If [ $name = "picture" ]
 #
 If [ tagMenus::Kpicture1 ≠ $tag and $number = 1 ]
 Set Field [ tagMenus::Kpicture1; $tag ]
-Select Window [ Name: $window; Current ﬁle ]
+Select Window [ Name: $window; Current file ]
 Exit Script [ ]
 Else If [ tagMenus::Kpicture2 ≠ $tag and $number = 2 ]
 Set Field [ tagMenus::Kpicture2; $tag ]
-Select Window [ Name: $window; Current ﬁle ]
+Select Window [ Name: $window; Current file ]
 Exit Script [ ]
 Else If [ tagMenus::Kpicture3 ≠ $tag and $number = 3 ]
 Set Field [ tagMenus::Kpicture3; $tag ]
-Select Window [ Name: $window; Current ﬁle ]
+Select Window [ Name: $window; Current file ]
 Exit Script [ ]
 End If
 End If
@@ -68,7 +68,7 @@ Set Field [ tagMenus::Kpicture2; "" ]
 Else If [ tagMenus::Kpicture3 = $tag and $number = 3 ]
 Set Field [ tagMenus::Kpicture3; "" ]
 End If
-Select Window [ Name: $window; Current ﬁle ]
+Select Window [ Name: $window; Current file ]
 #
 End If
 #

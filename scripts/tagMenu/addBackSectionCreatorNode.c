@@ -33,7 +33,7 @@ Enter Find Mode [ ]
 Set Field [ tagMenus::match; "node" ]
 Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
@@ -77,7 +77,7 @@ Set Field [ tagMenus::match; "node" ]
 Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #PRIMARY NODE
-#Loop thru records to ﬁnd primary node.
+#Loop thru records to find primary node.
 Go to Record/Request/Page
 [ First ]
 #
@@ -120,7 +120,7 @@ Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
 January 7, 平成26 16:22:44 Imagination Quality Management.fp7 - addBackSectionCreatorNode -1-tagMenu: addBackSectionCreatorNode
 #
-#Finally, reﬁnd all nodes, which now includes the
+#Finally, refind all nodes, which now includes the
 #node just added.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; "node" ]

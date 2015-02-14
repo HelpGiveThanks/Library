@@ -26,7 +26,7 @@ Set Field [ testlearn::kHealth; TEMP::kdefaultHealth ]
 #this newly created record in a loop at the end of this script.
 Set Variable [ $kpn; Value:testlearnReportTags::_Ltestlearn ]
 #
-#increase number of ﬁndings for item for this contact's location
+#increase number of findings for item for this contact's location
 Go to Layout [ “discoveries” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::ktestSubject; $$contact ]
@@ -42,7 +42,7 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
-#increase number of ﬁndings for item
+#increase number of findings for item
 Enter Find Mode [ ]
 Set Field [ testlearn::ktestSubject; $$contact ]
 Set Field [ testlearn::ktest; $$item ]
@@ -57,21 +57,21 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
-#lock item location so it cannot be deleted unless all ﬁndings for it are deleted
+#lock item location so it cannot be deleted unless all findings for it are deleted
 Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $$location ]
 Perform Find [ ]
 Set Field [ tagTestSubjectLocation::inUse; "t" ]
 #
-#reﬁnd all location records for this session
+#refind all location records for this session
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::knode; $$contact ]
 Set Field [ tagTestSubjectLocation::ksection; $$Library ]
 Set Field [ tagTestSubjectLocation::reportNumber; $$ReportNumber ]
 Perform Find [ ]
 Go to Layout [ original layout ]
-Sort Records [ Speciﬁed Sort Order: testlearnReportTags::Location; ascending
+Sort Records [ Specified Sort Order: testlearnReportTags::Location; ascending
 testlearnReportTags::timestamp; ascending
 testlearnReportTags::_Ltestlearn; ascending ]
 [ Restore; No dialog ]

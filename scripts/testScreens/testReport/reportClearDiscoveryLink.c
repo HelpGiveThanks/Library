@@ -1,5 +1,5 @@
 testScreens: testReport: reportClearDiscoveryLink
-#If user is trying to clear a blank ﬁeld
+#If user is trying to clear a blank field
 #stop the script
 If [ Get (ActiveFieldContents) = "" ]
 Go to Field [ ]
@@ -7,20 +7,20 @@ Halt Script
 End If
 #
 #
-#Get ID then clear ﬁeld.
+#Get ID then clear field.
 Set Variable [ $clear; Value:Get ( ActiveFieldContents ) ]
 Clear [ ]
 [ Select ]
 Go to Field [ ]
 #
 #tell user it is not in use
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LayoutName) ≠ "reportTagDiscovery" ]
 Perform Script [ “reportTagDiscovery” ]
 End If
 Go to Field [ ]
 #
-#ﬁnd the record that has been copied and cleared
+#find the record that has been copied and cleared
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -52,5 +52,5 @@ Set Variable [ $inUse; Value:testlearnReportTags::inUse ]
 Set Field [ testlearnReportTags::inUse; Substitute ( testlearnReportTags::inUse ; $$contact & $$reportNumber & "¶" ; "" ) ]
 Refresh Window
 #
-Select Window [ Name: "Report"; Current ﬁle ]
+Select Window [ Name: "Report"; Current file ]
 January 7, 平成26 14:44:06 Imagination Quality Management.fp7 - reportClearDiscoveryLink -1-

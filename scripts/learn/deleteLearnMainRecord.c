@@ -6,13 +6,13 @@ Show Custom Dialog [ Message: "The default node selected is locked. Select this 
 Exit Script [ ]
 End If
 #
-#If in ﬁnd mode, exit script.
-If [ $$ﬁndMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit ﬁnd mode, then click this button."; Buttons: “OK” ]
+#If in find mode, exit script.
+If [ $$findMode ≠ "" ]
+Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
-#Exit ﬁeld so user can see red delete
+#Exit field so user can see red delete
 #formatting later on.
 Go to Field [ ]
 #
@@ -20,7 +20,7 @@ Go to Field [ ]
 #this script and are uneccessary).
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
-#If either the sample or test ﬁelds are ﬁlled show
+#If either the sample or test fields are filled show
 #message below.
 If [ testlearn::kcsample ≠ "" and testlearn::kctest ≠ "" ]
 Show Custom Dialog [ Message: "In use by Theory and Test records. Must be removed before deleting. Click the 'theorize' button and scroll to highlighted items. Click the square buttons next them. Click the 'test' button and repeat delinking process."; Buttons: “OK” ]
@@ -56,8 +56,8 @@ Loop
 #Clear the inUse variable before each run thru
 #the loop. If not cleared, then last time thru
 #if this variable had a value in it, that value will
-#stay in it even if no ﬁnds are made, which then
-#tells the system that a no-ﬁnd reference, has ﬁnds.
+#stay in it even if no finds are made, which then
+#tells the system that a no-find reference, has finds.
 #So the system must clear this variable before each
 #run thru the loop.
 Set Variable [ $inUse ]
@@ -272,7 +272,7 @@ End If
 #is why the section variable would be blank.
 #In the latter case, the loop would be coming round
 #after checking all sections in the database.
-#At ﬁrst the loop is conﬁned to looking at all records
+#At first the loop is confined to looking at all records
 #in this section. Once it has done that, a script
 #step below exits the loop only to enter a loop
 #that clears the section variable and causes the
@@ -282,7 +282,7 @@ End If
 #section variable will force it out of this loop and
 #a similar script step in the outer loop will do the
 #same thereby allowing the system to follow the
-#remainder of this script to report on the ﬁndings
+#remainder of this script to report on the findings
 #made during these discovery loops.
 Exit Loop If [ ValueCount ( testlearn::kcsection ) = 1 or $section = "" ]
 #
@@ -298,7 +298,7 @@ Close Window [ Current Window ]
 #
 #
 #
-#Report on ﬁndings and if none delete record.
+#Report on findings and if none delete record.
 #
 #
 #

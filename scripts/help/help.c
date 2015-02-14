@@ -10,8 +10,8 @@ Set Field [ MemorySwitch::backToSolution; "Library" ]
 #Set tag menu variable to 1 if user is on tag menu, and
 #then select the main window to determin the module.
 If [ Get (WindowName) = "Tag Menus" ]
-If [ $$ﬁndMode = 1 ]
-Set Field [ MemorySwitch::helpObjectName; "ﬁnd" ]
+If [ $$findMode = 1 ]
+Set Field [ MemorySwitch::helpObjectName; "find" ]
 Else
 If [ $$citationMatch = "copyist" or $$citationMatch = "path" or $$citationMatch = "organ" ]
 Set Field [ MemorySwitch::helpObjectName; "key" ]
@@ -35,12 +35,12 @@ End If
 #
 End If
 Set Variable [ $tagWindow; Value:1 ]
-Select Window [ Name: "Setup"; Current ﬁle ]
-Select Window [ Name: "Learn"; Current ﬁle ]
-Select Window [ Name: "Print/Copy"; Current ﬁle ]
-Select Window [ Name: "References"; Current ﬁle ]
-Select Window [ Name: "Test"; Current ﬁle ]
-Select Window [ Name: "Report"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
+Select Window [ Name: "Learn"; Current file ]
+Select Window [ Name: "Print/Copy"; Current file ]
+Select Window [ Name: "References"; Current file ]
+Select Window [ Name: "Test"; Current file ]
+Select Window [ Name: "Report"; Current file ]
 End If
 #
 #Determin the module.
@@ -78,7 +78,7 @@ End If
 #
 #Help for test select main window.
 If [ Get (LayoutName) = "step4_InspectionFinding" ]
-Set Field [ MemorySwitch::helpObjectName; "test ﬁnding" ]
+Set Field [ MemorySwitch::helpObjectName; "test finding" ]
 End If
 #
 #Help for report main window.
@@ -91,9 +91,9 @@ If [ Get (LayoutName) = "learn1" or Get (LayoutName) = "learn2" or Get (LayoutNa
 Set Field [ MemorySwitch::helpObjectName; "learn" ]
 Else If [ Get (LayoutName) = "LearnTextWindow" ]
 Set Field [ MemorySwitch::helpObjectName; "edit" ]
-Show Custom Dialog [ Message: "This edit-note window will be closed while you view help for this window. Your work will be saved! When you are ﬁnished viewing help, click on your text to re-open this window and continue editing."; Buttons: “cancel”, “OK” ]
+Show Custom Dialog [ Message: "This edit-note window will be closed while you view help for this window. Your work will be saved! When you are finished viewing help, click on your text to re-open this window and continue editing."; Buttons: “cancel”, “OK” ]
 If [ Get ( LastMessageChoice ) = 1 ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 Exit Script [ ]
 Else
 Close Window [ Current Window ]
@@ -111,7 +111,7 @@ Set Field [ MemorySwitch::helpObjectName; "ref" ]
 Else If [ Get (LayoutName) = "referenceEdit" ]
 Set Field [ MemorySwitch::helpObjectName; "ref edit" ]
 Else If [ Get (LayoutName) = "referenceFind" ]
-Set Field [ MemorySwitch::helpObjectName; "ref ﬁnd" ]
+Set Field [ MemorySwitch::helpObjectName; "ref find" ]
 End If
 End If
 #
@@ -121,7 +121,7 @@ Pause/Resume Script [ Duration (seconds): .1 ]
 #
 Open URL [ MemorySwitch::helpPath ]
 [ No dialog ]
-Open URL [ Substitute ( MemorySwitch::helpPath ; "ﬁle://" ; "ﬁle:///Volumes/" ) ]
+Open URL [ Substitute ( MemorySwitch::helpPath ; "file://" ; "file:///Volumes/" ) ]
 [ No dialog ]
 #
 Select Window [ Name: "Help" ]

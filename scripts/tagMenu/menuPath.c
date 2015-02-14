@@ -1,6 +1,6 @@
 tagMenu: menuPath
 #
-#If user is in tag ﬁeld and has changed spelling
+#If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
 Go to Field [ ]
@@ -8,25 +8,25 @@ Go to Field [ ]
 #Clear sample and test tags so there conditional
 #formatting in the Learn window is removed.
 If [ $$citationMatch = "sample" or $$citationMatch = "test" ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Set Variable [ $$tagSample ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 End If
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"path" ]
 #
-#Set match temp tag ﬁeld to limit move pulldown
+#Set match temp tag field to limit move pulldown
 #to just the groups for this section and item type.
-#( if you're wondering why this temp ﬁeld is a
+#( if you're wondering why this temp field is a
 # a dupllicate of the citation match variable it
 # is because I didn't need it until a year into
 # writing this database. At some point, it would
@@ -71,17 +71,17 @@ Sort Records [ ]
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortPath = "cat" or TEMP::sortPath = "" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortPath = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
-#Go to citation record's current selection or to ﬁrst record.
+#Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -103,46 +103,46 @@ End If
 Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]
 Refresh Window
 #
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
-Select Window [ Name: "References"; Current ﬁle ]
+#the other window, exit all fields.
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Else If [ Get (LastError) ≠ 112 ]
 #
-#If in add mode, ﬁnd only records tagged with
+#If in add mode, find only records tagged with
 #current $$citationmatch.
 If [ $$add = 1 ]
 #
 #But, give user option to keep the records currently
 #showing in the main window.
-Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to ﬁle path tags, or keep the current records shown?"; Buttons: “keep”, “show” ]
+Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to file path tags, or keep the current records shown?"; Buttons: “keep”, “show” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 January 7, 平成26 16:03:19 Imagination Quality Management.fp7 - menuPath -1-tagMenu: menuPath
 If [ Get ( LastMessageChoice ) = 1 ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Exit Script [ ]
 End If
 #
-#ﬁnd on reference layout ...
+#find on reference layout ...
 If [ Left (Get (LayoutName) ; 1) = "r" ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::ﬁlterFind; "path" ]
+Set Field [ reference::filterFind; "path" ]
 Perform Find [ ]
 #
-#ﬁnd on learn layout ...
+#find on learn layout ...
 Else If [ Left (Get (LayoutName) ; 1) = "l" ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "path" ]
+Set Field [ testlearn::filterFind; "path" ]
 Perform Find [ ]
 End If
 End If
 End If
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 January 7, 平成26 16:03:19 Imagination Quality Management.fp7 - menuPath -2-

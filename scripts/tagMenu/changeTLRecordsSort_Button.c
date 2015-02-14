@@ -1,8 +1,8 @@
 tagMenu: ChangeTLRecordsSort_Button
 #
 #Perform script for sample and test tags only.
-If [ $$citationMatch = "sample" and $$ﬁndMode = "" or
-$$citationmatch = "test" and $$ﬁndMode = "" ]
+If [ $$citationMatch = "sample" and $$findMode = "" or
+$$citationmatch = "test" and $$findMode = "" ]
 #
 #If current sort is by date, then sort records by
 #order number.
@@ -17,13 +17,13 @@ Exit Script [ ]
 End If
 Set Field [ TEMP::TLTestSort; "" ]
 #
-#Sort the records by date ﬁeld, if current sort is
+#Sort the records by date field, if current sort is
 #by order number.
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
-#Set the sort preference ﬁeld to date.
+#Set the sort preference field to date.
 If [ $$citationMatch = "sample" ]
 Set Field [ TEMP::TLSampleSort; "" ]
 Else If [ $$citationMatch = "test" ]

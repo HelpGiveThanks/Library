@@ -15,7 +15,7 @@ Go to Field [ TEMP::kfocus ]
 Go to Object [ Object Name: "focus" ]
 Halt Script
 Else If [ TEMP::kdefaultNodeTestSubject = "" ]
-Show Custom Dialog [ Message: "New test focuses are created for speciﬁc test nodes. Pick one or create a new one in the node section before creating a new test focus."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "New test focuses are created for specific test nodes. Pick one or create a new one in the node section before creating a new test focus."; Buttons: “OK” ]
 Halt Script
 End If
 Set Variable [ $tag; Value:TEMP::kfocus ]
@@ -25,16 +25,16 @@ Set Variable [ $$stopFocusLoad; Value:1 ]
 #the Temp with nothing upon new record creation.
 #I decided to capture it.
 Set Variable [ $reportNumber; Value:TEMP::reportNumber ]
-Set Variable [ $mod1; Value:TEMP::kmodiﬁer1 ]
-Set Variable [ $mod2; Value:TEMP::kmodiﬁer2 ]
+Set Variable [ $mod1; Value:TEMP::kmodifier1 ]
+Set Variable [ $mod2; Value:TEMP::kmodifier2 ]
 New Record/Request
 Set Variable [ $nodeLocation; Value:tagTestSubjectLocation::_LtestSubjectLocation ]
 Set Field [ tagTestSubjectLocation::knode; TEMP::kdefaultNodeTestSubject ]
 Set Field [ tagTestSubjectLocation::ksection; TEMP::ksection ]
 Set Field [ tagTestSubjectLocation::reportNumber; $reportNumber ]
 Set Field [ tagTestSubjectLocation::kfocus; TEMP::kfocus ]
-Set Field [ tagTestSubjectLocation::kfocusAttribute1; TEMP::kmodiﬁer1 ]
-Set Field [ tagTestSubjectLocation::kfocusAttribute2; TEMP::kmodiﬁer2 ]
+Set Field [ tagTestSubjectLocation::kfocusAttribute1; TEMP::kmodifier1 ]
+Set Field [ tagTestSubjectLocation::kfocusAttribute2; TEMP::kmodifier2 ]
 Set Field [ tagTestSubjectLocation::focusName; TextStyleAdd (
 TEMP::LocationName
 ; Lowercase ) ]

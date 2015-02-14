@@ -4,14 +4,14 @@ Set Variable [ $$ID; Value:test::_Ltest ]
 Set Variable [ $workwindow; Value:Get (WindowName) ]
 Set Variable [ $left; Value:Get ( WindowLeft ) ]
 Set Variable [ $width; Value:Get ( WindowWidth) ]
-Select Window [ Name: $workwindow; Current ﬁle ]
+Select Window [ Name: $workwindow; Current file ]
 Set Field [ TEMP::ktestItemList; test::ktestItemList ]
 Set Field [ TEMP::ktestItemListOLD; test::ktestItemList ]
 Set Field [ TEMP::ktest; test::_Ltest ]
 Set Field [ TEMP::testName; test::testName ]
 Set Field [ TEMP::ksection; test::ksection ]
 Set Field [ TEMP::sectionName; ruleSection::name ]
-Select Window [ Name: "Details"; Current ﬁle ]
+Select Window [ Name: "Details"; Current file ]
 If [ Get (LastError) = 112 ]
 If [ Get (WindowZoomLevel) = 100 ]
 New Window [ Name: "Details"; Height: Get (ScreenHeight); Width: 333; Left: If ( $left + $width + 333 > Get ( ScreenWidth ) ; Get ( ScreenWidth ) - 333 ; $left + $width ) ]
@@ -39,7 +39,7 @@ If [ Get (FoundCount)=0 ]
 Perform Script [ “newCitationMenuGroup” ]
 End If
 #
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
 ruleTagMenuTestGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]

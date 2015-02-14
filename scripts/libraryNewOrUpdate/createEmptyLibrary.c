@@ -28,7 +28,7 @@ Go to Layout [ original layout ]
 #records are neccessary to running the Library and
 #are removed when cloning the Library.
 Save a Copy as [ ]
-[ copy of current ﬁle ]
+[ copy of current file ]
 #
 #If the user decides to cancel the script then stop the process.
 If [ Get (LastError) = 1 ]
@@ -42,7 +42,7 @@ End If
 Go to Layout [ “backup” (backup) ]
 Set Field [ backup::newLibrary; "" ]
 Go to Layout [ original layout ]
-Show Custom Dialog [ Message: "Now open your new library. You will be asked if you want to delete the records in it. Make sure it is the copy of your current library ﬁle and then proceed with the delete."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Now open your new library. You will be asked if you want to delete the records in it. Make sure it is the copy of your current library file and then proceed with the delete."; Buttons: “OK” ]
 Exit Script [ ]
 #
 Else If [ backup::newLibrary = "234874920347574weidf792342f9823984" or backup::newLibrary = "newLibrary" ]
@@ -73,13 +73,13 @@ Delete All Records
 [ No dialog ]
 #
 Go to Layout [ “tableGroupTag” (groupTest) ]
-Perform Find [ Speciﬁed Find Requests: Omit Records; Criteria: groupTest::order: “*"lock"” ]
+Perform Find [ Specified Find Requests: Omit Records; Criteria: groupTest::order: “*"lock"” ]
 [ Restore ]
 Delete All Records
 [ No dialog ]
 #
 Go to Layout [ “tableTag” (tagTable) ]
-Perform Find [ Speciﬁed Find Requests: Omit Records; Criteria: tagTable::orderOrLock: “lock” ]
+Perform Find [ Specified Find Requests: Omit Records; Criteria: tagTable::orderOrLock: “lock” ]
 [ Restore ]
 Delete All Records
 [ No dialog ]
@@ -100,11 +100,11 @@ Delete All Records
 Go to Layout [ “defaultSetup” (tempSetup) ]
 #
 Perform Script [ “startDatabase” ]
-Set Field [ tempSetup::ﬁleName; Get ( FileName ) ]
+Set Field [ tempSetup::fileName; Get ( FileName ) ]
 #
-#Create ﬁrst section.
+#Create first section.
 Set Field [ TEMP::kdefaultNodePrimary; $$OldNodeID ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “defaultSections” (ruleSection) ]
 Perform Script [ “newSectionOnSectionLayout” ]
 Set Field [ ruleSection::name ]
@@ -113,7 +113,7 @@ If [ $$OldNodeID = 1 ]
 Set Variable [ $$OldNodeID ]
 End If
 #
-#Create ﬁrst node.
+#Create first node.
 Set Variable [ $$stopAddBack; Value:1 ]
 Perform Script [ “defaultNodeMenu” ]
 Perform Script [ “newCitationMenuGroup” ]
@@ -124,15 +124,15 @@ February 3, 平成26 16:42:47 Imagination Quality Management.fp7 - createEmptyLi
 End If
 Set Variable [ $$OldNodeID; Value:tagMenus::_Ltag ]
 Set Field [ ruleTagMenuGroups::kRecordCreatorNode; $$OldNodeID ]
-Set Field [ tagMenus::tag; "lastName, ﬁrstName" ]
+Set Field [ tagMenus::tag; "lastName, firstName" ]
 Perform Script [ “addTagToMainRecord” ]
 Set Variable [ $$stopAddBack ]
 #
-#Assign node to ﬁrst created section as its creator.
+#Assign node to first created section as its creator.
 Go to Layout [ “tableGroupTag” (groupTest) ]
-Perform Find [ Speciﬁed Find Requests: Find Records; Criteria: groupTest::kRecordCreatorNode: “1” ]
+Perform Find [ Specified Find Requests: Find Records; Criteria: groupTest::kRecordCreatorNode: “1” ]
 [ Restore ]
-Sort Records [ Speciﬁed Sort Order: groupTest::match; descending ]
+Sort Records [ Specified Sort Order: groupTest::match; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
@@ -141,7 +141,7 @@ Set Field [ groupTest::kSectionCreatorNodesCreator; $$OldNodeID ]
 Set Field [ groupTest::aboutSection; "This library is for noting what we learn about _________________, collecting references to it, and testing or collecting samples of ___________________ to improve the quality of our thinking and doing or __________________ quality (if
 _________________ is a thing not a person)." ]
 #
-#Assign node to ﬁrst created node group as its creator.
+#Assign node to first created node group as its creator.
 Go to Record/Request/Page
 [ Next ]
 Set Field [ groupTest::kRecordCreatorNode; $$OldNodeID ]
@@ -149,10 +149,10 @@ Go to Layout [ “defaultSetup” (tempSetup) ]
 #
 #Inform user of next steps.
 If [ $$OldNodeID ≠ "" ]
-Show Custom Dialog [ Message: "Change the name of the ﬁrst node to your name since you will be the creator of new library records."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Change the name of the first node to your name since you will be the creator of new library records."; Buttons: “OK” ]
 Set Variable [ $$OldNodeID ]
 Else
-Show Custom Dialog [ Message: "Change the name of the ﬁrst node to your name since you will be the creator of new library records."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Change the name of the first node to your name since you will be the creator of new library records."; Buttons: “OK” ]
 End If
 End If
 #

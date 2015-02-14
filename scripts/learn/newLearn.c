@@ -6,9 +6,9 @@ Show Custom Dialog [ Message: "The default node selected is locked. Select this 
 Exit Script [ ]
 End If
 #
-#If in ﬁnd mode, exit script.
-If [ $$ﬁndMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit ﬁnd mode, then click this button."; Buttons: “OK” ]
+#If in find mode, exit script.
+If [ $$findMode ≠ "" ]
+Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -23,14 +23,14 @@ Set Field [ testlearn::kNodeOther; TEMP::kdefaultNodeOther ]
 Set Field [ testlearn::NodeOthers; TEMP::DEFAULTNodeOtherNames ]
 Set Field [ testlearn::kHealth; TEMP::kdefaultHealth ]
 Set Field [ testlearn::incomplete; "incomplete" & ¶ ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 If [ Right ( Get ( LayoutName ) ; 4 ) = "EDIT" ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Set Variable [ $$stoploadCitation ]
 #
 #Note that citation is for either the node or keyword depending on the citation match.
 Else If [ Right ( Get ( LayoutName ) ; 3 ) = "TAG" ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 End If
 Sort Records [ ]
 [ No dialog ]
@@ -76,15 +76,15 @@ Set Variable [ $$citationItem; Value:TEMP::kdefaultNodePrimary ]
 End If
 #
 #Clear conditional formatting in Tag Menus window.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 #
 #Open new window to edit new record in.
 New Window [ ]
 Go to Layout [ “LearnTextWindow” (testlearn) ]
 Go to Field [ testlearn::Caption ]
 Set Variable [ $$stopLoadCitation ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 // Go to Object [ Object Name: "text" ]
 January 7, 平成26 17:28:42 Imagination Quality Management.fp7 - newLearn -1-

@@ -7,7 +7,7 @@ Exit Script [ ]
 End If
 #
 #First turn back any spelling changes made by dragging
-#text into ﬁeld.
+#text into field.
 Set Variable [ $$tag; Value:ruleTagMenuGroups::_Lgroup ]
 Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 Set Variable [ $$tag ]
@@ -61,7 +61,7 @@ End If
 #
 #If the spellling of the tag has changed or if new tag
 #update spelling of word in case of future changes
-#to its spelling that would then trigger the ﬁrst
+#to its spelling that would then trigger the first
 #part of this scirpt to udpate the spelling in the
 #tag list.
 Close Window [ Current Window ]

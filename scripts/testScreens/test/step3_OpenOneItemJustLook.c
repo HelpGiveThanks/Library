@@ -8,11 +8,11 @@ Set Variable [ $$item; Value:InspectItems::_Ltest ]
 Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 Enter Find Mode [ ]
 #
-#ﬁnd and show all inspection ﬁndings
+#find and show all inspection findings
 Set Field [ testlearn::ktestSubject; $$contact ]
 Set Field [ testlearn::ktest; $$item ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: testlearn::<Field Missing>; ascending ]
+Sort Records [ Specified Sort Order: testlearn::<Field Missing>; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]

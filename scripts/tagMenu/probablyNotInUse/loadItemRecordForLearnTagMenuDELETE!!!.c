@@ -15,27 +15,27 @@ Else If [ $$add = "" ]
 End If
 Refresh Window
 #
-#Just in case user was in nonTag ﬁeld on this
+#Just in case user was in nonTag field on this
 #window when user clicked a menu button on
-#the other window, exit all ﬁelds.
+#the other window, exit all fields.
 If [ TEMP::TLSampleSort = "" ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Perform Script [ “SortTLRecordsByOrderNumber” ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$tagSample; Value:tagMenus::_Ltag ]
 Set Field [ TEMP::TLSampleSort; "" ]
 End If
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ TEMP::TLSampleSort = 1 ]
 Set Field [ TEMP::TLSampleSort; "" ]
 Perform Script [ “SortTLRecordsByOrderNumber” ]
 End If
 Go to Field [ ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 End If
 End If

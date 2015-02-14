@@ -2,7 +2,7 @@ testScreens: testReport: previewReport
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Go to Field [ ]
-Select Window [ Name: "Preview"; Current ﬁle ]
+Select Window [ Name: "Preview"; Current file ]
 If [ Get (LastError) = 112 ]
 New Window [ Name: "Preview" ]
 Go to Layout [ “PrintReportPreview” (report) ]
@@ -12,7 +12,7 @@ Set Field [ report::ksection; $$library ]
 Set Field [ report::ktest; $$item ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: ruleTestReport::name; ascending
+Sort Records [ Specified Sort Order: ruleTestReport::name; ascending
 reportItem::testName; ascending ]
 [ Restore; No dialog ]
 Enter Browse Mode
@@ -28,7 +28,7 @@ Set Field [ report::ksection; $$library ]
 Set Field [ report::ktest; $$item ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: ruleTestReport::name; ascending
+Sort Records [ Specified Sort Order: ruleTestReport::name; ascending
 reportItem::testName; ascending ]
 [ Restore; No dialog ]
 Enter Browse Mode

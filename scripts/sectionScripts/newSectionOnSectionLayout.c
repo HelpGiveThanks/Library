@@ -13,8 +13,8 @@ If [ tempSetup::kdefaultNodePrimary = "" ]
 Go to Layout [ “backup” (backup) ]
 Set Field [ backup::newLibrary; "newLibrary" ]
 Show Custom Dialog [ Message: "This library is now ready for use. It will close. When users next open it they will be asked if they want to use it as a new empty library or import records from an old Library version into it."; Buttons: “OK” ]
-Close Window [ Name: "Tag Menus"; Current ﬁle ]
-Close Window [ Name: "Setup"; Current ﬁle ]
+Close Window [ Name: "Tag Menus"; Current file ]
+Close Window [ Name: "Setup"; Current file ]
 Exit Script [ ]
 End If
 #

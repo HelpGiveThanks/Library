@@ -9,14 +9,14 @@ Exit Script [ ]
 End If
 #
 // #Due to the fact that users click the add tag button
-// #when they want to ﬁnd records tagged with a tag,
+// #when they want to find records tagged with a tag,
 // #I'm making it so that users can only add tags in edit mode.
 // If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd = "" ]
-// Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags. This inconvience was put in place because users kept forgetting to click ﬁnd before click the P or O buttons."; Buttons: “OK” ]
+// Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags. This inconvience was put in place because users kept forgetting to click find before click the P or O buttons."; Buttons: “OK” ]
 // Exit Script [ ]
 // End If
 #
-#Remove focus from ﬁeld so can see
+#Remove focus from field so can see
 #conditional formatting.
 Go to Field [ ]
 #
@@ -25,7 +25,7 @@ If [ $$citationMatch = "key" ]
 Perform Script [ “addORremoveTagFromCitationStep2keyword” ]
 Else If [ $$citationMatch = "node" ]
 Perform Script [ “addORremoveTagFromCitationStep2node” ]
-Close Window [ Name: "reorder"; Current ﬁle ]
+Close Window [ Name: "reorder"; Current file ]
 Set Variable [ $$stopLoadTagRecord ]
 #
 #Get the keys currently unlocking who is a
@@ -38,10 +38,10 @@ If [ reference::knodeOther = "" and reference::knodePrimary = "" ]
 Set Field [ reference::kcopyrightHolder; Substitute ( $keyChain ; "node738fds8ef" & "¶" ; "" ) ]
 End If
 #
-Select Window [ Name: "Tag Menus Change Back When Done"; Current ﬁle ]
+Select Window [ Name: "Tag Menus Change Back When Done"; Current file ]
 If [ Get ( WindowName ) = "Tag Menus Change Back When Done" ]
-Close Window [ Name: "Tag Menus"; Current ﬁle ]
-Set Window Title [ Of Window: "Tag Menus Change Back When Done"; Current ﬁle; New Title: "Tag Menus" ]
+Close Window [ Name: "Tag Menus"; Current file ]
+Set Window Title [ Of Window: "Tag Menus Change Back When Done"; Current file; New Title: "Tag Menus" ]
 End If
 Refresh Window
 End If

@@ -21,34 +21,34 @@ End If
 #a main record. This is because when going to
 #edit cite or reference records, only main records
 #are shown by default.
-If [ "main" & "¶" ≠ FilterValues ( reference::ﬁlterFind ; "main" & "¶" ) and
+If [ "main" & "¶" ≠ FilterValues ( reference::filterFind ; "main" & "¶" ) and
 Get ( LayoutTableName ) = "reference" and
 $$add ≠ 1 ]
-Set Variable [ $ﬁlterFind; Value:reference::ﬁlterFind ]
-Set Field [ reference::ﬁlterFind; "main" & ¶ & $ﬁlterFind ]
+Set Variable [ $filterFind; Value:reference::filterFind ]
+Set Field [ reference::filterFind; "main" & ¶ & $filterFind ]
 #
-Else If [ $$citationMatch & "¶" ≠ FilterValues ( reference::ﬁlterFind ; $$citationMatch & "¶" ) and
+Else If [ $$citationMatch & "¶" ≠ FilterValues ( reference::filterFind ; $$citationMatch & "¶" ) and
 Get ( LayoutTableName ) = "reference" and
 $$add = 1 ]
-Set Variable [ $ﬁlterFind; Value:reference::ﬁlterFind ]
+Set Variable [ $filterFind; Value:reference::filterFind ]
 #
 If [ $$citationMatch ≠ "key" ]
-Set Field [ reference::ﬁlterFind; $$citationMatch & ¶ & $ﬁlterFind ]
+Set Field [ reference::filterFind; $$citationMatch & ¶ & $filterFind ]
 #
 Else If [ $$citationMatch = "key" ]
-Set Field [ reference::ﬁlterFind; "keyword" & ¶ & $ﬁlterFind ]
+Set Field [ reference::filterFind; "keyword" & ¶ & $filterFind ]
 End If
 #
-Else If [ "main" & "¶" ≠ FilterValues ( testlearn::ﬁlterFind ; "main" & "¶" ) and Get ( LayoutTableName ) = "testlearn" ]
-Set Variable [ $ﬁlterFind; Value:testlearn::ﬁlterFind ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ & $ﬁlterFind ]
+Else If [ "main" & "¶" ≠ FilterValues ( testlearn::filterFind ; "main" & "¶" ) and Get ( LayoutTableName ) = "testlearn" ]
+Set Variable [ $filterFind; Value:testlearn::filterFind ]
+Set Field [ testlearn::filterFind; "main" & ¶ & $filterFind ]
 End If
 #
 #Stop load tag record script to speed up this script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopLoadCitation; Value:1 ]
 #
-#Remove focus from ﬁeld so can see
+#Remove focus from field so can see
 #conditional formatting.
 Go to Field [ ]
 #
@@ -82,7 +82,7 @@ Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #
 #PRIMARY NODE
-#Loop thru records to ﬁnd primary node.
+#Loop thru records to find primary node.
 Go to Record/Request/Page
 [ First ]
 #
@@ -122,7 +122,7 @@ January 7, 平成26 18:02:09 Imagination Quality Management.fp7 - addReferenceNo
 Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
 #
-#Finally, reﬁnd all nodes, which now includes the
+#Finally, refind all nodes, which now includes the
 #node just added.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; "node" ]
@@ -132,7 +132,7 @@ Perform Find [ ]
 End If
 #
 #OTHER NODES
-#Determine how many keys there are to ﬁnd for
+#Determine how many keys there are to find for
 #on the other nodes' keychain.
 Set Variable [ $numberOfNodes; Value:ValueCount ( $nodeOther ) ]
 #
@@ -148,7 +148,7 @@ Loop
 #
 #If the key matches a lock or no locks exit the loop.
 #( The get value calculation works by going to the
-# key in the list speciﬁed by the numberOfNodes
+# key in the list specified by the numberOfNodes
 # variable, set before entering the loops.
 # The system starts with the last key and with each
 # loop moves to the next key up, until there are
@@ -185,7 +185,7 @@ Perform Find [ ]
 Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
 #
-#Finally, reﬁnd all nodes, which now includes the
+#Finally, refind all nodes, which now includes the
 #node just added.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; "node" ]
@@ -211,7 +211,7 @@ Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #
 #PRIMARY KEYWORD
-#Loop thru records to ﬁnd primary keyword.
+#Loop thru records to find primary keyword.
 Go to Record/Request/Page
 [ First ]
 #
@@ -251,7 +251,7 @@ Perform Find [ ]
 Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
 #
-#Finally, reﬁnd all keywords, which now includes the
+#Finally, refind all keywords, which now includes the
 #keyword just added.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; "key" ]
@@ -261,7 +261,7 @@ Perform Find [ ]
 End If
 #
 #OTHER KEYWORDS
-#Determine how many keys there are to ﬁnd for
+#Determine how many keys there are to find for
 #on the other keywords' keychain.
 Set Variable [ $numberOfKeywords; Value:ValueCount ( $keywordOther ) ]
 #
@@ -277,7 +277,7 @@ Loop
 #
 #If the key matches a lock or no locks exit the loop.
 #( The get value calculation works by going to the
-# key in the list speciﬁed by the numberOfKeywords
+# key in the list specified by the numberOfKeywords
 # variable, set before entering the loops.
 # The system starts with the last key and with each
 # loop moves to the next key up, until there are
@@ -314,7 +314,7 @@ Perform Find [ ]
 Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
 #
-#Finally, reﬁnd all keywords, which now includes the
+#Finally, refind all keywords, which now includes the
 #keyword just added.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; "key" ]

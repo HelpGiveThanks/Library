@@ -22,16 +22,16 @@ Set Variable [ $status; Value:tagTestSubjectLocation::inUse ]
 Set Variable [ $$timeRecord; Value:Get ( RecordNumber ) ]
 Set Variable [ $$library; Value:TEMP::ksection ]
 #
-#!!!need to go through database and remove all variables like $$reportnumber that are used in mulitple scripts and make it a temp ﬁeld.
+#!!!need to go through database and remove all variables like $$reportnumber that are used in mulitple scripts and make it a temp field.
 Set Variable [ $$reportnumber; Value:tagTestSubjectLocation::reportNumber ]
 Set Field [ TEMP::reportNumber; tagTestSubjectLocation::reportNumber ]
 Set Variable [ $$contact; Value:TEMP::kdefaultNodeTestSubject ]
 #
-#note general or canned location user identiﬁed
+#note general or canned location user identified
 Set Variable [ $$locationName; Value:tagTestSubjectLocation::focusName ]
 Set Field [ TEMP::LocationName; TextStyleAdd ( $$locationName ; Titlecase ) ]
 #
-#note new location ID number and name user created for this speciﬁc location in the contact's building
+#note new location ID number and name user created for this specific location in the contact's building
 Set Variable [ $$location; Value:tagTestSubjectLocation::_LtestSubjectLocation ]
 Set Variable [ $$itemLocation; Value:tagTestSubjectLocation::kfocus ]
 #
@@ -45,7 +45,7 @@ Set Variable [ $$itemLocation; Value:tagTestSubjectLocation::kfocus ]
 #of the layouts the user will see in test mode
 #in the Tag Menus window.
 Go to Layout [ “testMenuNoTag” (TEMP) ]
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 #
 Set Field [ TEMP::testerAndsubject; //tagDefaultNodePrimary::tag & " testing " & ¶ & $testsubjectName & "'s"& ¶ & tempSetup::sectionName
 //$testsubjectName & ¶ & $$locationName & ¶ & tempSetup::sectionName
@@ -55,7 +55,7 @@ Set Window Title [ Current Window; New Title: "Test" ]
 Go to Layout [ “step3_InspectionItems” (InspectItems) ]
 Enter Find Mode [ ]
 #
-#now ﬁnd and show all canned inspection items associated with this generic canned location
+#now find and show all canned inspection items associated with this generic canned location
 Set Field [ InspectItems::kcfocusALL; $$itemLocation ]
 Perform Find [ ]
 If [ Get ( LastError ) = 401 ]
@@ -64,7 +64,7 @@ Show Custom Dialog [ Title: "!"; Message: "No items have been assigned to this a
 Exit Script [ ]
 End If
 // If [ PatternCount ( Get ( ApplicationVersion ) ; "GO" ) = "GO" ]
-Sort Records [ Speciﬁed Sort Order: ruleTestInpsection::name; ascending
+Sort Records [ Specified Sort Order: ruleTestInpsection::name; ascending
 InspectItems::order; based on value list: “order” ]
 [ Restore; No dialog ]
 Set Field [ InspectItems::glocationNameGlobal; $$locationName ]

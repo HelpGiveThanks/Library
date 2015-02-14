@@ -21,5 +21,5 @@ Enter Find Mode [ ]
 Set Field [ testlearn::_Ltestlearn; $record ]
 Perform Find [ ]
 Set Variable [ $$stopLoadCitation ]
-Pause/Resume Script [ Indeﬁnitely ]
+Pause/Resume Script [ Indefinitely ]
 January 7, 平成26 17:26:12 Imagination Quality Management.fp7 - LearnOpenTextNewWindow -1-

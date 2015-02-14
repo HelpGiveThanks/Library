@@ -1,6 +1,6 @@
 tagMenu: sampleExit
-If [ $$citationMatch = "sample" and $$ﬁndMode = "" or
-$$citationmatch = "test" and $$ﬁndMode = "" ]
+If [ $$citationMatch = "sample" and $$findMode = "" or
+$$citationmatch = "test" and $$findMode = "" ]
 Exit Script [ ]
 End If
 Go to Field [ ]

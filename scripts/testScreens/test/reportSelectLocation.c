@@ -1,10 +1,10 @@
 testScreens: test: ReportSelectLocation
 If [ Get ( LayoutName ) = "ReportLocationSelect" ]
-#note general or canned location user identiﬁed
+#note general or canned location user identified
 Set Variable [ $$locationName; Value:testlearnReportTags::gkaudienceLocation ]
 Set Field [ TEMP::kuserLocation; $$locationName ]
 #
-#note new location ID number and name user created for this speciﬁc location in the contact's building
+#note new location ID number and name user created for this specific location in the contact's building
 Set Variable [ $$location; Value:tagTestSubjectLocation::_LtestSubjectLocation ]
 Close Window [ Current Window ]
 Exit Script [ ]
@@ -14,7 +14,7 @@ Show Custom Dialog [ Title: "!"; Message: "This evidence is a favority from anot
 Exit Script [ ]
 End If
 #
-#set up new discovery ﬁeld name with this
+#set up new discovery field name with this
 #item's information.
 Set Field [ TEMP::LocationName; testlearnReportTags::Location ]
 Set Field [ TEMP::kuserLocation; testlearnReportTags::kaudienceLocation ]

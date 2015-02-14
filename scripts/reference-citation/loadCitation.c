@@ -1,6 +1,6 @@
 reference(citation): loadCitation
 #
-#This ﬁrst section is key to stopping this script
+#This first section is key to stopping this script
 #when another script for example loops thru
 #many records each of which would trigger this
 #script and really slow down the program and
@@ -30,9 +30,9 @@ End If
 #of any records in the Tag Menus window
 #that are related to the citation record that triggered
 #this script (by the user click on it, of course).
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Set Variable [ $$citation; Value:testlearn::_Ltestlearn ]
 If [ $$citationMatch = "node" ]
 Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
@@ -96,11 +96,11 @@ Commit Records/Requests
 #
 If [ $$add = "" ]
 #Match any records in tag window and go to
-#primary tag record or to ﬁrst record if none.
+#primary tag record or to first record if none.
 #And don't run LoadTagRecord until matching is
 #done to prevent ﬂashing and slowing down script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
 If [ Get (LastError) = 112 ]
 Perform Script [ “TgotoCitationMenu” ]
@@ -232,11 +232,11 @@ Commit Records/Requests
 #
 If [ $$add = "" ]
 #Match any records in tag window and go to
-#primary tag record or to ﬁrst record if none.
+#primary tag record or to first record if none.
 #And don't run LoadTagRecord until matching is
 #done to prevent ﬂashing and slowing down script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
 January 7, 平成26 17:52:04 Imagination Quality Management.fp7 - loadCitation -2-reference(citation): loadCitation
 Perform Script [ “TgotoCitationMenu” ]
@@ -267,6 +267,6 @@ End If
 #
 #Return to observation or reference window.
 Set Variable [ $$stopLoadTagRecord ]
-Select Window [ Name: $windowName; Current ﬁle ]
+Select Window [ Name: $windowName; Current file ]
 Refresh Window
 January 7, 平成26 17:52:04 Imagination Quality Management.fp7 - loadCitation -3-

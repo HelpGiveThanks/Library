@@ -18,7 +18,7 @@ End If
 #Make sure creator node's group is part of section group.
 Perform Script [ “addBackSectionCreatorNode” ]
 #
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Set Window Title [ Current Window; New Title: "Learn" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 If [ tempSetup::layoutLmain = "" ]
@@ -29,21 +29,21 @@ Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
 End If
 Enter Find Mode [ ]
 #
-#now ﬁnd and show all canned inspection items associated with this generic canned location
+#now find and show all canned inspection items associated with this generic canned location
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “ltagNK2” (tagMenus) ]
 Perform Script [ “menuKey” ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 Set Variable [ $$stoploadCitation ]
 Perform Script [ “loadCitation” ]
 January 28, 平成26 15:57:41 Empty Library copy.fp7 - learn -1-

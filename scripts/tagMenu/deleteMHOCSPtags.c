@@ -18,7 +18,7 @@ Show Custom Dialog [ Message: "This copyright is currently selected as the defau
 Exit Script [ ]
 End If
 #
-#Exit ﬁeld so user can see red delete
+#Exit field so user can see red delete
 #formatting later on.
 Go to Field [ ]
 #
@@ -31,7 +31,7 @@ Set Variable [ $tag; Value:tagMenus::_Ltag ]
 Set Variable [ $name; Value:tagMenus::tag ]
 #
 #Open a new window and look for tag in both
-#primary and other keyword ﬁelds.
+#primary and other keyword fields.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 New Window [ Name: "Delete Tag" ]
 #
@@ -87,15 +87,15 @@ Set Variable [ $$stopLoadTagRecord ]
 // If [ $TLLastError ≠ 401 and $refLastError ≠ 401 or
 $TLLastError ≠ 401 and $TLLastError ≠ 400 and $refLastError ≠ 401 ]
 If [ $TLLastError ≠ 401 and $TLLastError ≠ 400 or $refLastError ≠ 401 ]
-Close Window [ Name: "Delete Tag"; Current ﬁle ]
+Close Window [ Name: "Delete Tag"; Current file ]
 If [ $refLastError ≠ 401 and $TLLastError ≠ 401 ]
-Show Custom Dialog [ Message: "In use by Reference and Test Learn records. Must be removed before deleting. Click the 'ﬁnd' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to ﬁnd all records using this tag. Go to all
+Show Custom Dialog [ Message: "In use by Reference and Test Learn records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all
 sections if not found here."; Buttons: “OK” ]
 Else If [ $refLastError ≠ 401 ]
-Show Custom Dialog [ Message: "In use by Reference records. Must be removed before deleting. Click the 'ﬁnd' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to ﬁnd all records using this tag. Go to all sections if not
+Show Custom Dialog [ Message: "In use by Reference records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all sections if not
 found here."; Buttons: “OK” ]
 Else If [ $TLLastError ≠ 401 ]
-Show Custom Dialog [ Message: "In use by Test Learn records. Must be removed before deleting. Click the 'ﬁnd' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to ﬁnd all records using this tag. Go to all sections if not
+Show Custom Dialog [ Message: "In use by Test Learn records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all sections if not
 found here."; Buttons: “OK” ]
 End If
 Set Variable [ $delete ]
@@ -108,13 +108,13 @@ Exit Script [ ]
 Else If [ $TLLastError = 401 and $refLastError ≠ 0 or
 $TLLastError ≠ 0 and $refLastError = 401 or
 $TLLastError = 401 and $refLastError = 401 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $delete; Value:tagMenus::_Ltag ]
 Refresh Window
 Set Variable [ $category; Value:tagMenus::kGroupOrTest ]
 Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Buttons: “Cancel”, “Delete” ]
 #
-#If the user says yes, ﬁrst make sure the record
+#If the user says yes, first make sure the record
 #is not the last record in a category. If it is and
 #the system deleted the record without deleting
 January 7, 平成26 16:33:49 Imagination Quality Management.fp7 - deleteMHOCSPtags -1-tagMenu: deleteMHOCSPtags
@@ -125,7 +125,7 @@ January 7, 平成26 16:33:49 Imagination Quality Management.fp7 - deleteMHOCSPta
 #record must also be deleted if this is the last
 #record under it.
 If [ Get ( LastMessageChoice ) = 2 ]
-Select Window [ Name: "delete tag"; Current ﬁle ]
+Select Window [ Name: "delete tag"; Current file ]
 Go to Layout [ “tableTag” (tagTable) ]
 Enter Find Mode [ ]
 Set Field [ tagTable::kGroupOrTest; $category ]
@@ -135,7 +135,7 @@ Perform Find [ ]
 #then the system deletes the current record without
 #any more user input.
 If [ Get (FoundCount) ≠ 1 ]
-Close Window [ Name: "Delete Tag"; Current ﬁle ]
+Close Window [ Name: "Delete Tag"; Current file ]
 Delete Record/Request
 [ No dialog ]
 Set Variable [ $delete ]
@@ -147,38 +147,38 @@ Exit Script [ ]
 #BUT if only one record is found user is asked
 #if they want to delete the category too.
 Else If [ Get (FoundCount) = 1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #
 #The records are sorted by category to show
 #the user which category is going to be deleted.
 If [ TEMP::sortMedium ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortPath ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortCopyist ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortHealth ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortOrgan ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
@@ -193,7 +193,7 @@ Show Custom Dialog [ Title: "!"; Message: "Deleting " & Left ( $name ; 20 ) & If
 If [ Get ( LastMessageChoice ) = 2 ]
 Delete Record/Request
 [ No dialog ]
-Select Window [ Name: "delete tag"; Current ﬁle ]
+Select Window [ Name: "delete tag"; Current file ]
 Go to Layout [ “tableGroupTag” (groupTest) ]
 Enter Find Mode [ ]
 Set Field [ groupTest::_Lgroup; $category ]
@@ -209,25 +209,25 @@ End If
 #return the user to the window they where looking
 #at and restore the sort to what the user orginally
 #had selected.
-Close Window [ Name: "Delete Tag"; Current ﬁle ]
+Close Window [ Name: "Delete Tag"; Current file ]
 Set Variable [ $delete ]
 Set Variable [ $category ]
 #
 #
 If [ TEMP::sortMedium ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortPath ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortCopyist ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortHealth ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortOrgan ≠ "cat" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #

@@ -20,7 +20,7 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 #by order number.
 If [ TEMP::TLSampleSort = "order" and $$citationMatch = "sample" ]
 #
-#Set the tlsamplesort ﬁeld with a 1. Now if user
+#Set the tlsamplesort field with a 1. Now if user
 #clicks the sort button it will be because they
 #now want the records sorted by date.
 Set Field [ TEMP::TLSampleSort; 1 ]
@@ -28,18 +28,18 @@ Set Field [ TEMP::TLSampleSort; 1 ]
 #To speed up the process, sort to the top the records
 #that have ksample numbers. Do not loop thru
 #records whose ksample records are blank.
-Sort Records [ Speciﬁed Sort Order: testlearn::kcsample; descending ]
+Sort Records [ Specified Sort Order: testlearn::kcsample; descending ]
 [ Restore; No dialog ]
 #
-#Go the ﬁrst record.
+#Go the first record.
 Go to Record/Request/Page
 [ First ]
 #
-#Check the sample key ﬁelds if in sample mode.
+#Check the sample key fields if in sample mode.
 If [ $$citationMatch = "sample" ]
 Loop
-#The ﬁrst step is to blank or clear each record's
-#order ﬁeld, so only those records that are part
+#The first step is to blank or clear each record's
+#order field, so only those records that are part
 #of the current sample or test will have order numbers
 #and be part of the sort coming right after this
 #assignment of sort order numbers.
@@ -50,14 +50,14 @@ Exit Loop If [ testlearn::kcsample = "" ]
 #sample or test record lock number. ( Remember
 #each record in the database has lock number or
 #ID number. To open the lock and see any record's
-#contents requires a key number that ﬁts the lock.
+#contents requires a key number that fits the lock.
 #So if a lock number is 123, then the key that will
-#ﬁt this lock is 123 too. ) Because the sample
-#and test key ﬁelds (think of key chains) may
+#fit this lock is 123 too. ) Because the sample
+#and test key fields (think of key chains) may
 #have several keys, because any one learn record
 #may be part of more than one sample or test.
 #the system must check each learn record's keys
-#one at a time to see if any ﬁt the current sample
+#one at a time to see if any fit the current sample
 #or test's lock. So beginning with number one
 #the system checks each key. The left most 3 numbers
 #are order numbers so below you will note that
@@ -69,10 +69,10 @@ Loop
 #
 If [ Middle ( GetValue ( testlearn::kcsample ; $number ) ; 4 ; 42 ) & "¶" = $$tagSample & ¶ ]
 #
-#When and if a key is found that ﬁts the current
+#When and if a key is found that fits the current
 #sample or test record's lock, the order number
 #( left most 3 digits ) is caputred and placed in
-#in the order ﬁeld.
+#in the order field.
 Set Field [ testlearn::orderTest; Left ( GetValue ( testlearn::kcsample ; $number ) ; 3 ) ]
 #
 #The 'number' variable is made blank to trigger
@@ -90,7 +90,7 @@ Exit Loop If [ $number = "" ]
 Exit Loop If [ GetValue ( testlearn::kcsample ; $number ) = "" ]
 #
 #Add 1 to the 'number' varaible after each key
-#in the key ﬁeld is checked, to direct the system
+#in the key field is checked, to direct the system
 #to check the next key.
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
@@ -100,8 +100,8 @@ Go to Record/Request/Page
 End Loop
 End If
 #
-#Sort the records by order ﬁeld.
-Sort Records [ Speciﬁed Sort Order: testlearn::orderTest; based on value list: “order”
+#Sort the records by order field.
+Sort Records [ Specified Sort Order: testlearn::orderTest; based on value list: “order”
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
@@ -135,19 +135,19 @@ If [ TEMP::TLTestSort = "order" and $$citationMatch = "test" ]
 #To speed up the process, sort to the top the records
 #that have ksample numbers. Do not loop thru
 #records whose ksample records are blank.
-Sort Records [ Speciﬁed Sort Order: testlearn::kctest; descending ]
+Sort Records [ Specified Sort Order: testlearn::kctest; descending ]
 [ Restore; No dialog ]
 #
-#Go the ﬁrst record.
+#Go the first record.
 Go to Record/Request/Page
 [ First ]
 #
-#Check the test key ﬁelds if in sample mode.
+#Check the test key fields if in sample mode.
 If [ $$citationMatch = "test" ]
 Loop
 #
-#The ﬁrst step is to blank or clear each record's
-#order ﬁeld, so only those records that are part
+#The first step is to blank or clear each record's
+#order field, so only those records that are part
 #of the current sample or test will have order numbers
 #and be part of the sort coming right after this
 #assignment of sort order numbers.
@@ -158,14 +158,14 @@ Exit Loop If [ testlearn::kctest = "" ]
 #sample or test record lock number. ( Remember
 #each record in the database has lock number or
 #ID number. To open the lock and see any record's
-#contents requires a key number that ﬁts the lock.
+#contents requires a key number that fits the lock.
 #So if a lock number is 123, then the key that will
-#ﬁt this lock is 123 too. ) Because the sample
-#and test key ﬁelds (think of key chains) may
+#fit this lock is 123 too. ) Because the sample
+#and test key fields (think of key chains) may
 #have several keys, because any one learn record
 #may be part of more than one sample or test.
 #the system must check each learn record's keys
-#one at a time to see if any ﬁt the current sample
+#one at a time to see if any fit the current sample
 #or test's lock. So beginning with number one
 #the system checks each key. The left most 3 numbers
 #are order numbers so below you will note that
@@ -176,10 +176,10 @@ Go to Field [ ]
 Loop
 If [ Middle ( GetValue ( testlearn::kctest ; $number ) ; 4 ; 42 ) & "¶" = $$tagtest & ¶ ]
 #
-#When and if a key is found that ﬁts the current
+#When and if a key is found that fits the current
 #sample or test record's lock, the order number
 #( left most 3 digits ) is caputred and placed in
-#in the order ﬁeld.
+#in the order field.
 Set Field [ testlearn::orderTest; Left ( GetValue ( testlearn::kctest ; $number ) ; 3 ) ]
 #
 #The 'number' variable is made blank to trigger
@@ -195,7 +195,7 @@ Exit Loop If [ $number = "" ]
 Exit Loop If [ GetValue ( testlearn::kctest ; $number ) = "" ]
 #
 #Add 1 to the 'number' varaible after each key
-#in the key ﬁeld is checked, to direct the system
+#in the key field is checked, to direct the system
 #to check the next key.
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
@@ -205,8 +205,8 @@ Go to Record/Request/Page
 End Loop
 End If
 #
-#Sort the records by order ﬁeld.
-Sort Records [ Speciﬁed Sort Order: testlearn::orderTest; based on value list: “order”
+#Sort the records by order field.
+Sort Records [ Specified Sort Order: testlearn::orderTest; based on value list: “order”
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #

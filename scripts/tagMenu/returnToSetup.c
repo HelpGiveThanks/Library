@@ -5,10 +5,10 @@ tagMenu: returnToSetup
 // Go to Layout [ “learn1” (testlearn) ]
 // #
 // #Go to Learn tag menu layout and loop back to record.
-// Select Window [ Name: "Tag Menus"; Current ﬁle ]
+// Select Window [ Name: "Tag Menus"; Current file ]
 // Go to Layout [ “defaultSections” (ruleSection) ]
 // Perform Script [ “defaultSectionMenu” ]
-// Select Window [ Name: "Learn"; Current ﬁle ]
+// Select Window [ Name: "Learn"; Current file ]
 // Go to Field [ ]
 // Refresh Window
 // #
@@ -22,7 +22,7 @@ Set Window Title [ Current Window; New Title: "Test" ]
 Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 #
 #Go to Learn tag menu layout and loop back to record.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “testMenuTestItem” (tagMenus) ]
 #
 #Reset temp item ID and clear variable holding
@@ -41,7 +41,7 @@ Set Window Title [ Current Window; New Title: "Report" ]
 Go to Layout [ “PrintReportEdit” (report) ]
 #
 #Go to Learn tag menu layout and loop back to record.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “reportTagItem” (tagMenus) ]
 #
 #Reset temp item ID and clear variable holding
@@ -55,7 +55,7 @@ Perform Script [ “menuTestItem” ]
 Exit Script [ ]
 Else If [ $$module = "defaultSections" ]
 Go to Layout [ “defaultSetup” (tempSetup) ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ $$module ]
 If [ $$module = "defaultSections" ]
 Perform Script [ “defaultSectionMenu” ]
@@ -75,9 +75,9 @@ Set Window Title [ Current Window; New Title: "Test" ]
 Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 #
 #Go to Learn tag menu layout and loop back to record.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “testMenuTestItem” (tagMenus) ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
 ruleTagMenuTestGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]

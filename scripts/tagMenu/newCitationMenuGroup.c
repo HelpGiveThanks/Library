@@ -67,7 +67,7 @@ Else If [ $$citationMatch ≠ "key" or
 $$citationMatch ≠ "node" ]
 Set Field [ tagMenus::match; $$citationMatch ]
 End If
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuGroups::name; ascending
+Sort Records [ Specified Sort Order: ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]

@@ -3,7 +3,7 @@ Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Set Variable [ $$referenceRecordOne ]
 Set Variable [ $$referenceSort ]
-Set Variable [ $$ﬁndMode ]
+Set Variable [ $$findMode ]
 If [ Left ( $$defaultTagLayout ; 1 ) = "d" ]
 #
 #Go to testlearn layout and loop back to record.
@@ -16,18 +16,18 @@ New Record/Request
 Go to Field [ ]
 #
 #Check for any dragged changes to tag spellings.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #organ
-Perform Find [ Speciﬁed Find Requests: Find Records; Criteria: tagMenus::match: “organ” ]
+Perform Find [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “organ” ]
 [ Restore ]
 #copyist
-Extend Found Set [ Speciﬁed Find Requests: Find Records; Criteria: tagMenus::match: “copyist” ]
+Extend Found Set [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “copyist” ]
 [ Restore ]
 #heatlh
-Extend Found Set [ Speciﬁed Find Requests: Find Records; Criteria: tagMenus::match: “health” ]
+Extend Found Set [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “health” ]
 [ Restore ]
 #node
-Extend Found Set [ Speciﬁed Find Requests: Find Records; Criteria: tagMenus::match: “node” ]
+Extend Found Set [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “node” ]
 [ Restore ]
 Perform Script [ “insureEqualityOfSpellFields” ]
 #
@@ -57,7 +57,7 @@ End If
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -70,7 +70,7 @@ End Loop
 Set Variable [ $$stoploadCitation ]
 #
 #Go to Learn tag menu layout and loop back to record.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 Go to Layout [ $$learnTagLayout ]
 Set Variable [ $$learnTagLayout ]
@@ -86,7 +86,7 @@ Set Variable [ $$citationMatch; Value:"cite" ]
 Else If [ $$citeORref = "ref" ]
 Set Variable [ $$citationMatch; Value:"ref" ]
 End If
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 #
 #Perform Load Citation script to restore conditional
 #formatting.

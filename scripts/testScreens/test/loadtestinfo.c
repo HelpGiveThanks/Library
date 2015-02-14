@@ -1,6 +1,6 @@
 testScreens: test: loadtestinfo
 #
-#This ﬁrst section is key to stopping this script
+#This first section is key to stopping this script
 #when another script for example loops thru
 #many records each of which would trigger this
 #script and really slow down the program and

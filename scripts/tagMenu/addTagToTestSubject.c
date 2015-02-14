@@ -7,7 +7,7 @@ Else If [ Get (LayoutName) = "defaultLocation" ]
 Set Variable [ $tag; Value:tagTestSubjectLocation::knode ]
 End If
 #
-#Remove focus from ﬁeld so can see
+#Remove focus from field so can see
 #conditional formatting.
 Go to Field [ ]
 #
@@ -19,7 +19,7 @@ Set Variable [ $$testSubject; Value:tagTestSubjectLocation::knode ]
 End If
 #
 #Select reference, learn, or setup window.
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 #
 #If test subject node is in use, then remove it.
 If [ tempSetup::kdefaultNodeTestSubject = $tag ]
@@ -35,11 +35,11 @@ Set Variable [ $$testSubject; Value:tempSetup::kdefaultNodeTestSubject ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
-#perform a ﬁnd requiring the newly added key.
+#perform a find requiring the newly added key.
 Commit Records/Requests
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 Exit Script [ ]
 End If
@@ -47,6 +47,6 @@ End If
 Refresh Window
 #
 #goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 January 7, 平成26 16:06:49 Imagination Quality Management.fp7 - addTagToTestSubject -1-

@@ -1,13 +1,13 @@
 learn: CancelLearnFind
 #
-#If the user decides to cancel their the ﬁnd, then return
+#If the user decides to cancel their the find, then return
 #to the main record window and show all records.
 If [ Get ( LayoutTableName ) = "reference" ]
-Go to Layout [ $$ﬁndReferenceLayout ]
-Set Variable [ $$ﬁndReferenceLayout ]
+Go to Layout [ $$findReferenceLayout ]
+Set Variable [ $$findReferenceLayout ]
 Else
-Go to Layout [ $$ﬁndLearnLayout ]
-Set Variable [ $$ﬁndLearnLayout ]
+Go to Layout [ $$findLearnLayout ]
+Set Variable [ $$findLearnLayout ]
 End If
 Show/Hide Status Area
 [ Hide ]

@@ -23,14 +23,14 @@ If [ Get (LastError) = 401 ]
 Set Variable [ $emptyList; Value:1 ]
 End If
 Set Variable [ $$stopLoadTagRecord ]
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
 ruleTagMenuTestGroups::_Lgroup; ascending
 tagMenus::orderOrLock; based on value list: “order”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 #
 #assign newly selected test item list to test
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Set Field [ test::ktestItemList; TEMP::ktestItemList ]
 #
 #get the switched-to-test's name.
@@ -41,22 +41,22 @@ Set Field [ test::ktestItemList; TEMP::ktestItemList ]
 #of the named test to this test and thus unlock
 #and so allow the layout to show this test name.
 #This is because the key to unlock the display of
-#a test's name is in a keychain ﬁeld where many
+#a test's name is in a keychain field where many
 #keys may exist in list. Filemaker cannot match
 #a lock in one table to list of keys in another table.
-#There must be only one key in a ﬁeld in order
+#There must be only one key in a field in order
 #for Filemaker to know which key to use in a lock.
 #The database does not have the intellegence or
 #programming to search through a list of keys
-#to make a match to a lock ﬁeld in another table.
+#to make a match to a lock field in another table.
 #Thus, in order to display the name of the test in use
 #we must have the system put that name in a temp
-#ﬁeld with global storage, which then allows it
+#field with global storage, which then allows it
 #to be displayed on any layout where that temp
-#ﬁeld is displayed. No relationship between the
+#field is displayed. No relationship between the
 #the temp table and the layout's table is required
-#as long as the temp ﬁeld is a global ﬁeld, meaning
-#all data in the ﬁeld is the same for every record
+#as long as the temp field is a global field, meaning
+#all data in the field is the same for every record
 #in the temp table.
 #
 #Get the ID of the current record so it can be
@@ -67,7 +67,7 @@ Set Variable [ $currentTest; Value:test::_Ltest ]
 #up this loop search.
 Set Variable [ $$ID; Value:"ignore" ]
 #
-#Go to the ﬁrst record and then test it and every
+#Go to the first record and then test it and every
 #other record until the test in question is found.
 Go to Record/Request/Page
 [ First ]
@@ -77,8 +77,8 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
-#Set a temp ﬁeld with this test's name. This name
-#ﬁeld will then be used to show this test's name on
+#Set a temp field with this test's name. This name
+#field will then be used to show this test's name on
 #the Tag Menus layout for setupTestItems.
 Set Field [ TEMP::ktestListtTestName; test::testName ]
 #
@@ -95,7 +95,7 @@ Refresh Window
 #
 #make new and old tag keys identical, so when
 #a switch is made this copy can be used as the old key
-#in the ﬁrst part of this script. Switching automatically
+#in the first part of this script. Switching automatically
 #replaces the current key with whatever is selected,
 #thus the need to preserve a copy now, before a switch is made.
 Set Field [ TEMP::ktestItemListOLD; TEMP::ktestItemList ]
@@ -104,7 +104,7 @@ Set Field [ TEMP::ktestItemListOLD; TEMP::ktestItemList ]
 Set Field [ TEMP::mTag; TEMP::ktestItemList ]
 #
 #return to tag layout and show all selected items
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “setupTestItem” (tagMenus) ]
 Scroll Window
 [ Home ]

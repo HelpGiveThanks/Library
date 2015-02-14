@@ -3,7 +3,7 @@ tagMenu: menuFind: menuReferenceFind
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"ref" ]
 #
-#Set testlearn internal reference ﬁeld conditional
+#Set testlearn internal reference field conditional
 #formatting to transparent.
 Set Variable [ $$internal ]
 #
@@ -19,16 +19,16 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
-// Set Field [ reference::ﬁlterFind; "main" ]
+// Set Field [ reference::filterFind; "main" ]
 // Set Field [ reference::ktest; TEMP::ktest ]
 Perform Find [ ]
-Constrain Found Set [ Speciﬁed Find Requests: Omit Records; Criteria: reference::knodePrimary: “=” ]
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::knodePrimary: “=” ]
 [ Restore ]
-Extend Found Set [ Speciﬁed Find Requests: Find Records; Criteria: reference::referenceNodes: “*” ]
+Extend Found Set [ Specified Find Requests: Find Records; Criteria: reference::referenceNodes: “*” ]
 [ Restore ]
-Constrain Found Set [ Speciﬁed Find Requests: Omit Records; Criteria: reference::Title: “=” ]
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::Title: “=” ]
 [ Restore ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::orderOrLock; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
@@ -36,12 +36,12 @@ reference::referenceShort; ascending ]
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortRef = "cat" or TEMP::sortRef = "" ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::orderOrLock; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortRef = "abc" ]
-Sort Records [ Speciﬁed Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #

@@ -23,7 +23,7 @@ If [ ValueCount ( ruleTagMenuGroups::ksection ) > 1 ]
 #if the go ahead with the move, they will be unable
 #to reverse their decision after moving.
 Go to Field [ ]
-Show Custom Dialog [ Title: "!"; Message: "WARNING: Once the " & tagMenus::tag & " move is ﬁnished it cannot be undone. The group it is being moved to is in more than one section of this database. Tags cannot be moved out of these types of groups. So are you really sure about this
+Show Custom Dialog [ Title: "!"; Message: "WARNING: Once the " & tagMenus::tag & " move is finished it cannot be undone. The group it is being moved to is in more than one section of this database. Tags cannot be moved out of these types of groups. So are you really sure about this
 move?"; Buttons: “undo move”, “I am sure!” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 #
@@ -83,7 +83,7 @@ Halt Script
 End If
 #
 #If the user decides to go ahead with the move,
-#ﬁrst delete the old group.
+#first delete the old group.
 New Window [ ]
 #
 Go to Layout [ “tableGroupTag” (groupTest) ]
@@ -95,7 +95,7 @@ Delete Record/Request
 #
 End If
 #
-#Close window opened to perform ﬁnd, and then
+#Close window opened to perform find, and then
 #set group ID of test with the new groups ID number.
 Close Window [ Current Window ]
 Set Field [ tagMenus::kGroupOrTest; $newGroup ]

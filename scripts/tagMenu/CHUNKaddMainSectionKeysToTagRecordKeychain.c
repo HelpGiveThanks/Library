@@ -8,15 +8,15 @@ tagMenu: CHUNKaddMainSectionKeysToTagRecordKeychain
 #just added to it will show up as well.
 #NOTE: Add only section keys to keyword and node tags.
 If [ $$citationMatch = "node" or $$citationMatch = "key" ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 Set Variable [ $keychain; Value:reference::kcsection ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 #
 #If the user was not looking at Refernce records
 #then the keychain variable will be blank and need
-#to be ﬁlled in. But if they were then ﬁlling it in
+#to be filled in. But if they were then filling it in
 #as if Learn records where showing would blank
-#the just ﬁlled in keychain variable.
+#the just filled in keychain variable.
 If [ $keychain = "" ]
 Set Variable [ $keychain; Value:testlearn::kcsection ]
 End If
@@ -26,7 +26,7 @@ Set Variable [ $numberOfKeys; Value:ValueCount ( $keychain ) ]
 #
 #Loop thru each key to see if any do not match
 #keys in the tag group's keychain.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Loop
 #
 #Exit the loop when there are no more keys to check.

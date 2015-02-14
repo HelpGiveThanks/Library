@@ -17,13 +17,13 @@ Set Field [ testlearn::kreportNumber; $$reportNumber ]
 Set Field [ testlearn::Location; $$locationName ]
 Set Field [ testlearn::kcsection; $$Library ]
 Set Field [ testlearn::ktest; $$item ]
-#lock item location so it cannot be deleted unless all ﬁndings for it are deleted
+#lock item location so it cannot be deleted unless all findings for it are deleted
 Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $$location ]
 Perform Find [ ]
 Set Field [ tagTestSubjectLocation::inUse; "t" ]
-#reﬁnd all location records for this session
+#refind all location records for this session
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::knode; TEMP::kdefaultNodeTestSubject ]
 Perform Find [ ]
@@ -52,7 +52,7 @@ Else If [ tlResults::InspectionItemCountLocation = "N/A" or
 tlResults::InspectionItemCountLocation = "OK" ]
 If [ TLResultsOnReport::InspectionItemCount = "" ]
 Set Field [ TEMP::testName ]
-Show Custom Dialog [ Title: "FYI"; Message: "Use the star symbol to referr to other assessment ﬁndings. You currently do not have any for this item."; Buttons: “OK” ]
+Show Custom Dialog [ Title: "FYI"; Message: "Use the star symbol to referr to other assessment findings. You currently do not have any for this item."; Buttons: “OK” ]
 Set Field [ tlResults::InspectionItemCountLocation; "" ]
 Go to Field [ ]
 Freeze Window
@@ -78,7 +78,7 @@ Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $$location ]
 Perform Find [ ]
 Set Field [ tagTestSubjectLocation::inUse; "" ]
-#reﬁnd all location records for this session
+#refind all location records for this session
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::knode; TEMP::kdefaultNodeTestSubject ]
 Perform Find [ ]
@@ -127,7 +127,7 @@ Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $$location ]
 Perform Find [ ]
 Set Field [ tagTestSubjectLocation::inUse; "" ]
-#reﬁnd all location records for this session
+#refind all location records for this session
 Enter Find Mode [ ]
 Set Field [ tagTestSubjectLocation::knode; TEMP::kdefaultNodeTestSubject ]
 Perform Find [ ]

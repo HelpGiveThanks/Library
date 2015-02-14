@@ -18,55 +18,55 @@ End If
 #Note which button has been clicked ( 1, 2 or 3)
 #and if there is a picture to show then link it
 #to tag user is currently wanting to link it to.
-If [ reference::kﬁleLocation ≠ "" and reference::ﬁleName ≠ "" and ruleCitationCategoryMedium::name = "picture"
+If [ reference::kfileLocation ≠ "" and reference::fileName ≠ "" and ruleCitationCategoryMedium::name = "picture"
  or
 ruleCitationCategoryMedium::name = "picture" and reference::URL ≠ ""
  or
-testlearn::kﬁleLocation ≠ "" and testlearn::ﬁlename ≠ "" and ruleTLCategoryMedium::name = "picture"
+testlearn::kfileLocation ≠ "" and testlearn::filename ≠ "" and ruleTLCategoryMedium::name = "picture"
  or
 ruleTLCategoryMedium::name = "picture" and testlearn::URL ≠ "" ]
 Set Variable [ $$name; Value:"picture" ]
 Set Variable [ $$number; Value:2 ]
 #
-#If the ﬁlterFind checkbox is not checked for the
+#If the filterFind checkbox is not checked for the
 #the current $$CitationMatch variable, then
 #these next scripts will identify that problem,
-#ﬁx it, and inform the user of what it did.
+#fix it, and inform the user of what it did.
 If [ Get ( LayoutTableName ) = "testlearn" ]
-If [ $$citationMatch = "key" and "keyword" & ¶ ≠ FilterValues ( testlearn::ﬁlterFind ; "keyword" ) ]
-Set Variable [ $ﬁlterFind; Value:testlearn::ﬁlterFind ]
-Set Field [ testlearn::ﬁlterFind; "keyword" & ¶ & $ﬁlterFind ]
+If [ $$citationMatch = "key" and "keyword" & ¶ ≠ FilterValues ( testlearn::filterFind ; "keyword" ) ]
+Set Variable [ $filterFind; Value:testlearn::filterFind ]
+Set Field [ testlearn::filterFind; "keyword" & ¶ & $filterFind ]
 Show Custom Dialog [ Message: "The system has added this learn record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
- " citation record set. You will not have to click the 'all' button anymore to ﬁnd it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, ﬁle and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
-Else If [ $$citationMatch & ¶ ≠ FilterValues ( testlearn::ﬁlterFind ; $$citationMatch ) ]
-Set Variable [ $ﬁlterFind; Value:testlearn::ﬁlterFind ]
-Set Field [ testlearn::ﬁlterFind; $$citationMatch & ¶ & $ﬁlterFind ]
+Else If [ $$citationMatch & ¶ ≠ FilterValues ( testlearn::filterFind ; $$citationMatch ) ]
+Set Variable [ $filterFind; Value:testlearn::filterFind ]
+Set Field [ testlearn::filterFind; $$citationMatch & ¶ & $filterFind ]
 Show Custom Dialog [ Message: "The system has added this learn record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
- " citation record set. You will not have to click the 'all' button anymore to ﬁnd it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, ﬁle and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
 #
 Else If [ Get ( LayoutTableName ) = "reference" ]
-If [ $$citationMatch = "key" and "keyword" & ¶ ≠ FilterValues ( reference::ﬁlterFind ; "keyword" ) ]
-Set Variable [ $ﬁlterFind; Value:reference::ﬁlterFind ]
-Set Field [ reference::ﬁlterFind; "keyword" & ¶ & $ﬁlterFind ]
+If [ $$citationMatch = "key" and "keyword" & ¶ ≠ FilterValues ( reference::filterFind ; "keyword" ) ]
+Set Variable [ $filterFind; Value:reference::filterFind ]
+Set Field [ reference::filterFind; "keyword" & ¶ & $filterFind ]
 Show Custom Dialog [ Message: "The system has added this reference record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
- " citation record set. You will not have to click the 'all' button anymore to ﬁnd it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, ﬁle and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
-Else If [ $$citationMatch & ¶ ≠ FilterValues ( reference::ﬁlterFind ; $$citationMatch ) ]
-Set Variable [ $ﬁlterFind; Value:reference::ﬁlterFind ]
-Set Field [ reference::ﬁlterFind; $$citationMatch & ¶ & $ﬁlterFind ]
+Else If [ $$citationMatch & ¶ ≠ FilterValues ( reference::filterFind ; $$citationMatch ) ]
+Set Variable [ $filterFind; Value:reference::filterFind ]
+Set Field [ reference::filterFind; $$citationMatch & ¶ & $filterFind ]
 Show Custom Dialog [ Message: "The system has added this reference record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
- " citation record set. You will not have to click the 'all' button anymore to ﬁnd it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, ﬁle and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
 End If

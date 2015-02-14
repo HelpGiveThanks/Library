@@ -4,17 +4,17 @@ testScreens: testReport: CHUNK_gotoItemViaPulldown
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Set Field [ TEMP::kuserLocation; "" ]
-#[by David Matson 4.16.11, last modiﬁed by same 4.18.11]
-#clear the $$ﬁnding and $window variables
-Set Variable [ $$ﬁnding ]
+#[by David Matson 4.16.11, last modified by same 4.18.11]
+#clear the $$finding and $window variables
+Set Variable [ $$finding ]
 Set Variable [ $$window ]
 Set Variable [ $contact; Value:report::ktestSubject ]
 Set Variable [ $item; Value:TEMP::ktest ]
 #
-#clear global ﬁelds for creating new discovery
+#clear global fields for creating new discovery
 #records, but put in current timestamp to help
 #user understand how info sould be put into
-#the timestample ﬁeld and for easy editing,
+#the timestample field and for easy editing,
 #changing date, time, etc.
 Set Field [ testlearnReportTags::gkaudienceLocation; "" ]
 Set Field [ TEMP::LocationName; "" ]
@@ -24,7 +24,7 @@ Set Field [ report::ktestSubject; $contact ]
 Set Field [ report::ktest; $item ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: report::ktest; ascending ]
+Sort Records [ Specified Sort Order: report::ktest; ascending ]
 [ Restore; No dialog ]
 #
 #****haven't decided to use globals or $$variables. Since $$item is used in many other scripts I'm capturing it here.
@@ -34,7 +34,7 @@ Set Variable [ $$item; Value:report::ktest ]
 Set Field [ TEMP::testName; reportItem::testName ]
 Set Field [ TEMP::showFavorites; "" ]
 #
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
 New Window [ Name: "Tag Menus"; Height: Get ( ScreenHeight ); Width: 330; Left: 0 ]
 Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
@@ -45,7 +45,7 @@ Set Field [ testlearnReportTags::ktestSubject; TEMP::kdefaultNodeTestSubject ]
 Set Field [ testlearnReportTags::ktest; TEMP::ktest ]
 Set Field [ testlearnReportTags::kreportNumber; TEMP::reportNumber ]
 Perform Find [ ]
-Sort Records [ Speciﬁed Sort Order: testlearnReportTags::Location; ascending
+Sort Records [ Specified Sort Order: testlearnReportTags::Location; ascending
 testlearnReportTags::timestamp; ascending
 testlearnReportTags::_Ltestlearn; ascending ]
 [ Restore; No dialog ]
@@ -76,7 +76,7 @@ Enter Find Mode [ ]
 Set Field [ ruleTagMenuTestGroups::match; TEMP::ktestItemList & ¶ ]
 Perform Find [ ]
 #
-Sort Records [ Speciﬁed Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
+Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
 ruleTagMenuTestGroups::name; ascending
 ruleTagMenuTestGroups::_Lgroup; ascending
 tagMenus::orderOrLock; based on value list: “order”
@@ -87,7 +87,7 @@ Go to Record/Request/Page
 [ First ]
 #
 End If
-Select Window [ Name: "Report"; Current ﬁle ]
+Select Window [ Name: "Report"; Current file ]
 #[validated by David Matson 4.18.11]
 #
 January 7, 平成26 14:25:54 Imagination Quality Management.fp7 - CHUNK_gotoItemViaPulldown -1-

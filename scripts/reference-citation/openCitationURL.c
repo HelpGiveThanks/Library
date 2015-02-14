@@ -1,12 +1,12 @@
 reference(citation): openCitationURL
 #
-#Show folder ﬁle is in.
+#Show folder file is in.
 If [ refReference::URL ≠ "" or
 refReference::ISBN ≠ "" or
 refReference::ISSN ≠ "" or
 refReference::URLdoi ≠ "" ]
 If [ ValueCount ( testlearn::kcreference ) > 1 ]
-Show Custom Dialog [ Message: "This is the ﬁrst reference attached to this record. To see all references, click the 'QV' button in the Learn window or the 'references' button in the Tag Menus window."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This is the first reference attached to this record. To see all references, click the 'QV' button in the Learn window or the 'references' button in the Tag Menus window."; Buttons: “OK” ]
 End If
 Show Custom Dialog [ Message: "Reference's Title: " & refReference::Title; Buttons: “OK” ]
 Open URL [ Case ( refReference::URL ≠ "" ; refReference::URL ;
@@ -17,7 +17,7 @@ refReference::URLdoi ≠ "" ; "http://dx.doi.org/" & refReference::URLdoi ;
 [ No dialog ]
 End If
 #
-#Show folder ﬁle is in.
+#Show folder file is in.
 If [ citeCite::URL ≠ "" or
 citeCite::ISBN ≠ "" or
 citeCite::ISSN ≠ "" or
@@ -31,7 +31,7 @@ citeCite::URLdoi ≠ "" ; "http://dx.doi.org/" & citeCite::URLdoi ;
 [ No dialog ]
 End If
 #
-#Show folder ﬁle is in.
+#Show folder file is in.
 If [ citeTest::URL ≠ "" or
 citeTest::ISBN ≠ "" or
 citeTest::ISSN ≠ "" or
@@ -45,13 +45,13 @@ citeTest::URLdoi ≠ "" ; "http://dx.doi.org/" & citeTest::URLdoi ;
 [ No dialog ]
 End If
 #
-#Show folder ﬁle is in.
+#Show folder file is in.
 If [ refTest::URL ≠ "" or
 refTest::ISBN ≠ "" or
 refTest::ISSN ≠ "" or
 refTest::URLdoi ≠ "" ]
 If [ ValueCount ( testlearnReportTags::kcreference ) > 1 ]
-Show Custom Dialog [ Message: "This is the ﬁrst reference attached to this record. To see all references, click the 'edit/new' button in the main list view window, and once you are in the Learn module, click the 'QV' button in the Learn window or the 'references' button in the Learn Tag
+Show Custom Dialog [ Message: "This is the first reference attached to this record. To see all references, click the 'edit/new' button in the main list view window, and once you are in the Learn module, click the 'QV' button in the Learn window or the 'references' button in the Learn Tag
 Menus window."; Buttons: “OK” ]
 End If
 Show Custom Dialog [ Message: "Reference's Title: " & refTest::Title; Buttons: “OK” ]

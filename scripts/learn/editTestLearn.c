@@ -6,24 +6,24 @@ Show Custom Dialog [ Message: "The default node selected is locked. Select this 
 Exit Script [ ]
 End If
 #
-#If in ﬁnd mode, exit script.
-If [ $$ﬁndMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit ﬁnd mode, then click this button."; Buttons: “OK” ]
+#If in find mode, exit script.
+If [ $$findMode ≠ "" ]
+Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
-#If in ﬁnd mode, exit ﬁnd mode.
-If [ $$ﬁndMode= 1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
-Set Variable [ $$ﬁndMode ]
-Set Variable [ $$ﬁrstFind ]
-Set Variable [ $$ﬁrstFindOther ]
+#If in find mode, exit find mode.
+If [ $$findMode= 1 ]
+Select Window [ Name: "Tag Menus"; Current file ]
+Set Variable [ $$findMode ]
+Set Variable [ $$firstFind ]
+Set Variable [ $$firstFindOther ]
 Set Variable [ $$found ]
 Set Variable [ $$foundOther ]
-Go to Layout [ $$ﬁndLayout ]
+Go to Layout [ $$findLayout ]
 Set Variable [ $$stoploadCitation ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 End If
 #
 #Capture layout name.

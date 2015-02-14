@@ -1,6 +1,6 @@
 testScreens: testReport: PreviousPage
 Set Variable [ $$last ]
-Set Variable [ $$ﬁrst; Value:test::_Ltest ]
+Set Variable [ $$first; Value:test::_Ltest ]
 Set Variable [ $library; Value:test::ksection ]
 Go to Record/Request/Page
 [ Previous ]
@@ -10,7 +10,7 @@ Go to Record/Request/Page
 Refresh Window
 Exit Script [ ]
 End If
-If [ $$ﬁrst ≠ test::_Ltest or Get (LastError) = 101 ]
+If [ $$first ≠ test::_Ltest or Get (LastError) = 101 ]
 Set Field [ TEMP::theme; test::testName ]
 Perform Script [ “loadSetupTestRecord” ]
 Refresh Window

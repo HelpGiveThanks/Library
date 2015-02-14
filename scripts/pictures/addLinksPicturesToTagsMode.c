@@ -23,7 +23,7 @@ Exit Script [ ]
 End If
 #
 #This script allows users to add pictures and
-#ﬁle links to tags from citation records.
+#file links to tags from citation records.
 #
 #If on the test setup layout, then stop the script
 #if the user has not created any tags to add pictures
@@ -71,13 +71,13 @@ Refresh Window
 #Capture record user is on.
 #Stop record load script to speed things up.
 Set Variable [ $$stoploadCitation; Value:1 ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 112 ]
 #
 #If setup ...
-Select Window [ Name: "Setup"; Current ﬁle ]
+Select Window [ Name: "Setup"; Current file ]
 Set Variable [ $$returnWIndow; Value:Get (LayoutName) ]
 Set Variable [ $$returnRecord; Value:test::_Ltest ]
 Else If [ Get (LastError) ≠ 112 ]
@@ -103,7 +103,7 @@ Go to Layout [ “ReferenceAddToTag” (reference) ]
 // #Find all citations for current tag set.
 // #( the user can always click the 'all' button to
 // # to see all the records they can add to the tag
-// # but I ﬁgured most of the time the user is creating
+// # but I figured most of the time the user is creating
 // # creating records during the add process to
 // # to add to tag, and so keep the records to just
 // # those created for a type of tag would be easier
@@ -122,11 +122,11 @@ January 7, 平成26 17:13:18 Imagination Quality Management.fp7 - AddLinksPictur
 // #( You can see these checkboxes at the bottom
 // # of every Reference record )
 // If [ $$citationMatch = "key" ]
-// Set Field [ reference::ﬁlterFind; "*" & "keyword" ]
+// Set Field [ reference::filterFind; "*" & "keyword" ]
 // #
 // #If the citationMatch equals any other tag type ...
 // Else If [ $$citationMatch ≠ "key" ]
-// Set Field [ reference::ﬁlterFind; "*" & Quote ( $$citationMatch ) ]
+// Set Field [ reference::filterFind; "*" & Quote ( $$citationMatch ) ]
 // End If
 // #
 // Perform Find [ ]
@@ -137,7 +137,7 @@ Set Variable [ $$stoploadCitation ]
 Perform Script [ “loadCitation” ]
 #
 #Go to tag menu window.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Exit Script [ ]
 #
 #END start add mode
@@ -157,18 +157,18 @@ Set Variable [ $$add ]
 If [ $$citationMatch = "testItem" ]
 #
 #This may be lazy, but instead of doing an if
-#test to ﬁgure out what window a user is in,
+#test to figure out what window a user is in,
 #it seems that telling the system to select both
 #possible windows the user could be
-#in works just ﬁne. The system always
+#in works just fine. The system always
 #selects the one the user is in.
-Select Window [ Name: "References"; Current ﬁle ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
+Select Window [ Name: "Learn"; Current file ]
 #
 #Now loop to the record the user was on,
 #and turn off the load record script to speed things
 #up. ( This record set does not need to be found
-# ﬁrst because during add mode test records
+# first because during add mode test records
 # are not touched. )
 Set Variable [ $$ID; Value:"ignore" ]
 Go to Layout [ “testSetup” (test) ]
@@ -186,7 +186,7 @@ Set Variable [ $$ID; Value:test::_Ltest ]
 #
 #Go to the tag menu and perform the TestItem
 #menu script to reset the conditional formatting.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “setupTestItem” (tagMenus) ]
 Perform Script [ “menuTestItem” ]
 #
@@ -201,22 +201,22 @@ Exit Script [ ]
 Else If [ $$returnWindow = "defaultSetup" ]
 #
 #This may be lazy, but instead of doing an if
-#test to ﬁgure out what window a user is in,
+#test to figure out what window a user is in,
 #it seems that telling the system to select both
 #possible windows the user could be
-#in works just ﬁne. The system always
+#in works just fine. The system always
 #selects the one the user is in.
-Select Window [ Name: "References"; Current ﬁle ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
+Select Window [ Name: "Learn"; Current file ]
 #
 #There is always only one default record, so
-#ﬁnding and looping to record is not necessary.
+#finding and looping to record is not necessary.
 Go to Layout [ “defaultSetup” (tempSetup) ]
 Set Window Title [ Current Window; New Title: "Setup" ]
 #
 #Go to the tag menu and perform the Node
 #menu script to reset the conditional formatting.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “defaultNode1” (tagMenus) ]
 Perform Script [ “defaultNodeMenu” ]
 #
@@ -229,7 +229,7 @@ Exit Script [ ]
 End If
 #
 #If going back to a Learn or Reference layout,
-#then ﬁrst turn off the record load variable.
+#then first turn off the record load variable.
 #I decided to do it here rather than include it
 #each time before it is needed.
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -245,7 +245,7 @@ January 7, 平成26 17:13:18 Imagination Quality Management.fp7 - AddLinksPictur
 # not remember what tag they where on when
 # they started add mode. Have to see if this
 # is useful or not. )
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 If [ $$citationMatch = "node" or
 $$citationMatch = "key" or
@@ -262,24 +262,24 @@ Go to Layout [ $$tagLayout ]
 End If
 #
 #This may be lazy, but instead of doing an if
-#test to ﬁgure out what window a user is in,
+#test to figure out what window a user is in,
 #it seems that telling the system to select both
 #possible windows the user could be
-#in works just ﬁne. The system always
+#in works just fine. The system always
 #selects the one the user is in.
-Select Window [ Name: "References"; Current ﬁle ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
+Select Window [ Name: "Learn"; Current file ]
 Set Window Title [ Current Window; New Title: "Learn" ]
 Go to Layout [ $$returnLayout ]
 #
 #Find main learn records.
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-// Set Field [ testlearn::ﬁlterFind; "main" & ¶ ]
+// Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
 #
 #Go to record user was on before add mode.
-Sort Records [ Speciﬁed Sort Order: testlearn::date; descending
+Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -310,7 +310,7 @@ Else If [ $$returnWIndow = "References" ]
 # not remember what tag they where on when
 # they started add mode. Have to see if this
 # is useful or not. )
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Get the record number.
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
@@ -331,13 +331,13 @@ Go to Layout [ “ReferenceMenu1” (tagMenus) ]
 End If
 #
 #This may be lazy, but instead of doing an if
-#test to ﬁgure out what window a user is in,
+#test to figure out what window a user is in,
 #it seems that telling the system to select both
 #possible windows the user could be
-#in works just ﬁne. The system always
+#in works just fine. The system always
 #selects the one the user is in.
-Select Window [ Name: "References"; Current ﬁle ]
-Select Window [ Name: "Learn"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
+Select Window [ Name: "Learn"; Current file ]
 Set Window Title [ Current Window; New Title: "References" ]
 Go to Layout [ “Reference” (reference) ]
 #
@@ -346,11 +346,11 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
-// Set Field [ reference::ﬁlterFind; "main" ]
+// Set Field [ reference::filterFind; "main" ]
 Perform Find [ ]
 #
 #Go to record user was on before add mode.
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending ]
+Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
@@ -373,7 +373,7 @@ Perform Script [ “loadCitation” ]
 #Go to record user was on before add mode.
 Scroll Window
 [ Home ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 #

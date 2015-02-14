@@ -6,41 +6,41 @@ Show Custom Dialog [ Message: "The default node selected is locked. Select this 
 Exit Script [ ]
 End If
 #
-#If in ﬁnd mode, exit script.
-If [ $$ﬁndMode ≠ "" ]
-Show Custom Dialog [ Message: "Cancel ﬁnd mode, then click this button."; Buttons: “OK” ]
+#If in find mode, exit script.
+If [ $$findMode ≠ "" ]
+Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
-#If in ﬁnd mode, exit ﬁnd mode.
-If [ $$ﬁndMode= 1 ]
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
-Set Variable [ $$ﬁndMode ]
-Set Variable [ $$ﬁrstFind ]
-Set Variable [ $$ﬁrstFindOther ]
+#If in find mode, exit find mode.
+If [ $$findMode= 1 ]
+Select Window [ Name: "Tag Menus"; Current file ]
+Set Variable [ $$findMode ]
+Set Variable [ $$firstFind ]
+Set Variable [ $$firstFindOther ]
 Set Variable [ $$found ]
 Set Variable [ $$foundOther ]
-Go to Layout [ $$ﬁndLayout ]
+Go to Layout [ $$findLayout ]
 Set Variable [ $$stoploadCitation ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 End If
 #
-#If user is in tag ﬁeld and has changed spelling
+#If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
-Select Window [ Name: "Tag Menus"; Current ﬁle ]
+Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
-Select Window [ Name: "References"; Current ﬁle ]
+Select Window [ Name: "References"; Current file ]
 If [ $$referenceSort = 2 ]
-Sort Records [ Speciﬁed Sort Order: reference::modifyDate; descending
+Sort Records [ Specified Sort Order: reference::modifyDate; descending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 Else If [ $$referenceSort = "" ]
-Sort Records [ Speciﬁed Sort Order: tagKeywordPrimary::tag; ascending
+Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 Else If [ $$referenceSort = 1 ]
-Sort Records [ Speciﬁed Sort Order: reference::createDate; descending
+Sort Records [ Specified Sort Order: reference::createDate; descending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 End If
@@ -109,8 +109,8 @@ Set Variable [ $isbn; Value:reference::ISBN ]
 Set Variable [ $doi; Value:reference::URLdoi ]
 Set Variable [ $issn; Value:reference::ISSN ]
 #
-Set Variable [ $ﬁleName; Value:reference::ﬁleName ]
-Set Variable [ $InFolder; Value:reference::kﬁleLocation ]
+Set Variable [ $fileName; Value:reference::fileName ]
+Set Variable [ $InFolder; Value:reference::kfileLocation ]
 Set Variable [ $citation; Value:reference::kcitation ]
 Set Variable [ $notes; Value:reference::thoughtsNotesEtc ]
 Set Variable [ $refDump; Value:reference::referenceDump ]
@@ -188,8 +188,8 @@ Set Field [ reference::ISBN; $isbn ]
 Set Field [ reference::URLdoi; $doi ]
 Set Field [ reference::ISSN; $issn ]
 #
-Set Field [ reference::ﬁleName; $ﬁleName ]
-Set Field [ reference::kﬁleLocation; $InFolder ]
+Set Field [ reference::fileName; $fileName ]
+Set Field [ reference::kfileLocation; $InFolder ]
 Set Field [ reference::kfolderpath; $$Path ]
 Set Field [ reference::kcitation; $citation ]
 Set Field [ reference::thoughtsNotesEtc; $notes ]
@@ -203,12 +203,12 @@ Set Field [ reference::incomplete; "incomplete" & ¶ ]
 Set Field [ reference::kcopyrightType; $$copyrightType ]
 Set Field [ reference::lock; $$Ref ]
 If [ Get ( LayoutName ) = "Reference" ]
-Set Field [ reference::ﬁlterFind; "main" & ¶ ]
+Set Field [ reference::filterFind; "main" & ¶ ]
 Set Variable [ $$stoploadCitation ]
 #
 #Note that citation is for either the node or keyword depending on the citation match.
 Else If [ Right ( Get ( LayoutName ) ; 3 ) = "TAG" ]
-Set Field [ reference::ﬁlterFind; $$addToTag & ¶ ]
+Set Field [ reference::filterFind; $$addToTag & ¶ ]
 End If
 Sort Records [ ]
 [ No dialog ]
