@@ -1,3 +1,4 @@
+February 17, 2015 15:12:56 Imagination Quality Management.fmp12 - gotoSetupTest -1-
 testScreens: setup: gotoSetupTest
 #
 #Capture record ID so system can return user
@@ -43,7 +44,7 @@ End If
 #test items. If coming from Library Setup window.
 Set Variable [ $$ID; Value:"ignore" ]
 Go to Layout [ “testSetup” (test) ]
-Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: groupTest::order; based on value list: “order”
 groupTest::name; ascending
 test::order; based on value list: “order”
 test::testName; ascending ]
@@ -65,7 +66,7 @@ Perform Find [ Specified Find Requests: Find Records; Criteria: tagMenus::_Ltag:
 Select Window [ Name: "Setup"; Current file ]
 Exit Script [ ]
 End If
-Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: groupTest::order; based on value list: “order”
 groupTest::name; ascending
 test::order; based on value list: “order”
 test::testName; ascending ]
@@ -111,4 +112,3 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $$recordNumber ]
 [ No dialog ]
 End If
-January 7, 平成26 12:14:28 Imagination Quality Management.fp7 - gotoSetupTest -1-
