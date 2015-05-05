@@ -1,6 +1,6 @@
 startclose: moreInfo
 New Window [ Name: "More Info"; Left: Get ( WindowDesktopWidth ) - (Get ( WindowDesktopWidth ) / 2 ) ]
-Go to Layout [ “about” (tempSetup) ]
+Go to Layout [ “moreinfo” (tempSetup) ]
 Adjust Window
 [ Resize to Fit ]
 Pause/Resume Script [ Indefinitely ]
