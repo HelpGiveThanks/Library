@@ -1,12 +1,10 @@
 tagMenu: menuSample
 Allow User Abort [ Off ]
-Set Error Capture [ On ]
-#
+Set Error Capture [ On ] #
 #If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
-Go to Field [ ]
-#
+Go to Field [ ] #
 #Clear sample and test tags.
 If [ $$citationMatch = "test" ]
 Select Window [ Name: "Learn"; Current file ]
@@ -17,8 +15,7 @@ Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 Select Window [ Name: "Tag Menus"; Current file ]
-End If
-#
+End If #
 #Clear order numbers.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 New Window [ Height: 1; Width: 1 ]
@@ -31,11 +28,9 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 Close Window [ Current Window ]
-Set Variable [ $$stopLoadTagRecord ]
-#
+Set Variable [ $$stopLoadTagRecord ] #
 #Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"sample" ]
-#
+Set Variable [ $$citationMatch; Value:"sample" ] #
 #Set match temp tag field to limit move pulldown
 #to just the groups for this section and item type.
 #( if you're wondering why this temp field is a
@@ -43,24 +38,24 @@ Set Variable [ $$citationMatch; Value:"sample" ]
 # is because I didn't need it until a year into
 # writing this database. At some point, it would
 # probably be good to get rid of the variable. )
-Set Field [ TEMP::mTag; $$citationMatch ]
-#
+Set Field [ TEMP::mTag; $$citationMatch ] #
 #Turn off the loadtagrecord script to speed up the
 #loop portion of the script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-Set Variable [ $$stopLoadCitation; Value:1 ]
-#
+Set Variable [ $$stopLoadCitation; Value:1 ] #
 #Goto correct layout.
 Go to Layout [ “learnMenuSample” (tagMenus) ]
-#
+If [ TEMP::InventoryLibaryYN
+≠ "" ]
+Go to Layout [ “learnMenuStuffSample” (tagMenus) ]
+End If #
 #Find sample tags for current library section.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
 Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
-Perform Find [ ]
-#
+Perform Find [ ] #
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortSample = "cat" or TEMP::sortSample = "" ]
@@ -71,8 +66,7 @@ tagMenus::tag; ascending ]
 Else If [ TEMP::sortSample = "abc" ]
 Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
-End If
-#
+End If #
 #Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
@@ -88,21 +82,17 @@ End Loop
 Exit Loop If [ Middle ( GetValue ( $$sample ; $number ) ; 4 ; 42 ) & "¶" = tagMenus::_Ltag & ¶ ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
-End Loop
-#
+End Loop #
 #Turn loadtagrecord script back on.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “insureEqualityOfSpellFields” ]
-#
+Perform Script [ “insureEqualityOfSpellFields” ] #
 #Turn loadtagrecord script back on and perform
 #loadtag... script to highlight any Learn records
 #tagged with the current tag record.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadItemRecordForSampleTagMenu” ]
-#
-#
-#
-// If [ Middle ( GetValue ( $$sample ; $number ) ; 4 ; 42 ) & "¶" ≠ tagMenus::_Ltag & ¶ ]
+Perform Script [ “loadItemRecordForSampleTagMenu” ] ###
+// If [ Middle ( GetValue ( $$sample ; $number ) ; 4 ; 42 ) & "¶"
+≠ tagMenus::_Ltag & ¶ ]
 // Go to Record/Request/Page
 [ First ]
 // Select Window [ Name: "Learn"; Current file ]
@@ -111,15 +101,16 @@ Perform Script [ “loadItemRecordForSampleTagMenu” ]
 // #order number.
 // If [ TEMP::TLSampleSort = 1 ]
 // Set Field [ TEMP::TLSampleSort; "" ]
-// Perform Script [ “SortTLRecordsByOrderNumber” ]
+// Perform Script [ “sortTLRecordsByOrderNumber” ]
 // Else If [ TEMP::TLSampleSort = "" ]
 // Set Field [ TEMP::TLSampleSort; 1 ]
-// Perform Script [ “SortTLRecordsByOrderNumber” ]
+// Perform Script [ “sortTLRecordsByOrderNumber” ]
 // End If
+May 4, 平成27 21:44:07 Library.fp7 - menuSample -1-
+tagMenu: menuSample
 // Go to Field [ ]
 // Refresh Window
 // Select Window [ Name: "Tag Menus"; Current file ]
-January 7, 平成26 16:00:02 Imagination Quality Management.fp7 - menuSample -1-tagMenu: menuSample
 // Exit Script [ ]
 // End If
 // #
@@ -139,12 +130,12 @@ January 7, 平成26 16:00:02 Imagination Quality Management.fp7 - menuSample -1-
 // #order number.
 // If [ TEMP::TLSampleSort = 1 ]
 // Set Field [ TEMP::TLSampleSort; "" ]
-// Perform Script [ “SortTLRecordsByOrderNumber” ]
+// Perform Script [ “sortTLRecordsByOrderNumber” ]
 // Else If [ TEMP::TLSampleSort = "" ]
 // Set Field [ TEMP::TLSampleSort; 1 ]
-// Perform Script [ “SortTLRecordsByOrderNumber” ]
+// Perform Script [ “sortTLRecordsByOrderNumber” ]
 // End If
 // Go to Field [ ]
 // Refresh Window
 // Select Window [ Name: "Tag Menus"; Current file ]
-January 7, 平成26 16:00:02 Imagination Quality Management.fp7 - menuSample -2-
+May 4, 平成27 21:44:07 Library.fp7 - menuSample -2-

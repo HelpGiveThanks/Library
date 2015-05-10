@@ -8,7 +8,9 @@ Go to Field [ ]
 Select Window [ Name: "References"; Current file ]
 #
 #If the media and media type have not been selected then tell user these fields are required before exiting the reference record.
-If [ reference::kmedia = "" or reference::kmediaType = "" ]
+If [ reference::kmedia = "" and TEMP::InventoryLibaryYN = ""
+or
+reference::kmediaType = "" and TEMP::InventoryLibaryYN = "" ]
 Show Custom Dialog [ Message: "REQUIRED: media (book, journal article, etc.) and media type (web, CD, paper, etc.) identification."; Buttons: “OK” ]
 Exit Script [ ]
 End If
@@ -29,7 +31,11 @@ reference::referenceForReferenceSort; ascending ]
 End If
 #
 #Go to reference record layout.
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “ReferenceStuff” (reference) ]
+Else
 Go to Layout [ “Reference” (reference) ]
+End If
 #
 #Allow add mode.
 Set Variable [ $$stopAdd ]
@@ -37,4 +43,4 @@ Set Variable [ $$stopAdd ]
 #Close reference help window if open.
 Close Window [ Name: "Reference Field Help"; Current file ]
 Set Variable [ $$turnOffThisScript ]
-January 7, 平成26 17:49:40 Imagination Quality Management.fp7 - finishReferenceEdit -1-
+May 10, 平成27 12:21:34 Library.fp7 - finishReferenceEdit -1-

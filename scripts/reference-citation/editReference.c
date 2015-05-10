@@ -46,11 +46,15 @@ reference::referenceForReferenceSort; ascending ]
 End If
 #
 #Go to edit layout for this record.
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “ReferenceEDITstuff” (reference) ]
+Else
 Go to Layout [ “ReferenceEDIT” (reference) ]
+End If
 #
 #Get rid of spaces in bookChapter field, if any.
 Set Field [ reference::bookChapter; Trim ( reference::bookChapter ) ]
 #
 #Prevent add mode.
 Set Variable [ $$stopAdd; Value:1 ]
-January 7, 平成26 17:31:47 Imagination Quality Management.fp7 - editReference -1-
+May 10, 平成27 12:01:46 Library.fp7 - editReference -1-

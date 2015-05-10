@@ -1,15 +1,16 @@
-tagMenu: menuFind: menuTestFind
-#
+tagMenu: menuFind: menuTestFind #
 #Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"test" ]
-#
+Set Variable [ $$citationMatch; Value:"test" ] #
 #Goto correct layout.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnFindTest” (test) ]
+If [ TEMP::InventoryLibaryYN
+≠ "" ]
+Go to Layout [ “learnFindSTest” (test) ]
+End If
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “learnFindTest” (test) ]
-End If
-#
+End If #
 #Find section tags. Section tags are library
 #sections and any brainstorm or evidence record
 #can be tagged with any section item record SO
@@ -28,8 +29,7 @@ test::testName; ascending ]
 // #If no records exist then create one.
 // If [ Get (FoundCount)=0 ]
 // Perform Script [ “newCitationMenuGroup” ]
-// End If
-#
+// End If #
 // #Sort according to current users wishes. By default
 // #the sort will be by category which is set by editCitation script.
 // If [ TEMP::sortMedium = "cat" ]
@@ -41,8 +41,7 @@ tagMenus::tag; ascending ]
 // Else If [ TEMP::sortMedium = "abc" ]
 // Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
-// End If
-#
+// End If #
 #Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
@@ -51,13 +50,13 @@ Exit Loop If [ $$section = test::_Ltest ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ $$section ≠ test::_Ltest ]
+If [ $$section
+≠ test::_Ltest ]
 Go to Record/Request/Page
 [ First ]
 Exit Script [ ]
 End If
-Set Variable [ $$ID; Value:test::_Ltest ]
-#
+Set Variable [ $$ID; Value:test::_Ltest ] #
 #Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
@@ -66,12 +65,12 @@ Exit Loop If [ $$citationItem = ruleSection::_Lgroup ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ $$citationItem ≠ test::_Ltest ]
+If [ $$citationItem
+≠ test::_Ltest ]
 Go to Record/Request/Page
 [ First ]
 Exit Script [ ]
-End If
-#
+End If #
 #Inform user of items use on both screens.
 Set Variable [ $$citationItem; Value:test::_Ltest ]
 Refresh Window
@@ -84,18 +83,15 @@ Select Window [ Name: "Learn"; Current file ]
 End If
 Go to Field [ ]
 Refresh Window
-Select Window [ Name: "Tag Menus"; Current file ]
-#
+Select Window [ Name: "Tag Menus"; Current file ] #
 #Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"test" ]
-#
+Set Variable [ $$citationMatch; Value:"test" ] #
 #Goto correct layout.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnFindTest” (test) ]
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “learnFindTest” (test) ]
-End If
-#
+End If #
 #Find section tags. Test tags are section
 #items. Any brainstorm or evidence record
 #can be tagged with any section item record SO
@@ -116,4 +112,4 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stopLoadTagRecord ]
-January 7, 平成26 16:52:35 Imagination Quality Management.fp7 - menuTestFind -1-
+May 10, 平成27 10:53:28 Library.fp7 - menuTestFind -1-

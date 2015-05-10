@@ -1,5 +1,17 @@
 reference(citation): externalReferences
 #
+#
+#
+#Use this bit of code to make the default reference
+#point to the internal (Learn) records instead of
+#the external references. Other scripts with code
+#that needs to be turned on: menuReference,
+// #If library is for inventory then go to container menu.
+// If [ TEMP::InventoryLibaryYN ≠ "" ]
+// Perform Script [ “menuReference” ]
+// Exit Script [ ]
+// End If
+#
 #If current mode is citation then use cite menu scirpt.
 If [ $$citationMatch = "cite" ]
 Perform Script [ “menuRefAddKeyWords” ]
@@ -12,7 +24,12 @@ If [ $$findmode ≠ 1 ]
 Set Variable [ $$internal ]
 #
 #Show all internal reference possibilities.
+#
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnMenuRefStuff” (reference) ]
+Else
 Go to Layout [ “learnMenu3Cite” (reference) ]
+End If
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
@@ -53,4 +70,4 @@ Set Variable [ $$internal ]
 #Show all internal reference possibilities.
 Go to Layout [ “learnFindCite” (reference) ]
 End If
-January 7, 平成26 17:39:47 Imagination Quality Management.fp7 - externalReferences -1-
+May 10, 平成27 12:08:24 Library.fp7 - externalReferences -1-

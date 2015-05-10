@@ -117,7 +117,8 @@ Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:/
 Case ( Left ( refReference::fileName ; 1 ) = "/" ; Substitute ( refReference::fileName ; " " ; " " ) ;
  "/" & Substitute ( refReference::fileName ; " " ; " " ) ) ]
 [ No dialog ]
-April 11, 平成26 9:56:11 Imagination Quality Management.fp7 - showFileInTagandLearnWindows -1-learn: showFileInTagandLearnWindows
+May 10, 平成27 11:26:39 Library.fp7 - showFileInTagandLearnWindows -1-
+learn: showFileInTagandLearnWindows
 End If
 If [ Get (LastError) = 5 ]
 Show Custom Dialog [ Message: "The file has been deleted, moved from, or never downloaded/moved into " & tagRefFolderPath::tag & "," & " or the external drive it is on is not plugged in, or it's name was changed from " & reference::fileName & "."; Buttons: “OK” ]
@@ -227,4 +228,4 @@ End If
 // Open URL [ testlearn::URL ]
 [ No dialog ]
 // End If
-April 11, 平成26 9:56:11 Imagination Quality Management.fp7 - showFileInTagandLearnWindows -2-
+May 10, 平成27 11:26:39 Library.fp7 - showFileInTagandLearnWindows -2-

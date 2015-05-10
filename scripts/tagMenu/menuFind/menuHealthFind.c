@@ -6,6 +6,9 @@ Set Variable [ $$citationMatch; Value:"health" ]
 #Goto correct layout.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnFind” (tagMenus) ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnSFind” (tagMenus) ]
+End If
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “ReferenceMenuFind” (tagMenus) ]
 End If
@@ -35,4 +38,4 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stopLoadTagRecord ]
-January 7, 平成26 16:52:02 Imagination Quality Management.fp7 - menuHealthFind -1-
+May 10, 平成27 10:49:05 Library.fp7 - menuHealthFind -1-

@@ -1,10 +1,8 @@
-sharedMainLayoutScripts: ToggleMainWindowView
-#
+sharedMainLayoutScripts: toggleMainWindowView #
 #Reveal more or fewer pictures and links for tag.
 #First toggle from current view to next view.
 #Turn off loadRecord script to speed up process.
-Set Variable [ $$stopLoadCitation; Value:1 ]
-#
+Set Variable [ $$stopLoadCitation; Value:1 ] #
 #from 1 to 2
 If [ Right ( Get (LayoutName) ; 1) = 1
 and
@@ -35,13 +33,11 @@ Else If [ Right ( Get (LayoutName) ; 1) = 2
 and
 Left ( TEMP::layoutLmain ; 4 ) = "less" ]
 Go to Layout [ “learn1” (testlearn) ]
-End If
-#
+End If #
 #Remember layout user is on so they can be
 #returned to correct view.
 #Turn on loadRecord script needed for other scripts.
-Set Variable [ $$stopLoadCitation ]
-#
+Set Variable [ $$stopLoadCitation ] #
 #from 1 to 2
 If [ Right ( Get (LayoutName) ; 1) = 2
 and
@@ -72,6 +68,5 @@ Else If [ Right ( Get (LayoutName) ; 1) = 1
 and
 Left ( TEMP::layoutLmain ; 4 ) = "less" ]
 Set Field [ TEMP::layoutLmain; "more" & Get (LayoutName) ]
-End If
-#
-January 7, 平成26 18:06:56 Imagination Quality Management.fp7 - ToggleMainWindowView -1-
+End If #
+May 4, 平成27 22:01:36 Library.fp7 - toggleMainWindowView -1-

@@ -4,13 +4,16 @@ tagMenu: menuFind: menuKeyFind
 Set Variable [ $$citationMatch; Value:"key" ]
 #
 #Do not load tag records until the end of script
-#to prevent ﬂashing of window and to speed up
+#to prevent flashing of window and to speed up
 #script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Goto correct layout.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnKeywordOrNodeFind” (tagMenus) ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnKeywordOrNodeSFind” (tagMenus) ]
+End If
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “ReferenceMenu2keywordOrNodeFind” (tagMenus) ]
 End If
@@ -41,4 +44,4 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stopLoadTagRecord ]
-January 7, 平成26 16:51:32 Imagination Quality Management.fp7 - menuKeyFind -1-
+May 10, 平成27 10:39:21 Library.fp7 - menuKeyFind -1-

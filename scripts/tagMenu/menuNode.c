@@ -1,10 +1,8 @@
-tagMenu: menuNode
-#
+tagMenu: menuNode #
 #If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
-Go to Field [ ]
-#
+Go to Field [ ] #
 #Clear sample and test tags so there conditional
 #formatting in the Learn window is removed.
 If [ $$citationMatch = "sample" or $$citationMatch = "test" ]
@@ -14,8 +12,7 @@ Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
 Set Variable [ $$tagSample ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
-Set Variable [ $$tagEdit ]
-#
+Set Variable [ $$tagEdit ] #
 #Sort the records by date field, if current sort is
 #by order number.
 If [ TEMP::TLTestSort = "order" or TEMP::TLSampleSort = "order" ]
@@ -28,15 +25,12 @@ If [ $$citationMatch = "sample" ]
 Set Field [ TEMP::TLSampleSort; "" ]
 Else If [ $$citationMatch = "test" ]
 Set Field [ TEMP::TLTestSort; "" ]
+End If #
 End If
-#
 End If
-End If
-Select Window [ Name: "Tag Menus"; Current file ]
-#
+Select Window [ Name: "Tag Menus"; Current file ] #
 #Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"node" ]
-#
+Set Variable [ $$citationMatch; Value:"node" ] #
 #Set match temp tag field to limit move pulldown
 #to just the groups for this section and item type.
 #( if you're wondering why this temp field is a
@@ -44,50 +38,49 @@ Set Variable [ $$citationMatch; Value:"node" ]
 # is because I didn't need it until a year into
 # writing this database. At some point, it would
 # probably be good to get rid of the variable. )
-Set Field [ TEMP::mTag; $$citationMatch ]
-#
+Set Field [ TEMP::mTag; $$citationMatch ] #
 #Do not load tag records until the end of script
-#to prevent ﬂashing of window and to speed up
+#to prevent flashing of window and to speed up
 #script.
-Set Variable [ $$stopLoadTagRecord; Value:1 ]
-#
+Set Variable [ $$stopLoadTagRecord; Value:1 ] #
 #Goto correct layout.
 #If in add mode ...
 If [ $$add = 1 ]
-Go to Layout [ “addMenuNodeKeyword” (tagMenus) ]
-#
+Go to Layout [ “addMenuNodeKeyword” (tagMenus) ] #
 #If user has elected to show only the tag ...
 Else If [ TEMP::layoutRtagN = "" or TEMP::layoutLtagN = "" ]
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “ltagNK2” (tagMenus) ]
+If [ TEMP::InventoryLibaryYN
+≠ "" ]
+Go to Layout [ “ltagNKs2” (tagMenus) ]
+End If
 Set Field [ TEMP::layoutLtagN; "more" & Get (LayoutName) ]
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
 Set Field [ TEMP::layoutRtagN; "more" & Get (LayoutName) ]
-End If
-#
+End If #
 #If user has elected to show some pictures ...
-Else If [ TEMP::layoutRtagN ≠ "" or TEMP::layoutLtagN ≠ "" ]
+Else If [ TEMP::layoutRtagN
+≠ "" or TEMP::layoutLtagN
+≠ "" ]
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ Middle ( TEMP::layoutLtagN ; 5 ; 42 ) ]
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ Middle ( TEMP::layoutRtagN ; 5 ; 42 ) ]
 End If
-End If
-#
+End If #
 #Find node tags.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
 Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
-Perform Find [ ]
-#
+Perform Find [ ] #
 // #If no records exist then create one.
 // If [ Get (FoundCount)=0 ]
 // Perform Script [ “newCitationMenuGroup” ]
-// End If
-#
+// End If #
 #Sort according to current users wishes. By default
 #the sort will be by category which is set by editCitation script.
 If [ TEMP::sortNode = "cat" or TEMP::sortNode = "" ]
@@ -99,8 +92,7 @@ tagMenus::tag; ascending ]
 Else If [ TEMP::sortNode = "abc" ]
 Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
-End If
-#
+End If #
 #Decided not do this as user may be going to
 #node menus to add an node tag to a citation
 #the user is planning on adding to a tag
@@ -115,13 +107,14 @@ End If
 #associated only with the menu item where it
 #was activitated. This in testing did not seem
 #useful at limited access to node or keyword
+May 4, 平成27 21:34:25 Library.fp7 - menuNode -1-
+tagMenu: menuNode
 #in this mode when both might be needed.
 // #If user was in Add mode for keyword, then reset
 // #mode back to citation mode (or adding node
-January 7, 平成26 15:56:57 Imagination Quality Management.fp7 - menuNode -1-tagMenu: menuNode
 // #tags to citations instead of the other way around).
 // If [ $$add = 1 and $$addcitationMatch = "key" ]
-// Perform Script [ “AddLinksPicturesToTagsMode” ]
+// Perform Script [ “addLinksPicturesToTagsMode” ]
 // End If
 #
 #Go to citation record's current selection or to first record.
@@ -211,4 +204,4 @@ Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
-January 7, 平成26 15:56:57 Imagination Quality Management.fp7 - menuNode -2-
+May 4, 平成27 21:34:25 Library.fp7 - menuNode -2-

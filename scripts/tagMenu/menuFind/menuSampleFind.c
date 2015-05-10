@@ -6,6 +6,9 @@ Set Variable [ $$citationMatch; Value:"sample" ]
 #Goto correct layout.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnFindSample” (tagMenus) ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnFindStuffSample” (tagMenus) ]
+End If
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “learnFindSample” (tagMenus) ]
 End If
@@ -36,4 +39,4 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stopLoadTagRecord ]
-January 7, 平成26 16:50:14 Imagination Quality Management.fp7 - menuSampleFind -1-
+May 4, 平成27 22:31:40 Library.fp7 - menuSampleFind -1-

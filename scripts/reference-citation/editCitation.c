@@ -40,7 +40,11 @@ Set Variable [ $$LearnEdit; Value:testlearn::_Ltestlearn ]
 #
 #Take user to citation edit layout.
 Set Variable [ $$stoploadCitation; Value:1 ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “ReferenceStuff” (reference) ]
+Else
 Go to Layout [ “Reference” (reference) ]
+End If
 Set Window Title [ Current Window; New Title: "References" ]
 #
 #Find main records.
@@ -96,7 +100,11 @@ Select Window [ Name: "Setup"; Current file ]
 #
 #Take user to citation edit layout.
 Set Variable [ $$stoploadCitation; Value:1 ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “ReferenceStuff” (reference) ]
+Else
 Go to Layout [ “Reference” (reference) ]
+End If
 Set Window Title [ Current Window; New Title: "References" ]
 #
 #Find main records.
@@ -111,6 +119,8 @@ reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
 #
 #Loop to record to be edited.
+May 10, 平成27 12:23:14 Library.fp7 - editCitation -1-
+reference(citation): editCitation
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $$stoploadCitation ]
@@ -120,10 +130,9 @@ Perform Script [ “loadCitation” ]
 Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
 [ Restore; No dialog ]
-January 28, 平成26 16:00:04 Empty Library copy.fp7 - editCitation -1-reference(citation): editCitation
 Scroll Window
 [ Home ]
 #
 #
 End If
-January 28, 平成26 16:00:04 Empty Library copy.fp7 - editCitation -2-
+May 10, 平成27 12:23:14 Library.fp7 - editCitation -2-

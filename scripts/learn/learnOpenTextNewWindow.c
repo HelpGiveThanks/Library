@@ -1,4 +1,4 @@
-learn: LearnOpenTextNewWindow
+learn: learnOpenTextNewWindow
 If [ Get ( WindowMode ) = 1 ]
 Go to Field [ testlearn::Caption ]
 Exit Script [ ]
@@ -12,7 +12,11 @@ Set Variable [ $record; Value:testlearn::_Ltestlearn ]
 Set Variable [ $$stopLoadCitation; Value:1 ]
 New Window [ Name: "Learn: Edit Note" ]
 If [ tagTLNodePrimary::orderOrLock = "" ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “LearnTextWindowStuff” (testlearn) ]
+Else
 Go to Layout [ “LearnTextWindow” (testlearn) ]
+End If
 Go to Field [ testlearn::Caption ]
 Else If [ tagTLNodePrimary::orderOrLock ≠ "" ]
 Go to Layout [ “LearnTextWindowLocked” (testlearn) ]
@@ -22,4 +26,4 @@ Set Field [ testlearn::_Ltestlearn; $record ]
 Perform Find [ ]
 Set Variable [ $$stopLoadCitation ]
 Pause/Resume Script [ Indefinitely ]
-January 7, 平成26 17:26:12 Imagination Quality Management.fp7 - LearnOpenTextNewWindow -1-
+May 10, 平成27 11:33:37 Library.fp7 - learnOpenTextNewWindow -1-

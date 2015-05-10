@@ -10,6 +10,9 @@ Set Variable [ $$internal ]
 #Goto correct layout.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnFindCite” (reference) ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnFindStuffCite” (reference) ]
+End If
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “learnFindCite” (reference) ]
 End If
@@ -19,15 +22,21 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Set Field [ reference::filterFind; "main" ]
+Set Field [ reference::show; "show in learn" ]
+End If
 // Set Field [ reference::filterFind; "main" ]
 // Set Field [ reference::ktest; TEMP::ktest ]
 Perform Find [ ]
+If [ TEMP::InventoryLibaryYN = "" ]
 Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::knodePrimary: “=” ]
 [ Restore ]
 Extend Found Set [ Specified Find Requests: Find Records; Criteria: reference::referenceNodes: “*” ]
 [ Restore ]
 Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::Title: “=” ]
 [ Restore ]
+End If
 Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
@@ -50,4 +59,4 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stopLoadTagRecord ]
-January 7, 平成26 16:54:05 Imagination Quality Management.fp7 - menuReferenceFind -1-
+May 10, 平成27 10:58:24 Library.fp7 - menuReferenceFind -1-

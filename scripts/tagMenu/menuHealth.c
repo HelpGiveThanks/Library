@@ -43,6 +43,9 @@ Go to Layout [ “addMenu1” (tagMenus) ]
 #If in learn mode ...
 Else If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnMenuHealth” (tagMenus) ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnMenuSHealth” (tagMenus) ]
+End If
 #
 #If in reference mode ...
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
@@ -116,10 +119,11 @@ Show Custom Dialog [ Message: "In the main window, show only records with pictur
 If [ Get ( LastMessageChoice ) = 1 ]
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
+May 4, 平成27 21:40:01 Library.fp7 - menuHealth -1-
+tagMenu: menuHealth
 Exit Script [ ]
 End If
 #
-January 7, 平成26 15:58:00 Imagination Quality Management.fp7 - menuHealth -1-tagMenu: menuHealth
 #find on reference layout ...
 If [ Left (Get (LayoutName) ; 1) = "r" ]
 Enter Find Mode [ ]
@@ -138,4 +142,4 @@ End If
 End If
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
-January 7, 平成26 15:58:00 Imagination Quality Management.fp7 - menuHealth -2-
+May 4, 平成27 21:40:01 Library.fp7 - menuHealth -2-

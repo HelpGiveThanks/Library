@@ -118,7 +118,8 @@ Pause/Resume Script [ Indefinitely ]
 Set Variable [ $caption; Value:testlearn::Caption ]
 Set Variable [ $timestamp; Value:testlearn::timestamp ]
 Perform Find [ ]
-February 24, 平成26 10:31:20 Imagination Quality Management.fp7 - findLearnRecord -1-learn: findLearnRecord
+May 10, 平成27 11:50:03 Library.fp7 - findLearnRecord -1-
+learn: findLearnRecord
 End If
 #
 #If the find fails tell the user it failed and give them
@@ -170,4 +171,4 @@ Sort Records [ ]
 [ No dialog ]
 Go to Record/Request/Page
 [ First ]
-February 24, 平成26 10:31:20 Imagination Quality Management.fp7 - findLearnRecord -2-
+May 10, 平成27 11:50:03 Library.fp7 - findLearnRecord -2-

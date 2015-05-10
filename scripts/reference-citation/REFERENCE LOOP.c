@@ -3,6 +3,7 @@ reference(citation): REFERENCE LOOP
 #Use this script to change some information in all
 #records currently found. Useful for when you make
 #an error covering many records to correct the error.
+Set Variable [ $$stoploadCitation; Value:1 ]
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -33,7 +34,9 @@ Loop
 // Set Field [ reference::pubYear; "" ]
 // Set Field [ reference::incomplete; "" ]
 // Set Field [ testlearn::kcitation; "" ]
+Set Field [ reference::kHealth; "8102011220941282" ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-January 7, 平成26 17:46:52 Imagination Quality Management.fp7 - REFERENCE LOOP -1-
+Set Variable [ $$stoploadCitation ]
+May 10, 平成27 12:16:01 Library.fp7 - REFERENCE LOOP -1-

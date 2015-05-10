@@ -1,5 +1,6 @@
 tagMenu: changeSpellingOfKeywordOrNodeTag
 #
+Allow User Abort [ Off ]
 #
 If [ $$stopTest = 1
 //or $$citationMatch = "key"
@@ -33,7 +34,7 @@ End If
 Show Custom Dialog [ Message: "Blank tag records are not allowed."; Buttons: “OK” ]
 End If
 #
-Perform Script [ “RemoveTextFormattingAndCommas” ]
+Perform Script [ “removeTextFormattingAndCommas” ]
 #
 #Get the key for this record for later in script
 #when it will be used to change the spelling in
@@ -116,9 +117,17 @@ Delete Record/Request
 [ No dialog ]
 Refresh Window
 Exit Script [ ]
+#
+May 10, 平成27 12:52:41 Library.fp7 - changeSpellingOfKeywordOrNodeTag -1-
+tagMenu: changeSpellingOfKeywordOrNodeTag
+#If change is made to an existing tag, then go
+#to part B.
+Else If [ tagMenus::tagSpelling ≠ "" ]
+Set Field [ tagMenus::tag; tagMenus::tagSpelling ]
+Refresh Window
+Exit Script [ ]
 End If
 End If
-January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -1-tagMenu: changeSpellingOfKeywordOrNodeTag
 #
 #Choice 1
 Else If [ Get ( LastMessageChoice ) = 1 ]
@@ -231,19 +240,18 @@ Close Window [ Current Window ]
 #
 #Update spelling of word in case of future changes
 #to its spelling that would then trigger the first
+May 10, 平成27 12:52:41 Library.fp7 - changeSpellingOfKeywordOrNodeTag -2-
+tagMenu: changeSpellingOfKeywordOrNodeTag
 #part of this scirpt to udpate the spelling in the
 #tag list.
 Set Field [ tagMenus::tagSpelling; $newSpelling ]
 Set Variable [ $$key ]
 Set Variable [ $$keyOLD ]
 Exit Script [ ]
-End If
-#
-January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -2-tagMenu: changeSpellingOfKeywordOrNodeTag
+End If #
 #Add category to current library section, which
 #of course includes the tag of interest.
-Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & ruleTagMenuGroups::ksection ]
-#
+Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & ruleTagMenuGroups::ksection ] #
 #Go to duplicate and delete it.
 Go to Record/Request/Page
 [ First ]
@@ -259,16 +267,15 @@ Else If [ Get (FoundCount) = 2 ]
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ $$key ≠ tagMenus::_Ltag ]
+Exit Loop If [ $$key
+≠ tagMenus::_Ltag ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-Set Variable [ $$key; Value:tagMenus::_Ltag ]
-#
+Set Variable [ $$key; Value:tagMenus::_Ltag ] #
 #Add category to current library section, which
 #of course includes the tag/sujbect of interest.
-Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & ruleTagMenuGroups::ksection ]
-#
+Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & ruleTagMenuGroups::ksection ] #
 #Go to duplicate and delete it.
 Go to Record/Request/Page
 [ First ]
@@ -279,13 +286,11 @@ Go to Record/Request/Page
 End Loop
 Delete Record/Request
 [ No dialog ]
-End If
-#
+End If #
 #Turn off recordLoad script and go to EDIT layout
 #to change keys in records tagged with old key.
 Set Variable [ $$stoploadCitation; Value:1 ]
-Go to Layout [ “Reference” (reference) ]
-#
+Go to Layout [ “Reference” (reference) ] #
 #Remove focus from other window so don't get
 #error 301: record in use, which prevents key from
 #being replaced.
@@ -299,23 +304,23 @@ Select Window [ Name: "Setup"; Current file ]
 #only to remove the focus.
 Go to Field [ tempSetup::kuserLocation ]
 Go to Field [ ]
-Else If [ Get (LastError) ≠ 112 ]
+Else If [ Get (LastError)
+≠ 112 ]
 #The field selected does not matter. It serves
 #only to remove the focus.
 Go to Field [ testlearn::_Number ]
 Go to Field [ ]
 End If
-Else If [ Get (LastError) ≠ 112 ]
+Else If [ Get (LastError)
+≠ 112 ]
 #The field selected does not matter. It serves
 #only to remove the focus.
 Go to Field [ reference::_Number ]
 Go to Field [ ]
 End If
-Select Window [ Name: $windowName; Current file ]
-#
+Select Window [ Name: $windowName; Current file ] #
 #If user is consolidating a keyword.
-If [ $$citationMatch = "key" ]
-#
+If [ $$citationMatch = "key" ] #
 #Replace old key with selected key to consolidate
 #primary records under one key.
 Allow User Abort [ Off ]
@@ -323,7 +328,8 @@ Set Error Capture [ On ]
 Enter Find Mode [ ]
 Set Field [ reference::kkeywordPrimary; $$keyOLD ]
 Perform Find [ ]
-If [ Get (LastError) ≠ 401 ]
+If [ Get (LastError)
+≠ 401 ]
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -332,15 +338,15 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 End If
-Commit Records/Requests
-#
+Commit Records/Requests #
 #Replace old key with selected key to consolidate
 #other records under one key. Since the spelling
 #is the same only the key needs to be replaced.
 Enter Find Mode [ ]
 Set Field [ reference::kkeywordOther; $$keyOLD ]
 Perform Find [ ]
-If [ Get (LastError) ≠ 401 ]
+If [ Get (LastError)
+≠ 401 ]
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -348,11 +354,11 @@ Set Field [ reference::kkeywordOther; $$key ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-End If
-#
+End If #
 #If user is consolidating a node.
-Else If [ $$citationMatch = "node" ]
-#
+Else If [ $$citationMatch = "node" ] #
+May 10, 平成27 12:52:41 Library.fp7 - changeSpellingOfKeywordOrNodeTag -3-
+tagMenu: changeSpellingOfKeywordOrNodeTag
 #Replace old key with selected key to consolidate
 #primary records under one key.
 Allow User Abort [ Off ]
@@ -360,8 +366,8 @@ Set Error Capture [ On ]
 Enter Find Mode [ ]
 Set Field [ reference::knodePrimary; $$keyOLD ]
 Perform Find [ ]
-If [ Get (LastError) ≠ 401 ]
-January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -3-tagMenu: changeSpellingOfKeywordOrNodeTag
+If [ Get (LastError)
+≠ 401 ]
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -369,15 +375,15 @@ Set Field [ reference::knodePrimary; $$key ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-End If
-#
+End If #
 #Replace old key with selected key to consolidate
 #other records under one key. Since the spelling
 #is the same only the key needs to be replaced.
 Enter Find Mode [ ]
 Set Field [ reference::knodeOther; $$keyOLD ]
 Perform Find [ ]
-If [ Get (LastError) ≠ 401 ]
+If [ Get (LastError)
+≠ 401 ]
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -386,11 +392,9 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 End If
-End If
-#
+End If #
 #Return to original layout.
-Set Variable [ $$stoploadCitation ]
-#
+Set Variable [ $$stoploadCitation ] #
 #Show added category to user with tag under it.
 Close Window [ Current Window ]
 #If earlier script took user to another window
@@ -402,8 +406,7 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 Enter Find Mode [ ]
 Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection ]
 Set Field [ tagMenus::match; $$citationMatch ]
-Perform Find [ ]
-#
+Perform Find [ ] #
 #Sort records according to users wishes.
 If [ TEMP::sortKey = "cat" ]
 Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
@@ -414,8 +417,7 @@ tagMenus::tag; ascending ]
 Else If [ TEMP::sortKey = "abc" ]
 Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
-End If
-#
+End If #
 #Go to newly added tag.
 Go to Record/Request/Page
 [ First ]
@@ -423,8 +425,7 @@ Loop
 Exit Loop If [ $$key = tagMenus::_Ltag ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
-End Loop
-#
+End Loop #
 #Highlight changes.
 Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
@@ -435,7 +436,8 @@ If [ $$citationMatch = "node" ]
 Set Variable [ $$citationItem; Value:tempSetup::kdefaultNodePrimary ]
 Set Variable [ $$key; Value:testlearn::kNodeOther ]
 End If
-Else If [ Get (LastError) ≠ 112 ]
+Else If [ Get (LastError)
+≠ 112 ]
 If [ $$citationMatch = "key" ]
 Set Variable [ $$citationItem; Value:testlearn::kKeywordPrimary ]
 Set Variable [ $$node; Value:testlearn::kcKeywordOther ]
@@ -444,7 +446,8 @@ Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
 Set Variable [ $$key; Value:testlearn::kNodeOther ]
 End If
 End If
-Else If [ Get (LastError) ≠ 112 ]
+Else If [ Get (LastError)
+≠ 112 ]
 If [ $$citationMatch = "key" ]
 Set Variable [ $$citationItem; Value:reference::kkeywordPrimary ]
 Set Variable [ $$node; Value:reference::kkeywordOther ]
@@ -455,14 +458,12 @@ End If
 End If
 Refresh Window
 Select Window [ Name: "Tag Menus" ]
-Refresh Window
-#
+Refresh Window #
 #Clear variables only needed for this script.
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$key ]
 Set Variable [ $$keyOLD ]
-Set Variable [ $$keyOLD ]
-#
+Set Variable [ $$keyOLD ] #
 #This halt step was placed after discovering when
 #adding a new group because it contains a tag that
 #is spelled the same as a tag already in this section,
@@ -475,6 +476,9 @@ Set Variable [ $$keyOLD ]
 #script step takes care of the problem the exit does not.
 Go to Field [ ]
 Halt Script
+May 10, 平成27 12:52:41 Library.fp7 - changeSpellingOfKeywordOrNodeTag -4-
+tagMenu: changeSpellingOfKeywordOrNodeTag
+Halt Script
 #
 #Choice 1, user wants to change spelling.
 Else If [ Get ( LastMessageChoice ) = 1 ]
@@ -482,8 +486,6 @@ Set Variable [ $newSpelling ]
 Close Window [ Current Window ]
 Perform Script [ “changeSpellingOfKeywordOrNodeTag” ]
 Exit Script [ ]
-End If
-January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -4-tagMenu: changeSpellingOfKeywordOrNodeTag
 End If
 End If
 #
@@ -593,6 +595,8 @@ Set Field [ reference::OtherKeyWords; Substitute ( $tags ; ", " & $oldSpelling &
 Else If [ $$citationMatch = "node" ]
 #
 #Change spelling of one node. If two or more
+May 10, 平成27 12:52:41 Library.fp7 - changeSpellingOfKeywordOrNodeTag -5-
+tagMenu: changeSpellingOfKeywordOrNodeTag
 #nodes' spelling is identical leave others alone.
 #Reason: nodes can have same spelling and when
 #change spelling of one need to leave others alone
@@ -602,15 +606,13 @@ Go to Record/Request/Page
 Loop
 If [ TEMP::tempListNode = $oldSpelling ]
 Set Field [ TEMP::tempListNode; $newSpelling ]
-January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -5-tagMenu: changeSpellingOfKeywordOrNodeTag
 Set Variable [ $exit; Value:1 ]
 End If
 Exit Loop If [ $exit = 1 ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-Set Variable [ $exit ]
-#
+Set Variable [ $exit ] #
 #Sort list alphabetically and recreate otherNode
 #field from list.
 Sort Records [ Specified Sort Order: TEMP::tempListNode; ascending ]
@@ -624,21 +626,18 @@ Delete Record/Request
 Exit Loop If [ Get ( FoundCount ) = 0 ]
 Set Variable [ $list; Value:$tags ]
 Set Variable [ $tags; Value:TEMP::tempListNode & "; " & $list ]
-End Loop
-#
+End Loop #
 #Now create one temp record. This is done because
 #the Setup window shows one temp record that
 #contains the current global default node, section, etc.
 #information. The system just deleted all temp
 #records, so unless one is now created, the user
 #will see a blank setup screen.
-New Record/Request
-#
+New Record/Request #
 #Set the nodeOther field with new alphabetized list.
 Go to Layout [ “Reference” (reference) ]
 Set Field [ reference::NodeOthers; $tags ]
-End If
-#
+End If #
 #Remove comma from front and back of list so it
 #looks nice.
 If [ $$citationMatch = "key" ]
@@ -647,12 +646,9 @@ Set Field [ reference::OtherKeyWords; Substitute ( $otherKeys ; ", ,, " ; "" ) ]
 End If
 Go to Record/Request/Page
 [ Next; Exit after last ]
-End Loop
-#
+End Loop #
 #Replace in TestLearn table.
-Go to Layout [ “learn4” (testlearn) ]
-#
-#
+Go to Layout [ “learn4” (testlearn) ] ##
 #Error notification needs to be turned off in case
 #a tag that has never been used has its spelling
 #changed, in which case this unused tag will
@@ -667,8 +663,7 @@ Else If [ $$citationMatch = "node" ]
 Set Field [ testlearn::kNodeOther; $$key & ¶ ]
 End If
 Perform Find [ ]
-Loop
-#
+Loop#
 #Add comma to last item and before first item
 #in list for spelling changes script which has
 #to find words separated by commas.
@@ -676,13 +671,11 @@ If [ $$citationMatch = "key" ]
 Set Variable [ $tags; Value:testlearn::OtherKeyWords ]
 Set Field [ testlearn::OtherKeyWords; ", ,, " & $tags & ", ,, " ]
 Set Variable [ $tags; Value:testlearn::OtherKeyWords ]
-Else If [ $$citationMatch = "node" ]
-#
+Else If [ $$citationMatch = "node" ] #
 #Create list of values.
 Set Variable [ $tags; Value:testlearn::NodeOthers ]
 Set Field [ testlearn::NodeOthers; Substitute ( $tags ; "; " ; "¶" ) ]
-Set Variable [ $tags; Value:testlearn::NodeOthers ]
-#
+Set Variable [ $tags; Value:testlearn::NodeOthers ] #
 #Transfer list from variable to temporary list of records.
 #This list will be used next to change the spelling
 #of only one item. If there are two or more items
@@ -700,13 +693,11 @@ New Record/Request
 Set Field [ TEMP::tempListNode; GetValue ( $tags ; $numberOfNodes ) ]
 Set Variable [ $numberOfNodes; Value:$numberOfNodes - 1 ]
 End Loop
-End If
-#
+End If #
 #Change spelling.
 If [ $$citationMatch = "key" ]
 Set Field [ testlearn::OtherKeyWords; Substitute ( $tags ; ", " & $oldSpelling & ", " ; ", " & $newSpelling & ", " ) ]
-Else If [ $$citationMatch = "node" ]
-#
+Else If [ $$citationMatch = "node" ] #
 #Change spelling of one node. If two or more
 #nodes spelling is identical leave others alone.
 #Reason: nodes can have same spelling and when
@@ -714,6 +705,8 @@ Else If [ $$citationMatch = "node" ]
 #until user specfically changes their spelling too.
 Go to Record/Request/Page
 [ First ]
+May 10, 平成27 12:52:41 Library.fp7 - changeSpellingOfKeywordOrNodeTag -6-
+tagMenu: changeSpellingOfKeywordOrNodeTag
 Loop
 If [ TEMP::tempListNode = $oldSpelling ]
 Set Field [ TEMP::tempListNode; $newSpelling ]
@@ -723,9 +716,7 @@ Exit Loop If [ $exit = 1 ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -6-tagMenu: changeSpellingOfKeywordOrNodeTag
-Set Variable [ $exit ]
-#
+Set Variable [ $exit ] #
 #Sort list alphabetically and recreate otherNode
 #field from list.
 Sort Records [ Specified Sort Order: TEMP::tempListNode; ascending ]
@@ -739,21 +730,18 @@ Delete Record/Request
 Exit Loop If [ Get ( FoundCount ) = 0 ]
 Set Variable [ $list; Value:$tags ]
 Set Variable [ $tags; Value:TEMP::tempListNode & "; " & $list ]
-End Loop
-#
+End Loop #
 #Now create one temp record. This is done because
 #the Setup window shows one temp record that
 #contains the current global default node, section, etc.
 #information. The system just deleted all temp
 #records, so unless one is now created, the user
 #will see a blank setup screen.
-New Record/Request
-#
+New Record/Request #
 #Set the nodeOther field with new alphabetized list.
 Go to Layout [ “learn4” (testlearn) ]
 Set Field [ testlearn::NodeOthers; $tags ]
-End If
-#
+End If #
 #Remove comma from front and back of list so it
 #looks nice.
 If [ $$citationMatch = "key" ]
@@ -779,7 +767,8 @@ Go to Layout [ original layout ]
 // If [ Get (LastError) = 112 ]
 // Select Window [ Name: "Learn"; Current file ]
 // Set Variable [ $otherKeys; Value:testlearn::OtherKeyWords ]
-// Else If [ Get (LastError) ≠ 112 ]
+// Else If [ Get (LastError)
+≠ 112 ]
 // Set Variable [ $otherKeys; Value:reference::OtherKeyWords ]
 // End If
 // #
@@ -795,7 +784,8 @@ Go to Layout [ original layout ]
 // Select Window [ Name: "Learn"; Current file ]
 // Set Field [ testlearn::OtherKeyWords; $newKey ]
 // Set Variable [ $otherKeys; Value:testlearn::OtherKeyWords ]
-// Else If [ Get (LastError) ≠ 112 ]
+// Else If [ Get (LastError)
+≠ 112 ]
 // Set Field [ reference::OtherKeyWords; $newKey ]
 // Set Variable [ $otherKeys; Value:reference::OtherKeyWords ]
 // End If
@@ -819,7 +809,8 @@ Select Window [ Name: "References"; Current file ]
 // Select Window [ Name: "Learn"; Current file ]
 // Set Field [ testlearn::OtherKeyWords; $otherKeys & ", " & $newKey ]
 // Set Variable [ $otherKeys; Value:testlearn::OtherKeyWords ]
-// Else If [ Get (LastError) ≠ 112 ]
+// Else If [ Get (LastError)
+≠ 112 ]
 // Set Field [ reference::OtherKeyWords; $otherKeys & ", " & $newKey ]
 // Set Variable [ $otherKeys; Value:reference::OtherKeyWords ]
 // End If
@@ -828,13 +819,14 @@ Select Window [ Name: "References"; Current file ]
 // Select Window [ Name: "Tag Menus"; Current file ]
 // Go to Record/Request/Page
 [ Next; Exit after last ]
-// End Loop
-#
+// End Loop #
 #Not sure why this update fails at this point.
 #The variable is correct, but the field fails to take
 #it, so I moved this this step up to right after old
 #spelling variable is created from tagSpelling field.
 // #Update spelling of word in case of future changes
+May 10, 平成27 12:52:41 Library.fp7 - changeSpellingOfKeywordOrNodeTag -7-
+tagMenu: changeSpellingOfKeywordOrNodeTag
 // #to its spelling that would then trigger the first
 // #part of this scirpt to udpate the spelling in the
 // #tag list.
@@ -844,7 +836,6 @@ Select Window [ Name: "References"; Current file ]
 #
 #Sort records according to users wishes.
 If [ TEMP::sortKey = "cat" ]
-January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -7-tagMenu: changeSpellingOfKeywordOrNodeTag
 Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
 ruleTagMenuGroups::name; ascending
 tagMenus::orderOrLock; based on value list: “order”
@@ -866,4 +857,4 @@ End If
 Set Field [ tagMenus::tagSpelling; $newSpelling ]
 #
 #END C - Change spelling of uniquely spelled tag.
-January 7, 平成26 16:30:30 Imagination Quality Management.fp7 - changeSpellingOfKeywordOrNodeTag -8-
+May 10, 平成27 12:52:41 Library.fp7 - changeSpellingOfKeywordOrNodeTag -8-

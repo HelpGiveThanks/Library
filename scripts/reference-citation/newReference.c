@@ -51,7 +51,7 @@ New Record/Request
 Set Field [ reference::kcsection; TEMP::ksection ]
 Set Field [ reference::ktest; TEMP::ktest ]
 Set Field [ reference::incomplete; "incomplete" & ¶ ]
-If [ Get ( LayoutName ) = "Reference" ]
+If [ Get ( LayoutName ) = "Reference" or Get ( LayoutName ) = "ReferenceStuff" ]
 Set Field [ reference::filterFind; "main" & ¶ ]
 Set Variable [ $$stoploadCitation ]
 #
@@ -66,8 +66,14 @@ Go to Record/Request/Page [ $record ]
 [ No dialog ]
 Set Variable [ $$stoploadCitation ]
 Perform Script [ “loadCitation” ]
+#
+#Go to edit layout for this record.
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “ReferenceEDITstuff” (reference) ]
+Else
 Go to Layout [ “ReferenceEDIT” (reference) ]
+End If
 #
 #Prevent add mode.
 Set Variable [ $$stopAdd; Value:1 ]
-January 7, 平成26 17:30:34 Imagination Quality Management.fp7 - newReference -1-
+May 10, 平成27 11:58:08 Library.fp7 - newReference -1-

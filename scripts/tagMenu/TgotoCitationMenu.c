@@ -64,8 +64,13 @@ Go to Layout [ “ltagNK2” (tagMenus) ]
 Perform Script [ “menuNode” ]
 Else If [ $$citationMatch = "kcitation" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnMenuRefStuff” (reference) ]
+Perform Script [ “externalReferences” ]
+Else
 Go to Layout [ “learnMenu3Cite” (reference) ]
 Perform Script [ “menuCitation” ]
+End If
 #
 #Go to citation record's current selection or to first record.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
@@ -112,12 +117,13 @@ Else If [ $window = "References" or $window = "Setup" ]
 #allows the user to add tags to the item neccessary
 #to make it addable to the the tag menu item the
 #user is creating it for!
+May 4, 平成27 22:09:05 Library.fp7 - TgotoCitationMenu -1-
+tagMenu: TgotoCitationMenu
 If [ $$add = 1 ]
 Set Variable [ $$add; Value:2 ]
 End If
 #
 If [ $$citationMatch = "kfolderpath" ]
-January 7, 平成26 16:20:05 Imagination Quality Management.fp7 - TgotoCitationMenu -1-tagMenu: TgotoCitationMenu
 Go to Layout [ “ReferenceMenu1” (tagMenus) ]
 Perform Script [ “menuPath” ]
 Else If [ $$citationMatch = "kmedium" ]
@@ -152,4 +158,4 @@ Select Window [ Name: "Tag Menus"; Current file ]
 If [ $$add = 2 ]
 Set Variable [ $$add; Value:1 ]
 End If
-January 7, 平成26 16:20:05 Imagination Quality Management.fp7 - TgotoCitationMenu -2-
+May 4, 平成27 22:09:05 Library.fp7 - TgotoCitationMenu -2-
