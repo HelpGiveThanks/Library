@@ -30,9 +30,13 @@ End If
 Set Variable [ $$testLearnLayoutName; Value:Get (LayoutName) ]
 #
 #Go to edit layout for this record.
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learn4EDITstuff” (testlearn) ]
+Else
 Go to Layout [ “learn4EDIT” (testlearn) ]
+End If
 #
 #Prevent add mode.
 Set Variable [ $$stopAdd; Value:1 ]
 Set Variable [ $$stoploadCitation ]
-January 7, 平成26 17:24:31 Imagination Quality Management.fp7 - editTestLearn -1-
+May 14, 平成27 21:05:09 Library.fp7 - editTestLearn -1-
