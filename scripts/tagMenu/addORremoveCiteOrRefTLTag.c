@@ -58,9 +58,14 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #Sort records according to users wishes.
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Sort Records [ Specified Sort Order: testlearn::Caption; ascending ]
+[ Restore; No dialog ]
+Else
 Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+End If
 #
 Set Variable [ $$stopLoadTagRecord ]
 Go to Record/Request/Page
@@ -100,16 +105,24 @@ End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #Sort records according to users wishes.
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Sort Records [ Specified Sort Order: testlearn::Caption; ascending ]
+[ Restore; No dialog ]
+Else
 Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+End If
 #
 Set Variable [ $$stopLoadTagRecord ]
 Go to Record/Request/Page
+[ First ]
+May 19, 平成27 11:06:09 Library.fp7 - addORremoveCiteOrRefTLTag -1-
+tagMenu: addORremoveCiteOrRefTLTag Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$skipFirstPartOfScript ]
-January 7, 平成26 16:29:57 Imagination Quality Management.fp7 - addORremoveCiteOrRefTLTag -1-
+May 19, 平成27 11:06:09 Library.fp7 - addORremoveCiteOrRefTLTag -2-
