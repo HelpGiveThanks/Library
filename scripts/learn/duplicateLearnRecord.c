@@ -11,7 +11,20 @@ If [ $$findMode ≠ "" ]
 Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
 Exit Script [ ]
 End If
+#
+#Give user duplicate record options.
+Show Custom Dialog [ Message: "Just duplicate current record?" & ¶ &
+"OR" & ¶ &
+"Duplicate and create reference (link) to the orginal record?"; Buttons: “D”, “D+Link”, “cancel” ]
+#
+#If user cancels, then exit script.
+If [ Get ( LastMessageChoice ) = 3 ]
+Exit Script [ ]
+End If
+#
+#If user selects option 1 or 2 gather orignal record's info.
 Set Variable [ $$stoploadCitation; Value:1 ]
+Set Variable [ $getRecordNumberInCaseUserCancles; Value:Get ( RecordNumber ) ]
 Go to Field [ ]
 Set Variable [ $caption; Value:testlearn::Caption ]
 Set Variable [ $P; Value:testlearn::kKeywordPrimary ]
@@ -39,23 +52,31 @@ Set Field [ testlearn::kcitation; $citation ]
 Set Field [ testlearn::Caption; $O ]
 #
 #Filemaker has a bug that is stripping out the paragraphs
-#if the script puts the O variable keys directly into the
-#other word field. But put them into caption and then
+#if the script puts the Other variable keys directly into the
+#other word field. But put them into the caption field and then
 #from caption into the otherword key field and everything
 #is fine.
 Set Field [ testlearn::kcKeywordOther; testlearn::Caption ]
 Set Field [ testlearn::Caption; $caption ]
 Set Variable [ $$stoploadCitation ]
-If [ testlearn::kcitation = "" ]
-Show Custom Dialog [ Message: "Reference the duplicated record (the one with the green bar)? If yes, adds the dupliated record to the referene section of its duplicate (the record below the one with green bar)."; Buttons: “no”, “yes” ]
+#
+#If user selects to reference duplicate record to
+#the original record, then add orignal's key to
+#current list (if any) of other referenced Learn record keys
+#that where referenced by the orginal record.
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ testlearn::kcreference; $referenceOriginal & ¶ & $reference ]
+#
+#If the user does not want to reference the orginal
+#record, then do not add its key to any referenced
+#Learn record keys (referenced by the orginal record).
 Else
 Set Field [ testlearn::kcreference; $reference ]
 End If
-Else
-Set Field [ testlearn::kcreference; $reference ]
-End If
+#
+#Sort the new record to the top of window, and
+#go to this new record, run the loadCition script,
+#and open up the text edit window for the new record.
 Sort Records [ ]
 [ No dialog ]
 Set Variable [ $record; Value:Get (RecordNumber) ]
@@ -64,5 +85,5 @@ Go to Record/Request/Page [ $record ]
 Set Variable [ $$stoploadCitation ]
 Perform Script [ “loadCitation” ]
 Set Variable [ $$stopOpenNewTextWindow ]
-Perform Script [ “LearnOpenTextNewWindow” ]
-January 7, 平成26 17:25:29 Imagination Quality Management.fp7 - duplicateLearnRecord -1-
+Perform Script [ “learnOpenTextNewWindow” ]
+June 26, 平成27 18:41:04 Library.fp7 - duplicateLearnRecord -1-
