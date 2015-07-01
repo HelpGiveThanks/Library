@@ -1,19 +1,23 @@
 tagMenu: CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain
 #
-#If learn record that tag was added
-#to belongs to more than one section, then
-#add these other sections to the learn or reference
-#keychain so when this learn record is viewed in
-#those sections, the reference or learn record
-#just added to it will show up as well.
-#NOTE: Once a learn record is tagged with reference
-#records -- other learn and reference records --
-#it is prevented in add mode from acquiring new keys
-#which would need to be passed along to these added
-#records, and then to all of their references, and so on.
+#
 Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 0 ]
 Set Variable [ $keychain; Value:testlearn::kcsection ]
+#
+#
+#BEGIN — NO LONGER USED I think. Testing required.
+// #If learn record that tag was added
+// #to belongs to more than one section, then
+// #add these other sections to the learn or reference
+// #keychain so when this learn record is viewed in
+// #those sections, the reference or learn record
+// #just added to it will show up as well.
+// #NOTE: Once a learn record is tagged with reference
+// #records -- other learn and reference records --
+// #it is prevented in add mode from acquiring new keys
+// #which would need to be passed along to these added
+// #records, and then to all of their references, and so on.
 If [ testlearn::kcitation ≠ "" and $$citationMatch = "ref" ]
 Show Custom Dialog [ Message: "References can be added after the citation is removed. (Cite the source of an unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies, etc.)"; Buttons: “OK” ]
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -27,6 +31,9 @@ End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Halt Script
 End If
+#END — NO LONGER USED I think. Testing required.
+#
+#
 Else If [ Get (LastError) ≠ 0 ]
 Select Window [ Name: "References"; Current file ]
 Set Variable [ $keychain; Value:reference::kcsection ]
@@ -104,4 +111,4 @@ End If
 Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
 End Loop
 #
-January 7, 平成26 16:27:51 Imagination Quality Management.fp7 - CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain -1-
+July 1, 平成27 12:45:05 Library.fp7 - CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain -1-

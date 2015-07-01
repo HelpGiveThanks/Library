@@ -37,6 +37,16 @@ Select Window [ Name: "Tag Menus"; Current file ]
 #the Learn menu button.
 If [ testlearn::_Ltestlearn & "L¶" ≠ FilterValues ( $$ref ; testlearn::_Ltestlearn & "L¶" ) ]
 #
+#If in inventory mode, only allow items
+#specified in learn records to be tagged as
+#being in one container at a time.
+If [ TEMP::InventoryLibaryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
+Show Custom Dialog [ Message: "This item is already tagged as being in a container (highlighted green). Untag it from this container before tagging it with a new one."; Buttons: “OK” ]
+Set Variable [ $$stopLoadTagRecord ]
+Halt Script
+End If
+#
+#
 Set Variable [ $newRef; Value:testlearn::_Ltestlearn & "L" ]
 #
 #Set record number so can return user to it when done.
@@ -105,6 +115,8 @@ End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #Sort records according to users wishes.
+July 1, 平成27 12:27:52 Library.fp7 - addORremoveCiteOrRefTLTag -1-
+tagMenu: addORremoveCiteOrRefTLTag
 If [ TEMP::InventoryLibaryYN ≠ "" ]
 Sort Records [ Specified Sort Order: testlearn::Caption; ascending ]
 [ Restore; No dialog ]
@@ -117,12 +129,9 @@ End If
 Set Variable [ $$stopLoadTagRecord ]
 Go to Record/Request/Page
 [ First ]
-May 19, 平成27 11:06:09 Library.fp7 - addORremoveCiteOrRefTLTag -1-
-tagMenu: addORremoveCiteOrRefTLTag Go to Record/Request/Page
-[ First ]
 Scroll Window
 [ Home ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$skipFirstPartOfScript ]
-May 19, 平成27 11:06:09 Library.fp7 - addORremoveCiteOrRefTLTag -2-
+July 1, 平成27 12:27:52 Library.fp7 - addORremoveCiteOrRefTLTag -2-

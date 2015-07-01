@@ -1,11 +1,14 @@
 tagMenu: addORremoveRefTagStep1
+#
+#
 #Remove focus from field so can see
 #conditional formatting.
 Go to Field [ ]
 #
 #Determine if user is looking at cite or ref.
+#
 #NOTE: The cite idea is no longer being used. So,
-#when here is time to properly test, these cite script
+#when there is time to properly test, these cite script
 #steps need to be removed. END NOTE
 If [ $$citationMatch = "cite" ]
 Perform Script [ “addTagToMainRecord” ]
@@ -28,4 +31,4 @@ Exit Script [ ]
 End If
 Perform Script [ “addORremoveCitationOrReferenceRefTag” ]
 End If
-May 10, 平成27 12:49:38 Library.fp7 - addORremoveRefTagStep1 -1-
+July 1, 平成27 12:32:24 Library.fp7 - addORremoveRefTagStep1 -1-
