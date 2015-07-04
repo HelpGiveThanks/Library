@@ -78,7 +78,12 @@ Set Variable [ $$stopLoadTagRecord ]
 If [ $$citeORref = "ref" ]
 Perform Script [ “menuReference” ]
 Else
-Perform Script [ “menuRefAddKeyWords” ]
+#
+#NOT SURE WHY this is done, so I am disabling
+#for now as it doesn't make sense. Further testing
+#is required before it is deleted to determine
+#why it was put here in the first place.
+// Perform Script [ “menuRefAddKeyWords” ]
 End If
 #
 If [ $$citeORref = "cite" ]
@@ -91,4 +96,4 @@ Select Window [ Name: "Learn"; Current file ]
 #Perform Load Citation script to restore conditional
 #formatting.
 Perform Script [ “loadCitation” ]
-January 7, 平成26 18:05:32 Imagination Quality Management.fp7 - backToLearnOrDefaultSetup -1-
+July 3, 平成27 19:39:00 Library.fp7 - backToLearnOrDefaultSetup -1-
