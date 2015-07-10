@@ -5,7 +5,8 @@ If [ $$stopTest = 1
 //or $$citationMatch = "key"
 //or $$citationMatch = "node"
 //or $$citationMatch = "health"
-or $$citationMatch = "path" ]
+or $$citationMatch = "path"
+or tagLocation::match = "focus" ]
 Exit Script [ ]
 End If
 #
@@ -21,6 +22,7 @@ Set Variable [ $$stopTest; Value:1 ]
 #
 #New window so user's window is not changed.
 New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+// New Window [ Top: 1; Left: 1 ]
 #
 #Loop thru all records and make sure their spelling
 #has not been changed, and if it has then change it back
@@ -112,8 +114,8 @@ and
 nodeLockTagGroup::orderOrLock = ""
 and
 ruleTagMenuGroups::match = "sample" ]
-January 7, 平成26 16:46:29 Imagination Quality Management.fp7 - insureEqualityOfSpellFields -1-tagMenu: insureEqualityOfSpellFields
-If [ ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling
+July 10, 平成27 15:50:39 Library.fp7 - insureEqualityOfSpellFields -1-
+tagMenu: insureEqualityOfSpellFields If [ ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling
 and
 nodeLockTagGroup::orderOrLock = ""
 and
@@ -218,4 +220,4 @@ End If
 Set Variable [ $$stopTest ]
 Set Variable [ $$ID ]
 Perform Script [ “loadSetupTestRecord” ]
-January 7, 平成26 16:46:29 Imagination Quality Management.fp7 - insureEqualityOfSpellFields -2-
+July 10, 平成27 15:50:39 Library.fp7 - insureEqualityOfSpellFields -2-
