@@ -73,8 +73,8 @@ Close Window [ Current Window ]
 #If in use the stop script.
 If [ $inUse ≠ "" ]
 Show Custom Dialog [ Message: If ( $inUse = 1 ; "Current test item used as a check-off-the-list item for 1 test result in test " & $report & " in the test module. Uncheck it from this test result to delete it." ;
-"Current test item used as a check-off-the-list item for " & $inUse & " test results in" &
-If ( $numberOfReports = 1 ; " test " ; " tests " ) &
+"Current test item used as a check-off-the-list item for " & $inUse & " test results" &
+If ( $numberOfReports = 1 ; " in test " ; " between tests " ) &
 $report &
 " in the test module. Uncheck it from all " & $inUse & " results to delete it." ); Buttons: “OK” ]
 Exit Script [ ]
@@ -113,7 +113,7 @@ Delete Record/Request
 Set Variable [ $delete ]
 Set Variable [ $group ]
 Refresh Window
-July 10, 平成27 19:23:48 Library.fp7 - deleteTestItem -1-
+July 11, 平成27 9:53:09 Library.fp7 - deleteTestItem -1-
 testScreens: setup: deleteTestItem
 Exit Script [ ]
 #
@@ -163,4 +163,4 @@ End If
 Set Variable [ $delete ]
 Set Variable [ $deleteGroup ]
 Refresh Window
-July 10, 平成27 19:23:48 Library.fp7 - deleteTestItem -2-
+July 11, 平成27 9:53:09 Library.fp7 - deleteTestItem -2-
