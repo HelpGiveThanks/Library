@@ -23,15 +23,19 @@ Set Variable [ $testItemName; Value:If ( Char ( tagMenus::tag ) ≤ 20 ; tagMenu
 #find and show all test records that might be using
 #this item.
 New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+// New Window [ ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
-Set Field [ testlearn::ktest; $$item ]
+// Set Field [ testlearn::ktest; $$item ]
+Set Field [ testlearn::kctestItem; $delete ]
 Perform Find [ ]
 #
 #Check if test item is in use by any discovery records.
+#Also capture how many results there are using
+#item, and what tests use this item.
 Loop
 Set Variable [ $number; Value:1 ]
 Loop
@@ -39,6 +43,16 @@ If [ FilterValues ( GetValue ( testlearn::kctestItem ; $number ) ; $delete & "¶
 Set Variable [ $addToInUse; Value:$inUse ]
 Set Variable [ $inUse; Value:1 + $addToInUse ]
 Set Variable [ $number; Value:"exit" ]
+Set Variable [ $setNumberOfReports; Value:Case (
+$report = "" ; 1 ;
+$report = testlearn::kreportNumber ; 1 ;
+$report ≠ testlearn::kreportNumber and Filter ($report ; testlearn::kreportNumber ) ≠ testlearn::kreportNumber ; $numberOfReports + 1 ; "error" ) ]
+Set Variable [ $numberOfReports; Value:$setNumberOfReports ]
+Set Variable [ $setReportNumber; Value:Case (
+$report = "" ; testlearn::kreportNumber ;
+$report = testlearn::kreportNumber ; testlearn::kreportNumber ;
+$report ≠ testlearn::kreportNumber and Filter ($report ; testlearn::kreportNumber ) ≠ testlearn::kreportNumber ; $report & ", " & testlearn::kreportNumber ; "error" ) ]
+Set Variable [ $report; Value:$setReportNumber ]
 End If
 #
 #If number was set to exit or if no keys exist, then
@@ -58,8 +72,11 @@ Close Window [ Current Window ]
 #
 #If in use the stop script.
 If [ $inUse ≠ "" ]
-Show Custom Dialog [ Message: If ( $inUse = 1 ; "Current test item use = " & $inUse & ". Uncheck this item in test module from the " & $inUse & " item using it and you will then be able to delete it." ; "Current test item use = " & $inUse & ". Uncheck this item in test module from the " & $inUse
-& " items using it and you will then be able to delete it." ); Buttons: “OK” ]
+Show Custom Dialog [ Message: If ( $inUse = 1 ; "Current test item used as a check-off-the-list item for 1 test result in test " & $report & " in the test module. Uncheck it from this test result to delete it." ;
+"Current test item used as a check-off-the-list item for " & $inUse & " test results in" &
+If ( $numberOfReports = 1 ; " test " ; " tests " ) &
+$report &
+" in the test module. Uncheck it from all " & $inUse & " results to delete it." ); Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -96,6 +113,8 @@ Delete Record/Request
 Set Variable [ $delete ]
 Set Variable [ $group ]
 Refresh Window
+July 10, 平成27 19:23:48 Library.fp7 - deleteTestItem -1-
+testScreens: setup: deleteTestItem
 Exit Script [ ]
 #
 #BUT if only one record is found user is asked
@@ -118,7 +137,6 @@ End If
 #Show user warning message dependening on
 #whether or not this group is part of other test's
 #test-item lists.
-January 7, 平成26 12:17:45 Imagination Quality Management.fp7 - deleteTestItem -1-testScreens: setup: deleteTestItem
 If [ ValueCount ( ruleTagMenuTestGroups::match ) > 1 ]
 Show Custom Dialog [ Title: "!"; Message: "Deleting " & $testItemName & " will also delete its group: " & $groupName & ", which is on " & ValueCount ( ruleTagMenuTestGroups::match ) - 1 & " other test-item list(s). Option 1: delete it from all lists. Option 2: cancel delete. UNLINK
 this group from this list."; Buttons: “Cancel”, “Delete” ]
@@ -145,4 +163,4 @@ End If
 Set Variable [ $delete ]
 Set Variable [ $deleteGroup ]
 Refresh Window
-January 7, 平成26 12:17:45 Imagination Quality Management.fp7 - deleteTestItem -2-
+July 10, 平成27 19:23:48 Library.fp7 - deleteTestItem -2-
