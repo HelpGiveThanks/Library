@@ -6,7 +6,7 @@ If [ $$stopTest = 1
 //or $$citationMatch = "node"
 //or $$citationMatch = "health"
 or $$citationMatch = "path"
-or tagLocation::match = "focus" ]
+or tagLocation::match = "focus" and nodeLockTest::orderOrLock = "" ]
 Exit Script [ ]
 End If
 #
@@ -114,7 +114,7 @@ and
 nodeLockTagGroup::orderOrLock = ""
 and
 ruleTagMenuGroups::match = "sample" ]
-July 10, 平成27 15:50:39 Library.fp7 - insureEqualityOfSpellFields -1-
+July 10, 平成27 19:39:43 Library.fp7 - insureEqualityOfSpellFields -1-
 tagMenu: insureEqualityOfSpellFields If [ ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling
 and
 nodeLockTagGroup::orderOrLock = ""
@@ -220,4 +220,4 @@ End If
 Set Variable [ $$stopTest ]
 Set Variable [ $$ID ]
 Perform Script [ “loadSetupTestRecord” ]
-July 10, 平成27 15:50:39 Library.fp7 - insureEqualityOfSpellFields -2-
+July 10, 平成27 19:39:43 Library.fp7 - insureEqualityOfSpellFields -2-
