@@ -43,7 +43,22 @@ Set Field [ TEMP::ktest; "" ]
 Set Field [ TEMP::ktestItemList; "" ]
 Set Field [ TEMP::ktestItemListOLD; "" ]
 Set Field [ TEMP::ktestListtTestName; "" ]
+#
+#Refind all test sections and sort them.
+Allow User Abort [ Off ]
+Set Error Capture [ On ]
+Enter Find Mode [ ]
+Set Field [ tagTestSubjectLocation::ksection; TEMP::ksection ]
+Perform Find [ ]
+#
+#Sort
+Sort Records [ Specified Sort Order: tagTestSubject::tag; ascending
+tagTestSubjectLocation::reportNumber; ascending
+tagTestSubjectLocation::order; based on value list: “order”
+tagTestSubjectLocation::focusName; ascending ]
+[ Restore; No dialog ]
+#
 Exit Script [ ]
 End If
 Perform Script [ “returnToSetup” ]
-January 7, 平成26 18:06:26 Imagination Quality Management.fp7 - backFromSetup -1-
+July 10, 平成27 17:26:39 Library.fp7 - backFromSetup -1-
