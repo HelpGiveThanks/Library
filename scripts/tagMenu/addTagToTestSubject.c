@@ -3,6 +3,7 @@ tagMenu: addTagToTestSubject
 #Get key for tag that is to be added to record.
 If [ Get (LayoutName) ≠ "defaultLocation" ]
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
+Set Variable [ $TSname; Value:tagMenus::tag ]
 Else If [ Get (LayoutName) = "defaultLocation" ]
 Set Variable [ $tag; Value:tagTestSubjectLocation::knode ]
 End If
@@ -24,14 +25,16 @@ Select Window [ Name: "Setup"; Current file ]
 #If test subject node is in use, then remove it.
 If [ tempSetup::kdefaultNodeTestSubject = $tag ]
 Set Field [ tempSetup::kdefaultNodeTestSubject; "" ]
+Set Field [ tempSetup::DEFAULTNodeTestSubjectName; "" ]
 #
 #Finish removing the key.
 Set Variable [ $$testSubject ]
 #
-#If primary node is not in use add it.
+#If test subject node is not in use add it.
 Else If [ tempSetup::kdefaultNodeTestSubject ≠ $tag ]
 Set Field [ tempSetup::kdefaultNodeTestSubject; $tag ]
 Set Variable [ $$testSubject; Value:tempSetup::kdefaultNodeTestSubject ]
+Set Field [ tempSetup::DEFAULTNodeTestSubjectName; $TSname ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
@@ -49,4 +52,4 @@ Refresh Window
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-January 7, 平成26 16:06:49 Imagination Quality Management.fp7 - addTagToTestSubject -1-
+July 11, 平成27 10:28:36 Library.fp7 - addTagToTestSubject -1-
