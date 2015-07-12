@@ -1,9 +1,11 @@
 testScreens: test: newTestRecord
 #
+#
 #basic administration tasks
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
+#
 #
 #create new inspection record setting all fields with neccessary key copies
 #to unlock data
@@ -117,8 +119,6 @@ Perform Find [ ]
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $number; Value:Get (FoundCount) ]
-July 11, 平成27 19:41:45 Library.fp7 - newTestRecord -1-
-testScreens: test: newTestRecord
 Loop
 Set Field [ testlearn::InspectionItemCountLocation; $number ]
 Go to Record/Request/Page
@@ -193,4 +193,4 @@ Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
 Set Variable [ $$stopLoadTestRecord ]
 Perform Script [ “loadTestRecord” ]
 #
-July 11, 平成27 19:41:45 Library.fp7 - newTestRecord -2-
+July 11, 平成27 21:53:08 Library.fp7 - newTestRecord -1-
