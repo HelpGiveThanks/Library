@@ -17,6 +17,7 @@ Else If [ tagTestSubjectLocation::focusName = "" ]
 Halt Script
 End If
 Set Field [ TEMP::kdefaultNodeTestSubject; tagTestSubjectLocation::knode ]
+Set Field [ TEMP::DEFAULTNodeTestSubjectName; tagTestSubject::tag ]
 Set Field [ tagTestSubjectLocation::TimeStart; Get ( CurrentTime ) ]
 Set Variable [ $status; Value:tagTestSubjectLocation::inUse ]
 Set Variable [ $$timeRecord; Value:Get ( RecordNumber ) ]
@@ -86,4 +87,4 @@ End If
 Set Field [ InspectItems::gprogressGlobal; "status: done" ]
 Scroll Window
 [ Home ]
-January 7, 平成26 12:27:14 Imagination Quality Management.fp7 - step2_OpenInspectionItemsTEST -1-
+July 11, 平成27 22:24:23 Library.fp7 - step2_OpenInspectionItemsTEST -1-

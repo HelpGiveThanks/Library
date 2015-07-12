@@ -1,4 +1,4 @@
-testScreens: testReport: EditReport
+testScreens: testReport: editReport
 #
 #basic administration tasks
 Set Error Capture [ On ]
@@ -9,6 +9,7 @@ Set Variable [ $$stopLoadReportRecord; Value:1 ]
 #
 #used for item pulldown selection on report layout
 Set Field [ TEMP::kdefaultNodeTestSubject; tagTestSubjectLocation::knode ]
+Set Field [ TEMP::DEFAULTNodeTestSubjectName; tagTestSubject::tag ]
 Set Field [ TEMP::kabout; TEMP::kdefaultNodeTestSubject ]
 Set Variable [ $$contact; Value:TEMP::kdefaultNodeTestSubject ]
 #
@@ -97,4 +98,4 @@ Scroll Window
 #Now find discoveries for this report item.
 Perform Script [ “CHUNK_gotoItemViaPulldown” ]
 #
-January 7, 平成26 14:25:10 Imagination Quality Management.fp7 - EditReport -1-
+July 11, 平成27 22:22:04 Library.fp7 - editReport -1-
