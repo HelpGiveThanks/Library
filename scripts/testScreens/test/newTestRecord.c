@@ -98,7 +98,10 @@ Set Field [ testlearn::ktestSubject; $$contact ]
 Set Field [ testlearn::kaudienceLocation; $$location ]
 Set Field [ testlearn::kcsection; $$Library ]
 Set Field [ testlearn::kreportNumber; $$reportNumber ]
-Set Field [ testlearn::Location; $$locationName ]
+#New test result for current test section is currently
+#$$itemName. This variable name needs to be
+#changed when time permits for testing to $$sectionName.
+Set Field [ testlearn::Location; $$itemName ]
 Set Field [ testlearn::ktest; $$item ]
 Set Field [ testlearn::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 Set Field [ testlearn::RecordModifyDate; Get ( CurrentTimeStamp ) ]
@@ -114,11 +117,11 @@ Perform Find [ ]
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $number; Value:Get (FoundCount) ]
+July 11, 平成27 19:41:45 Library.fp7 - newTestRecord -1-
+testScreens: test: newTestRecord
 Loop
 Set Field [ testlearn::InspectionItemCountLocation; $number ]
 Go to Record/Request/Page
-[ Next; Exit after last ]
-January 7, 平成26 12:25:35 Imagination Quality Management.fp7 - newTestRecord -1-testScreens: test: newTestRecord Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
@@ -190,4 +193,4 @@ Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
 Set Variable [ $$stopLoadTestRecord ]
 Perform Script [ “loadTestRecord” ]
 #
-January 7, 平成26 12:25:35 Imagination Quality Management.fp7 - newTestRecord -2-
+July 11, 平成27 19:41:45 Library.fp7 - newTestRecord -2-
