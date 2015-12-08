@@ -524,17 +524,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    MemorySwitch
-    TEMP
-    TEMP
-    backup
-
 Table occurrences used by this script
-
-    MemorySwitch
-    TEMP
-    backup
-    tempSetup
 
 Custom Functions used by this script
 
@@ -585,11 +575,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -601,9 +587,6 @@ Script Name	closeLibrary
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultSetup
-    defaultSetup Copy
 
 Scripts that use this script
 
@@ -641,14 +624,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    MemorySwitch
-    TEMP
-
 Table occurrences used by this script
-
-    MemorySwitch
-    TEMP
-    tempSetup
 
 Custom Functions used by this script
 
@@ -660,8 +636,6 @@ Script Name	moreInfo
 Run script with full access privileges	Off
 Include In Menu	Yes
 Layouts that use this script
-
-    defaultSetup
 
 Scripts that use this script
 
@@ -833,17 +807,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuTestGroups
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -952,11 +916,8 @@ Layouts used in this script
 
 Tables used in this script
 
-    backup
-
 Table occurrences used by this script
 
-    backup
     tagTestSubjectLocation
     test
     testlearn
@@ -1165,27 +1126,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    backup
-    reference
-    tag
-    tag
-    tagGroup
-    tagGroup
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    backup
-    groupTest
-    reference
-    ruleSection
-    ruleTagMenuGroups
-    tagMenus
-    tagTable
-    tempSetup
 
 Custom Functions used by this script
 
@@ -1224,11 +1165,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    tempSetup
 
 Custom Functions used by this script
 
@@ -1240,13 +1177,6 @@ Script Name	sampleCopyForPasting
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4EDIT
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -1470,26 +1400,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    learnWebsite
-    reference
-    tag
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    defaultCopyrightName
-    learnSampleWebsite
-    nodeLockTagMenus
-    refReference
-    refTestLearn
-    sampleCopyright
-    tagMenus
-    tagTLKeywordPrimary
-    tagTLNodePrimary
-    testlearn
 
 Custom Functions used by this script
 
@@ -1501,8 +1412,6 @@ Script Name	sampleCopyCopyText
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnPreviewLayout
 
 Scripts that use this script
 
@@ -1523,11 +1432,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -1631,11 +1536,8 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
 
-    TEMP
     <Missing Table Occurrence>
     test
     testlearnReportTags
@@ -1699,13 +1601,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tagGroup
-    tagGroup
-
 Table occurrences used by this script
-
-    groupTest
-    ruleSection
 
 Custom Functions used by this script
 
@@ -1838,14 +1734,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    MemorySwitch
-    TEMP
-
 Table occurrences used by this script
-
-    MemorySwitch
-    TEMP
-    tempSetup
 
 Custom Functions used by this script
 
@@ -1917,13 +1806,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    groupTest
-    test
 
 Custom Functions used by this script
 
@@ -2012,18 +1895,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    backup
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    backup
-    nodeLockSection
-    ruleSection
-    tempSetup
 
 Custom Functions used by this script
 
@@ -2182,25 +2054,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tag
-    tagGroup
-    tagGroup
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    nodeLockSection
-    reference
-    ruleLibrary 2
-    ruleSection
-    tagTable
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -2215,13 +2069,6 @@ Script Name	gotoSetupTest
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultTest
-    defaultTestNewFocus
-    learnTest
-    learnSTest
-    testMenuTestItem
-    reportTagItem
 
 Scripts that use this script
 
@@ -2350,19 +2197,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    tagMenus
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -2545,17 +2380,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuTestGroups
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -2567,8 +2392,6 @@ Script Name	newTestGroup
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testSetup
 
 Scripts that use this script
 
@@ -2754,19 +2577,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    ruleSection
-    tagLocation
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -2778,8 +2589,6 @@ Script Name	newTest
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testSetup
 
 Scripts that use this script
 
@@ -2936,19 +2745,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    ruleSection
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -2960,8 +2757,6 @@ Script Name	deleteTest
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testSetup
 
 Scripts that use this script
 
@@ -3223,25 +3018,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tag
-    tagGroup
-    tagGroup
-    test
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    nodeLockTest
-    ruleTagMenuTestGroups
-    tagLocation
-    test
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -3253,10 +3030,6 @@ Script Name	deleteTestItem
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    setupTestItem
-    testMenuTestItemEdit
-    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -3428,24 +3201,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tag
-    tag
-    tagGroup
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    nodeLockTagMenus
-    ruleTagMenuGroups
-    ruleTagMenuTestGroups
-    tagMenus
-    tagTable
-    testlearn
 
 Custom Functions used by this script
 
@@ -3457,10 +3213,6 @@ Script Name	newTestItem
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    setupTestItem
-    testMenuTestItemEdit
-    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -3523,13 +3275,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagMenus
 
 Custom Functions used by this script
 
@@ -3571,13 +3317,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    test
-
 Table occurrences used by this script
-
-    nodeLockTest
-    test
 
 Custom Functions used by this script
 
@@ -3589,10 +3329,6 @@ Script Name	newTestItemGroup
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    setupTestItem
-    testMenuTestItemEdit
-    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -3688,17 +3424,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    ruleTagMenuTestGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -3737,11 +3463,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    test
-
 Table occurrences used by this script
-
-    test
 
 Custom Functions used by this script
 
@@ -3838,15 +3560,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    test
 
 Custom Functions used by this script
 
@@ -3891,11 +3605,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    tempSetup
 
 Custom Functions used by this script
 
@@ -4072,20 +3782,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    addTestItemGroup
-    groupTest
-    ruleTagMenuTestGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -4097,8 +3794,6 @@ Script Name	testInfoOpenTextNewWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testInfo
 
 Scripts that use this script
 
@@ -4141,14 +3836,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    tagTLNodePrimary
-    tagTLNodePrimary 2
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -4211,13 +3899,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testSubjectFocus
-
 Table occurrences used by this script
-
-    TEMP
-    discoveryPulldownLocationName
 
 Custom Functions used by this script
 
@@ -4354,15 +4036,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
-    testlearn
 
 Custom Functions used by this script
 
@@ -4374,8 +4048,6 @@ Script Name	newTestRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    step4_InspectionFinding
 
 Scripts that use this script
 
@@ -4604,19 +4276,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    report
-    test
-    testSubjectFocus
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
-    report
-    tagTestSubjectLocation
-    testlearn
 
 Custom Functions used by this script
 
@@ -4628,8 +4288,6 @@ Script Name	linkTestFocusOrUnlinkTestFocus
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    setupTestFocus
 
 Scripts that use this script
 
@@ -4679,13 +4337,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    test
-
 Table occurrences used by this script
-
-    tagLocation
-    test
 
 Custom Functions used by this script
 
@@ -4697,8 +4349,6 @@ Script Name	gotoTestItem
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    step3_InspectionItems
 
 Scripts that use this script
 
@@ -4848,15 +4498,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
-    testlearn
 
 Custom Functions used by this script
 
@@ -4868,9 +4510,6 @@ Script Name	step2_OpenInspectionItemsTEST
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -4991,21 +4630,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    tag
-    tagGroup
-    test
-    testSubjectFocus
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
-    ruleTestInpsection
-    tagDefaultTestSubject
-    tagTestSubjectLocation
-    tempSetup
 
 Custom Functions used by this script
 
@@ -5044,13 +4669,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
 
 Custom Functions used by this script
 
@@ -5118,15 +4737,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    test
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    testlearn
-    tlResults
 
 Custom Functions used by this script
 
@@ -5138,8 +4749,6 @@ Script Name	returnToStep3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    step4_InspectionFinding
 
 Scripts that use this script
 
@@ -5167,13 +4776,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
 
 Custom Functions used by this script
 
@@ -5185,8 +4788,6 @@ Script Name	done
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    step3_InspectionItems
 
 Scripts that use this script
 
@@ -5240,15 +4841,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    test
-    testSubjectFocus
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    tagTestSubjectLocation
-    testlearn
 
 Custom Functions used by this script
 
@@ -5260,8 +4853,6 @@ Script Name	delete_Evidence
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    step4_InspectionFinding
 
 Scripts that use this script
 
@@ -5501,17 +5092,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-    test
-    testSubjectFocus
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    report
-    tagTestSubjectLocation
-    testlearn
 
 Custom Functions used by this script
 
@@ -5555,11 +5136,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearn
 
 Custom Functions used by this script
 
@@ -5571,8 +5148,6 @@ Script Name	OKonReport
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -5605,11 +5180,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -5643,11 +5214,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearn
 
 Custom Functions used by this script
 
@@ -5681,11 +5248,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearn
 
 Custom Functions used by this script
 
@@ -5697,8 +5260,6 @@ Script Name	itemNA
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    step3_InspectionItems
 
 Scripts that use this script
 
@@ -5865,21 +5426,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-    testSubjectFocus
-    testlearn
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
-    TLResultsOnReport
-    tagTestSubjectLocation
-    testlearn
-    tlResults
 
 Custom Functions used by this script
 
@@ -5910,13 +5457,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    tagDetails
-    testlearn
 
 Custom Functions used by this script
 
@@ -5953,11 +5494,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    test
-
 Table occurrences used by this script
-
-    InspectItems
 
 Custom Functions used by this script
 
@@ -5989,11 +5526,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearn
 
 Custom Functions used by this script
 
@@ -6057,11 +5590,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -6073,8 +5602,6 @@ Script Name	reportNewEvidence
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -6199,17 +5726,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testSubjectFocus
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tagTestSubjectLocation
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -6221,8 +5738,6 @@ Script Name	reportDeleteEvidence
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -6477,19 +5992,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-    test
-    testSubjectFocus
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    report
-    tagTestSubjectLocation
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -6501,8 +6004,6 @@ Script Name	reportSelectLocation
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -6549,15 +6050,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testSubjectFocus
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tagTestSubjectLocation
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -6604,9 +6097,6 @@ Script Name	returnToStep2
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    step3_InspectionItems
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -6835,17 +6325,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-    test
-    testSubjectFocus
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    report
-    tagTestSubjectLocation
-    testlearn
 
 Custom Functions used by this script
 
@@ -6891,13 +6371,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    test
 
 Custom Functions used by this script
 
@@ -6949,13 +6423,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    test
 
 Custom Functions used by this script
 
@@ -7008,13 +6476,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    test
 
 Custom Functions used by this script
 
@@ -7075,13 +6537,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagTable
 
 Custom Functions used by this script
 
@@ -7142,13 +6598,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagTable
 
 Custom Functions used by this script
 
@@ -7160,8 +6610,6 @@ Script Name	newInspectionLocation
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -7235,13 +6683,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testSubjectFocus
-
 Table occurrences used by this script
-
-    TEMP
-    tagTestSubjectLocation
 
 Custom Functions used by this script
 
@@ -7253,9 +6695,6 @@ Script Name	deleteInspectionLocation
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -7296,13 +6735,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    testSubjectFocus
-
 Table occurrences used by this script
-
-    tagTestSubject
-    tagTestSubjectLocation
 
 Custom Functions used by this script
 
@@ -7370,11 +6803,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    test
-
 Table occurrences used by this script
-
-    test
 
 Custom Functions used by this script
 
@@ -7416,11 +6845,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    test
-
 Table occurrences used by this script
-
-    test
 
 Custom Functions used by this script
 
@@ -7432,9 +6857,6 @@ Script Name	editReport
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -7569,25 +6991,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    report
-    tag
-    tagGroup
-    test
-    testSubjectFocus
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    report
-    reportItem
-    ruleTestReport
-    tagDefaultTestSubject
-    tagTestSubjectLocation
-    tempSetup
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -7733,23 +7137,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    report
-    tag
-    tagGroup
-    test
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    report
-    reportItem
-    ruleTagMenuTestGroups
-    tagMenus
-    test
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -7831,15 +7219,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    report
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    report
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -7918,15 +7298,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    report
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    report
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -7981,11 +7353,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -8371,13 +7739,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -8389,8 +7751,6 @@ Script Name	deleteRowOfPhotosFromReport
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -8428,11 +7788,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -8444,8 +7800,6 @@ Script Name	newRowOfPhotos
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -8473,11 +7827,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -8507,11 +7857,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -8523,9 +7869,6 @@ Script Name	editSectionFocuses
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    setupTestItem
-    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -8576,13 +7919,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagLocation
 
 Custom Functions used by this script
 
@@ -8594,8 +7931,6 @@ Script Name	newFocus
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    setupTestFocus
 
 Scripts that use this script
 
@@ -8641,13 +7976,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagLocation
 
 Custom Functions used by this script
 
@@ -8659,8 +7988,6 @@ Script Name	deleteFocus
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    setupTestFocus
 
 Scripts that use this script
 
@@ -8770,23 +8097,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tag
-    tag
-    tagGroup
-    test
-    testSubjectFocus
-
 Table occurrences used by this script
-
-    TEMP
-    nodeLibraryName
-    nodeLockTest
-    tagLocation
-    tagTestSubject
-    tagTestSubjectLocation
-    test
 
 Custom Functions used by this script
 
@@ -8828,11 +8139,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    defaultCopyrightName
 
 Custom Functions used by this script
 
@@ -8844,12 +8151,6 @@ Script Name	gotoDefaultsOrReport
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -9150,27 +8451,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    reference
-    report
-    tag
-    tagGroup
-    test
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
-    reference
-    report
-    ruleSection
-    tagKeywordPrimary
-    tempSetup
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -9182,8 +8463,6 @@ Script Name	previewReport
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -9246,15 +8525,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    report
-    reportItem
-    ruleTestReport
 
 Custom Functions used by this script
 
@@ -9266,10 +8537,6 @@ Script Name	reportTagInfo
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testMenuTestItem
-    reportTagItem
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -9399,13 +8666,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -9417,10 +8678,6 @@ Script Name	reportTagDiscovery
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    reportTagItem
-    reportTagInfo
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -9459,13 +8716,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -9615,11 +8866,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -9657,13 +8904,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testSubjectFocus
-
 Table occurrences used by this script
-
-    TEMP
-    tagTestSubjectLocation
 
 Custom Functions used by this script
 
@@ -9771,19 +9012,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    ruleSection
-    ruleTagMenuTestGroups
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -9936,14 +9165,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-
 Table occurrences used by this script
-
-    InspectItems
-    TEMP
-    test
 
 Custom Functions used by this script
 
@@ -10017,11 +9239,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    test
-
 Table occurrences used by this script
-
-    test
 
 Custom Functions used by this script
 
@@ -10272,17 +9490,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    report
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    report
-    reportItem
-    ruleTestReport
 
 Custom Functions used by this script
 
@@ -10324,11 +9532,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -10340,8 +9544,6 @@ Script Name	CHUNK_insertPageNumbers
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    pageNumbering
 
 Scripts that use this script
 
@@ -10378,15 +9580,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    report
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    report
-    reportItem
 
 Custom Functions used by this script
 
@@ -10418,11 +9612,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -10454,11 +9644,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -10470,8 +9656,6 @@ Script Name	CHUNK_insertPageNumbersbackOnePage
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    pageNumbering
 
 Scripts that use this script
 
@@ -10494,11 +9678,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -10510,8 +9690,6 @@ Script Name	CHUNK_insertPageNumbersforwardOnePage
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    pageNumbering
 
 Scripts that use this script
 
@@ -10534,11 +9712,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -10816,15 +9990,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuTestGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -10836,36 +10002,6 @@ Script Name	menuNode
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    referenceMenuFINDref
-    referenceFINDNK
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
-    learnTagWindowNoTags
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
 
 Scripts that use this script
 
@@ -11117,19 +10253,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -11141,40 +10265,6 @@ Script Name	menuKey
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    referenceMenuFINDref
-    referenceFINDNK
-    referenceSFINDNK
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
-    learnTagWindowNoTags
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
 
 Scripts that use this script
 
@@ -11392,19 +10482,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -11416,34 +10494,6 @@ Script Name	menuHealth
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
-    learnTagWindowNoTags
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
 
 Scripts that use this script
 
@@ -11617,19 +10667,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -11807,19 +10845,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -11831,27 +10857,6 @@ Script Name	menuTest
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
-    learnTagWindowNoTags
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
 
 Scripts that use this script
 
@@ -11984,19 +10989,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    tagMenus
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -12008,12 +11001,6 @@ Script Name	menuTestItem
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    setupTestFocus
-    testInfo
-    reportTagItem
-    reportTagInfo
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -12158,19 +11145,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuTestGroups
-    tagMenus
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -12182,27 +11157,6 @@ Script Name	menuSample
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
-    learnTagWindowNoTags
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
 
 Scripts that use this script
 
@@ -12381,17 +11335,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -12403,14 +11347,6 @@ Script Name	menuCitation
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2keywordOrNode3
 
 Scripts that use this script
 
@@ -12571,21 +11507,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagKeywordPrimary
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -12597,27 +11519,6 @@ Script Name	menuReference
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
-    learnTagWindowNoTags
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
 
 Scripts that use this script
 
@@ -12775,17 +11676,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
-    testlearn
 
 Custom Functions used by this script
 
@@ -12797,14 +11688,6 @@ Script Name	menuCopyist
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2keywordOrNode3
 
 Scripts that use this script
 
@@ -12932,17 +11815,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -12954,14 +11827,6 @@ Script Name	menuPath
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2keywordOrNode3
 
 Scripts that use this script
 
@@ -13133,17 +11998,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -13155,14 +12010,6 @@ Script Name	menuOrgan
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2keywordOrNode3
 
 Scripts that use this script
 
@@ -13302,15 +12149,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagMenus
 
 Custom Functions used by this script
 
@@ -13322,32 +12161,6 @@ Script Name	newCitationMenuGroup
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenuSample
-    learnMenuStuffSample
 
 Scripts that use this script
 
@@ -13474,18 +12287,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    ruleTagMenuGroups
-    tagMenus
-    tempSetup
 
 Custom Functions used by this script
 
@@ -13497,32 +12299,6 @@ Script Name	newCitationMenuItem
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenuSample
-    learnMenuStuffSample
 
 Scripts that use this script
 
@@ -13602,15 +12378,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagMenus
-    tempSetup
 
 Custom Functions used by this script
 
@@ -13622,9 +12390,6 @@ Script Name	menuRefAddKeyWords
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnMenu3Cite
-    learnMenuRefStuff
 
 Scripts that use this script
 
@@ -13671,15 +12436,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    tagKeywordPrimary
-    testlearn
 
 Custom Functions used by this script
 
@@ -13691,13 +12448,6 @@ Script Name	gotoMainFromTestTagMenus
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testInfo
-    testMenuTestItem
-    testMenuNoTag
-    reportTagItem
-    reportTagInfo
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -13887,15 +12637,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -13907,8 +12649,6 @@ Script Name	addTagToTestSubject
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode1
 
 Scripts that use this script
 
@@ -13978,15 +12718,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    testSubjectFocus
-
 Table occurrences used by this script
-
-    tagMenus
-    tagTestSubjectLocation
-    tempSetup
 
 Custom Functions used by this script
 
@@ -14029,13 +12761,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    test
 
 Custom Functions used by this script
 
@@ -14200,19 +12926,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    tag
-    tagGroup
-    testSubjectFocus
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    tagTestSubject
-    tagTestSubjectLocation
-    tempSetup
 
 Custom Functions used by this script
 
@@ -14353,11 +13067,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearn
 
 Custom Functions used by this script
 
@@ -14369,8 +13079,6 @@ Script Name	testAddTestItemTextOrKey
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testMenuTestItem
 
 Scripts that use this script
 
@@ -14492,17 +13200,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -14566,14 +13264,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    nodeLockTagMenus
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -14749,16 +13440,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    tagGroup
-    tagGroup
-
 Table occurrences used by this script
-
-    groupTest
-    ruleTagMenuGroups
-    tagMenus
-    tagTable
 
 Custom Functions used by this script
 
@@ -14770,11 +13452,6 @@ Script Name	defaultNodeMenu
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultSections
-    defaultHealth
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -14896,18 +13573,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    ruleTagSectionName
-    tagMenus
-    tempSetup
 
 Custom Functions used by this script
 
@@ -14919,14 +13585,6 @@ Script Name	defaultHealthMenu
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultSections
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -15021,19 +13679,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    tag
-    tagGroup
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    ruleTagSectionName
-    tagMenus
-    tempSetup
 
 Custom Functions used by this script
 
@@ -15045,13 +13691,6 @@ Script Name	defaultSectionMenu
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -15111,13 +13750,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleSection
 
 Custom Functions used by this script
 
@@ -15174,17 +13807,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    nodeLockTagGroup
-    nodeLockTagMenus
-    nodeLockTestTagGroup
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -15395,15 +14018,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -15415,24 +14030,6 @@ Script Name	toggleTagMenuWindowView
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -15720,11 +14317,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -15936,17 +14529,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    reference
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    refReference
-    reference
-    ruleRefLibraryName
 
 Custom Functions used by this script
 
@@ -16007,13 +14590,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagTable
 
 Custom Functions used by this script
 
@@ -16025,9 +14602,6 @@ Script Name	duplicateTheory
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnMenuSample
-    learnMenuStuffSample
 
 Scripts that use this script
 
@@ -16134,17 +14708,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tagMenus
-    tempSetup
-    testlearn
 
 Custom Functions used by this script
 
@@ -16156,35 +14720,6 @@ Script Name	addTagToMainRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultHealth
-    defaultNode1
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
 
 Scripts that use this script
 
@@ -17096,25 +15631,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tag
-    tagGroup
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleSection
-    tagDefaultNodePrimary
-    tagKeywordPrimary
-    tagMenus
-    tempSetup
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -17378,18 +15895,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleSection
-    ruleTagMenuGroups
-    tagMenus
-    tempSetup
 
 Custom Functions used by this script
 
@@ -17576,17 +16082,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -17659,11 +16155,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    tagMenus
 
 Custom Functions used by this script
 
@@ -17675,18 +16167,6 @@ Script Name	addORremoveTagFromCitationStep1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode1
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
 
 Scripts that use this script
 
@@ -17755,11 +16235,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -18210,19 +16686,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -18737,21 +17201,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    tempSetup
-    testlearn
 
 Custom Functions used by this script
 
@@ -18793,11 +17243,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -18809,51 +17255,6 @@ Script Name	sortTags
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    ReferenceMenu2SkeywordOrNodeFind
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    setupTestItem
-    testMenuTestItemEdit
-    testMenuTestItem
-    reportTagItem
 
 Scripts that use this script
 
@@ -18999,23 +17400,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    reference
-    ruleTagMenuGroups
-    ruleTagMenuTestGroups
-    ruleTagSectionName
-    tagKeywordPrimary
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -19027,11 +17412,6 @@ Script Name	addORremoveRefTagStep1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
 
 Scripts that use this script
 
@@ -19082,11 +17462,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    testlearn
-
 Table occurrences used by this script
-
-    testlearn
 
 Custom Functions used by this script
 
@@ -19155,11 +17531,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tagGroup
-
 Table occurrences used by this script
-
-    ruleTagMenuGroups
 
 Custom Functions used by this script
 
@@ -19242,15 +17614,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    ruleTagMenuGroups
-    testlearn
 
 Custom Functions used by this script
 
@@ -19388,13 +17752,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    testlearn
 
 Custom Functions used by this script
 
@@ -19527,13 +17885,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    testlearn
 
 Custom Functions used by this script
 
@@ -20410,23 +18762,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    reference
-    tag
-    tagGroup
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    ruleTagSectionName
-    tagMenus
-    tempSetup
-    testlearn
 
 Custom Functions used by this script
 
@@ -20535,14 +18871,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    groupTest
-    nodeLockTagMenus
-    ruleTagMenuGroups
 
 Custom Functions used by this script
 
@@ -20629,14 +18958,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    ruleTagMenuTestGroups
 
 Custom Functions used by this script
 
@@ -20680,11 +19002,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    tagMenus
 
 Custom Functions used by this script
 
@@ -20696,22 +19014,6 @@ Script Name	deleteKeywordTag
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
 
 Scripts that use this script
 
@@ -21227,26 +19529,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tag
-    tagGroup
-    tagGroup
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    nodeLockTagMenus
-    reference
-    ruleTagMenuGroups
-    ruleTagSectionName
-    tagMenus
-    tagTable
-    testlearn
 
 Custom Functions used by this script
 
@@ -21901,25 +20184,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    tagGroup
-    testSubjectFocus
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    reference
-    ruleTagMenuGroups
-    ruleTagSectionName
-    tagMenus
-    tagTable
-    tagTestSubjectLocation
-    testlearn
 
 Custom Functions used by this script
 
@@ -21931,17 +20196,6 @@ Script Name	deleteMHOCSPtags
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultHealth
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenuSample
-    learnMenuStuffSample
 
 Scripts that use this script
 
@@ -22186,24 +20440,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tag
-    tagGroup
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    nodeLockTagMenus
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    tagTable
-    testlearn
 
 Custom Functions used by this script
 
@@ -22300,17 +20537,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -22416,15 +20643,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -22456,11 +20675,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    tagMenus
 
 Custom Functions used by this script
 
@@ -22543,11 +20758,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -22605,11 +20816,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -22621,8 +20828,6 @@ Script Name	gotoLessDetailLayout
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -22660,11 +20865,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -22676,9 +20877,6 @@ Script Name	gotoMoreDetailLayout
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testMenuTestItemEdit
-    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -22716,11 +20914,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -22797,11 +20991,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -22961,14 +21151,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-
 Table occurrences used by this script
-
-    citationPicture1
-    tagMenus
-    tagTable
 
 Custom Functions used by this script
 
@@ -22980,59 +21163,6 @@ Script Name	findMode
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    ReferenceMenu2SkeywordOrNodeFind
-    referenceMenuFINDref
-    referenceFINDNK
-    referenceSFINDNK
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
-    learnTagWindowNoTags
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
-    learnMenuFINDref
-    learnMenuFINDstuffref
-    learnMenuFINDrefLearn
-    ltagFINDNK
 
 Scripts that use this script
 
@@ -23356,20 +21486,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagKeywordPrimary
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -23416,17 +21533,6 @@ Script Name	findPrimaryTL
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnFind
-    learnSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -23829,19 +21935,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagMenus
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -24212,15 +22306,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -24232,8 +22318,6 @@ Script Name	findPrimaryRef
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuFind
 
 Scripts that use this script
 
@@ -24595,15 +22679,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagMenus
 
 Custom Functions used by this script
 
@@ -24960,15 +23036,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagMenus
 
 Custom Functions used by this script
 
@@ -25087,17 +23155,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    groupTest
-    ruleTagMenuGroups
-    ruleTagMenuTestGroups
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -25132,11 +23190,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    nodeLockTagGroup
 
 Custom Functions used by this script
 
@@ -25212,17 +23266,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    nodeLockTagMenus
-    nodeLockTest
-    nodeLockTestGroup
-    nodeLockTestTagGroup
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -25439,24 +23483,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-    tag
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    groupTest
-    nodeLockTagGroup
-    nodeLockTagMenus
-    nodeLockTest
-    nodeLockTestGroup
-    nodeLockTestTagGroup
-    ruleTagMenuGroups
-    ruleTagMenuTestGroups
-    tagLocation
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -25468,8 +23495,6 @@ Script Name	lockNodesRecords
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode2
 
 Scripts that use this script
 
@@ -25531,13 +23556,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagMenus
 
 Custom Functions used by this script
 
@@ -25605,11 +23624,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    tagTable
 
 Custom Functions used by this script
 
@@ -25861,13 +23876,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearn
 
 Custom Functions used by this script
 
@@ -25879,8 +23888,6 @@ Script Name	changeTLRecordsSort_Button
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -25932,13 +23939,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearn
 
 Custom Functions used by this script
 
@@ -26012,13 +24013,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26031,19 +24026,6 @@ Script Name	menuSampleFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -26105,15 +24087,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26125,21 +24099,6 @@ Script Name	menuNodeFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -26207,15 +24166,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26227,22 +24178,6 @@ Script Name	menuKeyFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    ReferenceMenu2SkeywordOrNodeFind
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -26310,15 +24245,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26330,23 +24257,6 @@ Script Name	menuHealthFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    referenceMenuFINDref
-    referenceFINDNK
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -26406,15 +24316,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26426,19 +24328,6 @@ Script Name	menuTestFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -26575,20 +24464,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-    tagGroup
-    test
-
 Table occurrences used by this script
-
-    TEMP
-    groupTest
-    ruleSection
-    ruleTagMenuGroups
-    tagMenus
-    test
 
 Custom Functions used by this script
 
@@ -26659,15 +24535,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26751,18 +24619,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagKeywordPrimary
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26774,19 +24631,6 @@ Script Name	menuReferenceFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -26867,16 +24711,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26888,11 +24723,6 @@ Script Name	menuCopyistFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    referenceMenuFINDref
-    referenceFINDNK
 
 Scripts that use this script
 
@@ -26942,15 +24772,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -26962,11 +24784,6 @@ Script Name	menuPathFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    referenceMenuFINDref
-    referenceFINDNK
 
 Scripts that use this script
 
@@ -27021,15 +24838,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -27041,11 +24850,6 @@ Script Name	menuOrganFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    referenceMenuFINDref
-    referenceFINDNK
 
 Scripts that use this script
 
@@ -27095,15 +24899,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tagGroup
-
 Table occurrences used by this script
-
-    TEMP
-    ruleTagMenuGroups
-    tagMenus
 
 Custom Functions used by this script
 
@@ -27115,15 +24911,6 @@ Script Name	findReferernce
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
-    ReferenceAddToTag
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -27255,17 +25042,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
-    testlearn
 
 Custom Functions used by this script
 
@@ -27278,11 +25055,6 @@ Script Name	pictureInsert
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferencePictureWindow
-    LearnPictureWindow
-    reportPictureWindow
-    ReferencePictureWindow Copy
 
 Scripts that use this script
 
@@ -27368,16 +25140,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    groupTest
-    reference
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -27389,11 +25152,6 @@ Script Name	pictureDelete
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferencePictureWindow
-    LearnPictureWindow
-    reportPictureWindow
-    ReferencePictureWindow Copy
 
 Scripts that use this script
 
@@ -27452,14 +25210,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -27471,11 +25222,6 @@ Script Name	pictureExport
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferencePictureWindow
-    LearnPictureWindow
-    reportPictureWindow
-    ReferencePictureWindow Copy
 
 Scripts that use this script
 
@@ -27504,14 +25250,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -27523,8 +25262,6 @@ Script Name	clearpicture1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -27550,11 +25287,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -27591,11 +25324,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -27632,11 +25361,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -27648,8 +25373,6 @@ Script Name	clearpicture2
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -27675,11 +25398,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -27691,8 +25410,6 @@ Script Name	clearpicture3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -27718,11 +25435,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -27734,8 +25447,6 @@ Script Name	clearpicture4
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -27761,11 +25472,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -27802,11 +25509,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -27844,11 +25547,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -27860,37 +25559,6 @@ Script Name	addLinksPicturesToTagsMode
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    ReferenceMenuHealth
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    ReferenceAddToTag
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    setupTestItem
-    testMenuTestItemEdit
-    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -28297,22 +25965,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tag
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    nodeLockTagMenus
-    reference
-    tagKeywordPrimary
-    tagMenus
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -28426,15 +26079,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -28529,13 +26174,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    testlearn
 
 Custom Functions used by this script
 
@@ -28630,13 +26269,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    testlearn
 
 Custom Functions used by this script
 
@@ -28731,13 +26364,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    testlearn
 
 Custom Functions used by this script
 
@@ -28749,43 +26376,6 @@ Script Name	showCitationPicture1inNewWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultSetup
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    Reference
-    ReferenceStuff
-    ReferenceEDIT
-    ReferenceEDITstuff
-    ReferenceMenuHealth
-    ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceAddToTag
-    learn2
-    learn3
-    learn4
-    learn4EDIT
-    learn4 Copy2
-    LearnTextWindowLocked
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
-    testInfo
-    reportTagDiscovery
-    defaultSetup Copy
 
 Scripts that use this script
 
@@ -29155,30 +26745,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    tag
-    tag
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    TLPicture1
-    citationPicture1
-    defaultPictureRef
-    defaultPictureTL
-    reference
-    tagDefaultFolderPathRef
-    tagDefaultFolderPathTL
-    tagMenus
-    tagPathPicture1_button
-    tagRefFolderPath
-    tagTLFolderPath
-    tagTLNodePrimary
-    tagTLPathPicture1_button
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -29291,22 +26858,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    reference
-    tag
-    tag
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    TLPicture2
-    citationPicture2
-    reference
-    tagMenus
-    tagPathPicture2_button
-    tagTLPathPicture2_button
-    testlearn
 
 Custom Functions used by this script
 
@@ -29419,22 +26971,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    reference
-    tag
-    tag
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    TLPicture3
-    citationPicture3
-    reference
-    tagMenus
-    tagPathPicture3_button
-    tagTLPathPicture3_button
-    testlearn
 
 Custom Functions used by this script
 
@@ -29446,16 +26983,6 @@ Script Name	showReferencePicture1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -29584,17 +27111,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLPicture1
-    citationPicture1
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -29606,16 +27123,6 @@ Script Name	showReferencePicture2
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -29752,17 +27259,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLPicture2
-    citationPicture2
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -29774,16 +27271,6 @@ Script Name	showReferencePicture3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -29912,17 +27399,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLPicture3
-    citationPicture3
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -29960,11 +27437,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -30001,11 +27474,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    report
-
 Table occurrences used by this script
-
-    report
 
 Custom Functions used by this script
 
@@ -30100,16 +27569,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    ruleCitationCategoryMedium
-    ruleTLCategoryMedium
-    testlearn
 
 Custom Functions used by this script
 
@@ -30122,14 +27582,6 @@ Script Name	showFileInTagandLearnWindows
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
-    ReferenceAddToTag
-    learnMenu3Cite
-    learnMenu4RefCite
-    testInfo
-    testInfoText
 
 Scripts that use this script
 
@@ -30336,24 +27788,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLciteFolderPath
-    TLrefFolderPath
-    citeCite
-    citeTest
-    citeTestFolderPath
-    refReference
-    refTest
-    refTestFolderPath
-    reference
-    tagRefFolderPath
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -30365,12 +27800,6 @@ Script Name	deleteLearnMainRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -30821,23 +28250,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    tag
-    tag
-    tagGroup
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    ruleLibrary 2
-    ruleTagMenuGroups
-    tagMenus
-    tagTLNodePrimary
-    tagTable
-    testlearn
 
 Custom Functions used by this script
 
@@ -30849,9 +28262,6 @@ Script Name	editLearn
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testInfo
-    reportTagInfo
 
 Scripts that use this script
 
@@ -30997,17 +28407,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tempSetup
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -31019,12 +28419,6 @@ Script Name	editTestLearn
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -31081,11 +28475,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    tagTLNodePrimary
 
 Custom Functions used by this script
 
@@ -31097,8 +28487,6 @@ Script Name	finishTestLearnEdit
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn4EDIT
 
 Scripts that use this script
 
@@ -31134,12 +28522,6 @@ Script Name	duplicateLearnRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -31246,13 +28628,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearn
 
 Custom Functions used by this script
 
@@ -31264,13 +28640,6 @@ Script Name	learnOpenTextNewWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4EDIT
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -31324,15 +28693,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tagTLNodePrimary
-    testlearn
 
 Custom Functions used by this script
 
@@ -31344,9 +28705,6 @@ Script Name	gotoLearnWebsite
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnMenuSample
-    learnMenuStuffSample
 
 Scripts that use this script
 
@@ -31365,11 +28723,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    learnWebsite
-
 Table occurrences used by this script
-
-    learnSampleWebsite
 
 Custom Functions used by this script
 
@@ -31381,12 +28735,6 @@ Script Name	findLearnRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learnFIND
 
 Scripts that use this script
 
@@ -31571,14 +28919,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    refTestLearn
-    testlearn
 
 Custom Functions used by this script
 
@@ -31590,9 +28931,6 @@ Script Name	cancelLearnFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceFIND
-    learnFIND
 
 Scripts that use this script
 
@@ -31635,15 +28973,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    testlearn
 
 Custom Functions used by this script
 
@@ -31655,12 +28985,6 @@ Script Name	newLearn
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -31792,13 +29116,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearn
 
 Custom Functions used by this script
 
@@ -31853,13 +29171,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearn
 
 Custom Functions used by this script
 
@@ -31872,9 +29184,6 @@ Script Name	newReference
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
 
 Scripts that use this script
 
@@ -31978,15 +29287,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
 
 Custom Functions used by this script
 
@@ -31998,9 +29299,6 @@ Script Name	editReference
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
 
 Scripts that use this script
 
@@ -32080,17 +29378,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
-    tagNodeCreator
 
 Custom Functions used by this script
 
@@ -32333,18 +29621,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagMenus
-    tempSetup
-    testlearn
 
 Custom Functions used by this script
 
@@ -32527,20 +29804,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagKeywordPrimary
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -32552,9 +29816,6 @@ Script Name	deleteReference
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
 
 Scripts that use this script
 
@@ -32982,27 +30243,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tag
-    tag
-    tag
-    tagGroup
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleLibrary 2
-    ruleTagMenuGroups
-    tagKeywordPrimary
-    tagMenus
-    tagNodeCreator
-    tagTable
-    testlearn
 
 Custom Functions used by this script
 
@@ -33014,26 +30255,6 @@ Script Name	showFileInReferenceWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode2
-    defaultNode3
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
 
 Scripts that use this script
 
@@ -33092,17 +30313,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLTitle1
-    citationTitle1
-    tagFolderPathForFile
-    tagMenus
-    tagTLFolderPathForFile1
 
 Custom Functions used by this script
 
@@ -33114,16 +30325,6 @@ Script Name	showReference1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -33252,17 +30453,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLTitle1
-    citationTitle1
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -33274,16 +30465,6 @@ Script Name	showReference2
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -33412,17 +30593,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLTitle2
-    citationTitle2
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -33434,16 +30605,6 @@ Script Name	showReference3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -33572,17 +30733,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLTitle3
-    citationTitle3
-    reference
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -33594,11 +30745,6 @@ Script Name	internalReferences
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnFindCite
-    learnFindStuffCite
 
 Scripts that use this script
 
@@ -33734,13 +30880,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    testlearn
 
 Custom Functions used by this script
 
@@ -33752,9 +30892,6 @@ Script Name	externalReferences
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
 
 Scripts that use this script
 
@@ -33850,13 +30987,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-
 Table occurrences used by this script
-
-    TEMP
-    reference
 
 Custom Functions used by this script
 
@@ -33898,11 +31029,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -33914,9 +31041,6 @@ Script Name	duplicateReferenceRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
 
 Scripts that use this script
 
@@ -34231,15 +31355,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
 
 Custom Functions used by this script
 
@@ -34288,10 +31404,6 @@ Script Name	findReferenceRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
-    ReferenceFIND
 
 Scripts that use this script
 
@@ -34632,15 +31744,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
 
 Custom Functions used by this script
 
@@ -34652,9 +31756,6 @@ Script Name	sortReferences
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
 
 Scripts that use this script
 
@@ -34685,13 +31786,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-
 Table occurrences used by this script
-
-    reference
-    tagKeywordPrimary
 
 Custom Functions used by this script
 
@@ -34729,11 +31824,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -34806,13 +31897,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    testlearn
 
 Custom Functions used by this script
 
@@ -34824,9 +31909,6 @@ Script Name	finishReferenceEdit
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceEDIT
-    ReferenceEDITstuff
 
 Scripts that use this script
 
@@ -34889,15 +31971,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
 
 Custom Functions used by this script
 
@@ -34909,16 +31983,6 @@ Script Name	editCitation
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultSections
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    defaultTest
-    defaultTestNewFocus
-    learnMenu3Cite
-    learnMenuRefStuff
 
 Scripts that use this script
 
@@ -35074,19 +32138,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    tagKeywordPrimary
-    tempSetup
-    testlearn
 
 Custom Functions used by this script
 
@@ -35190,11 +32242,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -35517,17 +32565,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    tagMenus
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -35617,11 +32655,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    tagNodeCreator
 
 Custom Functions used by this script
 
@@ -35633,8 +32667,6 @@ Script Name	copyrightHolder
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceEDIT
 
 Scripts that use this script
 
@@ -35763,11 +32795,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -35823,11 +32851,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -35863,11 +32887,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -35879,12 +32899,6 @@ Script Name	removeTextFormatting
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceEDIT
-    ReferenceEDITstuff
-    LearnTextWindow
-    LearnTextWindowStuff
-    PrintReportEdit
 
 Scripts that use this script
 
@@ -35952,11 +32966,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
-
 Table occurrences used by this script
-
-    tagMenus
 
 Custom Functions used by this script
 
@@ -35968,10 +32978,6 @@ Script Name	formatTitle
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceEDIT
-    ReferenceEDITstuff
-    testSetup
 
 Scripts that use this script
 
@@ -36003,21 +33009,6 @@ Script Name	showFile2
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode2
-    defaultNode3
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -36066,16 +33057,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLTitle2
-    citationTitle2
-    tagFolderPathForFile
-    tagTLFolderPathForFile2
 
 Custom Functions used by this script
 
@@ -36087,21 +33069,6 @@ Script Name	showFile3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode2
-    defaultNode3
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
 
 Scripts that use this script
 
@@ -36150,16 +33117,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TLTitle3
-    citationTitle3
-    tagFolderPathForFile3
-    tagTLFolderPathForFile3
 
 Custom Functions used by this script
 
@@ -36273,16 +33231,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    tagRefFolderPath
-    tagTLFolderPath
-    testlearn
 
 Custom Functions used by this script
 
@@ -36396,16 +33345,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    tagRefFolderPath
-    tagTLFolderPath
-    testlearn
 
 Custom Functions used by this script
 
@@ -36513,16 +33453,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    tagRefFolderPath
-    tagTLFolderPath
-    testlearn
 
 Custom Functions used by this script
 
@@ -36534,12 +33465,6 @@ Script Name	showFolder
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
-    ReferenceAddToTag
-    testInfo
-    testInfoText
 
 Scripts that use this script
 
@@ -36664,24 +33589,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    testlearn
-    testlearn
-
 Table occurrences used by this script
-
-    TLciteFolderPath
-    citeCite
-    citeTest
-    citeTestFolderPath
-    refTest
-    refTestFolderPath
-    reference
-    tagRefFolderPath
-    tagTLFolderPath
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -36693,10 +33601,6 @@ Script Name	openCitationURL
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceAddToTag
-    testInfo
-    testInfoText
 
 Scripts that use this script
 
@@ -36765,17 +33669,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    testlearn
-
 Table occurrences used by this script
-
-    citeCite
-    citeTest
-    refReference
-    refTest
-    testlearn
-    testlearnReportTags
 
 Custom Functions used by this script
 
@@ -36805,11 +33699,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -36842,11 +33732,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -36881,11 +33767,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -36955,11 +33837,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -37328,19 +34206,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -37714,17 +34580,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-    test
-    testlearn
-
 Table occurrences used by this script
-
-    reference
-    tagMenus
-    test
-    testlearn
 
 Custom Functions used by this script
 
@@ -37795,13 +34651,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-    tag
-
 Table occurrences used by this script
-
-    reference
-    tagKeywordPrimary
 
 Custom Functions used by this script
 
@@ -37814,8 +34664,6 @@ Script Name	copyAndpastTags
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
 
 Scripts that use this script
 
@@ -37853,11 +34701,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    reference
-
 Table occurrences used by this script
-
-    reference
 
 Custom Functions used by this script
 
@@ -37869,9 +34713,6 @@ Script Name	backToLearnOrDefaultSetup
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
 
 Scripts that use this script
 
@@ -37991,16 +34832,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    tag
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tagMenus
-    tempSetup
-    testlearn
 
 Custom Functions used by this script
 
@@ -38012,8 +34844,6 @@ Script Name	backFromSetup
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    testSetup
 
 Scripts that use this script
 
@@ -38089,11 +34919,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -38105,12 +34931,6 @@ Script Name	toggleMainWindowView
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4 Copy2
 
 Scripts that use this script
 
@@ -38184,11 +35004,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    TEMP
 
 Custom Functions used by this script
 
@@ -38442,20 +35258,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    reference
-    tag
-    tagGroup
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    reference
-    ruleTagMenuGroups
-    ruleTagMenuTestGroups
-    tagMenus
-    testlearn
 
 Custom Functions used by this script
 
@@ -38467,22 +35270,6 @@ Script Name	gotoTimeLogMainWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultSetup
-    Reference
-    ReferenceStuff
-    ReferenceEDIT
-    ReferenceEDITstuff
-    ReferenceAddToTag
-    learn1
-    learn2
-    learn3
-    learn4
-    learn4EDIT
-    learn4 Copy2
-    testSetup
-    step3_InspectionItems
-    step4_InspectionFinding
 
 Scripts that use this script
 
@@ -38519,11 +35306,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    MemorySwitch
-
 Table occurrences used by this script
-
-    MemorySwitch
 
 Custom Functions used by this script
 
@@ -38597,16 +35380,6 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    ReferencePictureWindow
-    LearnTextWindow
-    LearnTextWindowStuff
-    LearnTextWindowLocked
-    LearnPictureWindow
-    testInfoText
-    testInfoTextLocked
-    reportPictureWindow
-    ReferencePictureWindow Copy
-
 Scripts that use this script
 
 Script Definition
@@ -38636,8 +35409,6 @@ Script Name	closeWindowHaltScript
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    moreInfo
 
 Scripts that use this script
 
@@ -38700,14 +35471,6 @@ Script Name	learn
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultSections
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -38784,15 +35547,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-    TEMP
-    testlearn
-
 Table occurrences used by this script
-
-    TEMP
-    tempSetup
-    testlearn
 
 Custom Functions used by this script
 
@@ -38862,11 +35617,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    TEMP
-
 Table occurrences used by this script
-
-    tempSetup
 
 Custom Functions used by this script
 
@@ -38878,74 +35629,6 @@ Script Name	help
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    Reference
-    ReferenceStuff
-    ReferenceEDIT
-    ReferenceEDITstuff
-    ReferenceFIND
-    ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuFind
-    ReferenceMenu2keywordOrNodeFind
-    ReferenceMenu2SkeywordOrNodeFind
-    addMenu1
-    addMenuNodeKeyword
-    addMenu1
-    addMenuTestItem
-    learn1
-    learn2
-    learn3
-    learn4
-    learnFIND
-    learn4EDIT
-    learn4 Copy2
-    learnPreviewLayout
-    LearnTextWindow
-    LearnTextWindowStuff
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    learnMenu1
-    learnMenuHealth
-    learnMenuSHealth
-    learnMenu3Cite
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4STUFFRefCite
-    learnTagWindowNoTags
-    learnMenuSample
-    learnMenuStuffSample
-    learnTest
-    learnSTest
-    learnFind
-    learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
-    learnFindSTest
-    learnFindSample
-    learnFindStuffSample
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
-    testSetup
-    setupTestItem
-    setupTestFocus
-    step3_InspectionItems
-    step4_InspectionFinding
-    testInfo
-    testMenuTestItem
-    PrintReportEdit
-    reportTagItem
-    reportTagInfo
-    reportTagDiscovery
 
 Scripts that use this script
 
@@ -39094,11 +35777,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    MemorySwitch
-
 Table occurrences used by this script
-
-    MemorySwitch
 
 Custom Functions used by this script
 
@@ -39110,15 +35789,6 @@ Script Name	libraryHelp
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultSetup
-    defaultSections
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
