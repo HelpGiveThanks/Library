@@ -1,7 +1,20 @@
 testScreens: setup: deleteTest
 #
+#This script is for deleting a general inquiry.
+#
+#WHEN TIME PERMITS the vocabuary for scripts,
+#variable, fields, layouts, etc. needs to be updated
+#to reflect that a 'test' is now a 'general inquiry'
+#and an 'item' is now a 'specific inquiry' and a 'focus'
+#is now a test 'section', etc. A complete look at
+#the DDR to insure all vocabulary is updated
+#everywhere followed by testing for each
+#update is required.
+#
+#
 If [ nodeLockTest::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTest::tag & " -- in the setup tag window and enter the password to unlock it so that you can delete it."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTest::tag & " -- in the setup
+tag window and enter the password to unlock it so that you can delete it."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -9,17 +22,27 @@ End If
 #to be deleted and to supply name for warning
 #messages, and to speed up script.
 Set Variable [ $delete; Value:test::_Ltest ]
+Refresh Window
 Set Variable [ $$tagTest; Value:test::_Ltest ]
 Set Variable [ $$ID; Value:"ignore" ]
 If [ test::testName = "" ]
 Set Field [ test::testName; test::_Ltest ]
 End If
 Go to Field [ ]
+Set Variable [ $$stopLoadTestRecord; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $$stopDeleteTest; Value:1 ]
+Set Variable [ $$stopTest; Value:1 ]
 #
 #Check if item is in use as test tag on any Report
 #records, and if so stop the script.
 #
-New Window [ Name: "Report: Discovery Records"; Height: 4; Width: 4 ]
+New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000 ]
+// New Window [ ]
+Go to Layout [ “TEMP” (TEMP) ]
+Show All Records
+Delete All Records
+[ No dialog ]
 #
 Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
 Enter Find Mode [ ]
@@ -30,14 +53,55 @@ Perform Find [ ]
 #
 #If records are found using test, then stop script.
 If [ Get (FoundCount) ≠ 0 ]
-Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 333; Top: 0 ]
-Show Custom Dialog [ Title: "!"; Message: "Discoveries where made for this test (shown). Delete all these discovery records and then this test can be deleted."; Buttons: “OK” ]
+Loop
+Set Variable [ $useList; Value:nodeReport::tag &
+" | test/report " &
+TextColor( TextStyleAdd ( testlearnReportTags::kreportNumber; "" ) ;RGB(0;0;0)) &
+¶ &
+"section " &
+TextColor( TextStyleAdd ( tagReportSubjectLocationNAME::focusName; "" ) ;RGB(0;0;0)) &
+¶ &
+"title " & TextColor( TextStyleAdd ( testlearnReportTags::Location; "" ) ;RGB(0;0;0)) ]
+Go to Layout [ “TEMP” (TEMP) ]
+New Record/Request
+Set Field [ TEMP::RemoveFocusList; $useList ]
+Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
 #
+Go to Layout [ “TEMP” (TEMP) ]
+Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ]
+[ Restore; No dialog ]
+View As
+[ View as List ]
+#
+Show/Hide Status Area
+[ Lock; Hide ]
+Show/Hide Text Ruler
+[ Hide ]
+Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get
+( ScreenWidth )/2 + 360) ]
+Set Field [ TEMP::Message; "Test results have been made under this general inquiry. To delete it, first delete these test results
+(in the test or report modules)." ]
+Pause/Resume Script [ Indefinitely ]
 Close Window [ Current Window ]
+Set Variable [ $delete ]
+Set Variable [ $$stopLoadTestRecord ]
+Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$stopDeleteTest ]
+Set Variable [ $$stopTest ]
 Set Variable [ $$ID; Value:test::_Ltest ]
-#
+Refresh Window
 Exit Script [ ]
+Else
+Set Variable [ $$stopLoadTestRecord ]
+Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$stopDeleteTest ]
+Set Variable [ $$stopTest ]
+Set Variable [ $$ID; Value:test::_Ltest ]
 End If
+#
 #
 #Check if item is in use as test tag on any Learn
 #records, and if so stop the script.
@@ -57,11 +121,16 @@ Set Variable [ $$stopLoadCitation ]
 #
 #If records are found using test, then stop script.
 If [ Get (FoundCount) ≠ 0 ]
-Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 333; Top: 0 ]
-Show Custom Dialog [ Title: "!"; Message: "This test is linked to at least one Learn record. You can delete this test after removing these links (created in the Learn module)."; Buttons: “OK” ]
+Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get
+( ScreenWidth )/2 + 360) ]
+Show Custom Dialog [ Message: "This general inquiry is linked to at least one learn record. To delete it 1) go to the learn
+module, 2) click 'test' in its tag-menus window, 3) select it, 4) untag it from all learn records, 5) return to test setup, 6) and
+delete it."; Buttons: “OK” ]
 #
 Close Window [ Current Window ]
 Set Variable [ $$ID; Value:test::_Ltest ]
+Set Variable [ $delete ]
+Refresh Window
 #
 Exit Script [ ]
 End If
@@ -72,13 +141,12 @@ Close Window [ Current Window ]
 #user may delete it. First the record is highlighted
 #in red and the user is asked if they really intend
 #to delete this record.
+Set Variable [ $delete; Value:test::_Ltest ]
 Refresh Window
-Go to Field [ test::testName ]
-[ Select/perform ]
 Scroll Window
 [ To Selection ]
 Go to Field [ ]
-Show Custom Dialog [ Title: "!"; Message: "Delete " & test::testName & "?"; Buttons: “Cancel”, “Delete” ]
+Show Custom Dialog [ Message: "Delete " & test::testName & "?"; Buttons: “Cancel”, “Delete” ]
 #
 #If the user cancels the delete, then everything
 #goes back to the way it was before the delete
@@ -117,13 +185,13 @@ Perform Find [ ]
 #a test group cannot exist without at least one test
 #in it.
 If [ Get (FoundCount) = 1 ]
-January 7, 平成26 12:17:15 Imagination Quality Management.fp7 - deleteTest -1-testScreens: setup: deleteTest
 #
 Close Window [ Current Window ]
 #
 Set Variable [ $deleteGroup; Value:$delete ]
 Refresh Window
-Show Custom Dialog [ Title: "!"; Message: "If you delete this group's last test, it will also be deleted."; Buttons: “Cancel”, “Delete” ]
+Show Custom Dialog [ Title: "!"; Message: "If you delete this group's last test, it will also be deleted."; Buttons: “Cancel”,
+“Delete” ]
 #
 #If the user cancels the delete, then everything
 #goes back to the way it was before the delete
@@ -223,4 +291,4 @@ End If
 #Load current test's information.
 Set Variable [ $$ID ]
 Perform Script [ “loadSetupTestRecord” ]
-January 7, 平成26 12:17:15 Imagination Quality Management.fp7 - deleteTest -2-
+December 9, ଘ౮27 19:35:55 Library.fp7 - deleteTest -1-
