@@ -1,42 +1,56 @@
 testScreens: setup: newTestGroup
 #
+#This script is for creating a general inquiry group.
+#
+#WHEN TIME PERMITS the vocabuary for scripts,
+#variable, fields, layouts, etc. needs to be updated
+#to reflect that a 'test' is now a 'general inquiry'
+#and an 'item' is now a 'specific inquiry' and a 'focus'
+#is now a test 'section', etc. A complete look at
+#the DDR to insure all vocabulary is updated
+#everywhere followed by testing for each
+#update is required.
+#
+#
 #If node is currenlty locked then stop script, inform user.
 If [ TEMP::nodeLock ≠ "" ]
 Go to Field [ ]
-Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked. Select this node in the setuptag window and enter the password to unlock it so that you can create new records attributed to it."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked.
+Select this node in the setuptag window and enter the password to unlock it so that you can create new records attributed to
+it."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
 #Stop spell check script.
 Set Variable [ $$stopTest; Value:1 ]
 #
-#Create new test group.
+#Create new general inquiry group.
 Go to Layout [ “tableGroupTag” (groupTest) ]
 New Record/Request
 Set Field [ groupTest::ksection; TEMP::ksection ]
 Set Field [ groupTest::match; "testGroup" ]
 Set Field [ groupTest::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 #
-#Each test group must have a unique name and
+#Each group must have a unique name and
 #the nameSpelling field is used when the user
 #changes the name to a name already in use at
 #which point the nameSpelling name can revert
 #the user back to the former name (as the name
 #field contains the duplicate name which is not
 #allowed).
-Set Field [ groupTest::name; "test group " & groupTest::_Lgroup ]
-Set Field [ groupTest::nameSpelling; "test group " & groupTest::_Lgroup ]
+Set Field [ groupTest::name; "general-inquiry_group" & groupTest::_Lgroup ]
+Set Field [ groupTest::nameSpelling; "general-inquiry_group" & groupTest::_Lgroup ]
 Set Variable [ $group; Value:groupTest::_Lgroup ]
 #
-#Create new test for this group.
+#Create new general inquiry for this group.
 Set Variable [ $$ID; Value:"ignore" ]
 Go to Layout [ “testSetup” (test) ]
 New Record/Request
 Set Variable [ $loopToNewRecord; Value:test::_Ltest ]
 Set Field [ test::ksection; TEMP::ksection ]
-#( a test group field is neccessary because a section
-# may have more than one test group, and so trying
-# to find a test group using the section key and
+#( a group key field is neccessary because a section
+# may have more than one group, and so trying
+# to find a group using the section key and
 # the testGroup match field would find all groups
 # when we need the system to find one group. )
 Set Field [ test::ktestGroup; $group ]
@@ -52,8 +66,8 @@ Set Field [ test::ktestItemList; test::_Ltest ]
 #confuse the user either, but I am including steps to
 #require a unique name so when locked name can
 #be revereted back to orignal name.
-Set Field [ test::testName; "test" ]
-Set Field [ test::testNameRevert; "test" ]
+Set Field [ test::testName; "general_inquiry" & test::_Ltest ]
+Set Field [ test::testNameRevert; "general_inquiry" & test::_Ltest ]
 Set Field [ test::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 #
 #
@@ -97,7 +111,8 @@ Go to Layout [ “setupTestFocus” (tagLocation) ]
 New Record/Request
 Set Field [ tagLocation::ksection; TEMP::ksection ]
 Set Field [ tagLocation::match; "focus" ]
-Set Field [ tagLocation::tag; "test focus" ]
+Set Field [ tagLocation::tag; "test_section" & tagLocation::_Ltag ]
+Set Field [ tagLocation::tagSpelling; "test_section" & tagLocation::_Ltag ]
 Perform Script [ “editSectionFocuses” ]
 End If
 Go to Record/Request/Page
@@ -116,7 +131,6 @@ Perform Script [ “linkTestFocusOrUnlinkTestFocus” ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$stopLoadTagRecord ]
-January 7, 平成26 12:16:12 Imagination Quality Management.fp7 - newTestGroup -1-testScreens: setup: newTestGroup
 Go to Layout [ $layout ]
 #
 #Set variables for new record.
@@ -135,4 +149,4 @@ Go to Field [ test::testName ]
 #
 #Start spell check script.
 Set Variable [ $$stopTest ]
-January 7, 平成26 12:16:12 Imagination Quality Management.fp7 - newTestGroup -2-
+December 9, ଘ౮27 19:20:49 Library.fp7 - newTestGroup -1-
