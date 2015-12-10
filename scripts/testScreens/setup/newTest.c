@@ -2,7 +2,9 @@ testScreens: setup: newTest
 #
 #If node is currenlty locked then stop script, inform user.
 If [ TEMP::nodeLock ≠ "" ]
-Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked. Select this node in the setuptag window and enter the password to unlock it so that you can create new records attributed to it."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked.
+Select this node in the setuptag window and enter the password to unlock it so that you can create new records attributed to
+it."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -20,6 +22,17 @@ End If
 #Set variables needed to create new item.
 Set Variable [ $$ID; Value:"ignore" ]
 Set Variable [ $group; Value:test::ktestGroup ]
+#This script is for creating new general inquires.
+#
+#WHEN TIME PERMITS the vocabuary for scripts,
+#variable, fields, layouts, etc. needs to be updated
+#to reflect that a 'test' is now a 'general inquiry'
+#and an 'item' is now a 'specific inquiry' and a 'focus'
+#is now a test 'section', etc. A complete look at
+#the DDR to insure all vocabulary is updated
+#everywhere followed by testing for each
+#update is required.
+#
 #
 #new test
 New Record/Request
@@ -42,8 +55,8 @@ Set Field [ test::ktestItemList; test::_Ltest ]
 #confuse the user either, but I am including steps to
 #require a unique name so when locked name can
 #be revereted back to orignal name.
-Set Field [ test::testName; "test" ]
-Set Field [ test::testNameRevert; "test" ]
+Set Field [ test::testName; "general_inquiry" & test::_Ltest ]
+Set Field [ test::testNameRevert; "general_inquiry" & test::_Ltest ]
 Set Field [ test::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 #
 #
@@ -116,4 +129,4 @@ Go to Field [ test::testName ]
 #
 #Start spell check script.
 Set Variable [ $$stopTest ]
-January 7, 平成26 12:16:43 Imagination Quality Management.fp7 - newTest -1-
+December 9, ଘ౮27 19:29:45 Library.fp7 - newTest -1-
