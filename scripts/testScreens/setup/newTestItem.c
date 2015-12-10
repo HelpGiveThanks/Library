@@ -1,4 +1,15 @@
 testScreens: setup: newTestItem
+#This script is for creating a specific inquiry.
+#
+#WHEN TIME PERMITS the vocabuary for scripts,
+#variable, fields, layouts, etc. needs to be updated
+#to reflect that a 'test' is now a 'general inquiry'
+#and an 'item' is now a 'specific inquiry' and a 'focus'
+#is now a test 'section', etc. A complete look at
+#the DDR to insure all vocabulary is updated
+#everywhere followed by testing for each
+#update is required.
+#
 #
 #If node is currenlty locked then stop script, inform user.
 If [ TEMP::nodeLock ≠ "" ]
@@ -6,8 +17,9 @@ Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEF
 Exit Script [ ]
 End If
 #
-#If there are no tests, then stop this script as there
-#are no test to create things for.
+#If there are no general test inquires, then
+#stop this script as there are no general inquires
+# to create specific inquires for.
 If [ TEMP::ktest = "" ]
 Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
 Exit Script [ ]
@@ -17,7 +29,7 @@ End If
 #item group first and then a test for that group.
 #All test items belong to test item groups, not
 #tests. This allows test item groups to be added
-#to other test's test item lists.
+#to other test's test-item lists.
 If [ Get (FoundCount) = 0 ]
 Perform Script [ “newTestItemGroup” ]
 Exit Script [ ]
@@ -28,9 +40,10 @@ New Record/Request
 Set Field [ tagMenus::match; "testItem" ]
 Set Field [ tagMenus::kGroupOrTest; GetNthRecord ( tagMenus::kGroupOrTest ; Get (RecordNumber) - 1 ) ]
 Set Field [ tagMenus::ksection; TEMP::ksection ]
-Set Field [ tagMenus::tag; "item " & tagMenus::_Ltag ]
+Set Field [ tagMenus::tag; "specific_inquiry" & tagMenus::_Ltag ]
+Set Field [ tagMenus::tagSpelling; "specific_inquiry" & tagMenus::_Ltag ]
 Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 Go to Field [ ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]
-January 7, 平成26 12:18:17 Imagination Quality Management.fp7 - newTestItem -1-
+December 9, ଘ౮27 19:44:51 Library.fp7 - newTestItem -1-
