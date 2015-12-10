@@ -1,9 +1,22 @@
 testScreens: setup: loadSetupTestRecord
 #
+#
+#WHEN TIME PERMITS the vocabuary for scripts,
+#variable, fields, layouts, etc. needs to be updated
+#to reflect that a 'test' is now a 'general inquiry'
+#and an 'item' is now a 'specific inquiry' and a 'focus'
+#is now a test 'section', etc. A complete look at
+#the DDR to insure all vocabulary is updated
+#everywhere followed by testing for each
+#update is required.
+#
+#
 #Stop script if needed to speed up other scripts.
 If [ $$ID = test::_Ltest
  or
-$$ID = "ignore" ]
+$$ID = "ignore"
+ or
+$$stopDeleteTest = 1 ]
 Exit Script [ ]
 End If
 #
@@ -54,7 +67,7 @@ Set Variable [ $$focuses; Value:test::kcfocusALL ]
 #in the temp table.
 #
 #If the test list belongs (has the key that fits the
-#test's lock) the set the temp field with this test's name.
+#test's lock) then set the temp field with this test's name.
 If [ test::_Ltest = test::ktestItemList ]
 #
 #Set a temp field with this test's name. This name
@@ -105,7 +118,11 @@ Set Variable [ $$ID; Value:$currentTest ]
 Refresh Window
 End If
 #
-#
+#If the user has come to this screen from the test item
+#window, then the itemName variable needs to be updated.
+If [ $$itemName ≠ "" ]
+Set Variable [ $$itemName; Value:TEMP::ktestListtTestName ]
+End If
 #
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
@@ -117,7 +134,6 @@ End If
 #at test items on the Tag Menus window.
 If [ Get (LayoutName) = "setupTestItem" ]
 Go to Layout [ “setupTestItem” (tagMenus) ]
-January 7, 平成26 12:15:41 Imagination Quality Management.fp7 - loadSetupTestRecord -1-testScreens: setup: loadSetupTestRecord
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
@@ -141,4 +157,4 @@ Refresh Window
 #current record.
 Select Window [ Name: "Setup"; Current file ]
 Refresh Window
-January 7, 平成26 12:15:41 Imagination Quality Management.fp7 - loadSetupTestRecord -2-
+December 9, ଘ౮27 19:07:49 Library.fp7 - loadSetupTestRecord -1-
