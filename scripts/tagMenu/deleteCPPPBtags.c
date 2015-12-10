@@ -1,9 +1,12 @@
-tagMenu: deleteMHOCSPtags
+tagMenu: deleteCPPPBtags
+#Delete copyright, publication, publisher,
+#path, and brainstorm tags.
 #
 If [ nodeLockTagMenus::orderOrLock ≠ "" and tagMenus::match = "sample" or
 nodeLockTagMenus::orderOrLock ≠ "" and tagMenus::match = "health" or
 nodeLockTagMenus::orderOrLock ≠ "" and tagMenus::match = "test" ]
-Show Custom Dialog [ Message: "This record is currently locked. Select the node that created it and enter the password to unlock it, then you will able to start the delete process."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This record is currently locked. Select the node that created it and enter the password to
+unlock it, then you will able to start the delete process."; Buttons: “OK” ]
 Exit Script [ ]
 Else If [ tagMenus::orderOrLock ≠ "" and tagMenus::match = "health" ]
 Show Custom Dialog [ Message: "This record is locked by the system."; Buttons: “OK” ]
@@ -18,13 +21,19 @@ Show Custom Dialog [ Message: "This copyright is currently selected as the defau
 Exit Script [ ]
 End If
 #
-#Exit field so user can see red delete
-#formatting later on.
-Go to Field [ ]
+If [ $$citationMatch = "sample" and $$atLeastOneRecord ≠ "" ]
+Show Custom Dialog [ Message: "You can delete this brainstom tag after you untag it from each record using it (highlighted blue)
+in the Learn window."; Buttons: “OK” ]
+Exit Script [ ]
+End If
 #
 #Prevent all record load scripts (they slow down
 #this script and are uneccessary).
 Set Variable [ $$stoploadCitation; Value:1 ]
+#
+#Exit field so user can see red delete
+#formatting later on.
+Go to Field [ ]
 #
 #Get all variables needed to preform script.
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
@@ -32,8 +41,9 @@ Set Variable [ $name; Value:tagMenus::tag ]
 #
 #Open a new window and look for tag in both
 #primary and other keyword fields.
+If [ $$citationMatch ≠ "sample" ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-New Window [ Name: "Delete Tag" ]
+New Window [ Name: "Delete Tag"; Top: -1000000; Left: -1000000 ]
 #
 #Find tagged Reference records.
 Go to Layout [ “Reference” (reference) ]
@@ -60,43 +70,41 @@ Set Variable [ $refLastError; Value:Get (LastError) ]
 #
 #
 #Find tagged TestLearn records.
+If [ $$citationMatch = "health" ]
 Go to Layout [ “learn1” (testlearn) ]
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 #
 #
-If [ $$citationMatch = "medium" ]
-Set Field [ testlearn::kmedium; $tag ]
-Else If [ $$citationMatch = "path" ]
-Set Field [ testlearn::kfolderPath; $tag ]
-Else If [ $$citationMatch = "sample" ]
-Set Field [ testlearn::kcsample; "*" & $tag & ¶ ]
-Else If [ $$citationMatch = "health" ]
 Set Field [ testlearn::kHealth; $tag ]
-End If
 #
 #
 Perform Find [ ]
 Set Variable [ $TLLastError; Value:Get (LastError) ]
+End If
+#
 Set Variable [ $$stopLoadTagRecord ]
+End If
 #
 #If records are found using this tag tell user
 #that it must be removed from all records
 #before it can be deleted.
-// If [ $TLLastError ≠ 401 and $refLastError ≠ 401 or
-$TLLastError ≠ 401 and $TLLastError ≠ 400 and $refLastError ≠ 401 ]
-If [ $TLLastError ≠ 401 and $TLLastError ≠ 400 or $refLastError ≠ 401 ]
+If [ $TLLastError ≠ 401 and $TLLastError ≠ 400 and $$citationMatch ≠ "sample" or $refLastError ≠ 401 and $$citationMatch ≠
+"sample" ]
 Close Window [ Name: "Delete Tag"; Current file ]
 If [ $refLastError ≠ 401 and $TLLastError ≠ 401 ]
-Show Custom Dialog [ Message: "In use by Reference and Test Learn records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all
-sections if not found here."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "In use by Reference and Test Learn records. Must be removed before deleting. Click the
+'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find
+all records using this tag. Go to all sections if not found here."; Buttons: “OK” ]
 Else If [ $refLastError ≠ 401 ]
-Show Custom Dialog [ Message: "In use by Reference records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all sections if not
-found here."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "In use by Reference records. Must be removed before deleting. Click the 'find' button and
+then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records
+using this tag. Go to all sections if not found here."; Buttons: “OK” ]
 Else If [ $TLLastError ≠ 401 ]
-Show Custom Dialog [ Message: "In use by Test Learn records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all sections if not
-found here."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "In use by Test Learn records. Must be removed before deleting. Click the 'find' button
+and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records
+using this tag. Go to all sections if not found here."; Buttons: “OK” ]
 End If
 Set Variable [ $delete ]
 Refresh Window
@@ -107,7 +115,8 @@ Exit Script [ ]
 #sure user wants to delete it.
 Else If [ $TLLastError = 401 and $refLastError ≠ 0 or
 $TLLastError ≠ 0 and $refLastError = 401 or
-$TLLastError = 401 and $refLastError = 401 ]
+$TLLastError = 401 and $refLastError = 401 or
+$$citationMatch = "sample" ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $delete; Value:tagMenus::_Ltag ]
 Refresh Window
@@ -117,7 +126,6 @@ Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Buttons: “C
 #If the user says yes, first make sure the record
 #is not the last record in a category. If it is and
 #the system deleted the record without deleting
-January 7, 平成26 16:33:49 Imagination Quality Management.fp7 - deleteMHOCSPtags -1-tagMenu: deleteMHOCSPtags
 #the category too, this category would become
 #an orphan as only categories that have records
 #attached to them show up for the user to add
@@ -125,7 +133,14 @@ January 7, 平成26 16:33:49 Imagination Quality Management.fp7 - deleteMHOCSPta
 #record must also be deleted if this is the last
 #record under it.
 If [ Get ( LastMessageChoice ) = 2 ]
+#
+If [ $$citationMatch = "sample" ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+New Window [ Name: "Delete Tag"; Top: -1000000; Left: -1000000 ]
+Else
 Select Window [ Name: "delete tag"; Current file ]
+End If
+#
 Go to Layout [ “tableTag” (tagTable) ]
 Enter Find Mode [ ]
 Set Field [ tagTable::kGroupOrTest; $category ]
@@ -136,6 +151,7 @@ Perform Find [ ]
 #any more user input.
 If [ Get (FoundCount) ≠ 1 ]
 Close Window [ Name: "Delete Tag"; Current file ]
+Set Variable [ $$stopLoadTagRecord ]
 Delete Record/Request
 [ No dialog ]
 Set Variable [ $delete ]
@@ -186,7 +202,8 @@ tagMenus::tag; ascending ]
 End If
 #
 #
-Show Custom Dialog [ Title: "!"; Message: "Deleting " & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & " will also delete its category as it is the last item in this category."; Buttons: “Cancel”, “Delete” ]
+Show Custom Dialog [ Title: "!"; Message: "Deleting " & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "
+will also delete its category as it is the last item in this category."; Buttons: “Cancel”, “Delete” ]
 #
 #If the user says yes, then delete both the tag and
 #the category record.
@@ -214,7 +231,9 @@ Set Variable [ $delete ]
 Set Variable [ $category ]
 #
 #
-If [ TEMP::sortMedium ≠ "cat" ]
+If [ $$citationMatch = "sample" ]
+#
+Else If [ TEMP::sortMedium ≠ "cat" ]
 Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortPath ≠ "cat" ]
@@ -232,6 +251,12 @@ Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 End If
 #
 #
-Refresh Window
 Set Variable [ $$stoploadCitation ]
-January 7, 平成26 16:33:49 Imagination Quality Management.fp7 - deleteMHOCSPtags -2-
+Set Variable [ $$stopLoadTagRecord ]
+#
+If [ $$citationMatch = "sample" ]
+Perform Script [ “loadItemRecordForSampleTagMenu” ]
+Else
+Refresh Window
+End If
+December 9, ଘ౮27 18:14:32 Library.fp7 - deleteCPPPBtags -1-
