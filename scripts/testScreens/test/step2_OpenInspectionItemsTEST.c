@@ -48,7 +48,8 @@ Set Variable [ $$itemLocation; Value:tagTestSubjectLocation::kfocus ]
 Go to Layout [ “testMenuNoTag” (TEMP) ]
 Select Window [ Name: "Setup"; Current file ]
 #
-Set Field [ TEMP::testerAndsubject; //tagDefaultNodePrimary::tag & " testing " & ¶ & $testsubjectName & "'s"& ¶ & tempSetup::sectionName
+Set Field [ TEMP::testerAndsubject; //tagDefaultNodePrimary::tag & " testing " & ¶ & $testsubjectName & "'s"& ¶ & tempSetup::
+sectionName
 //$testsubjectName & ¶ & $$locationName & ¶ & tempSetup::sectionName
 //tempSetup::sectionName & " | " & $testsubjectName
 tempSetup::sectionName & " | " & tagDefaultTestSubject::tag ]
@@ -59,9 +60,11 @@ Enter Find Mode [ ]
 #now find and show all canned inspection items associated with this generic canned location
 Set Field [ InspectItems::kcfocusALL; $$itemLocation ]
 Perform Find [ ]
-If [ Get ( LastError ) = 401 ]
+If [ Get ( FoundCount ) = 0 ]
 Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
-Show Custom Dialog [ Title: "!"; Message: "No items have been assigned to this area for assessment."; Buttons: “OK” ]
+Perform Script [ “returnToStep2” ]
+Show Custom Dialog [ Message: "No general inquires have been added to this test section. To add some, 1) click the 'setup'
+button, 2) in the Tag Menus window, click on 'test section', and then 3) add some inquires."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 // If [ PatternCount ( Get ( ApplicationVersion ) ; "GO" ) = "GO" ]
@@ -87,4 +90,4 @@ End If
 Set Field [ InspectItems::gprogressGlobal; "status: done" ]
 Scroll Window
 [ Home ]
-July 11, 平成27 22:24:23 Library.fp7 - step2_OpenInspectionItemsTEST -1-
+December 11, ଘ౮27 11:40:16 Library.fp7 - step2_OpenInspectionItemsTEST -1-
