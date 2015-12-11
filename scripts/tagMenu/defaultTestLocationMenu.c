@@ -122,6 +122,4 @@ Set Field [ TEMP::pulldownAttribute; groupTest::_Lgroup ]
 Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
 Scroll Window
 [ Home ]
-// Go to Record/Request/Page
-[ First ]
 December 11, ଘ౮27 10:02:00 Library.fp7 - defaultTestLocationMenu -1-
