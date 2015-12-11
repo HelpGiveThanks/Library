@@ -42,8 +42,10 @@ Set Field [ TEMP::reportNumber; tagTestSubjectLocation::reportNumber ]
 Set Field [ TEMP::showFavorites; "" ]
 Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
 #
+#Change window name to Report.
 Select Window [ Name: "Setup"; Current file ]
-Set Field [ TEMP::testerAndsubject; //tagDefaultNodePrimary::tag & " testing " & ¶ & $testsubjectName & "'s"& ¶ & tempSetup::sectionName
+Set Field [ TEMP::testerAndsubject; //tagDefaultNodePrimary::tag & " testing " & ¶ & $testsubjectName & "'s"& ¶ & tempSetup::
+sectionName
 //$testsubjectName & ¶ & $$locationName & ¶ & tempSetup::sectionName
 //tempSetup::sectionName & " | " & $testsubjectName
 tempSetup::sectionName & " | " & tagDefaultTestSubject::tag & " | " & "report " & $$reportNumber ]
@@ -51,17 +53,31 @@ Set Window Title [ Current Window; New Title: "Report" ]
 Scroll Window
 [ Home ]
 #
+#Resize Report Window if needed to show full
+#layout. If it is resized then also resize Tag
+#Menus to fit in the remaining, smaller space.
+Go to Layout [ “PrintReportEdit” (report) ]
+Adjust Window
+[ Resize to Fit ]
+Set Variable [ $reportWindowSize; Value:Get ( WindowWidth ) ]
+If [ $reportWindowSize > Get ( ScreenWidth ) / 2 ]
+Select Window [ Name: "Tag Menus"; Current file ]
+Move/Resize Window [ Current Window; Width: Get (ScreenWidth) - $reportWindowSize; Left: $reportWindowSize ]
+Select Window [ Name: "Report"; Current file ]
+Else
+Move/Resize Window [ Current Window; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
+End If
+#
 #find all report pages first, then sort them alphabetically
 #and go to the first records. Use this one to find
 #only report records for this item.
 Enter Find Mode [ ]
-Go to Layout [ “PrintReportEdit” (report) ]
 Set Field [ report::ktestSubject; $$contact ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Set Field [ report::ksection; $$library ]
 Perform Find [ ]
 If [ Get (LastError) = 401 ]
-Perform Script [ “returnToStep2” ]
+Perform Script [ “returnToStep2 (update)” ]
 Show Custom Dialog [ Message: "No test discoveries to report on."; Buttons: “OK” ]
 Set Variable [ $$stopLoadReportRecord ]
 Exit Script [ ]
@@ -98,4 +114,4 @@ Scroll Window
 #Now find discoveries for this report item.
 Perform Script [ “CHUNK_gotoItemViaPulldown” ]
 #
-July 11, 平成27 22:22:04 Library.fp7 - editReport -1-
+December 11, ଘ౮27 1:28:46 Library.fp7 - editReport -1-
