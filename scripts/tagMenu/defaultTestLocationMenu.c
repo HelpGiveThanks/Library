@@ -11,10 +11,12 @@ tagMenu: defaultTestLocationMenu
 #
 #
 If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button.";
+Buttons: “OK” ]
 Halt Script
 Else If [ tempSetup::kdefaultHealth = "" ]
-Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button (you can always change your mind)."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button
+(you can always change your mind)."; Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -23,7 +25,8 @@ End If
 #from a section template.
 If [ TEMP::ksection = "" ]
 Perform Script [ “defaultSectionMenu” ]
-Show Custom Dialog [ Message: "You must select a section template prior to clicking the 'test' button. All test sections are created from a section template. "; Buttons: “OK” ]
+Show Custom Dialog [ Message: "You must select a section template prior to clicking the 'test' button. All test sections are
+created from a section template. "; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -117,4 +120,8 @@ Set Field [ TEMP::pulldownAttribute; groupTest::_Lgroup ]
 #
 #Return to tag menu layout.
 Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
-July 12, 平成27 14:06:10 Library.fp7 - defaultTestLocationMenu -1-
+Scroll Window
+[ Home ]
+// Go to Record/Request/Page
+[ First ]
+December 11, ଘ౮27 10:02:00 Library.fp7 - defaultTestLocationMenu -1-
