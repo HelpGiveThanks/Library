@@ -1,3 +1,6 @@
+Use this file to copy just the script section of the current FileMaker Database Design Report.  Commit it.  Then paste in the script section from your updated database design report to see all changes between current and updated versions.  This a large file and you will be see the changes only in the GitHub desktop tool; not on the GitHub website.  Do this comparison  to basically insure everything is documented in an updated version.
+
+
 Script Hierarchy
 startclose
 
@@ -12,6 +15,7 @@ update
 createEmptyLibrary
 copyPrimaryNodeID
 sampleCopyForPasting
+sampleCopyForPasting NEW
 sampleCopyCopyText
 import
 changeLibraryOrLibraryName
@@ -42,6 +46,7 @@ stuffCheckBox
 test
 
 (un)linkTestItemGroupToTestItemList
+(un)linkTestItemGroupToTestItemList DELETE
 testInfoOpenTextNewWindow
 testCheck
 testSetLocationName
@@ -189,7 +194,8 @@ changeSpellingOfDetailCategory
 noCommasAllowed
 deleteKeywordTag
 deleteNodeTag
-deleteMHOCSPtags
+deleteCPPPtags
+deleteBrainstormTags
 addTagSectionKeysToMainRecordKeychain
 CHUNKaddLinkToTag
 folderPathCheckForForwardSlash
@@ -346,6 +352,262 @@ help
 helpBack
 help
 libraryHelp
+delte
+New Script
+
+		Next Script: [New Script]
+Script Name	delte
+Run script with full access privileges	Off
+Include In Menu	Yes
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #
+    #
+    #
+    #Look thru the referenced learn records to
+    #create a value list of their keys.
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    // New Window [ Name: "LinkedLearnRecords"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+    New Window [ Name: "LinkedLearnRecords" ]
+    Go to Layout [ “learn4EDIT” (testlearn) ]
+    Set Variable [ $findLinkedLearnRecords; Value:testlearn::_Ltestlearn ]
+    Loop
+    Go to Object [ Object Name: "ref2" ]
+    Exit Loop If [ Get (LastError) = 101 ]
+    Set Variable [ $findLinkedLearnRecords; Value:refTestLearn::_Ltestlearn & ¶ & $findLinkedLearnRecords ]
+    Go to Portal Row [ Select; Next; Exit after last ]
+    End Loop
+    #
+    #Show X learn records referenced? (Records
+    #that support, contain, etc. this record.)
+    If [ Length ( Filter( $$ref ; "L" ) ) > 0 and $$linkedLearnRecords = "" ]
+    Show Custom Dialog [ Message: "Show " & ValueCount ( $findLinkedLearnRecords ) - 1 & " learn records referenced? (Records that support, contain, etc. this record.)"; Buttons: “show”, “cancel” ]
+    End If
+    #
+    #Show X learn records referenced? (Records
+    #that support, contain, etc. this record.) OR
+    #Show these plus records that reference it?
+    #Records this record supports, contains, etc.)
+    If [ Abs ( $$linkedLearnRecords - ( ValueCount ( $findLinkedLearnRecords ) - 1 ) ) = 1 ]
+    End If
+    If [ Abs ( $$linkedLearnRecords - ( ValueCount ( $findLinkedLearnRecords ) - 1 ) ) = 1 ]
+    Show Custom Dialog [ Message: "Show " & ValueCount ( $findLinkedLearnRecords ) - 1 & " learn records referenced? (Records that support, contain, etc. this record.) " & "OR" & ¶ & "Show these plus " & Abs ( $$linkedLearnRecords - ( ValueCount ( $findLinkedLearnRecords ) - 1 ) ) & " record that references it? (A record this record supports, contains, etc.)"; Buttons: “show all”, “just refs”, “cancel” ]
+    Else
+    Show Custom Dialog [ Message: "Show " & ValueCount ( $findLinkedLearnRecords ) - 1 & " learn records referenced? (Records that support, contain, etc. this record.) " & "OR" & ¶ & "Show these plus " & Abs ( $$linkedLearnRecords - ( ValueCount ( $findLinkedLearnRecords ) - 1 ) ) & " records that reference it? (Records this record supports, contains, etc.)"; Buttons: “show all”, “just refs”, “cancel” ]
+    End If
+    #
+    If [ $$linkedLearnRecords + 1 > ValueCount ( $findLinkedLearnRecords ) ]
+    Else If [ ]
+    Show Custom Dialog [ Message: "This record references 0 learn records, and is referenced by _______ records. Show them?"; Buttons: “show”, “cancel” ]
+    End If
+    #
+    #
+    #
+    #
+    #
+    Close Window [ Current Window ]
+    Set Variable [ $$stoploadCitation ]
+    Pause/Resume Script [ Indefinitely ]
+    #
+    #
+    #
+
+Fields used in this script
+
+    testlearn::_Ltestlearn
+    refTestLearn::_Ltestlearn
+
+Scripts used in this script
+
+Layouts used in this script
+
+    learn4EDIT
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [delte]
+Script Name	New Script
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #basic administration tasks
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    #
+    #
+    #create new inspection record setting all fields with neccessary key copies
+    #to unlock data
+    Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+    #
+    #see if a finding record already exists as an N/A, OK or ★ record
+    #because system does not change one of these
+    #records when user clicks to see test records
+    #unless there is only one record.
+    Enter Find Mode [ ]
+    #
+    #find and show all inspection findings
+    Set Field [ testlearn::ktestSubject; $$contact ]
+    Set Field [ testlearn::ktest; $$item ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Perform Find [ ]
+    #
+    // If [ Get (FoundCount) = 1 and testlearn::InspectionItemCountLocation = "N/A" and testlearn::kreportNumber = $$reportNumber or Get (FoundCount) = 1 and testlearn::InspectionItemCountLocation = "OK" and testlearn::kreportNumber = $$reportNumber or Get (FoundCount) = 1 and testlearn::InspectionItemCountLocation = "★" and testlearn::kreportNumber = $$reportNumber ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    If [ testlearn::kaudienceLocation = $$Location and testlearn::InspectionItemCountLocation = "N/A" and testlearn::kreportNumber = $$reportNumber or testlearn::kaudienceLocation = $$Location and testlearn::InspectionItemCountLocation = "OK" and testlearn::kreportNumber = $$reportNumber or testlearn::kaudienceLocation = $$Location and testlearn::InspectionItemCountLocation = "★" and testlearn::kreportNumber = $$reportNumber ]
+    #If a non finding OK or NA record exists, change it into the first finding record
+    Set Field [ testlearn::InspectionItemCountLocation; 1 ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    #
+    #increase number of findings for item in all locations
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; $$contact ]
+    Set Field [ testlearn::ktest; $$item ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Loop
+    Set Field [ testlearn::InspectionItemCount; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #first see if a report record exists for this item
+    Go to Layout [ “PrintReportEdit” (report) ]
+    Enter Find Mode [ ]
+    Set Field [ report::ktestSubject; $$contact ]
+    Set Field [ report::ktest; $$item ]
+    Set Field [ report::kreportNumber; $$reportNumber ]
+    Perform Find [ ]
+    #
+    If [ Get ( LastError ) = 401 ]
+    #
+    #create new report record and put in all required information
+    New Record/Request
+    Set Field [ report::ktestSubject; $$contact ]
+    Set Field [ report::ktest; $$item ]
+    Set Field [ report::kreportNumber; $$reportNumber ]
+    Set Field [ report::ksection; $$library ]
+    Set Field [ report::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    Set Field [ report::RecordModifyDate; Get ( CurrentTimeStamp ) ]
+    Set Field [ report::khealth; TEMP::kdefaultHealth ]
+    End If
+    Go to Layout [ “step3_InspectionItems” (InspectItems) ]
+    Set Field [ InspectItems::gprogressGlobal; "status: in progress" ]
+    Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+    Set Variable [ $id; Value:testlearn::_Ltestlearn ]
+    Sort Records [ Specified Sort Order: ascending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ $ID = testlearn::_Ltestlearn ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
+    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
+    Exit Script [ ]
+    End If
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #
+    #
+    #
+    New Record/Request
+    Set Field [ testlearn::ktestSubject; $$contact ]
+    Set Field [ testlearn::kaudienceLocation; $$location ]
+    Set Field [ testlearn::kcsection; $$Library ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    #New test result for current test section is currently
+    #$$itemName. This variable name needs to be
+    #changed when time permits for testing to $$sectionName.
+    Set Field [ testlearn::Location; $$itemName ]
+    Set Field [ testlearn::ktest; $$item ]
+    Set Field [ testlearn::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    Set Field [ testlearn::RecordModifyDate; Get ( CurrentTimeStamp ) ]
+    Set Field [ testlearn::kHealth; TEMP::kdefaultHealth ]
+    #
+    #increase number of findings for item for this contacts location
+    Go to Layout [ “discoveries” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; $$contact ]
+    Set Field [ testlearn::kaudienceLocation; $$location ]
+    Set Field [ testlearn::ktest; $$item ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Loop
+    Set Field [ testlearn::InspectionItemCountLocation; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+
+Fields used in this script
+
+    testlearn::ktestSubject
+    testlearn::ktest
+    testlearn::kreportNumber
+    testlearn::InspectionItemCountLocation
+    testlearn::kaudienceLocation
+    testlearn::InspectionItemCount
+    report::ktestSubject
+    report::ktest
+    report::kreportNumber
+    report::ksection
+    TEMP::kdefaultNodePrimary
+    report::kRecordCreatorNode
+    report::RecordModifyDate
+    TEMP::kdefaultHealth
+    report::khealth
+    InspectItems::gprogressGlobal
+    testlearn::_Ltestlearn
+    <Missing Field>
+    testlearn::recordnumberglobal
+    testlearn::recordcountglobal
+    testlearn::kcsection
+    testlearn::Location
+    testlearn::kRecordCreatorNode
+    testlearn::RecordModifyDate
+    testlearn::kHealth
+
+Scripts used in this script
+
+Layouts used in this script
+
+    step4_InspectionFinding
+    PrintReportEdit
+    step3_InspectionItems
+    discoveries
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
 
 startclose
 	Parent Folder: [startclose]	Next Script: [start]
@@ -588,6 +850,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultSetup
+    defaultSetup Copy
+
 Scripts that use this script
 
 Script Definition
@@ -636,6 +901,8 @@ Script Name	moreInfo
 Run script with full access privileges	Off
 Include In Menu	Yes
 Layouts that use this script
+
+    defaultSetup
 
 Scripts that use this script
 
@@ -1172,11 +1439,19 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [copyPrimaryNodeID]	Parent Folder: [libraryNewOrUpdate]	Next Script: [sampleCopyCopyText]
+Previous Script: [copyPrimaryNodeID]	Parent Folder: [libraryNewOrUpdate]	Next Script: [sampleCopyForPasting NEW]
 Script Name	sampleCopyForPasting
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4EDIT
+    learn4EDITstuff
+    learn4 Copy2
 
 Scripts that use this script
 
@@ -1328,12 +1603,12 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Set Variable [ $sample; Value://Sample Title TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ & Case ( learnSampleWebsite::URLPubDate = "" ; //author and copyright date TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & " " ; //author and copyright nodeLockTagMenus::tag & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) & " " ) & sampleCopyright::tag & " " & //title for history ¶ & "Publication History" & Case ( learnSampleWebsite::URL = "" ; ¶ & "(This posting is the first publication of this version of the theory and presentation of supporting evidence.)" ) ]
     // Set Variable [ $sample; Value://Sample Title $sample & ¶ & sampleCopyright::tag & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) & " by " & nodeLockTagMenus::tag ]
-    Loop
-    Go to Object [ Object Name: "publication" ]
-    Exit Loop If [ Get (LastError) = 101 ]
-    Set Variable [ $sample; Value:$sample & ¶ & Case ( learnSampleWebsite::URLPubDate = "" ; learnSampleWebsite::URL ; learnSampleWebsite::URL & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) ) ]
-    Go to Portal Row [ Select; Next; Exit after last ]
-    End Loop
+    // Loop
+    // Go to Object [ Object Name: "publication" ]
+    // Exit Loop If [ Get (LastError) = 101 ]
+    // Set Variable [ $sample; Value:$sample & ¶ & Case ( learnSampleWebsite::URLPubDate = "" ; learnSampleWebsite::URL ; learnSampleWebsite::URL & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) ) ]
+    // Go to Portal Row [ Select; Next; Exit after last ]
+    // End Loop
     Go to Field [ ]
     Set Variable [ $copy; Value://Sample Title and History $sample & ¶ & ¶ & $copy ]
     #
@@ -1407,11 +1682,433 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [sampleCopyForPasting]	Parent Folder: [libraryNewOrUpdate]	Next Script: [import]
+Previous Script: [sampleCopyForPasting]	Parent Folder: [libraryNewOrUpdate]	Next Script: [sampleCopyCopyText]
+Script Name	sampleCopyForPasting NEW
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #
+    #I commonly click the share button when I do not mean
+    #click it, so these next two question help the user
+    #stop this process if it was not intential. They also
+    #help the user understand that if they proceed how long
+    #it is likely to take, so they don't become frustrated.
+    // If [ Get ( FoundCount ) > 999 and Get ( LayoutName ) ≠ "learn4EDIT" and Get ( LayoutName ) ≠ "learn4EDITstuff" ]
+    // Show Custom Dialog [ Message: "FYI: There are more than 1000 records to process. This may take a few minutes. Continue?"; Buttons: “Yes”, “No” ]
+    // If [ Get ( LastMessageChoice ) = 2 ]
+    // Exit Script [ ]
+    // End If
+    // End If
+    // If [ Get ( FoundCount ) > 100 and Get ( LayoutName ) ≠ "learn4EDIT" and Get ( LayoutName ) ≠ "learn4EDITstuff" ]
+    // Show Custom Dialog [ Message: "FYI: There are more than 100 and less than 1000 records to process. This may take a minute or more. Continue?"; Buttons: “Yes”, “No” ]
+    // If [ Get ( LastMessageChoice ) = 2 ]
+    // Exit Script [ ]
+    // End If
+    // End If
+    #
+    #
+    #If the user has selected a THEORY tagged item
+    #in the learn window when they clicked 'share'
+    #then find the records tagged with the currently
+    #selected THEORY tag = $$sample variable.
+    #
+    #NOTE: 'Theory ' is the new name for sample
+    #tags. When time permits, the name should be
+    #changed and all intances of 'sample' found
+    #and reviewed in the Library DDR.
+    If [ $$citationMatch = "sample" and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITstuff" ]
+    #
+    Set Variable [ $$stopLoadCitation; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $layoutName; Value:Get ( LayoutName ) ]
+    #
+    Close Window [ Name: "Print/Copy"; Current file ]
+    New Window [ Name: "Print/Copy" ]
+    Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    // Go to Layout [ “learnMenuSample” (tagMenus) ]
+    #
+    Enter Find Mode [ ]
+    Set Field [ testlearn::kcsample; "**" & $$tagsample ]
+    Perform Find [ ]
+    Sort Records [ Specified Sort Order: testlearn::orderTest; based on value list: “order” testlearn::timestamp; descending ] [ Restore; No dialog ]
+    #
+    #
+    #
+    #Now gather up and add references linked to all records.
+    Set Variable [ $point; Value:1 ]
+    Set Variable [ $evidence; Value:1 ]
+    Go to Record/Request/Page [ First ]
+    #
+    Loop
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ & ¶) & //text Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence & //node TextColor ( Case ( testlearn::kcitation ≠ "" ; " Quote from cited work below." ; " [" & Case ( tagTLNodePrimary::tag = "" and testlearn::NodeOthers = "" ; TextStyleAdd ( "author not entered" ; Italic ) ; tagTLNodePrimary::tag ≠ "" ; tagTLNodePrimary::tag ) & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers) & //timestamp " " & testlearn::timestamp & "]" ) ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & //main text TextFont ( testlearn::Caption ; "Georgia" ) ; $point & TextFont ( testlearn::Caption ; "Georgia" ) ) & ¶ & //grey remain text TextColor ( //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ & "keywords - " & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) & //URL Case ( testlearn::URL ≠ "" ; ¶ & testlearn::URL & //URLdate Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
+    #
+    #Increase evidence number if point is the same.
+    If [ testlearn::sampleCasePoint = "" ]
+    Set Variable [ $evidence; Value:$evidence + 1 ]
+    Else
+    Set Variable [ $evidence; Value:1 ]
+    End If
+    If [ testlearn::kcreference ≠ "" ]
+    Go to Object [ Object Name: "ref1" ]
+    If [ refReference::referenceForReferenceWindow ≠ "" ]
+    Set Variable [ $copy; Value:$copy & ¶ & //grey text TextColor ( //references Case ( testlearn::kcreference ≠ "" ; "References" ; "" ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
+    Loop
+    Go to Object [ Object Name: "ref1" ]
+    Exit Loop If [ Get (LastError) = 101 ]
+    Set Variable [ $copy; Value:Case ( Right ( $copy ; 10 ) = "References" ; $copy & ¶ & //grey text TextColor ( refReference::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ; $copy & ¶ & ¶ & //grey text TextColor ( refReference::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ) ]
+    Go to Portal Row [ Select; Next; Exit after last ]
+    End Loop
+    End If
+    End If
+    Go to Record/Request/Page [ Next; Exit after last ]
+    Set Variable [ $copy; Value:$copy & ¶ & //grey text TextColor ( "_______________________________________________" ; RGB ( 119 ; 119 ; 119 ) ) ]
+    Exit Loop If [ ( FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 1 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 2 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 3 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 4 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 5 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 6 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 7 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 8 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 9 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 10 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ ) ≠ 1 and $$tagSample ≠ "" ]
+    #
+    #Increase point number if point is different.
+    If [ testlearn::sampleCasePoint ≠ "" ]
+    Set Variable [ $point; Value:$point + 1 ]
+    End If
+    End Loop
+    #
+    #Now get sample title and previous dates of
+    #publication for this sample if there are any.
+    If [ $$citationMatch = "Sample" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Set Variable [ $sample; Value://Sample Title TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ & Case ( learnSampleWebsite::URLPubDate = "" ; //author and copyright date TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & " " ; //author and copyright nodeLockTagMenus::tag & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) & " " ) & sampleCopyright::tag & " " & //title for history ¶ & "Publication History" & Case ( learnSampleWebsite::URL = "" ; ¶ & "(This posting is the first publication of this version of the theory and presentation of supporting evidence.)" ) ]
+    // Set Variable [ $sample; Value://Sample Title $sample & ¶ & sampleCopyright::tag & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) & " by " & nodeLockTagMenus::tag ]
+    Loop
+    Go to Object [ Object Name: "publication" ]
+    Exit Loop If [ Get (LastError) = 101 ]
+    Set Variable [ $sample; Value:$sample & ¶ & Case ( learnSampleWebsite::URLPubDate = "" ; learnSampleWebsite::URL ; learnSampleWebsite::URL & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) ) ]
+    Go to Portal Row [ Select; Next; Exit after last ]
+    End Loop
+    Go to Field [ ]
+    Set Variable [ $copy; Value://Sample Title and History $sample & ¶ & ¶ & $copy ]
+    #
+    #Now create copy text and display it.
+    Select Window [ Name: "Print/Copy"; Current file ]
+    Else
+    If [ $layoutName = "learn4EDIT" ]
+    Set Variable [ $sample; Value://author and copyright date TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & " " ]
+    Else
+    Set Variable [ $sample; Value://Sample Title "Unsaved group of records ordered by date and time of creation!!! This action is not advised for publishing purposes. Instead, use the theorize tag to create a saved set of records ordered by you to make the strongest case you can make for publishing sets of records." & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & " " ]
+    End If
+    Go to Layout [ “TEMP” (TEMP) ]
+    Set Variable [ $sample; Value:$sample & //health/copyright defaultCopyrightName::tag ]
+    Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    Set Variable [ $copy; Value://Sample Title and History $sample & ¶ & ¶ & $copy ]
+    End If
+    Set Variable [ $$stopLoadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Field [ TEMP::paste; TextSize ( $copy ; 12 ) ]
+    Go to Field [ ]
+    Scroll Window [ Home ]
+    Exit Script [ ]
+    // If [ tagMenus::notesOrHealth = "" ]
+    // Set Variable [ $$stopLoadCitation ]
+    // Set Variable [ $$stopLoadTagRecord ]
+    // Close Window [ Name: "Print/Copy"; Current file ]
+    // Show Custom Dialog [ Message: "Select a copyright from the pulldown menu for your theory in the Tag Menus window. If you are making a case, you probably need to select a no-remix copyright so all your points and evidence are kept together by anyone copying your work."; Buttons: “OK” ]
+    // Exit Script [ ]
+    // #
+    // Else If [ Get (LastError) = 400 ]
+    // Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    // Enter Find Mode [ ]
+    // Set Field [ testlearn::kcsection; TEMP::ksection ]
+    // Set Field [ testlearn::filterFind; "main" & ¶ ]
+    // Perform Find [ ]
+    // Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    // Go to Record/Request/Page [ First ]
+    // End If
+    #
+    Else
+    #1) Check if the current Learn record
+    #references other Learn records or is
+    #referenced by other Learn records.
+    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" or $$LinkedLearnRecords ≠ "" ]
+    #
+    #If it does reference other Learn records,
+    #ask the user if they would like to see them too,
+    #or just the current record.
+    Show Custom Dialog [ Message: "The ideas expressed in this record reference ideas (purple highlight) from other learn records. Show these too?"; Buttons: “Yes”, “No”, “cancel” ]
+    End If
+    #
+    #Begin process of show user selected records and their references.
+    Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    #
+    #Check if user is in the QV window.
+    If [ $layoutName = "learn4EDIT" or $layoutName = "learn4EDITstuff" ]
+    #
+    #1) Check if the current Learn record
+    #references other Learn records or is
+    #referenced by other Learn records.
+    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" or $$LinkedLearnRecords ≠ "" ]
+    #
+    #If it does reference other Learn records,
+    #ask the user if they would like to see them too,
+    #or just the current record.
+    Show Custom Dialog [ Message: "The ideas expressed in this record reference ideas (purple highlight) from other learn records. Show these too?"; Buttons: “Yes”, “No”, “cancel” ]
+    #
+    #Exit script if user clicks cancel.
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Close Window [ Name: "Print/Copy"; Current file ]
+    Set Variable [ $$stopLoadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #
+    #Find original record first.
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::_Ltestlearn; $$citation ]
+    Perform Find [ ]
+    #
+    #If the user wants to show referenced records too
+    #do 1 of 3 things:
+    If [ Get ( LastMessageChoice ) = 1 ]
+    #
+    #1.1) Determine if there are A) records it is referencing
+    #and B) records referencing it.
+    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" and $$LinkedLearnRecords ≠ "" ]
+    #
+    #If both are found ask user if they want to see
+    #A records or A and B records.
+    Select Window [ Name: "Learn"; Current file ]
+    Show Custom Dialog [ Message: "Show this record's references only?" & ¶ & "OR" & ¶ & "Show referenced + records that reference this record?"; Buttons: “Ref”, “Ref+”, “cancel” ]
+    Select Window [ Name: "Print/Copy"; Current file ]
+    End If
+    #
+    #
+    #Exit script if your clicks cancel.
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Set Variable [ $$stopLoadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Close Window [ Current Window ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #
+    #If button 1 is selected ...
+    #OR
+    #1.2) If there are only records referenced by this record,
+    #then prepare to find them.
+    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" and $$LinkedLearnRecords = "" or Get (LastMessageChoice) = 1 or Get (LastMessageChoice) = 2 ]
+    Set Variable [ $findLinkedLearnRecords; Value:testlearn::_Ltestlearn ]
+    Loop
+    Go to Object [ Object Name: "ref2" ]
+    Exit Loop If [ Get (LastError) = 101 ]
+    Set Variable [ $findLinkedLearnRecords; Value:refTestLearn::_Ltestlearn & ¶ & $findLinkedLearnRecords ]
+    Go to Portal Row [ Select; Next; Exit after last ]
+    End Loop
+    #
+    End If
+    #
+    #If button 2 is selected ...
+    #OR
+    #1.3) If there are only records referencing this record,
+    #then prepare to find these records.
+    If [ $$LinkedLearnRecords ≠ "" or Get (LastMessageChoice) = 2 ]
+    #
+    #Now find records referencing it.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::kcreference; $$citation ]
+    Extend Found Set [ ]
+    #
+    Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    #
+    Loop
+    Set Variable [ $findLinkedLearnRecords; Value:refTestLearn::_Ltestlearn & ¶ & $findLinkedLearnRecords ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #
+    End If
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #Determine how many keys there are.
+    Set Variable [ $numberOfKeys; Value:ValueCount ($findLinkedLearnRecords ) ]
+    #
+    #Find 1st record.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::_Ltestlearn; GetValue ( $findLinkedLearnRecords ; $numberOfKeys ) ]
+    Perform Find [ ]
+    Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
+    #
+    If [ $numberOfKeys ≠ 0 ]
+    Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    #
+    #Loop thru each key to expand found records until
+    #all linked records have been found.
+    Loop
+    #
+    #Exit the loop when there are no more keys to check.
+    Exit Loop If [ $numberOfKeys = 0 ]
+    #
+    #Find record.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::_Ltestlearn; GetValue ( $findLinkedLearnRecords ; $numberOfKeys ) ]
+    Extend Found Set [ ]
+    #
+    #Go the next key up from the bottom of the list
+    #of keys on this section's keychain.
+    Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
+    End Loop
+    #
+    Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    #
+    Else
+    Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    End If
+    End If
+    End If
+    End If
+    #
+    #
+    #Now gather up and add references linked to all records.
+    Set Variable [ $point; Value:1 ]
+    Set Variable [ $evidence; Value:1 ]
+    Go to Record/Request/Page [ First ]
+    #
+    Loop
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ & ¶) & //text Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence & //node TextColor ( Case ( testlearn::kcitation ≠ "" ; " Quote from cited work below." ; " [" & Case ( tagTLNodePrimary::tag = "" and testlearn::NodeOthers = "" ; TextStyleAdd ( "author not entered" ; Italic ) ; tagTLNodePrimary::tag ≠ "" ; tagTLNodePrimary::tag ) & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers) & //timestamp " " & testlearn::timestamp & "]" ) ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & //main text TextFont ( testlearn::Caption ; "Georgia" ) ; $point & TextFont ( testlearn::Caption ; "Georgia" ) ) & ¶ & //grey remain text TextColor ( //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ & "keywords - " & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) & //URL Case ( testlearn::URL ≠ "" ; ¶ & testlearn::URL & //URLdate Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
+    #
+    #Increase evidence number if point is the same.
+    If [ testlearn::sampleCasePoint = "" ]
+    Set Variable [ $evidence; Value:$evidence + 1 ]
+    Else
+    Set Variable [ $evidence; Value:1 ]
+    End If
+    If [ testlearn::kcreference ≠ "" ]
+    Go to Object [ Object Name: "ref1" ]
+    If [ refReference::referenceForReferenceWindow ≠ "" ]
+    Set Variable [ $copy; Value:$copy & ¶ & //grey text TextColor ( //references Case ( testlearn::kcreference ≠ "" ; "References" ; "" ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
+    Loop
+    Go to Object [ Object Name: "ref1" ]
+    Exit Loop If [ Get (LastError) = 101 ]
+    Set Variable [ $copy; Value:Case ( Right ( $copy ; 10 ) = "References" ; $copy & ¶ & //grey text TextColor ( refReference::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ; $copy & ¶ & ¶ & //grey text TextColor ( refReference::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ) ]
+    Go to Portal Row [ Select; Next; Exit after last ]
+    End Loop
+    End If
+    End If
+    Go to Record/Request/Page [ Next; Exit after last ]
+    Set Variable [ $copy; Value:$copy & ¶ & //grey text TextColor ( "_______________________________________________" ; RGB ( 119 ; 119 ; 119 ) ) ]
+    Exit Loop If [ ( FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 1 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 2 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 3 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 4 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 5 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 6 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 7 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 8 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 9 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 10 ) ; 4 ; 42 ) ; $$tagSample & "¶" ) = $$tagSample & ¶ ) ≠ 1 and $$tagSample ≠ "" ]
+    #
+    #Increase point number if point is different.
+    If [ testlearn::sampleCasePoint ≠ "" ]
+    Set Variable [ $point; Value:$point + 1 ]
+    End If
+    End Loop
+    #
+    #Now get sample title and previous dates of
+    #publication for this sample if there are any.
+    If [ $$citationMatch = "Sample" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Set Variable [ $sample; Value://Sample Title TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ & Case ( learnSampleWebsite::URLPubDate = "" ; //author and copyright date TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & " " ; //author and copyright nodeLockTagMenus::tag & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) & " " ) & sampleCopyright::tag & " " & //title for history ¶ & "Publication History" & Case ( learnSampleWebsite::URL = "" ; ¶ & "(This posting is the first publication of this version of the theory and presentation of supporting evidence.)" ) ]
+    // Set Variable [ $sample; Value://Sample Title $sample & ¶ & sampleCopyright::tag & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) & " by " & nodeLockTagMenus::tag ]
+    Loop
+    Go to Object [ Object Name: "publication" ]
+    Exit Loop If [ Get (LastError) = 101 ]
+    Set Variable [ $sample; Value:$sample & ¶ & Case ( learnSampleWebsite::URLPubDate = "" ; learnSampleWebsite::URL ; learnSampleWebsite::URL & " " & Month ( learnSampleWebsite::URLPubDate ) & "/" & Day ( learnSampleWebsite::URLPubDate ) & "/" & Year ( learnSampleWebsite::URLPubDate ) ) ]
+    Go to Portal Row [ Select; Next; Exit after last ]
+    End Loop
+    Go to Field [ ]
+    Set Variable [ $copy; Value://Sample Title and History $sample & ¶ & ¶ & $copy ]
+    #
+    #Now create copy text and display it.
+    Select Window [ Name: "Print/Copy"; Current file ]
+    Else
+    If [ $layoutName = "learn4EDIT" ]
+    Set Variable [ $sample; Value://author and copyright date TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & " " ]
+    Else
+    Set Variable [ $sample; Value://Sample Title "Unsaved group of records ordered by date and time of creation!!! This action is not advised for publishing purposes. Instead, use the theorize tag to create a saved set of records ordered by you to make the strongest case you can make for publishing sets of records." & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & " " ]
+    End If
+    Go to Layout [ “TEMP” (TEMP) ]
+    Set Variable [ $sample; Value:$sample & //health/copyright defaultCopyrightName::tag ]
+    Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    Set Variable [ $copy; Value://Sample Title and History $sample & ¶ & ¶ & $copy ]
+    End If
+    Set Variable [ $$stopLoadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Field [ TEMP::paste; TextSize ( $copy ; 12 ) ]
+    Go to Field [ ]
+    Scroll Window [ Home ]
+
+Fields used in this script
+
+    testlearn::kcsample
+    testlearn::orderTest
+    testlearn::timestamp
+    testlearn::sampleCasePoint
+    testlearn::kcitation
+    tagTLNodePrimary::tag
+    testlearn::NodeOthers
+    testlearn::Caption
+    testlearn::OtherKeyWords
+    testlearn::kKeywordPrimary
+    tagTLKeywordPrimary::tag
+    testlearn::URL
+    testlearn::URLPubDate
+    testlearn::kcreference
+    refReference::referenceForReferenceWindow
+    tagMenus::tag
+    learnSampleWebsite::URLPubDate
+    TEMP::DEFAULTNodePrimaryName
+    nodeLockTagMenus::tag
+    sampleCopyright::tag
+    learnSampleWebsite::URL
+    defaultCopyrightName::tag
+    TEMP::paste
+    tagMenus::notesOrHealth
+    TEMP::ksection
+    testlearn::kcsection
+    testlearn::filterFind
+    testlearn::date
+    testlearn::_Ltestlearn
+    refTestLearn::_Ltestlearn
+
+Scripts used in this script
+
+Layouts used in this script
+
+    learnPreviewLayout
+    learnMenuSample
+    TEMP
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [sampleCopyForPasting NEW]	Parent Folder: [libraryNewOrUpdate]	Next Script: [import]
 Script Name	sampleCopyCopyText
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learnPreviewLayout
 
 Scripts that use this script
 
@@ -2070,6 +2767,13 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultTest
+    defaultTestNewFocus
+    learnTest
+    learnSTest
+    testMenuTestItem
+    reportTagItem
+
 Scripts that use this script
 
 Script Definition
@@ -2223,8 +2927,19 @@ Script Definition
 Script Steps
 
     #
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
+    #
     #Stop script if needed to speed up other scripts.
-    If [ $$ID = test::_Ltest or $$ID = "ignore" ]
+    If [ $$ID = test::_Ltest or $$ID = "ignore" or $$stopDeleteTest = 1 ]
     Exit Script [ ]
     End If
     #
@@ -2275,7 +2990,7 @@ Script Steps
     #in the temp table.
     #
     #If the test list belongs (has the key that fits the
-    #test's lock) the set the temp field with this test's name.
+    #test's lock) then set the temp field with this test's name.
     If [ test::_Ltest = test::ktestItemList ]
     #
     #Set a temp field with this test's name. This name
@@ -2322,7 +3037,11 @@ Script Steps
     Refresh Window
     End If
     #
-    #
+    #If the user has come to this screen from the test item
+    #window, then the itemName variable needs to be updated.
+    If [ $$itemName ≠ "" ]
+    Set Variable [ $$itemName; Value:TEMP::ktestListtTestName ]
+    End If
     #
     Select Window [ Name: "Tag Menus"; Current file ]
     If [ Get (LastError) = 112 ]
@@ -2393,6 +3112,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    testSetup
+
 Scripts that use this script
 
     newTest
@@ -2400,6 +3121,18 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #This script is for creating a general inquiry group.
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
     #
     #If node is currenlty locked then stop script, inform user.
     If [ TEMP::nodeLock ≠ "" ]
@@ -2411,33 +3144,33 @@ Script Steps
     #Stop spell check script.
     Set Variable [ $$stopTest; Value:1 ]
     #
-    #Create new test group.
+    #Create new general inquiry group.
     Go to Layout [ “tableGroupTag” (groupTest) ]
     New Record/Request
     Set Field [ groupTest::ksection; TEMP::ksection ]
     Set Field [ groupTest::match; "testGroup" ]
     Set Field [ groupTest::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     #
-    #Each test group must have a unique name and
+    #Each group must have a unique name and
     #the nameSpelling field is used when the user
     #changes the name to a name already in use at
     #which point the nameSpelling name can revert
     #the user back to the former name (as the name
     #field contains the duplicate name which is not
     #allowed).
-    Set Field [ groupTest::name; "test group " & groupTest::_Lgroup ]
-    Set Field [ groupTest::nameSpelling; "test group " & groupTest::_Lgroup ]
+    Set Field [ groupTest::name; "general-inquiry_group" & groupTest::_Lgroup ]
+    Set Field [ groupTest::nameSpelling; "general-inquiry_group" & groupTest::_Lgroup ]
     Set Variable [ $group; Value:groupTest::_Lgroup ]
     #
-    #Create new test for this group.
+    #Create new general inquiry for this group.
     Set Variable [ $$ID; Value:"ignore" ]
     Go to Layout [ “testSetup” (test) ]
     New Record/Request
     Set Variable [ $loopToNewRecord; Value:test::_Ltest ]
     Set Field [ test::ksection; TEMP::ksection ]
-    #( a test group field is neccessary because a section
-    # may have more than one test group, and so trying
-    # to find a test group using the section key and
+    #( a group key field is neccessary because a section
+    # may have more than one group, and so trying
+    # to find a group using the section key and
     # the testGroup match field would find all groups
     # when we need the system to find one group. )
     Set Field [ test::ktestGroup; $group ]
@@ -2453,8 +3186,8 @@ Script Steps
     #confuse the user either, but I am including steps to
     #require a unique name so when locked name can
     #be revereted back to orignal name.
-    Set Field [ test::testName; "test" ]
-    Set Field [ test::testNameRevert; "test" ]
+    Set Field [ test::testName; "general_inquiry" & test::_Ltest ]
+    Set Field [ test::testNameRevert; "general_inquiry" & test::_Ltest ]
     Set Field [ test::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     #
     #
@@ -2498,7 +3231,8 @@ Script Steps
     New Record/Request
     Set Field [ tagLocation::ksection; TEMP::ksection ]
     Set Field [ tagLocation::match; "focus" ]
-    Set Field [ tagLocation::tag; "test focus" ]
+    Set Field [ tagLocation::tag; "test_section" & tagLocation::_Ltag ]
+    Set Field [ tagLocation::tagSpelling; "test_section" & tagLocation::_Ltag ]
     Perform Script [ “editSectionFocuses” ]
     End If
     Go to Record/Request/Page [ First ]
@@ -2555,7 +3289,9 @@ Fields used in this script
     test::kcfocusALL
     tagLocation::ksection
     tagLocation::match
+    tagLocation::_Ltag
     tagLocation::tag
+    tagLocation::tagSpelling
     tagMenus::tag
     ruleSection::name
     groupTest::order
@@ -2590,6 +3326,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    testSetup
+
 Scripts that use this script
 
 Script Definition
@@ -2616,6 +3354,17 @@ Script Steps
     #Set variables needed to create new item.
     Set Variable [ $$ID; Value:"ignore" ]
     Set Variable [ $group; Value:test::ktestGroup ]
+    #This script is for creating new general inquires.
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
     #
     #new test
     New Record/Request
@@ -2638,8 +3387,8 @@ Script Steps
     #confuse the user either, but I am including steps to
     #require a unique name so when locked name can
     #be revereted back to orignal name.
-    Set Field [ test::testName; "test" ]
-    Set Field [ test::testNameRevert; "test" ]
+    Set Field [ test::testName; "general_inquiry" & test::_Ltest ]
+    Set Field [ test::testNameRevert; "general_inquiry" & test::_Ltest ]
     Set Field [ test::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     #
     #
@@ -2758,11 +3507,25 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    testSetup
+
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #This script is for deleting a general inquiry.
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
     #
     If [ nodeLockTest::orderOrLock ≠ "" ]
     Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTest::tag & " -- in the setup tag window and enter the password to unlock it so that you can delete it."; Buttons: “OK” ]
@@ -2773,17 +3536,26 @@ Script Steps
     #to be deleted and to supply name for warning
     #messages, and to speed up script.
     Set Variable [ $delete; Value:test::_Ltest ]
+    Refresh Window
     Set Variable [ $$tagTest; Value:test::_Ltest ]
     Set Variable [ $$ID; Value:"ignore" ]
     If [ test::testName = "" ]
     Set Field [ test::testName; test::_Ltest ]
     End If
     Go to Field [ ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
     #
     #Check if item is in use as test tag on any Report
     #records, and if so stop the script.
     #
-    New Window [ Name: "Report: Discovery Records"; Height: 4; Width: 4 ]
+    // New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000 ]
+    New Window [ ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
     #
     Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
     Enter Find Mode [ ]
@@ -2794,14 +3566,41 @@ Script Steps
     #
     #If records are found using test, then stop script.
     If [ Get (FoundCount) ≠ 0 ]
-    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 333; Top: 0 ]
-    Show Custom Dialog [ Title: "!"; Message: "Discoveries where made for this test (shown). Delete all these discovery records and then this test can be deleted."; Buttons: “OK” ]
+    Loop
+    Set Variable [ $useList; Value:nodeReport::tag & " | test/report " & TextColor( TextStyleAdd ( testlearnReportTags::kreportNumber; "" ) ;RGB(0;0;0)) & ¶ & "section " & TextColor( TextStyleAdd ( tagReportSubjectLocationNAME::focusName; "" ) ;RGB(0;0;0)) & ¶ & "title " & TextColor( TextStyleAdd ( testlearnReportTags::Location; "" ) ;RGB(0;0;0)) ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::RemoveFocusList; $useList ]
+    Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
     #
+    Go to Layout [ “TEMP” (TEMP) ]
+    Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    Show/Hide Status Area [ Lock; Hide ]
+    Show/Hide Text Ruler [ Hide ]
+    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "Test results have been made under this general inquiry. To delete it, first delete these test results (in the test or report modules)." ]
+    Pause/Resume Script [ Indefinitely ]
     Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
     Set Variable [ $$ID; Value:test::_Ltest ]
-    #
+    Refresh Window
     Exit Script [ ]
+    Else
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$ID; Value:test::_Ltest ]
     End If
+    #
     #
     #Check if item is in use as test tag on any Learn
     #records, and if so stop the script.
@@ -2821,11 +3620,13 @@ Script Steps
     #
     #If records are found using test, then stop script.
     If [ Get (FoundCount) ≠ 0 ]
-    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 333; Top: 0 ]
-    Show Custom Dialog [ Title: "!"; Message: "This test is linked to at least one Learn record. You can delete this test after removing these links (created in the Learn module)."; Buttons: “OK” ]
+    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Show Custom Dialog [ Message: "This general inquiry is linked to at least one learn record. To delete it 1) go to the learn module, 2) click 'test' in its tag-menus window, 3) select it, 4) untag it from all learn records, 5) return to test setup, 6) and delete it."; Buttons: “OK” ]
     #
     Close Window [ Current Window ]
     Set Variable [ $$ID; Value:test::_Ltest ]
+    Set Variable [ $delete ]
+    Refresh Window
     #
     Exit Script [ ]
     End If
@@ -2836,11 +3637,11 @@ Script Steps
     #user may delete it. First the record is highlighted
     #in red and the user is asked if they really intend
     #to delete this record.
+    Set Variable [ $delete; Value:test::_Ltest ]
     Refresh Window
-    Go to Field [ test::testName ] [ Select/perform ]
     Scroll Window [ To Selection ]
     Go to Field [ ]
-    Show Custom Dialog [ Title: "!"; Message: "Delete " & test::testName & "?"; Buttons: “Cancel”, “Delete” ]
+    Show Custom Dialog [ Message: "Delete " & test::testName & "?"; Buttons: “Cancel”, “Delete” ]
     #
     #If the user cancels the delete, then everything
     #goes back to the way it was before the delete
@@ -2986,6 +3787,12 @@ Fields used in this script
     test::_Ltest
     test::testName
     testlearnReportTags::ktest
+    nodeReport::tag
+    testlearnReportTags::kreportNumber
+    tagReportSubjectLocationNAME::focusName
+    testlearnReportTags::Location
+    TEMP::RemoveFocusList
+    TEMP::Message
     TEMP::ksection
     testlearn::kcsection
     testlearn::filterFind
@@ -3009,6 +3816,7 @@ Scripts used in this script
 
 Layouts used in this script
 
+    TEMP
     reportTagDiscovery
     learn1
     tableTest
@@ -3031,11 +3839,27 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    setupTestItem
+    setupTestItemUNUSEDfeatures
+    testMenuTestItemEdit
+    testMenuTestItemMORE
+
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
     #
     #If there are no tests, then stop this script as there
     #are no test to create things for.
@@ -3056,47 +3880,123 @@ Script Steps
     Set Variable [ $group; Value:ruleTagMenuTestGroups::_Lgroup ]
     Set Variable [ $groupName; Value:If ( Char ( ruleTagMenuTestGroups::name ) ≤ 20 ; ruleTagMenuTestGroups::name ; Left ( ruleTagMenuTestGroups::name ; 20 ) & "..." ) ]
     Set Variable [ $testItemName; Value:If ( Char ( tagMenus::tag ) ≤ 20 ; tagMenus::tag ; Left ( tagMenus::tag ; 20 ) & "..." ) ]
+    Refresh Window
     #
-    #find and show all test records that might be using
-    #this item.
-    New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+    #BEGIN: LEGACY STRATEGY for finding test results
+    #in use that did not provide enough information.
+    // #find and show all test records that might be using
+    // #this item.
+    // New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+    // Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    // Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+    // Set Error Capture [ On ]
+    // Allow User Abort [ Off ]
+    // Enter Find Mode [ ]
+    // Set Field [ testlearn::kctestItem; $delete ]
+    // Perform Find [ ]
+    // #
+    // Sort Records [ Specified Sort Order: testlearn::kreportNumber; ascending ] [ Restore; No dialog ]
+    // Go to Record/Request/Page [ First ]
+    // #
+    // #Check if test item is in use by any test result records.
+    // #Also capture how many results there are using
+    // #item, and what general inquiries use this specifc inquiry.
+    // Loop
+    // Set Variable [ $number; Value:1 ]
+    // Loop
+    // If [ FilterValues ( GetValue ( testlearn::kctestItem ; $number ) ; $delete & "¶" ) = $delete & ¶ ]
+    // Set Variable [ $addToInUse; Value:$inUse ]
+    // Set Variable [ $inUse; Value:1 + $addToInUse ]
+    // Set Variable [ $number; Value:"exit" ]
+    // Set Variable [ $setNumberOfReports; Value:Case ( $report = "" ; 1 ; $report = testlearn::kreportNumber ; 1 ; $report ≠ testlearn::kreportNumber and Filter ($report ; testlearn::kreportNumber ) ≠ testlearn::kreportNumber ; $numberOfReports + 1 ; Filter ($report ; testlearn::kreportNumber ) = testlearn::kreportNumber ; $numberOfReports ; "error" ) ]
+    // Set Variable [ $numberOfReports; Value:$setNumberOfReports ]
+    // Set Variable [ $setReportNumber; Value:Case ( $report = "" ; testlearn::kreportNumber ; $report = testlearn::kreportNumber ; testlearn::kreportNumber ; $report ≠ testlearn::kreportNumber and Filter ($report ; testlearn::kreportNumber ) ≠ testlearn::kreportNumber ; $report & ", " & testlearn::kreportNumber ; testlearn::kreportNumber = Filter ($report ; testlearn::kreportNumber ) ; $report ; "error" ) ]
+    // Set Variable [ $report; Value:$setReportNumber ]
+    // End If
+    // #
+    // #If number was set to exit or if no keys exist, then
+    // #exit loop.
+    // Exit Loop If [ GetValue ( testlearn::kctestItem ; $number ) = "" ]
+    // #
+    // #If variable looked at did not match then raise the number
+    // #to view the next variable.
+    // Set Variable [ $add; Value:$number ]
+    // Set Variable [ $number; Value:$add + 1 ]
+    // End Loop
+    // Go to Record/Request/Page [ Next; Exit after last ]
+    // End Loop
+    // Set Variable [ $report; Value:Case ( Filter ( Right ( $report ; 3 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 2 ; 1 ; " and" ) ; Filter ( Right ( $report ; 4 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 3 ; 1 ; " and" ) ; Filter ( Right ( $report ; 5 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 4 ; 1 ; " and" ) ; $report ) ]
+    // Set Variable [ $$stopLoadTestRecord ]
+    // Close Window [ Current Window ]
+    // #
+    // #If in use the stop script.
+    // If [ $inUse ≠ "" ]
+    // Set Variable [ $cannotDelete; Value:$delete ]
+    // Refresh Window
+    // Show Custom Dialog [ Message: If ( $inUse = 1 ; "This specific inquiry is used as a check-off-the-list item for 1 test result in test " & $report & " in the test module. Uncheck it from this test result to delete it." ; "This specific inquiry is used as a check-off-the-list item for " & $inUse & " test results" & If ( $numberOfReports = 1 ; " in test " ; " between tests " ) & $report & " in the test module. Uncheck it from all " & $inUse & " results to delete it." ); Buttons: “OK” ]
+    // Set Variable [ $cannotDelete ]
+    // Set Variable [ $delete ]
+    // Refresh Window
+    // Exit Script [ ]
+    // End If
+    #END: LEGACY STRATEGY for finding test results
+    #in use that did not provide enough information.
+    #
+    #
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000 ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    #
     Go to Layout [ “step4_InspectionFinding” (testlearn) ]
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
     Enter Find Mode [ ]
-    Set Field [ testlearn::ktest; $$item ]
+    Set Field [ testlearn::kctestItem; $delete ]
     Perform Find [ ]
     #
-    #Check if test item is in use by any discovery records.
+    #If this section is found to be in use, then inform
+    #user of where and prevent its deletion.
+    If [ Get (LastError) ≠ 401 ]
     Loop
-    Set Variable [ $number; Value:1 ]
-    Loop
-    If [ FilterValues ( GetValue ( testlearn::kctestItem ; $number ) ; $delete & "¶" ) = $delete & ¶ ]
-    Set Variable [ $addToInUse; Value:$inUse ]
-    Set Variable [ $inUse; Value:1 + $addToInUse ]
-    Set Variable [ $number; Value:"exit" ]
-    End If
-    #
-    #If number was set to exit or if no keys exist, then
-    #exit loop.
-    Exit Loop If [ GetValue ( testlearn::kctestItem ; $number ) = "" ]
-    #
-    #If variable looked at did not match then raise the number
-    #to view the next variable.
-    Set Variable [ $add; Value:$number ]
-    Set Variable [ $number; Value:$add + 1 ]
-    End Loop
+    Set Variable [ $useList; Value:tagTLTestSubject::tag & " | test/report " & TextColor( TextStyleAdd ( testlearn::kreportNumber; "" ) ;RGB(0;0;0)) & ¶ & "section " & TextColor( TextStyleAdd ( tagTestResultDefaultSectionName::focusName; "" ) ;RGB(0;0;0)) & ¶ & "title " & TextColor( TextStyleAdd ( testlearn::Location; "" ) ;RGB(0;0;0)) ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::RemoveFocusList; $useList ]
+    Go to Layout [ “step4_InspectionFinding” (testlearn) ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
-    Set Variable [ $$stopLoadTestRecord ]
-    Close Window [ Current Window ]
     #
-    #If in use the stop script.
-    If [ $inUse ≠ "" ]
-    Show Custom Dialog [ Message: If ( $inUse = 1 ; "Current test item use = " & $inUse & ". Uncheck this item in test module from the " & $inUse & " item using it and you will then be able to delete it." ; "Current test item use = " & $inUse & ". Uncheck this item in test module from the " & $inUse & " items using it and you will then be able to delete it." ); Buttons: “OK” ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    Show/Hide Status Area [ Lock; Hide ]
+    Show/Hide Text Ruler [ Hide ]
+    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "Before the highlighted specific inquiry can be deleted, it must unchecked " & ¶ & "(in the test module) from the test results below." ]
+    Pause/Resume Script [ Indefinitely ]
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Refresh Window
     Exit Script [ ]
+    Else
+    Close Window [ Current Window ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
     End If
+    #
+    #
     #
     #Exit any fields and then contionally format field
     #to be deleted by this script.
@@ -3181,8 +4081,13 @@ Fields used in this script
     ruleTagMenuTestGroups::_Lgroup
     ruleTagMenuTestGroups::name
     tagMenus::tag
-    testlearn::ktest
     testlearn::kctestItem
+    testlearn::kreportNumber
+    tagTLTestSubject::tag
+    tagTestResultDefaultSectionName::focusName
+    testlearn::Location
+    TEMP::RemoveFocusList
+    TEMP::Message
     tagTable::kGroupOrTest
     TEMP::sortTestItem
     ruleTagMenuGroups::order
@@ -3196,6 +4101,7 @@ Scripts used in this script
 Layouts used in this script
 
     step4_InspectionFinding
+    TEMP
     tableTag
     tableGroupTag
 
@@ -3214,11 +4120,27 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    setupTestItem
+    setupTestItemUNUSEDfeatures
+    testMenuTestItemEdit
+    testMenuTestItemMORE
+
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #This script is for creating a specific inquiry.
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
     #
     #If node is currenlty locked then stop script, inform user.
     If [ TEMP::nodeLock ≠ "" ]
@@ -3226,8 +4148,9 @@ Script Steps
     Exit Script [ ]
     End If
     #
-    #If there are no tests, then stop this script as there
-    #are no test to create things for.
+    #If there are no general test inquires, then
+    #stop this script as there are no general inquires
+    # to create specific inquires for.
     If [ TEMP::ktest = "" ]
     Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
     Exit Script [ ]
@@ -3237,7 +4160,7 @@ Script Steps
     #item group first and then a test for that group.
     #All test items belong to test item groups, not
     #tests. This allows test item groups to be added
-    #to other test's test item lists.
+    #to other test's test-item lists.
     If [ Get (FoundCount) = 0 ]
     Perform Script [ “newTestItemGroup” ]
     Exit Script [ ]
@@ -3248,7 +4171,8 @@ Script Steps
     Set Field [ tagMenus::match; "testItem" ]
     Set Field [ tagMenus::kGroupOrTest; GetNthRecord ( tagMenus::kGroupOrTest ; Get (RecordNumber) - 1 ) ]
     Set Field [ tagMenus::ksection; TEMP::ksection ]
-    Set Field [ tagMenus::tag; "item " & tagMenus::_Ltag ]
+    Set Field [ tagMenus::tag; "specific_inquiry" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::tagSpelling; "specific_inquiry" & tagMenus::_Ltag ]
     Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     Go to Field [ ]
     Go to Field [ tagMenus::tag ] [ Select/perform ]
@@ -3264,6 +4188,7 @@ Fields used in this script
     tagMenus::ksection
     tagMenus::_Ltag
     tagMenus::tag
+    tagMenus::tagSpelling
     TEMP::kdefaultNodePrimary
     tagMenus::kRecordCreatorNode
 
@@ -3293,6 +4218,18 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #This script is for moving a general inquiry to different group.
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
     #
     #If node is currenlty locked then stop script, inform user.
     If [ nodeLockTest::orderOrLock ≠ "" ]
@@ -3330,6 +4267,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    setupTestItem
+    setupTestItemUNUSEDfeatures
+    testMenuTestItemEdit
+    testMenuTestItemMORE
+
 Scripts that use this script
 
     newTestGroup
@@ -3339,6 +4281,17 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #This script is for creating a specific inquiry group.
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
     #
     #If node is currenlty locked then stop script, inform user.
     If [ TEMP::nodeLock ≠ "" ]
@@ -3346,10 +4299,11 @@ Script Steps
     Exit Script [ ]
     End If
     #
-    #If there are no tests, then stop this script as there
-    #are no test to create things for.
+    #If there are no general test inquires, then
+    #stop this script as there are no general inquires
+    # to create specific inquires for.
     If [ TEMP::ktest = "" ]
-    Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "To create a specific inquiry there must be general test inquiry to assign it to."; Buttons: “OK” ]
     Exit Script [ ]
     End If
     #
@@ -3358,30 +4312,44 @@ Script Steps
     New Record/Request
     Set Field [ groupTest::ksection; TEMP::ksection ]
     #
-    #Each test-item group must have a unique name and
-    #the nameSpelling field is used when the user
+    #BEGIN !!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #READ CAREFULLY!!! nameSpelling field used differently!!!
+    #Each general-test-inquiry group must have a unique name and
+    #the defaultSectionInfo field is used when the user
     #changes the name to a name already in use at
-    #which point the nameSpelling name can revert
+    #which point the defaultSectionInfo name can revert
     #the user back to the former name (as the name
     #field contains the duplicate name which is not
     #allowed).
-    Set Field [ groupTest::name; "test item group " & groupTest::_Lgroup ]
+    Set Field [ groupTest::name; "specific-inquiry_group" & groupTest::_Lgroup ]
+    Set Field [ groupTest::defaultSectionInfo; "specific-inquiry_group" & groupTest::_Lgroup ]
     Set Field [ groupTest::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-    Set Field [ groupTest::nameSpelling; "testItemGroup" ]
-    Set Field [ groupTest::match; TEMP::ktest & ¶ ]
     Set Variable [ $group; Value:groupTest::_Lgroup ]
     #
-    #Create an item for this goup as all groups must
+    #
+    Set Field [ groupTest::match; TEMP::ktest & ¶ ]
+    #
+    #NEVER CHANGE!!! This is the key field for the
+    #link pulldown menu. If you decide to change
+    #it, you'll have to create a script to change it in
+    #in older library's group records which will have
+    #the spelling of the old key and thus not show
+    #up any longer once the key is changed.
+    Set Field [ groupTest::nameSpelling; "testItemGroup" ]
+    #END !!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #
+    #Create a general inquiry for this goup as all groups must
     #have at least one item. Item layout is sorted by
     #by group and then item and groups are only
     #shown as subheaders. So without an item
     #even if a group it existed it would not show up.
     Go to Layout [ original layout ]
     New Record/Request
+    Set Field [ tagMenus::tag; "specific_inquiry" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::tagSpelling; "specific_inquiry" & tagMenus::_Ltag ]
     Set Field [ tagMenus::match; "testItem" ]
     Set Field [ tagMenus::kGroupOrTest; $group ]
     Set Field [ tagMenus::ksection; TEMP::ksection ]
-    Set Field [ tagMenus::tag; "item " & tagMenus::_Ltag ]
     Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     Go to Field [ ]
     Go to Field [ tagMenus::tag ] [ Select/perform ]
@@ -3402,15 +4370,17 @@ Fields used in this script
     groupTest::ksection
     groupTest::_Lgroup
     groupTest::name
+    groupTest::defaultSectionInfo
     TEMP::kdefaultNodePrimary
     groupTest::kRecordCreatorNode
-    groupTest::nameSpelling
     groupTest::match
+    groupTest::nameSpelling
+    tagMenus::_Ltag
+    tagMenus::tag
+    tagMenus::tagSpelling
     tagMenus::match
     tagMenus::kGroupOrTest
     tagMenus::ksection
-    tagMenus::_Ltag
-    tagMenus::tag
     tagMenus::kRecordCreatorNode
     ruleTagMenuTestGroups::order
     ruleTagMenuTestGroups::_Lgroup
@@ -3482,6 +4452,18 @@ Script Definition
 Script Steps
 
     #
+    #This script is for moving a general inquiry to different group.
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
+    #
     #Stop test record load script to speed up script.
     Set Variable [ $$ID; Value:"ignore" ]
     #
@@ -3496,7 +4478,7 @@ Script Steps
     Go to Field [ ]
     #
     #Check if this is the last test in the test group.
-    New Window [ ]
+    New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000 ]
     Go to Layout [ “tableTest” (test) ]
     Enter Find Mode [ ]
     Set Field [ test::ktestGroup; $$groupOLD ]
@@ -3510,17 +4492,18 @@ Script Steps
     #the old group will be deleted unless the user
     #creates a new item for this group before moving
     #the old item.
-    Show Custom Dialog [ Title: "!"; Message: "After " & test::testName & " is moved its old group will be deleted. If you want to keep this group then move the test after creating a new test for the old group."; Buttons: “Cancel”, “move” ]
+    Show Custom Dialog [ Title: "!"; Message: "The group — " & groupTest::name & " — will be deleted if you complete this move. If you want to keep it: 1) click cancel, 2) create a new general inquiry for this group, then 3) perform the move."; Buttons: “Cancel”, “move” ]
     If [ Get ( LastMessageChoice ) = 1 ]
     Set Variable [ $deleteGroup ]
     Set Variable [ $$groupOLD ]
     Refresh Window
+    Go to Field [ ]
     Exit Script [ ]
     End If
     #
     #If the user decides to go ahead with the move,
     #first delete the old group.
-    New Window [ ]
+    New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000 ]
     #
     Go to Layout [ “tableGroupTag” (groupTest) ]
     Enter Find Mode [ ]
@@ -3547,7 +4530,7 @@ Fields used in this script
 
     test::ktestGroup
     TEMP::ktest
-    test::testName
+    groupTest::name
     groupTest::_Lgroup
     test::_Ltest
 
@@ -3613,7 +4596,7 @@ Custom menu set used by this script
 
 
 test
-	Parent Folder: [test]	Next Script: [testInfoOpenTextNewWindow]
+	Parent Folder: [test]	Next Script: [(un)linkTestItemGroupToTestItemList DELETE]
 Script Name	(un)linkTestItemGroupToTestItemList
 Run script with full access privileges	Off
 Include In Menu	No
@@ -3624,9 +4607,27 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
+    #
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
     Go to Field [ ]
+    #
+    #
+    If [ nodeLockTestTagGroup::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTagMenus::tag & " -- and enter the password to unlock it."; Buttons: “OK” ]
+    Exit Script [ ]
+    End If
     #
     #Exit script if any of the current groups test items
     #are in use. ( At a later date, improve this script
@@ -3638,8 +4639,17 @@ Script Steps
     #any item in this group.
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $group; Value:ruleTagMenuTestGroups::_Lgroup ]
-    New Window [ ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #Capture group key to be linked to or unlinked
+    #from the link pulldown selection the user just made.
+    Set Variable [ $group; Value:addTestItemGroup::addTestItemGroup ]
+    Set Variable [ $groupHighlight; Value:addTestItemGroup::addTestItemGroup ]
+    Set Field [ addTestItemGroup::addTestItemGroup; "" ]
+    // New Window [ Name: "Test Results"; Height: 1; Width: 1; Top: -10000; Left: -10000 ]
+    New Window [ Name: "Test Results" ]
     Enter Find Mode [ ]
     Set Field [ ruleTagMenuTestGroups::_Lgroup; $group ]
     Perform Find [ ]
@@ -3653,31 +4663,47 @@ Script Steps
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
     #
-    #Check each test item against each test discovery record
-    #for this test item.
+    #Check each specific inquiry in its group to
+    #see if any are being used as check-of-the-
+    #list items for the selected general inquiry in
+    #the Setup window.
     Go to Layout [ “step4_InspectionFinding” (testlearn) ]
     Enter Find Mode [ ]
-    Set Field [ testlearn::ktest; $$item ]
+    Set Field [ testlearn::ktest; TEMP::ktest ]
     Perform Find [ ]
+    #
     Go to Record/Request/Page [ First ]
+    #
+    #
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    Go to Layout [ “step4_InspectionFinding” (testlearn) ]
     #
     #The first loop checks for each test item.
     Set Variable [ $groupNumber; Value:1 ]
     #
-    #
-    #The first loop checks for each test item.
+    #The first loop checks specific inquiry for use
+    #by the general inquiry record.
     Loop
     Set Variable [ $item; Value:GetValue ( $check ; $groupNumber ) ]
     #
-    #Second loop checks the selected test item against each
-    #key in each discovery record's test item keychain.
+    #Second loop checks the selected specific inquiry
+    #against each key in each test-result record's
+    #specific inquiry keychain.
     Loop
     Set Variable [ $number; Value:1 ]
     Loop
     If [ FilterValues ( GetValue ( testlearn::kctestItem ; $number ) ; $item & ¶ ) = $item & ¶ ]
+    #
     Set Variable [ $addToInUse; Value:$inUse ]
     Set Variable [ $inUse; Value:$addToInUse & $item & ¶ ]
-    Set Variable [ $number; Value:"exit" ]
+    #
+    Set Variable [ $useList; Value:tagTLTestSubject::tag & " | test/report " & TextColor( TextStyleAdd ( testlearn::kreportNumber; "" ) ;RGB(0;0;0)) & ¶ & "section " & TextColor( TextStyleAdd ( tagTestResultDefaultSectionName::focusName; "" ) ;RGB(0;0;0)) & ¶ & "title " & TextColor( TextStyleAdd ( testlearn::Location; "" ) ;RGB(0;0;0)) ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::RemoveFocusList; $useList ]
+    Go to Layout [ “step4_InspectionFinding” (testlearn) ]
     End If
     #
     #If number was set to exit or if no keys exist, then
@@ -3702,28 +4728,46 @@ Script Steps
     Go to Record/Request/Page [ First ]
     End Loop
     #
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Close Window [ Current Window ]
     #
-    #If in use the stop script.
     If [ $inUse ≠ "" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
     Refresh Window
-    Show Custom Dialog [ Message: "The highlighed items are currently in use. Uncheck these items from the tests using them and then you will be able to unlink this group of items."; Buttons: “OK” ]
-    Set Variable [ $inUse ]
+    Select Window [ Name: "Test Results"; Current file ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    Show/Hide Status Area [ Lock; Hide ]
+    Show/Hide Text Ruler [ Hide ]
+    Move/Resize Window [ Name: "Test Results"; Current file; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "To unlink this specific-inquiry group, uncheck the highlighted specific inquires (in the test module) from the test results below." ]
+    Pause/Resume Script [ Indefinitely ]
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $cannotDelete ]
+    Set Variable [ $groupHighlight ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
     Refresh Window
     Exit Script [ ]
+    #
+    Else
+    Close Window [ Current Window ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    #
     End If
     #
-    #Capture group key to be linked to or unlinked
-    #from the current test-item list.
-    Set Variable [ $addTestItemGroup; Value:addTestItemGroup::addTestItemGroup ]
     #
     #Open a new window and find this test item group.
     New Window [ ]
     Go to Layout [ “tableGroupTag” (groupTest) ]
     Enter Find Mode [ ]
-    Set Field [ groupTest::_Lgroup; $addTestItemGroup ]
+    Set Field [ groupTest::_Lgroup; $group ]
     Perform Find [ ]
     #
     #Capture current list of testList keys.
@@ -3762,11 +4806,20 @@ Script Steps
 
 Fields used in this script
 
+    nodeLockTestTagGroup::orderOrLock
+    nodeLockTagMenus::tag
+    addTestItemGroup::addTestItemGroup
     ruleTagMenuTestGroups::_Lgroup
     tagMenus::_Ltag
+    TEMP::ktest
     testlearn::ktest
     testlearn::kctestItem
-    addTestItemGroup::addTestItemGroup
+    tagTLTestSubject::tag
+    testlearn::kreportNumber
+    tagTestResultDefaultSectionName::focusName
+    testlearn::Location
+    TEMP::RemoveFocusList
+    TEMP::Message
     groupTest::_Lgroup
     groupTest::match
     TEMP::ktestItemList
@@ -3778,6 +4831,7 @@ Scripts used in this script
 Layouts used in this script
 
     step4_InspectionFinding
+    TEMP
     tableGroupTag
 
 Tables used in this script
@@ -3789,11 +4843,260 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [(un)linkTestItemGroupToTestItemList]	Parent Folder: [test]	Next Script: [testCheck]
+Previous Script: [(un)linkTestItemGroupToTestItemList]	Parent Folder: [test]	Next Script: [testInfoOpenTextNewWindow]
+Script Name	(un)linkTestItemGroupToTestItemList DELETE
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
+    #
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Go to Field [ ]
+    #
+    #
+    If [ nodeLockTestTagGroup::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTagMenus::tag & " -- and enter the password to unlock it."; Buttons: “OK” ]
+    Exit Script [ ]
+    End If
+    #
+    #Exit script if any of the current groups test items
+    #are in use. ( At a later date, improve this script
+    # so it finds the specific records in use and informs
+    # user of them specficially so user can find
+    # them and know how many their are. )
+    #
+    #find and show all test records that might be using
+    #any item in this group.
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #Capture group key to be linked to or unlinked
+    #from the link pulldown selection the user just made.
+    Set Variable [ $group; Value:addTestItemGroup::addTestItemGroup ]
+    Set Variable [ $groupHighlight; Value:addTestItemGroup::addTestItemGroup ]
+    Set Field [ addTestItemGroup::addTestItemGroup; "" ]
+    // New Window [ Name: "Test Results"; Height: 1; Width: 1; Top: -10000; Left: -10000 ]
+    New Window [ Name: "Test Results" ]
+    Enter Find Mode [ ]
+    Set Field [ ruleTagMenuTestGroups::_Lgroup; $group ]
+    Perform Find [ ]
+    #
+    #Create a variable keychain of all test items that could
+    #be used.
+    Go to Record/Request/Page [ First ]
+    Loop
+    Set Variable [ $addToCheck; Value:$check ]
+    Set Variable [ $check; Value:tagMenus::_Ltag & ¶ & $addToCheck ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Check each specific inquiry in its group to
+    #see if any are being used as check-of-the-
+    #list items for the selected general inquiry in
+    #the Setup window.
+    Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktest; TEMP::ktest ]
+    Perform Find [ ]
+    #
+    Go to Record/Request/Page [ First ]
+    #
+    #
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+    #
+    #The first loop checks for each test item.
+    Set Variable [ $groupNumber; Value:1 ]
+    #
+    #The first loop checks specific inquiry for use
+    #by the general inquiry record.
+    Loop
+    Set Variable [ $item; Value:GetValue ( $check ; $groupNumber ) ]
+    #
+    #Second loop checks the selected specific inquiry
+    #against each key in each test-result record's
+    #specific inquiry keychain.
+    Loop
+    Set Variable [ $number; Value:1 ]
+    Loop
+    If [ FilterValues ( GetValue ( testlearn::kctestItem ; $number ) ; $item & ¶ ) = $item & ¶ ]
+    #
+    Set Variable [ $addToInUse; Value:$inUse ]
+    Set Variable [ $inUse; Value:$addToInUse & $item & ¶ ]
+    #
+    Set Variable [ $useList; Value:tagTLTestSubject::tag & " | test/report " & TextColor( TextStyleAdd ( testlearn::kreportNumber; "" ) ;RGB(0;0;0)) & ¶ & "section " & TextColor( TextStyleAdd ( tagTestResultDefaultSectionName::focusName; "" ) ;RGB(0;0;0)) & ¶ & "title " & TextColor( TextStyleAdd ( testlearn::Location; "" ) ;RGB(0;0;0)) ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::RemoveFocusList; $useList ]
+    Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+    End If
+    #
+    #If number was set to exit or if no keys exist, then
+    #exit loop.
+    Exit Loop If [ GetValue ( testlearn::kctestItem ; $number ) = "" ]
+    #
+    #If variable looked at did not match then raise the number
+    #to view the next variable.
+    Set Variable [ $add; Value:$number ]
+    Set Variable [ $number; Value:$add + 1 ]
+    End Loop
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #If no more items in group then exit loop.
+    Exit Loop If [ GetValue ( $check ; $groupNumber ) = "" ]
+    #
+    #If variable looked at did not match then raise the number
+    #to view the next variable.
+    Set Variable [ $addToGroup; Value:$groupNumber ]
+    Set Variable [ $groupNumber; Value:$addToGroup + 1 ]
+    Go to Record/Request/Page [ First ]
+    End Loop
+    #
+    #
+    If [ $inUse ≠ "" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    Select Window [ Name: "Test Results"; Current file ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    Show/Hide Status Area [ Lock; Hide ]
+    Show/Hide Text Ruler [ Hide ]
+    Move/Resize Window [ Name: "Test Results"; Current file; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "To unlink this specific-inquiry group, uncheck the highlighted specific inquires (in the test module) from the test results below." ]
+    Pause/Resume Script [ Indefinitely ]
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $cannotDelete ]
+    Set Variable [ $groupHighlight ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Refresh Window
+    Exit Script [ ]
+    #
+    Else
+    Close Window [ Current Window ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    #
+    End If
+    #
+    #
+    #Open a new window and find this test item group.
+    New Window [ ]
+    Go to Layout [ “tableGroupTag” (groupTest) ]
+    Enter Find Mode [ ]
+    Set Field [ groupTest::_Lgroup; $group ]
+    Perform Find [ ]
+    #
+    #Capture current list of testList keys.
+    Set Variable [ $match; Value:groupTest::match ]
+    #
+    #Remove the key from the list of test-item
+    #group keys, unless it only belongs to this list,
+    #in which case tell user that rather than
+    #unlinking it, the list needs to be deleted
+    #or linked to another test before unlinking it
+    #from the current test's list.
+    If [ TEMP::ktestItemList & "¶" = FilterValues ( $match ; TEMP::ktestItemList & "¶" ) ]
+    #
+    #Determine if test-item group belongs to more
+    #than one test.
+    If [ ValueCount ( groupTest::match ) = 1 ]
+    Close Window [ Current Window ]
+    Go to Field [ ]
+    Show Custom Dialog [ Message: "This group cannot be unlinked because it is only linked to this test-item list and unlinking it would orphan it. Option 1: delete all items in group to remove it. Option 2: link it to another test and then unlink it from this test."; Buttons: “OK” ]
+    Exit Script [ ]
+    Else If [ ValueCount ( groupTest::match ) ≠ 1 ]
+    Set Field [ groupTest::match; Substitute ( $match ; TEMP::ktestItemList & "¶" ; "" ) ]
+    Close Window [ Current Window ]
+    End If
+    #
+    #Add the key to list of test keys, if it is not currently
+    #part of this list.
+    Else If [ TEMP::ktestItemList & "¶" ≠ FilterValues ( $match ; TEMP::ktestItemList & "¶" ) ]
+    Set Field [ groupTest::match; TEMP::ktestItemList & ¶ & $match ]
+    Close Window [ Current Window ]
+    End If
+    #
+    #Show newly added group and its test items.
+    Perform Script [ “menuTestItem” ]
+    #
+
+Fields used in this script
+
+    nodeLockTestTagGroup::orderOrLock
+    nodeLockTagMenus::tag
+    addTestItemGroup::addTestItemGroup
+    ruleTagMenuTestGroups::_Lgroup
+    tagMenus::_Ltag
+    TEMP::ktest
+    testlearn::ktest
+    testlearn::kctestItem
+    tagTLTestSubject::tag
+    testlearn::kreportNumber
+    tagTestResultDefaultSectionName::focusName
+    testlearn::Location
+    TEMP::RemoveFocusList
+    TEMP::Message
+    groupTest::_Lgroup
+    groupTest::match
+    TEMP::ktestItemList
+
+Scripts used in this script
+
+    menuTestItem
+
+Layouts used in this script
+
+    step4_InspectionFinding
+    TEMP
+    tableGroupTag
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [(un)linkTestItemGroupToTestItemList DELETE]	Parent Folder: [test]	Next Script: [testCheck]
 Script Name	testInfoOpenTextNewWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    testInfo
 
 Scripts that use this script
 
@@ -4049,6 +5352,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    step4_InspectionFinding
+
 Scripts that use this script
 
     gotoTestItem
@@ -4058,10 +5363,12 @@ Script Definition
 Script Steps
 
     #
+    #
     #basic administration tasks
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    #
     #
     #create new inspection record setting all fields with neccessary key copies
     #to unlock data
@@ -4145,7 +5452,10 @@ Script Steps
     Set Field [ testlearn::kaudienceLocation; $$location ]
     Set Field [ testlearn::kcsection; $$Library ]
     Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Set Field [ testlearn::Location; $$locationName ]
+    #New test result for current test section is currently
+    #$$itemName. This variable name needs to be
+    #changed when time permits for testing to $$sectionName.
+    Set Field [ testlearn::Location; $$itemName ]
     Set Field [ testlearn::ktest; $$item ]
     Set Field [ testlearn::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     Set Field [ testlearn::RecordModifyDate; Get ( CurrentTimeStamp ) ]
@@ -4289,6 +5599,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    setupTestFocus
+
 Scripts that use this script
 
     newTestGroup
@@ -4315,9 +5627,16 @@ Script Steps
     Exit Script [ ]
     End If
     #
-    #If tag has been selected, then unlink it.
+    #If tag has been selected and is not in use,
+    #then unlink it.
+    If [ tagTestSubjectLocationNAME::inUse = "" ]
     Set Variable [ $currentfocuses; Value:test::kcfocusALL ]
     Set Field [ test::kcfocusALL; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( $currentfocuses ) ≠ ValueCount ( Substitute ( $currentfocuses ; $focus & "¶" ; "" ) ) ; Substitute ( $currentfocuses ; $focus & "¶" ; "" ) ; Substitute ( $currentfocuses ; $focus ; "" ) ) ]
+    Else
+    #
+    Show Custom Dialog [ Message: "Remove the test results from the tests using this section, and then you can unlink it from any test."; Buttons: “OK” ]
+    Exit Script [ ]
+    End If
     #
     #Reset conditional formatting variable for focuses.
     Set Variable [ $$focuses; Value:test::kcfocusALL ]
@@ -4330,6 +5649,7 @@ Fields used in this script
 
     tagLocation::_Ltag
     test::kcfocusALL
+    tagTestSubjectLocationNAME::inUse
 
 Scripts used in this script
 
@@ -4349,6 +5669,8 @@ Script Name	gotoTestItem
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    step3_InspectionItems
 
 Scripts that use this script
 
@@ -4511,6 +5833,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultTest
+    defaultTestNewFocus
+
 Scripts that use this script
 
 Script Definition
@@ -4532,6 +5857,7 @@ Script Steps
     Halt Script
     End If
     Set Field [ TEMP::kdefaultNodeTestSubject; tagTestSubjectLocation::knode ]
+    Set Field [ TEMP::DEFAULTNodeTestSubjectName; tagTestSubject::tag ]
     Set Field [ tagTestSubjectLocation::TimeStart; Get ( CurrentTime ) ]
     Set Variable [ $status; Value:tagTestSubjectLocation::inUse ]
     Set Variable [ $$timeRecord; Value:Get ( RecordNumber ) ]
@@ -4601,6 +5927,8 @@ Fields used in this script
     tagTestSubjectLocation::focusName
     tagTestSubjectLocation::knode
     TEMP::kdefaultNodeTestSubject
+    tagTestSubject::tag
+    TEMP::DEFAULTNodeTestSubjectName
     tagTestSubjectLocation::TimeStart
     tagTestSubjectLocation::inUse
     tagTestSubjectLocation::reportNumber
@@ -4750,6 +6078,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    step4_InspectionFinding
+
 Scripts that use this script
 
 Script Definition
@@ -4788,6 +6118,8 @@ Script Name	done
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    step3_InspectionItems
 
 Scripts that use this script
 
@@ -4853,6 +6185,8 @@ Script Name	delete_Evidence
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    step4_InspectionFinding
 
 Scripts that use this script
 
@@ -5149,6 +6483,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    reportTagDiscovery
+
 Scripts that use this script
 
 Script Definition
@@ -5260,6 +6596,8 @@ Script Name	itemNA
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    step3_InspectionItems
 
 Scripts that use this script
 
@@ -5603,6 +6941,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    reportTagDiscovery
+
 Scripts that use this script
 
 Script Definition
@@ -5738,6 +7078,8 @@ Script Name	reportDeleteEvidence
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    reportTagDiscovery
 
 Scripts that use this script
 
@@ -6005,6 +7347,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    reportTagDiscovery
+
 Scripts that use this script
 
 Script Definition
@@ -6097,6 +7441,9 @@ Script Name	returnToStep2
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    step3_InspectionItems
+    PrintReportEdit
 
 Scripts that use this script
 
@@ -6611,6 +7958,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultTestNewFocus
+
 Scripts that use this script
 
 Script Definition
@@ -6624,7 +7973,9 @@ Script Steps
     Go to Field [ TEMP::reportNumber ] [ Select/perform ]
     Halt Script
     Else If [ TEMP::LocationName = "" ]
-    Show Custom Dialog [ Message: "A new test focus must have a name picked from the default test focus list, which will be displayed after you click OK."; Buttons: “OK” ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    Show Custom Dialog [ Message: "Click on the test-section pulldown list (now highlighted for you) and pick a test section to add to your test."; Buttons: “OK” ]
     Go to Field [ TEMP::kfocus ] [ Select/perform ]
     Go to Object [ Object Name: "focus" ]
     Halt Script
@@ -6696,6 +8047,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultTest
+    defaultTestNewFocus
+
 Scripts that use this script
 
 Script Definition
@@ -6705,14 +8059,14 @@ Script Steps
     Halt Script
     End If
     If [ tagTestSubjectLocation::inUse = "t" ]
-    Show Custom Dialog [ Title: "!"; Message: "Deleting this set of test items is allowed after you delete all discoveries made during testing."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "Delete all test results made in this test section before deleting it. To do this, click its green test button. Click on each test item. Delete the results you find."; Buttons: “OK” ]
     Exit Script [ ]
     End If
     Set Variable [ $delete; Value:tagTestSubjectLocation::_LtestSubjectLocation ]
     Set Variable [ $location; Value:tagTestSubjectLocation::kfocus ]
     Go to Field [ ]
     Refresh Window
-    Show Custom Dialog [ Title: "!"; Message: "Delete " & tagTestSubject::tag & "'s " & "test number " & tagTestSubjectLocation::reportNumber & " of " & tagTestSubjectLocation::focusName & "?"; Buttons: “Cancel”, “Delete” ]
+    Show Custom Dialog [ Message: "Delete test section " & tagTestSubjectLocation::focusName & " for " & tagTestSubject::tag & "'s test #" & tagTestSubjectLocation::reportNumber & "?"; Buttons: “Cancel”, “Delete” ]
     If [ Get ( LastMessageChoice ) = 2 ]
     Delete Record/Request [ No dialog ]
     End If
@@ -6725,9 +8079,9 @@ Fields used in this script
     tagTestSubjectLocation::_LtestSubjectLocation
     tagTestSubjectLocation::inUse
     tagTestSubjectLocation::kfocus
+    tagTestSubjectLocation::focusName
     tagTestSubject::tag
     tagTestSubjectLocation::reportNumber
-    tagTestSubjectLocation::focusName
 
 Scripts used in this script
 
@@ -6858,6 +8212,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultTest
+    defaultTestNewFocus
+
 Scripts that use this script
 
     reportDeleteEvidence
@@ -6876,6 +8233,7 @@ Script Steps
     #
     #used for item pulldown selection on report layout
     Set Field [ TEMP::kdefaultNodeTestSubject; tagTestSubjectLocation::knode ]
+    Set Field [ TEMP::DEFAULTNodeTestSubjectName; tagTestSubject::tag ]
     Set Field [ TEMP::kabout; TEMP::kdefaultNodeTestSubject ]
     Set Variable [ $$contact; Value:TEMP::kdefaultNodeTestSubject ]
     #
@@ -6958,6 +8316,8 @@ Fields used in this script
     TEMP::kuserLocation
     tagTestSubjectLocation::knode
     TEMP::kdefaultNodeTestSubject
+    tagTestSubject::tag
+    TEMP::DEFAULTNodeTestSubjectName
     TEMP::kabout
     testlearnReportTags::gkaudienceLocation
     TEMP::LocationName
@@ -7752,6 +9112,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    PrintReportEdit
+
 Scripts that use this script
 
 Script Definition
@@ -7800,6 +9162,8 @@ Script Name	newRowOfPhotos
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    PrintReportEdit
 
 Scripts that use this script
 
@@ -7870,6 +9234,10 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    setupTestItem
+    setupTestItemUNUSEDfeatures
+    testMenuTestItemMORE
+
 Scripts that use this script
 
     newTestGroup
@@ -7932,11 +9300,24 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    setupTestFocus
+
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
     #
     #If node is currenlty locked then stop script, inform user.
     If [ TEMP::nodeLock ≠ "" ]
@@ -7953,8 +9334,10 @@ Script Steps
     #
     #Create new focus that any test in this section could be assigned to.
     New Record/Request
-    Set Field [ tagLocation::ksection; TEMP::ksection ]
     Set Field [ tagLocation::match; "focus" ]
+    Set Field [ tagLocation::ksection; TEMP::ksection ]
+    Set Field [ tagLocation::tag; "test_section" ]
+    Set Field [ tagLocation::tagSpelling; "test_section" ]
     Set Field [ tagLocation::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     Go to Field [ tagLocation::tag ]
 
@@ -7963,12 +9346,13 @@ Fields used in this script
     TEMP::nodeLock
     TEMP::DEFAULTNodePrimaryName
     TEMP::ktest
+    tagLocation::match
     TEMP::ksection
     tagLocation::ksection
-    tagLocation::match
+    tagLocation::tag
+    tagLocation::tagSpelling
     TEMP::kdefaultNodePrimary
     tagLocation::kRecordCreatorNode
-    tagLocation::tag
 
 Scripts used in this script
 
@@ -7989,11 +9373,25 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    setupTestFocus
+
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
+    #
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
     Set Variable [ $focus; Value:tagLocation::_Ltag ]
@@ -8004,6 +9402,9 @@ Script Steps
     Exit Script [ ]
     End If
     #
+    #Highlight section user is trying to delete.
+    Set Variable [ $delete; Value:tagLocation::_Ltag ]
+    #
     Go to Layout [ “TEMP” (TEMP) ]
     Show All Records
     Delete All Records [ No dialog ]
@@ -8013,9 +9414,11 @@ Script Steps
     Set Field [ tagTestSubjectLocation::kfocus; $focus ]
     Perform Find [ ]
     #
+    #If this section is found to be in use, then inform
+    #user of where and prevent its deletion.
     If [ Get (LastError) ≠ 401 ]
     Loop
-    Set Variable [ $useList; Value:"Test Subject Focus: " & TextStyleAdd ( tagTestSubjectLocation::focusName & ": report " & tagTestSubjectLocation::reportNumber; Bold ) & " " & tagTestSubject::tag & "'s " & nodeLibraryName::name ]
+    Set Variable [ $useList; Value:"test subject " & tagTestSubject::tag & ¶ & "test/report " & TextColor( TextStyleAdd ( tagTestSubjectLocation::reportNumber; "" ) ;RGB(0;0;0)) & " | section " & TextColor( TextStyleAdd ( tagTestSubjectLocation::focusName; "" ) ;RGB(0;0;0)) ]
     Go to Layout [ “TEMP” (TEMP) ]
     New Record/Request
     Set Field [ TEMP::RemoveFocusList; $useList ]
@@ -8024,7 +9427,7 @@ Script Steps
     End Loop
     #
     Go to Layout [ original layout ]
-    New Window [ Name: "!"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 4 ]
+    New Window [ Name: " "; Width: 360; Left: Get ( WindowWidth ) - 360 ]
     Go to Layout [ “TEMP” (TEMP) ]
     View As [ View as List ]
     #
@@ -8047,11 +9450,16 @@ Script Steps
     #
     Show/Hide Status Area [ Lock; Hide ]
     Show/Hide Text Ruler [ Hide ]
+    Set Field [ TEMP::Message; "Before the highlighted test section can be deleted, the test results below must be deleted from either the test or report modules." ]
     Pause/Resume Script [ Indefinitely ]
     Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Refresh Window
     Exit Script [ ]
     End If
     #
+    #If the section is not in use, then make sure
+    #user really wants to delete it.
     Go to Layout [ original layout ]
     Go to Field [ ]
     Go to Record/Request/Page [ $recordNumber ] [ No dialog ]
@@ -8060,6 +9468,7 @@ Script Steps
     Refresh Window
     Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Buttons: “Cancel”, “Delete” ]
     #
+    #If user decides to delete it then do so.
     If [ Get ( LastMessageChoice ) = 2 ]
     If [ tagLocation::_Ltag & "¶" = FilterValues ( test::kcfocusALL ; tagLocation::_Ltag & "¶" ) ]
     #
@@ -8071,6 +9480,8 @@ Script Steps
     Delete Record/Request [ No dialog ]
     #
     End If
+    #
+    #If user cancels delete, then stop the delete process.
     Set Variable [ $delete ]
     Refresh Window
     #
@@ -8080,11 +9491,11 @@ Fields used in this script
     tagLocation::_Ltag
     nodeLockTest::orderOrLock
     tagTestSubjectLocation::kfocus
-    tagTestSubjectLocation::focusName
-    tagTestSubjectLocation::reportNumber
     tagTestSubject::tag
-    nodeLibraryName::name
+    tagTestSubjectLocation::reportNumber
+    tagTestSubjectLocation::focusName
     TEMP::RemoveFocusList
+    TEMP::Message
     tagLocation::tag
     test::kcfocusALL
 
@@ -8151,6 +9562,12 @@ Script Name	gotoDefaultsOrReport
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4 Copy2
 
 Scripts that use this script
 
@@ -8464,6 +9881,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    PrintReportEdit
+
 Scripts that use this script
 
 Script Definition
@@ -8537,6 +9956,10 @@ Script Name	reportTagInfo
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    testMenuTestItem
+    reportTagItem
+    reportTagDiscovery
 
 Scripts that use this script
 
@@ -8678,6 +10101,10 @@ Script Name	reportTagDiscovery
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    reportTagItem
+    reportTagInfo
+    reportTagDiscovery
 
 Scripts that use this script
 
@@ -8884,7 +10311,7 @@ Scripts that use this script
 Script Definition
 Script Steps
 
-    If [ Get (FoundCount) = 0 and $$stopFocusLoad = "" or Get (FoundCount) ≠ 0 and $$stopFocusLoad = 1 ]
+    If [ Get (FoundCount) = 0 and $$stopFocusLoad = "" or Get (FoundCount) ≠ 0 and $$stopFocusLoad = 1 or $$stopSetReportNumber = 1 ]
     Exit Script [ ]
     End If
     Set Field [ TEMP::reportNumber; tagTestSubjectLocation::reportNumber ]
@@ -9545,6 +10972,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    pageNumbering
+
 Scripts that use this script
 
 Script Definition
@@ -9657,6 +11086,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    pageNumbering
+
 Scripts that use this script
 
 Script Definition
@@ -9690,6 +11121,8 @@ Script Name	CHUNK_insertPageNumbersforwardOnePage
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    pageNumbering
 
 Scripts that use this script
 
@@ -10003,6 +11436,37 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    referenceMenuFINDref
+    referenceFINDNK
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnTagWindowNoTags
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
+    learnFindStuffSample
+
 Scripts that use this script
 
     TgotoCitationMenu
@@ -10266,6 +11730,40 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    referenceMenuFINDref
+    referenceFINDNK
+    referenceSFINDNK
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnTagWindowNoTags
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
+
 Scripts that use this script
 
     TgotoCitationMenu
@@ -10494,6 +11992,34 @@ Script Name	menuHealth
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnTagWindowNoTags
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
 
 Scripts that use this script
 
@@ -10858,6 +12384,27 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnTagWindowNoTags
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
+
 Scripts that use this script
 
     editLearn
@@ -11002,11 +12549,18 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    setupTestFocus
+    testInfo
+    reportTagItem
+    reportTagInfo
+    reportTagDiscovery
+
 Scripts that use this script
 
     newTestGroup
     newTest
     (un)linkTestItemGroupToTestItemList
+    (un)linkTestItemGroupToTestItemList DELETE
     gotoTestItem
     evidenceDetailSpacetimeDELETE?????
     returnToSetup
@@ -11158,13 +12712,44 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnTagWindowNoTags
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
+
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #WHEN TIME PERMITS
+    #Replace all instances of 'sample' and 'theory'
+    #with the word 'brainstorm'. REQUIRES going
+    #thru DDR to insure all instances are replaced.
+    #This is not critical, but would make scripts
+    #match layout screen button 'brainstorm'.
+    #
+    #
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
+    #
     #
     #If user is in tag field and has changed spelling
     #exit this tag record, otherwise current reference record
@@ -11185,7 +12770,7 @@ Script Steps
     #
     #Clear order numbers.
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    New Window [ Height: 1; Width: 1 ]
+    New Window [ Height: 1; Width: 1; Top: -100000; Left: -100000 ]
     Go to Layout [ “learnSCRIPTloops” (testlearn) ]
     Perform Find [ Specified Find Requests: Find Records; Criteria: testlearn::orderTest: “###” ] [ Restore ]
     Loop
@@ -11251,7 +12836,10 @@ Script Steps
     #
     #Turn loadtagrecord script back on.
     Set Variable [ $$stopLoadTagRecord ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    #
+    #Sample tags can duplicate each other, so no need
+    #to check if they are any spelled the same.
+    // Perform Script [ “insureEqualityOfSpellFields” ]
     #
     #Turn loadtagrecord script back on and perform
     #loadtag... script to highlight any Learn records
@@ -11259,51 +12847,6 @@ Script Steps
     Set Variable [ $$stopLoadTagRecord ]
     Perform Script [ “loadItemRecordForSampleTagMenu” ]
     #
-    #
-    #
-    // If [ Middle ( GetValue ( $$sample ; $number ) ; 4 ; 42 ) & "¶" ≠ tagMenus::_Ltag & ¶ ]
-    // Go to Record/Request/Page [ First ]
-    // Select Window [ Name: "Learn"; Current file ]
-    // #
-    // #If sort by order number is on then sort by
-    // #order number.
-    // If [ TEMP::TLSampleSort = 1 ]
-    // Set Field [ TEMP::TLSampleSort; "" ]
-    // Perform Script [ “sortTLRecordsByOrderNumber” ]
-    // Else If [ TEMP::TLSampleSort = "" ]
-    // Set Field [ TEMP::TLSampleSort; 1 ]
-    // Perform Script [ “sortTLRecordsByOrderNumber” ]
-    // End If
-    // Go to Field [ ]
-    // Refresh Window
-    // Select Window [ Name: "Tag Menus"; Current file ]
-    // Exit Script [ ]
-    // End If
-    // #
-    // #Inform user of items use on both screens.
-    // Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]
-    // Set Variable [ $$tagSample; Value:tagMenus::_Ltag ]
-    // Set Variable [ $$sampleORTestID; Value:Get (RecordID) ]
-    // Refresh Window
-    // #
-    // #Just in case user was in nonTag field on this
-    // #window when user clicked a menu button on
-    // #the other window, exit all fields.
-    // Set Variable [ $$stopLoadCitation ]
-    // Select Window [ Name: "Learn"; Current file ]
-    // #
-    // #If sort by order number is on then sort by
-    // #order number.
-    // If [ TEMP::TLSampleSort = 1 ]
-    // Set Field [ TEMP::TLSampleSort; "" ]
-    // Perform Script [ “sortTLRecordsByOrderNumber” ]
-    // Else If [ TEMP::TLSampleSort = "" ]
-    // Set Field [ TEMP::TLSampleSort; 1 ]
-    // Perform Script [ “sortTLRecordsByOrderNumber” ]
-    // End If
-    // Go to Field [ ]
-    // Refresh Window
-    // Select Window [ Name: "Tag Menus"; Current file ]
 
 Fields used in this script
 
@@ -11319,13 +12862,11 @@ Fields used in this script
     ruleTagMenuGroups::name
     tagMenus::tag
     tagMenus::_Ltag
-    TEMP::TLSampleSort
 
 Scripts used in this script
 
     insureEqualityOfSpellFields
     loadItemRecordForSampleTagMenu
-    sortTLRecordsByOrderNumber
 
 Layouts used in this script
 
@@ -11347,6 +12888,14 @@ Script Name	menuCitation
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2keywordOrNode3
 
 Scripts that use this script
 
@@ -11520,6 +13069,27 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnTagWindowNoTags
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
+
 Scripts that use this script
 
     externalReferences
@@ -11689,6 +13259,14 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2keywordOrNode3
+
 Scripts that use this script
 
     TgotoCitationMenu
@@ -11827,6 +13405,14 @@ Script Name	menuPath
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2keywordOrNode3
 
 Scripts that use this script
 
@@ -12011,6 +13597,14 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2keywordOrNode3
+
 Scripts that use this script
 
     TgotoCitationMenu
@@ -12162,6 +13756,32 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenuSample
+    learnMenuStuffSample
+
 Scripts that use this script
 
     createEmptyLibrary
@@ -12174,7 +13794,6 @@ Scripts that use this script
     menuPath
     menuOrgan
     newCitationMenuItem
-    duplicateTheory
     menuTestFind
     returnToAddRecordPUTONHOLD!!!!
 
@@ -12300,11 +13919,39 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenuSample
+    learnMenuStuffSample
+
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #Exit current field.
     Go to Field [ ]
     #
     #If node is currenlty locked then stop script, inform user.
@@ -12312,6 +13959,8 @@ Script Steps
     Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
     Exit Script [ ]
     End If
+    #
+    #No tag record can be created without an author/node.
     If [ tempSetup::kdefaultNodePrimary = "" ]
     Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window OR create a node record for yourself?"; Buttons: “select”, “create” ]
     If [ Get ( LastMessageChoice ) = 1 ]
@@ -12320,6 +13969,10 @@ Script Steps
     Set Field [ tempSetup::kdefaultNodePrimary; "self" ]
     End If
     End If
+    #
+    #If no tags exist, then create a group of tags for
+    #this first tag to belong to. All tags must belong
+    #to a tag group.
     If [ Get (FoundCount) = 0 ]
     Perform Script [ “newCitationMenuGroup” ]
     Exit Script [ ]
@@ -12327,8 +13980,14 @@ Script Steps
     #
     #Stop spelling check script.
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    #
     New Record/Request
+    #
+    #Give this new tag the group ID number underwhich
+    #it was created.
     Set Field [ tagMenus::kGroupOrTest; GetNthRecord ( tagMenus::kGroupOrTest ; Get (RecordNumber) - 1 ) ]
+    #
+    #Assign the default node/author as the tags creator.
     If [ tempSetup::kdefaultNodePrimary = "self" ]
     Set Field [ TEMP::kdefaultNodePrimary; tagMenus::_Ltag ]
     Set Field [ tagMenus::tag; "MyLastName, MyFirstName" ]
@@ -12336,24 +13995,56 @@ Script Steps
     Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     End If
     #
-    #Only test focus tags require section. All other tags
-    #are linked to groups and then the groups are linked
-    #to sections.
+    #MAY NO LONGER be in use = location. Further,
+    #testing needed to see if this can be removed.
     If [ $$citationMatch = "location" ]
     Set Field [ tagMenus::ksection; TEMP::ksection ]
     End If
-    // Set Field [ tagMenus::ksection; TEMP::ksection ]
+    #
+    #Finish assigning new tag to the current menu item.
     If [ $$citationMatch = "key" ]
     Set Field [ tagMenus::match; "key" ]
     Set Field [ tagMenus::tag; "keyword " & tagMenus::_Ltag ]
-    Go to Field [ tagMenus::tag ] [ Select/perform ]
+    Go to Object [ Object Name: "tag" ]
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Exit Script [ ]
+    #
     Else If [ $$citationMatch = "node" ]
     Set Field [ tagMenus::match; "node" ]
+    #
+    #WHEN THERE IS TIME the words 'sample' and
+    #'theory' need to be replaced with 'brainstorm'.
+    Else If [ $$citationMatch = "sample" ]
+    #
+    #Tag is new so it has no learn records tagged with it.
+    #So, clear this variable.
+    Set Variable [ $$atLeastOneRecord ]
+    #
+    #Set the other three variables that would normally
+    #be set by the load tag record script.
+    Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
+    Set Field [ TEMP::kcsample; tagMenus::_Ltag ]
+    Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
+    #
+    #Refresh conditional formatting in the learn window
+    #in case the previous tag did have learn records
+    #tagged with it.
+    Select Window [ Name: "Learn"; Current file ]
+    Refresh Window
+    #
+    #Sort these learn records in case they where ordered
+    #for the previous brainstorm tag.
+    Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    #
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    Set Variable [ $$stopLoadTagRecord ]
+    Exit Script [ ]
+    #
     Else If [ $$citationMatch ≠ "key" or $$citationMatch ≠ "node" ]
     Set Field [ tagMenus::match; $$citationMatch ]
     End If
+    #
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Go to Object [ Object Name: "tag" ]
 
@@ -12369,6 +14060,9 @@ Fields used in this script
     TEMP::ksection
     tagMenus::ksection
     tagMenus::match
+    TEMP::kcsample
+    testlearn::date
+    testlearn::timestamp
 
 Scripts used in this script
 
@@ -12390,6 +14084,8 @@ Script Name	menuRefAddKeyWords
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learnMenu3Cite
 
 Scripts that use this script
 
@@ -12449,6 +14145,13 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    testInfo
+    testMenuTestItem
+    testMenuNoTag
+    reportTagItem
+    reportTagInfo
+    reportTagDiscovery
+
 Scripts that use this script
 
 Script Definition
@@ -12484,6 +14187,7 @@ Scripts that use this script
 
     menuTest
     addTagToMainRecord
+    editLearn
     loadCitation
     loadCitation OLD
 
@@ -12502,6 +14206,15 @@ Script Steps
     Set Variable [ $$tagtest; Value:test::_Ltest ]
     Set Field [ TEMP::kctest; test::_Ltest ]
     Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
+    #
+    #The next conditional formatting variable needs
+    #to be cleared in case there are no records in
+    #the learn window tagged with this tag record.
+    #It might contain a tag ID from the selecting
+    #the previous record which did have at least 1
+    #learn record tagged with it. (See the end of
+    #this script where it is actually created.)
+    Set Variable [ $$atLeastOneRecord ]
     #
     Set Variable [ $$stopLoadCitation; Value:1 ]
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
@@ -12554,6 +14267,17 @@ Script Steps
     #
     Else If [ $atLeastOneRecord = 1 ]
     #
+    #The formatting of test tagged records in
+    #the Learn window is linked to the current
+    #record in the tag window. THE ONLY WAY to
+    #know this in the Tag window (that there are
+    #tagged records in the learn window) is to
+    #make a $$ variable. This way the system will
+    #remember it is conditionally formatting learn
+    #records when the active learn record is not
+    #tagged with the current record in the tag window.
+    Set Variable [ $$atLeastOneRecord; Value:$$tagtest ]
+    #
     #The 'test' variable may have more than one
     #key in it. So we need a variable with just this
     #records keys in it to conditionally format all
@@ -12585,18 +14309,18 @@ Script Steps
     Refresh Window
     End If
     #
-    #Unlike exit script, halt scripts will halt all scripts
+    #Unlike 'exit script', 'halt script' will halt all scripts
     #currently active. So if user was on another tag
     #record and then clicked on the add tag button
-    #to for another record, this script will launch.
-    #Problem is, because the user may want to really
+    #for another record, this script will launch.
+    #Problem is, because the user may really
     #want to add this tag to the current item in the
     #Learn window, after this script runs and finds
     #zero records for example (which could happen)
     #the add to tag script will run right after it, but
     #it will fail to sort the records in the Learn window
     #by order number, which this script
-    #(loadITemRecrodForTestTagMenu) is supposed
+    #(loadITemRecrodForTestTagMenu) is supposed to
     #do everytime. The problem is a record for this
     #tag record will exist after the addtotag script has
     #run, but this script will not know that having run
@@ -12611,7 +14335,7 @@ Script Steps
     #the add to tag button a second time to add the
     #tag (the first time being when the user clicked
     #it to move the system focus to this record, which
-    #triggered this loadItem... scirpt.
+    #triggered this loadItem... script.
     Halt Script
     End If
 
@@ -12650,6 +14374,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultNode1
+
 Scripts that use this script
 
 Script Definition
@@ -12659,6 +14385,7 @@ Script Steps
     #Get key for tag that is to be added to record.
     If [ Get (LayoutName) ≠ "defaultLocation" ]
     Set Variable [ $tag; Value:tagMenus::_Ltag ]
+    Set Variable [ $TSname; Value:tagMenus::tag ]
     Else If [ Get (LayoutName) = "defaultLocation" ]
     Set Variable [ $tag; Value:tagTestSubjectLocation::knode ]
     End If
@@ -12680,14 +14407,16 @@ Script Steps
     #If test subject node is in use, then remove it.
     If [ tempSetup::kdefaultNodeTestSubject = $tag ]
     Set Field [ tempSetup::kdefaultNodeTestSubject; "" ]
+    Set Field [ tempSetup::DEFAULTNodeTestSubjectName; "" ]
     #
     #Finish removing the key.
     Set Variable [ $$testSubject ]
     #
-    #If primary node is not in use add it.
+    #If test subject node is not in use add it.
     Else If [ tempSetup::kdefaultNodeTestSubject ≠ $tag ]
     Set Field [ tempSetup::kdefaultNodeTestSubject; $tag ]
     Set Variable [ $$testSubject; Value:tempSetup::kdefaultNodeTestSubject ]
+    Set Field [ tempSetup::DEFAULTNodeTestSubjectName; $TSname ]
     #
     #Record must be committed if user decides to
     #perform a script on it right after this one or
@@ -12709,8 +14438,10 @@ Script Steps
 Fields used in this script
 
     tagMenus::_Ltag
+    tagMenus::tag
     tagTestSubjectLocation::knode
     tempSetup::kdefaultNodeTestSubject
+    tempSetup::DEFAULTNodeTestSubjectName
 
 Scripts used in this script
 
@@ -12783,6 +14514,16 @@ Script Definition
 Script Steps
 
     #
+    #WHEN TIME PERMITS change 'location' to
+    #'section' for test section. When the database
+    #was first being created it was for testing
+    #locations in a building, but as it became a general
+    #testing app, 'location' gave way to test 'section.'
+    #So change has been made on the layouts, but not
+    #yet in the script or field name which requires
+    #time for testing, going thru the DDR to find all occurances, etc.
+    #
+    #
     If [ tempSetup::kdefaultNodePrimary = "" ]
     Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
     Halt Script
@@ -12791,11 +14532,12 @@ Script Steps
     Halt Script
     End If
     #
-    #A section must be selected before locations
-    #can be assigned.
+    #A section template must be selected before new
+    #sections can be created, which are based on/duplicated
+    #from a section template.
     If [ TEMP::ksection = "" ]
     Perform Script [ “defaultSectionMenu” ]
-    Show Custom Dialog [ Message: "You must select a section prior to clicking the 'test' button. All tests belong to specific sections. "; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "You must select a section template prior to clicking the 'test' button. All test sections are created from a section template. "; Buttons: “OK” ]
     Exit Script [ ]
     End If
     #
@@ -12813,19 +14555,20 @@ Script Steps
     #Set citationMatch to color menu button with inUse color.
     Set Variable [ $$citationMatch; Value:"location" ]
     #
-    #Locations are shown are the general locations
-    #for a test. This menu will be used to create
-    #specific locations for a specific test subject.
+    #Sections shown are the template sections
+    #for a test. This tag window will be used to create
+    #specific sections from a template for test subjects.
     #So in the Setup window the system highlights
-    #the test subject for whom the locations are going
-    #to be created.
+    #the test subject for whom the sections are going
+    #to be created, and who are going to be tested.
     Select Window [ Name: "Setup"; Current file ]
     Set Variable [ $$citationitem ]
     Set Variable [ $$testSubject; Value:tempSetup::kdefaultNodeTestSubject ]
+    Set Field [ TEMP::DEFAULTNodeTestSubjectName; tagDefaultTestSubject::tag ]
     Refresh Window
     Select Window [ Name: "Tag Menus"; Current file ]
     #
-    #Find all test location records.
+    #Find all created test section records.
     Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
@@ -12847,7 +14590,7 @@ Script Steps
     #goto Tag Menus window
     Select Window [ Name: "Tag Menus"; Current file ]
     #
-    #Clear current temp field of location names in
+    #Clear current temp field of section names in
     #case user has selected a section different from
     #the one previous, and thus with name that might
     #not match those in these temp fields.
@@ -12865,7 +14608,7 @@ Script Steps
     Set Field [ TEMP::reportNumber; 1 ]
     #
     #Set temp keys to unlock pulldown lists for
-    #section locations.
+    #section templates.
     Go to Layout [ “tableGroupTag” (groupTest) ]
     Enter Find Mode [ ]
     Set Field [ groupTest::ksection; TEMP::ksection ]
@@ -12874,7 +14617,8 @@ Script Steps
     Set Field [ TEMP::locationSection; groupTest::_Lgroup ]
     #
     #Set temp keys to unlock pulldown lists for
-    #section attributes.
+    #section attributes. NOTE: I DO NOT THINK these
+    #attirbutes are in use any longer. Testing required.
     Enter Find Mode [ ]
     Set Field [ groupTest::ksection; TEMP::ksection ]
     Set Field [ groupTest::match; "attribute" ]
@@ -12890,6 +14634,8 @@ Fields used in this script
     tempSetup::kdefaultHealth
     TEMP::ksection
     tempSetup::kdefaultNodeTestSubject
+    tagDefaultTestSubject::tag
+    TEMP::DEFAULTNodeTestSubjectName
     TEMP::kdefaultNodeTestSubject
     tagTestSubjectLocation::knode
     tagTestSubjectLocation::ksection
@@ -13079,6 +14825,8 @@ Script Name	testAddTestItemTextOrKey
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    testMenuTestItem
 
 Scripts that use this script
 
@@ -13282,9 +15030,27 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #This script is for moving a general inquiry to different group.
+    #
+    #WHEN TIME PERMITS the vocabuary for scripts,
+    #variable, fields, layouts, etc. needs to be updated
+    #to reflect that a 'test' is now a 'general inquiry'
+    #and an 'item' is now a 'specific inquiry' and a 'focus'
+    #is now a test 'section', etc. A complete look at
+    #the DDR to insure all vocabulary is updated
+    #everywhere followed by testing for each
+    #update is required.
+    #
+    #
     Set Variable [ $$groupOLD ]
     Set Variable [ $$moveItem ]
     Refresh Window
+    Go to Field [ ]
+    #
+    #Halt command stops triggering of spell check
+    #and load scripts.
+    Halt Script
 
 Fields used in this script
 
@@ -13453,6 +15219,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultSections
+    defaultHealth
+    defaultTest
+    defaultTestNewFocus
+
 Scripts that use this script
 
     startDatabase
@@ -13586,6 +15357,14 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultSections
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    defaultTest
+    defaultTestNewFocus
+
 Scripts that use this script
 
 Script Definition
@@ -13691,6 +15470,13 @@ Script Name	defaultSectionMenu
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    defaultTest
+    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -13865,11 +15651,20 @@ Scripts that use this script
 
     menuSample
     newCitationMenuGroup
-    duplicateTheory
+    addTagToMainRecord
+    deleteCPPPtags
 
 Script Definition
 Script Steps
 
+    #
+    #WHEN TIME PERMITS
+    #Replace all instances of 'sample' and 'theory'
+    #with the word 'brainstorm'. REQUIRES going
+    #thru DDR to insure all instances are replaced.
+    #This is not critical, but would make scripts
+    #match layout screen button 'brainstorm'.
+    #
     #
     #Capture recordID to conditionally format current record.
     If [ $$stopLoadTagRecord ≠ 1 ]
@@ -13877,35 +15672,36 @@ Script Steps
     #
     #The 'sample' variable may have more than one
     #key in it. So we need a variable with just this
-    #records keys in it to conditionally format all
+    #record's keys in it to conditionally format all
     #learn window records tagged with it.
     Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
     Set Field [ TEMP::kcsample; tagMenus::_Ltag ]
     Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
     #
+    #The next conditional formatting variable needs
+    #to be cleared in case there are no records in
+    #the learn window tagged with this tag record.
+    #It might contain a tag ID from the selecting
+    #the previous record which did have at least 1
+    #learn record tagged with it. (See the end of
+    #this script where it is actually created.)
+    Set Variable [ $$atLeastOneRecord ]
+    #
     Set Variable [ $$stopLoadCitation; Value:1 ]
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    New Window [ ]
-    Move/Resize Window [ Current Window; Height: 3; Width: 3; Top: -1000; Left: -1000 ]
+    New Window [ Height: 3; Width: 3; Top: -1000; Left: -1000 ]
     Go to Layout [ “learn1” (testlearn) ]
+    #
     #Prepare system to stop error message about no
     #records being found as the user may not have
-    #yet tagged any learn records with this test tag.
+    #yet tagged any learn records with this brainstorm tag.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     Enter Find Mode [ ]
     Set Field [ testlearn::kcsection; TEMP::ksection ]
-    Set Field [ testlearn::filterFind; "main" ]
+    Set Field [ testlearn::kcsample; "*" & $$tagsample & ¶ ]
     Perform Find [ ]
-    Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: testlearn::kcsample: “=” ] [ Restore ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $number; Value:1 ]
-    Loop
-    Exit Loop If [ (FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 1 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 2 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 3 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 4 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 5 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 6 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 7 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 8 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 9 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 10 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ ) = 1 ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    Set Variable [ $atLeastOneRecord; Value:If ( (FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 1 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 2 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 3 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 4 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 5 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 6 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 7 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 8 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 9 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ or FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 10 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶ ) = 1 ; 1 ; "" ) ]
-    Go to Layout [ original layout ]
+    Set Variable [ $atLeastOneRecord; Value:If ( Get ( FoundCount ) = 0 ; "" ; 1) ]
     Close Window [ Current Window ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
@@ -13916,7 +15712,7 @@ Script Steps
     #time.
     #So if there are no records tagged with this test item
     #then make sure the Main window is sorted by
-    #date and not by test item sort order.
+    #date and not by brainstorm item sort order.
     If [ $atLeastOneRecord ≠ 1 ]
     #
     #The 'sample' variable may have more than one
@@ -13934,9 +15730,20 @@ Script Steps
     #
     Else If [ $atLeastOneRecord = 1 ]
     #
+    #The formatting of sample tagged records in
+    #the Learn window is linked to the current
+    #record in the tag window. THE ONLY WAY to
+    #know this in the Tag window (that there are
+    #tagged records in the learn window) is to
+    #make a $$ variable. This way the system will
+    #remember it is conditionally formatting learn
+    #records when the active learn record is not
+    #tagged with the current record in the tag window.
+    Set Variable [ $$atLeastOneRecord; Value:$$tagsample ]
+    #
     #The 'sample' variable may have more than one
     #key in it. So we need a variable with just this
-    #records keys in it to conditionally format all
+    #record's keys in it to conditionally format all
     #learn window records tagged with it.
     Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
     Set Field [ TEMP::kcsample; tagMenus::_Ltag ]
@@ -13949,7 +15756,6 @@ Script Steps
     #Just in case user was in nonTag field on this
     #window when user clicked a menu button on
     #the other window, exit all fields.
-    // If [ TEMP::TLTestSort = "" ]
     Set Field [ TEMP::TLSampleSort; "order" ]
     Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
     Select Window [ Name: "Learn"; Current file ]
@@ -13957,7 +15763,6 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Record/Request/Page [ $recordNumber ] [ No dialog ]
     Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
-    // End If
     Select Window [ Name: "Learn"; Current file ]
     Go to Field [ ]
     Refresh Window
@@ -13965,18 +15770,18 @@ Script Steps
     Refresh Window
     End If
     #
-    #Unlike exit script, halt scripts will halt all scripts
+    #Unlike 'exit script', 'halt script' will halt all scripts
     #currently active. So if user was on another tag
     #record and then clicked on the add tag button
-    #to for another record, this script will launch.
-    #Problem is, because the user may want to really
+    #for another record, this script will launch.
+    #Problem is, because the user may really
     #want to add this tag to the current item in the
     #Learn window, after this script runs and finds
     #zero records for example (which could happen)
     #the add to tag script will run right after it, but
     #it will fail to sort the records in the Learn window
     #by order number, which this script
-    #(loadITemRecrodForTestTagMenu) is supposed
+    #(loadITemRecrodForTestTagMenu) is supposed to
     #do everytime. The problem is a record for this
     #tag record will exist after the addtotag script has
     #run, but this script will not know that having run
@@ -13991,7 +15796,7 @@ Script Steps
     #the add to tag button a second time to add the
     #tag (the first time being when the user clicked
     #it to move the system focus to this record, which
-    #triggered this loadItem... scirpt.
+    #triggered this loadItem... script.
     Halt Script
     End If
 
@@ -14001,12 +15806,10 @@ Fields used in this script
     TEMP::kcsample
     TEMP::ksection
     testlearn::kcsection
-    testlearn::filterFind
     testlearn::kcsample
     testlearn::date
     testlearn::timestamp
     TEMP::TLSampleSort
-    TEMP::TLTestSort
 
 Scripts used in this script
 
@@ -14030,6 +15833,24 @@ Script Name	toggleTagMenuWindowView
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
 
 Scripts that use this script
 
@@ -14557,7 +16378,10 @@ Script Steps
     #but not the name. To put the name into the TEMP
     #global field we will need to find it which is what the
     #rest of the script does.
+    Set Variable [ $$stopSetReportNumber; Value:1 ]
+    New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
     Set Variable [ $tag; Value:TEMP::kfocus ]
+    Set Variable [ $$highlightTestSection ]
     Go to Layout [ “tableTag” (tagTable) ]
     Enter Find Mode [ ]
     Set Field [ tagTable::_Ltag; $tag ]
@@ -14565,6 +16389,8 @@ Script Steps
     Set Variable [ $name; Value:tagTable::tag ]
     Go to Layout [ original layout ]
     Set Field [ TEMP::LocationName; $name ]
+    Close Window [ Current Window ]
+    Set Variable [ $$stopSetReportNumber ]
     Go to Field [ ]
     #
     // #Tells user to select an order number not in use
@@ -14603,6 +16429,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learnMenuSample
+    learnMenuStuffSample
+
 Scripts that use this script
 
 Script Definition
@@ -14618,13 +16447,29 @@ Script Steps
     Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Buttons: “OK” ]
     Halt Script
     End If
-    If [ Get (FoundCount) = 0 ]
-    Perform Script [ “newCitationMenuGroup” ]
+    #
+    #So instead of asking the user if they really
+    #want to duplicate a tag, which makes a user
+    #seem stupid, this question performs the
+    #same function (are you sure) by asking them
+    #if they want to include a version number or
+    #not in their duplciate or cancel this script.
+    Show Custom Dialog [ Message: "Add verson number (v2, v3, v4, etc.) placeholder ' v# ' for you to help tell duplicate brainstorm tags apart? NOTE: If there is already a version# click 'no' and update the existing #."; Buttons: “yes”, “no”, “cancel” ]
+    #
+    #Exit script if user clicks cancel.
+    If [ Get ( LastMessageChoice ) = 3 ]
     Exit Script [ ]
     End If
     #
-    #Duplicate name and copyright of old theory.
-    Set Variable [ $theoryName; Value:tagMenus::tag & " " & tagMenus::_Ltag ]
+    #Either get just the current brainstorm's name
+    #or get the name plus add a v# to the end of it
+    #for the duplicate record.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Variable [ $theoryName; Value:tagMenus::tag ]
+    Else
+    Set Variable [ $theoryName; Value:tagMenus::tag & ", v?" ]
+    End If
+    #
     Set Variable [ $theoryHealth; Value:tagMenus::notesOrHealth ]
     #
     #Prepare to find old tags at bottom of script.
@@ -14639,15 +16484,18 @@ Script Steps
     Set Field [ tagMenus::tagSpelling; $theoryName ]
     Set Field [ tagMenus::notesOrHealth; $theoryHealth ]
     #
-    #Prepare to add new theory key to old theories points
-    #and evidence records.
+    #Prepare to add new brainstorm key to orignal
+    #brainstorms tagged learn records.
     Set Variable [ $theoryNew; Value:tagMenus::_Ltag ]
     Set Field [ tagMenus::match; "sample" ]
-    Go to Object [ Object Name: "tag" ]
     #
-    #Go to the other window and start the find process.
-    Select Window [ Name: "Learn"; Current file ]
+    #Open a new window to now add the key to
+    #tagged learn records.
+    New Window [ Height: 3; Width: 3; Top: -1000; Left: -1000 ]
     Set Variable [ $$stoploadCitation; Value:1 ]
+    Go to Layout [ “learn1” (testlearn) ]
+    #
+    #Find tagged learn records if there are any.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     Enter Find Mode [ ]
@@ -14655,7 +16503,8 @@ Script Steps
     Set Field [ testlearn::kcsample; "*" & $theoryOld & ¶ ]
     Perform Find [ ]
     #
-    #Add new theory key to old theories points and evidence.
+    #Add new brainstorm key to original brainstorm's
+    #tagged learn records.
     Go to Record/Request/Page [ First ]
     Loop
     Set Variable [ $allPointsEvidence; Value:testlearn::kcsample ]
@@ -14663,22 +16512,19 @@ Script Steps
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
     #
-    #Refind all section records.
-    Enter Find Mode [ ]
-    Set Field [ testlearn::kcsection; TEMP::ksection ]
-    Perform Find [ ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ testlearn::_Ltestlearn = $$citationRecord ]
-    Go to Record/Request/Page [ Next ]
-    End Loop
     Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$sample; Value:testlearn::kcsample ]
+    Close Window [ Current Window ]
     #
     #Load new theory.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Perform Script [ “loadItemRecordForSampleTagMenu” ]
-    Show Custom Dialog [ Message: "Change the tag ID number to the current verson number (v2, v3, v4, etc.) of this theory."; Buttons: “OK” ]
+    Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
+    Set Field [ TEMP::kcsample; tagMenus::_Ltag ]
+    If [ $$atLeastOneRecord ≠ "" ]
+    Set Variable [ $$atLeastOneRecord; Value:tagMenus::_Ltag ]
+    End If
+    Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
+    Refresh Window
+    Set Variable [ $$stopLoadTagRecord ]
     #
 
 Fields used in this script
@@ -14686,8 +16532,8 @@ Fields used in this script
     TEMP::nodeLock
     tempSetup::kdefaultNodePrimary
     tagMenus::tag
-    tagMenus::_Ltag
     tagMenus::notesOrHealth
+    tagMenus::_Ltag
     tagMenus::kGroupOrTest
     TEMP::kdefaultNodePrimary
     tagMenus::kRecordCreatorNode
@@ -14697,14 +16543,13 @@ Fields used in this script
     testlearn::kcsection
     testlearn::kcsample
     testlearn::orderTest
-    testlearn::_Ltestlearn
+    TEMP::kcsample
 
 Scripts used in this script
 
-    newCitationMenuGroup
-    loadItemRecordForSampleTagMenu
-
 Layouts used in this script
+
+    learn1
 
 Tables used in this script
 
@@ -14720,6 +16565,35 @@ Script Name	addTagToMainRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultHealth
+    defaultNode1
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
 
 Scripts that use this script
 
@@ -15283,7 +17157,7 @@ Script Steps
     #
     #If the system is currently sorting test records
     #by order number, then give this newly tagged
-    #record the number 100, and then sort it the records
+    #record the number 100, and then sort the records
     #so that it shows up as part of the current tag's
     #record set.
     Set Field [ testlearn::orderTest; "100" ]
@@ -15546,11 +17420,14 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Record/Request/Page [ $recordNumber ] [ No dialog ]
     #
-    #Check if any Learn records are tagged with this
-    #test item (if currently in test mode), and if
-    #not then sort Learn records by date.
-    If [ $$citationMatch = "test" and (FilterValues ( Middle ( GetValue ( $$test ; 1 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 2 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 3 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 4 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 5 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 6 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 7 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 8 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 9 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or FilterValues ( Middle ( GetValue ( $$test ; 10 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ ) = 0 ]
+    #Check if any Learn records are tagged with a
+    #test item (if currently in test mode), or a
+    #sample item (if in brainstorm mode) and sort
+    #by order and then date and time.
+    If [ $$citationMatch = "test" ]
     Perform Script [ “loadItemRecordForTestTagMenu” ]
+    Else If [ $$citationMatch = "sample" ]
+    Perform Script [ “loadItemRecordForSampleTagMenu” ]
     End If
     Select Window [ Name: "Tag Menus"; Current file ]
     Refresh Window
@@ -15626,6 +17503,7 @@ Scripts used in this script
     addORremoveTagFromCitationStep2keyword
     sortTLRecordsByOrderNumber
     loadItemRecordForTestTagMenu
+    loadItemRecordForSampleTagMenu
 
 Layouts used in this script
 
@@ -16167,6 +18045,18 @@ Script Name	addORremoveTagFromCitationStep1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode1
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
 
 Scripts that use this script
 
@@ -17256,6 +19146,52 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    ReferenceMenu2SkeywordOrNodeFind
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    setupTestItem
+    setupTestItemUNUSEDfeatures
+    testMenuTestItemEdit
+    testMenuTestItem
+    reportTagItem
+
 Scripts that use this script
 
 Script Definition
@@ -17413,18 +19349,26 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #
     #Remove focus from field so can see
     #conditional formatting.
     Go to Field [ ]
     #
     #Determine if user is looking at cite or ref.
+    #
     #NOTE: The cite idea is no longer being used. So,
-    #when here is time to properly test, these cite script
+    #when there is time to properly test, these cite script
     #steps need to be removed. END NOTE
     If [ $$citationMatch = "cite" ]
     Perform Script [ “addTagToMainRecord” ]
@@ -17637,20 +19581,24 @@ Script Definition
 Script Steps
 
     #
-    #If learn record that tag was added
-    #to belongs to more than one section, then
-    #add these other sections to the learn or reference
-    #keychain so when this learn record is viewed in
-    #those sections, the reference or learn record
-    #just added to it will show up as well.
-    #NOTE: Once a learn record is tagged with reference
-    #records -- other learn and reference records --
-    #it is prevented in add mode from acquiring new keys
-    #which would need to be passed along to these added
-    #records, and then to all of their references, and so on.
+    #
     Select Window [ Name: "Learn"; Current file ]
     If [ Get (LastError) = 0 ]
     Set Variable [ $keychain; Value:testlearn::kcsection ]
+    #
+    #
+    #BEGIN — NO LONGER USED I think. Testing required.
+    // #If learn record that tag was added
+    // #to belongs to more than one section, then
+    // #add these other sections to the learn or reference
+    // #keychain so when this learn record is viewed in
+    // #those sections, the reference or learn record
+    // #just added to it will show up as well.
+    // #NOTE: Once a learn record is tagged with reference
+    // #records -- other learn and reference records --
+    // #it is prevented in add mode from acquiring new keys
+    // #which would need to be passed along to these added
+    // #records, and then to all of their references, and so on.
     If [ testlearn::kcitation ≠ "" and $$citationMatch = "ref" ]
     Show Custom Dialog [ Message: "References can be added after the citation is removed. (Cite the source of an unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies, etc.)"; Buttons: “OK” ]
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -17664,6 +19612,9 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Halt Script
     End If
+    #END — NO LONGER USED I think. Testing required.
+    #
+    #
     Else If [ Get (LastError) ≠ 0 ]
     Select Window [ Name: "References"; Current file ]
     Set Variable [ $keychain; Value:reference::kcsection ]
@@ -17810,6 +19761,16 @@ Script Steps
     #the Learn menu button.
     If [ testlearn::_Ltestlearn & "L¶" ≠ FilterValues ( $$ref ; testlearn::_Ltestlearn & "L¶" ) ]
     #
+    #If in inventory mode, only allow items
+    #specified in learn records to be tagged as
+    #being in one container at a time.
+    If [ TEMP::InventoryLibaryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
+    Show Custom Dialog [ Message: "This item is already tagged as being in a container (highlighted green). Untag it from this container before tagging it with a new one."; Buttons: “OK” ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Halt Script
+    End If
+    #
+    #
     Set Variable [ $newRef; Value:testlearn::_Ltestlearn & "L" ]
     #
     #Set record number so can return user to it when done.
@@ -17831,7 +19792,11 @@ Script Steps
     Refresh Window
     #
     #Sort records according to users wishes.
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Sort Records [ Specified Sort Order: testlearn::Caption; ascending ] [ Restore; No dialog ]
+    Else
     Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    End If
     #
     Set Variable [ $$stopLoadTagRecord ]
     Go to Record/Request/Page [ First ]
@@ -17860,7 +19825,11 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Refresh Window
     #Sort records according to users wishes.
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Sort Records [ Specified Sort Order: testlearn::Caption; ascending ] [ Restore; No dialog ]
+    Else
     Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    End If
     #
     Set Variable [ $$stopLoadTagRecord ]
     Go to Record/Request/Page [ First ]
@@ -17874,6 +19843,8 @@ Fields used in this script
     testlearn::kcreference
     reference::lock
     testlearn::_Ltestlearn
+    TEMP::InventoryLibaryYN
+    testlearn::Caption
     testlearn::date
     testlearn::timestamp
 
@@ -19015,6 +20986,24 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+
 Scripts that use this script
 
     deleteNodeTag
@@ -19536,7 +21525,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteKeywordTag]	Parent Folder: [tagMenu]	Next Script: [deleteMHOCSPtags]
+Previous Script: [deleteKeywordTag]	Parent Folder: [tagMenu]	Next Script: [deleteCPPPtags]
 Script Name	deleteNodeTag
 Run script with full access privileges	Off
 Include In Menu	No
@@ -20191,8 +22180,291 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteNodeTag]	Parent Folder: [tagMenu]	Next Script: [addTagSectionKeysToMainRecordKeychain]
-Script Name	deleteMHOCSPtags
+Previous Script: [deleteNodeTag]	Parent Folder: [tagMenu]	Next Script: [deleteBrainstormTags]
+Script Name	deleteCPPPtags
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultHealth
+    ReferenceMenu1
+    ReferenceMenuHealth
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenuSample
+    learnMenuStuffSample
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #Delete copyright, publication, publisher,
+    #path, and brainstorm tags.
+    #
+    If [ nodeLockTagMenus::orderOrLock ≠ "" and tagMenus::match = "sample" or nodeLockTagMenus::orderOrLock ≠ "" and tagMenus::match = "health" or nodeLockTagMenus::orderOrLock ≠ "" and tagMenus::match = "test" ]
+    Show Custom Dialog [ Message: "This record is currently locked. Select the node that created it and enter the password to unlock it, then you will able to start the delete process."; Buttons: “OK” ]
+    Exit Script [ ]
+    Else If [ tagMenus::orderOrLock ≠ "" and tagMenus::match = "health" ]
+    Show Custom Dialog [ Message: "This record is locked by the system."; Buttons: “OK” ]
+    Exit Script [ ]
+    End If
+    #
+    #If the copyright being checked for deletion is in use
+    #as a default copyright then stop the script and inform
+    #the user of this fact.
+    If [ FilterValues ( TEMP::kdefaultHealth ; tagMenus::_Ltag & "¶" ) ]
+    Show Custom Dialog [ Message: "This copyright is currently selected as the default and cannot be deleted."; Buttons: “OK” ]
+    Exit Script [ ]
+    End If
+    #
+    If [ $$citationMatch = "sample" and $$atLeastOneRecord ≠ "" ]
+    Show Custom Dialog [ Message: "You can delete this brainstom tag after you untag it from each record using it (highlighted blue) in the Learn window."; Buttons: “OK” ]
+    Exit Script [ ]
+    End If
+    #
+    #Prevent all record load scripts (they slow down
+    #this script and are uneccessary).
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    #
+    #Exit field so user can see red delete
+    #formatting later on.
+    Go to Field [ ]
+    #
+    #Get all variables needed to preform script.
+    Set Variable [ $tag; Value:tagMenus::_Ltag ]
+    Set Variable [ $name; Value:tagMenus::tag ]
+    #
+    #Open a new window and look for tag in both
+    #primary and other keyword fields.
+    If [ $$citationMatch ≠ "sample" ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    New Window [ Name: "Delete Tag"; Top: -1000000; Left: -1000000 ]
+    #
+    #Find tagged Reference records.
+    Go to Layout [ “Reference” (reference) ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    #
+    #
+    If [ $$citationMatch = "medium" ]
+    Set Field [ reference::kmedium; $tag ]
+    Else If [ $$citationMatch = "path" ]
+    Set Field [ reference::kfolderpath; $tag ]
+    Else If [ $$citationMatch = "copyist" ]
+    Set Field [ reference::kcopyist; $tag ]
+    Else If [ $$citationMatch = "organ" ]
+    Set Field [ reference::korgan; $tag ]
+    Else If [ $$citationMatch = "health" ]
+    Set Field [ reference::kHealth; $tag ]
+    End If
+    #
+    #
+    Perform Find [ ]
+    Set Variable [ $refLastError; Value:Get (LastError) ]
+    #
+    #
+    #Find tagged TestLearn records.
+    If [ $$citationMatch = "health" ]
+    Go to Layout [ “learn1” (testlearn) ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    #
+    #
+    Set Field [ testlearn::kHealth; $tag ]
+    #
+    #
+    Perform Find [ ]
+    Set Variable [ $TLLastError; Value:Get (LastError) ]
+    End If
+    #
+    Set Variable [ $$stopLoadTagRecord ]
+    End If
+    #
+    #If records are found using this tag tell user
+    #that it must be removed from all records
+    #before it can be deleted.
+    If [ $TLLastError ≠ 401 and $TLLastError ≠ 400 and $$citationMatch ≠ "sample" or $refLastError ≠ 401 and $$citationMatch ≠ "sample" ]
+    Close Window [ Name: "Delete Tag"; Current file ]
+    If [ $refLastError ≠ 401 and $TLLastError ≠ 401 ]
+    Show Custom Dialog [ Message: "In use by Reference and Test Learn records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all sections if not found here."; Buttons: “OK” ]
+    Else If [ $refLastError ≠ 401 ]
+    Show Custom Dialog [ Message: "In use by Reference records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all sections if not found here."; Buttons: “OK” ]
+    Else If [ $TLLastError ≠ 401 ]
+    Show Custom Dialog [ Message: "In use by Test Learn records. Must be removed before deleting. Click the 'find' button and then the square button next to '" & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & "' to find all records using this tag. Go to all sections if not found here."; Buttons: “OK” ]
+    End If
+    Set Variable [ $delete ]
+    Refresh Window
+    Set Variable [ $$stoploadCitation ]
+    Exit Script [ ]
+    #
+    #If records are not found using this tag make
+    #sure user wants to delete it.
+    Else If [ $TLLastError = 401 and $refLastError ≠ 0 or $TLLastError ≠ 0 and $refLastError = 401 or $TLLastError = 401 and $refLastError = 401 or $$citationMatch = "sample" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Set Variable [ $delete; Value:tagMenus::_Ltag ]
+    Refresh Window
+    Set Variable [ $category; Value:tagMenus::kGroupOrTest ]
+    Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Buttons: “Cancel”, “Delete” ]
+    #
+    #If the user says yes, first make sure the record
+    #is not the last record in a category. If it is and
+    #the system deleted the record without deleting
+    #the category too, this category would become
+    #an orphan as only categories that have records
+    #attached to them show up for the user to add
+    #more records uner them. So the category
+    #record must also be deleted if this is the last
+    #record under it.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    #
+    If [ $$citationMatch = "sample" ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    New Window [ Name: "Delete Tag"; Top: -1000000; Left: -1000000 ]
+    Else
+    Select Window [ Name: "delete tag"; Current file ]
+    End If
+    #
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kGroupOrTest; $category ]
+    Perform Find [ ]
+    #
+    #If there are more records under this cateogry
+    #then the system deletes the current record without
+    #any more user input.
+    If [ Get (FoundCount) ≠ 1 ]
+    Close Window [ Name: "Delete Tag"; Current file ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Delete Record/Request [ No dialog ]
+    Set Variable [ $delete ]
+    Set Variable [ $category ]
+    Refresh Window
+    Set Variable [ $$stoploadCitation ]
+    Exit Script [ ]
+    #
+    #BUT if only one record is found user is asked
+    #if they want to delete the category too.
+    Else If [ Get (FoundCount) = 1 ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    #
+    #
+    #The records are sorted by category to show
+    #the user which category is going to be deleted.
+    If [ TEMP::sortMedium ≠ "cat" ]
+    Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order” ruleTagMenuGroups::name; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortPath ≠ "cat" ]
+    Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order” ruleTagMenuGroups::name; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortCopyist ≠ "cat" ]
+    Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order” ruleTagMenuGroups::name; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortHealth ≠ "cat" ]
+    Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order” ruleTagMenuGroups::name; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortOrgan ≠ "cat" ]
+    Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order” ruleTagMenuGroups::name; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    End If
+    #
+    #
+    Show Custom Dialog [ Title: "!"; Message: "Deleting " & Left ( $name ; 20 ) & If ( Length ( $name ) > 20 ; "..." ; "" ) & " will also delete its category as it is the last item in this category."; Buttons: “Cancel”, “Delete” ]
+    #
+    #If the user says yes, then delete both the tag and
+    #the category record.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Delete Record/Request [ No dialog ]
+    Select Window [ Name: "delete tag"; Current file ]
+    Go to Layout [ “tableGroupTag” (groupTest) ]
+    Enter Find Mode [ ]
+    Set Field [ groupTest::_Lgroup; $category ]
+    Perform Find [ ]
+    Delete Record/Request [ No dialog ]
+    End If
+    End If
+    End If
+    End If
+    #
+    #No matter what the user decides (delete or cancel)
+    #return the user to the window they where looking
+    #at and restore the sort to what the user orginally
+    #had selected.
+    Close Window [ Name: "Delete Tag"; Current file ]
+    Set Variable [ $delete ]
+    Set Variable [ $category ]
+    #
+    #
+    If [ $$citationMatch = "sample" ]
+    #
+    Else If [ TEMP::sortMedium ≠ "cat" ]
+    Sort Records [ Specified Sort Order: tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortPath ≠ "cat" ]
+    Sort Records [ Specified Sort Order: tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortCopyist ≠ "cat" ]
+    Sort Records [ Specified Sort Order: tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortHealth ≠ "cat" ]
+    Sort Records [ Specified Sort Order: tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortOrgan ≠ "cat" ]
+    Sort Records [ Specified Sort Order: tagMenus::tag; ascending ] [ Restore; No dialog ]
+    End If
+    #
+    #
+    Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    #
+    If [ $$citationMatch = "sample" ]
+    Perform Script [ “loadItemRecordForSampleTagMenu” ]
+    Else
+    Refresh Window
+    End If
+
+Fields used in this script
+
+    nodeLockTagMenus::orderOrLock
+    tagMenus::match
+    tagMenus::orderOrLock
+    TEMP::kdefaultHealth
+    tagMenus::_Ltag
+    tagMenus::tag
+    reference::kmedium
+    reference::kfolderpath
+    reference::kcopyist
+    reference::korgan
+    reference::kHealth
+    testlearn::kHealth
+    tagMenus::kGroupOrTest
+    tagTable::kGroupOrTest
+    TEMP::sortMedium
+    ruleTagMenuGroups::order
+    ruleTagMenuGroups::name
+    TEMP::sortPath
+    TEMP::sortCopyist
+    TEMP::sortHealth
+    TEMP::sortOrgan
+    groupTest::_Lgroup
+
+Scripts used in this script
+
+    loadItemRecordForSampleTagMenu
+
+Layouts used in this script
+
+    Reference
+    learn1
+    tableTag
+    tableGroupTag
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [deleteCPPPtags]	Parent Folder: [tagMenu]	Next Script: [addTagSectionKeysToMainRecordKeychain]
+Script Name	deleteBrainstormTags
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -20447,7 +22719,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteMHOCSPtags]	Parent Folder: [tagMenu]	Next Script: [CHUNKaddLinkToTag]
+Previous Script: [deleteBrainstormTags]	Parent Folder: [tagMenu]	Next Script: [CHUNKaddLinkToTag]
 Script Name	addTagSectionKeysToMainRecordKeychain
 Run script with full access privileges	Off
 Include In Menu	No
@@ -20829,6 +23101,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    testMenuTestItemMORE
+
 Scripts that use this script
 
 Script Definition
@@ -20877,6 +23151,9 @@ Script Name	gotoMoreDetailLayout
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    testMenuTestItemEdit
+    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -21164,6 +23441,59 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    ReferenceMenu2SkeywordOrNodeFind
+    referenceMenuFINDref
+    referenceFINDNK
+    referenceSFINDNK
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnTagWindowNoTags
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
+    learnMenuFINDref
+    learnMenuFINDstuffref
+    learnMenuFINDrefLearn
+    ltagFINDNK
+
 Scripts that use this script
 
     addTagToMainRecord
@@ -21421,6 +23751,12 @@ Script Steps
     End If
     Refresh Window
     Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get ( LayoutTableName ) = "testlearn" and TEMP::InventoryLibaryYN ≠ "" ]
+    Sort Records [ Specified Sort Order: testlearn::concatenateSTUFFcontainer; ascending ] [ Restore; No dialog ]
+    End If
+    If [ Get ( LayoutTableName ) = "testlearn" and TEMP::InventoryLibaryYN = "" ]
+    Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    End If
     Exit Script [ ]
     Else If [ $$findMode= 1 ]
     Set Variable [ $$findMode ]
@@ -21453,6 +23789,9 @@ Fields used in this script
     ruleTagMenuGroups::ksection
     testlearn::Caption
     testlearn::sampleCasePoint
+    testlearn::concatenateSTUFFcontainer
+    testlearn::date
+    testlearn::timestamp
 
 Scripts used in this script
 
@@ -21534,6 +23873,17 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learnFind
+    learnSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
+
 Scripts that use this script
 
 Script Definition
@@ -21549,6 +23899,12 @@ Script Steps
     Set Variable [ $tag; Value:test::_Ltest ]
     Else If [ Right ( Get (LayoutName) ; 2 ) = "tl" ]
     Set Variable [ $tag; Value:testlearn::_Ltestlearn ]
+    #
+    #After finding learn records tagged with this
+    #learn record, find this learn record too so user
+    #can see full context of linked/tagged
+    #records/thoughts/notes/etc..
+    Set Variable [ $findSelfAlso; Value:testlearn::_Ltestlearn ]
     End If
     #
     #Select the kind of tag to be found. We grab
@@ -21564,7 +23920,11 @@ Script Steps
     #did this item come. This meta tag or tag allows
     #us to make a list of ID numbers from various
     #tag menus: key, node, medium, etc.
+    If [ $findSelfAlso = "" ]
     Set Variable [ $menu; Value:Left ( $$citationMatch ; 1 ) ]
+    Else
+    Set Variable [ $menu; Value:"L" ]
+    End If
     #
     #Get the name of the tag for error message
     #at bottom of this script if needed.
@@ -21601,7 +23961,7 @@ Script Steps
     Set Field [ testlearn::kmedium; $tag ]
     Else If [ $menu = "h" ]
     Set Field [ testlearn::kHealth; $tag ]
-    Else If [ $menu = "r" ]
+    Else If [ $menu = "r" or $menu = "L" ]
     Set Field [ testlearn::kcreference; $tag ]
     Else If [ $menu = "c" ]
     Set Field [ testlearn::kcitation; $tag ]
@@ -21716,7 +24076,7 @@ Script Steps
     Set Field [ testlearn::kmedium; $find ]
     Else If [ $menu = "h" ]
     Set Field [ testlearn::kHealth; $find ]
-    Else If [ $menu = "r" ]
+    Else If [ $menu = "r" or $menu = "L" ]
     Set Field [ testlearn::kcreference; $find ]
     Else If [ $menu = "c" ]
     Set Field [ testlearn::kcitation; $find ]
@@ -21764,7 +24124,7 @@ Script Steps
     Set Field [ testlearn::kmedium; $find ]
     Else If [ $menu = "h" ]
     Set Field [ testlearn::kHealth; $find ]
-    Else If [ $menu = "r" ]
+    Else If [ $menu = "r" or $menu = "L" ]
     Set Field [ testlearn::kcreference; $find ]
     Else If [ $menu = "c" ]
     Set Field [ testlearn::kcitation; $find ]
@@ -21854,6 +24214,47 @@ Script Steps
     End Loop
     End If
     #
+    #After finding learn records tagged with this
+    #learn record, find this learn record too so user
+    #can see full context of linked/tagged
+    #records/thoughts/notes/etc..
+    If [ TEMP::InventoryLibaryYN = "" ]
+    If [ Filter ( $$found ; "L" ) = "L" ]
+    #
+    #Create a copy of the found list. Items will be
+    #removed from this one at a time as they are found.
+    Set Variable [ $LearnTagList; Value:$$found ]
+    Loop
+    #
+    #Get the menu item name so system will know
+    #what field to put the ID number into to find
+    #records tagged with this item.
+    Set Variable [ $menu; Value:Left ( ( GetValue ( $LearnTagList ; 1 ) ) ; 1 ) ]
+    #
+    #Get the ID number of the tag to be found.
+    #(the number 42 is a joke, essentially the number
+    #needs to be big enough to capture the full ID number
+    #which is much shorter, but overkill doesn't hurt)
+    #FYI: joke is from Hitchhiker's Guide to the Galaxy
+    Set Variable [ $find; Value:Middle ( ( GetValue ( $LearnTagList ; 1 ) ) ; 2 ; 42 ) ]
+    #
+    #Remove it from the list of tags to be found.
+    Set Variable [ $subtract; Value:$LearnTagList ]
+    Set Variable [ $LearnTagList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; "" ) ]
+    #
+    If [ $menu = "L" ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::_Ltestlearn; $find ]
+    Extend Found Set [ ]
+    End If
+    #
+    #When the list is empty stop finding stuff.
+    Exit Loop If [ ValueCount ( $LearnTagList ) = 0 ]
+    #
+    End Loop
+    End If
+    End If
+    #
     #Sort according to current sort in Main window.
     Sort Records [ ] [ No dialog ]
     #
@@ -21926,6 +24327,7 @@ Fields used in this script
     testlearn::ktest
     testlearn::kcKeywordOther
     testlearn::kNodeOther
+    TEMP::InventoryLibaryYN
 
 Scripts used in this script
 
@@ -22318,6 +24720,8 @@ Script Name	findPrimaryRef
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceMenuFind
 
 Scripts that use this script
 
@@ -23294,7 +25698,7 @@ Script Steps
 
     #
     #
-    If [ $$stopTest = 1 //or $$citationMatch = "key" //or $$citationMatch = "node" //or $$citationMatch = "health" or $$citationMatch = "path" ]
+    If [ $$stopTest = 1 //or $$citationMatch = "key" //or $$citationMatch = "node" //or $$citationMatch = "health" or $$citationMatch = "path" or tagLocation::match = "focus" and nodeLockTest::orderOrLock = "" ]
     Exit Script [ ]
     End If
     #
@@ -23450,6 +25854,8 @@ Script Steps
 
 Fields used in this script
 
+    tagLocation::match
+    nodeLockTest::orderOrLock
     ruleTagMenuGroups::name
     ruleTagMenuGroups::nameSpelling
     nodeLockTagMenus::orderOrLock
@@ -23470,10 +25876,8 @@ Fields used in this script
     groupTest::match
     test::testName
     test::testNameRevert
-    nodeLockTest::orderOrLock
     tagLocation::tag
     tagLocation::tagSpelling
-    tagLocation::match
 
 Scripts used in this script
 
@@ -23495,6 +25899,8 @@ Script Name	lockNodesRecords
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode2
 
 Scripts that use this script
 
@@ -23639,7 +26045,6 @@ Layouts that use this script
 
 Scripts that use this script
 
-    menuSample
     loadItemRecordForTestTagMenu
     loadItemRecordForSampleTagMenu
     addTagToMainRecord
@@ -23889,6 +26294,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learn2
+    learn4 Copy2
+
 Scripts that use this script
 
 Script Definition
@@ -24027,6 +26435,19 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
+
 Scripts that use this script
 
 Script Definition
@@ -24099,6 +26520,21 @@ Script Name	menuNodeFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -24179,6 +26615,22 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    ReferenceMenu2SkeywordOrNodeFind
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
+
 Scripts that use this script
 
 Script Definition
@@ -24258,6 +26710,23 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    referenceMenuFINDref
+    referenceFINDNK
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
+
 Scripts that use this script
 
 Script Definition
@@ -24328,6 +26797,19 @@ Script Name	menuTestFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -24632,6 +27114,19 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
+
 Scripts that use this script
 
 Script Definition
@@ -24724,6 +27219,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    referenceMenuFINDref
+    referenceFINDNK
+
 Scripts that use this script
 
 Script Definition
@@ -24784,6 +27284,11 @@ Script Name	menuPathFind
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    referenceMenuFINDref
+    referenceFINDNK
 
 Scripts that use this script
 
@@ -24851,6 +27356,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    referenceMenuFINDref
+    referenceFINDNK
+
 Scripts that use this script
 
 Script Definition
@@ -24911,6 +27421,15 @@ Script Name	findReferernce
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    Reference
+    ReferenceStuff
+    ReferenceAddToTag
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4 Copy2
 
 Scripts that use this script
 
@@ -25056,6 +27575,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferencePictureWindow
+    LearnPictureWindow
+    reportPictureWindow
+    ReferencePictureWindow Copy
+
 Scripts that use this script
 
 Script Definition
@@ -25153,6 +27677,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferencePictureWindow
+    LearnPictureWindow
+    reportPictureWindow
+    ReferencePictureWindow Copy
+
 Scripts that use this script
 
 Script Definition
@@ -25223,6 +27752,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferencePictureWindow
+    LearnPictureWindow
+    reportPictureWindow
+    ReferencePictureWindow Copy
+
 Scripts that use this script
 
 Script Definition
@@ -25262,6 +27796,8 @@ Script Name	clearpicture1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    PrintReportEdit
 
 Scripts that use this script
 
@@ -25374,6 +27910,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    PrintReportEdit
+
 Scripts that use this script
 
 Script Definition
@@ -25411,6 +27949,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    PrintReportEdit
+
 Scripts that use this script
 
 Script Definition
@@ -25447,6 +27987,8 @@ Script Name	clearpicture4
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    PrintReportEdit
 
 Scripts that use this script
 
@@ -25559,6 +28101,37 @@ Script Name	addLinksPicturesToTagsMode
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    ReferenceMenuHealth
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2SkeywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    ReferenceAddToTag
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    setupTestItemUNUSEDfeatures
+    testMenuTestItemEdit
+    testMenuTestItemMORE
 
 Scripts that use this script
 
@@ -26377,6 +28950,44 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultSetup
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    Reference
+    ReferenceStuff
+    ReferenceEDIT
+    ReferenceEDITstuff
+    ReferenceMenuHealth
+    ReferenceMenu3Cite
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceAddToTag
+    learn2
+    learn3
+    learn4
+    learn4EDIT
+    learn4EDITstuff
+    learn4 Copy2
+    LearnTextWindowLocked
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
+    testInfo
+    reportTagDiscovery
+    defaultSetup Copy
+
 Scripts that use this script
 
 Script Definition
@@ -26984,6 +29595,16 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultNode3
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK4
+    ltagNKs4
+
 Scripts that use this script
 
 Script Definition
@@ -27123,6 +29744,16 @@ Script Name	showReferencePicture2
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode3
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK4
+    ltagNKs4
 
 Scripts that use this script
 
@@ -27271,6 +29902,16 @@ Script Name	showReferencePicture3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode3
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK4
+    ltagNKs4
 
 Scripts that use this script
 
@@ -27583,6 +30224,14 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    Reference
+    ReferenceStuff
+    ReferenceAddToTag
+    learnMenu3Cite
+    learnMenu4RefCite
+    testInfo
+    testInfoText
+
 Scripts that use this script
 
 Script Definition
@@ -27800,6 +30449,12 @@ Script Name	deleteLearnMainRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4 Copy2
 
 Scripts that use this script
 
@@ -28263,6 +30918,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    testInfo
+    reportTagInfo
+
 Scripts that use this script
 
 Script Definition
@@ -28327,6 +30985,9 @@ Script Steps
     #
     #Set return variable for tag.
     Set Variable [ $$testTagRecord; Value:testlearnReportTags::_Ltestlearn ]
+    If [ $$testTagRecord = "" ]
+    Set Variable [ $$testTagRecord; Value:"blank" ]
+    End If
     #
     #Set return variable for Test item.
     Set Variable [ $$returnItem; Value:TEMP::ktest ]
@@ -28360,21 +31021,39 @@ Script Steps
     #Go to selected learn record.
     Go to Record/Request/Page [ First ]
     Loop
-    Exit Loop If [ testlearn::_Ltestlearn = $$testTagRecord ]
+    Exit Loop If [ testlearn::_Ltestlearn = $$testTagRecord or $$testTagRecord = "blank" ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
     Set Variable [ $$stopLoadCitation ]
+    Perform Script [ “loadCitation” ]
     #
     #Go to keyword menu in Tag Menus window.
     Select Window [ Name: "Tag Menus"; Current file ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    #
+    #Goto correct layout.
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ “learnTest” (test) ]
+    Else If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “learnSTest” (test) ]
+    End If
     If [ $$returnItem ≠ "" ]
-    Perform Script [ “menuTest” ]
+    // Perform Script [ “menuTest” ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ test::ksection; TEMP::ksection ]
+    Perform Find [ ]
+    Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order” groupTest::name; ascending tagMenus::orderOrLock; based on value list: “order” test::order; ascending test::testName; ascending ] [ Restore; No dialog ]
+    Loop
+    Exit Loop If [ test::_Ltest = $$item ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    Set Variable [ $$stopLoadTagRecord ]
+    Perform Script [ “loadItemRecordForTestTagMenu” ]
     Else If [ ]
     Perform Script [ “menuKey” ]
     End If
-    Select Window [ Name: "Learn"; Current file ]
-    Perform Script [ “loadCitation” ]
     #
     End If
     #
@@ -28392,11 +31071,20 @@ Fields used in this script
     testlearn::date
     testlearn::timestamp
     testlearn::_Ltestlearn
+    TEMP::InventoryLibaryYN
+    test::ksection
+    groupTest::order
+    groupTest::name
+    tagMenus::orderOrLock
+    test::order
+    test::testName
+    test::_Ltest
 
 Scripts used in this script
 
     menuTest
     loadCitation
+    loadItemRecordForTestTagMenu
     menuKey
 
 Layouts used in this script
@@ -28404,6 +31092,8 @@ Layouts used in this script
     learn1
     <Missing Layout>
     ltagNK2
+    learnTest
+    learnSTest
 
 Tables used in this script
 
@@ -28419,6 +31109,12 @@ Script Name	editTestLearn
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4 Copy2
 
 Scripts that use this script
 
@@ -28456,7 +31152,11 @@ Script Steps
     Set Variable [ $$testLearnLayoutName; Value:Get (LayoutName) ]
     #
     #Go to edit layout for this record.
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “learn4EDITstuff” (testlearn) ]
+    Else
     Go to Layout [ “learn4EDIT” (testlearn) ]
+    End If
     #
     #Prevent add mode.
     Set Variable [ $$stopAdd; Value:1 ]
@@ -28465,12 +31165,14 @@ Script Steps
 Fields used in this script
 
     tagTLNodePrimary::orderOrLock
+    TEMP::InventoryLibaryYN
 
 Scripts used in this script
 
 Layouts used in this script
 
     <Missing Layout>
+    learn4EDITstuff
     learn4EDIT
 
 Tables used in this script
@@ -28487,6 +31189,9 @@ Script Name	finishTestLearnEdit
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learn4EDIT
+    learn4EDITstuff
 
 Scripts that use this script
 
@@ -28523,6 +31228,12 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4 Copy2
+
 Scripts that use this script
 
 Script Definition
@@ -28540,7 +31251,18 @@ Script Steps
     Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
     Exit Script [ ]
     End If
+    #
+    #Give user duplicate record options.
+    Show Custom Dialog [ Message: "Just duplicate current record?" & ¶ & "OR" & ¶ & "Duplicate and create reference (link) to the orginal record?"; Buttons: “D”, “D+Link”, “cancel” ]
+    #
+    #If user cancels, then exit script.
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Exit Script [ ]
+    End If
+    #
+    #If user selects option 1 or 2 gather orignal record's info.
     Set Variable [ $$stoploadCitation; Value:1 ]
+    Set Variable [ $getRecordNumberInCaseUserCancles; Value:Get ( RecordNumber ) ]
     Go to Field [ ]
     Set Variable [ $caption; Value:testlearn::Caption ]
     Set Variable [ $P; Value:testlearn::kKeywordPrimary ]
@@ -28568,23 +31290,31 @@ Script Steps
     Set Field [ testlearn::Caption; $O ]
     #
     #Filemaker has a bug that is stripping out the paragraphs
-    #if the script puts the O variable keys directly into the
-    #other word field. But put them into caption and then
+    #if the script puts the Other variable keys directly into the
+    #other word field. But put them into the caption field and then
     #from caption into the otherword key field and everything
     #is fine.
     Set Field [ testlearn::kcKeywordOther; testlearn::Caption ]
     Set Field [ testlearn::Caption; $caption ]
     Set Variable [ $$stoploadCitation ]
-    If [ testlearn::kcitation = "" ]
-    Show Custom Dialog [ Message: "Reference the duplicated record (the one with the green bar)? If yes, adds the dupliated record to the referene section of its duplicate (the record below the one with green bar)."; Buttons: “no”, “yes” ]
+    #
+    #If user selects to reference duplicate record to
+    #the original record, then add orignal's key to
+    #current list (if any) of other referenced Learn record keys
+    #that where referenced by the orginal record.
     If [ Get ( LastMessageChoice ) = 2 ]
     Set Field [ testlearn::kcreference; $referenceOriginal & ¶ & $reference ]
+    #
+    #If the user does not want to reference the orginal
+    #record, then do not add its key to any referenced
+    #Learn record keys (referenced by the orginal record).
     Else
     Set Field [ testlearn::kcreference; $reference ]
     End If
-    Else
-    Set Field [ testlearn::kcreference; $reference ]
-    End If
+    #
+    #Sort the new record to the top of window, and
+    #go to this new record, run the loadCition script,
+    #and open up the text edit window for the new record.
     Sort Records [ ] [ No dialog ]
     Set Variable [ $record; Value:Get (RecordNumber) ]
     Go to Record/Request/Page [ $record ] [ No dialog ]
@@ -28640,6 +31370,14 @@ Script Name	learnOpenTextNewWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4EDIT
+    learn4EDITstuff
+    learn4 Copy2
 
 Scripts that use this script
 
@@ -28706,6 +31444,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learnMenuStuffSampleLocations
+
 Scripts that use this script
 
 Script Definition
@@ -28736,6 +31476,12 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learn1
+    learn2
+    learn3
+    learn4
+    learnFIND
+
 Scripts that use this script
 
 Script Definition
@@ -28747,44 +31493,108 @@ Script Steps
     Set Error Capture [ On ]
     #
     #If the user clicks the find button and the system is already
-    #in find mode, capture the user's current find request
+    #in find mode, copy the user's current find request
     #and then perform the requested find.
-    #This capture is done in case nothing is found and the
-    #user is asked if they want to modify their request.
-    #The system puts in the captured request so that the
-    #user can see the failed request.
+    #If nothing is found the user is asked if they
+    #want to modify their copied request later in this script.
     If [ Get (WindowMode) = 1 ]
     Set Variable [ $caption; Value:testlearn::Caption ]
     Set Variable [ $timestamp; Value:testlearn::timestamp ]
     Perform Find [ ]
     #
-    #If the system is not in find mode when the user
-    #clicks the find button do the following.
-    Else
     #
-    #Check if the current Learn record references other
-    #Learn records.
-    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+    Else
+    #If the system is not in find mode when the user
+    #clicks the find button then do the following 2 things:
+    #
+    #1) Check if the current Learn record
+    #references other Learn records or is
+    #referenced by other Learn records.
+    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" or $$LinkedLearnRecords ≠ "" ]
     #
     #If it does reference other Learn records, ask the user
     #if they would like to find just those records, or
     #continue to the find screen.
-    Show Custom Dialog [ Message: "Find all related (highlighted) LEARN records?" & ¶ & "OR" & ¶ & "Enter your own FIND request?"; Buttons: “find”, “learn”, “cancel” ]
+    Show Custom Dialog [ Message: "Find referenced records (purple highlight)?" & ¶ & "OR" & ¶ & "Find other?"; Buttons: “other”, “purple”, “cancel” ]
     #
-    #Cancel selection, cancels the script.
+    #Exit script if user clicks cancel.
     If [ Get ( LastMessageChoice ) = 3 ]
     Exit Script [ ]
+    End If
     #
-    #If the users selects the "learn" button, then find just
-    #the referenced Learn records (in addition to the
-    #current Learn record).
-    Else If [ Get ( LastMessageChoice ) = 2 ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    #If the user wants to find just the referenced
+    #do 1 of 3 things:
     #
+    #
+    #1.1) Determine if there are A) records it is referencing
+    #and B) records referencing it.
+    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" and $$LinkedLearnRecords ≠ "" ]
+    #
+    #If both are found ask user if they want to see
+    #A records or A and B records.
+    Show Custom Dialog [ Message: "Find referenced records only?" & ¶ & "OR" & ¶ & "Find referenced + records referencing this record?"; Buttons: “Ref”, “Ref+”, “cancel” ]
+    #
+    #If button 2 is selected go to the next section
+    #after the End If below OR
+    #exit script if user clicks cancel (button 3).
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    Else If [ $$LinkedLearnRecords ≠ "" ]
+    #1.2) If there are only records referencing this record,
+    #then find these records.
+    #
+    #Find original record first.
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::_Ltestlearn; $$citation ]
+    Perform Find [ ]
+    #
+    #Now find records referencing it.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::kcreference; $$citation ]
+    Extend Found Set [ ]
+    #
+    Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    #
+    #Go to orignal record.
+    Loop
+    Exit Loop If [ testlearn::_Ltestlearn = $$citation ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Stop the script.
+    Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$findLearnLayout ]
+    Exit Script [ ]
+    #
+    #
+    Else If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+    #1.3) If there are only records referenced by this record,
+    #then find these records in this next part of the script.
+    #
+    #
+    End If
+    #
+    #
+    #Capture the current layout name to return
+    #user to it after find.
     Set Variable [ $$findLearnLayout; Value:Get (LayoutName) ]
     Set Variable [ $$stoploadCitation; Value:1 ]
     #
-    #Look thru the referenced records to create a value
-    #list of their keys.
+    #Now find the original record and the records
+    #that it references if there are any to find.
+    #
+    #Look thru the referenced learn records to
+    #create a value list of their keys. NOTE: This
+    #list will be used to find the final set of linked
+    #learn records including the original, so also
+    #caputre its key plus all the keys found in the
+    #portal of linked learn records.
     Go to Layout [ “learn4EDIT” (testlearn) ]
     Set Variable [ $findLinkedLearnRecords; Value:testlearn::_Ltestlearn ]
     Loop
@@ -28823,9 +31633,22 @@ Script Steps
     Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
     End Loop
     #
+    #Now find records referencing the original record
+    #if the user selected that option (button 2).
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::kcreference; $$citation ]
+    Extend Found Set [ ]
+    End If
+    #
     Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
-    Sort Records [ ] [ No dialog ]
     Go to Record/Request/Page [ First ]
+    #
+    #Go to orignal record.
+    Loop
+    Exit Loop If [ testlearn::_Ltestlearn = $$citation ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
     #
     End If
     #
@@ -28838,11 +31661,13 @@ Script Steps
     End If
     #
     #
-    #If the system is not in find mode and the find button
-    #is clicked then capture the current layout name
+    #2) If the system is not in find mode and the find button
+    #is clicked and there are no referenced records
+    #then capture the current layout name
     #(to return user to it after find), enter find mode,
     #go to the find layout, and await the user's find request.
     Set Variable [ $$findLearnLayout; Value:Get (LayoutName) ]
+    #
     Enter Find Mode [ ]
     Go to Layout [ “learnFIND” (testlearn) ]
     Show/Hide Status Area [ Hide ]
@@ -28850,6 +31675,7 @@ Script Steps
     Set Field [ testlearn::kcsection; TEMP::ksection ]
     Go to Field [ testlearn::Caption ]
     Pause/Resume Script [ Indefinitely ]
+    #
     Set Variable [ $caption; Value:testlearn::Caption ]
     Set Variable [ $timestamp; Value:testlearn::timestamp ]
     Perform Find [ ]
@@ -28905,8 +31731,8 @@ Fields used in this script
     testlearn::timestamp
     testlearn::kcreference
     testlearn::_Ltestlearn
-    refTestLearn::_Ltestlearn
     testlearn::date
+    refTestLearn::_Ltestlearn
     TEMP::ksection
 
 Scripts used in this script
@@ -28932,6 +31758,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceFIND
+    learnFIND
+
 Scripts that use this script
 
 Script Definition
@@ -28939,7 +31768,7 @@ Script Steps
 
     #
     #If the user decides to cancel their the find, then return
-    #to the main record window and show all records.
+    #to the main record window.
     If [ Get ( LayoutTableName ) = "reference" ]
     Go to Layout [ $$findReferenceLayout ]
     Set Variable [ $$findReferenceLayout ]
@@ -28947,17 +31776,21 @@ Script Steps
     Go to Layout [ $$findLearnLayout ]
     Set Variable [ $$findLearnLayout ]
     End If
-    Show/Hide Status Area [ Hide ]
-    Show/Hide Text Ruler [ Hide ]
-    Enter Find Mode [ ]
-    If [ Get ( LayoutTableName ) = "reference" ]
-    Set Field [ reference::kcsection; TEMP::ksection ]
-    Else
-    Set Field [ testlearn::kcsection; TEMP::ksection ]
-    End If
-    Perform Find [ ]
-    Sort Records [ ] [ No dialog ]
-    Go to Record/Request/Page [ First ]
+    Enter Browse Mode
+    #
+    #DO NOT find all records. Just show user what
+    #they where looking at before clicking find.
+    // Show/Hide Status Area [ Hide ]
+    // Show/Hide Text Ruler [ Hide ]
+    // Enter Find Mode [ ]
+    // If [ Get ( LayoutTableName ) = "reference" ]
+    // Set Field [ reference::kcsection; TEMP::ksection ]
+    // Else
+    // Set Field [ testlearn::kcsection; TEMP::ksection ]
+    // End If
+    // Perform Find [ ]
+    // Sort Records [ ] [ No dialog ]
+    // Go to Record/Request/Page [ First ]
 
 Fields used in this script
 
@@ -28985,6 +31818,12 @@ Script Name	newLearn
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4 Copy2
 
 Scripts that use this script
 
@@ -29185,6 +32024,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    Reference
+    ReferenceStuff
+
 Scripts that use this script
 
 Script Definition
@@ -29299,6 +32141,9 @@ Script Name	editReference
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    Reference
+    ReferenceStuff
 
 Scripts that use this script
 
@@ -29817,6 +32662,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    Reference
+    ReferenceStuff
+
 Scripts that use this script
 
 Script Definition
@@ -30256,6 +33104,26 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultNode2
+    defaultNode3
+    ReferenceMenu1
+    ReferenceMenuHealth
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+
 Scripts that use this script
 
 Script Definition
@@ -30325,6 +33193,16 @@ Script Name	showReference1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode3
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK4
+    ltagNKs4
 
 Scripts that use this script
 
@@ -30466,6 +33344,16 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultNode3
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK4
+    ltagNKs4
+
 Scripts that use this script
 
 Script Definition
@@ -30605,6 +33493,16 @@ Script Name	showReference3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode3
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK4
+    ltagNKs4
 
 Scripts that use this script
 
@@ -30746,6 +33644,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnFindCite
+    learnFindStuffCite
+
 Scripts that use this script
 
 Script Definition
@@ -30852,7 +33755,10 @@ Script Steps
     Perform Find [ ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Sort Records [ Specified Sort Order: testlearn::Caption; ascending testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     End If
+    Go to Record/Request/Page [ First ]
     End If
 
 Fields used in this script
@@ -30892,6 +33798,9 @@ Script Name	externalReferences
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
 
 Scripts that use this script
 
@@ -31041,6 +33950,9 @@ Script Name	duplicateReferenceRecord
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    Reference
+    ReferenceStuff
 
 Scripts that use this script
 
@@ -31405,6 +34317,10 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    Reference
+    ReferenceStuff
+    ReferenceFIND
+
 Scripts that use this script
 
 Script Definition
@@ -31757,6 +34673,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    Reference
+    ReferenceStuff
+
 Scripts that use this script
 
 Script Definition
@@ -31910,6 +34829,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceEDIT
+    ReferenceEDITstuff
+
 Scripts that use this script
 
 Script Definition
@@ -31983,6 +34905,16 @@ Script Name	editCitation
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultSections
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    defaultTest
+    defaultTestNewFocus
+    learnMenu3Cite
+    learnMenuRefStuff
 
 Scripts that use this script
 
@@ -32523,6 +35455,45 @@ Script Steps
     Set Variable [ $$stopLoadTagRecord ]
     Select Window [ Name: $windowName; Current file ]
     Refresh Window
+    #
+    #
+    #
+    #
+    #dfadsfasdfasdfasdfdasfsadfadsfsadfasdfasdfasdfasdfasdfasdfasdfasd
+    #dfadsfasdfasdfasdfdasfsadfadsfsadfasdfasdfasdfasdfasdfasdfasdfasd
+    #dfadsfasdfasdfasdfdasfsadfadsfsadfasdfasdfasdfasdfasdfasdfasdfasd
+    #dfadsfasdfasdfasdfdasfsadfadsfsadfasdfasdfasdfasdfasdfasdfasdfasd
+    #dfadsfasdfasdfasdfdasfsadfadsfsadfasdfasdfasdfasdfasdfasdfasdfasd
+    #dfadsfasdfasdfasdfdasfsadfadsfsadfasdfasdfasdfasdfasdfasdfasdfasd
+    #dfadsfasdfasdfasdfdasfsadfadsfsadfasdfasdfasdfasdfasdfasdfasdfasd
+    If [ Get ( WindowName ) = "Learn" ]
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    // New Window [ Name: "LinkedLearnRecords"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+    New Window [ Name: "LinkedLearnRecords" ]
+    #
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::kcreference; $$citation ]
+    Perform Find [ ]
+    #
+    If [ Get (LastError) = 401 ]
+    Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$LinkedLearnRecords ]
+    Close Window [ Name: "LinkedLearnRecords"; Current file ]
+    Exit Script [ ]
+    End If
+    #
+    Set Variable [ $$LinkedLearnRecords; Value:Get (FoundCount) ]
+    #
+    Set Variable [ $$stoploadCitation ]
+    Close Window [ Name: "LinkedLearnRecords"; Current file ]
+    #
+    End If
+    #
+    #
+    #
+    #
 
 Fields used in this script
 
@@ -32667,6 +35638,8 @@ Script Name	copyrightHolder
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceEDIT
 
 Scripts that use this script
 
@@ -32900,6 +35873,12 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceEDIT
+    ReferenceEDITstuff
+    LearnTextWindow
+    LearnTextWindowStuff
+    PrintReportEdit
+
 Scripts that use this script
 
 Script Definition
@@ -32979,6 +35958,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceEDIT
+    ReferenceEDITstuff
+
 Scripts that use this script
 
 Script Definition
@@ -33009,6 +35991,21 @@ Script Name	showFile2
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode2
+    defaultNode3
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
 
 Scripts that use this script
 
@@ -33069,6 +36066,21 @@ Script Name	showFile3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultNode2
+    defaultNode3
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
 
 Scripts that use this script
 
@@ -33466,6 +36478,12 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    Reference
+    ReferenceStuff
+    ReferenceAddToTag
+    testInfo
+    testInfoText
+
 Scripts that use this script
 
 Script Definition
@@ -33601,6 +36619,10 @@ Script Name	openCitationURL
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceAddToTag
+    testInfo
+    testInfoText
 
 Scripts that use this script
 
@@ -34665,6 +37687,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    Reference
+
 Scripts that use this script
 
 Script Definition
@@ -34713,6 +37737,9 @@ Script Name	backToLearnOrDefaultSetup
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    Reference
+    ReferenceStuff
 
 Scripts that use this script
 
@@ -34772,6 +37799,7 @@ Script Steps
     End If
     Enter Find Mode [ ]
     Set Field [ testlearn::kcsection; TEMP::ksection ]
+    Set Field [ testlearn::filterFind; "main" & ¶ ]
     Perform Find [ ]
     Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     Go to Record/Request/Page [ First ]
@@ -34790,7 +37818,12 @@ Script Steps
     If [ $$citeORref = "ref" ]
     Perform Script [ “menuReference” ]
     Else
-    Perform Script [ “menuRefAddKeyWords” ]
+    #
+    #NOT SURE WHY this is done, so I am disabling
+    #for now as it doesn't make sense. Further testing
+    #is required before it is deleted to determine
+    #why it was put here in the first place.
+    // Perform Script [ “menuRefAddKeyWords” ]
     End If
     #
     If [ $$citeORref = "cite" ]
@@ -34811,6 +37844,7 @@ Fields used in this script
     TEMP::layoutLmain
     TEMP::ksection
     testlearn::kcsection
+    testlearn::filterFind
     testlearn::date
     testlearn::timestamp
     testlearn::_Ltestlearn
@@ -34844,6 +37878,8 @@ Script Name	backFromSetup
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    testSetup
 
 Scripts that use this script
 
@@ -34893,6 +37929,17 @@ Script Steps
     Set Field [ TEMP::ktestItemList; "" ]
     Set Field [ TEMP::ktestItemListOLD; "" ]
     Set Field [ TEMP::ktestListtTestName; "" ]
+    #
+    #Refind all test sections and sort them.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    Enter Find Mode [ ]
+    Set Field [ tagTestSubjectLocation::ksection; TEMP::ksection ]
+    Perform Find [ ]
+    #
+    #Sort
+    Sort Records [ Specified Sort Order: tagTestSubject::tag; ascending tagTestSubjectLocation::reportNumber; ascending tagTestSubjectLocation::order; based on value list: “order” tagTestSubjectLocation::focusName; ascending ] [ Restore; No dialog ]
+    #
     Exit Script [ ]
     End If
     Perform Script [ “returnToSetup” ]
@@ -34903,6 +37950,12 @@ Fields used in this script
     TEMP::ktestItemList
     TEMP::ktestItemListOLD
     TEMP::ktestListtTestName
+    TEMP::ksection
+    tagTestSubjectLocation::ksection
+    tagTestSubject::tag
+    tagTestSubjectLocation::reportNumber
+    tagTestSubjectLocation::order
+    tagTestSubjectLocation::focusName
 
 Scripts used in this script
 
@@ -34931,6 +37984,12 @@ Script Name	toggleMainWindowView
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4 Copy2
 
 Scripts that use this script
 
@@ -35271,6 +38330,23 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultSetup
+    Reference
+    ReferenceStuff
+    ReferenceEDIT
+    ReferenceEDITstuff
+    ReferenceAddToTag
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4EDIT
+    learn4EDITstuff
+    learn4 Copy2
+    testSetup
+    step3_InspectionItems
+    step4_InspectionFinding
+
 Scripts that use this script
 
 Script Definition
@@ -35380,6 +38456,17 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferencePictureWindow
+    LearnTextWindow
+    LearnTextWindowStuff
+    LearnTextWindowLocked
+    LearnPictureWindow
+    testInfoText
+    testInfoTextLocked
+    reportPictureWindow
+    ReferencePictureWindow Copy
+    learnMenuStuffSampleLocations
+
 Scripts that use this script
 
 Script Definition
@@ -35409,6 +38496,8 @@ Script Name	closeWindowHaltScript
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    moreInfo
 
 Scripts that use this script
 
@@ -35471,6 +38560,14 @@ Script Name	learn
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultSections
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    defaultTest
+    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -35629,6 +38726,76 @@ Script Name	help
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    Reference
+    ReferenceStuff
+    ReferenceEDIT
+    ReferenceEDITstuff
+    ReferenceFIND
+    ReferenceMenuNoTags
+    ReferenceMenu1
+    ReferenceMenuFind
+    ReferenceMenu2keywordOrNodeFind
+    ReferenceMenu2SkeywordOrNodeFind
+    addMenu1
+    addMenuNodeKeyword
+    addMenu1
+    addMenuTestItem
+    learn1
+    learn2
+    learn3
+    learn4
+    learnFIND
+    learn4EDIT
+    learn4EDITstuff
+    learn4 Copy2
+    learnPreviewLayout
+    LearnTextWindow
+    LearnTextWindowStuff
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    learnMenu1
+    learnMenuHealth
+    learnMenuSHealth
+    learnMenu3Cite
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4STUFFRefCite
+    learnTagWindowNoTags
+    learnMenuSample
+    learnMenuStuffSample
+    learnTest
+    learnSTest
+    learnFind
+    learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindSTest
+    learnFindSample
+    learnFindStuffSample
+    learnFindCite
+    learnFindStuffCite
+    learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
+    testSetup
+    setupTestItem
+    setupTestItemUNUSEDfeatures
+    setupTestFocus
+    step3_InspectionItems
+    step4_InspectionFinding
+    testInfo
+    testMenuTestItem
+    PrintReportEdit
+    reportTagItem
+    reportTagInfo
+    reportTagDiscovery
 
 Scripts that use this script
 
@@ -35789,6 +38956,15 @@ Script Name	libraryHelp
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    defaultSetup
+    defaultSections
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+    defaultTest
+    defaultTestNewFocus
 
 Scripts that use this script
 
