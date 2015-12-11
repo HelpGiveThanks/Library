@@ -57,10 +57,12 @@ tagTestSubjectLocation::reportNumber; ascending
 tagTestSubjectLocation::order; based on value list: “order”
 tagTestSubjectLocation::focusName; ascending ]
 [ Restore; No dialog ]
+Go to Record/Request/Page
+[ First ]
 Scroll Window
 [ Home ]
 #
 Exit Script [ ]
 End If
 Perform Script [ “returnToSetup” ]
-December 11, ଘ౮27 10:00:21 Library.fp7 - backFromSetup -1-
+December 11, ଘ౮27 11:36:58 Library.fp7 - backFromSetup -1-
