@@ -1,7 +1,14 @@
 testScreens: testReport: deleteFocus
 #
-#WHEN TIME PERMITS for testing, change "focus"
-#to "section" everywhere it currently exists.
+#
+#WHEN TIME PERMITS the vocabuary for scripts,
+#variable, fields, layouts, etc. needs to be updated
+#to reflect that a 'test' is now a 'general inquiry'
+#and an 'item' is now a 'specific inquiry' and a 'focus'
+#is now a test 'section', etc. A complete look at
+#the DDR to insure all vocabulary is updated
+#everywhere followed by testing for each
+#update is required.
 #
 #
 Set Error Capture [ On ]
@@ -10,7 +17,8 @@ Set Variable [ $focus; Value:tagLocation::_Ltag ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 #
 If [ nodeLockTest::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "This record is currently locked. Select the node that created it and enter the password to unlock it, then you will able to start the delete process."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This record is currently locked. Select the node that created it and enter the password to
+unlock it, then you will able to start the delete process."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -47,7 +55,7 @@ Go to Record/Request/Page
 End Loop
 #
 Go to Layout [ original layout ]
-New Window [ Name: " "; Width: 350; Left: Get ( WindowWidth ) - 350 ]
+New Window [ Name: " "; Width: 360; Left: Get ( WindowWidth ) - 360 ]
 Go to Layout [ “TEMP” (TEMP) ]
 View As
 [ View as List ]
@@ -77,8 +85,12 @@ Show/Hide Status Area
 [ Lock; Hide ]
 Show/Hide Text Ruler
 [ Hide ]
+Set Field [ TEMP::Message; "Before the highlighted test section can be deleted, the test results below must be deleted from either
+the test or report modules." ]
 Pause/Resume Script [ Indefinitely ]
 Close Window [ Current Window ]
+Set Variable [ $delete ]
+Refresh Window
 Exit Script [ ]
 End If
 #
@@ -99,7 +111,8 @@ If [ tagLocation::_Ltag & "¶" = FilterValues ( test::kcfocusALL ; tagLocation::
 #
 #Remove it from the list of inUse focuses.
 Set Variable [ $focus; Value:test::kcfocusALL ]
-Set Field [ test::kcfocusALL; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
+Set Field [ test::kcfocusALL; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not
+removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( test::kcfocusALL ) ≠ ValueCount ( Substitute ( test::kcfocusALL ; tagLocation::_Ltag & "¶" ; "" ) ) ;
 Substitute ( test::kcfocusALL ; tagLocation::_Ltag & "¶" ; "" ) ;
 Substitute ( test::kcfocusALL ; tagLocation::_Ltag ; "" )
@@ -115,4 +128,4 @@ End If
 Set Variable [ $delete ]
 Refresh Window
 #
-July 10, 平成27 15:46:11 Library.fp7 - deleteFocus -1-
+December 9, ଘ౮27 21:18:12 Library.fp7 - deleteFocus -1-

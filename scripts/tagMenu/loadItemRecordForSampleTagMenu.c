@@ -1,81 +1,49 @@
 tagMenu: loadItemRecordForSampleTagMenu
 #
+#WHEN TIME PERMITS
+#Replace all instances of 'sample' and 'theory'
+#with the word 'brainstorm'. REQUIRES going
+#thru DDR to insure all instances are replaced.
+#This is not critical, but would make scripts
+#match layout screen button 'brainstorm'.
+#
+#
 #Capture recordID to conditionally format current record.
 If [ $$stopLoadTagRecord ≠ 1 ]
 Go to Field [ ]
 #
 #The 'sample' variable may have more than one
 #key in it. So we need a variable with just this
-#records keys in it to conditionally format all
+#record's keys in it to conditionally format all
 #learn window records tagged with it.
 Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
 Set Field [ TEMP::kcsample; tagMenus::_Ltag ]
 Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
 #
+#The next conditional formatting variable needs
+#to be cleared in case there are no records in
+#the learn window tagged with this tag record.
+#It might contain a tag ID from the selecting
+#the previous record which did have at least 1
+#learn record tagged with it. (See the end of
+#this script where it is actually created.)
+Set Variable [ $$atLeastOneRecord ]
+#
 Set Variable [ $$stopLoadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-New Window [ ]
-Move/Resize Window [ Current Window; Height: 3; Width: 3; Top: -1000; Left: -1000 ]
+New Window [ Height: 3; Width: 3; Top: -1000; Left: -1000 ]
 Go to Layout [ “learn1” (testlearn) ]
+#
 #Prepare system to stop error message about no
 #records being found as the user may not have
-#yet tagged any learn records with this test tag.
+#yet tagged any learn records with this brainstorm tag.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::filterFind; "main" ]
+Set Field [ testlearn::kcsample; "*" & $$tagsample & ¶ ]
 Perform Find [ ]
-Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: testlearn::kcsample: “=” ]
-[ Restore ]
-Go to Record/Request/Page
-[ First ]
-Set Variable [ $number; Value:1 ]
-Loop
-Exit Loop If [ (FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 1 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 2 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 3 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 4 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 5 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 6 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 7 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 8 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 9 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 10 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-) = 1 ]
-Go to Record/Request/Page
-[ Next; Exit after last ]
-End Loop
-Set Variable [ $atLeastOneRecord; Value:If ( (FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 1 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 2 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 3 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 4 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 5 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 6 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 7 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 8 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 9 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-or
-FilterValues ( Middle ( GetValue ( testlearn::kcsample ; 10 ) ; 4 ; 42 ) ; $$tagsample & "¶" ) = $$tagsample & ¶
-) = 1 ; 1 ; "" ) ]
-Go to Layout [ original layout ]
+Set Variable [ $atLeastOneRecord; Value:If ( Get ( FoundCount ) = 0 ; "" ; 1) ]
 Close Window [ Current Window ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
@@ -86,7 +54,7 @@ Set Variable [ $$stopLoadTagRecord ]
 #time.
 #So if there are no records tagged with this test item
 #then make sure the Main window is sorted by
-#date and not by test item sort order.
+#date and not by brainstorm item sort order.
 If [ $atLeastOneRecord ≠ 1 ]
 #
 #The 'sample' variable may have more than one
@@ -106,9 +74,20 @@ Refresh Window
 #
 Else If [ $atLeastOneRecord = 1 ]
 #
+#The formatting of sample tagged records in
+#the Learn window is linked to the current
+#record in the tag window. THE ONLY WAY to
+#know this in the Tag window (that there are
+#tagged records in the learn window) is to
+#make a $$ variable. This way the system will
+#remember it is conditionally formatting learn
+#records when the active learn record is not
+#tagged with the current record in the tag window.
+Set Variable [ $$atLeastOneRecord; Value:$$tagsample ]
+#
 #The 'sample' variable may have more than one
 #key in it. So we need a variable with just this
-#records keys in it to conditionally format all
+#record's keys in it to conditionally format all
 #learn window records tagged with it.
 Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
 Set Field [ TEMP::kcsample; tagMenus::_Ltag ]
@@ -121,18 +100,14 @@ Refresh Window
 #Just in case user was in nonTag field on this
 #window when user clicked a menu button on
 #the other window, exit all fields.
-// If [ TEMP::TLTestSort = "" ]
 Set Field [ TEMP::TLSampleSort; "order" ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "Learn"; Current file ]
-Perform Script [ “SortTLRecordsByOrderNumber” ]
+Perform Script [ “sortTLRecordsByOrderNumber” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
-January 7, 平成26 16:18:59 Imagination Quality Management.fp7 - loadItemRecordForSampleTagMenu -1-tagMenu: loadItemRecordForSampleTagMenu Go to Record/Request/Page [ $recordNumber ]
-[ No dialog ]
 Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
-// End If
 Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Refresh Window
@@ -140,18 +115,18 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 End If
 #
-#Unlike exit script, halt scripts will halt all scripts
+#Unlike 'exit script', 'halt script' will halt all scripts
 #currently active. So if user was on another tag
 #record and then clicked on the add tag button
-#to for another record, this script will launch.
-#Problem is, because the user may want to really
+#for another record, this script will launch.
+#Problem is, because the user may really
 #want to add this tag to the current item in the
 #Learn window, after this script runs and finds
 #zero records for example (which could happen)
 #the add to tag script will run right after it, but
 #it will fail to sort the records in the Learn window
 #by order number, which this script
-#(loadITemRecrodForTestTagMenu) is supposed
+#(loadITemRecrodForTestTagMenu) is supposed to
 #do everytime. The problem is a record for this
 #tag record will exist after the addtotag script has
 #run, but this script will not know that having run
@@ -166,7 +141,7 @@ End If
 #the add to tag button a second time to add the
 #tag (the first time being when the user clicked
 #it to move the system focus to this record, which
-#triggered this loadItem... scirpt.
+#triggered this loadItem... script.
 Halt Script
 End If
-January 7, 平成26 16:18:59 Imagination Quality Management.fp7 - loadItemRecordForSampleTagMenu -2-
+December 9, ଘ౮27 21:55:53 Library.fp7 - loadItemRecordForSampleTagMenu -1-

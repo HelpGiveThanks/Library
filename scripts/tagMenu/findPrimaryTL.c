@@ -1,4 +1,4 @@
-tagMenu: FindPrimaryTL
+tagMenu: findPrimaryTL
 #
 #Select tag to be found.
 If [ Right ( Get (LayoutName) ; 4 ) = "cite" ]
@@ -9,6 +9,12 @@ Else If [ Right ( Get (LayoutName) ; 4 ) = "test" ]
 Set Variable [ $tag; Value:test::_Ltest ]
 Else If [ Right ( Get (LayoutName) ; 2 ) = "tl" ]
 Set Variable [ $tag; Value:testlearn::_Ltestlearn ]
+#
+#After finding learn records tagged with this
+#learn record, find this learn record too so user
+#can see full context of linked/tagged
+#records/thoughts/notes/etc..
+Set Variable [ $findSelfAlso; Value:testlearn::_Ltestlearn ]
 End If
 #
 #Select the kind of tag to be found. We grab
@@ -24,7 +30,11 @@ End If
 #did this item come. This meta tag or tag allows
 #us to make a list of ID numbers from various
 #tag menus: key, node, medium, etc.
+If [ $findSelfAlso = "" ]
 Set Variable [ $menu; Value:Left ( $$citationMatch ; 1 ) ]
+Else
+Set Variable [ $menu; Value:"L" ]
+End If
 #
 #Get the name of the tag for error message
 #at bottom of this script if needed.
@@ -41,7 +51,7 @@ End If
 #As going to the other window will be involved
 #stop the record load script on that window until
 #this script is finished to speed things up and
-#stop ﬂashing effect.
+#stop flashing effect.
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
 #Go to the other window and start the find process.
@@ -61,7 +71,7 @@ Else If [ $menu = "m" ]
 Set Field [ testlearn::kmedium; $tag ]
 Else If [ $menu = "h" ]
 Set Field [ testlearn::kHealth; $tag ]
-Else If [ $menu = "r" ]
+Else If [ $menu = "r" or $menu = "L" ]
 Set Field [ testlearn::kcreference; $tag ]
 Else If [ $menu = "c" ]
 Set Field [ testlearn::kcitation; $tag ]
@@ -116,14 +126,13 @@ Set Variable [ $found; Value:$$found ]
 Set Variable [ $$found; Value:Substitute ( $found ; $menu & $tag & ¶ ; "" ) ]
 #
 #Enter browse mode to clear the find selections
-January 7, 平成26 16:40:06 Imagination Quality Management.fp7 - FindPrimaryTL -1-tagMenu: FindPrimaryTL
 #set at the beginning of this script.
 Enter Browse Mode
 #
 #If after removing this item from the list of found
 #tagged records the list is empty, perform a find
 #that will result in zero records being found
-#to reﬂect the fact that the user currently has
+#to reflect the fact that the user currently has
 #an empty found list.
 If [ $$found = "" ]
 Set Variable [ $$firstFind ]
@@ -177,7 +186,7 @@ Else If [ $menu = "m" ]
 Set Field [ testlearn::kmedium; $find ]
 Else If [ $menu = "h" ]
 Set Field [ testlearn::kHealth; $find ]
-Else If [ $menu = "r" ]
+Else If [ $menu = "r" or $menu = "L" ]
 Set Field [ testlearn::kcreference; $find ]
 Else If [ $menu = "c" ]
 Set Field [ testlearn::kcitation; $find ]
@@ -225,7 +234,7 @@ Else If [ $menu = "m" ]
 Set Field [ testlearn::kmedium; $find ]
 Else If [ $menu = "h" ]
 Set Field [ testlearn::kHealth; $find ]
-Else If [ $menu = "r" ]
+Else If [ $menu = "r" or $menu = "L" ]
 Set Field [ testlearn::kcreference; $find ]
 Else If [ $menu = "c" ]
 Set Field [ testlearn::kcitation; $find ]
@@ -234,7 +243,6 @@ Set Field [ testlearn::kfolderPath; $find ]
 Else If [ $menu = "t" ]
 Set Field [ testlearn::ktest; $find ]
 Else If [ $menu = "s" ]
-January 7, 平成26 16:40:06 Imagination Quality Management.fp7 - FindPrimaryTL -2-tagMenu: FindPrimaryTL
 Set Field [ testlearn::kcsample; $find ]
 End If
 #
@@ -316,6 +324,47 @@ Extend Found Set [ ]
 End Loop
 End If
 #
+#After finding learn records tagged with this
+#learn record, find this learn record too so user
+#can see full context of linked/tagged
+#records/thoughts/notes/etc..
+If [ TEMP::InventoryLibaryYN = "" ]
+If [ Filter ( $$found ; "L" ) = "L" ]
+#
+#Create a copy of the found list. Items will be
+#removed from this one at a time as they are found.
+Set Variable [ $LearnTagList; Value:$$found ]
+Loop
+#
+#Get the menu item name so system will know
+#what field to put the ID number into to find
+#records tagged with this item.
+Set Variable [ $menu; Value:Left ( ( GetValue ( $LearnTagList ; 1 ) ) ; 1 ) ]
+#
+#Get the ID number of the tag to be found.
+#(the number 42 is a joke, essentially the number
+#needs to be big enough to capture the full ID number
+#which is much shorter, but overkill doesn't hurt)
+#FYI: joke is from Hitchhiker's Guide to the Galaxy
+Set Variable [ $find; Value:Middle ( ( GetValue ( $LearnTagList ; 1 ) ) ; 2 ; 42 ) ]
+#
+#Remove it from the list of tags to be found.
+Set Variable [ $subtract; Value:$LearnTagList ]
+Set Variable [ $LearnTagList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; "" ) ]
+#
+If [ $menu = "L" ]
+Enter Find Mode [ ]
+Set Field [ testlearn::_Ltestlearn; $find ]
+Extend Found Set [ ]
+End If
+#
+#When the list is empty stop finding stuff.
+Exit Loop If [ ValueCount ( $LearnTagList ) = 0 ]
+#
+End Loop
+End If
+End If
+#
 #Sort according to current sort in Main window.
 Sort Records [ ]
 [ No dialog ]
@@ -353,7 +402,6 @@ Else If [ $$citationMatch = "health" ]
 Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
 Else If [ $$citationMatch = "ref" ]
 Show Custom Dialog [ Message: "'" & Left ( $name ; 65 ) & "..." & "'" & " is not in use."; Buttons: “OK” ]
-January 7, 平成26 16:40:06 Imagination Quality Management.fp7 - FindPrimaryTL -3-tagMenu: FindPrimaryTL
 Else If [ $$citationMatch = "cite" ]
 Show Custom Dialog [ Message: "'" & Left ( $name ; 65 ) & "..." & "'" & " is not in use."; Buttons: “OK” ]
 Else If [ $$citationMatch = "path" ]
@@ -366,4 +414,4 @@ End If
 #
 #
 End If
-January 7, 平成26 16:40:06 Imagination Quality Management.fp7 - FindPrimaryTL -4-
+December 10, ଘ౮27 17:27:09 Library.fp7 - findPrimaryTL -1-

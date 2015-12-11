@@ -7,7 +7,8 @@ Set Error Capture [ On ]
 // #when they want to find records tagged with a tag,
 // #I'm making it so that users can only add tags in edit mode.
 // If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd ≠ 1 ]
-// Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags. This inconvience was put in place because users kept forgetting to click find before click the P or O buttons."; Buttons: “OK” ]
+// Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags.
+This inconvience was put in place because users kept forgetting to click find before click the P or O buttons."; Buttons: “OK” ]
 // Exit Script [ ]
 // End If
 #
@@ -16,13 +17,14 @@ Set Error Capture [ On ]
 // #to add or change the tag of the first record instead of
 // #finding records with selected tag.
 // If [ $$referenceRecordOne = 1 ]
-// Show Custom Dialog [ Message: "Did you mean to ADD this tag to the first record or FIND reference records with this tag?"; Buttons: “ADD”, “FIND”, “Cancel” ]
+// Show Custom Dialog [ Message: "Did you mean to ADD this tag to the first record or FIND reference records with this tag?";
+Buttons: “ADD”, “FIND”, “Cancel” ]
 // If [ Get ( LastMessageChoice ) = 2 ]
 // #This variable is needed becasue message choice 2
 // #gets carried over to the Find Mode Script, which then
 // #activates tag instead of reference record find mode.
 // Set Variable [ $$ClearMessageChoice; Value:1 ]
-// Perform Script [ “FindMode” ]
+// Perform Script [ “findMode” ]
 // Else If [ Get ( LastMessageChoice ) = 3 ]
 // Set Variable [ $$referenceRecordOne ]
 // Exit Script [ ]
@@ -59,7 +61,9 @@ End If
 #in add mode, as these tags cannot be applied
 #to reference records.
 If [ $$add = 1 and $$citationMatch = "testSetup" ]
-Show Custom Dialog [ Message: "You cannot tag reference records with item tags. So why then are there buttons? The buttons show up because I have not made time to create a separate layout just for item tags. This issue has been logged as a minor irritation."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "You cannot tag reference records with item tags. So why then are there buttons? The buttons
+show up because I have not made time to create a separate layout just for item tags. This issue has been logged as a minor
+irritation."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -69,7 +73,9 @@ End If
 // #to focus on other things to get the beta released.
 // If [ reference::_Lreference ≠ $$cite ]
 // If [ testlearn::kcitation ≠ "" or testlearn::kcreference ≠ "" or reference::kcitation ≠ "" ]
-// Show Custom Dialog [ Message: "For now, you cannot use a record that has its own citation or references added to it as a citation or reference for another record. This is a known issue, and in a future release it will be resolved. "; Buttons: “OK” ]
+// Show Custom Dialog [ Message: "For now, you cannot use a record that has its own citation or references added to it as a
+citation or reference for another record. This is a known issue, and in a future release it will be resolved. "; Buttons:
+“OK” ]
 // Exit Script [ ]
 // End If
 // End If
@@ -115,7 +121,6 @@ Set Variable [ $tagName; Value:ruleSection::name ]
 Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" ]
 Set Variable [ $tag; Value:reference::_Lreference ]
 Else If [ Right ( Get (LayoutName) ; 7 ) = "refcite" ]
-January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -1-tagMenu: addTagToMainRecord
 Set Variable [ $tag; Value:testlearn::_Ltestlearn ]
 Else If [ Right ( Get (LayoutName) ; 8 ) = "sections" ]
 Set Variable [ $tag; Value:ruleSection::_Lgroup ]
@@ -198,7 +203,8 @@ Set Field [ tempSetup::kdefaultNodePrimary; $tag ]
 Set Field [ tempSetup::nodeLock; $lock ]
 Set Field [ tempSetup::DEFAULTNodePrimaryName; tagDefaultNodePrimary::tag ]
 Set Variable [ $$node; Value:tempSetup::kdefaultNodeOther ]
-Set Field [ tempSetup::kdefaultNodeOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
+Set Field [ tempSetup::kdefaultNodeOther; //last item in list has no paragraph mark, so a valuecount test needs to
+be done and if item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $$node ) ≠ ValueCount ( Substitute ( $$node ; $$citationItem & "¶" ; "" ) ) ;
 Substitute ( $$node ; $$citationItem & "¶" ; "" ) ;
 Substitute ( $$node ; $$citationItem ; "" )
@@ -232,7 +238,6 @@ Set Variable [ $$health; Value:tempSetup::kdefaultHealth ]
 Set Field [ tempSetup::kdefaultHealth; $tag ]
 Refresh Window
 #
-January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -2-tagMenu: addTagToMainRecord
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
@@ -297,7 +302,8 @@ Set Variable [ $$PrimaryNode ]
 #preventing the same node showing up twice.
 Else If [ testlearn::kNodePrimary ≠ $tag ]
 Set Field [ testlearn::kNodePrimary; $tag ]
-Set Field [ testlearn::kNodeOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
+Set Field [ testlearn::kNodeOther; //last item in list has no paragraph mark, so a valuecount test needs to be done
+and if item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $$node ) ≠ ValueCount ( Substitute ( $$node ; $$citationItem & "¶" ; "" ) ) ;
 Substitute ( $$node ; $$citationItem & "¶" ; "" ) ;
 Substitute ( $$node ; $$citationItem ; "" )
@@ -349,7 +355,6 @@ End If
 Else If [ $$citationMatch = "path" ]
 If [ testlearn::kfolderPath = $tag ]
 Set Field [ testlearn::kfolderPath; "" ]
-January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -3-tagMenu: addTagToMainRecord
 Set Variable [ $$citationItem ]
 Set Variable [ $$Path ]
 Else If [ testlearn::kfolderPath ≠ $tag ]
@@ -362,7 +367,8 @@ If [ Case ( $tableName = "testLearn" ; testlearn::kcitation = $tag & "L" ; testl
 Set Field [ testlearn::kcitation; "" ]
 #
 // #Ask user if OK to remove keywords.
-// Show Custom Dialog [ Message: "Use the citation record's keywords? (This will replace this records keywords if there are any.)"; Buttons: “cancel”, “OK” ]
+// Show Custom Dialog [ Message: "Use the citation record's keywords? (This will replace this records keywords if
+there are any.)"; Buttons: “cancel”, “OK” ]
 // If [ Get ( LastMessageChoice ) = 2 ]
 // End If
 // Set Field [ testlearn::kHealth; "" ]
@@ -436,7 +442,8 @@ Set Variable [ $$PrimaryKey ]
 #preventing the same keyword showing up twice.
 Else If [ testlearn::kKeywordPrimary ≠ $tag ]
 Set Field [ testlearn::kKeywordPrimary; $tag ]
-Set Field [ testlearn::kcKeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
+Set Field [ testlearn::kcKeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be
+done and if item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $$key ) ≠ ValueCount ( Substitute ( $$key ; $$citationItem & "¶" ; "" ) ) ;
 Substitute ( $$key ; $$citationItem & "¶" ; "" ) ;
 Substitute ( $$key ; $$citationItem ; "" )
@@ -465,12 +472,12 @@ Else If [ $$citationMatch = "test" ]
 #learn module is because of this link. Once
 #the user clears this link, the record will be omitted
 #and so to not surprise the user with this omission,
-January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -4-tagMenu: addTagToMainRecord
 #a warning is given to both inform and allow
 #the user to cancel clearing this link.
 If [ testlearn::ktest ≠ "" and GetValue ( testlearn::kctest ; 2 ) = "" ]
-Show Custom Dialog [ Message: "This discovery record will be removed from this section of your database: learn section. It will still be available in the " & TEMP::sectionName & " test section as a discovery record for " & TEMP::testName & ", report " & testlearn::
-kreportNumber & "."; Buttons: “OK”, “Cancel” ]
+Show Custom Dialog [ Message: "This discovery record will be removed from this section of your database: learn
+section. It will still be available in the " & TEMP::sectionName & " test section as a discovery record for " &
+TEMP::testName & ", report " & testlearn::kreportNumber & "."; Buttons: “OK”, “Cancel” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
@@ -528,7 +535,7 @@ End Loop
 #record set.
 Set Field [ testlearn::orderTest; "100" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “SortTLRecordsByOrderNumber” ]
+Perform Script [ “sortTLRecordsByOrderNumber” ]
 End If
 #
 Else If [ $$citationMatch = "sample" ]
@@ -537,7 +544,8 @@ Else If [ $$citationMatch = "sample" ]
 Set Variable [ $number; Value:1 ]
 Loop
 If [ FilterValues ( Middle ( GetValue ( testlearn::kcsample ; $number ) ; 4 ; 42 ) ; $tag & "¶" ) = $tag & ¶ ]
-Set Field [ testlearn::kcsample; Substitute ( $$sample ; GetValue ( testlearn::kcsample ; $number ) & "¶" ; "" ) ]
+Set Field [ testlearn::kcsample; Substitute ( $$sample ; GetValue ( testlearn::kcsample ; $number ) & "¶" ;
+"" ) ]
 Set Field [ testlearn::orderTest; "" ]
 Set Variable [ $$sample; Value:testlearn::kcsample ]
 Set Variable [ $$citationItem ]
@@ -573,17 +581,16 @@ End Loop
 #
 #If the system is currently sorting test records
 #by order number, then give this newly tagged
-#record the number 100, and then sort it the records
+#record the number 100, and then sort the records
 #so that it shows up as part of the current tag's
 #record set.
 Set Field [ testlearn::orderTest; "100" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “SortTLRecordsByOrderNumber” ]
+Perform Script [ “sortTLRecordsByOrderNumber” ]
 End If
 End If
 #
 #Record must be committed if user decides to
-January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -5-tagMenu: addTagToMainRecord
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
@@ -631,7 +638,8 @@ Set Variable [ $$PrimaryNode ]
 #preventing the same node showing up twice.
 Else If [ reference::knodePrimary ≠ $tag ]
 Set Field [ reference::knodePrimary; $tag ]
-Set Field [ reference::knodeOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
+Set Field [ reference::knodeOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if
+item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $$node ) ≠ ValueCount ( Substitute ( $$node ; $$citationItem & "¶" ; "" ) ) ;
 Substitute ( $$node ; $$citationItem & "¶" ; "" ) ;
 Substitute ( $$node ; $$citationItem ; "" )
@@ -700,7 +708,6 @@ Else If [ reference::korgan ≠ $tag ]
 #
 #Get the keys currently unlocking
 #copyright holder if on the chain.
-January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -6-tagMenu: addTagToMainRecord
 Set Variable [ $oldCopyrightKey; Value:reference::korgan ]
 If [ FilterValues ( reference::kcopyrightHolder ; $oldCopyrightKey & ¶ ) = $oldCopyrightKey & ¶ ]
 Set Variable [ $keyChain; Value:reference::kcopyrightHolder ]
@@ -777,7 +784,8 @@ Set Variable [ $$PrimaryKey ]
 #preventing the same keyword showing up twice.
 Else If [ reference::kkeywordPrimary ≠ $tag ]
 Set Field [ reference::kkeywordPrimary; $tag ]
-Set Field [ reference::kkeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
+Set Field [ reference::kkeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done
+and if item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $$key ) ≠ ValueCount ( Substitute ( $$key ; $$citationItem & "¶" ; "" ) ) ;
 Substitute ( $$key ; $$citationItem & "¶" ; "" ) ;
 Substitute ( $$key ; $$citationItem ; "" )
@@ -817,7 +825,6 @@ Refresh Window
 [ First ]
 // Sort Records [ ]
 [ No dialog ]
-January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -7-tagMenu: addTagToMainRecord
 // Loop
 // Exit Loop If [ reference::_Lreference = $record ]
 // Go to Record/Request/Page
@@ -860,32 +867,15 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 #
-#Check if any Learn records are tagged with this
-#test item (if currently in test mode), and if
-#not then sort Learn records by date.
-If [ $$citationMatch = "test" and
-(FilterValues ( Middle ( GetValue ( $$test ; 1 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 2 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 3 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 4 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 5 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 6 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 7 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 8 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 9 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶
- or
-FilterValues ( Middle ( GetValue ( $$test ; 10 ) ; 4 ; 42 ) ; test::_Ltest & "¶" ) = test::_Ltest & ¶ )
- = 0 ]
+#Check if any Learn records are tagged with a
+#test item (if currently in test mode), or a
+#sample item (if in brainstorm mode) and sort
+#by order and then date and time.
+If [ $$citationMatch = "test" ]
 Perform Script [ “loadItemRecordForTestTagMenu” ]
+Else If [ $$citationMatch = "sample" ]
+Perform Script [ “loadItemRecordForSampleTagMenu” ]
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-January 7, 平成26 16:21:34 Imagination Quality Management.fp7 - addTagToMainRecord -8-
+December 10, ଘ౮27 17:01:02 Library.fp7 - addTagToMainRecord -1-

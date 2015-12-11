@@ -27,15 +27,16 @@ If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" or $$LinkedLearnRecords ≠ 
 #If it does reference other Learn records, ask the user
 #if they would like to find just those records, or
 #continue to the find screen.
-Show Custom Dialog [ Message: "Find referenced records (purple highlight)?" & ¶ & "OR" & ¶ & "Find other?"; Buttons: “other”, “purple”, “cancel” ]
+Show Custom Dialog [ Message: "Find referenced records (purple highlight)?" & ¶ & "OR" & ¶ & "Find other?"; Buttons:
+“other”, “purple”, “cancel” ]
 #
-#Exit script if your clicks cancel.
+#Exit script if user clicks cancel.
 If [ Get ( LastMessageChoice ) = 3 ]
 Exit Script [ ]
 End If
 #
 If [ Get ( LastMessageChoice ) = 2 ]
-#If user wants to find just the referenced
+#If the user wants to find just the referenced
 #do 1 of 3 things:
 #
 #
@@ -47,9 +48,10 @@ $$LinkedLearnRecords ≠ "" ]
 #
 #If both are found ask user if they want to see
 #A records or A and B records.
-Show Custom Dialog [ Message: "Find referenced records only?" & ¶ & "OR" & ¶ & "Find referenced + records referencing this record?"; Buttons: “Ref”, “Ref+”, “cancel” ]
+Show Custom Dialog [ Message: "Find referenced records only?" & ¶ & "OR" & ¶ & "Find referenced + records
+referencing this record?"; Buttons: “Ref”, “Ref+”, “cancel” ]
 #
-#If of button 2 is selected to the next section
+#If button 2 is selected go to the next section
 #after the End If below OR
 #exit script if user clicks cancel (button 3).
 If [ Get ( LastMessageChoice ) = 3 ]
@@ -75,8 +77,6 @@ Extend Found Set [ ]
 Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
-Sort Records [ ]
-[ No dialog ]
 Go to Record/Request/Page
 [ First ]
 #
@@ -118,45 +118,50 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 Go to Layout [ “learn4EDIT” (testlearn) ]
 Set Variable [ $findLinkedLearnRecords; Value:testlearn::_Ltestlearn ]
 Loop
-June 27, 平成27 19:11:35 Library.fp7 - findLearnRecord -1-
-learn: findLearnRecord
 Go to Object [ Object Name: "ref2" ]
 Exit Loop If [ Get (LastError) = 101 ]
 Set Variable [ $findLinkedLearnRecords; Value:refTestLearn::_Ltestlearn & ¶ & $findLinkedLearnRecords ]
 Go to Portal Row
 [ Select; Next; Exit after last ]
-End Loop #
+End Loop
+#
 #Determine how many keys there are.
-Set Variable [ $numberOfKeys; Value:ValueCount ($findLinkedLearnRecords ) ] #
+Set Variable [ $numberOfKeys; Value:ValueCount ($findLinkedLearnRecords ) ]
+#
 #Find 1st record.
 Go to Layout [ $$findLearnLayout ]
 Enter Find Mode [ ]
 Set Field [ testlearn::_Ltestlearn; GetValue ( $findLinkedLearnRecords ; $numberOfKeys ) ]
 Perform Find [ ]
-Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ] #
-If [ $numberOfKeys
-≠ 0 ]
+Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
+#
+If [ $numberOfKeys ≠ 0 ]
 #
 #Loop thru each key to find next record in list until
 #all linked records have been found.
-Loop#
+Loop
+#
 #Exit the loop when there are no more keys to check.
-Exit Loop If [ $numberOfKeys = 0 ] #
+Exit Loop If [ $numberOfKeys = 0 ]
+#
 #Find record.
 Enter Find Mode [ ]
 Set Field [ testlearn::_Ltestlearn; GetValue ( $findLinkedLearnRecords ; $numberOfKeys ) ]
-Extend Found Set [ ] #
+Extend Found Set [ ]
+#
 #Go the next key up from the bottom of the list
 #of keys on this section's keychain.
 Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
-End Loop #
+End Loop
+#
 #Now find records referencing the original record
 #if the user selected that option (button 2).
 If [ Get ( LastMessageChoice ) = 2 ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcreference; $$citation ]
 Extend Found Set [ ]
-End If #
+End If
+#
 Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
@@ -168,20 +173,26 @@ Loop
 Exit Loop If [ testlearn::_Ltestlearn = $$citation ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
-End Loop #
-End If #
+End Loop
+#
+End If
+#
 #Stop the script.
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$findLearnLayout ]
 Exit Script [ ]
-End If #
-End If ##
+End If
+#
+End If
+#
+#
 #2) If the system is not in find mode and the find button
 #is clicked and there are no referenced records
 #then capture the current layout name
 #(to return user to it after find), enter find mode,
 #go to the find layout, and await the user's find request.
-Set Variable [ $$findLearnLayout; Value:Get (LayoutName) ] #
+Set Variable [ $$findLearnLayout; Value:Get (LayoutName) ]
+#
 Enter Find Mode [ ]
 Go to Layout [ “learnFIND” (testlearn) ]
 Show/Hide Status Area
@@ -190,11 +201,13 @@ Show/Hide Text Ruler
 [ Hide ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
 Go to Field [ testlearn::Caption ]
-Pause/Resume Script [ Indefinitely ] #
+Pause/Resume Script [ Indefinitely ]
+#
 Set Variable [ $caption; Value:testlearn::Caption ]
 Set Variable [ $timestamp; Value:testlearn::timestamp ]
 Perform Find [ ]
-End If #
+End If
+#
 #If the find fails tell the user it failed and give them
 #option to modify their request or cancel the find.
 Loop
@@ -204,13 +217,15 @@ Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::Caption; $caption ]
 Set Field [ testlearn::timestamp; $timestamp ]
 Go to Field [ testlearn::Caption ]
-Show Custom Dialog [ Message: "No records match this request."; Buttons: “cancel”, “modify find” ] #
+Show Custom Dialog [ Message: "No records match this request."; Buttons: “cancel”, “modify find” ]
+#
 #If the user decides to modify their request then stay
 #in find mode and await the users new request.
 If [ Get ( LastMessageChoice ) = 2 ]
 Pause/Resume Script [ Indefinitely ]
 Set Variable [ $caption; Value:testlearn::Caption ]
-Set Variable [ $timestamp; Value:testlearn::timestamp ] #
+Set Variable [ $timestamp; Value:testlearn::timestamp ]
+#
 #If the user decides to cancel their the find, then return
 #to the main record window and show all records.
 Else If [ Get ( LastMessageChoice ) = 1 ]
@@ -223,9 +238,6 @@ Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
 Perform Find [ ]
 Sort Records [ ]
-[ No dialog ]
-June 27, 平成27 19:11:35 Library.fp7 - findLearnRecord -2-
-learn: findLearnRecord Sort Records [ ]
 [ No dialog ]
 Go to Record/Request/Page
 [ First ]
@@ -245,4 +257,4 @@ Sort Records [ ]
 [ No dialog ]
 Go to Record/Request/Page
 [ First ]
-June 27, 平成27 19:11:35 Library.fp7 - findLearnRecord -3-
+December 10, ଘ౮27 18:17:07 Library.fp7 - findLearnRecord -1-

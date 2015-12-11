@@ -2,7 +2,8 @@ learn: duplicateLearnRecord
 #
 #If node is currenlty locked then stop script, inform user.
 If [ TEMP::nodeLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
+password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -13,9 +14,8 @@ Exit Script [ ]
 End If
 #
 #Give user duplicate record options.
-Show Custom Dialog [ Message: "Just duplicate current record?" & ¶ &
-"OR" & ¶ &
-"Duplicate and create reference (link) to the orginal record?"; Buttons: “D”, “D+Link”, “cancel” ]
+Show Custom Dialog [ Message: "Duplicate and reference current record?" & ¶ &
+"OR" & ¶ & "Just duplicate current record?"; Buttons: “Dup+Ref”, “Only Dup”, “cancel” ]
 #
 #If user cancels, then exit script.
 If [ Get ( LastMessageChoice ) = 3 ]
@@ -60,11 +60,11 @@ Set Field [ testlearn::kcKeywordOther; testlearn::Caption ]
 Set Field [ testlearn::Caption; $caption ]
 Set Variable [ $$stoploadCitation ]
 #
-#If user selects to reference duplicate record to
-#the original record, then add orignal's key to
-#current list (if any) of other referenced Learn record keys
-#that where referenced by the orginal record.
-If [ Get ( LastMessageChoice ) = 2 ]
+#If user selects to reference current record in
+#the duplicate record, then add its key to
+#list (if any) of other referenced Learn record keys
+#that are referenced by the current record.
+If [ Get ( LastMessageChoice ) = 1 ]
 Set Field [ testlearn::kcreference; $referenceOriginal & ¶ & $reference ]
 #
 #If the user does not want to reference the orginal
@@ -86,4 +86,4 @@ Set Variable [ $$stoploadCitation ]
 Perform Script [ “loadCitation” ]
 Set Variable [ $$stopOpenNewTextWindow ]
 Perform Script [ “learnOpenTextNewWindow” ]
-June 26, 平成27 18:41:04 Library.fp7 - duplicateLearnRecord -1-
+December 10, ଘ౮27 18:02:54 Library.fp7 - duplicateLearnRecord -1-

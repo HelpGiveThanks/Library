@@ -64,6 +64,9 @@ Else If [ Left ( Get ( LayoutName ) ; 1 ) = "t" ]
 #
 #Set return variable for tag.
 Set Variable [ $$testTagRecord; Value:testlearnReportTags::_Ltestlearn ]
+If [ $$testTagRecord = "" ]
+Set Variable [ $$testTagRecord; Value:"blank" ]
+End If
 #
 #Set return variable for Test item.
 Set Variable [ $$returnItem; Value:TEMP::ktest ]
@@ -102,24 +105,47 @@ Scroll Window
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ testlearn::_Ltestlearn = $$testTagRecord ]
+Exit Loop If [ testlearn::_Ltestlearn = $$testTagRecord or $$testTagRecord = "blank" ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 Set Variable [ $$stopLoadCitation ]
+Perform Script [ “loadCitation” ]
 #
 #Go to keyword menu in Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
-Go to Layout [ “ltagNK2” (tagMenus) ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+#
+#Goto correct layout.
+If [ Left (Get (LayoutName) ; 1) = "l" ]
+Go to Layout [ “learnTest” (test) ]
+Else If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnSTest” (test) ]
+End If
 If [ $$returnItem ≠ "" ]
-Perform Script [ “menuTest” ]
+// Perform Script [ “menuTest” ]
+Set Error Capture [ On ]
+Allow User Abort [ Off ]
+Enter Find Mode [ ]
+Set Field [ test::ksection; TEMP::ksection ]
+Perform Find [ ]
+Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order”
+groupTest::name; ascending
+tagMenus::orderOrLock; based on value list: “order”
+test::order; ascending
+test::testName; ascending ]
+[ Restore; No dialog ]
+Loop
+Exit Loop If [ test::_Ltest = $$item ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+Set Variable [ $$stopLoadTagRecord ]
+Perform Script [ “loadItemRecordForTestTagMenu” ]
 Else If [ ]
 Perform Script [ “menuKey” ]
 End If
-Select Window [ Name: "Learn"; Current file ]
-Perform Script [ “loadCitation” ]
 #
 End If
-January 7, 平成26 17:24:00 Imagination Quality Management.fp7 - editLearn -1-learn: editLearn
 #
-January 7, 平成26 17:24:00 Imagination Quality Management.fp7 - editLearn -2-
+December 10, ଘ౮27 17:37:26 Library.fp7 - editLearn -1-

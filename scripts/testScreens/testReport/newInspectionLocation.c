@@ -1,4 +1,4 @@
-testScreens: testReport: NewInspectionLocation
+testScreens: testReport: newInspectionLocation
 #
 If [ TEMP::ksection = "" ]
 Go to Field [ TEMP::ksection ]
@@ -9,7 +9,9 @@ Go to Field [ TEMP::reportNumber ]
 [ Select/perform ]
 Halt Script
 Else If [ TEMP::LocationName = "" ]
-Show Custom Dialog [ Message: "A new test focus must have a name picked from the default test focus list, which will be displayed after you click OK."; Buttons: “OK” ]
+Set Variable [ $$highlightTestSection; Value:1 ]
+Refresh Window
+Show Custom Dialog [ Message: "Click on the test-section pulldown list (now highlighted for you) and pick a test section to add to your test."; Buttons: “OK” ]
 Go to Field [ TEMP::kfocus ]
 [ Select/perform ]
 Go to Object [ Object Name: "focus" ]
@@ -45,4 +47,4 @@ Sort Records [ ]
 Set Field [ TEMP::reportNumber; tagTestSubjectLocation::reportNumber ]
 Set Variable [ $$stopFocusLoad ]
 Go to Field [ tagTestSubjectLocation::focusName ]
-January 7, 平成26 14:16:02 Imagination Quality Management.fp7 - NewInspectionLocation -1-
+December 9, ଘ౮27 20:50:10 Library.fp7 - newInspectionLocation -1-

@@ -12,6 +12,15 @@ Set Variable [ $$tagtest; Value:test::_Ltest ]
 Set Field [ TEMP::kctest; test::_Ltest ]
 Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
 #
+#The next conditional formatting variable needs
+#to be cleared in case there are no records in
+#the learn window tagged with this tag record.
+#It might contain a tag ID from the selecting
+#the previous record which did have at least 1
+#learn record tagged with it. (See the end of
+#this script where it is actually created.)
+Set Variable [ $$atLeastOneRecord ]
+#
 Set Variable [ $$stopLoadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 New Window [ ]
@@ -55,7 +64,8 @@ FilterValues ( Middle ( GetValue ( testlearn::kctest ; 10 ) ; 4 ; 42 ) ; $$tagte
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-Set Variable [ $atLeastOneRecord; Value:If ( (FilterValues ( Middle ( GetValue ( testlearn::kctest ; 1 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+Set Variable [ $atLeastOneRecord; Value:If ( (FilterValues ( Middle ( GetValue ( testlearn::kctest ; 1 ) ; 4 ; 42 ) ; $$tagtest & "¶" )
+= $$tagtest & ¶
 or
 FilterValues ( Middle ( GetValue ( testlearn::kctest ; 2 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
@@ -106,6 +116,17 @@ Refresh Window
 #
 Else If [ $atLeastOneRecord = 1 ]
 #
+#The formatting of test tagged records in
+#the Learn window is linked to the current
+#record in the tag window. THE ONLY WAY to
+#know this in the Tag window (that there are
+#tagged records in the learn window) is to
+#make a $$ variable. This way the system will
+#remember it is conditionally formatting learn
+#records when the active learn record is not
+#tagged with the current record in the tag window.
+Set Variable [ $$atLeastOneRecord; Value:$$tagtest ]
+#
 #The 'test' variable may have more than one
 #key in it. So we need a variable with just this
 #records keys in it to conditionally format all
@@ -125,11 +146,9 @@ Refresh Window
 Set Field [ TEMP::TLTestSort; "order" ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "Learn"; Current file ]
-Perform Script [ “SortTLRecordsByOrderNumber” ]
+Perform Script [ “sortTLRecordsByOrderNumber” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
-[ No dialog ]
-January 7, 平成26 16:06:17 Imagination Quality Management.fp7 - loadItemRecordForTestTagMenu -1-tagMenu: loadItemRecordForTestTagMenu Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$tagtest; Value:test::_Ltest ]
 // End If
@@ -140,18 +159,18 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 End If
 #
-#Unlike exit script, halt scripts will halt all scripts
+#Unlike 'exit script', 'halt script' will halt all scripts
 #currently active. So if user was on another tag
 #record and then clicked on the add tag button
-#to for another record, this script will launch.
-#Problem is, because the user may want to really
+#for another record, this script will launch.
+#Problem is, because the user may really
 #want to add this tag to the current item in the
 #Learn window, after this script runs and finds
 #zero records for example (which could happen)
 #the add to tag script will run right after it, but
 #it will fail to sort the records in the Learn window
 #by order number, which this script
-#(loadITemRecrodForTestTagMenu) is supposed
+#(loadITemRecrodForTestTagMenu) is supposed to
 #do everytime. The problem is a record for this
 #tag record will exist after the addtotag script has
 #run, but this script will not know that having run
@@ -166,7 +185,7 @@ End If
 #the add to tag button a second time to add the
 #tag (the first time being when the user clicked
 #it to move the system focus to this record, which
-#triggered this loadItem... scirpt.
+#triggered this loadItem... script.
 Halt Script
 End If
-January 7, 平成26 16:06:17 Imagination Quality Management.fp7 - loadItemRecordForTestTagMenu -2-
+December 9, ଘ౮27 21:36:13 Library.fp7 - loadItemRecordForTestTagMenu -1-

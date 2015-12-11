@@ -2,7 +2,8 @@ learn: editTestLearn
 #
 #If node is currenlty locked then stop script, inform user.
 If [ tagTLNodePrimary::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to edit records assigned to this node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
+password to unlock it, then you will able to edit records assigned to this node."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -39,4 +40,4 @@ End If
 #Prevent add mode.
 Set Variable [ $$stopAdd; Value:1 ]
 Set Variable [ $$stoploadCitation ]
-May 14, 平成27 21:05:09 Library.fp7 - editTestLearn -1-
+December 10, ଘ౮27 17:46:03 Library.fp7 - editTestLearn -1-

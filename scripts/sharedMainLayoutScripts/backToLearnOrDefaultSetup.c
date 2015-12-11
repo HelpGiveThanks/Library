@@ -56,6 +56,7 @@ Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
 End If
 Enter Find Mode [ ]
 Set Field [ testlearn::kcsection; TEMP::ksection ]
+Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
 Sort Records [ Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
@@ -96,4 +97,4 @@ Select Window [ Name: "Learn"; Current file ]
 #Perform Load Citation script to restore conditional
 #formatting.
 Perform Script [ “loadCitation” ]
-July 3, 平成27 19:39:00 Library.fp7 - backToLearnOrDefaultSetup -1-
+December 10, ଘ౮27 18:43:51 Library.fp7 - backToLearnOrDefaultSetup -1-

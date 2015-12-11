@@ -1,5 +1,17 @@
 testScreens: setup: moveTestItemToNewTestGroupStep2
 #
+#This script is for moving a general inquiry to different group.
+#
+#WHEN TIME PERMITS the vocabuary for scripts,
+#variable, fields, layouts, etc. needs to be updated
+#to reflect that a 'test' is now a 'general inquiry'
+#and an 'item' is now a 'specific inquiry' and a 'focus'
+#is now a test 'section', etc. A complete look at
+#the DDR to insure all vocabulary is updated
+#everywhere followed by testing for each
+#update is required.
+#
+#
 #Stop test record load script to speed up script.
 Set Variable [ $$ID; Value:"ignore" ]
 #
@@ -14,7 +26,7 @@ Set Field [ test::ktestGroup; $$groupOLD ]
 Go to Field [ ]
 #
 #Check if this is the last test in the test group.
-New Window [ ]
+New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000 ]
 Go to Layout [ “tableTest” (test) ]
 Enter Find Mode [ ]
 Set Field [ test::ktestGroup; $$groupOLD ]
@@ -28,17 +40,18 @@ Refresh Window
 #the old group will be deleted unless the user
 #creates a new item for this group before moving
 #the old item.
-Show Custom Dialog [ Title: "!"; Message: "After " & test::testName & " is moved its old group will be deleted. If you want to keep this group then move the test after creating a new test for the old group."; Buttons: “Cancel”, “move” ]
+Show Custom Dialog [ Title: "!"; Message: "The group — " & groupTest::name & " — will be deleted if you complete this move. If you want to keep it: 1) click cancel, 2) create a new general inquiry for this group, then 3) perform the move."; Buttons: “Cancel”, “move” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Variable [ $deleteGroup ]
 Set Variable [ $$groupOLD ]
 Refresh Window
+Go to Field [ ]
 Exit Script [ ]
 End If
 #
 #If the user decides to go ahead with the move,
 #first delete the old group.
-New Window [ ]
+New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000 ]
 #
 Go to Layout [ “tableGroupTag” (groupTest) ]
 Enter Find Mode [ ]
@@ -61,4 +74,4 @@ Go to Field [ ]
 #because it is still the current record.
 Set Variable [ $$ID; Value:test::_Ltest ]
 #
-January 7, 平成26 12:20:14 Imagination Quality Management.fp7 - moveTestItemToNewTestGroupStep2 -1-
+December 9, ଘ౮27 20:00:53 Library.fp7 - moveTestItemToNewTestGroupStep2 -1-

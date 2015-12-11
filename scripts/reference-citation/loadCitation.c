@@ -98,7 +98,7 @@ If [ $$add = "" ]
 #Match any records in tag window and go to
 #primary tag record or to first record if none.
 #And don't run LoadTagRecord until matching is
-#done to prevent ﬂashing and slowing down script.
+#done to prevent flashing and slowing down script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
@@ -117,7 +117,6 @@ Refresh Window
 // Go to Field [ ]
 // Loop
 // Exit Loop If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) & "¶" = test::_Ltest & ¶ ]
-January 7, 平成26 17:52:04 Imagination Quality Management.fp7 - loadCitation -1-reference(citation): loadCitation
 // Exit Loop If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) = "" ]
 // Set Variable [ $add; Value:$number ]
 // Set Variable [ $number; Value:$add + 1 ]
@@ -138,11 +137,13 @@ January 7, 平成26 17:52:04 Imagination Quality Management.fp7 - loadCitation -
 // Scroll Window
 [ Home ]
 // Loop
-// Exit Loop If [ tagMenus::_Ltag = $$citationItem or FilterValues ( $$sample ; tagMenus::_Ltag & "¶" ) = tagMenus::_Ltag & ¶ or
+// Exit Loop If [ tagMenus::_Ltag = $$citationItem or FilterValues ( $$sample ; tagMenus::_Ltag & "¶" ) =
+tagMenus::_Ltag & ¶ or
 FilterValues ( $$test ; test::_Ltest & "¶" ) = test::_Ltest & ¶
  or
 reference::_Lreference = $$citationitem and $$citationMatch = "cite" or
-reference::_Lreference & "¶" = FilterValues ( $$ref ; reference::_Lreference & "¶" ) and $$citationMatch = "ref"
+reference::_Lreference & "¶" = FilterValues ( $$ref ; reference::_Lreference & "¶" ) and $$citationMatch =
+"ref"
  or
 testlearn::_Ltestlearn = $$citationitem and $$citationMatch = "cite"or
 testlearn::_Ltestlearn & "¶" = FilterValues ( $$ref ; testlearn::_Ltestlearn & "¶" ) and $$citationMatch = "ref"
@@ -234,11 +235,10 @@ If [ $$add = "" ]
 #Match any records in tag window and go to
 #primary tag record or to first record if none.
 #And don't run LoadTagRecord until matching is
-#done to prevent ﬂashing and slowing down script.
+#done to prevent flashing and slowing down script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
-January 7, 平成26 17:52:04 Imagination Quality Management.fp7 - loadCitation -2-reference(citation): loadCitation
 Perform Script [ “TgotoCitationMenu” ]
 End If
 Refresh Window
@@ -247,7 +247,8 @@ Refresh Window
 // #SEE WHAT WAS REMOVED IN OLD VERSION.
 // #THE CODE REMOVED WAS DISABLED IN OLD VERSION.
 // Loop
-// Exit Loop If [ tagMenus::_Ltag = $$citationItem or FilterValues ( $$sample ; tagMenus::_Ltag & "¶" ) = tagMenus::_Ltag & ¶ or
+// Exit Loop If [ tagMenus::_Ltag = $$citationItem or FilterValues ( $$sample ; tagMenus::_Ltag & "¶" ) = tagMenus::
+_Ltag & ¶ or
 FilterValues ( $$test ; test::_Ltest & "¶" ) = test::_Ltest & ¶
  or
 tagMenus::_Ltag = $$citationitem and $$citationMatch = "node"
@@ -269,4 +270,38 @@ End If
 Set Variable [ $$stopLoadTagRecord ]
 Select Window [ Name: $windowName; Current file ]
 Refresh Window
-January 7, 平成26 17:52:04 Imagination Quality Management.fp7 - loadCitation -3-
+#
+#
+#If user is loading a learn record, then check
+#if it references any learn records and if so
+#set a variable to conditionally format the learn
+#window's 'find' button purple to indicate this.
+If [ Get ( WindowName ) = "Learn" ]
+Set Variable [ $$stoploadCitation; Value:1 ]
+// New Window [ Name: "LinkedLearnRecords"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+New Window [ Name: "LinkedLearnRecords" ]
+#
+Allow User Abort [ Off ]
+Set Error Capture [ On ]
+Enter Find Mode [ ]
+Set Field [ testlearn::kcreference; $$citation ]
+Perform Find [ ]
+#
+If [ Get (LastError) = 401 ]
+Set Variable [ $$stoploadCitation ]
+Set Variable [ $$LinkedLearnRecords ]
+Close Window [ Name: "LinkedLearnRecords"; Current file ]
+Exit Script [ ]
+End If
+#
+Set Variable [ $$LinkedLearnRecords; Value:Get (FoundCount) ]
+#
+Set Variable [ $$stoploadCitation ]
+Close Window [ Name: "LinkedLearnRecords"; Current file ]
+#
+End If
+#
+#
+#
+#
+December 10, ଘ౮27 18:39:16 Library.fp7 - loadCitation -1-
