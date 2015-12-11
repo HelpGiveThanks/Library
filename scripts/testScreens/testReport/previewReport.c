@@ -42,6 +42,13 @@ Enter Browse Mode
 Enter Preview Mode
 Go to Record/Request/Page [ $page ]
 [ No dialog ]
-Show Custom Dialog [ Message: "Click the 'exit preview' button to close this window. Click the page numbers (upper left corner) to see additional pages if there are any."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Click the 'exit preview' button to close this window. Click the page numbers (upper left corner) to see
+additional pages if there are any."; Buttons: “OK” ]
+#
+#Change menu to allow user to enter browse mode
+#which makes the 'exit preview' button clickable.
+#Menu also adds ability to browse records, which
+#is essential for allowing user to browse pages of report.
+Install Menu Set [ “HGT Preview” ]
 Set Variable [ $$preview; Value:1 ]
-January 7, 平成26 14:41:07 Imagination Quality Management.fp7 - previewReport -1-
+December 11, ଘ౮27 1:20:24 Library.fp7 - previewReport -1-
