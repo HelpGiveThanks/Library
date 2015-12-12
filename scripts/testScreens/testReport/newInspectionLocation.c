@@ -11,13 +11,14 @@ Halt Script
 Else If [ TEMP::LocationName = "" ]
 Set Variable [ $$highlightTestSection; Value:1 ]
 Refresh Window
-Show Custom Dialog [ Message: "Click on the test-section pulldown list (now highlighted for you) and pick a test section to add to your test."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Click on the pulldown menu (now highlighted for you) and pick a test-section to add to your
+test."; Buttons: “OK” ]
 Go to Field [ TEMP::kfocus ]
 [ Select/perform ]
 Go to Object [ Object Name: "focus" ]
 Halt Script
 Else If [ TEMP::kdefaultNodeTestSubject = "" ]
-Show Custom Dialog [ Message: "New test focuses are created for specific test nodes. Pick one or create a new one in the node section before creating a new test focus."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Test sections are created for test subjects.  Click the 'node' button, and the select your test subject or create a new one."; Buttons: “OK” ]
 Halt Script
 End If
 Set Variable [ $tag; Value:TEMP::kfocus ]
@@ -47,4 +48,4 @@ Sort Records [ ]
 Set Field [ TEMP::reportNumber; tagTestSubjectLocation::reportNumber ]
 Set Variable [ $$stopFocusLoad ]
 Go to Field [ tagTestSubjectLocation::focusName ]
-December 9, ଘ౮27 20:50:10 Library.fp7 - newInspectionLocation -1-
+December 11, ଘ౮27 20:26:42 Library.fp7 - newInspectionLocation -1-
