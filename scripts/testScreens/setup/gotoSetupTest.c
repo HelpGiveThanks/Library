@@ -1,4 +1,3 @@
-February 17, 2015 15:12:56 Imagination Quality Management.fmp12 - gotoSetupTest -1-
 testScreens: setup: gotoSetupTest
 #
 #Capture record ID so system can return user
@@ -44,7 +43,7 @@ End If
 #test items. If coming from Library Setup window.
 Set Variable [ $$ID; Value:"ignore" ]
 Go to Layout [ “testSetup” (test) ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: groupTest::order; based on value list: “order”
+Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order”
 groupTest::name; ascending
 test::order; based on value list: “order”
 test::testName; ascending ]
@@ -57,7 +56,7 @@ Enter Find Mode [ ]
 Set Field [ test::ksection; TEMP::ksection ]
 Perform Find [ ]
 #
-#If not test exist, then make sure Tag Menus
+#If no test exist, then make sure Tag Menus
 #also shows no items.
 If [ Get (LastError) = 401 ]
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -66,21 +65,23 @@ Perform Find [ Specified Find Requests: Find Records; Criteria: tagMenus::_Ltag:
 Select Window [ Name: "Setup"; Current file ]
 Exit Script [ ]
 End If
-Sort Records [ Keep records in sorted order; Specified Sort Order: groupTest::order; based on value list: “order”
+Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order”
 groupTest::name; ascending
 test::order; based on value list: “order”
 test::testName; ascending ]
 [ Restore; No dialog ]
+Go to Record/Request/Page
+[ First ]
 #
 #Take user to item user clicked on to edit.
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ TEMP::ktest = test::_Ltest ]
+Exit Loop If [ tempSetup::ktest = test::_Ltest ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ TEMP::ktest ≠ test::_Ltest ]
+If [ tempSetup::ktest ≠ test::_Ltest ]
 Go to Record/Request/Page
 [ First ]
 End If
@@ -112,3 +113,4 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $$recordNumber ]
 [ No dialog ]
 End If
+December 11, ଘ౮27 20:46:07 Library.fp7 - gotoSetupTest -1-
