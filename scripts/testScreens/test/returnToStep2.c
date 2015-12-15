@@ -1,4 +1,21 @@
-testScreens: test: probablyNotInUse: returnToStep2
+testScreens: test: returnToStep2
+#
+#If on test screen, see if any sections have results.
+If [ Get (LayoutName) = "step3_InspectionItems" ]
+Set Variable [ $testInUseCheck; Value:1 ]
+Go to Record/Request/Page
+[ First ]
+Loop
+If [ tlResults::InspectionItemCountLocation ≠ "" ]
+Set Variable [ $InUse; Value:1 ]
+End If
+Exit Loop If [ tlResults::InspectionItemCountLocation ≠ "" ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+End If
+#
+#
 Go to Layout [ “defaultSetup” (tempSetup) ]
 Set Window Title [ Current Window; New Title: "Setup" ]
 #
@@ -22,4 +39,10 @@ Perform Script [ “defaultTestLocationMenu” ]
 Go to Record/Request/Page [ $$TSRecordNumber ]
 [ No dialog ]
 Set Variable [ $$TSRecordNumber ]
-December 11, ଘ౮27 1:32:32 Library.fp7 - returnToStep2 -1-
+#
+If [ $InUse = "" and $testInUseCheck = 1 ]
+Set Field [ tagTestSubjectLocation::inUse; "" ]
+Else If [ $InUse = 1 and $testInUseCheck = 1 ]
+Set Field [ tagTestSubjectLocation::inUse; "t" ]
+End If
+December 15, ଘ౮27 15:14:38 Library.fp7 - returnToStep2 -1-
