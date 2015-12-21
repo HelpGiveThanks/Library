@@ -35,62 +35,33 @@ Set Field [ testlearn::ktestSubject; $$contact ]
 Set Field [ testlearn::ktest; $$item ]
 Set Field [ testlearn::kcsection; $$library ]
 Set Field [ testlearn::kreportNumber; $$reportNumber ]
+#
+#This find range will insure only records with numbers
+#will be found (no NA or OK records).
+Set Field [ testlearn::InspectionItemCountLocation; "0...99999999999999" ]
 Perform Find [ ]
 #
 #Create new test record if there are none.
-If [ Get (LastError) = 401 ]
-Perform Script [ “newTestRecord” ]
-#
-#If there is OK or NA record, change it into a test
-#record. (NA and OK records tell the user they
-#have inspected an item and found it OK or not
-#needing to be tested. If OK, the user has decided
-#not to record any details. So a record exist
-#but it is not being used to record details.
-#These next steps will turn that non-test record
-#into a test record.)
-Else If [ Get (FoundCount) = 1 and $$Location = testlearn::kaudienceLocation and testlearn::kreportNumber = $$reportNumber and
-testlearn::InspectionItemCountLocation = "N/A" or
-Get (FoundCount) = 1 and $$Location = testlearn::kaudienceLocation and testlearn::kreportNumber = $$reportNumber and
-testlearn::InspectionItemCountLocation = "OK" or
-Get (FoundCount) = 1 and $$Location = testlearn::kaudienceLocation and testlearn::kreportNumber = $$reportNumber and
-testlearn::InspectionItemCountLocation = "★" ]
-#
-#If there is OK or NA record, change it into a test
-#by change NA or OK to 1, as in 1 test record.
-Set Field [ testlearn::InspectionItemCountLocation; 1 ]
-#
-#increase number of test records for item overall
-#from zero to 1.
-Set Field [ testlearn::InspectionItemCount; 1 ]
-Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+If [ Get (FoundCount) = 0 ]
+Perform Script [ “newTestRecord (update)” ]
+Exit Script [ ]
 End If
 #
 #Group records by test subject location.
-Sort Records [ Specified Sort Order: testlearn::Location; ascending
-testlearn::_Number; ascending ]
-[ Restore; No dialog ]
-#
-#Omit all NA, OK, and star records if any (these
-#records function as visual indicators of having
-#made a decision not to create a test record
-#because NA = it was not applicable, OK=it was
-#fine, and star symbol = because a test record
-#already created duplicates the finding in this
-#test subject location),
 Go to Record/Request/Page
-[ First ]
+[ Last ]
 Loop
 If [ testlearn::InspectionItemCountLocation = "N/A" or
 testlearn::InspectionItemCountLocation = "OK" or
-testlearn::InspectionItemCountLocation = "★" ]
+testlearn::InspectionItemCountLocation = "̣" ]
 Omit Record
-Go to Record/Request/Page
-[ Previous ]
 End If
 Go to Record/Request/Page
-[ Next; Exit after last ]
+[ Previous; Exit after last ]
 End Loop
+Sort Records [ Specified Sort Order: testlearn::Location; ascending
+testlearn::_Number; ascending ]
+[ Restore; No dialog ]
 #
 #Now go the last test record for this test location
 #if any. It will be conditionally formatted green,
@@ -118,8 +89,8 @@ Set Variable [ $$testItem; Value:testlearn::kctestItem ]
 #Find all details for this item.
 Select Window [ Name: "Tag Menus"; Current file ]
 Perform Script [ “menuTestItem” ]
-January 7, 平成26 12:26:37 Imagination Quality Management.fp7 - gotoTestItem -1-testScreens: test: gotoTestItem
 #
 #Return focus to Test window.
 Select Window [ Name: "Test"; Current file ]
-January 7, 平成26 12:26:37 Imagination Quality Management.fp7 - gotoTestItem -2-
+#
+December 21, ଘ౮27 13:57:31 Library.fp7 - gotoTestItem -1-
