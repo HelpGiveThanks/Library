@@ -162,7 +162,13 @@ End If
 #check if this test is the last test in its test group.
 If [ Get ( LastMessageChoice ) = 2 ]
 #
-New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+Set Variable [ $$stopLoadTestRecord; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $$stopDeleteTest; Value:1 ]
+Set Variable [ $$stopTest; Value:1 ]
+#
+// New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+New Window [ ]
 #
 Set Variable [ $section; Value:test::ksection ]
 #( a test group field is neccessary because a section
@@ -197,6 +203,10 @@ Show Custom Dialog [ Title: "!"; Message: "If you delete this group's last test,
 #goes back to the way it was before the delete
 #was started.
 If [ Get ( LastMessageChoice ) = 1 ]
+Set Variable [ $$stopLoadTestRecord ]
+Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$stopDeleteTest ]
+Set Variable [ $$stopTest ]
 Set Variable [ $delete ]
 Set Variable [ $deleteGroup ]
 Refresh Window
@@ -219,8 +229,8 @@ End If
 #
 End If
 #
-#Remove test's key from test-item groups that
-#have it plus other keys.
+#Remove test's key from test-items that
+#have more than one test's key.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “setupTestItem” (tagMenus) ]
 Enter Find Mode [ ]
@@ -229,6 +239,10 @@ Perform Find [ ]
 Go to Record/Request/Page
 [ First ]
 Loop
+#If an item has only one test key, do not
+#remove it. In the next step these test items
+# will be found and deleted along with the
+#test-item groups to which they belong.
 If [ ValueCount (ruleTagMenuTestGroups::match) > 1 ]
 Set Variable [ $match; Value:ruleTagMenuTestGroups::match ]
 Set Field [ ruleTagMenuTestGroups::match; Substitute ( $match ; $test & "¶" ; "" ) ]
@@ -237,16 +251,26 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
-#Delete the test's test items that are only linked
-#to this one test.
+#Delete the test items that are only linked
+#to this test.
 Enter Find Mode [ ]
 Set Field [ ruleTagMenuTestGroups::match; $test & ¶ ]
 Perform Find [ ]
 Delete All Records
 [ No dialog ]
+#
+#Delete the test-item groups that now have no
+#test items in them, and are no longer linked
+#to any tests.
+Go to Layout [ “tableGroupTag” (groupTest) ]
+Enter Find Mode [ ]
+Set Field [ groupTest::match; $test & ¶ ]
+Perform Find [ ]
+Delete All Records
+[ No dialog ]
 Set Variable [ $$stopLoadTagRecord ]
 #
-#Finally, the test itself is deleted.
+#Finally, delete the test itself.
 Go to Layout [ “tableTest” (test) ]
 Enter Find Mode [ ]
 Set Field [ test::_Ltest; $test ]
@@ -289,6 +313,10 @@ Close Window [ Current Window ]
 End If
 #
 #Load current test's information.
+Set Variable [ $$stopLoadTestRecord ]
+Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$stopDeleteTest ]
+Set Variable [ $$stopTest ]
 Set Variable [ $$ID ]
 Perform Script [ “loadSetupTestRecord” ]
-December 9, ଘ౮27 19:35:55 Library.fp7 - deleteTest -1-
+December 21, ଘ౮27 16:04:43 Library.fp7 - deleteTest -1-
