@@ -91,6 +91,7 @@ Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
+Set Variable [ $$tagTest ]
 Set Variable [ $$ID; Value:test::_Ltest ]
 Refresh Window
 Exit Script [ ]
@@ -128,8 +129,13 @@ module, 2) click 'test' in its tag-menus window, 3) select it, 4) untag it from 
 delete it."; Buttons: “OK” ]
 #
 Close Window [ Current Window ]
-Set Variable [ $$ID; Value:test::_Ltest ]
 Set Variable [ $delete ]
+Set Variable [ $$stopLoadTestRecord ]
+Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$stopDeleteTest ]
+Set Variable [ $$stopTest ]
+Set Variable [ $$tagTest ]
+Set Variable [ $$ID; Value:test::_Ltest ]
 Refresh Window
 #
 Exit Script [ ]
@@ -153,6 +159,11 @@ Show Custom Dialog [ Message: "Delete " & test::testName & "?"; Buttons: “Canc
 #was started.
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Variable [ $delete ]
+Set Variable [ $$stopLoadTestRecord ]
+Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$stopDeleteTest ]
+Set Variable [ $$stopTest ]
+Set Variable [ $$tagTest ]
 Set Variable [ $$ID; Value:test::_Ltest ]
 Refresh Window
 Exit Script [ ]
@@ -167,8 +178,8 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopDeleteTest; Value:1 ]
 Set Variable [ $$stopTest; Value:1 ]
 #
-// New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
-New Window [ ]
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+// New Window [ ]
 #
 Set Variable [ $section; Value:test::ksection ]
 #( a test group field is neccessary because a section
@@ -203,14 +214,15 @@ Show Custom Dialog [ Title: "!"; Message: "If you delete this group's last test,
 #goes back to the way it was before the delete
 #was started.
 If [ Get ( LastMessageChoice ) = 1 ]
+Set Variable [ $delete ]
+Set Variable [ $deleteGroup ]
 Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
-Set Variable [ $delete ]
-Set Variable [ $deleteGroup ]
-Refresh Window
+Set Variable [ $$tagTest ]
 Set Variable [ $$ID; Value:test::_Ltest ]
+Refresh Window
 Exit Script [ ]
 End If
 #
@@ -317,6 +329,7 @@ Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
+Set Variable [ $$tagTest ]
 Set Variable [ $$ID ]
 Perform Script [ “loadSetupTestRecord” ]
-December 21, ଘ౮27 16:04:43 Library.fp7 - deleteTest -1-
+December 21, ଘ౮27 20:19:23 Library.fp7 - deleteTest -1-
