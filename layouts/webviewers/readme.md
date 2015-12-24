@@ -1,14 +1,14 @@
 Each web-viewer folder contains
 
-1. A file for every web-viewer used on a specific table's layouts.  
+1. A file for every web-viewer's table related to the layout's table on which it appears.  
 
-  The folder names (ex: tempSetup) = these specific layout tables.
+  The folder names (ex: tempSetup) = layout tables.
 
-  The file names (ex: filename path.md) = the names of the tables sourcing the picture, movie, etc., minus the 'path' and 'URL' tags.  
+  The file names (ex: filename path.md) = the names of the related tables sourcing the picture, movie, etc., minus the 'path' and 'URL' tags.  
 
-  The path tag (ex: filename path.md) = web viewers that reference files on local hard drives, computers, etc.
+  The **path** tag (ex: filename **path**.md) = web viewers that reference files on local hard drives, computers, etc.
 
-  The URL tags (ex: filename URL.md) = web viewers referencing files on the web.
+  The **URL** tags (ex: filename **URL**.md) = web viewers referencing files on the web.
 
 3. The webviewer-list file lists every layout in the library solution with webviewers on them.
 
