@@ -10,6 +10,6 @@ Each web-viewer folder contains
 
   The **URL** tags (ex: filename **URL**.md) = web viewers referencing files on the web.
 
-3. The webviewer-list file, lists every layout in the library solution with webviewers on them.
+3. The web-viewer-list file, lists every layout in the library solution with web viewers on them.
 
 2. And, of course, the readme.md file in each folder explains the folder contents, repeating most of this information.
