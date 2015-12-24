@@ -1,5 +1,7 @@
 Each web-viewer folder contains
+
 1. A file for every web-viewer used on a specific table's layouts.  
+
   The folder names (ex: tempSetup) = these specific layout tables.
 
   The file names (ex: filename path.md) = the names of the tables sourcing the picture, movie, etc., minus the 'path' and 'URL' tags.  
