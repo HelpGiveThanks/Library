@@ -14,12 +14,14 @@ Exit Script [ ]
 End If
 #
 #Give user duplicate record options.
-Show Custom Dialog [ Message: "Duplicate and reference current record?" & ¶ &
-"OR" & ¶ & "Just duplicate current record?"; Buttons: “Dup+Ref”, “Only Dup”, “cancel” ]
+If [ TEMP::InventoryLibaryYN = "" ]
+Show Custom Dialog [ Message: "Duplicate and reference current record? Click 'yes' if the duplicate is for capturing ideas,
+thoughts, etc. that link to the current record."; Buttons: “yes”, “no”, “cancel” ]
 #
 #If user cancels, then exit script.
 If [ Get ( LastMessageChoice ) = 3 ]
 Exit Script [ ]
+End If
 End If
 #
 #If user selects option 1 or 2 gather orignal record's info.
@@ -33,6 +35,7 @@ Set Variable [ $Owords; Value:testlearn::OtherKeyWords ]
 Set Field [ TEMP::duplicateOtherKeywords; testlearn::kcKeywordOther ]
 Set Variable [ $citation; Value:testlearn::kcitation ]
 Set Variable [ $reference; Value:testlearn::kcreference ]
+Set Variable [ $showReferencedMedia; Value:testlearn::kshowReferencedMedia ]
 #The 'L' is added to all Tag Menu to conditional format
 #the Learn menu button.
 Set Variable [ $referenceOriginal; Value:testlearn::_Ltestlearn & "L" ]
@@ -66,12 +69,15 @@ Set Variable [ $$stoploadCitation ]
 #that are referenced by the current record.
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Field [ testlearn::kcreference; $referenceOriginal & ¶ & $reference ]
+Set Field [ testlearn::kshowReferencedMedia; $showReferencedMedia ]
 #
 #If the user does not want to reference the orginal
 #record, then do not add its key to any referenced
 #Learn record keys (referenced by the orginal record).
-Else
+Else If [ Get ( LastMessageChoice ) = 2 or
+TEMP::InventoryLibaryYN ≠ "" ]
 Set Field [ testlearn::kcreference; $reference ]
+Set Field [ testlearn::kshowReferencedMedia; $showReferencedMedia ]
 End If
 #
 #Sort the new record to the top of window, and
@@ -86,4 +92,4 @@ Set Variable [ $$stoploadCitation ]
 Perform Script [ “loadCitation” ]
 Set Variable [ $$stopOpenNewTextWindow ]
 Perform Script [ “learnOpenTextNewWindow” ]
-December 10, ଘ౮27 18:02:54 Library.fp7 - duplicateLearnRecord -1-
+December 28, ଘ౮27 15:51:00 Library.fp7 - duplicateLearnRecord -1-
