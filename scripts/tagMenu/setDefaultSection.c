@@ -1,4 +1,4 @@
-tagMenu: setDefaultSection
+tagMenu: setLibraryDefaults
 #
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
@@ -117,7 +117,6 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
-January 7, 平成26 16:22:12 Imagination Quality Management.fp7 - setDefaultSection -1-tagMenu: setDefaultSection
 #If the record the loop ended up on does not accept
 #the test subject key being tested, then add its
 #group to the current section. ( Node groups are
@@ -222,7 +221,28 @@ Set Variable [ $numberOfNodes; Value:$numberOfNodes - 1 ]
 End Loop
 Go to Layout [ “defaultSetup” (tempSetup) ]
 #
+#Determine if library is being used as a
+#reference or inventory library and set layout
+#defaults accordingly.
 #
+#Set default layouts for a reference library.
+If [ sectionAttributionInfo::order = "" ]
+Set Field [ tempSetup::layoutLtagK; "" ]
+Set Field [ tempSetup::layoutRtagK; "" ]
+Set Field [ tempSetup::layoutLtagN; "" ]
+Set Field [ tempSetup::layoutRtagN; "" ]
 #
+#Set database stuff/inventory checkbox.
+Set Field [ tempSetup::InventoryLibaryYN; "" ]
+Else
+#Set default layouts for a stuff/inventory library.
+Set Field [ tempSetup::layoutLtagK; "moreltagNKs2" ]
+Set Field [ tempSetup::layoutRtagK; "moreReferenceMenu2SkeywordOrNode1" ]
+Set Field [ tempSetup::layoutLtagN; "moreltagNKs2" ]
+Set Field [ tempSetup::layoutRtagN; "moreReferenceMenu2SkeywordOrNode1" ]
 #
-January 7, 平成26 16:22:12 Imagination Quality Management.fp7 - setDefaultSection -2-
+#Set database stuff/inventory checkbox.
+Set Field [ tempSetup::InventoryLibaryYN; 1 ]
+End If
+#
+December 27, ଘ౮27 19:21:34 Library.fp7 - setLibraryDefaults -1-

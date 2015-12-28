@@ -7,8 +7,9 @@ Delete All Records
 [ No dialog ]
 New Record/Request
 If [ backup::newLibrary = "234874920347574weidf792342f9823984" ]
-Show Custom Dialog [ Message: "Are you sure you want to delete the data in " & TEMP::fileName & " to make it a new empty one? If you are not sure, DO NOT CLICK any of the buttons. Instead, check the folder where this library is located and make sure this is a copy of the orignal and
-not the original. Next click either the stop or proceed button."; Buttons: “stop”, “proceed” ]
+Show Custom Dialog [ Message: "Are you sure you want to delete the data in " & TEMP::fileName & " to make it a new empty
+one? If you are not sure, DO NOT CLICK any of the buttons. Instead, check the folder where this library is located and make
+sure this is a copy of the orignal and not the original. Next click either the stop or proceed button."; Buttons: “stop”, “proceed” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Field [ backup::newLibrary; "" ]
 Go to Layout [ “defaultSetup” (tempSetup) ]
@@ -24,7 +25,8 @@ End If
 If [ backup::newLibrary = "newLibrary" ]
 Go to Layout [ “defaultSetup” (tempSetup) ]
 Show Custom Dialog [ Message: "1) Create a new, empty library." & ¶ & "
-2) Import another library's records into version " & tempSetup::verionNumber & " of the library application."; Buttons: “new”, “import”, “cancel” ]
+2) Import another library's records into version " & tempSetup::verionNumber & " of the library application."; Buttons: “new”,
+“import”, “cancel” ]
 If [ Get ( LastMessageChoice ) = 3 ]
 Close Window [ Current Window ]
 Exit Script [ ]
@@ -38,7 +40,9 @@ Perform Script [ “createEmptyLibrary” ]
 Set Field [ backup::newLibrary; "" ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 2 ]
-Show Custom Dialog [ Message: "On some imports FileMaker crashes. Cancel this import and duplicate this Empty Library file if you do not have an extra in case this happens. If it does happen, delete the updated library, and try again."; Buttons: “OK”, “cancel” ]
+Show Custom Dialog [ Message: "On some imports FileMaker crashes. Cancel this import and duplicate this Empty Library
+file if you do not have an extra in case this happens. If it does happen, delete the updated library, and try again.";
+Buttons: “OK”, “cancel” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Close Window [ Current Window ]
 Exit Script [ ]
@@ -60,6 +64,16 @@ Close Window [ Name: "Tag Menus"; Current file ]
 Close Window [ Current Window ]
 End If
 #
+#Start database with just one window. This is
+#essential if user decides to restart the
+#database. This step eliminates the possibility
+#of extra windows.
+Loop
+Exit Loop If [ ValueCount ( WindowNames ( Get ( FileName ) ) ) = 1 ]
+Close Window [ Current Window ]
+End Loop
+#
+#Go to main setup window.
 Go to Layout [ “defaultSetup” (tempSetup) ]
 Show All Records
 Delete All Records
@@ -74,15 +88,15 @@ Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (Scr
 End If
 Go to Field [ ]
 #
-#goto Tag Menus window
+#Open Setup's Tag-Menus window.
 If [ Get ( SystemPlatform ) = - 2 ]
-New Window [ Name: "Tag Menus"; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
+New Window [ Name: "Tag Menus"; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: Get
+(ScreenWidth) / 2 ]
 Else
-New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
+New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) /
+2 ]
 End If
 Go to Layout [ “defaultHealth” (tagMenus) ]
-#
-#
 #
 #Show regular menus if Admin logs in only.
 Show/Hide Text Ruler
@@ -95,11 +109,14 @@ Show/Hide Status Area
 [ Lock; Hide ]
 End If
 #
-#
+#Set library defaults.
 Perform Script [ “defaultSectionMenu” ]
-Perform Script [ “setDefaultSection” ]
+Perform Script [ “setLibraryDefaults update” ]
 Select Window [ Name: "Setup"; Current file ]
 #
+#Tell other databases to go to this library
+#when user clicks the 'library' button in
+#another Help Give Thanks database.
 Go to Layout [ “startMemorySwitch” (MemorySwitch) ]
 Show All Records
 Go to Record/Request/Page
@@ -120,8 +137,6 @@ Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
 Set Field [ MemorySwitch::versionLibrary; tempSetup::verionNumber ]
 #
 Go to Layout [ “defaultSetup” (tempSetup) ]
-January 28, 平成26 17:56:38 Empty Library.fp7 - startDatabase -1-startclose: startDatabase
-Go to Layout [ “defaultSetup” (tempSetup) ]
 #
 #Show regular menus if Admin logs in only.
 Show/Hide Text Ruler
@@ -136,12 +151,14 @@ Show/Hide Status Area
 Install Menu Set [ “HGT” ]
 End If
 #
+#Finish the import if this is what the user was doing.
 If [ $$import = 1 ]
 Set Variable [ $$import ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Perform Script [ “defaultNodeMenu” ]
-Show Custom Dialog [ Message: "Import is almost complete! Now select yourself as the default node (the one creating new records). Last, select the default copyright and your import will be done!"; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Import is almost complete! Now select yourself as the default node (the one creating new
+records). Last, select the default copyright and your import will be done!"; Buttons: “OK” ]
 #
 End If
 #
-January 28, 平成26 17:56:38 Empty Library.fp7 - startDatabase -2-
+December 27, ଘ౮27 19:23:59 Library.fp7 - startDatabase -1-
