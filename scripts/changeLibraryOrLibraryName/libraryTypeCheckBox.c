@@ -1,4 +1,4 @@
-changeLibraryOrLibraryName: stuffCheckBox
+changeLibraryOrLibraryName: libraryTypeCheckBox
 #
 #Exit the checkbox.
 Go to Field [ ]
@@ -23,4 +23,4 @@ Set Field [ tempSetup::layoutRtagN; "moreReferenceMenu2SkeywordOrNode1" ]
 #Designate library as a stuff/inventory library.
 Set Field [ sectionAttributionInfo::order; 1 ]
 End If
-December 27, ଘ౮27 19:05:50 Library.fp7 - stuffCheckBox -1-
+December 27, ଘ౮27 19:05:50 Library.fp7 - libraryTypeCheckBox -1-
