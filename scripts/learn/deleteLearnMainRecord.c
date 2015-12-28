@@ -1,8 +1,10 @@
 learn: deleteLearnMainRecord
+// #
 #
 #If node is currenlty locked then stop script, inform user.
 If [ tagTLNodePrimary::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to delete records assigned to this node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
+password to unlock it, then you will able to delete records assigned to this node."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -23,13 +25,17 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 #If either the sample or test fields are filled show
 #message below.
 If [ testlearn::kcsample ≠ "" and testlearn::kctest ≠ "" ]
-Show Custom Dialog [ Message: "In use by Theory and Test records. Must be removed before deleting. Click the 'theorize' button and scroll to highlighted items. Click the square buttons next them. Click the 'test' button and repeat delinking process."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "In use by Brainstorm and Test records. Must be removed before deleting. 1) Click the
+'brainstorm' button. 2) Scroll to the highlighted items. 3) Click the square buttons next to each. 4) Click the 'test' button and
+repeat steps 2 and 3."; Buttons: “OK” ]
 Exit Script [ ]
 Else If [ testlearn::kcsample ≠ "" ]
-Show Custom Dialog [ Message: "In use by Theory records. Must be removed before deleting. Click the 'theorize' button and scroll to highlighted items. Click the square buttons next them."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "In use by Brainstorm records. Must be removed before deleting. 1) Click the 'brainstorm'
+button. 2) Scroll to the highlighted items. 3) Click the square buttons next to each."; Buttons: “OK” ]
 Exit Script [ ]
 Else If [ testlearn::kctest ≠ "" ]
-Show Custom Dialog [ Message: "In use by Test records. Must be removed before deleting. Click the 'test' button and scroll to highlighted items. Click the square buttons next them."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "In use by Test records. Must be removed before deleting. 1) Click the 'test' button. 2) Scroll to
+the highlighted items. 3) Click the square buttons next to each."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -62,8 +68,9 @@ Loop
 #run thru the loop.
 Set Variable [ $inUse ]
 #
-#See if learn record is used by any learn records as a
-#citation.
+#See if learn record is used by any learn
+#records as a citation. NOTE: The citation
+#option is not avaiable in v3.
 Go to Layout [ “tableTestLearn” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcitation; $delete ]
@@ -74,8 +81,8 @@ If [ Get (LastError) ≠ 401 ]
 Set Variable [ $inUse; Value:Get (FoundCount) & " learn citation" ]
 End If
 #
-#See if learn record is used by any learn records as a
-#reference.
+#See if learn record is used by any learn
+#records as a reference.
 Go to Layout [ “tableTestLearn” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcreference; $delete ]
@@ -85,14 +92,16 @@ Perform Find [ ]
 If [ Get (LastError) ≠ 401 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " learn reference" ]
+Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " Learn" ]
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " learn reference" ]
+Set Variable [ $inUse; Value:Get (FoundCount) & " Learn" ]
 End If
 End If
 #
-#See if reference record is used by any tag records as a
-#picture.
+#See if learn record is used by any tag records
+#as a picture. NOTE: The ability to add learn
+#record pictures is no longer possible since
+#version 3.
 Go to Layout [ “tableTag” (tagTable) ]
 #picture1
 Enter Find Mode [ ]
@@ -118,7 +127,6 @@ Enter Find Mode [ ]
 Set Field [ tagTable::Kpicture2; $delete ]
 Set Field [ ruleLibrary 2::ksection; $section ]
 Perform Find [ ]
-January 7, 平成26 17:23:26 Imagination Quality Management.fp7 - deleteLearnMainRecord -1-learn: deleteLearnMainRecord
 Set Variable [ $tagFound2; Value:Get (FoundCount) ]
 If [ Get (FoundCount) > 0 ]
 Go to Record/Request/Page
@@ -156,7 +164,8 @@ End If
 If [ $tagFound1 + $tagFound2 + $tagFound3 ≠ 0 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " tag menu picture(s) (" & $tagName & ")" ]
+Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " tag menu picture(s) ("
+& $tagName & ")" ]
 Else If [ $inUse = "" ]
 Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " tag menu picture(s) (" & $tagName & ")" ]
 End If
@@ -168,8 +177,9 @@ Set Variable [ $tagFound3 ]
 Set Variable [ $tagNameADD ]
 Set Variable [ $tagName ]
 #
-#See if reference record is used by any tag records
-#as a web link.
+#See if learn record is used by any tag records
+#as a web link. NOTE: Since version 3 this
+#function is no longer available.
 Go to Layout [ “tableTag” (tagTable) ]
 #link1
 Enter Find Mode [ ]
@@ -232,7 +242,8 @@ End If
 If [ $tagFound1 + $tagFound2 + $tagFound3 ≠ 0 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " tag menu link(s) (" & $tagName & ")" ]
+Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " tag menu link(s) (" &
+$tagName & ")" ]
 Else If [ $inUse = "" ]
 Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " tag menu link(s) (" & $tagName & ")" ]
 End If
@@ -244,7 +255,6 @@ Set Variable [ $tagFound3 ]
 Set Variable [ $tagNameADD ]
 Set Variable [ $tagName ]
 #
-January 7, 平成26 17:23:26 Imagination Quality Management.fp7 - deleteLearnMainRecord -2-learn: deleteLearnMainRecord
 #If the current record is in use in the section of
 #the database from which the delete was requested,
 #inform the user of this, and skip the next
@@ -311,7 +321,8 @@ If [ $deleteNotInUse ≠ "" ]
 If [ $inUse ≠ "" ]
 #
 Refresh Window
-Show Custom Dialog [ Message: "This record cannot be deleted as it in use in other sections of the database. You can remove it from this section though as it is not being used in this section."; Buttons: “cancel”, “remove” ]
+Show Custom Dialog [ Message: "This record cannot be deleted as it in use in other sections of the database. You can
+remove it from this section though as it is not being used in this section."; Buttons: “cancel”, “remove” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 #
 #If the user chooses not to remove the record
@@ -351,8 +362,12 @@ End If
 If [ $inUse ≠ "" ]
 Set Variable [ $delete ]
 Refresh Window
-// Show Custom Dialog [ Message: "This record cannot be deleted as it in use x number of times as a citation or reference in the following windows of this section: " & $inUse & "."; Buttons: “OK” ]
+If [ $$LinkedLearnRecords ≠ "" ]
+Show Custom Dialog [ Message: "Record cannot be deleted as it in use in these windows: " & $inUse & ". To view learn
+records using it 1) click 'find' (above)."; Buttons: “OK” ]
+Else
 Show Custom Dialog [ Message: "Record cannot be deleted as it in use in these windows: " & $inUse & "."; Buttons: “OK” ]
+End If
 Set Variable [ $$addTagToCitation ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
@@ -362,12 +377,12 @@ End If
 #
 #
 #If record is not in use in any section, but has more
-January 7, 平成26 17:23:26 Imagination Quality Management.fp7 - deleteLearnMainRecord -3-learn: deleteLearnMainRecord
 #than one section key, give user option to remove it
 #from just this section.
 If [ ValueCount ( testlearn::kcsection ) > 1 ]
 Refresh Window
-Show Custom Dialog [ Message: "This record is in other sections of the library. Do you want to remove it from just this section or delete it from all sections?"; Buttons: “cancel”, “remove”, “delete” ]
+Show Custom Dialog [ Message: "This record is in other sections of the library. Do you want to remove it from just this section or
+delete it from all sections?"; Buttons: “cancel”, “remove”, “delete” ]
 #
 #If the user cancels, stop the delete.
 If [ Get ( LastMessageChoice ) = 1 ]
@@ -411,7 +426,14 @@ End If
 #deleting it make sure the user really wants it deleted.
 Set Variable [ $group ]
 Refresh Window
+If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" and TEMP::InventoryLibaryYN = ""
+or
+$$LinkedLearnRecords ≠ "" and TEMP::InventoryLibaryYN = "" ]
+Show Custom Dialog [ Message: "NOTE: This record references other learn records. Are you sure you want to delete it? To see
+them 1) click 'cancel'. 2) Click 'find' (above). 3) Click 'purple' in the popup window."; Buttons: “cancel”, “delete” ]
+Else
 Show Custom Dialog [ Message: "Delete current record?"; Buttons: “cancel”, “delete” ]
+End If
 Set Variable [ $group; Value:tagMenus::kGroupOrTest ]
 Set Variable [ $deleteGroup; Value:ruleTagMenuGroups::name ]
 #
@@ -442,5 +464,4 @@ Set Variable [ $$stopLoadTagRecord ]
 #
 Perform Script [ “loadCitation” ]
 #
-#
-January 7, 平成26 17:23:26 Imagination Quality Management.fp7 - deleteLearnMainRecord -4-
+December 28, ଘ౮27 15:01:01 Library.fp7 - deleteLearnMainRecord -1-
