@@ -159,6 +159,15 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 End If
 #
+#If the user is coming from a test info screen,
+#focus on the testlearn record they are
+#interested in editing and clear the
+#$$editTestInfo variable.
+If [ $$editTestInfo = 1 ]
+Set Variable [ $$editTestInfo ]
+Select Window [ Name: "Learn"; Current file ]
+End If
+#
 #Unlike 'exit script', 'halt script' will halt all scripts
 #currently active. So if user was on another tag
 #record and then clicked on the add tag button
@@ -188,4 +197,5 @@ End If
 #triggered this loadItem... script.
 Halt Script
 End If
-December 9, ଘ౮27 21:36:13 Library.fp7 - loadItemRecordForTestTagMenu -1-
+#
+December 27, ଘ౮27 21:59:09 Library.fp7 - loadItemRecordForTestTagMenu -1-

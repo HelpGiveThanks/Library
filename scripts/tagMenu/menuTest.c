@@ -1,10 +1,12 @@
 tagMenu: menuTest
 Allow User Abort [ Off ]
-Set Error Capture [ On ] #
+Set Error Capture [ On ]
+#
 #If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
-Go to Field [ ] #
+Go to Field [ ]
+#
 #Clear sample and test tags.
 If [ $$citationMatch = "sample" ]
 Select Window [ Name: "Learn"; Current file ]
@@ -16,8 +18,9 @@ Set Field [ TEMP::ktest; "" ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 Select Window [ Name: "Tag Menus"; Current file ]
-End If #
-#Clear order numbers.
+End If
+#
+#Clear testlearn records' order numbers.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 New Window [ Height: 1; Width: 1 ]
 Go to Layout [ “learnSCRIPTloops” (testlearn) ]
@@ -29,22 +32,33 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 Close Window [ Current Window ]
-Set Variable [ $$stopLoadTagRecord ] #
+Set Variable [ $$stopLoadTagRecord ]
+#
 #Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"test" ] #
+Set Variable [ $$citationMatch; Value:"test" ]
+#
 #Turn off the loadtagrecord script to speed up the
 #loop portion of the script.
-Set Variable [ $$stopLoadTagRecord; Value:1 ] #
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+#
 #Goto correct layout.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnTest” (test) ]
-If [ TEMP::InventoryLibaryYN
-≠ "" ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
 Go to Layout [ “learnSTest” (test) ]
 End If
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “learnTest” (test) ]
-End If #
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnSTest” (test) ]
+End If
+Else If [ Left (Get (LayoutName) ; 1) = "t" ]
+Go to Layout [ “learnTest” (test) ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “learnSTest” (test) ]
+End If
+End If
+#
 #Find section tags. Test tags are library
 #items. Any brainstorm or evidence record
 #can be tagged with any section item record SO
@@ -56,7 +70,8 @@ Enter Find Mode [ ]
 Set Field [ test::ksection; TEMP::ksection ]
 Perform Find [ ]
 #Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script. #
+#the sort will be by category which is set by editCitation script.
+#
 If [ TEMP::sortTest = "cat" or TEMP::sortTest = "" ]
 Sort Records [ Specified Sort Order: groupTest::order; based on value list: “order”
 groupTest::name; ascending
@@ -66,12 +81,17 @@ test::testName; ascending ]
 [ Restore; No dialog ]
 Else If [ $$citationMatch = "test" ]
 Set Field [ TEMP::sortTest; "abc" ]
-End If #
-#Go to citation record's current selection or to first record.
+End If
+#
+#If user did not just come from the test
+#module, go to current learn record's first
+#listed test or the first test record.
 Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
+#
+If [ $$editTestInfo ≠ 1 ]
 Loop
 Set Variable [ $number; Value:1 ]
 Go to Field [ ]
@@ -85,14 +105,27 @@ Exit Loop If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) & "¶" = test::
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) & "¶"
-≠ test::_Ltest & ¶ ]
+If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) & "¶" ≠ test::_Ltest & ¶ ]
 Go to Record/Request/Page
 [ First ]
-End If #
+End If
+#
+#If user just came from test module then loop
+#to the test the user was interested in editing.
+Else
+Go to Record/Request/Page
+[ First ]
+Loop
+Exit Loop If [ $$item = test::_Ltest ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+End If
+#
 #Turn loadtagrecord script back on and perform
-#loadtag... script to highlight any Learn records
+#load-test-tag script to highlight any Learn records
 #tagged with the current tag record.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadItemRecordForTestTagMenu” ] #
-May 4, 平成27 21:42:46 Library.fp7 - menuTest -1-
+Perform Script [ “loadItemRecordForTestTagMenu” ]
+#
+December 27, ଘ౮27 22:01:13 Library.fp7 - menuTest -1-
