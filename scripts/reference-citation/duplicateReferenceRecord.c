@@ -2,7 +2,8 @@ reference(citation): duplicateReferenceRecord
 #
 #If node is currenlty locked then stop script, inform user.
 If [ TEMP::nodeLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
+password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -61,6 +62,7 @@ Set Variable [ $authorListOLD; Value:reference::referenceNodesOLD ]
 Set Variable [ $title; Value:reference::Title ]
 #
 Set Variable [ $picture; Value:reference::picture ]
+Set Variable [ $showMedia; Value:reference::showMedia ]
 #
 Set Variable [ $chapter; Value:reference::bookChapter ]
 Set Variable [ $dissertation; Value:reference::dissertationThesisUniversity ]
@@ -118,11 +120,12 @@ Set Variable [ $refDump; Value:reference::referenceDump ]
 Set Variable [ $rights; Value:reference::rights ]
 Go to Field [ ]
 New Record/Request
-May 10, 平成27 12:12:51 Library.fp7 - duplicateReferenceRecord -1-
-reference(citation): duplicateReferenceRecord ##
+#
+#
 Set Field [ reference::kmediaType; $type ]
 Set Field [ reference::kmedia; $media ]
-Set Field [ reference::TypeOfMediumOther; $typeOther ] #
+Set Field [ reference::TypeOfMediumOther; $typeOther ]
+#
 Set Field [ reference::kkeywordPrimary; $P ]
 Set Field [ reference::kkeywordOther; $O ]
 Set Field [ reference::OtherKeyWords; $Owords ]
@@ -131,8 +134,11 @@ Set Field [ reference::knodeOther; $$node ]
 Set Field [ reference::NodeOthers; $NodeOthers ]
 Set Field [ reference::referenceNodes; $authorList ]
 Set Field [ reference::referenceNodesOLD; $authorListOLD ]
-Set Field [ reference::Title; $title ] #
-Set Field [ reference::picture; $picture ] #
+Set Field [ reference::Title; $title ]
+#
+Set Field [ reference::picture; $picture ]
+Set Field [ reference::showMedia; $showMedia ]
+#
 Set Field [ reference::bookChapter; $chapter ]
 Set Field [ reference::dissertationThesisUniversity; $dissertation ]
 Set Field [ reference::governmentAuthor; $govt ]
@@ -148,45 +154,60 @@ Set Field [ reference::conferenceTitle; $conTitle ]
 Set Field [ reference::conferenceSubTitle; $conSubTitle ]
 Set Field [ reference::conferenceGroupName; $conGname ]
 Set Field [ reference::conferenceLocation; $conLocation ]
-Set Field [ reference::conferenceDate; $conDate ] #
+Set Field [ reference::conferenceDate; $conDate ]
+#
 Set Field [ reference::korgan; $$organ ]
 Set Field [ reference::volumeNumber; $volumeNumber ]
 Set Field [ reference::issueNumber; $issueNumber ]
-Set Field [ reference::pageNumberRange; $pageNumberRange ] #
-Set Field [ reference::pageNumberOther; $noPP ] #
+Set Field [ reference::pageNumberRange; $pageNumberRange ]
+#
+Set Field [ reference::pageNumberOther; $noPP ]
+#
 Set Field [ reference::kcopyrightHolder; $copyrightHolder ]
-Set Field [ reference::TimeRange; $TimeRange ] #
-Set Field [ reference::kcopyist; $$copyist ] #
+Set Field [ reference::TimeRange; $TimeRange ]
+#
+Set Field [ reference::kcopyist; $$copyist ]
+#
 Set Field [ reference::publisherTypeAlternative; $notPub ]
 Set Field [ reference::publisherTypeOther; $notPubOther ]
-Set Field [ reference::publisherLocation; $pubLocation ] #
-Set Field [ reference::pubYear; $pubYear ] #
+Set Field [ reference::publisherLocation; $pubLocation ]
+#
+Set Field [ reference::pubYear; $pubYear ]
+#
 Set Field [ reference::PubDate; $pubDate ]
-Set Field [ reference::pubDateOther; $pubDateOther ] #
+Set Field [ reference::pubDateOther; $pubDateOther ]
+#
 Set Field [ reference::kHealth; $$health ]
-Set Field [ reference::CopyrightYear; $copyrightYear ] #
-Set Field [ reference::copyrightOtherHolder; $copyrightOtherHolder ] #
+Set Field [ reference::CopyrightYear; $copyrightYear ]
+#
+Set Field [ reference::copyrightOtherHolder; $copyrightOtherHolder ]
+#
 Set Field [ reference::URL; $URL ]
-Set Field [ reference::URLdate; $URLdate ] #
+Set Field [ reference::URLdate; $URLdate ]
+#
 Set Field [ reference::library only; $library ]
 Set Field [ reference::ISBN; $isbn ]
 Set Field [ reference::URLdoi; $doi ]
-Set Field [ reference::ISSN; $issn ] #
+Set Field [ reference::ISSN; $issn ]
+#
 Set Field [ reference::fileName; $fileName ]
 Set Field [ reference::kfileLocation; $InFolder ]
 Set Field [ reference::kfolderpath; $$Path ]
 Set Field [ reference::kcitation; $citation ]
 Set Field [ reference::thoughtsNotesEtc; $notes ]
-Set Field [ reference::referenceDump; $refDump ] #
+Set Field [ reference::referenceDump; $refDump ]
+#
 Set Field [ reference::rights; $rights ]
 Set Field [ reference::kcsection; TEMP::ksection ]
 Set Field [ reference::ktest; TEMP::ktest ]
-Set Field [ reference::incomplete; "incomplete" & ¶ ] #
+Set Field [ reference::incomplete; "incomplete" & ¶ ]
+#
 Set Field [ reference::kcopyrightType; $$copyrightType ]
 Set Field [ reference::lock; $$Ref ]
 If [ Get ( LayoutName ) = "Reference" or Get ( LayoutName ) = "ReferenceStuff" ]
 Set Field [ reference::filterFind; "main" & ¶ ]
-Set Variable [ $$stoploadCitation ] #
+Set Variable [ $$stoploadCitation ]
+#
 #Note that citation is for either the node or keyword depending on the citation match.
 Else If [ Right ( Get ( LayoutName ) ; 3 ) = "TAG" ]
 Set Field [ reference::filterFind; $$addToTag & ¶ ]
@@ -197,14 +218,15 @@ Set Variable [ $record; Value:Get (RecordNumber) ]
 Go to Record/Request/Page [ $record ]
 [ No dialog ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ] #
+Perform Script [ “loadCitation” ]
+#
 #Go to edit layout for this record.
-If [ TEMP::InventoryLibaryYN
-≠ "" ]
+If [ TEMP::InventoryLibaryYN ≠ "" ]
 Go to Layout [ “ReferenceEDITstuff” (reference) ]
 Else
 Go to Layout [ “ReferenceEDIT” (reference) ]
-End If #
+End If
+#
 #Prevent add mode.
 Set Variable [ $$stopAdd; Value:1 ]
-May 10, 平成27 12:12:51 Library.fp7 - duplicateReferenceRecord -2-
+December 28, ଘ౮27 15:28:10 Library.fp7 - duplicateReferenceRecord -1-
