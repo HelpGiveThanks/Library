@@ -27,8 +27,8 @@ If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" or $$LinkedLearnRecords ≠ 
 #If it does reference other Learn records, ask the user
 #if they would like to find just those records, or
 #continue to the find screen.
-Show Custom Dialog [ Message: "Find referenced records (purple highlight)?" & ¶ & "OR" & ¶ & "Find other?"; Buttons:
-“other”, “purple”, “cancel” ]
+Show Custom Dialog [ Message: "Find referenced learn records (highlighted purple)?" & ¶ & "OR" & ¶ & "Find other?";
+Buttons: “other”, “purple”, “cancel” ]
 #
 #Exit script if user clicks cancel.
 If [ Get ( LastMessageChoice ) = 3 ]
@@ -257,4 +257,4 @@ Sort Records [ ]
 [ No dialog ]
 Go to Record/Request/Page
 [ First ]
-December 10, ଘ౮27 18:17:07 Library.fp7 - findLearnRecord -1-
+December 28, ଘ౮27 15:13:39 Library.fp7 - findLearnRecord -1-
