@@ -2,7 +2,8 @@ reference(citation): deleteReference
 #
 #If node is currenlty locked then stop script, inform user.
 If [ tagNodeCreator::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to delete records assigned to this node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
+password to unlock it, then you will able to delete records assigned to this node."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -78,7 +79,7 @@ Set Field [ testlearn::kcsection; $section ]
 Perform Find [ ]
 #
 If [ Get (LastError) ≠ 401 ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " learn (cite tag)" ]
+Set Variable [ $inUse; Value:Get (FoundCount) & " Learn (cite tag)" ]
 End If
 #
 #See if reference is used by any learn records as a
@@ -92,9 +93,9 @@ Perform Find [ ]
 If [ Get (LastError) ≠ 401 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " learn (reference tag)" ]
+Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " Learn (reference tag)" ]
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " learn (reference tag)" ]
+Set Variable [ $inUse; Value:Get (FoundCount) & " Learn (reference tag)" ]
 End If
 End If
 #
@@ -109,16 +110,15 @@ Perform Find [ ]
 If [ Get (LastError) ≠ 401 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " reference (cite tag)" ]
+Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " References (cite tag)" ]
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " reference (cite tag)" ]
+Set Variable [ $inUse; Value:Get (FoundCount) & " References (cite tag)" ]
 End If
 End If
 #
 #See if reference record is used by any tag records as a
 #picture.
 Go to Layout [ “tableTag” (tagTable) ]
-January 7, 平成26 17:36:21 Imagination Quality Management.fp7 - deleteReference -1-reference(citation): deleteReference
 #picture1
 Enter Find Mode [ ]
 Set Field [ tagTable::Kpicture1; $delete ]
@@ -180,9 +180,11 @@ End If
 If [ $tagFound1 + $tagFound2 + $tagFound3 ≠ 0 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " tag menu picture(s) (" & $tagName & ")" ]
+Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " Tag Menus (picture
+for tag: " & $tagName & ")" ]
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " tag menu picture(s) (" & $tagName & ")" ]
+Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " Tag Menus (picture for tag: " & $tagName &
+")" ]
 End If
 End If
 #
@@ -244,7 +246,6 @@ Go to Record/Request/Page
 [ First ]
 Loop
 Set Variable [ $tagNameADD; Value:$tagName ]
-January 7, 平成26 17:36:21 Imagination Quality Management.fp7 - deleteReference -2-reference(citation): deleteReference
 Set Variable [ $tagName; Value:Case (
 $tagNameAdd = "" ;
 tagTable::tag ;
@@ -257,9 +258,11 @@ End If
 If [ $tagFound1 + $tagFound2 + $tagFound3 ≠ 0 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " tag menu link(s) (" & $tagName & ")" ]
+Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " Tag Menus (link for
+tag: " & $tagName & ")" ]
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " tag menu link(s) (" & $tagName & ")" ]
+Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " Tag Menus (link for tag: " & $tagName &
+")" ]
 End If
 End If
 #
@@ -335,7 +338,8 @@ If [ $deleteNotInUse ≠ "" ]
 If [ $inUse ≠ "" ]
 #
 Refresh Window
-Show Custom Dialog [ Message: "This record cannot be deleted as it in use in other sections of the database. You can remove it from this section though as it is not being used in this section."; Buttons: “cancel”, “remove” ]
+Show Custom Dialog [ Message: "This record cannot be deleted as it in use in other sections of the database. You can
+remove it from this section though as it is not being used in this section."; Buttons: “cancel”, “remove” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 #
 #If the user chooses not to remove the record
@@ -363,7 +367,6 @@ Set Field [ reference::kcsection; Substitute ( reference::kcsection & ¶ ; TEMP:
 #
 #Omit the record as it no longer is part of this section.
 Omit Record
-January 7, 平成26 17:36:21 Imagination Quality Management.fp7 - deleteReference -3-reference(citation): deleteReference
 #
 End If
 Exit Script [ ]
@@ -421,4 +424,4 @@ Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 Perform Script [ “loadCitation” ]
 #
-January 7, 平成26 17:36:21 Imagination Quality Management.fp7 - deleteReference -4-
+December 28, ଘ౮27 14:40:09 Library.fp7 - deleteReference -1-
