@@ -41,8 +41,8 @@ Set Variable [ $$stopTest; Value:1 ]
 Set Variable [ $group; Value:addTestItemGroup::addTestItemGroup ]
 Set Variable [ $groupHighlight; Value:addTestItemGroup::addTestItemGroup ]
 Set Field [ addTestItemGroup::addTestItemGroup; "" ]
-// New Window [ Name: "Test Results"; Height: 1; Width: 1; Top: -10000; Left: -10000 ]
-New Window [ Name: "Test Results" ]
+New Window [ Name: "Test Results"; Height: 1; Width: 1; Top: -10000; Left: -10000 ]
+// New Window [ Name: "Test Results" ]
 Enter Find Mode [ ]
 Set Field [ ruleTagMenuTestGroups::_Lgroup; $group ]
 Perform Find [ ]
@@ -217,4 +217,4 @@ End If
 #Show newly added group and its test items.
 Perform Script [ “menuTestItem” ]
 #
-December 8, ଘ౮27 11:56:02 Library.fp7 - (un)linkTestItemGroupToTestItemList -1-
+December 27, ଘ౮27 19:29:11 Library.fp7 - (un)linkTestItemGroupToTestItemList -1-
