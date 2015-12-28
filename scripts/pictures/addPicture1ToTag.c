@@ -11,7 +11,8 @@ pictures: addPicture1ToTag
 #AND once such a tag is added no reference,
 #or cite tags can be added to it.
 If [ testlearn::kcitation ≠ "" or testlearn::kcreference ≠ "" ]
-Show Custom Dialog [ Message: "Learn records with references or a citation cannot be added to tags. Doing so would require adding all these reference and cite records' references and cite records, and then all of theirs, and so on. "; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Learn records with references or a citation cannot be added to tags. Doing so would require
+adding all these reference and cite records' references and cite records, and then all of theirs, and so on. "; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -49,7 +50,9 @@ or Right ( reference::URL ; 3 ) = "bmp"
 or Right ( reference::URL ; 3 ) = "wmf"
 or Right ( reference::URL ; 3 ) = "emf"
 or
-reference::picture ≠ "" ]
+reference::picture ≠ ""
+or
+reference::picture = "" and reference::showMedia ≠ "" and reference::URL ≠ "" ]
 Set Variable [ $$name; Value:"picture" ]
 Set Variable [ $$number; Value:1 ]
 #
@@ -64,8 +67,10 @@ Set Variable [ $filterFind; Value:testlearn::filterFind ]
 Set Field [ testlearn::filterFind; "keyword" & ¶ & $filterFind ]
 // Show Custom Dialog [ Message: "The system has added this learn record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
-" citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch =
+"key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file
+and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
 Else If [ $$citationMatch & ¶ ≠ FilterValues ( testlearn::filterFind ; $$citationMatch & ¶ ) ]
@@ -73,8 +78,10 @@ Set Variable [ $filterFind; Value:testlearn::filterFind ]
 Set Field [ testlearn::filterFind; $$citationMatch & ¶ & $filterFind ]
 // Show Custom Dialog [ Message: "The system has added this learn record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
-" citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ;
+"keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and
+web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
 #
@@ -85,8 +92,10 @@ Set Variable [ $filterFind; Value:reference::filterFind ]
 Set Field [ reference::filterFind; "keyword" & ¶ & $filterFind ]
 // Show Custom Dialog [ Message: "The system has added this reference record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
-" citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch =
+"key" ; "keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file
+and web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
 Else If [ $$citationMatch & ¶ ≠ FilterValues ( reference::filterFind ; $$citationMatch & ¶) ]
@@ -94,8 +103,10 @@ Set Variable [ $filterFind; Value:reference::filterFind ]
 Set Field [ reference::filterFind; $$citationMatch & ¶ & $filterFind ]
 // Show Custom Dialog [ Message: "The system has added this reference record to the " &
 If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) &
-" citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."
-//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and web links to " &
+ " citation record set. You will not have to click the 'all' button anymore to find it for " & If ( $$citationMatch = "key" ;
+"keyword (key)" ; $$citationMatch ) & " tags."
+//Next time you click on the add button, this record will be found as part of the records supplying pictures, file and
+web links to " &
 //If ( $$citationMatch = "key" ; "keyword (key)" ; $$citationMatch ) & " tags."; Buttons: “OK” ]
 End If
 End If
@@ -103,4 +114,4 @@ End If
 #Now perform the script that adds the tag.
 Perform Script [ “CHUNKaddPictureToTag” ]
 End If
-February 13, 平成27 22:07:46 Stuff Library.fp7 - addPicture1ToTag -1-
+December 27, ଘ౮27 19:35:16 Library.fp7 - addPicture1ToTag -1-
