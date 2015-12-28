@@ -1,4 +1,5 @@
-changeLibraryOrLibraryName: changeSectionName
+libraryNameAndType: changeLibraryName
+#
 If [ $$stopChangeSectionName ≠ 1 ]
 Commit Records/Requests
 Set Variable [ $name; Value:ruleSection::name ]
@@ -17,6 +18,9 @@ Set Field [ ruleSection::name; $name & " " & ruleSection::_Lgroup ]
 Set Field [ ruleSection::nameSpelling; $name & " " & ruleSection::_Lgroup ]
 Exit Script [ ]
 End If
+#
+#Insure name in Setup window matches Library's name.
+Set Field [ tempSetup::sectionName; $name ]
 Go to Field [ ]
 End If
-January 7, 平成26 12:08:14 Imagination Quality Management.fp7 - changeSectionName -1-
+December 27, ଘ౮27 19:14:26 Library.fp7 - changeLibraryName -1-
