@@ -1,16 +1,17 @@
 pictures: pictureDelete
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
-If [ reference::picture ≠ "" and reference::lock = "" ]
+If [ reference::picture ≠ "" and reference::lock = "" or
+reference::picture = "" and reference::lock = "" and reference::showMedia ≠ "" and reference::URL ≠ "" ]
 Show Custom Dialog [ Message: "Delete current picture?"; Buttons: “Cancel”, “OK” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Go to Field [ ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ reference::picture; "" ]
-// Close Window [ Current Window ]
-// Exit Script [ ]
-// Halt Script
+Set Field [ reference::showMedia; "" ]
+Close Window [ Current Window ]
+Halt Script
 End If
 Else If [ testlearn::Picture ≠ "" ]
 Show Custom Dialog [ Message: "Delete current picture?"; Buttons: “Cancel”, “OK” ]
@@ -19,9 +20,8 @@ Go to Field [ ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ testlearn::Picture; "" ]
-// Close Window [ Current Window ]
-// Exit Script [ ]
-// Halt Script
+Close Window [ Current Window ]
+Halt Script
 End If
 Else If [ testlearnReportTags::Picture ≠ "" ]
 Show Custom Dialog [ Message: "Delete current picture?"; Buttons: “Cancel”, “OK” ]
@@ -30,11 +30,10 @@ Go to Field [ ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ testlearnReportTags::Picture; "" ]
-// Close Window [ Current Window ]
-// Exit Script [ ]
-// Halt Script
+Close Window [ Current Window ]
+Halt Script
 End If
 End If
 #
 #
-January 7, 平成26 17:05:41 Imagination Quality Management.fp7 - pictureDelete -1-
+December 27, ଘ౮27 19:31:27 Library.fp7 - pictureDelete -1-
