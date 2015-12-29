@@ -22,8 +22,13 @@ Exit Script [ ]
 End If
 #
 If [ $$citationMatch = "sample" and $$atLeastOneRecord ≠ "" ]
-Show Custom Dialog [ Message: "You can delete this brainstom tag after you untag it from each record using it (highlighted blue)
-in the Learn window."; Buttons: “OK” ]
+If [ TEMP::InventoryLibaryYN = "" ]
+Show Custom Dialog [ Message: "You can delete this brainstom after you untag it from each record using it (highlighted
+blue) in the Learn window."; Buttons: “OK” ]
+Else
+Show Custom Dialog [ Message: "You can delete this inventory list after you untag it from each record using it
+(highlighted blue) in the Learn window."; Buttons: “OK” ]
+End If
 Exit Script [ ]
 End If
 #
@@ -259,4 +264,4 @@ Perform Script [ “loadItemRecordForSampleTagMenu” ]
 Else
 Refresh Window
 End If
-December 9, ଘ౮27 18:14:32 Library.fp7 - deleteCPPPBtags -1-
+December 29, ଘ౮27 13:17:11 Library.fp7 - deleteCPPPBtags -1-

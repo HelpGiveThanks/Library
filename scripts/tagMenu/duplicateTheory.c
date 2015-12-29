@@ -17,8 +17,13 @@ End If
 #same function (are you sure) by asking them
 #if they want to include a version number or
 #not in their duplicate or cancel this script.
-Show Custom Dialog [ Message: "Add verson number (v2, v3, v4, etc.) placeholder ' v# ' for you to help tell duplicate brainstorm tags
+If [ TEMP::InventoryLibaryYN = "" ]
+Show Custom Dialog [ Message: "Add verson number (v2, v3, v4, etc.) placeholder ' v# ' for you to help tell duplicate brainstorms
 apart? NOTE: If there is already a version# click 'no' and update the existing #."; Buttons: “yes”, “no”, “cancel” ]
+Else
+Show Custom Dialog [ Message: "Add verson number (v2, v3, v4, etc.) placeholder ' v# ' for you to help tell duplicate inventory
+lists apart? NOTE: If there is already a version# click 'no' and update the existing #."; Buttons: “yes”, “no”, “cancel” ]
+End If
 #
 #Exit script if user clicks cancel.
 If [ Get ( LastMessageChoice ) = 3 ]
@@ -92,4 +97,4 @@ Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
 Refresh Window
 Set Variable [ $$stopLoadTagRecord ]
 #
-December 10, ଘ౮27 16:56:22 Library.fp7 - duplicateTheory -1-
+December 29, ଘ౮27 13:24:26 Library.fp7 - duplicateTheory -1-

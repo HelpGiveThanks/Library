@@ -1,5 +1,4 @@
 learn: deleteLearnMainRecord
-// #
 #
 #If node is currenlty locked then stop script, inform user.
 If [ tagTLNodePrimary::orderOrLock ≠ "" ]
@@ -25,17 +24,28 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 #If either the sample or test fields are filled show
 #message below.
 If [ testlearn::kcsample ≠ "" and testlearn::kctest ≠ "" ]
-Show Custom Dialog [ Message: "In use by Brainstorm and Test records. Must be removed before deleting. 1) Click the
-'brainstorm' button. 2) Scroll to the highlighted items. 3) Click the square buttons next to each. 4) Click the 'test' button and
-repeat steps 2 and 3."; Buttons: “OK” ]
+If [ TEMP::InventoryLibaryYN = "" ]
+Show Custom Dialog [ Message: "Tagged by brainstorm and test tags. Remove these tags to delete. 1) Click the
+'brainstorm' button. 2) Scroll to the highlighted tags. 3) Click the square buttons next to each. 4) Click the 'test' button
+and repeat steps 2 and 3."; Buttons: “OK” ]
+Else
+Show Custom Dialog [ Message: "Tagged by inventory list and test tags. Remove these tags to delete. 1) Click the
+'inventory list' button. 2) Scroll to the highlighted tags. 3) Click the square buttons next to each. 4) Click the 'test' button
+and repeat steps 2 and 3."; Buttons: “OK” ]
+End If
 Exit Script [ ]
 Else If [ testlearn::kcsample ≠ "" ]
-Show Custom Dialog [ Message: "In use by Brainstorm records. Must be removed before deleting. 1) Click the 'brainstorm'
-button. 2) Scroll to the highlighted items. 3) Click the square buttons next to each."; Buttons: “OK” ]
+If [ TEMP::InventoryLibaryYN = "" ]
+Show Custom Dialog [ Message: "Tagged by brainstorm tags. Remove these tags to delete. 1) Click the 'brainstorm' button.
+2) Scroll to the highlighted tags. 3) Click the square buttons next to each."; Buttons: “OK” ]
+Else
+Show Custom Dialog [ Message: "Tagged by inventory list tags. Remove these tags to delete. 1) Click the 'inventory list'
+button. 2) Scroll to the highlighted tags. 3) Click the square buttons next to each."; Buttons: “OK” ]
+End If
 Exit Script [ ]
 Else If [ testlearn::kctest ≠ "" ]
-Show Custom Dialog [ Message: "In use by Test records. Must be removed before deleting. 1) Click the 'test' button. 2) Scroll to
-the highlighted items. 3) Click the square buttons next to each."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Tagged by test tags. Remove these tags to delete. 1) Click the 'test' button. 2) Scroll to the
+highlighted tags. 3) Click the square buttons next to each."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
@@ -464,4 +474,4 @@ Set Variable [ $$stopLoadTagRecord ]
 #
 Perform Script [ “loadCitation” ]
 #
-December 28, ଘ౮27 15:01:01 Library.fp7 - deleteLearnMainRecord -1-
+December 29, ଘ౮27 13:35:51 Library.fp7 - deleteLearnMainRecord -1-
