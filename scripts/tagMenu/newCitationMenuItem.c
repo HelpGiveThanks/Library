@@ -5,13 +5,15 @@ Go to Field [ ]
 #
 #If node is currenlty locked then stop script, inform user.
 If [ TEMP::nodeLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
+password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 #
 #No tag record can be created without an author/node.
 If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window OR create a node record for yourself?"; Buttons: “select”, “create” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window OR create a node record for
+yourself?"; Buttons: “select”, “create” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Halt Script
 Else
@@ -65,9 +67,14 @@ Set Field [ tagMenus::match; "node" ]
 #'theory' need to be replaced with 'brainstorm'.
 Else If [ $$citationMatch = "sample" ]
 #
+Set Field [ tagMenus::match; "sample" ]
+#
 #Tag is new so it has no learn records tagged with it.
 #So, clear this variable.
 Set Variable [ $$atLeastOneRecord ]
+#
+#Set default copyright for tag.
+Set Field [ tagMenus::notesOrHealth; TEMP::kdefaultHealth ]
 #
 #Set the other three variables that would normally
 #be set by the load tag record script.
@@ -99,4 +106,4 @@ End If
 #
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Object [ Object Name: "tag" ]
-December 9, ଘ౮27 21:32:09 Library.fp7 - newCitationMenuItem -1-
+December 28, ଘ౮27 19:37:58 Library.fp7 - newCitationMenuItem -1-
