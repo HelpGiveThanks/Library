@@ -299,9 +299,10 @@ Set Variable [ $$LinkedLearnRecords; Value:Get (FoundCount) ]
 Set Variable [ $$stoploadCitation ]
 Close Window [ Name: "LinkedLearnRecords"; Current file ]
 #
+Refresh Window
 End If
 #
 #
 #
 #
-December 10, ଘ౮27 18:39:16 Library.fp7 - loadCitation -1-
+December 28, ଘ౮27 17:33:49 Library.fp7 - loadCitation -1-
