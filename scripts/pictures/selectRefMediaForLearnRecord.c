@@ -4,6 +4,10 @@ pictures: selectRefMediaForLearnRecord
 #selection button on the QV layout. It allows
 #the user to show a the selected reference's
 #media in the layouts picture window.
+If [ testlearn::kshowReferencedMedia = refReference::_Lreference ]
+Set Field [ testlearn::kshowReferencedMedia; "" ]
+Else
 Set Field [ testlearn::kshowReferencedMedia; refReference::_Lreference ]
+End If
 #
-December 27, ଘ౮27 19:52:05 Library.fp7 - selectRefMediaForLearnRecord -1-
+December 29, ଘ౮27 21:39:20 Library.fp7 - selectRefMediaForLearnRecord -1-
