@@ -5,13 +5,16 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 #
 If [ TEMP::ksection = "" ]
-Show Custom Dialog [ Message: "Select a section from the Tag Menus window for records that you create to be placed into."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select a section from the Tag Menus window for records that you create to be placed into.";
+Buttons: “OK” ]
 Halt Script
 Else If [ tempSetup::kdefaultHealth = "" ]
-Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button (you can always change your mind)."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button
+(you can always change your mind)."; Buttons: “OK” ]
 Halt Script
 Else If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button.";
+Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -54,7 +57,11 @@ Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
 // Set Field [ reference::filterFind; "main" ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
+// Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceSort; ascending ]
+[ Restore; No dialog ]
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceWindow; ascending ]
 [ Restore; No dialog ]
 #
@@ -69,8 +76,12 @@ End Loop
 Set Variable [ $$stoploadCitation ]
 Perform Script [ “menuKey” ]
 Perform Script [ “loadCitation” ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
+// Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
+[ Restore; No dialog ]
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
 [ Restore; No dialog ]
 Set Variable [ $refRecordNumber; Value:Get ( RecordNumber ) ]
 Scroll Window
@@ -114,25 +125,31 @@ Enter Find Mode [ ]
 Set Field [ reference::kcsection; TEMP::ksection ]
 // Set Field [ reference::filterFind; "main" ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
+// Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
+[ Restore; No dialog ]
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
 [ Restore; No dialog ]
 #
 #Loop to record to be edited.
-May 10, 平成27 12:23:14 Library.fp7 - editCitation -1-
-reference(citation): editCitation
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $$stoploadCitation ]
 Go to Field [ reference::knodePrimary ]
 Perform Script [ “menuKey” ]
 Perform Script [ “loadCitation” ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
+// Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceSort; ascending ]
+[ Restore; No dialog ]
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
 [ Restore; No dialog ]
 Scroll Window
 [ Home ]
 #
 #
 End If
-May 10, 平成27 12:23:14 Library.fp7 - editCitation -2-
+December 30, ଘ౮27 11:12:32 Library.fp7 - editCitation -1-

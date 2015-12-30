@@ -8,7 +8,7 @@ reference(citation): externalReferences
 #that needs to be turned on: menuReference,
 // #If library is for inventory then go to container menu.
 // If [ TEMP::InventoryLibaryYN ≠ "" ]
-// Perform Script [ “menuReference” ]
+// Perform Script [ “menuReference (update)” ]
 // Exit Script [ ]
 // End If
 #
@@ -34,6 +34,10 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Go to citation record's current selection or to first record.
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
+[ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
 Scroll Window
@@ -69,5 +73,9 @@ Set Variable [ $$internal ]
 #
 #Show all internal reference possibilities.
 Go to Layout [ “learnFindCite” (reference) ]
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
+[ Restore; No dialog ]
 End If
-May 10, 平成27 12:08:24 Library.fp7 - externalReferences -1-
+December 30, ଘ౮27 11:10:41 Library.fp7 - externalReferences -1-
