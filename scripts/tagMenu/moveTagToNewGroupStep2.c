@@ -6,6 +6,23 @@ Set Error Capture [ On ]
 // Exit Script [ ]
 // End If
 #
+#
+If [ tagMenus::kGroupOrTest = "" ]
+Set Field [ tagMenus::kGroupOrTest; $$groupOLD ]
+Go to Field [ ]
+Exit Script [ ]
+End If
+#
+#Check field contents against valid keys, and  
+#if invalid then put back old key and exit.
+If [ FilterValues ( ValueListItems ( Get ( FileName ) ; "tagGroup" ) ; tagMenus::kGroupOrTest & ¶ ) ≠ tagMenus::kGroupOrTest & ¶ ]
+Set Field [ tagMenus::kGroupOrTest; $$groupOLD ]
+Go to Field [ ]
+Exit Script [ ]
+End If
+#
+#
+#
 #Stop test record load script to speed up script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
@@ -23,8 +40,9 @@ If [ ValueCount ( ruleTagMenuGroups::ksection ) > 1 ]
 #if the go ahead with the move, they will be unable
 #to reverse their decision after moving.
 Go to Field [ ]
-Show Custom Dialog [ Title: "!"; Message: "WARNING: Once the " & tagMenus::tag & " move is finished it cannot be undone. The group it is being moved to is in more than one section of this database. Tags cannot be moved out of these types of groups. So are you really sure about this
-move?"; Buttons: “undo move”, “I am sure!” ]
+Show Custom Dialog [ Title: "!"; Message: "WARNING: Once the " & tagMenus::tag & " move is finished it cannot be undone.
+The group it is being moved to is in more than one section of this database. Tags cannot be moved out of these types of
+groups. So are you really sure about this move?"; Buttons: “undo move”, “I am sure!” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 #
 #Reset the tag's group ID with its old group ID
@@ -68,7 +86,8 @@ Refresh Window
 #the old group will be deleted unless the user
 #creates a new item for this group before moving
 #the old item.
-Show Custom Dialog [ Title: "!"; Message: "After " & tagMenus::tag & " is moved its old group will be deleted. If you want to keep this group then create a new tag for the old group before the last tag out of it."; Buttons: “Cancel”, “move” ]
+Show Custom Dialog [ Title: "!"; Message: "After " & tagMenus::tag & " is moved its old group will be deleted. If you want to keep
+this group then create a new tag for the old group before the last tag out of it."; Buttons: “Cancel”, “move” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Variable [ $newGroup ]
 Set Variable [ $$groupOLD ]
@@ -112,4 +131,4 @@ Set Variable [ $$stopLoadTagRecord ]
 #
 Halt Script
 #
-January 7, 平成26 16:10:14 Imagination Quality Management.fp7 - moveTagToNewGroupStep2 -1-
+December 31, ଘ౮27 14:16:11 Library.fp7 - moveTagToNewGroupStep2 -1-
