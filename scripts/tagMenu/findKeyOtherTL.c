@@ -1,4 +1,4 @@
-tagMenu: FindKeyOtherTL
+tagMenu: findKeyOtherTL
 #Select tag to be found.
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
 #
@@ -25,7 +25,7 @@ Set Variable [ $name; Value:tagMenus::tag ]
 #As going to the other window will be involved
 #stop the record load script on that window until
 #this script is finished to speed things up and
-#stop ﬂashing effect.
+#stop flashing effect.
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
 #Go to the other window and start the find process.
@@ -92,7 +92,7 @@ Enter Browse Mode
 #If after removing this item from the list of found other
 #tagged records the list is empty, perform a find
 #that will result in zero records being found
-#to reﬂect the fact that the user currently has
+#to reflect the fact that the user currently has
 #an empty found other list.
 If [ $$foundOther = "" ]
 Set Variable [ $$firstFindOther ]
@@ -116,7 +116,6 @@ Perform Find [ ]
 #still on the list one tag at a time.
 Else If [ $$foundOther ≠ "" ]
 #
-January 7, 平成26 16:40:37 Imagination Quality Management.fp7 - FindKeyOtherTL -1-tagMenu: FindKeyOtherTL
 #Create a copy of the found list. Items will be
 #removed from this one at a time as they are found.
 Set Variable [ $findList; Value:$$foundOther ]
@@ -234,10 +233,9 @@ Set Field [ testlearn::kcitation; $find ]
 Else If [ $menu = "p" ]
 Set Field [ testlearn::kfolderPath; $find ]
 Else If [ $menu = "t" ]
-January 7, 平成26 16:40:37 Imagination Quality Management.fp7 - FindKeyOtherTL -2-tagMenu: FindKeyOtherTL
-Set Field [ testlearn::ktest; $find ]
+Set Field [ testlearn::kctest; "*" & $find & ¶ ]
 Else If [ $menu = "s" ]
-Set Field [ testlearn::kcsample; $find ]
+Set Field [ testlearn::kcsample; "*" & $find & ¶ ]
 End If
 #
 #
@@ -329,4 +327,4 @@ End If
 #
 #
 End If
-January 7, 平成26 16:40:37 Imagination Quality Management.fp7 - FindKeyOtherTL -3-
+January 8, ଘ౮28 14:34:24 Library.fp7 - findKeyOtherTL -1-

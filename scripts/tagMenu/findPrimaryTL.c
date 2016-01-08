@@ -193,9 +193,9 @@ Set Field [ testlearn::kcitation; $find ]
 Else If [ $menu = "p" ]
 Set Field [ testlearn::kfolderPath; $find ]
 Else If [ $menu = "t" ]
-Set Field [ testlearn::ktest; $find ]
+Set Field [ testlearn::kctest; "*" & $find & ¶ ]
 Else If [ $menu = "s" ]
-Set Field [ testlearn::kcsample; $find ]
+Set Field [ testlearn::kcsample; "*" & $find & ¶ ]
 End If
 #
 #
@@ -414,4 +414,4 @@ End If
 #
 #
 End If
-December 10, ଘ౮27 17:27:09 Library.fp7 - findPrimaryTL -1-
+January 8, ଘ౮28 14:44:34 Library.fp7 - findPrimaryTL -1-

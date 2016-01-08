@@ -1,4 +1,11 @@
 learn: findLearnRecord
+#
+#If in find mode, exit script.
+If [ $$findMode ≠ "" ]
+Show Custom Dialog [ Message: "Exit find mode in the Tag Menus window, then click this button."; Buttons: “OK” ]
+Exit Script [ ]
+End If
+#
 #Capture errors and tell user about them in custom
 #dialogue box.
 Allow User Abort [ Off ]
@@ -27,8 +34,8 @@ If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" or $$LinkedLearnRecords ≠ 
 #If it does reference other Learn records, ask the user
 #if they would like to find just those records, or
 #continue to the find screen.
-Show Custom Dialog [ Message: "Find referenced learn records (highlighted purple)?" & ¶ & "OR" & ¶ & "Find other?";
-Buttons: “other”, “purple”, “cancel” ]
+Show Custom Dialog [ Message: "Find linked learn records (text areas highlighted purple)?" & ¶ & "OR" & ¶ & "Find
+other?"; Buttons: “other”, “linked”, “cancel” ]
 #
 #Exit script if user clicks cancel.
 If [ Get ( LastMessageChoice ) = 3 ]
@@ -36,11 +43,10 @@ Exit Script [ ]
 End If
 #
 If [ Get ( LastMessageChoice ) = 2 ]
-#If the user wants to find just the referenced
-#do 1 of 3 things:
+#If the user wants to find just referenced records.
 #
 #
-#1.1) Determine if there are A) records it is referencing
+#Determine if there are A) records it is referencing
 #and B) records referencing it.
 If [ Filter ( testlearn::kcreference ; "L" ) ≠ ""
 and
@@ -48,19 +54,22 @@ $$LinkedLearnRecords ≠ "" ]
 #
 #If both are found ask user if they want to see
 #A records or A and B records.
-Show Custom Dialog [ Message: "Find referenced records only?" & ¶ & "OR" & ¶ & "Find referenced + records
-referencing this record?"; Buttons: “Ref”, “Ref+”, “cancel” ]
+Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1
+= Refs or 1 and 2 = Refs+?"; Buttons: “Ref+”, “Ref”, “cancel” ]
+If [ Get (LastMessageChoice) = 1 ]
+Set Variable [ $showReferencesReferencingMe; Value:1 ]
+End If
 #
-#If button 2 is selected go to the next section
-#after the End If below OR
-#exit script if user clicks cancel (button 3).
+#If button 2 is selected go to the next section.
+#
+#Exit script if user clicks cancel (button 3).
 If [ Get ( LastMessageChoice ) = 3 ]
 Exit Script [ ]
 End If
 #
 #
 Else If [ $$LinkedLearnRecords ≠ "" ]
-#1.2) If there are only records referencing this record,
+#If there are only records referencing this record,
 #then find these records.
 #
 #Find original record first.
@@ -94,8 +103,8 @@ Exit Script [ ]
 #
 #
 Else If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
-#1.3) If there are only records referenced by this record,
-#then find these records in this next part of the script.
+#If there are only records referenced by this record,
+#then find these records in this next section.
 #
 #
 End If
@@ -155,8 +164,8 @@ Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
 End Loop
 #
 #Now find records referencing the original record
-#if the user selected that option (button 2).
-If [ Get ( LastMessageChoice ) = 2 ]
+#if the user selected that option (button 1).
+If [ $showReferencesReferencingMe ≠ "" ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcreference; $$citation ]
 Extend Found Set [ ]
@@ -257,4 +266,4 @@ Sort Records [ ]
 [ No dialog ]
 Go to Record/Request/Page
 [ First ]
-December 28, ଘ౮27 15:13:39 Library.fp7 - findLearnRecord -1-
+January 8, ଘ౮28 14:41:26 Library.fp7 - findLearnRecord -1-
