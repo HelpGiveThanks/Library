@@ -1,4 +1,4 @@
-libraryNewOrUpdate: sampleCopyForPasting
+learn: sampleCopyForPasting
 #
 #
 #NOTE: 'Brainstorm ' is the new name for sample
@@ -29,6 +29,8 @@ End If
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
+Close Window [ Name: "Print/Copy"; Current file ]
+#
 Set Variable [ $$stopLoadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $layoutName; Value:Get ( LayoutName ) ]
@@ -42,7 +44,6 @@ Set Variable [ $layoutName; Value:Get ( LayoutName ) ]
 #selected brainstorm tag = $$sample variable.
 If [ $$citationMatch = "sample" and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITstuff" ]
 #
-Close Window [ Name: "Print/Copy"; Current file ]
 // New Window [ Name: "Print/Copy" ]
 New Window [ Name: "Print/Copy"; Height: 1; Width: 1; Top: 10000; Left: 10000 ]
 Go to Layout [ “learnPreviewLayout” (testlearn) ]
@@ -705,7 +706,7 @@ End If
 End If
 #
 #Print references if this learn record has any.
-If [ refReference::referenceForReferenceWindow ≠ "" ]
+If [ testlearn::kcreference ≠ "" ]
 #
 #Name reference or inventory location section.
 If [ TEMP::InventoryLibaryYN = "" ]
@@ -878,4 +879,4 @@ Move/Resize Window [ Current Window ]
 #
 #END: SHARE Non-Brainstorm and Inventory Records
 #
-January 9, ଘ౮28 15:59:23 Library.fp7 - sampleCopyForPasting -1-
+January 11, ଘ౮28 12:34:04 Library.fp7 - sampleCopyForPasting -1-
