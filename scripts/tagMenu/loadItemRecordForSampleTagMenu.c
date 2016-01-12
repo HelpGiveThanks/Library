@@ -103,6 +103,36 @@ Refresh Window
 Set Field [ TEMP::TLSampleSort; "order" ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "Learn"; Current file ]
+#
+#Insure user can be returned to their Learn
+#record selection at the end of this script.
+Set Variable [ $$returnFocusToThisRecord; Value:testlearn::_Ltestlearn ]
+#
+#Stop citation load script for the following find.
+Set Variable [ $$stoploadCitation; Value:1 ]
+#
+#In case the user is not show all records, find
+#this sample tag's learn records.
+Enter Find Mode [ ]
+Set Field [ testlearn::kcsection; TEMP::ksection ]
+Set Field [ testlearn::kcsample; "*" & $$tagsample & ¶ ]
+Extend Found Set [ ]
+#
+#Return user to seleteced learn record if they
+#are not already on it.
+If [ $$returnFocusToThisRecord ≠ testlearn::_Ltestlearn and $$returnFocusToThisRecord ≠ "" ]
+Go to Record/Request/Page
+[ First ]
+Loop
+Exit Loop If [ $$returnFocusToThisRecord = testlearn::_Ltestlearn ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+Set Variable [ $$stoploadCitation ]
+Set Variable [ $$returnFocusToThisRecord ]
+End If
+Perform Script [ “loadCitation” ]
+#
 Perform Script [ “sortTLRecordsByOrderNumber” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
@@ -144,4 +174,4 @@ End If
 #triggered this loadItem... script.
 Halt Script
 End If
-December 9, ଘ౮27 21:55:53 Library.fp7 - loadItemRecordForSampleTagMenu -1-
+January 12, ଘ౮28 13:36:57 Library.fp7 - loadItemRecordForSampleTagMenu -1-

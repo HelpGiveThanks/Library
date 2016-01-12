@@ -17,15 +17,21 @@ Set Error Capture [ On ]
 #will get deleted by the spelling check script.
 Go to Field [ ]
 #
-#Clear sample and test tags.
+#If user was viewing test tags then do this.
 If [ $$citationMatch = "test" ]
+#
+#Go to Learn window.
 Select Window [ Name: "Learn"; Current file ]
+#
+#Clear sample and test tags.
 Go to Field [ ]
 Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
 Set Variable [ $$tagSample ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
+#
+#Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 End If
 #
@@ -116,4 +122,4 @@ Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopLoadTagRecord ]
 Perform Script [ “loadItemRecordForSampleTagMenu” ]
 #
-December 9, ଘ౮27 21:26:08 Library.fp7 - menuSample -1-
+January 12, ଘ౮28 13:38:48 Library.fp7 - menuSample -1-
