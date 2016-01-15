@@ -1,4 +1,4 @@
-libraryNewOrUpdate: update
+libraryNewOrUpdate: import
 Go to Layout [ “backup” (backup) ]
 Delete All Records
 [ No dialog ]
@@ -6,7 +6,8 @@ New Record/Request
 Set Field [ backup::backup; "update439asdkc;liasdu;irejf.as.dkfupea;lksdfa,sm.eupqoiwendssasdeawsrre5o983498woeirf" ]
 Cut [ backup::backup ]
 [ Select ]
-#2 open file and determine its location (path) then close it after its location has been pasted using that file's open script into the main data file
+#2 open file and determine its location (path) then close it after its location has been pasted using that file's open script into the main
+data file
 #file is unknown so user is given the opportunity to point the database to the backup copy of their choice
 Go to Layout [ “defaultSetup” (tempSetup) ]
 Open File [ <unknown> ]
@@ -20,14 +21,18 @@ Go to Layout [ “backup” (backup) ]
 Paste [ backup::backup ]
 [ Select; No style ]
 If [ "update439asdkc;liasdu;irejf.as.dkfupea;lksdfa,sm.eupqoiwendssasdeawsrre5o983498woeirf" = backup::backup ]
-Show Custom Dialog [ Message: "Close the selected library. Then click update again to add its records to this updated version of the library application."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Close the selected library. Then click update again to add its records to this updated version
+of the library application."; Buttons: “OK” ]
 Exit Script [ ]
 End If
 Set Variable [ $filepath; Value:backup::backup ]
 #
+#
+#Test Section Records
 Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
 Show All Records
-Import Records [ Source: “$filepath”; Target: “tagTestSubjectLocation”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to tagTestSubjectLocation::knode
+Import Records [ Source: “$filepath”; Target: “tagTestSubjectLocation”; Method: Add; Character Set: “Unicode”; Field Mapping: Source
+field 1 import to tagTestSubjectLocation::knode
 Source field 2 import to tagTestSubjectLocation::kfocus
 Source field 3 import to tagTestSubjectLocation::_LtestSubjectLocation
 Source field 4 import to tagTestSubjectLocation::kfocusAttribute1
@@ -43,9 +48,12 @@ Source field 13 import to tagTestSubjectLocation::reportNumber
 Source field 14 import to tagTestSubjectLocation::kRecordCreatorNode ]
 [ No dialog ]
 #
+#
+#Test Records
 Go to Layout [ “tableTest” (test) ]
 Show All Records
-Import Records [ Source: “$filepath”; Target: “test”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to test::_Ltest
+Import Records [ Source: “$filepath”; Target: “test”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to
+test::_Ltest
 Source field 2 import to test::ktestGroup
 Source field 3 import to test::_number
 Source field 4 import to test::kcfocusALL
@@ -68,9 +76,12 @@ Source field 20 import to test::RecordModifyDate
 Source field 21 import to test::testNameRevert ]
 [ No dialog ]
 #
+#
+#TestLearn Records
 Go to Layout [ “tableTestLearn” (testlearn) ]
 Show All Records
-Import Records [ Source: “$filepath”; Target: “testlearn”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to testlearn::_Ltestlearn
+Import Records [ Source: “$filepath”; Target: “testlearn”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import
+to testlearn::_Ltestlearn
 Source field 2 import to testlearn::ktestSubject
 Source field 3 import to testlearn::_Number
 Source field 4 import to testlearn::ktest
@@ -86,7 +97,7 @@ Source field 13 import to testlearn::recordcountglobal
 Source field 14 import to testlearn::InspectionItemCountLocation
 Source field 15 import to testlearn::OK
 Source field 16 import to testlearn::kcsection
-Source field 17 import to testlearn::backupPhotoNumber
+Source field 17 import to testlearn::kshowReferencedMedia
 Source field 18 import to testlearn::TimeStart
 Source field 19 import to testlearn::TimeStop
 Source field 20 import to testlearn::TimeTotal
@@ -127,9 +138,18 @@ Source field 57 import to testlearn::emailDate
 Source field 59 import to testlearn::sampleCasePoint ]
 [ No dialog ]
 #
+#
+#Tag Records
 Go to Layout [ “tableTag” (tagTable) ]
+#
+#Delete node tag record.
+Enter Find Mode [ ]
+Set Field [ tagTable::match; "node" ]
+Delete Record/Request
+#
 Show All Records
-Import Records [ Source: “$filepath”; Target: “tagTable”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 import to tagTable::kGroupOrTest
+Import Records [ Source: “$filepath”; Target: “tagTable”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field
+Mapping: Source field 1 import to tagTable::kGroupOrTest
 Source field 2 match with tagTable::_Ltag
 Source field 3 import to tagTable::tag
 Source field 4 import to tagTable::orderOrLock
@@ -150,10 +170,23 @@ Source field 24 import to tagTable::kRecordCreatorNode
 Source field 25 import to tagTable::kRecordModifierNode ]
 [ No dialog ]
 #
+#
+#Tag Group Records
 Go to Layout [ “tableGroupTag” (groupTest) ]
-January 7, 平成26 12:03:22 Imagination Quality Management.fp7 - update -1-libraryNewOrUpdate: update
+#
+#Delete the empty library section record.
+Enter Find Mode [ ]
+Set Field [ groupTest::match; "section" ]
+Delete All Records
+#
+#Delete node group record.
+Enter Find Mode [ ]
+Set Field [ groupTest::match; "node" ]
+Delete All Records
+#
 Show All Records
-Import Records [ Source: “$filepath”; Target: “groupTest”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 match with groupTest::_Lgroup
+Import Records [ Source: “$filepath”; Target: “groupTest”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field
+Mapping: Source field 1 match with groupTest::_Lgroup
 Source field 2 import to groupTest::_Number
 Source field 3 import to groupTest::match
 Source field 4 import to groupTest::name
@@ -169,9 +202,12 @@ Source field 13 import to groupTest::kSectionCreatorNodesCreator
 Source field 14 import to groupTest::aboutSection ]
 [ No dialog ]
 #
+#
+#Reference Records
 Go to Layout [ “tableReference” (reference) ]
 Show All Records
-Import Records [ Source: “$filepath”; Target: “reference”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 import to reference::_Number
+Import Records [ Source: “$filepath”; Target: “reference”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field
+Mapping: Source field 1 import to reference::_Number
 Source field 2 match with reference::_Lreference
 Source field 3 import to reference::ktestSubject
 Source field 4 import to reference::ktest
@@ -216,7 +252,7 @@ Source field 45 import to reference::kmodifierNode
 Source field 46 import to reference::modifyDate
 Source field 48 import to reference::TimeRange
 Source field 51 import to reference::createDate
-Source field 52 import to reference::show
+Source field 52 import to reference::showInLearn
 Source field 53 import to reference::library only
 Source field 54 import to reference::URLdoi
 Source field 55 import to reference::issueNumber
@@ -247,12 +283,16 @@ Source field 79 import to reference::publisherTypeAlternative
 Source field 80 import to reference::copyrightOtherHolder
 Source field 81 import to reference::publisherTypeOther
 Source field 82 import to reference::pageNumberOther
-Source field 83 import to reference::dissertationThesisUniversity ]
+Source field 83 import to reference::dissertationThesisUniversity
+Source field 87 import to reference::showMedia ]
 [ No dialog ]
 #
+#
+#Report Records
 Go to Layout [ “tableReport” (report) ]
 Show All Records
-Import Records [ Source: “$filepath”; Target: “report”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to report::_Lreport
+Import Records [ Source: “$filepath”; Target: “report”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to
+report::_Lreport
 Source field 2 import to report::_Number
 Source field 3 import to report::ktestSubject
 Source field 4 import to report::_kfContactGeography
@@ -303,4 +343,4 @@ Go to Layout [ “defaultSetup” (tempSetup) ]
 #
 Set Variable [ $$import; Value:1 ]
 #
-January 7, 平成26 12:03:22 Imagination Quality Management.fp7 - update -2-
+January 14, ଘ౮28 21:57:11 Library.fp7 - import -1-
