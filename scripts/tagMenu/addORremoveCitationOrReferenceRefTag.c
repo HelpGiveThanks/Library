@@ -9,10 +9,9 @@ Select Window [ Name: "Learn"; Current file ]
 #Only allow user to have location tags for the
 #item or for the container the item is in.
 If [ TEMP::InventoryLibaryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
-Show Custom Dialog [ Message: "This item is tagged with a container tag. Remove this tag (click 'containers') before
-tagging it with its own location tags. Items can be either in a location or in a container that is in a location."; Buttons:
-“OK” ]
 Select Window [ Name: "Tag Menus"; Current file ]
+Show Custom Dialog [ Message: "This item is tagged with a storage tag. Remove this storage tag (click 'storage') before
+tagging it with its own location tags. Items can be either in storage or in a location."; Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -251,4 +250,4 @@ Set Variable [ $$stopLoadTagRecord ]
 // Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$skipFirstPartOfScript ]
-January 6, ଘ౮28 14:56:37 Library.fp7 - addORremoveCitationOrReferenceRefTag -1-
+January 18, ଘ౮28 17:41:45 Library.fp7 - addORremoveCitationOrReferenceRefTag -1-

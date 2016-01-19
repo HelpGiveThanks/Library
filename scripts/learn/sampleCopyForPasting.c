@@ -348,13 +348,12 @@ Show Custom Dialog [ Message: "Share only linked learn records (text areas highl
 “cancel” ]
 Else
 If [ testlearn::sampleCasePoint = "" ]
-Show Custom Dialog [ Message: "Share this item record and its linked storage area, container, etc. record?"
-& ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons:
-“linked”, “all”, “cancel” ]
+Show Custom Dialog [ Message: "Share this item and its storage records?" & ¶ & "OR" & ¶ & "Share all
+records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”, “cancel” ]
 Else
-Show Custom Dialog [ Message: "Share this storage area, container, etc. record and inventory records
-linked to it?" & ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) &
-"."; Buttons: “linked”, “all”, “cancel” ]
+Show Custom Dialog [ Message: "Share this storage record and inventory records linked to it?" & ¶ & "OR"
+& ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”,
+“cancel” ]
 End If
 End If
 If [ Get (LastMessageChoice) = 1 ]
@@ -506,7 +505,7 @@ Select Window [ Name: "Print/Copy"; Current file ]
 End If
 #
 #
-#Exit script if your clicks cancel.
+#Exit script if user clicks cancel.
 If [ Get ( LastMessageChoice ) = 3 ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
@@ -879,4 +878,4 @@ Move/Resize Window [ Current Window ]
 #
 #END: SHARE Non-Brainstorm and Inventory Records
 #
-January 11, ଘ౮28 12:34:04 Library.fp7 - sampleCopyForPasting -1-
+January 18, ଘ౮28 17:32:59 Library.fp7 - sampleCopyForPasting -1-

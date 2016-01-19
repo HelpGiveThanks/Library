@@ -34,8 +34,13 @@ If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" or $$LinkedLearnRecords ≠ 
 #If it does reference other Learn records, ask the user
 #if they would like to find just those records, or
 #continue to the find screen.
+If [ TEMP::InventoryLibaryYN = "" ]
 Show Custom Dialog [ Message: "Find linked learn records (text areas highlighted purple)?" & ¶ & "OR" & ¶ & "Find
 other?"; Buttons: “other”, “linked”, “cancel” ]
+Else
+Show Custom Dialog [ Message: "Find linked inventory records (text areas highlighted purple)?" & ¶ & "OR" & ¶ &
+"Find other?"; Buttons: “other”, “linked”, “cancel” ]
+End If
 #
 #Exit script if user clicks cancel.
 If [ Get ( LastMessageChoice ) = 3 ]
@@ -54,8 +59,17 @@ $$LinkedLearnRecords ≠ "" ]
 #
 #If both are found ask user if they want to see
 #A records or A and B records.
-Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1
-= Refs or 1 and 2 = Refs+?"; Buttons: “Ref+”, “Ref”, “cancel” ]
+If [ TEMP::InventoryLibaryYN = "" ]
+Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records.
+Show 1 = Refs or 1 and 2 = Refs+?"; Buttons: “Ref+”, “Ref”, “cancel” ]
+Else
+Show Custom Dialog [ Message: "OPPS! Storage cannot be in storage. Storage tags must have been
+applied to other storage tags in reference-library mode. In this mode, storage tags are labled as
+reference learn tags."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "1) Remember the records that will now be found. 2) Click the 'back'
+button. 3) Uncheck the 'Inventory Library' checkbox. 4) Click the 'Learn' button. 5) Go to the reference
+learn tags menu, and 6) untag these records."; Buttons: “OK” ]
+End If
 If [ Get (LastMessageChoice) = 1 ]
 Set Variable [ $showReferencesReferencingMe; Value:1 ]
 End If
@@ -266,4 +280,4 @@ Sort Records [ ]
 [ No dialog ]
 Go to Record/Request/Page
 [ First ]
-January 8, ଘ౮28 14:41:26 Library.fp7 - findLearnRecord -1-
+January 18, ଘ౮28 17:12:49 Library.fp7 - findLearnRecord -1-

@@ -10,7 +10,7 @@ Set Variable [ $$refTestLearn; Value:1 ]
 #keychain so when this tag record is viewed in
 #those sections, the reference or learn record
 #just added to it will show up as well.
-Perform Script [ “CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain” ]
+Perform Script [ “CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain (update)” ]
 #
 #Check main checkbox if record is not already
 #a main record. This is because when going to
@@ -39,13 +39,25 @@ If [ testlearn::_Ltestlearn & "L¶" ≠ FilterValues ( $$ref ; testlearn::_Ltest
 #
 #If in inventory mode, only allow items
 #specified in learn records to be tagged as
-#being in one container at a time.
+#being in one storage location at a time.
 If [ TEMP::InventoryLibaryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
-Show Custom Dialog [ Message: "This item is already tagged as being in a container (highlighted green). Untag it from this
-container before tagging it with a new one."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This item is already tagged as being in a storage location (highlighted green). Untag it
+from this storage location before tagging it with a different one."; Buttons: “OK” ]
 Set Variable [ $$stopLoadTagRecord ]
 Halt Script
 End If
+#
+#Prevent user from tagging storage records
+#with other storage tags. I.E., No storage
+#inside of storage relationships allowed.
+Select Window [ Name: "Learn"; Current file ]
+If [ TEMP::InventoryLibaryYN ≠ "" and testlearn::sampleCasePoint ≠ "" ]
+Select Window [ Name: "Tag Menus"; Current file ]
+Show Custom Dialog [ Message: "This item is storage (box, shelf, etc.). To create a box-within-a-box relationship 1) create
+a location record for the pimary box, and 2) tag the secondary box as being in that location."; Buttons: “OK” ]
+Halt Script
+End If
+Select Window [ Name: "Tag Menus"; Current file ]
 #
 #
 Set Variable [ $newRef; Value:testlearn::_Ltestlearn & "L" ]
@@ -68,13 +80,14 @@ Else
 #have location tags for the item or for the
 #container the item is in.
 If [ $$ref ≠ "" ]
-Show Custom Dialog [ Message: "NOTE: The item in the Learn window is tagged with location tags. Items can be
-either in a location or in a container that is in a location. By placing it in a container the item's location tags will
-be replaced with the container's location tags."; Buttons: “OK”, “cancel” ]
+Select Window [ Name: "Tag Menus"; Current file ]
+Show Custom Dialog [ Message: "NOTE: Items can either be in a location or in storage: box, shelf, etc. that is in a
+location. Adding this storage tag will now delete your item's location tags."; Buttons: “OK”, “cancel” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Variable [ $$stopLoadTagRecord ]
 Halt Script
 End If
+Select Window [ Name: "Learn"; Current file ]
 End If
 #
 #Set new reference and delete any
@@ -163,4 +176,4 @@ Scroll Window
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$skipFirstPartOfScript ]
-January 6, ଘ౮28 14:55:06 Library.fp7 - addORremoveCiteOrRefTLTag -1-
+January 18, ଘ౮28 17:35:50 Library.fp7 - addORremoveCiteOrRefTLTag -1-

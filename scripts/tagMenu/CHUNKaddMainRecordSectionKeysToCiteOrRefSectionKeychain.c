@@ -5,7 +5,6 @@ Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 0 ]
 Set Variable [ $keychain; Value:testlearn::kcsection ]
 #
-#
 #BEGIN — NO LONGER USED I think. Testing required.
 // #If learn record that tag was added
 // #to belongs to more than one section, then
@@ -19,14 +18,20 @@ Set Variable [ $keychain; Value:testlearn::kcsection ]
 // #which would need to be passed along to these added
 // #records, and then to all of their references, and so on.
 If [ testlearn::kcitation ≠ "" and $$citationMatch = "ref" ]
-Show Custom Dialog [ Message: "References can be added after the citation is removed. (Cite the source of an unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies, etc.)"; Buttons: “OK” ]
+Show Custom Dialog [ Message: "References can be added after the citation is removed. (Cite the source of an unchanged
+copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies,
+etc.)"; Buttons: “OK” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Halt Script
 Else If [ testlearn::kcreference ≠ "" and $$citationMatch = "cite" ]
 If [ ValueCount ( testlearn::kcreference ) = 1 ]
-Show Custom Dialog [ Message: "A citiation can be added after the referene is removed. (Cite the source of an unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies, etc.)"; Buttons: “OK” ]
+Show Custom Dialog [ Message: "A citiation can be added after the referene is removed. (Cite the source of an
+unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or
+more texts, movies, etc.)"; Buttons: “OK” ]
 Else
-Show Custom Dialog [ Message: "A citiation can be added after referenes are removed. (Cite the source of an unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies, etc.)"; Buttons: “OK” ]
+Show Custom Dialog [ Message: "A citiation can be added after referenes are removed. (Cite the source of an
+unchanged copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or
+more texts, movies, etc.)"; Buttons: “OK” ]
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Halt Script
@@ -69,7 +74,8 @@ GetValue ( FilterValues ( testlearn::kcsection & ¶ ; GetValue ( $keychain ; $nu
 #can be added as a reference or a citation as long as
 #it is has all the tags of the record it is being added to.
 If [ testlearn::kcitation ≠ "" or testlearn::kcreference ≠ "" or reference::kcitation ≠ "" ]
-Show Custom Dialog [ Message: "This record you wish to add can be added if you first remove the citation or references that are linked to it. Once added, these removed records can be added back."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This record you wish to add can be added if you first remove the citation or
+references that are linked to it. Once added, these removed records can be added back."; Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -94,7 +100,8 @@ GetValue ( FilterValues ( reference::kcsection & ¶ ; GetValue ( $keychain ; $nu
 #can be added as a reference or a citation as long as
 #it is has all the tags of the record it is being added to.
 If [ testlearn::kcitation ≠ "" or testlearn::kcreference ≠ "" or reference::kcitation ≠ "" ]
-Show Custom Dialog [ Message: "This record you wish to add can be added if you first remove the citation or references that are linked to it. Once added, these removed records can be added back."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This record you wish to add can be added if you first remove the citation or
+references that are linked to it. Once added, these removed records can be added back."; Buttons: “OK” ]
 Halt Script
 End If
 #
@@ -111,4 +118,4 @@ End If
 Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
 End Loop
 #
-July 1, 平成27 12:45:05 Library.fp7 - CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain -1-
+January 18, ଘ౮28 17:40:18 Library.fp7 - CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain -1-
