@@ -1,16 +1,13 @@
-tagMenu: menuSample
+January 15, 2018 16:30:38 Library.fmp12 - menuBrainstorm -1-
+tagMenu: menuBrainstorm
 #
-#WHEN TIME PERMITS
-#Replace all instances of 'sample' and 'theory'
-#with the word 'brainstorm'. REQUIRES going
-#thru DDR to insure all instances are replaced.
-#This is not critical, but would make scripts
-#match layout screen button 'brainstorm'.
-#
-#
+#Admin tasks.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
+#
+#Prevent halting of script.
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 #
 #If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
@@ -23,10 +20,10 @@ If [ $$citationMatch = "test" ]
 #Go to Learn window.
 Select Window [ Name: "Learn"; Current file ]
 #
-#Clear sample and test tags.
+#Clear brainstorm and test tags.
 Go to Field [ ]
 Set Variable [ $$citationItem; Value:testlearn::kNodePrimary ]
-Set Variable [ $$tagSample ]
+Set Variable [ $$tagBrainstorm ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
@@ -37,20 +34,22 @@ End If
 #
 #Clear order numbers.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-New Window [ Height: 1; Width: 1; Top: -100000; Left: -100000 ]
+New Window [ Height: 1; Width: 1; Top: -100000; Left: -100000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”;
+Zoom Control Area: “Yes”; Resize: “Yes” ]
 Go to Layout [ “learnSCRIPTloops” (testlearn) ]
-Perform Find [ Specified Find Requests: Find Records; Criteria: testlearn::orderTest: “###” ]
+Perform Find [ Specified Find Requests: Find Records; Criteria: testlearn::orderTestInformation: “###” ]
 [ Restore ]
 Loop
-Set Field [ testlearn::orderTest; "" ]
+Set Field [ testlearn::orderTestInformation; "" ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 Close Window [ Current Window ]
 Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$doNotHaltOtherScripts ]
 #
 #Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"sample" ]
+Set Variable [ $$citationMatch; Value:"brainstorm" ]
 #
 #Set match temp tag field to limit move pulldown
 #to just the groups for this section and item type.
@@ -67,30 +66,24 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopLoadCitation; Value:1 ]
 #
 #Goto correct layout.
-Go to Layout [ “learnMenuSample” (tagMenus) ]
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Go to Layout [ “learnMenuStuffSample” (tagMenus) ]
+Go to Layout [ “learnMenuBrainstorm” (tagMenus) ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Go to Layout [ “learnMenuStuffBrainstorm” (tagMenus) ]
 End If
 #
-#Find sample tags for current library section.
+#Find brainstorm tags.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
-Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
-If [ TEMP::sortSample = "cat" or TEMP::sortSample = "" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
+#Sort into groups.
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list: “order
+Pulldown List”
+tagMenuGroup::name; ascending
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
-Else If [ TEMP::sortSample = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
-[ Restore; No dialog ]
-End If
 #
 #Go to citation record's current selection or to first record.
 Go to Record/Request/Page
@@ -99,12 +92,12 @@ Loop
 Set Variable [ $number; Value:1 ]
 Go to Field [ ]
 Loop
-Exit Loop If [ Middle ( GetValue ( $$sample ; $number ) ; 4 ; 42 ) & "¶" = tagMenus::_Ltag & ¶ ]
-Exit Loop If [ Middle ( GetValue ( $$sample ; $number ) ; 4 ; 42 ) = "" ]
+Exit Loop If [ Middle ( GetValue ( $$brainstorm ; $number ) ; 4 ; 42 ) & "¶" = tagMenus::_Ltag & ¶ ]
+Exit Loop If [ Middle ( GetValue ( $$brainstorm ; $number ) ; 4 ; 42 ) = "" ]
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
 End Loop
-Exit Loop If [ Middle ( GetValue ( $$sample ; $number ) ; 4 ; 42 ) & "¶" = tagMenus::_Ltag & ¶ ]
+Exit Loop If [ Middle ( GetValue ( $$brainstorm ; $number ) ; 4 ; 42 ) & "¶" = tagMenus::_Ltag & ¶ ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
@@ -112,14 +105,9 @@ End Loop
 #Turn loadtagrecord script back on.
 Set Variable [ $$stopLoadTagRecord ]
 #
-#Sample tags can duplicate each other, so no need
-#to check if they are any spelled the same.
-// Perform Script [ “insureEqualityOfSpellFields” ]
-#
 #Turn loadtagrecord script back on and perform
 #loadtag... script to highlight any Learn records
 #tagged with the current tag record.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadItemRecordForSampleTagMenu” ]
+Perform Script [ “loadBrainstormTags (update name change loadItemRecordForSampleTagMenu)” ]
 #
-January 12, ଘ౮28 13:38:48 Library.fp7 - menuSample -1-

@@ -1,14 +1,13 @@
-reference(citation): newReference
+January 17, 2018 23:20:18 Library.fmp12 - newReference -1-
+reference: newReference
 #
-#If node is currenlty locked then stop script, inform user.
-If [ TEMP::nodeLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
-Exit Script [ ]
-End If
+#If node is currenlty locked then stop script,
+#and inform the user.
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
@@ -31,49 +30,82 @@ End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
 Select Window [ Name: "References"; Current file ]
-If [ $$referenceSort = 2 ]
-Sort Records [ Specified Sort Order: reference::modifyDate; descending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-Else If [ $$referenceSort = "" ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-Else If [ $$referenceSort = 1 ]
-Sort Records [ Specified Sort Order: reference::createDate; descending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-End If
-#
-Set Variable [ $$stoploadCitation; Value:1 ]
-Go to Field [ ]
-New Record/Request
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::ktest; TEMP::ktest ]
-Set Field [ reference::incomplete; "incomplete" & ¶ ]
-If [ Get ( LayoutName ) = "Reference" or Get ( LayoutName ) = "ReferenceStuff" ]
-Set Field [ reference::filterFind; "main" & ¶ ]
-Set Variable [ $$stoploadCitation ]
-#
-#Note that citation is for either the node or keyword depending on the citation match.
-Else If [ Right ( Get ( LayoutName ) ; 3 ) = "TAG" ]
-Set Field [ reference::filterFind; $$addToTag & ¶ ]
-End If
 Sort Records [ ]
 [ No dialog ]
-Set Variable [ $record; Value:Get (RecordNumber) ]
-Go to Record/Request/Page [ $record ]
-[ No dialog ]
-Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
 #
-#Go to edit layout for this record.
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Go to Layout [ “ReferenceEDITstuff” (reference) ]
+#Copy primary key word/subject of current
+#record so it can be given to then new record.
+# The user will expect that clicking the 'new'
+#button will result in new record in the current
+#subject area.
+Set Variable [ $P; Value:reference::kkeywordPrimary ]
+#
+Go to Field [ ]
+#
+#Now create a new record and give it the
+#copied subject/keyword.
+Set Variable [ $$stoploadCitation; Value:1 ]
+New Record/Request
+Set Field [ reference::kkeywordPrimary; $P ]
+#
+#Load new record as the record being
+#focused on.
+Set Variable [ $$stoploadCitation ]
+Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+#
+#Determine if in stuff or idea mode.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+#
+#If in stuff mode than select to
+#show record in the Learn section.
+Set Field [ reference::showInLearn; "show in learn" ]
+#
+#Decided to make main reference layout also
+#include the fields that will be edited, so no
+#need in stuffLibrary mode to go an
+#edit layout.
 Else
+#
+#If in idea mode then open new record in a
+#separate window. This is neccessary to allow
+#user to scroll thru just this new record after
+#finding just this new record in the new
+#window.
+# Also, the new window strategy means the
+#main reference window will not need to be
+#resorted, and so moved unless the
+#alphabetical location of this new record
+#requires it to be resorted.
+Set Variable [ $$stoploadCitation; Value:1 ]
+Sort Records [ ]
+[ No dialog ]
+Set Variable [ $$editRecord; Value:Get (RecordNumber) ]
+Go to Record/Request/Page [ $$editRecord ]
+[ No dialog ]
+#
+#Go to edit layout in new window.
+Set Window Title [ Current Window; New Title: "Hidden" ]
+#
+#Mark record as incomplete.
+Set Field [ reference::incomplete; "incomplete" & ¶ ]
+#
+#For some reason it is essential that a Go to
+#field step is included prior to opening the
+#new window for Add to tags scripts to work.
+Go to Field [ ]
+#
+New Window [ Name: "References"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”;
+Resize: “Yes” ]
 Go to Layout [ “ReferenceEDIT” (reference) ]
+#
+#Find just the record to be edited.
+Enter Find Mode [ ]
+Set Field [ reference::_Lreference; $$citationRecord ]
+Perform Find [ ]
+Set Variable [ $$stoploadCitation ]
+#
 End If
 #
 #Prevent add mode.
 Set Variable [ $$stopAdd; Value:1 ]
-May 10, 平成27 11:58:08 Library.fp7 - newReference -1-
+#

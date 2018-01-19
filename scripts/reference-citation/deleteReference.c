@@ -1,17 +1,40 @@
-reference(citation): deleteReference
+January 18, 2018 14:47:47 Library.fmp12 - deleteReference -1-
+reference: deleteReference
 #
-#If node is currenlty locked then stop script, inform user.
-If [ tagNodeCreator::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
-password to unlock it, then you will able to delete records assigned to this node."; Buttons: “OK” ]
+#
+#NOTE: some if this code is used in the script
+#CHUNKcheckIfReferencePicIsInUse for the
+#purpose of figuring out if a picture is in use.
+#SO if there is a problem with this code then
+#check to make sure it is also addressed in
+#that script too.
+#
+#
+#If record is locked, which all default
+#copyright symbols used for locked
+#copyright tags are, then exit the script.
+If [ reference::lock = "lock" ]
+Show Custom Dialog [ Message: "This record is used by default copyright tags and so is locked."; Default Button: “OK”, Commit:
+“No” ]
 Exit Script [ ]
 End If
+#
+#
+#If node is currenlty locked then stop script, inform user.
+If [ refCreatorNode::orderOrLock ≠ "" ]
+Show Custom Dialog [ Message: "This record was created by " & $$lockedMainRefRecord & ", a node which is locked. Select
+this node in the setup window and enter the password to unlock it, then you will able to delete records created by this node.";
+Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
+#
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
+#
 #
 #If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
@@ -19,27 +42,63 @@ End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
 Select Window [ Name: "References"; Current file ]
-If [ $$referenceSort = 2 ]
-Sort Records [ Specified Sort Order: reference::modifyDate; descending
-reference::referenceForReferenceSort; ascending ]
+If [ TEMP::InventoryLibraryYN = "" ]
+#
+#If reference is sorted by ...
+If [ $$referenceSort = "" ]
+#keyword
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list:
+“order Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::referenceShort; ascending ]
 [ Restore; No dialog ]
-Else If [ $$referenceSort = "" ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
-reference::referenceForReferenceSort; ascending ]
+Else If [ $$referenceSort = "author" ]
+#author
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByAuthor; ascending
+reference::referenceShort; ascending ]
 [ Restore; No dialog ]
-Else If [ $$referenceSort = 1 ]
-Sort Records [ Specified Sort Order: reference::createDate; descending
-reference::referenceForReferenceSort; ascending ]
+Else If [ $$referenceSort = "dateCreated" ]
+#dateCreated
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::createDate; descending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "dateModified" ]
+#dateModified
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::modifyDate; descending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "datePublished" ]
+#datePublished
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByDatePublished; ascending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "publication" ]
+#publication title
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByPublication; ascending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "publisher" ]
+#publisher's name
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagPublisher::tag; ascending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "title" ]
+#title
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByTitle; ascending ]
 [ Restore; No dialog ]
 End If
+End If
+#
 #
 #Exit field so user can see red delete
 #formatting later on.
 Go to Field [ ]
 #
+#
 #Prevent all record load scripts (they slow down
 #this script and are uneccessary).
 Set Variable [ $$stoploadCitation; Value:1 ]
+#
 #
 #Set variables to conditionally format section to
 #be deleted, and its record number so if the
@@ -48,81 +107,78 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $delete; Value:reference::_Lreference ]
 Set Variable [ $deleteName; Value:reference::_Number ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
-Set Variable [ $section; Value:TEMP::ksection ]
+#
 #
 #Because there may be no records found, stop
 #the system from informing the user of this.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
+#
 #Open a new window and look for record being
 #cited or used as a reference by another record.
-New Window [ ]
+New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom
+Control Area: “Yes”; Resize: “Yes” ]
 #
-Loop
-#
-#Clear the inUse variable before each run thru
-#the loop. If not cleared, then last time thru
-#if this variable had a value in it, that value will
-#stay in it even if no finds are made, which then
-#tells the system that a no-find reference, has finds.
-#So the system must clear this variable before each
-#run thru the loop.
-Set Variable [ $inUse ]
-#
-#See if reference is used by any learn records as a
-#citation.
-Go to Layout [ “tableTestLearn” (testlearn) ]
-Enter Find Mode [ ]
-Set Field [ testlearn::kcitation; $delete ]
-Set Field [ testlearn::kcsection; $section ]
-Perform Find [ ]
-#
-If [ Get (LastError) ≠ 401 ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " Learn (cite tag)" ]
-End If
 #
 #See if reference is used by any learn records as a
 #reference.
 Go to Layout [ “tableTestLearn” (testlearn) ]
 Enter Find Mode [ ]
 Set Field [ testlearn::kcreference; $delete ]
-Set Field [ testlearn::kcsection; $section ]
 Perform Find [ ]
 #
 If [ Get (LastError) ≠ 401 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " Learn (reference tag)" ]
+If [ Get (FoundCount) = 1 ]
+Set Variable [ $inUse; Value:$addToInUse & " | " & Get (FoundCount) & " Learn record" ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & " | " & Get (FoundCount) & " Learn records" ]
+End If
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " Learn (reference tag)" ]
+If [ Get (FoundCount) = 1 ]
+Set Variable [ $inUse; Value:Get (FoundCount) & " Learn record" ]
+Else
+Set Variable [ $inUse; Value:Get (FoundCount) & " Learn records" ]
 End If
 End If
+End If
+#
 #
 #See if reference is used by any reference records as a
 #citation.
 Go to Layout [ “Reference” (reference) ]
 Enter Find Mode [ ]
 Set Field [ reference::kcitation; $delete ]
-Set Field [ reference::kcsection; "==" & $section ]
 Perform Find [ ]
 #
 If [ Get (LastError) ≠ 401 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " References (cite tag)" ]
+If [ Get (FoundCount) = 1 ]
+Set Variable [ $inUse; Value:$addToInUse & " | " & Get (FoundCount) & " cite tag for a reference" ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & " | " & Get (FoundCount) & " Cite tags for references" ]
+End If
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " References (cite tag)" ]
+If [ Get (FoundCount) = 1 ]
+Set Variable [ $inUse; Value:Get (FoundCount) & " Cite tag for a reference" ]
+Else
+Set Variable [ $inUse; Value:Get (FoundCount) & " Cite tags for references" ]
+End If
 End If
 End If
 #
-#See if reference record is used by any tag records as a
-#picture.
+#
+#See if reference record's media
+#is used by any tag records.
+#There are three pictures per record.
 Go to Layout [ “tableTag” (tagTable) ]
+#
 #picture1
 Enter Find Mode [ ]
 Set Field [ tagTable::Kpicture1; $delete ]
-Set Field [ ruleLibrary 2::ksection; $section ]
 Perform Find [ ]
 Set Variable [ $tagFound1; Value:Get (FoundCount) ]
 If [ Get (FoundCount) > 0 ]
@@ -138,10 +194,10 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 End If
+#
 #picture2
 Enter Find Mode [ ]
 Set Field [ tagTable::Kpicture2; $delete ]
-Set Field [ ruleLibrary 2::ksection; $section ]
 Perform Find [ ]
 Set Variable [ $tagFound2; Value:Get (FoundCount) ]
 If [ Get (FoundCount) > 0 ]
@@ -157,10 +213,10 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 End If
+#
 #picture3
 Enter Find Mode [ ]
 Set Field [ tagTable::Kpicture3; $delete ]
-Set Field [ ruleLibrary 2::ksection; $section ]
 Perform Find [ ]
 Set Variable [ $tagFound3; Value:Get (FoundCount) ]
 If [ Get (FoundCount) > 0 ]
@@ -180,27 +236,39 @@ End If
 If [ $tagFound1 + $tagFound2 + $tagFound3 ≠ 0 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " Tag Menus (picture
-for tag: " & $tagName & ")" ]
+If [ $tagFound1 + $tagFound2 + $tagFound3 = 1 ]
+Set Variable [ $inUse; Value:$addToInUse & " | " & ($tagFound1 + $tagFound2 + $tagFound3) & " Picture for tag " &
+$tagName ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & " | " & ($tagFound1 + $tagFound2 + $tagFound3) & " Pictures for tags " &
+$tagName ]
+End If
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " Tag Menus (picture for tag: " & $tagName &
-")" ]
+If [ $tagFound1 + $tagFound2 + $tagFound3 = 1 ]
+Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " Picture for tag " & $tagName ]
+Else
+Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " Pictures for tags " & $tagName ]
+End If
 End If
 End If
 #
+#
+#Clear tag variables or use with link tags next.
 Set Variable [ $tagFound1 ]
 Set Variable [ $tagFound2 ]
 Set Variable [ $tagFound3 ]
 Set Variable [ $tagNameADD ]
 Set Variable [ $tagName ]
 #
-#See if reference record is used by any tag records
-#as a web link.
+#
+#See if reference record's web link
+#is used by any tag records.
+#There are link fields per record.
 Go to Layout [ “tableTag” (tagTable) ]
+#
 #link1
 Enter Find Mode [ ]
 Set Field [ tagTable::Ktitle1; $delete ]
-Set Field [ ruleLibrary 2::ksection; $section ]
 Perform Find [ ]
 Set Variable [ $tagFound1; Value:Get (FoundCount) ]
 If [ Get (FoundCount) > 0 ]
@@ -216,10 +284,10 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 End If
+#
 #link2
 Enter Find Mode [ ]
 Set Field [ tagTable::Ktitle2; $delete ]
-Set Field [ ruleLibrary 2::ksection; $section ]
 Perform Find [ ]
 Set Variable [ $tagFound2; Value:Get (FoundCount) ]
 If [ Get (FoundCount) > 0 ]
@@ -235,10 +303,10 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 End If
+#
 #link3
 Enter Find Mode [ ]
 Set Field [ tagTable::Ktitle3; $delete ]
-Set Field [ ruleLibrary 2::ksection; $section ]
 Perform Find [ ]
 Set Variable [ $tagFound3; Value:Get (FoundCount) ]
 If [ Get (FoundCount) > 0 ]
@@ -258,128 +326,40 @@ End If
 If [ $tagFound1 + $tagFound2 + $tagFound3 ≠ 0 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & ($tagFound1 + $tagFound2 + $tagFound3) & " Tag Menus (link for
-tag: " & $tagName & ")" ]
+If [ $tagFound1 + $tagFound2 + $tagFound3 = 1 ]
+Set Variable [ $inUse; Value:$addToInUse & " | " & ($tagFound1 + $tagFound2 + $tagFound3) & " Web link for tag " &
+$tagName ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & " | " & ($tagFound1 + $tagFound2 + $tagFound3) & " Web links for tags "
+& $tagName ]
+End If
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " Tag Menus (link for tag: " & $tagName &
-")" ]
+If [ $tagFound1 + $tagFound2 + $tagFound3 = 1 ]
+Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " Web link for tag " & $tagName ]
+Else
+Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " Web links for tags " & $tagName ]
 End If
 End If
-#
-Set Variable [ $tagFound1 ]
-Set Variable [ $tagFound2 ]
-Set Variable [ $tagFound3 ]
-Set Variable [ $tagNameADD ]
-Set Variable [ $tagName ]
-#
-#If the current record is in use in the section of
-#the database from which the delete was requested,
-#inform the user of this, and skip the next
-#steps of this loop and the next loop, which.
-#is for checking if record is in use in other sections.
-If [ $section = TEMP::ksection and $inUse ≠ "" ]
-#
-#If the record was in use in the current section
-#then do not look for it in other sections.
-Set Variable [ $checkSection; Value:$section ]
-Set Variable [ $section ]
-Exit Loop If [ $checkSection = TEMP::ksection and $inUse ≠ "" ]
 End If
 #
-#If the current record is not in use in the section
-#of the database from which this delete was started,
-#capture this information.
-If [ $section = TEMP::ksection and $inUse = "" ]
-Set Variable [ $deleteNotInUse; Value:"not in use" ]
-End If
 #
-#Exit the loop if there is only 1 section key for this record
-#or if the system just checked for the record
-#in all sections of the database, which
-#is why the section variable would be blank.
-#In the latter case, the loop would be coming round
-#after checking all sections in the database.
-#At first the loop is confined to looking at all records
-#in this section. Once it has done that, a script
-#step below exits the loop only to enter a loop
-#that clears the section variable and causes the
-#system to re-enter this loop, only with a blank
-#section variable so it will look in all sections of the
-#database. When it reaches this step, that blank
-#section variable will force it out of this loop and
-#a similar script step in the outer loop will do the
-#same thereby allowing the system to follow the
-#remainder of this script to report on the findings
-#made during these discovery loops.
-Exit Loop If [ ValueCount ( reference::kcsection ) = 1 or $section = "" ]
-#
-#If the current record is not in use in the section
-#of the database where the delete was started,
-#make sure it is not in use in any other section.
-Set Variable [ $section ]
-#
-End Loop
-#
+#Close window used to find records
+#that might be using the reference.
 Close Window [ Current Window ]
 #
 #
-#
-#
-#Report on findings and if none delete record.
-#
-#
-#
-#
-#If the record in question was not found in the
-#section the user is deleting it from...
-If [ $deleteNotInUse ≠ "" ]
-#
-#But this record is in use in other sections...
-If [ $inUse ≠ "" ]
-#
-Refresh Window
-Show Custom Dialog [ Message: "This record cannot be deleted as it in use in other sections of the database. You can
-remove it from this section though as it is not being used in this section."; Buttons: “cancel”, “remove” ]
-If [ Get ( LastMessageChoice ) = 1 ]
-#
-#If the user chooses not to remove the record
-#everything goes back to the way it was.
-Go to Field [ ]
-Set Variable [ $delete ]
-Set Variable [ $$addTagToCitation ]
-Set Variable [ $$stopLoadCitation ]
-Set Variable [ $$stopLoadTagRecord ]
-Refresh Window
-Exit Script [ ]
-Else If [ Get ( LastMessageChoice ) = 2 ]
-#
-Set Variable [ $delete ]
-Set Variable [ $$addTagToCitation ]
-Set Variable [ $$stopLoadCitation ]
-Set Variable [ $$stopLoadTagRecord ]
-#
-#If the user choses to proceed with the removal,
-#the section key is removed from the record's
-#key chain. ( paragraph mark is added to section in
-# case the key has no paragraph mark after it and so
-# would not be found. )
-Set Field [ reference::kcsection; Substitute ( reference::kcsection & ¶ ; TEMP::ksection & ¶ ; "" ) ]
-#
-#Omit the record as it no longer is part of this section.
-Omit Record
-#
-End If
-Exit Script [ ]
-End If
-End If
-#
-#
-#
-#If record was found in current section tell user.
+#Report on findings, or, if therer are none,
+#proceed to delete reference record.
 If [ $inUse ≠ "" ]
 Set Variable [ $delete ]
 Refresh Window
-Show Custom Dialog [ Message: "Record cannot be deleted as it in use in these windows: " & $inUse & "."; Buttons: “OK” ]
+If [ GetAsNumber ( $inuse ) = 1 ]
+Show Custom Dialog [ Message: "Reference is in use by " & $inUse & " record and cannot be deleted."; Default Button:
+“OK”, Commit: “Yes” ]
+Else
+Show Custom Dialog [ Message: "Reference is in use by X number of records and cannot be deleted: " & $inUse & ".";
+Default Button: “OK”, Commit: “Yes” ]
+End If
 Set Variable [ $$addTagToCitation ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
@@ -387,41 +367,35 @@ Exit Script [ ]
 End If
 #
 #
-#
-#
-#If the record being deleted was not found in
-#use in any sections of the database then before
-#deleting it make sure the user really wants it deleted.
-Set Variable [ $group ]
+#If the record being deleted was not found,
+#make sure the user really wants it deleted.
 Refresh Window
-Show Custom Dialog [ Message: "Delete current record?"; Buttons: “cancel”, “delete” ]
-Set Variable [ $group; Value:tagMenus::kGroupOrTest ]
-Set Variable [ $deleteGroup; Value:ruleTagMenuGroups::name ]
+Show Custom Dialog [ Message: "Delete current record?"; Default Button: “cancel”, Commit: “Yes”; Button 2: “delete”, Commit: “No” ]
+#
 #
 #If the user cancels, stop the delete.
 If [ Get ( LastMessageChoice ) = 1 ]
 Go to Field [ ]
 Set Variable [ $delete ]
-Set Variable [ $group ]
 Refresh Window
 Refresh Window
 Set Variable [ $$addTagToCitation ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 Exit Script [ ]
+#
 #
 #If the user says yes, then delete the record.
 Else If [ Get ( LastMessageChoice ) = 2 ]
 Delete Record/Request
 [ No dialog ]
 #
-End If
-Set Variable [ $delete ]
-Set Variable [ $group ]
-Refresh Window
+#
+#After the delete, load up the newly selected
+#reference record's information.
 Set Variable [ $$addTagToCitation ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+End If
 #
-December 28, ଘ౮27 14:40:09 Library.fp7 - deleteReference -1-

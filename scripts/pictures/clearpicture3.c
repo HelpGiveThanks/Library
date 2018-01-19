@@ -1,8 +1,15 @@
+January 15, 2018 17:45:18 Library.fmp12 - clearpicture3 -1-
 pictures: clearpicture3
 #
 #
+#Prevent open reference window from being
+#closed and the Tag Menus window from being
+#resized during this process.
+Set Variable [ $$stopClosingResizingWindows; Value:1 ]
 #
-Go to Field [ report::_kfPhoto3 ]
-Perform Script [ “reportClearDiscoveryLink” ]
+#Capture field name where the action of
+#the next script needs to focus, and then
+#perform this script.
+Go to Field [ report::kTag3 ]
+Perform Script [ “removeTestResultOrInfoRecordFromReport (update name change reportClearDiscoveryLink)” ]
 Go to Field [ ]
-January 7, 平成26 17:08:34 Imagination Quality Management.fp7 - clearpicture3 -1-

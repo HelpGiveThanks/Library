@@ -1,51 +1,39 @@
-learn: sampleCopyForPasting
-#
-#
-#NOTE: 'Brainstorm ' is the new name for sample
-#tags. When time permits, the name should be
-#changed and all intances of 'sample' found
-#and reviewed in the Library DDR.
-#
+January 16, 2018 17:48:36 Library.fmp12 - shareLearnRecords -1-
+learn: shareLearnRecords
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit find mode in the Tag Menus window, then click this button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Exit find mode in the Tag Menus window, then click this button."; Default Button: “OK”,
+Commit: “No” ]
 Exit Script [ ]
 End If
 #
 #
-#If in test mode, exit script. Tests are for
-#adding information to tests in the test
-#module. Use the Brainstorm or Inventory List
-#tag to assemble shareable, custom ordered,
-#groups of Learn records.
-If [ $$citationMatch = "test" ]
-Go to Field [ ]
-Exit Script [ ]
-End If
-#
-#
-#Admin
+#Admin tasks.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
-Close Window [ Name: "Print/Copy"; Current file ]
+Close Window [ Name: "Share"; Current file ]
 #
 Set Variable [ $$stopLoadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $layoutName; Value:Get ( LayoutName ) ]
 #
 #
-#BEGIN: SHARE Brainstorm and Inventory Records
+#BEGIN: SHARE Brainstorm/Inventory or Test Tagged Records
 #
 #If the Tag Menus window is showing the brainstorm
 #or inventory menu when the use clicked 'share'
 #then find the records tagged with the currently
-#selected brainstorm tag = $$sample variable.
-If [ $$citationMatch = "sample" and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITstuff" ]
+#selected brainstorm tag = $$brainstorm variable.
+If [ $$citationMatch = "brainstorm" and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITstuff"
+or
+$$citationMatch = "test" and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITstuff" ]
 #
-// New Window [ Name: "Print/Copy" ]
-New Window [ Name: "Print/Copy"; Height: 1; Width: 1; Top: 10000; Left: 10000 ]
+// New Window [ Name: "Share"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”;
+Resize: “Yes” ]
+New Window [ Name: "Share"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”;
+Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 Go to Layout [ “learnPreviewLayout” (testlearn) ]
 #
 Enter Find Mode [ ]
@@ -53,9 +41,14 @@ Enter Find Mode [ ]
 #This keychain contain the item's three-digit
 #order number followed by the key of the
 #brainstorm or inventory list tag record.
-Set Field [ testlearn::kcsample; "***" & $$tagsample ]
+If [ $$citationMatch = "brainstorm" ]
+Set Field [ testlearn::kcbrainstorm; "***" & $$tagBrainstorm ]
+Else If [ $$citationMatch = "test" ]
+Set Field [ testlearn::kctestSubsectionInfo; "***" & $$tagTest ]
+End If
 Perform Find [ ]
-Sort Records [ Specified Sort Order: testlearn::orderTest; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list:
+“testPulldownListANDsortOrderList”
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
@@ -63,13 +56,18 @@ testlearn::timestamp; descending ]
 #Stop the script if no records are found and
 #tell the user why.
 If [ Get (FoundCount) = 0 ]
-If [ TEMP::InventoryLibaryYN = "" ]
-Show Custom Dialog [ Message: "When the brainstorm menu is displayed (in the Tag Menus window), clicking 'share'
-will share (in the print/copy window) only learn records tagged with a selected brainstorm tag."; Buttons: “OK” ]
+Close Window [ Current Window ]
+Select Window [ Name: "Tag Menus"; Current file ]
+Set Variable [ $tagName; Value:tagMenus::tag ]
+Select Window [ Name: "Learn"; Current file ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Show Custom Dialog [ Message: "When a brainstorm tag is active in the Tag Menus window, clicking the share button
+will show all records tagged with it. Zero records are tagged with " & $tagName & "."; Default Button: “OK”,
+Commit: “Yes” ]
 Else
-Show Custom Dialog [ Message: "When the inventory list menu is displayed (in the Tag Menus window), clicking
-'share' will share (in the print/copy window) only learn records tagged with a selected inventory-list tag."; Buttons:
-“OK” ]
+Show Custom Dialog [ Message: "When an inventory list tag is active in the Tag Menus window, clicking the share
+button will show all records tagged with it. Zero records are tagged with " & $tagName & "."; Default Button: “OK”,
+Commit: “Yes” ]
 End If
 #
 Set Variable [ $$stopLoadCitation ]
@@ -88,20 +86,23 @@ Go to Record/Request/Page
 #Print order number, author, record date, text
 #of learn record, and keywords.
 Loop
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+#Set copyright.
 Set Variable [ $copy; Value://previous records
 Case ( $copy = "" ; "" ; $copy & ¶ & ¶) &
 //text
-Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence ;
+Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ;
 $point & ".1" ) &
 //node
 TextColor ( " [" & tagTLNodePrimary::tag &
 Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) &
 //timestamp
-" " & testlearn::timestamp & "]"
+" (" & testlearn::timestamp & ")." &
+//copyright
+" Copyright " & learnCreatorsCopyright::tag & ".]"
  ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ &
 //main text
-TextFont ( testlearn::Caption ; "Georgia" ) & ¶ &
+TextFont ( testlearn::note ; "Georgia" ) & ¶ &
 //grey remain text
 TextColor (
 //keyword
@@ -118,7 +119,7 @@ Else
 Set Variable [ $copy; Value://previous records
 Case ( $copy = "" ; "" ; $copy & ¶ & ¶) &
 //number
-Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence ;
+Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ;
 $point & ".1" ) &
 //node
 TextColor ( " [" & tagTLNodePrimary::tag &
@@ -127,7 +128,7 @@ Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) &
 " " & testlearn::timestamp & "]"
  ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ &
 //main text
-TextFont ( testlearn::Caption ; "Georgia" ) & ¶ &
+TextFont ( testlearn::note ; "Georgia" ) & ¶ &
 //grey remain text
 TextColor (
 //keyword
@@ -143,7 +144,7 @@ Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; tes
 End If
 #
 #Increase evidence number if point is required.
-If [ testlearn::sampleCasePoint = "" ]
+If [ testlearn::brainstormCasePoint = "" ]
 Set Variable [ $evidence; Value:$evidence + 1 ]
 Else
 Set Variable [ $evidence; Value:2 ]
@@ -151,11 +152,11 @@ End If
 #
 #Print references if a learn record has any.
 If [ testlearn::kcreference ≠ "" ]
-If [ refReference::referenceForReferenceWindow ≠ "" or
-TEMP::InventoryLibaryYN ≠ "" and refContainerLocation::referenceForReferenceWindow ≠ "" ]
+If [ refLearn::referenceForReferenceWindow ≠ "" or
+TEMP::InventoryLibraryYN ≠ "" and refContainerLocation::referenceForReferenceWindow ≠ "" ]
 #
 #Name reference or inventory location section.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Set Variable [ $copy; Value:$copy & ¶ &
 //grey text
 TextColor (
@@ -182,7 +183,7 @@ Loop
 #
 #Select portal showing either a scholarly
 #reference or inventory items location.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Go to Object [ Object Name: "ref1" ]
 Else
 If [ refTestLearn::concatenateSTUFF = "" ]
@@ -201,18 +202,18 @@ Go to Portal Row
 End If
 #
 #Print references.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Set Variable [ $copy; Value:Case ( Right ( $copy ; 10 ) = "References" ;
 $copy & ¶ &
 //grey text
-TextColor ( refReference::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ;
+TextColor ( refLearn::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ;
 $copy & ¶ & ¶ &
 //grey text
-TextColor ( refReference::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ) ]
+TextColor ( refLearn::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ) ]
 Else
 Set Variable [ $copy; Value:Case ( refTestLearn::concatenateSTUFF = "" ;
 $copy & ¶ &
-refReference::referenceSTUFF ;
+refLearn::referenceSTUFF ;
 $copy & ¶ &
 refContainerLocation::referenceSTUFF4learnOtherContainer ) ]
 End If
@@ -236,13 +237,14 @@ Set Variable [ $copy; Value:$copy & ¶ &
 TextColor ( "_______________________________________________" ; RGB ( 119 ; 119 ; 119 ) ) ]
 #
 #Increase point number if point is different.
-If [ testlearn::sampleCasePoint ≠ "" ]
+If [ testlearn::brainstormCasePoint ≠ "" ]
 Set Variable [ $point; Value:$point + 1 ]
 End If
 End Loop
 #
 #
-#Get default copyright for all lists below.
+#Get primary node's copyright for this share as
+#it is the primary node that is sharing these records.
 Go to Layout [ “TEMP” (TEMP) ]
 Set Variable [ $copyright; Value:defaultCopyrightName::tag ]
 Go to Layout [ “learnPreviewLayout” (testlearn) ]
@@ -250,27 +252,56 @@ Go to Layout [ “learnPreviewLayout” (testlearn) ]
 #
 #Get brainstorm or inventory list tag's title and
 #use as the title for this shared list.
-If [ $$citationMatch = "Sample" ]
+If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
 Select Window [ Name: "Tag Menus"; Current file ]
-If [ TEMP::InventoryLibaryYN = "" ]
-Set Variable [ $sample; Value://Title
-TEMP::sectionName & " Library Brainstorm — " & TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ &
+If [ $$citationMatch = "brainstorm" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+#Set copyright.
+Set Variable [ $copyright; Value:tagsCopyright::tag ]
+Set Variable [ $brainstorm; Value://Title
+TEMP::userLibraryName & " Brainstorm — " & TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ &
 //author and copyright date
-TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
-Year ( Get ( CurrentDate ) ) & " " & $copyright ]
+TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) )
+& "/" & Year ( Get ( CurrentDate ) ) & "). Brainstorm Copyright " & $copyright & "." ]
 Else
-Set Variable [ $sample; Value://Title
-TEMP::sectionName & " Library Inventory List — " & TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ &
+#Set copyright.
+Set Variable [ $copyright; Value:tagsCopyright::tag ]
+Set Variable [ $brainstorm; Value://Title
+TEMP::userLibraryName & " Inventory List — " & TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ &
 //author and copyright date
-TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
-Year ( Get ( CurrentDate ) ) & " " & $copyright ]
+TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) )
+& "/" & Year ( Get ( CurrentDate ) ) & "). Inventory List Copyright " & $copyright & "." ]
+End If
+Else If [ $$citationMatch = "test" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+#Set copyright.
+Set Variable [ $brainstorm; Value://Title
+TEMP::userLibraryName & " Test Subsection — " & TextStyleAdd ( testSubsectionTemplate::name ;
+Titlecase ) & ¶ &
+//author and copyright date
+TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) )
+& "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
+Else
+#Set copyright.
+Set Variable [ $brainstorm; Value://Title
+TEMP::userLibraryName & " Test Subsection — " & TextStyleAdd ( testSubsectionTemplate::name ;
+Titlecase ) & ¶ &
+//author and copyright date
+TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) )
+& "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
+End If
 End If
 Go to Field [ ]
-Set Variable [ $copy; Value://Sample Title and History
-$sample & ¶ & ¶ & $copy ]
+Set Variable [ $copy; Value://Brainstorm Title and History
+$brainstorm & ¶ & ¶ & $copy ]
 #
-#Go to layout for displaying this list.
-Select Window [ Name: "Print/Copy"; Current file ]
+#Select Learn window so when the Share
+#window is closed it will be selected. Then
+#select the Share window to continue
+#this script.
+Select Window [ Name: "Learn"; Current file ]
+Select Window [ Name: "Share"; Current file ]
+Go to Layout [ “learnPreviewLayoutView” (testlearn) ]
 End If
 #
 Set Variable [ $$stopLoadCitation ]
@@ -280,18 +311,30 @@ Set Variable [ $$stopLoadTagRecord ]
 Set Field [ TEMP::paste; TextSize ( $copy ; 12 ) ]
 Go to Field [ ]
 #
+#All records showing are identical,
+#so remove all but one of them.
+Go to Record/Request/Page
+[ First ]
+Omit Multiple Records [ Get (FoundCount) - 1 ]
+[ No dialog ]
+#
 #Display list.
 Scroll Window
 [ Home ]
 Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
+Adjust Window
+[ Resize to Fit ]
 #
 Exit Script [ ]
 #
-#END: SHARE Brainstorm and Inventory Records
+#END: SHARE Brainstorm/Inventory or Test Tagged Records
+#
+#
 #
 #
 #
 Else
+#
 #
 #
 #
@@ -318,18 +361,21 @@ $layoutName = "learn4EDITStuff" ]
 #
 #On QV layouts ask about viewing just the
 #selected record or all linked records.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "This record is linked to other learn records (text areas highlighted purple).
-Share linked or just this one record?"; Buttons: “linked”, “one”, “cancel” ]
+Share linked or just this one record?"; Default Button: “linked”, Commit: “Yes”; Button 2: “one”, Commit: “No”;
+Button 3: “cancel”, Commit: “No” ]
 Else
 #
 #Determine if inventory record is for a container.
-If [ testlearn::sampleCasePoint = "" ]
-Show Custom Dialog [ Message: "This item record is linked to other inventory records. Show linked too or
-just this one record?"; Buttons: “linked”, “one”, “cancel” ]
+If [ testlearn::brainstormCasePoint = "" ]
+Show Custom Dialog [ Message: "This record is linked to other inventory records. Show them too or just this
+one record?"; Default Button: “linked”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”,
+Commit: “No” ]
 Else
-Show Custom Dialog [ Message: "This storage area, container, etc. record is linked to other inventory. Show
-linked too or just one record?"; Buttons: “linked”, “one”, “cancel” ]
+Show Custom Dialog [ Message: "This holder (box, shelf, etc) is linked to other inventory records. Show
+them too or just this one record?"; Default Button: “linked”, Commit: “Yes”; Button 2: “one”, Commit: “No”;
+Button 3: “cancel”, Commit: “No” ]
 End If
 #
 End If
@@ -342,18 +388,19 @@ End If
 Else
 #On main learn layouts ask about viewing
 #selected or all records.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "Share only linked learn records (text areas highlighted purple)?" & ¶ & "OR" &
-¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”,
-“cancel” ]
+¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Default Button: “linked”,
+Commit: “Yes”; Button 2: “all”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 Else
-If [ testlearn::sampleCasePoint = "" ]
-Show Custom Dialog [ Message: "Share this item and its storage records?" & ¶ & "OR" & ¶ & "Share all
-records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”, “cancel” ]
+If [ testlearn::brainstormCasePoint = "" ]
+Show Custom Dialog [ Message: "Share this inventory record and all records to which it's linked?" & ¶ &
+"OR" & ¶ & "Share all inventory records being viewed? Now viewing " & Get (FoundCount) & "."; Default
+Button: “linked”, Commit: “Yes”; Button 2: “all”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 Else
 Show Custom Dialog [ Message: "Share this storage record and inventory records linked to it?" & ¶ & "OR"
-& ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”,
-“cancel” ]
+& ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Default Button: “linked”,
+Commit: “Yes”; Button 2: “all”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 End If
 End If
 If [ Get (LastMessageChoice) = 1 ]
@@ -387,18 +434,20 @@ End If
 #references, see if user wants view just the
 #selected record or all records being viewed.
 If [ Get (FoundCount) ≠ 1 and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITStuff" ]
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "Share all or just this one record? Now viewing " & Get (FoundCount) & ".";
-Buttons: “all”, “one”, “cancel” ]
+Default Button: “all”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 Else
 #
 #Determine if inventory record is for a container.
-If [ testlearn::sampleCasePoint = "" ]
+If [ testlearn::brainstormCasePoint = "" ]
 Show Custom Dialog [ Message: "Share all inventory records being viewed or just this one record? Now
-viewing " & Get (FoundCount) & "."; Buttons: “all”, “one”, “cancel” ]
+viewing " & Get (FoundCount) & "."; Default Button: “all”, Commit: “Yes”; Button 2: “one”, Commit: “No”;
+Button 3: “cancel”, Commit: “No” ]
 Else
 Show Custom Dialog [ Message: "Share all inventory records being viewed or just this one storage area,
-container, etc. record? Now viewing " & Get (FoundCount) & "."; Buttons: “all”, “one”, “cancel” ]
+holder, etc. record? Now viewing " & Get (FoundCount) & "."; Default Button: “all”, Commit: “Yes”; Button
+2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 End If
 End If
 #
@@ -427,11 +476,13 @@ End If
 #it is likely to take, so they don't become frustrated.
 If [ $show = "all" and Get ( FoundCount ) > 500 ]
 If [ Get ( FoundCount ) > 999 ]
-Show Custom Dialog [ Message: "FYI: It may take a minute or more to process this many records."; Buttons: “OK”,
-“cancel” ]
+Show Custom Dialog [ Message: "FYI: It may take a minute or more to process this many records depending on each
+record's references and your computer's speed. An old MacBook Pro takes just under 10 minutes to process about
+4,000 records."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
 #
 Else If [ Get ( FoundCount ) > 500 ]
-Show Custom Dialog [ Message: "FYI: It may take a minute to process this many records."; Buttons: “OK”, “cancel” ]
+Show Custom Dialog [ Message: "FYI: It may take more than a minute to process this many records."; Default Button: “OK”,
+Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
 End If
 #
 If [ Get ( LastMessageChoice ) = 2 ]
@@ -439,6 +490,10 @@ Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 Exit Script [ ]
 End If
+#
+Install Menu Set [ “HGT Stop Share” ]
+Show Custom Dialog [ Message: "If you get tired of waiting, just click on the 'Help' menu above and select 'Stop Share' to stop
+the processing of your records."; Default Button: “OK”, Commit: “Yes” ]
 End If
 #
 #
@@ -449,15 +504,18 @@ End If
 #
 #Begin process of showing user selected
 #records.
-// New Window [ Name: "Print/Copy" ]
-New Window [ Name: "Print/Copy"; Height: 1; Width: 1; Top: 10000; Left: 10000 ]
+// New Window [ Name: "Share"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize:
+“Yes” ]
+New Window [ Name: "Share"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”;
+Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 Go to Layout [ “learnPreviewLayout” (testlearn) ]
+Install Menu Set [ “HGT Stop Share” ]
 #
 #If user elected to show only selected record,
 #then only this record.
 If [ $show = "self" ]
 Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; $$citation ]
+Set Field [ testlearn::_Ltestlearn; $$main ]
 Perform Find [ ]
 End If
 #
@@ -469,7 +527,7 @@ If [ $show = "self and referenced" ]
 #
 #Find original record first.
 Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; $$citation ]
+Set Field [ testlearn::_Ltestlearn; $$main ]
 Perform Find [ ]
 #
 #Determine if record has references to show.
@@ -487,13 +545,15 @@ and
 $$LinkedLearnRecords ≠ "" ]
 #
 Select Window [ Name: "Learn"; Current file ]
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1 =
-Refs or 1 and 2 = Refs+?"; Buttons: “Refs +”, “Refs”, “cancel” ]
+Refs or 1 and 2 = Refs+?"; Default Button: “Refs +”, Commit: “Yes”; Button 2: “Refs”, Commit: “No”; Button 3:
+“cancel”, Commit: “No” ]
 Else
-If [ testlearn::sampleCasePoint = "" ]
+If [ testlearn::brainstormCasePoint = "" ]
 Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1
-= Refs or 1 and 2 = Refs+?"; Buttons: “Refs +”, “Refs”, “cancel” ]
+= Refs or 1 and 2 = Refs+?"; Default Button: “Refs +”, Commit: “Yes”; Button 2: “Refs”, Commit: “No”; Button
+3: “cancel”, Commit: “No” ]
 Else
 Set Variable [ $showReferencesReferencingMe; Value:1 ]
 End If
@@ -501,7 +561,7 @@ End If
 If [ Get (LastMessageChoice) = 1 ]
 Set Variable [ $showReferencesReferencingMe; Value:1 ]
 End If
-Select Window [ Name: "Print/Copy"; Current file ]
+Select Window [ Name: "Share"; Current file ]
 End If
 #
 #
@@ -571,7 +631,7 @@ or
 $showReferences ≠ "" and $showReferencesReferencingMe ≠ "" ]
 #
 Enter Find Mode [ ]
-Set Field [ testlearn::kcreference; $$citation ]
+Set Field [ testlearn::kcreference; $$main ]
 Extend Found Set [ ]
 #
 End If
@@ -579,7 +639,7 @@ End If
 End If
 #
 #Put all found records in order.
-Sort Records [ Specified Sort Order: testlearn::date; descending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
@@ -595,20 +655,23 @@ Go to Record/Request/Page
 Loop
 #Print order number, author, record date, text
 #of learn record, and keywords.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+#Set copyright.
 Set Variable [ $copy; Value://previous records
 Case ( $copy = "" ; "" ; $copy & ¶ & ¶) &
 //text
-Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence ;
+Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ;
 $point & ".1" ) &
 //node
 TextColor ( " [" & tagTLNodePrimary::tag &
 Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) &
 //timestamp
-" " & testlearn::timestamp & "]"
+" (" & testlearn::timestamp & ")." &
+//copyright
+" Copyright " & learnCreatorsCopyright::tag & ".]"
  ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ &
 //main text
-TextFont ( testlearn::Caption ; "Georgia" ) & ¶ &
+TextFont ( testlearn::note ; "Georgia" ) & ¶ &
 //grey remain text
 TextColor (
 //keyword
@@ -621,45 +684,11 @@ Case ( testlearn::OtherKeyWords = "" ; "" ;
 Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) )
 //finish text color
  ; RGB ( 119 ; 119 ; 119 ) ) ]
-#Old reference template.
-// Set Variable [ $copy; Value://previous records
-Case ( $copy = "" ; "" ; $copy & ¶ & ¶) &
-//text
-Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence &
-//node
-TextColor (
-Case ( testlearn::kcitation ≠ "" ; " Quote from cited work below." ;
- " [" &
-Case ( tagTLNodePrimary::tag = "" and testlearn::NodeOthers = "" ; TextStyleAdd ( "author not entered" ; Italic ) ;
-tagTLNodePrimary::tag ≠ "" ; tagTLNodePrimary::tag ) &
-Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers) &
-//timestamp
-" " & testlearn::timestamp & "]" )
- ; RGB ( 119 ; 119 ; 119 ) ) & ¶ &
-//main text
-TextFont ( testlearn::Caption ; "Georgia" ) ;
-$point & TextFont ( testlearn::Caption ; "Georgia" ) ) & ¶ &
-//grey remain text
-TextColor (
-//keyword
-Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ &
-"keywords - " &
-//primary keyword
-tagTLKeywordPrimary::tag &
-Case ( testlearn::OtherKeyWords = "" ; "" ;
-//other keyword
-Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) &
-//URL
-Case ( testlearn::URL ≠ "" ; ¶ & testlearn::URL &
-//URLdate
-Case ( testlearn::URLPubDate ≠ "" ; " (link validated " & testlearn::URLPubDate & ")" ; " (link validity unavailable)") ; "" )
-//finsih text color
- ; RGB ( 119 ; 119 ; 119 ) ) ]
 Else
 Set Variable [ $copy; Value://previous records
 Case ( $copy = "" ; "" ; $copy & ¶ & ¶) &
 //number
-Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence ;
+Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ;
 $point & ".1" ) &
 //node
 TextColor ( " [" & tagTLNodePrimary::tag &
@@ -668,7 +697,7 @@ Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) &
 " " & testlearn::timestamp & "]"
  ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ &
 //main text
-TextFont ( testlearn::Caption ; "Georgia" ) & ¶ &
+TextFont ( testlearn::note ; "Georgia" ) & ¶ &
 //grey remain text
 TextColor (
 //keyword
@@ -683,18 +712,11 @@ Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; tes
  ; RGB ( 119 ; 119 ; 119 ) ) ]
 End If
 #
-#Increase evidence number if point is required.
-If [ testlearn::sampleCasePoint = "" ]
-Set Variable [ $evidence; Value:$evidence + 1 ]
-Else
-Set Variable [ $evidence; Value:1 ]
-End If
-#
 If [ testlearn::kcreference ≠ "" ]
 #
 #Select portal showing either a scholarly
 #reference or inventory items location.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Go to Object [ Object Name: "ref1" ]
 Else
 If [ refTestLearn::concatenateSTUFF = "" ]
@@ -708,15 +730,19 @@ End If
 If [ testlearn::kcreference ≠ "" ]
 #
 #Name reference or inventory location section.
-If [ TEMP::InventoryLibaryYN = "" ]
+#Apply only if references are found.
+If [ TEMP::InventoryLibraryYN = "" and Get (LastError) ≠ 101 ]
 Set Variable [ $copy; Value:$copy & ¶ &
+//Add a paragraph space between kewords and references if both exist.
+Case ( testlearn::kcreference ≠ "" and testlearn::kKeywordPrimary = "" and testlearn::OtherKeyWords = "" ;
+"" ; ¶ ) &
 //grey text
 TextColor (
 //references
 Case ( testlearn::kcreference ≠ "" ; "References" ; "" )
 //finsih text color
  ; RGB ( 119 ; 119 ; 119 ) ) ]
-Else
+Else If [ Get (LastError) ≠ 101 ]
 Set Variable [ $copy; Value:$copy & ¶ &
 Case ( testlearn::kcreference ≠ "" ; ¶ &
  Case ( refTestLearn::concatenateSTUFF = "" ;
@@ -735,7 +761,7 @@ Loop
 #
 #Select portal showing either a scholarly
 #reference or inventory items location.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Go to Object [ Object Name: "ref1" ]
 Else
 If [ refTestLearn::concatenateSTUFF = "" ]
@@ -744,6 +770,9 @@ Else
 Go to Object [ Object Name: "container location" ]
 End If
 End If
+#
+#Exit the loop if there are no records.
+Exit Loop If [ Get (LastError) = 101 ]
 #
 #If this is the first reference clear the
 #$portal variable and select portal's first record.
@@ -754,18 +783,18 @@ Go to Portal Row
 End If
 #
 #Print references.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Set Variable [ $copy; Value:Case ( Right ( $copy ; 10 ) = "References" ;
 $copy & ¶ &
 //grey text
-TextColor ( refReference::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ;
+TextColor ( refLearn::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ;
 $copy & ¶ & ¶ &
 //grey text
-TextColor ( refReference::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ) ]
+TextColor ( refLearn::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ) ]
 Else
 Set Variable [ $copy; Value:Case ( refTestLearn::concatenateSTUFF = "" ;
 $copy & ¶ &
-refReference::referenceSTUFF ;
+refLearn::referenceSTUFF ;
 $copy & ¶ &
 refContainerLocation::referenceSTUFF4learnOtherContainer ) ]
 End If
@@ -787,9 +816,16 @@ Set Variable [ $copy; Value:$copy & ¶ &
 //grey text
 TextColor ( "_______________________________________________" ; RGB ( 119 ; 119 ; 119 ) ) ]
 #
-#Increase point number if point is different.
-If [ testlearn::sampleCasePoint ≠ "" ]
+#Increase 'main point' number if required.
+If [ testlearn::brainstormCasePoint ≠ "" ]
 Set Variable [ $point; Value:$point + 1 ]
+End If
+#
+#Increase secondary point if it is different.
+If [ testlearn::brainstormCasePoint = "" ]
+Set Variable [ $evidence; Value:$evidence + 1 ]
+Else
+Set Variable [ $evidence; Value:1 ]
 End If
 End Loop
 #
@@ -803,28 +839,30 @@ Go to Layout [ “learnPreviewLayout” (testlearn) ]
 #Attach user name, date and time and a note
 #about how to create saved lists using
 #brainstorm or inventory list tags if needed.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 #
 #Reference Title
 #
 #All records being viewed.
 If [ $show = "all" ]
-Set Variable [ $sample; Value://Title
-TextStyleAdd ( TEMP::sectionName & " Library Brainstorm" ; "bold" ) & ¶ &
+#Set copyright.
+Set Variable [ $brainstorm; Value://Title
+TextStyleAdd ( TEMP::userLibraryName ; "bold" ) & ¶ &
 //author and copyright date
-TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
-Year ( Get ( CurrentDate ) ) & " " & $copyright & ¶ & ¶ &
+TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
+Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." & ¶ & ¶ &
 "NOTE: This is an unsaved list of " & $numberOfRecordsBeingViewed & " records ordered by date and time of their
-creation. Use the Tag Menus' 'brainstorms' option to create custom-ordered, saved, lists of selected thoughts, ideas,
+creation. Use the Tag Menus' 'brainstorm' option to create custom-ordered, saved, lists of selected thoughts, ideas,
 etc." ]
 Else
 #
 #Selected and its linked records if any.
-Set Variable [ $sample; Value://Title
-TEMP::sectionName & " Library Brainstorm" & ¶ &
+#Set copyright.
+Set Variable [ $brainstorm; Value://Title
+TEMP::userLibraryName & ¶ &
 //author and copyright date
-TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
-Year ( Get ( CurrentDate ) ) & " " & $copyright ]
+TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
+Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
 End If
 #
 Else
@@ -834,48 +872,52 @@ Else
 If [ $show = "all" ]
 #
 #All records being viewed.
-Set Variable [ $sample; Value://Title
-TEMP::sectionName & " Inventory Library" & ¶ &
+#Set copyright.
+Set Variable [ $brainstorm; Value://Title
+TEMP::userLibraryName & ¶ &
 //author and copyright date
-TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
-Year ( Get ( CurrentDate ) ) & " " & $copyright & ¶ & ¶ &
+TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
+Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." & ¶ & ¶ &
 "NOTE: This is an unsaved list of " & $numberOfRecordsBeingViewed & " records ordered by date and time of their
 creation. Use the Tag Menus' 'inventory list' option to create custom-ordered, saved, lists of selected inventory items." ]
 Else
 #
 #Selected and its linked records if any.
-Set Variable [ $sample; Value://Title
-TEMP::sectionName & " Library Inventory" & ¶ &
+#Set copyright.
+Set Variable [ $brainstorm; Value://Title
+TEMP::userLibraryName & ¶ &
 //author and copyright date
-TEMP::DEFAULTNodePrimaryName & " " & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
-Year ( Get ( CurrentDate ) ) & " " & $copyright ]
+TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" &
+Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
 End If
 End If
 #
 #
 #Add title to list of records.
-Set Variable [ $copy; Value://Sample Title and History
-$sample & ¶ & ¶ & $copy ]
+Set Variable [ $copy; Value://Brainstorm Title and History
+$brainstorm & ¶ & ¶ & $copy ]
 #
 #
 #Show just one record so when user scrolls
 #the window the header stays at the top.
 Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; $$citation ]
+Set Field [ testlearn::_Ltestlearn; $$main ]
 Perform Find [ ]
 #
 #Show window with final list.
+Go to Layout [ “learnPreviewLayoutView” (testlearn) ]
 Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
+Install Menu Set [ “HGT” ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 Set Field [ TEMP::paste; TextSize ( $copy ; 12 ) ]
 Go to Field [ ]
 Scroll Window
 [ Home ]
-Select Window [ Name: "Print/Copy"; Current file ]
-Move/Resize Window [ Current Window ]
+Select Window [ Name: "Share"; Current file ]
+Adjust Window
+[ Resize to Fit ]
 #
 #
 #END: SHARE Non-Brainstorm and Inventory Records
 #
-January 18, ଘ౮28 17:32:59 Library.fp7 - sampleCopyForPasting -1-

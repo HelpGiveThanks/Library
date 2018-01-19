@@ -1,24 +1,24 @@
-testScreens: setup: moveTestItemToNewTestGroupStep1
-#
-#This script is for moving a general inquiry to different group.
-#
-#WHEN TIME PERMITS the vocabuary for scripts,
-#variable, fields, layouts, etc. needs to be updated
-#to reflect that a 'test' is now a 'general inquiry'
-#and an 'item' is now a 'specific inquiry' and a 'focus'
-#is now a test 'section', etc. A complete look at
-#the DDR to insure all vocabulary is updated
-#everywhere followed by testing for each
-#update is required.
+January 12, 2018 14:14:19 Library.fmp12 - moveTestItemToNewTestGroupStep1 -1-
+test: setup: moveTestItemToNewTestGroupStep1
 #
 #
-#If node is currenlty locked then stop script, inform user.
-If [ nodeLockTest::orderOrLock ≠ "" ]
+#This script is for moving a test item
+#to different item group.
+#
+#
+#If there is only one group, exit script.
+If [ ValueCount ( ValueListItems ( Get ( FileName ) ; "templateSubsectionGroups" ) ) = 1 ]
 Go to Field [ ]
-Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTest::tag & " -- in the setup tag window and enter the password to unlock it so that you can move it."; Buttons: “OK” ]
 Exit Script [ ]
 End If
-Set Variable [ $$groupOLD; Value:test::ktestGroup ]
-Set Variable [ $$moveItem; Value:test::_Ltest ]
+#
+#If node is currenlty locked then stop script, inform user.
+If [ testSectionCreatorLock::orderOrLock ≠ "" ]
+Go to Field [ ]
+Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & testSectionCreatorLock::tag & " -- in
+the setup tag window and enter the password to unlock it so that you can move it."; Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
+Set Variable [ $$groupOLD; Value:testSubsectionTemplate::ksubsectionGroup ]
+Set Variable [ $$moveItem; Value:testSubsectionTemplate::_LtestSubsection ]
 Refresh Window
-December 9, ଘ౮27 19:49:51 Library.fp7 - moveTestItemToNewTestGroupStep1 -1-

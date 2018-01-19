@@ -1,37 +1,45 @@
+January 15, 2018 17:15:32 Library.fmp12 - TgotoCitationMenu -1-
 tagMenu: TgotoCitationMenu
-If [ Get ( ActiveFieldContents ) = "" ]
-Go to Field [ ]
-Exit Script [ ]
-End If
-If [ $$add = 1 and Get ( ActiveFieldName ) = "kcitation" or $$add = 1 and Get ( ActiveFieldName ) = "kcReference" ]
-Go to Field [ ]
-Show Custom Dialog [ Message: "Learn records with references or a citation cannot be added to tags. Doing so would require adding all these reference and cite records' references and cite records, and then all of theirs, and so on. "; Buttons: “OK” ]
-Exit Script [ ]
-End If
-// If [ TEMP::ksection & "¶" ≠ FilterValues ( reference::kcsection ; TEMP::ksection & "¶" ) ]
+#
+// If [ Get ( ActiveFieldContents ) = "" ]
 // Go to Field [ ]
-// Show Custom Dialog [ Message: "This reference belongs to the " & ruleRefLibraryName::name & " section." & " You can add pictures and links from any reference record to any tag, but you can only add tags to the current default section's records (name shown top left)."; Buttons: “OK” ]
 // Exit Script [ ]
 // End If
-If [ $$findMode ≠ "" ]
+#
+If [ $$findMode ≠ "" or $$stopTgotoCitationMenu = 1 ]
 Go to Field [ ]
+Set Variable [ $$stopTgotoCitationMenu ]
 Exit Script [ ]
 End If
+#Admin tasks
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 #
 #Conditionally format selected item and button on menu screen.
 Set Variable [ $$citationItem; Value:Get (ActiveFieldContents) ]
 Set Variable [ $$citationMatch; Value:Get (ActiveFieldName) ]
-If [ $$citationMatch = "referenceShort" ]
-Set Variable [ $$citationMatch; Value:"kcitation" ]
-Set Variable [ $$citationItem; Value:refReference::_Lreference ]
+#
+If [ Filter ( Get ( ActiveFieldTableName ) ; "refLearn" ) = "refLearn" ]
+Set Variable [ $$citationMatch; Value:"ref" ]
+Set Variable [ $learnRef; Value:refLearn::_Lreference ]
 End If
-If [ Left (Get (ActiveFieldName); 4) = "kkey" or Get (ActiveFieldName) = "" ]
+#
+If [ Left (Get (ActiveFieldName); 4) = "kkey" or Left (Get (ActiveFieldName); 5) = "kckey" or Get (ActiveFieldName) = "" ]
 Set Variable [ $$citationMatch; Value:"key" ]
-Else If [ Left (Get (ActiveFieldName); 5) = "knode" ]
-Set Variable [ $$citationMatch; Value:"node" ]
+Set Variable [ $$citationItem; Value:tagTLKeywordPrimary::_Ltag ]
 End If
+#
+If [ Left ( Get ( ActiveFieldName ) ; 5 ) = "knode" or
+Filter ( Get (ActiveFieldTableName) ; "Node" ) = "Node" ]
+Set Variable [ $$citationMatch; Value:"node" ]
+Set Variable [ $$citationItem; Value:tagTLNodePrimary::_Ltag ]
+End If
+#
+If [ Filter ( Get ( ActiveFieldName ) ; "node" ) = "node" ]
+Set Variable [ $$citationMatch; Value:"node" ]
+Set Variable [ $$citationItem; Value:reference::knodePrimary ]
+End If
+#
 Refresh Window
 #
 #Exit field so blinking cursor doesn't show up in empty field.
@@ -41,68 +49,202 @@ Set Variable [ $window; Value:Get (WindowName) ]
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
-New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
+New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) /
+2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 End If
 #
-#set citationMatch to color menu button with inUse color.
+#
+#
+#
+#
+#LEARN WINDOW
 If [ $window = "Learn" ]
+#
 If [ $$citationMatch = "kfolderpath" ]
 Go to Layout [ “learnMenu1” (tagMenus) ]
-Perform Script [ “menuPath” ]
+Perform Script [ “menuPath (update)” ]
+#
 Else If [ $$citationMatch = "kmedium" ]
 Set Variable [ $$medium; Value:reference::kmedium ]
 Go to Layout [ “learnMenu1” (tagMenus) ]
-Perform Script [ “menuMedium” ]
+Perform Script [ “menuMedium (update)” ]
+#
 Else If [ $$citationMatch = "khealth" ]
-Go to Layout [ “learnMenuHealth” (tagMenus) ]
-Perform Script [ “menuHealth” ]
+Go to Layout [ “learnMenuCopyright” (tagMenus) ]
+Perform Script [ “menuCopyright (update name change menuHealth)” ]
+#
 Else If [ $$citationMatch = "key" ]
-Go to Layout [ “ltagNK2” (tagMenus) ]
-Perform Script [ “menuKey” ]
-Else If [ $$citationMatch = "node" ]
-Go to Layout [ “ltagNK2” (tagMenus) ]
-Perform Script [ “menuNode” ]
-Else If [ $$citationMatch = "kcitation" ]
-Set Variable [ $$stoploadCitation; Value:1 ]
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Go to Layout [ “learnMenuRefStuff” (reference) ]
-Perform Script [ “externalReferences” ]
+#KEY MENU
+#
+#See if user has selected requested menu.
+If [ tagMenus::match ≠ "key" ]
+#
+#Menu NOT selected.
+Perform Script [ “menuKey (update)” ]
+#
 Else
-Go to Layout [ “learnMenu3Cite” (reference) ]
-Perform Script [ “menuCitation” ]
+#Menu IS selected.
+#
+#Record not selected and there is only a
+#primary key, do this:
+If [ $$primaryKey ≠ tagMenus::_Ltag or $$PrimaryKey ≠ "" ]
+#
+#Go to a layout with no pictures
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $reflayoutname; Value:Get (LayoutName) ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ “ltagNK1” (tagMenus) ]
+Else
+Go to Layout [ “ltagNKs1” (tagMenus) ]
 End If
 #
-#Go to citation record's current selection or to first record.
-Set Variable [ $$stopLoadTagRecord; Value:1 ]
+#Make sure records are showing.
+Enter Find Mode [ ]
+Set Field [ tagMenus::_Ltag; $$primaryKey ]
+Extend Found Set [ ]
+If [ $$otherKey ≠ "" ]
+Set Variable [ $numberOfkeys; Value:1 ]
+Loop
+Enter Find Mode [ ]
+Set Field [ tagMenus::_Ltag; GetValue ( $$OtherKey ; $numberOfkeys ) ]
+Extend Found Set [ ]
+Set Variable [ $numberOfkeys; Value:$numberOfkeys + 1 ]
+Exit Loop If [ $numberOfkeys = ValueCount ( $$OtherKey ) + 1 ]
+End Loop
+End If
+#
+#Loop thru records to find user's selection.
 Go to Record/Request/Page
 [ First ]
+Scroll Window
+[ Home ]
 Loop
-Exit Loop If [ FilterValues ( $$citationItem ; reference::_Lreference ) = reference::_Lreference & ¶ ]
+Exit Loop If [ $$primaryKey = tagMenus::_Ltag ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ FilterValues ( $$citationItem ; reference::_Lreference ) ≠ reference::_Lreference & ¶ ]
-Scroll Window
-[ Home ]
-Go to Record/Request/Page
-[ First ]
-End If
-Set Variable [ $$citationMatch; Value:"ref" ]
-Refresh Window
+#
+#Finish.
+Go to Layout [ $reflayoutname ]
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
-Select Window [ Name: "Learn"; Current file ]
-Refresh Window
+End If
+End If
+#
+#
+Else If [ $$citationMatch = "node" ]
+#NODE MENU
+#
+#See if user has selected requested menu.
+If [ tagMenus::match ≠ "node" ]
+#
+#Menu NOT selected.
+Perform Script [ “menuNode (update)” ]
+#
+Else
+#Menu IS selected.
+#
+#Record not selected and there is only a
+#primary node, do this:
+If [ $$primaryNode ≠ tagMenus::_Ltag or $$Node ≠ "" ]
+#
+#Go to a layout with no pictures
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $reflayoutname; Value:Get (LayoutName) ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ “ltagNK1” (tagMenus) ]
+Else
+Go to Layout [ “ltagNKs1” (tagMenus) ]
+End If
+#
+#Make sure records are showing.
+Enter Find Mode [ ]
+Set Field [ tagMenus::_Ltag; $$primaryNode ]
+Extend Found Set [ ]
+If [ $$Node ≠ "" ]
+Set Variable [ $numberOfkeys; Value:1 ]
+Loop
+Enter Find Mode [ ]
+Set Field [ tagMenus::_Ltag; GetValue ( $$Node ; $numberOfkeys ) ]
+Extend Found Set [ ]
+Set Variable [ $numberOfkeys; Value:$numberOfkeys + 1 ]
+Exit Loop If [ $numberOfkeys = ValueCount ( $$Node ) + 1 ]
+End Loop
+End If
+#
+#Loop thru records to find user's selection.
+Go to Record/Request/Page
+[ First ]
+Scroll Window
+[ Home ]
+Loop
+Exit Loop If [ $$primaryNode = tagMenus::_Ltag ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+#
+#Finish.
+Go to Layout [ $reflayoutname ]
+Set Variable [ $$stoploadCitation ]
+Set Variable [ $$stopLoadTagRecord ]
+End If
+End If
+#
+#
+Else If [ $$citationMatch = "ref" ]
+#REFERENCE MENU
+#
+#See if user has selected requested menu.
+If [ Get (LayoutTableName) ≠ "reference" ]
+#
+#Menu NOT selected.
+Perform Script [ “menuReference (update)” ]
+End If
+#
+#Menu IS selected.
+#
+#Record not selected, do this:
+If [ $learnRef ≠ reference::_Lreference ]
+#
+#Go to a layout with no pictures
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $reflayoutname; Value:Get (LayoutName) ]
+Go to Layout [ “learnMenu3CiteS” (reference) ]
+#
+#Make sure record is showing.
+Enter Find Mode [ ]
+Set Field [ reference::_Lreference; $learnRef ]
+Extend Found Set [ ]
+#
+#Loop thru records to find user's selection.
+Go to Record/Request/Page
+[ First ]
+Loop
+Exit Loop If [ $learnRef = reference::_Lreference ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+#
+#Finish.
+Go to Layout [ $reflayoutname ]
+Set Variable [ $$stoploadCitation ]
+Set Variable [ $$stopLoadTagRecord ]
 End If
 #
 #
 #
 #
+End If
+#
+#
+#
+#
+#REFERENCE OR SETUP WINDOW
 Else If [ $window = "References" or $window = "Setup" ]
 #
 #If in add mode, prevent menu scripts from changing
 #the main window's set of records.
-#Unlike learn records, reference records or created
+#Unlike learn records, reference records are created
 #for specific uses such as providing a picture
 #or link for a specific set of tags, say keyword tags.
 #So, in add mode, when clicking on a menu item
@@ -117,38 +259,35 @@ Else If [ $window = "References" or $window = "Setup" ]
 #allows the user to add tags to the item neccessary
 #to make it addable to the the tag menu item the
 #user is creating it for!
-May 4, 平成27 22:09:05 Library.fp7 - TgotoCitationMenu -1-
-tagMenu: TgotoCitationMenu
 If [ $$add = 1 ]
 Set Variable [ $$add; Value:2 ]
 End If
 #
+#Set this variable to stop conditional formatting
+#of unselected first Tag Menus record.
+If [ $$citationitem = "" ]
+Set Variable [ $$TgotoCitationMenuWithBlankField; Value:1 ]
+Else
+Set Variable [ $$TgotoCitationMenuWithBlankField ]
+End If
+#
 If [ $$citationMatch = "kfolderpath" ]
-Go to Layout [ “ReferenceMenu1” (tagMenus) ]
-Perform Script [ “menuPath” ]
+Perform Script [ “menuPath (update)” ]
 Else If [ $$citationMatch = "kmedium" ]
 Set Variable [ $$medium; Value:reference::kmedium ]
-Go to Layout [ “ReferenceMenu1” (tagMenus) ]
-Perform Script [ “menuMedium” ]
-Else If [ $$citationMatch = "khealth" ]
-Go to Layout [ “ReferenceMenuHealth” (tagMenus) ]
-Perform Script [ “menuHealth” ]
-Else If [ $$citationMatch = "korgan" ]
-Go to Layout [ “ReferenceMenu1” (tagMenus) ]
-Perform Script [ “menuOrgan” ]
-Else If [ $$citationMatch = "kcopyist" ]
-Go to Layout [ “ReferenceMenu1” (tagMenus) ]
-Perform Script [ “menuCopyist” ]
+Perform Script [ “menuMedium (update)” ]
+Else If [ $$citationMatch = "kcopyright" ]
+Perform Script [ “menuCopyright (update name change menuHealth)” ]
+Else If [ $$citationMatch = "kpublication" ]
+Perform Script [ “menuPublication (update name change menuOrgan)” ]
+Else If [ $$citationMatch = "kpublisher" ]
+Perform Script [ “menuPublisher (update name change menuCopyist)” ]
 Else If [ $$citationMatch = "key" ]
-Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
-Perform Script [ “menuKey” ]
+Perform Script [ “menuKey (update)” ]
 Else If [ $$citationMatch = "node" ]
-Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
-Perform Script [ “menuNode” ]
+Perform Script [ “menuNode (update)” ]
 Else If [ $$citationMatch = "kcitation" ]
-Go to Layout [ “ReferenceMenu3Cite” (reference) ]
-Perform Script [ “menuRefAddKeyWords” ]
-End If
+Perform Script [ “menuCitation (update)” ]
 End If
 #
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -158,4 +297,5 @@ Select Window [ Name: "Tag Menus"; Current file ]
 If [ $$add = 2 ]
 Set Variable [ $$add; Value:1 ]
 End If
-May 4, 平成27 22:09:05 Library.fp7 - TgotoCitationMenu -2-
+End If
+#

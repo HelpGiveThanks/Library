@@ -1,4 +1,5 @@
-tagMenu: loadItemRecordForTestTagMenu
+January 15, 2018 16:48:25 Library.fmp12 - loadTestTags -1-
+tagMenu: loadTestTags
 #
 #Capture recordID to conditionally format current record.
 If [ $$stopLoadTagRecord ≠ 1 ]
@@ -8,9 +9,9 @@ Go to Field [ ]
 #key in it. So we need a variable with just this
 #records keys in it to conditionally format all
 #learn window records tagged with it.
-Set Variable [ $$tagtest; Value:test::_Ltest ]
-Set Field [ TEMP::kctest; test::_Ltest ]
-Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
+Set Variable [ $$tagtest; Value:testSubsectionTemplate::_LtestSubsection ]
+Set Field [ TEMP::kctagTest; testSubsectionTemplate::_LtestSubsection ]
+Set Variable [ $$BrainstormOrTestID; Value:Get (RecordID) ]
 #
 #The next conditional formatting variable needs
 #to be cleared in case there are no records in
@@ -23,68 +24,114 @@ Set Variable [ $$atLeastOneRecord ]
 #
 Set Variable [ $$stopLoadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-New Window [ ]
+New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 Move/Resize Window [ Current Window; Height: 3; Width: 3; Top: -1000; Left: -1000 ]
-Go to Layout [ “learn1” (testlearn) ]
+Go to Layout [ “learn2” (testlearn) ]
 #Prepare system to stop error message about no
 #records being found as the user may not have
 #yet tagged any learn records with this test tag.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" ]
 Perform Find [ ]
-Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: testlearn::kctest: “=” ]
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: testlearn::kctestSubsectionInfo: “=” ]
 [ Restore ]
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $number; Value:1 ]
 Loop
-Exit Loop If [ (FilterValues ( Middle ( GetValue ( testlearn::kctest ; 1 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+Exit Loop If [ Case ( Left ( testlearn::kctestSubsectionInfo ; 2 ) = "00" ;
+//If there two zeros in front of the order number, get the key using these calculations:
+(FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 1 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 2 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 2 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 3 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 3 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 4 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 4 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 5 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 5 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 6 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 6 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 7 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 7 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 8 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 8 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 9 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 9 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 10 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
-) = 1 ]
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 10 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+) = 1 ;
+//If there is only one zero in front of the order number, get the key using this calculation:
+(FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 1 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 2 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 3 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 4 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 5 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 6 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 7 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 8 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 9 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 10 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+) = 1
+) ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-Set Variable [ $atLeastOneRecord; Value:If ( (FilterValues ( Middle ( GetValue ( testlearn::kctest ; 1 ) ; 4 ; 42 ) ; $$tagtest & "¶" )
-= $$tagtest & ¶
+Set Variable [ $atLeastOneRecord; Value:Case ( Left ( testlearn::kctestSubsectionInfo ; 2 ) = "00" ;
+//If there two zeros in front of the order number, get the key using this calculation:
+If ( (FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 1 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 2 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 2 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 3 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 3 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 4 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 4 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 5 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 5 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 6 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 6 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 7 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 7 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 8 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 8 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 9 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 9 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
 or
-FilterValues ( Middle ( GetValue ( testlearn::kctest ; 10 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
-) = 1 ; 1 ; "" ) ]
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 10 ) ; 4 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+) = 1 ; 1 ; "" ) ;
+//If there is only one zero in front of the order number, get the key using this calculation:
+If ( (FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 1 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 2 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 3 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 4 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 5 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 6 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 7 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 8 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 9 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+or
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; 10 ) ; 3 ; 42 ) ; $$tagtest & "¶" ) = $$tagtest & ¶
+) = 1 ; 1 ; "" )
+) ]
 Go to Layout [ original layout ]
 Close Window [ Current Window ]
 Set Variable [ $$stopLoadCitation ]
@@ -103,14 +150,17 @@ If [ $atLeastOneRecord ≠ 1 ]
 #key in it. So we need a variable with just this
 #records keys in it to conditionally format all
 #learn window records tagged with it.
-Set Variable [ $$tagtest; Value:test::_Ltest ]
+Set Variable [ $$tagtest; Value:testSubsectionTemplate::_LtestSubsection ]
 #
 Select Window [ Name: "Learn"; Current file ]
-Refresh Window
-Sort Records [ Specified Sort Order: testlearn::date; descending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+Scroll Window
+[ Home ]
 Set Field [ TEMP::TLTestSort; "" ]
+Set Variable [ $$stopLoadCitation ]
+Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
@@ -131,9 +181,9 @@ Set Variable [ $$atLeastOneRecord; Value:$$tagtest ]
 #key in it. So we need a variable with just this
 #records keys in it to conditionally format all
 #learn window records tagged with it.
-Set Variable [ $$tagtest; Value:test::_Ltest ]
-Set Field [ TEMP::kctest; test::_Ltest ]
-Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
+Set Variable [ $$tagtest; Value:testSubsectionTemplate::_LtestSubsection ]
+Set Field [ TEMP::kctagTest; testSubsectionTemplate::_LtestSubsection ]
+Set Variable [ $$BrainstormOrTestID; Value:Get (RecordID) ]
 If [ $$add = 1 and $$citationMatch = $$addCitationMatch ]
 Else If [ $$add = "" ]
 End If
@@ -146,11 +196,12 @@ Refresh Window
 Set Field [ TEMP::TLTestSort; "order" ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "Learn"; Current file ]
-Perform Script [ “sortTLRecordsByOrderNumber” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from
+sortTLRecordsByOrderNumber)” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
-Set Variable [ $$tagtest; Value:test::_Ltest ]
+Set Variable [ $$tagtest; Value:testSubsectionTemplate::_LtestSubsection ]
 // End If
 Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
@@ -160,7 +211,7 @@ Refresh Window
 End If
 #
 #If the user is coming from a test info screen,
-#focus on the testlearn record they are
+#go to the testlearn record they are
 #interested in editing and clear the
 #$$editTestInfo variable.
 If [ $$editTestInfo = 1 ]
@@ -184,7 +235,7 @@ End If
 #tag record will exist after the addtotag script has
 #run, but this script will not know that having run
 #first. So the user will be left wondering, "how is
-#that everytime I click on a new test or sample tag
+#that everytime I click on a new test or brainstorm tag
 #record that has record tagged with it in the Learn
 #window, the Learn window is sorted by order number
 #except for this time? How did this fail to happen?"
@@ -193,9 +244,8 @@ End If
 #command, which will force the user to click
 #the add to tag button a second time to add the
 #tag (the first time being when the user clicked
-#it to move the system focus to this record, which
+#it to move the system to this record, which
 #triggered this loadItem... script.
 Halt Script
 End If
 #
-December 27, ଘ౮27 21:59:09 Library.fp7 - loadItemRecordForTestTagMenu -1-

@@ -1,4 +1,9 @@
-tagMenu: menuCopyist
+January 15, 2018 16:41:33 Library.fmp12 - menuPublisher -1-
+tagMenu: menuPublisher
+#
+#
+#Prevent halting of script.
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 #
 #If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
@@ -6,7 +11,11 @@ tagMenu: menuCopyist
 Go to Field [ ]
 #
 #Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"copyist" ]
+Set Variable [ $$citationMatch; Value:"publisher" ]
+Set Variable [ $$doNotHaltOtherScripts ]
+#
+#Turn off loading tag record script until end.
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Set match temp tag field to limit move pulldown
 #to just the groups for this section and item type.
@@ -27,28 +36,23 @@ Else If [ $$add ≠ 1 ]
 Go to Layout [ “ReferenceMenu1” (tagMenus) ]
 End If
 #
-#Find copyist tags. Copyist tags are available to all library sections.
+#Find publisher's tags.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
 Perform Find [ ]
 #
-// #If no records exist then create one.
-// If [ Get (FoundCount)=0 ]
-// Perform Script [ “newCitationMenuGroup” ]
-// End If
-#
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
-If [ TEMP::sortCopyist = "cat" or TEMP::sortCopyist = "" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+#Sort according to current users wishes.
+If [ TEMP::sortPublisher = "cat" or TEMP::sortPublisher = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
-Else If [ TEMP::sortCopyist = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Else If [ TEMP::sortPublisher = "abc" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -56,15 +60,24 @@ End If
 Go to Record/Request/Page
 [ First ]
 Loop
-Exit Loop If [ $$copyist = tagMenus::_Ltag ]
+Exit Loop If [ $$publisher = tagMenus::_Ltag ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ $$copyist ≠ tagMenus::_Ltag ]
+If [ $$publisher ≠ tagMenus::_Ltag ]
 Go to Record/Request/Page
 [ First ]
-// Exit Script [ ]
+#
+#Set this variable to stop conditional formatting
+#of unselected first Tag Menus record.
+Set Variable [ $$TgotoCitationMenuWithBlankField; Value:1 ]
+Else
+Set Variable [ $$TgotoCitationMenuWithBlankField ]
 End If
+#
+#Turn on loading tag record script.
+Set Variable [ $$stopLoadTagRecord ]
+Perform Script [ “loadTagRecord (update)” ]
 #
 #Inform user of items use on both screens.
 Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]
@@ -79,7 +92,8 @@ If [ $$add = 1 ]
 #
 #But, give user option to keep the records currently
 #showing in the main window.
-Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to copyist tags, or keep the current records shown?"; Buttons: “keep”, “show” ]
+Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to publisher tags, or
+keep the current records shown?"; Default Button: “keep”, Commit: “Yes”; Button 2: “show”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -88,8 +102,7 @@ End If
 #
 #find on reference layout ...
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "copyist" ]
+Set Field [ reference::filterFind; "publisher" ]
 Perform Find [ ]
 End If
 End If
@@ -100,4 +113,4 @@ End If
 Go to Field [ ]
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
-January 7, 平成26 16:02:47 Imagination Quality Management.fp7 - menuCopyist -1-
+#

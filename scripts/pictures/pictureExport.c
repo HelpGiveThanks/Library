@@ -1,11 +1,18 @@
+January 15, 2018 17:42:57 Library.fmp12 - pictureExport -1-
 pictures: pictureExport
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 If [ reference::picture ≠ "" ]
+#
+#
+#If a creative commons trademark then the user needs to get a new copy of the file from the web.
+#
+#
+#
+Show Custom Dialog [ ]
 Export Field Contents [ reference::picture ]
-Else If [ testlearn::Picture ≠ "" ]
-Export Field Contents [ testlearn::Picture ]
-Else If [ testlearnReportTags::Picture ≠ "" ]
-Export Field Contents [ testlearnReportTags::Picture ]
+Else If [ testlearn::picture ≠ "" ]
+Export Field Contents [ testlearn::picture ]
+Else If [ testlearnReportTags::picture ≠ "" ]
+Export Field Contents [ testlearnReportTags::picture ]
 End If
-January 7, 平成26 17:06:11 Imagination Quality Management.fp7 - pictureExport -1-

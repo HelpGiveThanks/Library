@@ -1,3 +1,4 @@
+January 15, 2018 17:56:26 Library.fmp12 - CHUNKaddPictureToTag -1-
 pictures: CHUNKaddPictureToTag
 #
 #Get key for tag that is to be added to record.
@@ -17,17 +18,14 @@ Set Variable [ $$name ]
 Set Variable [ $window; Value:Get (WindowName) ]
 End If
 #
-#Add all tag's section keys to reference or learn record.
-Perform Script [ “addTagSectionKeysToMainRecordKeychain” ]
-#
 #Now add all the added record’s node and keyword
 #tags to any newly added sections.
-Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+Perform Script [ “CHUNKaddReferenceNodeAndKeywordTagIDs (update name CHUNKaddReferenceNodesAndKeywords)” ]
 #
 #Complete process of adding picture to tag.
 Select Window [ Name: "Tag Menus"; Current file ]
 #
-#Remove focus from field so can see
+#Leave field so user can see
 #conditional formatting.
 Go to Field [ ]
 #
@@ -72,4 +70,3 @@ Select Window [ Name: $window; Current file ]
 #
 End If
 #
-January 7, 平成26 17:13:52 Imagination Quality Management.fp7 - CHUNKaddPictureToTag -1-

@@ -113,6 +113,7 @@ Go to Field [ ]
 #If list is empty, now tell the user this so they don't
 #think the system failed because nothing was found.
 If [ $emptyList = 1 ]
-Show Custom Dialog [ Message: "This test-item list contains no test items. You are welcome to create new ones."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This test-item list contains no test items. You are welcome to create new ones."; Buttons:
+“OK” ]
 End If
-January 7, 平成26 12:02:22 Imagination Quality Management.fp7 - switchTestList -1-
+August 19, ଘ౮28 18:05:02 Library.fp7 - switchTestList -1-

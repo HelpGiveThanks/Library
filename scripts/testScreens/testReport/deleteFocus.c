@@ -1,94 +1,95 @@
-testScreens: testReport: deleteFocus
+January 15, 2018 15:46:28 Library.fmp12 - deleteTestSectionTemplate -1-
+test: report: deleteTestSectionTemplate
 #
 #
-#WHEN TIME PERMITS the vocabuary for scripts,
-#variable, fields, layouts, etc. needs to be updated
-#to reflect that a 'test' is now a 'test template'
-#and a 'focus' is now a test 'template section', etc.
-#A complete look at
-#the DDR to insure all vocabulary is updated
-#everywhere followed by testing for each
-#update is required.
-#
+#If there are no section templates, then stop
+#this script.
+If [ Get (FoundCount) = 0 ]
+Exit Script [ ]
+End If
 #
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
-Set Variable [ $focus; Value:tagLocation::_Ltag ]
+Set Variable [ $testSection; Value:testSection::_Ltag ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 #
-If [ nodeLockTest::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "This test section is currently locked. Select the node that created it and enter the password to
-unlock it, then you will able to start the delete process."; Buttons: “OK” ]
+If [ testSectionCreatorLock::orderOrLock ≠ "" ]
+Show Custom Dialog [ Message: "This record is locked. Go the node that created it — " & testSectionCreatorLock::tag & " — in
+the setup tag window and enter the password to unlock it so that you can delete it."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
 #Highlight section template user is trying to delete.
-Set Variable [ $delete; Value:tagLocation::_Ltag ]
+Set Variable [ $delete; Value:testSection::_Ltag ]
 #
 Go to Layout [ “TEMP” (TEMP) ]
 Show All Records
 Delete All Records
 [ No dialog ]
 #
-Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
+Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
 Enter Find Mode [ ]
-Set Field [ tagTestSubjectLocation::kfocus; $focus ]
+Set Field [ testSectionCreatedFromATemplate::ksectionTemplate; $testSection ]
 Perform Find [ ]
 #
 #If section's using this template then inform
 #user of where and prevent its deletion.
 If [ Get (LastError) ≠ 401 ]
 Loop
-Set Variable [ $useList; Value:"test subject " &
-tagTestSubject::tag &
+Set Variable [ $useList; Value:TextColor(
+testSubjectName::tag &
 ¶ &
-"test/report " &
-TextColor( TextStyleAdd ( tagTestSubjectLocation::reportNumber; "" ) ;RGB(0;0;0)) &
-" | section " &
-TextColor( TextStyleAdd ( tagTestSubjectLocation::focusName; "" ) ;RGB(0;0;0)) ]
+"test " &
+testSectionCreatedFromATemplate::reportNumber & " | " ;
+RGB(102;102;102)) &
+testSectionCreatedFromATemplate::name ]
 Go to Layout [ “TEMP” (TEMP) ]
 New Record/Request
-Set Field [ TEMP::RemoveFocusList; $useList ]
-Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
+Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
+Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
 Go to Layout [ original layout ]
-New Window [ Name: " "; Width: 360; Left: Get ( WindowWidth ) - 360 ]
+New Window [ Name: " "; Width: 360; Left: Get ( WindowWidth ) - 360; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize:
+“Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 Go to Layout [ “TEMP” (TEMP) ]
 View As
 [ View as List ]
 #
 #Eliminate duplicate template records.
-Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
 Loop
-Set Variable [ $focus; Value:TEMP::RemoveFocusList ]
+Set Variable [ $testSection; Value:TEMP::DeleteMessageInTempWindow1 ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
-If [ TEMP::RemoveFocusList = $focus ]
+If [ TEMP::DeleteMessageInTempWindow1 = $testSection ]
 Omit Record
 #
-#NOTE: omit by default moves focus to the next record
-#so to go to the next record after an omission
-#script must go to the previous record as
-#so when repeating the loop, going to the next
-#does not result in skipping the record that comes
-#after a omitted record.
+#NOTE: Omit by default moves to the next record
+#so to go to the next record after an omission,
+#the script must go to the previous record.
 Go to Record/Request/Page
 [ Previous ]
 End If
 End Loop
 #
-Show/Hide Status Area
+Show/Hide Toolbars
 [ Lock; Hide ]
 Show/Hide Text Ruler
 [ Hide ]
-Set Field [ TEMP::Message; "Before the highlighted test section template can be deleted, the sections created using it (listed
-below) must be deleted from the main test window." ]
+#
+#Due to a bug in FM13, window must first be
+#moved back into the screen area before the
+#calculation of the current screen's
+#dimensions can be taken.
+Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
+Set Field [ TEMP::Message; "This section template has been used to create test-subject, custom-named, test sections shown
+below. 1) Click 'back'. 2) Click 'edit/new'. 3) Click on a section, shown below. 4) Click 'x'. 5) Repeat until all are deleted." ]
 Pause/Resume Script [ Indefinitely ]
 Close Window [ Current Window ]
 Set Variable [ $delete ]
@@ -102,27 +103,35 @@ Go to Layout [ original layout ]
 Go to Field [ ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
-Set Variable [ $delete; Value:tagLocation::_Ltag ]
-Set Variable [ $name; Value:tagLocation::tag ]
+Set Variable [ $delete; Value:testSection::_Ltag ]
+Set Variable [ $name; Value:testSection::tag ]
 Refresh Window
-Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Buttons: “Cancel”, “Delete” ]
+Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”,
+Commit: “No” ]
+#
+// If [ Get (FoundCount) = 1 ]
+// Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2:
+“Delete”, Commit: “No” ]
+// End If
 #
 #If user decides to delete it then do so.
 If [ Get ( LastMessageChoice ) = 2 ]
 #
 #First remove its key from all test records that
 #have it.
-New Window [ Height: 1; Width: 1; Top: 10000; Left: 10000 ]
-Go to Layout [ “tableTest” (test) ]
+New Window [ Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”;
+Zoom Control Area: “Yes”; Resize: “Yes” ]
+Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
 Enter Find Mode [ ]
-Set Field [ test::kcfocusALL; $delete ]
+Set Field [ testSubsectionTemplate::kcsections; $delete ]
 Perform Find [ ]
 Loop
-Set Field [ test::kcfocusALL; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not
-removed, then the removal calc without the paragraph mark is used
-If ( ValueCount ( test::kcfocusALL ) ≠ ValueCount ( Substitute ( test::kcfocusALL ; $delete & "¶" ; "" ) ) ;
-Substitute ( test::kcfocusALL ; $delete & "¶" ; "" ) ;
-Substitute ( test::kcfocusALL ; $delete ; "" )
+Set Field [ testSubsectionTemplate::kcsections; //last item in list has no paragraph mark, so a valuecount test needs to be
+done and if item is not removed, then the removal calc without the paragraph mark is used
+If ( ValueCount ( testSubsectionTemplate::kcsections ) ≠ ValueCount ( Substitute ( testSubsectionTemplate::kcsections ;
+$delete & "¶" ; "" ) ) ;
+Substitute ( testSubsectionTemplate::kcsections ; $delete & "¶" ; "" ) ;
+Substitute ( testSubsectionTemplate::kcsections ; $delete ; "" )
 ) ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
@@ -138,4 +147,3 @@ End If
 Set Variable [ $delete ]
 Refresh Window
 #
-December 21, ଘ౮27 18:25:39 Library.fp7 - deleteFocus -1-

@@ -154,7 +154,7 @@ End If
 // #keychain so when this tag record is viewed in
 // #those sections, the reference or learn record
 // #just added to it will show up as well.
-// Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+// Perform Script [ “CHUNKaddReferenceNodesAndKeywords (update)” ]
 // #Sort records according to users wishes.
 // Freeze Window
 // If [ TEMP::sortRef = "cat" ]
@@ -250,4 +250,4 @@ Set Variable [ $$stopLoadTagRecord ]
 // Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$skipFirstPartOfScript ]
-January 18, ଘ౮28 17:41:45 Library.fp7 - addORremoveCitationOrReferenceRefTag -1-
+August 19, ଘ౮28 19:56:22 Library.fp7 - addORremoveCitationOrReferenceRefTag -1-

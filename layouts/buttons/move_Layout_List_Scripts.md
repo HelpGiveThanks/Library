@@ -1,0 +1,35 @@
+TagMenu layouts below *(layout numbers for Library v4.0a beta)* all have a 'move' button with the following properties:
+
+    26 defaultCopyright
+    27 defaultNode1
+    28 defaultNode2
+    29 defaultNode3
+    30 defaultNode4
+    43 ReferenceMenu1
+    44 ReferenceMenuHealth
+    47 ReferenceMenu2keywordOrNode1
+    48 ReferenceMenu2SkeywordOrNode1
+    49 ReferenceMenu2keywordOrNode2
+    50 ReferenceMenu2SkeywordOrNode2
+    51 ReferenceMenu2keywordOrNode3
+    52 ReferenceMenu2SkeywordOrNode3
+    53 ReferenceMenu2keywordOrNode4
+    54 ReferenceMenu2SkeywordOrNode4
+    55 ReferenceMenu2keywordOrNode5
+    56 ReferenceMenu2SkeywordOrNode5
+    101 ltagNK1
+    102 ltagNKs1
+    103 ltagNK2
+    104 ltagNKs2
+    105 ltagNK3
+    106 ltagNKs3
+    107 ltagNK4
+    108 ltagNKs4
+    109 ltagNK5
+    110 ltagNKs5
+    124 learnMenuBrainstorm
+    125 learnMenuStuffBrainstorm
+    158 setupTestSubsection
+    160 setupTestItem
+    162 setupTestItemUNUSEDfeatures
+    172 testMenuTestItemEdit

@@ -1,7 +1,10 @@
-tagMenu: FindPrimaryRef
+tagMenu: findPrimaryRef
 #
 #Select tag to be found.
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
+If [ $$citationMatch = "cite" ]
+Set Variable [ $tag; Value:reference::_Lreference ]
+End If
 #
 #Select the kind of tag to be found. We grab
 #only the first three letters because the shortest
@@ -17,6 +20,9 @@ Set Variable [ $tag; Value:tagMenus::_Ltag ]
 #us to make a list of ID numbers from various
 #tag menus: key, node, medium, etc.
 Set Variable [ $menu; Value:Left ( $$citationMatch ; 1 ) ]
+If [ $menu = "c" and $$citationMatch = "cite" ]
+Set Variable [ $menu; Value:"r" ]
+End If
 #
 #Get the name of the tag for error message
 #at bottom of this script if needed.
@@ -25,7 +31,7 @@ Set Variable [ $name; Value:tagMenus::tag ]
 #As going to the other window will be involved
 #stop the record load script on that window until
 #this script is finished to speed things up and
-#stop ﬂashing effect.
+#stop flashing effect.
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
 #Go to the other window and start the find process.
@@ -49,8 +55,10 @@ Else If [ $menu = "p" ]
 Set Field [ reference::kfolderpath; $tag ]
 Else If [ $menu = "o" ]
 Set Field [ reference::korgan; $tag ]
-Else If [ $menu = "c" ]
+Else If [ $menu = "c" and $$citationMatch ≠ "cite" ]
 Set Field [ reference::kcopyist; $tag ]
+Else If [ $menu = "r" ]
+Set Field [ reference::kcitation; $tag ]
 End If
 #
 #
@@ -102,7 +110,7 @@ Enter Browse Mode
 #If after removing this item from the list of found
 #tagged records the list is empty, perform a find
 #that will result in zero records being found
-#to reﬂect the fact that the user currently has
+#to reflect the fact that the user currently has
 #an empty found list.
 If [ $$found = "" ]
 Set Variable [ $$firstFind ]
@@ -116,7 +124,6 @@ Set Field [ reference::kkeywordPrimary; "findNoRecords" ]
 #
 #
 Perform Find [ ]
-January 7, 平成26 16:41:58 Imagination Quality Management.fp7 - FindPrimaryRef -1-tagMenu: FindPrimaryRef
 #
 #If after removing this item from the $$found list,
 #the list is not empty, refind all records still on
@@ -234,7 +241,6 @@ Set Variable [ $find; Value:Middle ( ( GetValue ( $findList ; 1 ) ) ; 2 ; 42 ) ]
 #Remove it from the list of tags to be found.
 Set Variable [ $subtract; Value:$findList ]
 Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; "" ) ]
-January 7, 平成26 16:41:58 Imagination Quality Management.fp7 - FindPrimaryRef -2-tagMenu: FindPrimaryRef
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
@@ -298,7 +304,7 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadCitation (update)” ]
 #
 #Return focus to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -329,8 +335,10 @@ Else If [ $$citationMatch = "organ" ]
 Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
 Else If [ $$citationMatch = "copyist" ]
 Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
+Else If [ $$citationMatch = "cite" ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
 End If
 #
 #
 End If
-January 7, 平成26 16:41:58 Imagination Quality Management.fp7 - FindPrimaryRef -3-
+August 19, ଘ౮28 23:15:49 Library.fp7 - findPrimaryRef -1-

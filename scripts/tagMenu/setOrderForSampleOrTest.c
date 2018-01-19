@@ -1,52 +1,83 @@
-tagMenu: setOrderForSampleOrTest
+January 15, 2018 16:57:34 Library.fmp12 - sortOrderNumberPulldownLearnLayouts -1-
+tagMenu: sortOrderNumberPulldownLearnLayouts
 #
-#Get order number user has selected then exit
-#the order field.
+#Exit order number field.
 Go to Field [ ]
-Set Variable [ $order; Value:testlearn::orderTest ]
 #
-#If record is not part of a sample or test exit script.
-If [ $$citationMatch = "sample" and testlearn::kcsample = "" ]
-Set Field [ testlearn::orderTest; "" ]
-Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of a sample by clicking any square button in Tag Menus window next to a sample tag."; Buttons: “OK” ]
+#If in find mode, exit this script.
+If [ $$findMode = 1 ]
 Exit Script [ ]
-Else If [ $$citationMatch = "test" and testlearn::kctest = "" ]
-Set Field [ testlearn::orderTest; "" ]
-Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of a test by clicking any square button in Tag Menus window next to a test tag."; Buttons: “OK” ]
+End If
+#
+#If in find mode, exit this script.
+If [ $$orderNumbersNotAllowed = 1 ]
+Show Custom Dialog [ Message: "Sorry, order numbers are allowed only when brainstorm and test tags are selected in the Tag
+Menus window. When time permits this pulldown will be made inaccessable when you cannot use it, for now it is just
+hidden."; Default Button: “OK”, Commit: “Yes” ]
+Set Variable [ $$orderNumbersNotAllowed ]
+Exit Script [ ]
+End If
+#
+#Get order number user has selected.
+If [ Right ( Get (LayoutName) ; 4 ) = "info" ]
+Set Variable [ $order; Value:testlearnReportTags::orderTestInformation ]
+Else
+Set Variable [ $order; Value:testlearn::orderTestInformation ]
+End If
+#
+#If record is not part of a brainstorm or test exit script.
+If [ $$citationMatch = "brainstorm" and testlearn::kcbrainstorm = "" ]
+Set Field [ testlearn::orderTestInformation; "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of the selected
+brainstorm in the Tag Menus window."; Default Button: “OK”, Commit: “Yes” ]
+Else
+Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of the selected
+inventory list in the Tag Menus window."; Default Button: “OK”, Commit: “Yes” ]
+End If
+Exit Script [ ]
+Else If [ $$citationMatch = "test" and testlearn::kctestSubsectionInfo = "" and Right ( Get (LayoutName) ; 4 ) ≠ "info" ]
+Set Field [ testlearn::orderTestInformation; "" ]
+Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of a test by clicking any
+square button in the Tag Menus window next to a test tag."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
 #The order number is the left three digits of a
-#sample or test record lock number. ( Remember
+#brainstorm or test record lock number. ( Remember
 #each record in the database has lock number or
 #ID number. To open the lock and see any record's
 #contents requires a key number that fits the lock.
 #So if a lock number is 123, then the key that will
-#fit this lock is 123 too. ) Because the sample
+#fit this lock is 123 too. ) Because the brainstorm
 #and test key fields (think of key chains) may
 #have several keys, because any one learn record
-#may be part of more than one sample or test.
+#may be part of more than one brainstorm or test.
 #the system must check each learn record's keys
-#one at a time to see if any fit the current sample
+#one at a time to see if any fit the current brainstorm
 #or test's lock. So beginning with number one
 #the system checks each key. The left most 3 numbers
 #are order numbers so below you will note that
 #they system starts the check on the 4th number
 #from the left.
+# Once the key whose order number has
+#been changed, the old order number is
+#replaced with the new one.
 Set Variable [ $number; Value:1 ]
-If [ $$citationMatch = "sample" ]
+If [ $$citationMatch = "brainstorm" ]
 Loop
-If [ Middle ( GetValue ( testlearn::kcsample ; $number ) ; 4 ; 42 ) & "¶" = $$tagSample & ¶ ]
-Set Variable [ $replacementValue; Value:Replace ( GetValue ( testlearn::kcsample ; $number ) ; 1 ; 3 ; $order ) ]
+If [ Middle ( GetValue ( testlearn::kcbrainstorm ; $number ) ; 4 ; 42 ) & "¶" = $$tagBrainstorm & ¶ ]
+Set Variable [ $replacementValue; Value:Replace ( GetValue ( testlearn::kcbrainstorm ; $number ) ; 1 ; 3 ; $order ) ]
 #
 #When and if a key is found that fits the current
-#sample or test record's lock, the order number
+#brainstorm or test record's lock, the order number
 #the user has selected overwrites the left most
 #3 digits which by default are 999.
-Set Field [ testlearn::kcsample; Substitute ( $$sample ; GetValue ( testlearn::kcsample ; $number ) & "¶" ; $replacementValue & ¶) ]
+Set Field [ testlearn::kcbrainstorm; Substitute ( $$brainstorm ; GetValue ( testlearn::kcbrainstorm ; $number ) & "¶" ;
+$replacementValue & ¶) ]
 #
-#The 'sample' variable is resset to reﬂect this change
-Set Variable [ $$sample; Value:testlearn::kcsample ]
+#The 'brainstorm' variable is resset to reflect this change
+Set Variable [ $$brainstorm; Value:testlearn::kcbrainstorm ]
 Set Variable [ $$citationItem ]
 #
 #The 'number' variable is made blank to trigger
@@ -56,11 +87,12 @@ End If
 Exit Loop If [ $number = "" ]
 #
 #Exit the script if the current record is not part
-#of the selected sample or test after checking
+#of the selected brainstorm or test after checking
 #all of its keys.
-If [ GetValue ( testlearn::kcsample ; $number ) = "" ]
-Set Field [ testlearn::orderTest; "" ]
-Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of the selected sample by clicking the square button in Tag Menus window next to it."; Buttons: “OK” ]
+If [ GetValue ( testlearn::kcbrainstorm ; $number ) = "" ]
+Set Field [ testlearn::orderTestInformation; "" ]
+Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of the selected
+brainstorm by clicking the square button in the Tag Menus window next to it."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
@@ -72,18 +104,50 @@ Set Variable [ $number; Value:$add + 1 ]
 End Loop
 #
 Else If [ $$citationMatch = "test" ]
+If [ Right ( Get (LayoutName) ; 4 ) = "info" ]
 Loop
-If [ Middle ( GetValue ( testlearn::kctest ; $number ) ; 4 ; 42 ) & "¶" = $$tagtest & ¶ ]
-Set Variable [ $replacementValue; Value:Replace ( GetValue ( testlearn::kctest ; $number ) ; 1 ; 3 ; $order ) ]
+If [ Middle ( GetValue ( testlearnReportTags::kctestSubsectionInfo ; $number ) ; 4 ; 42 ) & "¶" = $$testSubsection & ¶ ]
+Set Variable [ $replacementValue; Value:Replace ( GetValue ( testlearnReportTags::kctestSubsectionInfo ;
+$number ) ; 1 ; 3 ; $order ) ]
 #
 #When and if a key is found that fits the current
-#sample or test record's lock, the order number
+#brainstorm or test record's lock, the order number
 #the user has selected overwrites the left most
 #3 digits which by default are 999.
-Set Field [ testlearn::kctest; Substitute ( $$test ; GetValue ( testlearn::kctest ; $number ) & "¶" ; $replacementValue & ¶) ]
+Set Field [ testlearnReportTags::kctestSubsectionInfo; Substitute ( $$test ; GetValue ( testlearnReportTags::
+kctestSubsectionInfo ; $number ) & "¶" ; $replacementValue & ¶) ]
 #
-#The 'test' variable is resset to reﬂect this change
-Set Variable [ $$test; Value:testlearn::kctest ]
+#The 'test' variable is reset to reflect this change
+Set Variable [ $$test; Value:testlearnReportTags::kctestSubsectionInfo ]
+Set Variable [ $$citationItem ]
+#
+#The 'number' variable is made blank to trigger
+#the exit from this loop, the key having been found.
+Set Variable [ $number ]
+End If
+Exit Loop If [ $number = "" ]
+#
+#Add 1 to the 'number' varaible after each key
+#in the key field is checked, to direct the system
+#to check the next key.
+Set Variable [ $add; Value:$number ]
+Set Variable [ $number; Value:$add + 1 ]
+End Loop
+Else
+Loop
+If [ Middle ( GetValue ( testlearn::kctestSubsectionInfo ; $number ) ; 4 ; 42 ) & "¶" = $$tagtest & ¶ ]
+Set Variable [ $replacementValue; Value:Replace ( GetValue ( testlearn::kctestSubsectionInfo ; $number ) ; 1 ; 3 ;
+$order ) ]
+#
+#When and if a key is found that fits the current
+#brainstorm or test record's lock, the order number
+#the user has selected overwrites the left most
+#3 digits which by default are 999.
+Set Field [ testlearn::kctestSubsectionInfo; Substitute ( $$test ; GetValue ( testlearn::kctestSubsectionInfo ;
+$number ) & "¶" ; $replacementValue & ¶) ]
+#
+#The 'test' variable is resset to reflect this change
+Set Variable [ $$test; Value:testlearn::kctestSubsectionInfo ]
 Set Variable [ $$citationItem ]
 #
 #The 'number' variable is made blank to trigger
@@ -93,11 +157,13 @@ End If
 Exit Loop If [ $number = "" ]
 #
 #Exit the script if the current record is not part
-#of the selected sample or test after checking
+#of the selected brainstorm or test after checking
 #all of its keys.
-If [ GetValue ( testlearn::kctest ; $number ) = "" ]
-Set Field [ testlearn::orderTest; "" ]
-Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of the selected test by clicking the square button in Tag Menus window next to it."; Buttons: “OK” ]
+If [ GetValue ( testlearn::kctestSubsectionInfo ; $number ) = "" ]
+Set Field [ testlearn::orderTestInformation; "" ]
+Show Custom Dialog [ Message: "You can apply an order number to this record when you make it part of the
+selected test by clicking the square button in the Tag Menus window next to it."; Default Button: “OK”, Commit:
+“Yes” ]
 Exit Script [ ]
 End If
 #
@@ -108,6 +174,22 @@ Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
 End Loop
 End If
-Sort Records [ ]
-[ No dialog ]
-January 7, 平成26 16:08:22 Imagination Quality Management.fp7 - setOrderForSampleOrTest -1-
+End If
+#
+#Sort the records by order field.
+If [ Right ( Get (LayoutName) ; 4 ) = "info" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::orderTestInformation; based on value
+list: “testPulldownListANDsortOrderList”
+testlearnReportTags::timestamp; descending ]
+[ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list:
+“testPulldownListANDsortOrderList”
+testlearn::timestamp; descending ]
+[ Restore; No dialog ]
+End If
+#
+#
+#Stop TgotoCitationMenu script.
+Set Variable [ $$stopTgotoCitationMenu; Value:1 ]
+#

@@ -1,21 +1,29 @@
+January 15, 2018 16:19:06 Library.fmp12 - menuKey -1-
 tagMenu: menuKey
 #
-#Clear sample and test tags so there conditional
+#Prevent halting of script.
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+#
+#Clear brainstorm and test tags so there conditional
 #formatting in the Learn window is removed.
-If [ $$citationMatch = "sample" or $$citationMatch = "test" ]
+If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
 Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
-Set Variable [ $$tagSample ]
+Set Variable [ $$tagBrainstorm ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
-End If
-Sort Records [ Specified Sort Order: testlearn::date; descending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
-Select Window [ Name: "Tag Menus"; Current file ]
+End If
 #
-#Set citationMatch to color menu button with inUse color.
+#Exit fields in current tag menu to run
+#neccessary scripts.
+Select Window [ Name: "Tag Menus"; Current file ]
+Go to Field [ ]
+#
+#Conditionally format Tag Menu button.
 Set Variable [ $$citationMatch; Value:"key" ]
 #
 #Set match temp tag field to limit move pulldown
@@ -28,57 +36,48 @@ Set Variable [ $$citationMatch; Value:"key" ]
 Set Field [ TEMP::mTag; $$citationMatch ]
 #
 #Do not load tag records until the end of script
-#to prevent ﬂashing of window and to speed up
+#to prevent flashing of window and to speed up
 #script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
-#Goto correct layout.
-#If in add mode ...
-If [ $$add = 1 ]
-Go to Layout [ “addMenuNodeKeyword” (tagMenus) ]
-#
-#If user has elected to show only the tag ...
-Else If [ TEMP::layoutRtagK = "" or TEMP::layoutLtagK = "" ]
+#Speed up script by going to layout with no
+#pictures to load.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
-Go to Layout [ “ltagNK2” (tagMenus) ]
-Set Field [ TEMP::layoutLtagK; "more" & Get (LayoutName) ]
-Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
-Set Field [ TEMP::layoutRtagK; "more" & Get (LayoutName) ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ “ltagNK1” (tagMenus) ]
+Else
+Go to Layout [ “ltagNKs1” (tagMenus) ]
 End If
-#
-#If user has elected to show some pictures ...
-Else If [ TEMP::layoutRtagK ≠ "" or TEMP::layoutLtagK ≠ "" ]
-If [ Left (Get (LayoutName) ; 1) = "l" ]
-Go to Layout [ Middle ( TEMP::layoutLtagK ; 5 ; 42 ) ]
-Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-Go to Layout [ Middle ( TEMP::layoutRtagK ; 5 ; 42 ) ]
+Else
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+Else
+Go to Layout [ “ReferenceMenu2SkeywordOrNode3” (tagMenus) ]
 End If
 End If
 #
-#Find key tags for library section.
+#Find key tags for library section if not found.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
-Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #
 // #If no records exist then create one.
 // If [ Get (FoundCount)=0 ]
-// Perform Script [ “newCitationMenuGroup” ]
+// Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
 // End If
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
+#Sort according to current users wishes.
 If [ TEMP::sortKey = "cat" or TEMP::sortKey = "" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortKey = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -101,7 +100,7 @@ End If
 // #mode back to citation mode (or adding node
 // #tags to citations instead of the other way around).
 // If [ $$add = 1 and $$addcitationMatch = "node" ]
-// Perform Script [ “AddLinksPicturesToTagsMode” ]
+// Perform Script [ “addLinksPicturesToTagsMode (update)” ]
 // End If
 #
 #Go to citation record's current selection or to first record.
@@ -119,7 +118,6 @@ Scroll Window
 [ Home ]
 Loop
 Exit Loop If [ $$primaryKey = tagMenus::_Ltag ]
-January 7, 平成26 15:57:29 Imagination Quality Management.fp7 - menuKey -1-tagMenu: menuKey
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
@@ -130,9 +128,39 @@ Scroll Window
 [ Home ]
 End If
 #
+#Goto correct layout.
+#If in add mode ...
+If [ $$add = 1 ]
+Go to Layout [ “addMenuNodeKeyword” (tagMenus) ]
+#
+#If user has elected to show only the tag ...
+Else If [ TEMP::layoutRtagK = "" and Left (Get (LayoutName) ; 1) = "r" or
+TEMP::layoutLtagK = "" and Left (Get (LayoutName) ; 1) = "l" ]
+If [ Left (Get (LayoutName) ; 1) = "l" ]
+Go to Layout [ “ltagNK2” (tagMenus) ]
+Set Field [ TEMP::layoutLtagK; "less" & Get (LayoutName) ]
+Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+Set Field [ TEMP::layoutRtagK; "less" & Get (LayoutName) ]
+End If
+#
+#If user has elected to show some pictures ...
+Else If [ TEMP::layoutRtagK ≠ "" and Left (Get (LayoutName) ; 1) = "r" or
+TEMP::layoutLtagK ≠ "" and Left (Get (LayoutName) ; 1) = "l" ]
+If [ Left (Get (LayoutName) ; 1) = "l" ]
+Go to Layout [ Middle ( TEMP::layoutLtagK ; 5 ; 42 ) ]
+Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+Go to Layout [ Middle ( TEMP::layoutRtagK ; 5 ; 42 ) ]
+End If
+End If
+#
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord” ]
+#
+#Prevent halting to loadTagRecord script.
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+Perform Script [ “loadTagRecord (update)” ]
+Set Variable [ $$doNotHaltOtherScripts ]
 #
 #Just in case user was in nonTag field on this
 #window when user clicked a menu button on
@@ -152,7 +180,8 @@ If [ $$add = 1 ]
 #
 #But, give user option to keep the records currently
 #showing in the main window.
-Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to keyword tags, or keep the current records shown?"; Buttons: “keep”, “show” ]
+Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to keyword tags, or
+keep the current records shown?"; Default Button: “keep”, Commit: “Yes”; Button 2: “show”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -162,14 +191,12 @@ End If
 #find on learn layout ...
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "key" ]
 Perform Find [ ]
 #
 #find on reference layout ...
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
 Set Field [ reference::filterFind; "key" ]
 Perform Find [ ]
 End If
@@ -180,4 +207,5 @@ Refresh Window
 #
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-January 7, 平成26 15:57:29 Imagination Quality Management.fp7 - menuKey -2-
+#
+#

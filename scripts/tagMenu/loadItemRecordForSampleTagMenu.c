@@ -1,24 +1,28 @@
-tagMenu: loadItemRecordForSampleTagMenu
-#
-#WHEN TIME PERMITS
-#Replace all instances of 'sample' and 'theory'
-#with the word 'brainstorm'. REQUIRES going
-#thru DDR to insure all instances are replaced.
-#This is not critical, but would make scripts
-#match layout screen button 'brainstorm'.
+January 15, 2018 17:13:07 Library.fmp12 - loadBrainstormTags -1-
+tagMenu: loadBrainstormTags
 #
 #
 #Capture recordID to conditionally format current record.
 If [ $$stopLoadTagRecord ≠ 1 ]
 Go to Field [ ]
 #
-#The 'sample' variable may have more than one
+#Get tag's group key for 'move' button script.
+Set Variable [ $$groupOLD; Value:tagMenus::kGroupOrTest ]
+#
+#Get tag's copyright key for 'select' button
+#in case this node is locked, and the copyright
+#has to be put back to the orginal after the
+#user is informed they cannot change a locked
+#record's copyright.
+Set Variable [ $$oldCopyright; Value:tagMenus::notesOrCopyright ]
+#
+#The 'brainstorm' variable may have more than one
 #key in it. So we need a variable with just this
 #record's keys in it to conditionally format all
 #learn window records tagged with it.
-Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
-Set Field [ TEMP::kcsample; tagMenus::_Ltag ]
-Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
+Set Variable [ $$tagBrainstorm; Value:tagMenus::_Ltag ]
+Set Field [ TEMP::kcbrainstorm; tagMenus::_Ltag ]
+Set Variable [ $$BrainstormOrTestID; Value:Get (RecordID) ]
 #
 #The next conditional formatting variable needs
 #to be cleared in case there are no records in
@@ -31,8 +35,9 @@ Set Variable [ $$atLeastOneRecord ]
 #
 Set Variable [ $$stopLoadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-New Window [ Height: 3; Width: 3; Top: -1000; Left: -1000 ]
-Go to Layout [ “learn1” (testlearn) ]
+New Window [ Height: 3; Width: 3; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”;
+Zoom Control Area: “Yes”; Resize: “Yes” ]
+Go to Layout [ “learn2” (testlearn) ]
 #
 #Prepare system to stop error message about no
 #records being found as the user may not have
@@ -40,8 +45,7 @@ Go to Layout [ “learn1” (testlearn) ]
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::kcsample; "*" & $$tagsample & ¶ ]
+Set Field [ testlearn::kcbrainstorm; "*" & $$tagBrainstorm ]
 Perform Find [ ]
 Set Variable [ $atLeastOneRecord; Value:If ( Get ( FoundCount ) = 0 ; "" ; 1) ]
 Close Window [ Current Window ]
@@ -52,29 +56,29 @@ Set Variable [ $$stopLoadTagRecord ]
 #record on the main window to check if it is tagged
 #with this record, and that could take a really long
 #time.
-#So if there are no records tagged with this test item
+#So if there are no records tagged with this brainstorm
 #then make sure the Main window is sorted by
 #date and not by brainstorm item sort order.
 If [ $atLeastOneRecord ≠ 1 ]
 #
-#The 'sample' variable may have more than one
+#The 'brainstorm' variable may have more than one
 #key in it. So we need a variable with just this
 #records keys in it to conditionally format all
 #learn window records tagged with it.
-Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
+Set Variable [ $$tagBrainstorm; Value:tagMenus::_Ltag ]
 #
 Select Window [ Name: "Learn"; Current file ]
 Refresh Window
-Sort Records [ Specified Sort Order: testlearn::date; descending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
-Set Field [ TEMP::TLSampleSort; "" ]
+Set Field [ TEMP::TLBrainstormSort; "" ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 Else If [ $atLeastOneRecord = 1 ]
 #
-#The formatting of sample tagged records in
+#The formatting of brainstorm tagged records in
 #the Learn window is linked to the current
 #record in the tag window. THE ONLY WAY to
 #know this in the Tag window (that there are
@@ -83,15 +87,15 @@ Else If [ $atLeastOneRecord = 1 ]
 #remember it is conditionally formatting learn
 #records when the active learn record is not
 #tagged with the current record in the tag window.
-Set Variable [ $$atLeastOneRecord; Value:$$tagsample ]
+Set Variable [ $$atLeastOneRecord; Value:$$tagBrainstorm ]
 #
-#The 'sample' variable may have more than one
+#The 'brainstorm' variable may have more than one
 #key in it. So we need a variable with just this
 #record's keys in it to conditionally format all
 #learn window records tagged with it.
-Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
-Set Field [ TEMP::kcsample; tagMenus::_Ltag ]
-Set Variable [ $$SampleOrTestID; Value:Get (RecordID) ]
+Set Variable [ $$tagBrainstorm; Value:tagMenus::_Ltag ]
+Set Field [ TEMP::kcbrainstorm; tagMenus::_Ltag ]
+Set Variable [ $$BrainstormOrTestID; Value:Get (RecordID) ]
 If [ $$add = 1 and $$citationMatch = $$addCitationMatch ]
 Else If [ $$add = "" ]
 End If
@@ -100,7 +104,7 @@ Refresh Window
 #Just in case user was in nonTag field on this
 #window when user clicked a menu button on
 #the other window, exit all fields.
-Set Field [ TEMP::TLSampleSort; "order" ]
+Set Field [ TEMP::TLBrainstormSort; "order" ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "Learn"; Current file ]
 #
@@ -112,10 +116,9 @@ Set Variable [ $$returnFocusToThisRecord; Value:testlearn::_Ltestlearn ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
 #In case the user is not show all records, find
-#this sample tag's learn records.
+#this brainstorm tag's learn records.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::kcsample; "*" & $$tagsample & ¶ ]
+Set Field [ testlearn::kcbrainstorm; "*" & $$tagBrainstorm ]
 Extend Found Set [ ]
 #
 #Return user to seleteced learn record if they
@@ -131,13 +134,13 @@ End Loop
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$returnFocusToThisRecord ]
 End If
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
 #
-Perform Script [ “sortTLRecordsByOrderNumber” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from sortTLRecordsByOrderNumber)” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
-Set Variable [ $$tagsample; Value:tagMenus::_Ltag ]
+Set Variable [ $$tagBrainstorm; Value:tagMenus::_Ltag ]
 Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Refresh Window
@@ -161,7 +164,7 @@ End If
 #tag record will exist after the addtotag script has
 #run, but this script will not know that having run
 #first. So the user will be left wondering, "how is
-#that everytime I click on a new test or sample tag
+#that everytime I click on a new test or brainstorm tag
 #record that has record tagged with it in the Learn
 #window, the Learn window is sorted by order number
 #except for this time? How did this fail to happen?"
@@ -170,8 +173,7 @@ End If
 #command, which will force the user to click
 #the add to tag button a second time to add the
 #tag (the first time being when the user clicked
-#it to move the system focus to this record, which
+#it to move the system to this record, which
 #triggered this loadItem... script.
 Halt Script
 End If
-January 12, ଘ౮28 13:36:57 Library.fp7 - loadItemRecordForSampleTagMenu -1-

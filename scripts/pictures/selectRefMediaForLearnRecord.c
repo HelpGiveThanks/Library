@@ -1,49 +1,33 @@
-pictures: selectRefMediaForLearnRecord
+January 15, 2018 17:34:16 Library.fmp12 - selectLearnRecordsTaggedReferenceRecord -1-
+pictures: selectLearnRecordsTaggedReferenceRecord
+#
+#If node is currenlty locked then stop script, inform user.
+If [ tagTLNodePrimary::orderOrLock ≠ "" ]
+Show Custom Dialog [ Message: "The node — " & tagTLNodePrimary::tag & " — is locked. Go to the Default Node Tag Menu
+and A) click 'lock' to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
 #
 #This script is activited by the picture
 #selection button on the QV layout. It allows
 #the user to show a selected reference's
 #media in the layout's picture window.
-If [ testlearn::Picture = "" ]
-If [ testlearn::kshowReferencedMedia = refReference::_Lreference ]
+If [ testlearn::picture = "" ]
+If [ testlearn::kshowReferencedMedia = refLearn::_Lreference ]
 Set Field [ testlearn::kshowReferencedMedia; "" ]
 Else If [ //There is a picture to show if...
-refReference::picture ≠ "" or
-refReference::showMedia ≠ "" and refReference::URL ≠ "" or
-refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "jpg"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "gif"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "eps"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "jp2"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "psd"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "png"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "pct"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "pcs"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = ".qt"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "sgi"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "tga"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "tif"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "bmp"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "wmf"
-or refReference::kfileLocation ≠ "" and refReference::fileName ≠ "" and Right ( refReference::fileName ; 3 ) = "emf" or
-refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "jpg"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "gif"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "eps"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "jp2"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "psd"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "png"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "pct"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "pcs"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= ".qt"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "sgi"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "tga"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "tif"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "bmp"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "wmf"
-or refReference::URL ≠ "" and Right ( refReference::URL ; 3 )= "emf" ]
-Set Field [ testlearn::kshowReferencedMedia; refReference::_Lreference ]
+refLearn::picture ≠ "" or
+refLearn::showMedia ≠ "" and refLearn::URL ≠ "" or
+refLearn::showMedia[2] ≠ "" and refLearn::kfileLocation ≠ "" and refLearn::fileName ≠ "" ]
+Set Field [ testlearn::kshowReferencedMedia; refLearn::_Lreference ]
 Else
+If [ TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "This reference has no media to show. Picture button will be a darker grey if there is
-media to show."; Buttons: “OK” ]
+media to show."; Default Button: “OK”, Commit: “Yes” ]
+Else
+Show Custom Dialog [ Message: "This location has no media to show. Picture button will be a darker grey if there is
+media to show."; Default Button: “OK”, Commit: “Yes” ]
+End If
 End If
 #
 Else
@@ -51,7 +35,19 @@ Else
 #this script and tell the user to remove it
 #before adding a reference picture.
 Set Field [ testlearn::kshowReferencedMedia; "" ]
-Show Custom Dialog [ Message: "This record has a picture which must be removed before selecting to show a reference's
-picture. To remove it, 1) Click on the picture. 2) Click the 'x' button in the picture window."; Buttons: “OK” ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Show Custom Dialog [ Message: "To show a reference picture, first remove the picture that is currently showing. 1) Click on
+the picture. 2) Click the 'x' button in the picture window."; Default Button: “OK”, Commit: “Yes” ]
+Else
+Show Custom Dialog [ Message: "To show a location picture, first remove the picture that is currently showing. 1) Click on
+the picture. 2) Click the 'x' button in the picture window."; Default Button: “OK”, Commit: “Yes” ]
 End If
-January 6, ଘ౮28 14:49:46 Library.fp7 - selectRefMediaForLearnRecord -1-
+End If
+#
+#
+#Insure that FileMaker knows about change, or
+#else the file and web button scripts will fail to
+#calculate the change.
+Commit Records/Requests
+#
+#

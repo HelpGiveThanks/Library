@@ -1,35 +1,28 @@
-testScreens: test: linkTestFocusOrUnlinkTestFocus (UPDATE fix not unlinking)
+January 15, 2018 15:02:47 Library.fmp12 - linkOrUnlinkTestSection -1-
+test: test: linkOrUnlinkTestSection
 #
 #
-#WHEN TIME PERMITS the vocabuary for scripts,
-#variable, fields, layouts, etc. needs to be updated
-#to reflect that a 'test' is now a 'test template'
-#and a 'focus'
-#is now a test 'section', etc. A complete look at
-#the DDR to insure all vocabulary is updated
-#everywhere followed by testing for each
-#update is required.
-#
-#
-If [ nodeLockTest::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "This test-section template is currently locked. Select the node that created it and enter the
-password to unlock it, then you will able to start the delete process."; Buttons: “OK” ]
+#Prevent locked subsection's section links
+#from being changed.
+If [ $$lockedMainSubsectionRecord ≠ "" ]
+Show Custom Dialog [ Message: "Locked subsections cannot have their section links changed. Select its creator node — " & $
+$lockedMainSubsectionRecord & " — in setup, and enter the password to unlock it."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
 #
 #If tag has not yet been selected, then link it.
-Set Variable [ $sectionTemplate; Value:tagLocation::_Ltag ]
+Set Variable [ $sectionTemplate; Value:testSection::_Ltag ]
 Go to Field [ ]
-Select Window [ Name: "Setup"; Current file ]
-Set Variable [ $testTemplate; Value:test::_Ltest ]
-If [ $sectionTemplate & ¶ ≠ FilterValues ( test::kcfocusALL ; $sectionTemplate & "¶" ) ]
+Select Window [ Name: "Test Templates"; Current file ]
+Set Variable [ $testTemplate; Value:testSubsectionTemplate::_LtestSubsection ]
+If [ $sectionTemplate & ¶ ≠ FilterValues ( testSubsectionTemplate::kcsections ; $sectionTemplate & "¶" ) ]
 #
-Set Variable [ $currentSectionTemplates; Value:test::kcfocusALL ]
-Set Field [ test::kcfocusALL; $sectionTemplate & "¶" & $currentSectionTemplates ]
+Set Variable [ $currentSectionTemplates; Value:testSubsectionTemplate::kcsections ]
+Set Field [ testSubsectionTemplate::kcsections; $sectionTemplate & "¶" & $currentSectionTemplates ]
 #
-#Reset conditional formatting variable for focuses.
-Set Variable [ $$focuses; Value:test::kcfocusALL ]
+#Reset conditional formatting variable for sections.
+Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
 Go to Field [ ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
@@ -46,22 +39,23 @@ Allow User Abort [ Off ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 #
 #Highlight section user is trying to delete.
-Set Variable [ $delete; Value:tagLocation::_Ltag ]
+Set Variable [ $delete; Value:testSection::_Ltag ]
 #
 #
 Set Variable [ $$stopTest; Value:1 ]
 Set Variable [ $$ID; Value:"ignore" ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
-New Window [ Name: " "; Width: 360; Left: Get ( WindowWidth ) - 360 ]
+New Window [ Name: " "; Width: 360; Left: Get ( WindowWidth ) - 360; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize:
+“Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 Go to Layout [ “TEMP” (TEMP) ]
 Show All Records
 Delete All Records
 [ No dialog ]
 #
-Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
+Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
 Enter Find Mode [ ]
-Set Field [ tagTestSubjectLocation::inUse; "t" ]
-Set Field [ tagTestSubjectLocation::kfocus; $sectionTemplate ]
+Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
+Set Field [ testSectionCreatedFromATemplate::ksectionTemplate; $sectionTemplate ]
 Perform Find [ ]
 #
 #For each section found, find its test records, and
@@ -71,12 +65,12 @@ If [ Get (LastError) ≠ 401 ]
 Go to Record/Request/Page
 [ First ]
 Loop
-Set Variable [ $testSection; Value:tagTestSubjectLocation::_LtestSubjectLocation ]
-Set Variable [ $sectionName; Value:tagTestSubjectLocation::focusName ]
-Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+Set Variable [ $testSection; Value:testSectionCreatedFromATemplate::_LtestSection ]
+Set Variable [ $sectionName; Value:testSectionCreatedFromATemplate::name ]
+Go to Layout [ “testResult0” (testlearn) ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kaudienceLocation; $testSection ]
-Set Field [ testlearn::ktest; $testTemplate ]
+Set Field [ testlearn::ktestSection; $testSection ]
+Set Field [ testlearn::ktestSubsection; $testTemplate ]
 Perform Find [ ]
 If [ Get (LastError) ≠ 401 ]
 Set Variable [ $useList; Value:"test subject " &
@@ -88,9 +82,9 @@ TextColor( TextStyleAdd ( testlearn::kreportNumber; "" ) ;RGB(0;0;0)) &
 TextColor( TextStyleAdd ( $sectionName; "" ) ;RGB(0;0;0)) ]
 Go to Layout [ “TEMP” (TEMP) ]
 New Record/Request
-Set Field [ TEMP::RemoveFocusList; $useList ]
+Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
 End If
-Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
+Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
@@ -101,19 +95,20 @@ View As
 [ View as List ]
 #
 #eliminate duplicate location records
-Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
 Loop
-Set Variable [ $sectionTemplate; Value:TEMP::RemoveFocusList ]
+Set Variable [ $sectionTemplate; Value:TEMP::DeleteMessageInTempWindow1 ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
-If [ TEMP::RemoveFocusList = $sectionTemplate ]
+If [ TEMP::DeleteMessageInTempWindow1 = $sectionTemplate ]
 Omit Record
 #
-#omit by default moves focus to the next record
-#in order to test this next record the focus must move up one record
+#Omit by default moves to the next record
+#in order to test actual next record the database
+#must move up one record.
 #
 Go to Record/Request/Page
 [ Previous ]
@@ -121,7 +116,7 @@ Go to Record/Request/Page
 End If
 End Loop
 #
-Show/Hide Status Area
+Show/Hide Toolbars
 [ Lock; Hide ]
 Show/Hide Text Ruler
 [ Hide ]
@@ -137,6 +132,8 @@ Refresh Window
 Exit Script [ ]
 End If
 Close Window [ Current Window ]
+Else
+Close Window [ Current Window ]
 End If
 Set Variable [ $delete ]
 Set Variable [ $$stopTest ]
@@ -146,22 +143,23 @@ Refresh Window
 #
 #
 #
-Select Window [ Name: "Setup"; Current file ]
+Select Window [ Name: "Test Templates"; Current file ]
 #
 #If tag has been selected, then unlink it.
-Set Variable [ $currentSectionTemplates; Value:test::kcfocusALL ]
-Set Field [ test::kcfocusALL; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed,
-then the removal calc without the paragraph mark is used
+Set Variable [ $currentSectionTemplates; Value:testSubsectionTemplate::kcsections ]
+Set Field [ testSubsectionTemplate::kcsections; //last item in list has no paragraph mark, so a valuecount test needs to be done and if
+item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $currentSectionTemplates ) ≠ ValueCount ( Substitute ( $currentSectionTemplates ; $sectionTemplate & "¶" ;
 "" ) ) ;
 Substitute ( $currentSectionTemplates ; $sectionTemplate & "¶" ; "" ) ;
-Substitute ( $currentfocuses ; $focus ; "" )
+""
 ) ]
 #
-#Reset conditional formatting variable for focuses.
-Set Variable [ $$focuses; Value:test::kcfocusALL ]
+#Reset conditional formatting variable for sections.
+Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
 Go to Field [ ]
 #
+#Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-December 13, ଘ౮27 4:31:08 Library.fp7 - linkTestFocusOrUnlinkTestFocus (UPDATE fix not unlinking) -1-
+#

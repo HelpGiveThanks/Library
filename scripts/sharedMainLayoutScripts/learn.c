@@ -1,49 +1,113 @@
-sharedMainLayoutScripts: learn
-#basic administration tasks
+January 18, 2018 16:08:16 Library.fmp12 - gotoLearn -1-
+learn: gotoLearn
+#
+#Basic administration tasks.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 #
-If [ TEMP::ksection = "" ]
-Show Custom Dialog [ Message: "Select a section from the Tag Menus window for records that you create to be placed into."; Buttons: “OK” ]
-Halt Script
-Else If [ tempSetup::kdefaultHealth = "" ]
-Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button (you can always change your mind)."; Buttons: “OK” ]
+#Clear sort so when user click's button it will
+#resort records by order number.
+Set Field [ TEMP::TLTestSort; "" ]
+#
+If [ tempSetup::kdefaultCopyright = "" ]
+Show Custom Dialog [ Message: "Select the default copyright for any new records that you create by clicking the copyright button
+(you can always change your mind)."; Default Button: “OK”, Commit: “Yes” ]
 Halt Script
 Else If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button.";
+Default Button: “OK”, Commit: “No” ]
 Halt Script
 End If
-#
-#
-#Make sure creator node's group is part of section group.
-Perform Script [ “addBackSectionCreatorNode” ]
 #
 Select Window [ Name: "Setup"; Current file ]
 Set Window Title [ Current Window; New Title: "Learn" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+#
+#Select the correct layout.
 If [ tempSetup::layoutLmain = "" ]
-Go to Layout [ “learn1” (testlearn) ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ “learn2” (testlearn) ]
+Else
+Go to Layout [ “learnStuff2” (testlearn) ]
+End If
 Set Field [ TEMP::layoutLmain; "more" & Get (LayoutName) ]
 Else If [ tempSetup::layoutLmain ≠ "" ]
-Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ "Learn" & Right ( tempSetup::layoutLmain ; 1 ) ]
+Else
+Go to Layout [ "LearnStuff" & Right ( tempSetup::layoutLmain ; 1 ) ]
 End If
-Enter Find Mode [ ]
+End If
 #
-#now find and show all canned inspection items associated with this generic canned location
-Set Field [ testlearn::kcsection; TEMP::ksection ]
+#Now find and show all main learn records
+#(exclude test result records which are
+#also in the testlearn table).
+Enter Find Mode [ ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: testlearn::date; descending
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
 Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
-Select Window [ Name: "Tag Menus"; Current file ]
-Go to Layout [ “ltagNK2” (tagMenus) ]
-Perform Script [ “menuKey” ]
-Select Window [ Name: "Learn"; Current file ]
+#
+#Capture keys of related tag menu items to
+#to allow the citationMenu scripts to loop to the
+#primary record of interest when the user navigates
+#to a item on the Tag Menu window
+#whose list of tags like node, keyword, test, etc.
+#might contain an item related to the current
+#learn record, but which one, which is why all
+#the keys have to be readied. Mmm... now that
+#I write this out, I'm thinking I could have the
+#citationMenu scripts select the citation window
+#to grab the key if any in the current current
+#record that applies the the menu item.
+Set Variable [ $$RecordID; Value:Get (RecordID) ]
+Set Variable [ $$main; Value:testlearn::_Ltestlearn ]
+Set Variable [ $$ref; Value:testlearn::kcreference ]
+Set Variable [ $$node; Value:testlearn::kNodeOther ]
+Set Variable [ $$copyright; Value:testlearn::kcopyright ]
+Set Variable [ $$Key; Value:testlearn::kcKeywordOther ]
+Set Variable [ $$brainstorm; Value:testlearn::kcbrainstorm ]
+Set Variable [ $$test; Value:testlearn::kctestSubsectionInfo ]
+Set Variable [ $$citationRecord; Value:testlearn::_Ltestlearn ]
+Set Variable [ $$OtherKey; Value:testlearn::kcKeywordOther ]
+Set Variable [ $$primaryNode; Value:testlearn::kNodePrimary ]
+Set Variable [ $$PrimaryKey; Value:testlearn::kKeywordPrimary ]
+#
+#Clear module variable so test Tag Menus
+#back button does not show up.
+Set Variable [ $$learnRecord ]
+Set Variable [ $$testTagRecord ]
+#
+#Note if record is locked to protect its tags.
+If [ tagTLNodePrimary::orderOrLock ≠ "" ]
+Set Variable [ $$lockedMainLearnRecord; Value:tagTLNodePrimary::tag ]
+Else
+Set Variable [ $$lockedMainLearnRecord ]
+End If
+#
+#Load keyword menu.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
-January 28, 平成26 15:57:41 Empty Library copy.fp7 - learn -1-
+Select Window [ Name: "Tag Menus"; Current file ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ “ltagNK1” (tagMenus) ]
+Perform Script [ “menuKey (update)” ]
+Else
+Go to Layout [ “learnMenu3CiteS” (reference) ]
+Perform Script [ “menuReference (update)” ]
+End If
+#
+#Return to Learn window.
+Select Window [ Name: "Learn"; Current file ]
+Set Variable [ $$doNotHaltOtherScripts ]
+#

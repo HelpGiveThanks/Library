@@ -1,4 +1,5 @@
-reference(citation): showCitation
+January 18, 2018 15:35:53 Library.fmp12 - showCitation -1-
+reference: showCitation
 #
 #Capture the key to unlock the record it belongs to.
 Set Variable [ $key; Value:reference::_Lreference ]
@@ -31,11 +32,10 @@ End Loop
 #
 #Allow the record load script to run and run it.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
 #
-#Put focus back on Tag Menus window and conditionally
+#Return to Tag Menus window and conditionally
 #format any items that may be linked to record
 #in the other window.
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-January 7, 平成26 17:51:34 Imagination Quality Management.fp7 - showCitation -1-

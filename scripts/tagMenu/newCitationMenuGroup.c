@@ -1,13 +1,27 @@
-tagMenu: newCitationMenuGroup
+January 15, 2018 16:44:47 Library.fmp12 - newTagMenuTagGroup -1-
+tagMenu: newTagMenuTagGroup
+#
+#Admin tasks.
+Allow User Abort [ Off ]
+Set Error Capture [ On ]
 Go to Field [ ]
 #
-#If node is currenlty locked then stop script, inform user.
-If [ TEMP::nodeLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
+#Users need to use existing copyright groups.
+If [ $$citationMatch = "copyright" ]
 Exit Script [ ]
 End If
+#
+#If node is currenlty locked then stop script,
+#and inform the user.
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+#
+#If the user has not selected a primary node,
+#then prevent this script from creating new
+#records. All records must be created by the
+#primary node.
 If [ tempSetup::kdefaultNodePrimary = "" and $$stopAddBack ≠ 1 ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window OR create a node record for yourself?"; Buttons: “select”, “create” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating and editing records) from the nodes listed
+below, OR create a new node record for yourself."; Default Button: “select”, Commit: “Yes”; Button 2: “create”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Halt Script
 Else
@@ -15,66 +29,155 @@ Set Field [ tempSetup::kdefaultNodePrimary; "self" ]
 End If
 End If
 #
-If [ tempSetup::ksection = "" ]
-Show Custom Dialog [ Message: "First select a section for this category to be created under, then you may create a new category."; Buttons: “OK” ]
-Exit Script [ ]
-End If
-Go to Layout [ “tableGroupTag” (groupTest) ]
-#
+#Create new tag group.
+Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
 New Record/Request
-Set Field [ groupTest::ksection; TEMP::ksection ]
-Set Field [ groupTest::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+Set Field [ testSubsectionGroup::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 #
+#Note the type of tag this group is for.
 If [ $$citationMatch = "otherkey" or
 $$citationMatch = "primarykey" ]
-Set Field [ groupTest::match; "key" ]
+Set Field [ testSubsectionGroup::match; "key" ]
 Else If [ $$citationMatch ≠ "otherkey" ]
-Set Field [ groupTest::match; $$citationMatch ]
+Set Field [ testSubsectionGroup::match; $$citationMatch ]
 End If
 #
-Set Field [ groupTest::name; "group" & groupTest::_Lgroup ]
-Set Field [ groupTest::nameSpelling; "group" & groupTest::_Lgroup ]
-Set Variable [ $group; Value:groupTest::_Lgroup ]
+#Set the groups identification fields.
+Set Field [ testSubsectionGroup::name; "group" & testSubsectionGroup::_Lgroup ]
+Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "group" & testSubsectionGroup::_Lgroup ]
+Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
 #
-If [ $$citationMatch = "sample" ]
+#
+#Create new tag for this group so it will show up.
+If [ $$citationMatch = "brainstorm" ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Else
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 End If
-#
 Go to Layout [ original layout ]
 New Record/Request
-Set Field [ tagMenus::kGroupOrTest; $group ]
 #
-#Only test focus tags require section. All other tags
-#are linked to groups and then the groups are linked
-#to sections.
-If [ $$citationMatch = "location" ]
-Set Field [ tagMenus::ksection; TEMP::ksection ]
-End If
-// Set Field [ tagMenus::ksection; TEMP::ksection ]
-If [ tempSetup::kdefaultNodePrimary = "self" ]
-Set Field [ tagMenus::tag; "MyLastName, MyFirstName" ]
-Set Field [ TEMP::kdefaultNodePrimary; tagMenus::_Ltag ]
-Set Field [ ruleTagMenuGroups::kRecordCreatorNode; tagMenus::_Ltag ]
+#In Learn and Setup sections make node tag
+#into a creator node = a node that can create
+#and edit library records.
+If [ $$citationMatch = "node" and Left (Get (LayoutName) ; 1) = "l"
+ or
+$$citationMatch = "node" and Left (Get (LayoutName) ; 1) = "d" ]
+Set Field [ tagMenus::kRecordCreatorNode; tagMenus::_Ltag ]
+Set Field [ tagMenus::textStyleOrCreatorNodeFlag; 123456789 ]
+#
+#
+#For all other tags, and for Reference Section
+#node tags, assign the default node/author as
+#the tag's creator.
 Else
 Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
 End If
+#
+#Give this new tag the group ID number underwhich
+#it was created.
+Set Field [ tagMenus::kGroupOrTest; $group ]
+#
+#Setup as the new primary node.
+If [ tempSetup::kdefaultNodePrimary = "self" ]
+Set Field [ TEMP::kdefaultNodePrimary; tagMenus::_Ltag ]
+Set Field [ tagMenus::tag; "MyLastName, MyFirstName" ]
+Set Field [ tagMenus::tagSpelling; "MyLastName, MyFirstName" ]
+Set Variable [ $$createNewPrimary; Value:1 ]
+Set Field [ tempSetup::kdefaultNodePrimary; "" ]
+Set Field [ tempSetup::DEFAULTNodePrimaryName; "" ]
+Set Field [ tempSetup::kdefaultNodePrimaryCreator; "" ]
+Set Field [ tempSetup::primaryNodesCreatorNodeIsLocked; "" ]
+End If
+#
+#Finish assigning new tag to the current menu item.
 If [ $$citationMatch = "key" ]
 Set Field [ tagMenus::match; "key" ]
-Set Field [ tagMenus::tag; "keyword " & tagMenus::_Ltag ]
+#
+#Leave key name field blank so user can enter
+#a new name into a blank field, but create a
+#tagSpelling unique name should the user
+#leave this field blank, which will then become
+#the record's unique name upon leaving the
+#record, as key and node records cannot be
+#blank records.
+Set Field [ tagMenus::tagSpelling; "keyword " & tagMenus::_Ltag ]
 Else If [ $$citationMatch = "node" ]
 Set Field [ tagMenus::match; "node" ]
+#
+#Set default copyright for tag.
+Set Field [ tagMenus::notesOrCopyright; TEMP::kdefaultCopyright ]
+#
+#Leave key name field blank so user can enter
+#a new name into a blank field, but create a
+#tagSpelling unique name should the user
+#leave this field blank, which will then become
+#the record's unique name upon leaving the
+#record, as key and node records cannot be
+#blank records.
+Set Field [ tagMenus::tagSpelling; "node " & tagMenus::_Ltag ]
 Else If [ $$citationMatch ≠ "key" or
 $$citationMatch ≠ "node" ]
 Set Field [ tagMenus::match; $$citationMatch ]
+#
+#If a path tag, ask user if this path is to a shelf.
+If [ $$citationMatch = "path" ]
+Show Custom Dialog [ Message: "Is this computer path OR a path to a real place (example: living room bookcase)?";
+Default Button: “computer”, Commit: “Yes”; Button 2: “real place”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 2 ]
+Set Field [ tagMenus::kfileORkTestItemCreatorNode; 1 ]
 End If
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+End If
+#
+End If
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list: “order
+Pulldown List”
+tagMenuGroup::name; ascending
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
-If [ $$citationMatch = "sample" ]
-Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadItemRecordForSampleTagMenu” ]
+If [ $$citationMatch = "brainstorm" ]
+#
+#Set default copyright for tag.
+Set Field [ tagMenus::notesOrCopyright; TEMP::kdefaultCopyright ]
+Perform Script [ “loadBrainstormTags (update name change loadItemRecordForSampleTagMenu)” ]
+Else
+Set Variable [ $$doNotHaltOtherScripts ]
 End If
+#
+#Capture recordID to conditionally format current record.
+Set Variable [ $$tagRecordID; Value:Get (RecordID) ]
+#
+#Get group ID for 'move' button script.
+Set Variable [ $$groupOLD; Value:tagMenus::kGroupOrTest ]
+#
+If [ $$citationMatch = "copyright" ]
+Set Field [ tagMenus::tag; "Copyright Abbreviation — Full copyright name or brief description" ]
+Set Field [ tagMenus::tagSpelling; "Copyright Abbreviation — Full copyright name or brief description" ]
+Set Field [ tagMenus::notesOrCopyright; TextFont ( "[NOTE: Click the 'web' button above to view the most current and complete
+source of the text excerpts below, copied on " & MonthName ( Get ( CurrentDate ) ) & " " & Day ( Get ( CurrentDate ) ) & ", " &
+Year ( Get ( CurrentDate ) ) & " from https://website.org for your convenience.]" ; "Arial" ) & ¶ & ¶ &
+"Description of copyright from the webpage you copied it from (copy and paste it here)."
+& ¶ & ¶ &
+"Create a reference record for this copyright that includes the web address."
+& ¶ & ¶ &
+"Use the add button to add the reference with the website link to this copyright record and a copyright image, which you may
+pick from those included in this library." ]
+Commit Records/Requests
+[ Skip data entry validation; No dialog ]
+Perform Script [ “reviewCopyright (new)” ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]
-January 7, 平成26 16:04:20 Imagination Quality Management.fp7 - newCitationMenuGroup -1-
+End If
+#
+#Run primary node script if user is creating a
+#new primary node.
+If [ $$createNewPrimary = 1 ]
+Perform Script [ “addORremovePrimaryTag (update name addTagToMainRecord)” ]
+Set Variable [ $$createNewPrimary ]
+Go to Field [ tagMenus::tag ]
+[ Select/perform ]
+End If
+#
+#If not already in the field, then go to it now.
+Go to Field [ tagMenus::tag ]
+#

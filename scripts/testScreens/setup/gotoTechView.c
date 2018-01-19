@@ -12,4 +12,4 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “setupTestItemTechView” (tagMenus) ]
 Set Variable [ $$techView; Value:1 ]
 End If
-December 15, ଘ౮27 12:07:27 Library.fp7 - gotoTechView -1-
+August 20, ଘ౮28 14:23:54 Library.fp7 - gotoTechView -1-

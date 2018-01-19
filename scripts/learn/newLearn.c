@@ -1,27 +1,26 @@
+January 17, 2018 11:33:46 Library.fmp12 - newLearn -1-
 learn: newLearn
 #
-#If node is currenlty locked then stop script, inform user.
-If [ TEMP::nodeLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the password to unlock it, then you will able to create new records assigned to this node."; Buttons: “OK” ]
-Exit Script [ ]
-End If
+#If node is currenlty locked then stop script,
+#and inform the user.
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Exit find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
+#
 Set Variable [ $$stoploadCitation; Value:1 ]
 Go to Field [ ]
 Freeze Window
 New Record/Request
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::kNodePrimary; TEMP::kdefaultNodePrimary ]
 Set Field [ testlearn::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-Set Field [ testlearn::RecordModifyDate; Get ( CurrentTimeStamp ) ]
+Set Field [ testlearn::dateModify; Get ( CurrentTimeStamp ) ]
 Set Field [ testlearn::kNodeOther; TEMP::kdefaultNodeOther ]
 Set Field [ testlearn::NodeOthers; TEMP::DEFAULTNodeOtherNames ]
-Set Field [ testlearn::kHealth; TEMP::kdefaultHealth ]
+Set Field [ testlearn::kcopyright; TEMP::kdefaultCopyright ]
 Set Field [ testlearn::incomplete; "incomplete" & ¶ ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 If [ Right ( Get ( LayoutName ) ; 4 ) = "EDIT" ]
@@ -38,8 +37,8 @@ Set Variable [ $record; Value:Get (RecordNumber) ]
 Go to Record/Request/Page [ $record ]
 [ No dialog ]
 Set Variable [ $$stoploadCitation ]
-// Perform Script [ “loadCitation” ]
-Set Variable [ $$citation; Value:testlearn::_Ltestlearn ]
+// Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Set Variable [ $$main; Value:testlearn::_Ltestlearn ]
 #
 #capture keys of related tag menu items to
 #to allow the citationMenu scripts to loop to the
@@ -56,17 +55,13 @@ Set Variable [ $$citation; Value:testlearn::_Ltestlearn ]
 Set Variable [ $$citationRecord; Value:testlearn::_Ltestlearn ]
 Set Variable [ $$node; Value:testlearn::kNodeOther ]
 Set Variable [ $$primaryNode; Value:testlearn::kNodePrimary ]
-Set Variable [ $$medium; Value:testlearn::kmedium ]
-Set Variable [ $$health; Value:testlearn::kHealth ]
-Set Variable [ $$Path; Value:testlearn::kfolderPath ]
-Set Variable [ $$cite; Value:testlearn::kcitation ]
+Set Variable [ $$copyright; Value:testlearn::kcopyright ]
 Set Variable [ $$ref; Value:testlearn::kcreference ]
 Set Variable [ $$PrimaryKey; Value:testlearn::kKeywordPrimary ]
 Set Variable [ $$Key; Value:testlearn::kcKeywordOther ]
 Set Variable [ $$OtherKey; Value:testlearn::kcKeywordOther ]
-Set Variable [ $$Section; Value:testlearn::kcsection ]
-Set Variable [ $$test; Value:testlearn::kctest ]
-Set Variable [ $$sample; Value:testlearn::kcsample ]
+Set Variable [ $$test; Value:testlearn::kctestSubsectionInfo ]
+Set Variable [ $$brainstorm; Value:testlearn::kcbrainstorm ]
 Set Variable [ $$RecordID; Value:Get (RecordID) ]
 Set Variable [ $$stopOpenNewTextWindow ]
 Set Variable [ $$stopLoadCitation; Value:1 ]
@@ -79,12 +74,9 @@ End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 Select Window [ Name: "Learn"; Current file ]
-#
-#Open new window to edit new record in.
-New Window [ ]
-Go to Layout [ “LearnTextWindow” (testlearn) ]
-Go to Field [ testlearn::Caption ]
 Set Variable [ $$stopLoadCitation ]
-Pause/Resume Script [ Indefinitely ]
-// Go to Object [ Object Name: "text" ]
-January 7, 平成26 17:28:42 Imagination Quality Management.fp7 - newLearn -1-
+#
+#Open new record in text window so
+#user can now edit it.
+Perform Script [ “learnOpenTextNewWindow (update)” ]
+#

@@ -1,43 +1,48 @@
-tagMenu: defaultHealthMenu
+January 15, 2018 17:09:05 Library.fmp12 - defaultCopyrightMenu -1-
+tagMenu: defaultCopyrightMenu
 #
+#Insure user selects a default node first, so
+#they get credit if they want to create any
+#copyright records, as the default node
+#is the creator of all new records.
 If [ tempSetup::kdefaultNodePrimary = "" ]
-Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button.";
+Default Button: “OK”, Commit: “No” ]
 Halt Script
 End If
+#
 #Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"health" ]
+Set Variable [ $$citationMatch; Value:"copyright" ]
 Select Window [ Name: "Setup"; Current file ]
-Set Variable [ $$citationitem; Value:tempSetup::kdefaultHealth ]
+Set Variable [ $$citationitem; Value:tempSetup::kdefaultCopyright ]
+Set Field [ TEMP::mTag; "copyright" ]
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
 #
+#Turn off the loadtagrecord script to speed up the
+#loop portion of the script.
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $$stopTest; Value:1 ]
+#
+#Speed up script by going to layout with no
+#pictures to load.
+Go to Layout [ “ltagNK1” (tagMenus) ]
+#
 #Find all node records.
-Go to Layout [ “defaultHealth” (tagMenus) ]
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
 Perform Find [ ]
 #
-#Upate language for locked health tags.
-Perform Script [ “CHUNKHealthLockedFields” ]
-#
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
-If [ TEMP::sortHealth = "cat"
- or
-TEMP::sortHealth = "" ]
-Sort Records [ Specified Sort Order: ruleTagSectionName::name; ascending
-ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+#Sort to group, textstyle, and then tag,
+#so that the 3.0 ND tag comes before the
+#4.0 ND tag as it does for all the other Creative
+#Commons tags.
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::name; ascending
+tagMenus::textStyleOrCreatorNodeFlag; ascending
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
-Else If [ TEMP::sortHealth = "abc" ]
-Sort Records [ Specified Sort Order: ruleTagSectionName::name; ascending
-tagMenus::tag; ascending ]
-[ Restore; No dialog ]
-End If
 #
 #
 #Go to citation record's current selection or to first record.
@@ -61,8 +66,15 @@ Go to Record/Request/Page
 [ First ]
 End If
 #
-#Inform user of items use on both screens.
+#Goto correct layout.
+Go to Layout [ “defaultCopyright” (tagMenus) ]
+#
+#Turn loadtagrecord script back on.
 Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$stopTest ]
+#
+#Inform user of items use on both screens.
+Perform Script [ “loadTagRecord (update)” ]
 Refresh Window
 #
 #
@@ -75,4 +87,3 @@ Refresh Window
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current file ]
 #
-January 28, 平成26 15:46:59 Empty Library copy.fp7 - defaultHealthMenu -1-

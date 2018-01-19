@@ -6,7 +6,7 @@ If [ $$stopTest = 1
 //or $$citationMatch = "node"
 //or $$citationMatch = "health"
 or $$citationMatch = "path"
-or tagLocation::match = "focus" and nodeLockTest::orderOrLock = "" ]
+//or tagLocation::match = "focus" and nodeLockTest::orderOrLock = "" ]
 Exit Script [ ]
 End If
 #
@@ -67,12 +67,18 @@ Set Field [ ruleTagMenuGroups::name; ruleTagMenuGroups::nameSpelling ]
 End If
 // #Allow user to change name of group, just not tag for:
 #Sample, health, node, key, copyist, organ, testItem locked group name.
-If [ ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and ruleTagMenuGroups::match = "node"
- or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and ruleTagMenuGroups::match = "key"
- or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and ruleTagMenuGroups::match = "sample"
- or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and ruleTagMenuGroups::match = "copyist"
- or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and ruleTagMenuGroups::match = "organ"
- or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and ruleTagMenuGroups::match = "testItem" ]
+If [ ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and
+ruleTagMenuGroups::match = "node"
+ or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and
+ruleTagMenuGroups::match = "key"
+ or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and
+ruleTagMenuGroups::match = "sample"
+ or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and
+ruleTagMenuGroups::match = "copyist"
+ or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and
+ruleTagMenuGroups::match = "organ"
+ or ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling and nodeLockTagGroup::orderOrLock ≠ "" and
+ruleTagMenuGroups::match = "testItem" ]
 Set Field [ ruleTagMenuGroups::name; ruleTagMenuGroups::nameSpelling ]
 End If
 #Sample, health, node, key, copyist, organ, testItem tag names.
@@ -110,12 +116,6 @@ Set Field [ ruleTagMenuTestGroups::defaultSectionInfo; ruleTagMenuTestGroups::na
 End If
 #Sample group name.
 If [ ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling
-and
-nodeLockTagGroup::orderOrLock = ""
-and
-ruleTagMenuGroups::match = "sample" ]
-July 10, 平成27 19:39:43 Library.fp7 - insureEqualityOfSpellFields -1-
-tagMenu: insureEqualityOfSpellFields If [ ruleTagMenuGroups::name ≠ ruleTagMenuGroups::nameSpelling
 and
 nodeLockTagGroup::orderOrLock = ""
 and
@@ -182,6 +182,9 @@ End Loop
 Set Variable [ $$stopLoadTagRecord ]
 Close Window [ Current Window ]
 Else If [ Get (LayoutTableName) = "tagLocation" ]
+#Get spelling change if any to change just the
+#current record if not locked.
+Set Variable [ $sectionTemplateSpelling; Value:Get (ActiveFieldContents) ]
 #
 #Exit any fields so do not get can't modify error message
 #because record is in use in another window.
@@ -201,12 +204,16 @@ New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
 Go to Record/Request/Page
 [ First ]
 Loop
-If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock ≠ "" and tagLocation::match = "focus" ]
+If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock ≠ "" and tagLocation::match = "focus"
+or
+$sectionTemplateSpelling ≠ tagLocation::tag ]
 Set Field [ tagLocation::tag; tagLocation::tagSpelling ]
 End If
 #
-#But if node is not locked, then apply changes to field.
-If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock = "" and tagLocation::match = "focus" ]
+#But if node is not locked, then apply changes to
+#field user was just in if any changes where made.
+If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock = "" and tagLocation::match = "focus" and
+$sectionTemplateSpelling = tagLocation::tag ]
 Set Field [ tagLocation::tagSpelling; tagLocation::tag ]
 End If
 Go to Record/Request/Page
@@ -216,8 +223,11 @@ End Loop
 #Start up record load script and close the window.
 Set Variable [ $$stopLoadTagRecord ]
 Close Window [ Current Window ]
+Set Variable [ $$stopTest ]
+Set Variable [ $$ID ]
+Exit Script [ ]
 End If
 Set Variable [ $$stopTest ]
 Set Variable [ $$ID ]
 Perform Script [ “loadSetupTestRecord” ]
-July 10, 平成27 19:39:43 Library.fp7 - insureEqualityOfSpellFields -2-
+August 19, ଘ౮28 23:22:22 Library.fp7 - insureEqualityOfSpellFields -1-

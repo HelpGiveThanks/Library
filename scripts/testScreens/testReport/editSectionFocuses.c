@@ -1,26 +1,23 @@
-testScreens: testReport: editSectionFocuses
+January 15, 2018 16:27:37 Library.fmp12 - menuTestSection -1-
+tagMenu: menuTestSection
 #
-#If there are no tests, then stop this script as there
-#are no test to create things for.
-If [ TEMP::ktest = "" ]
-Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
-Exit Script [ ]
-End If
+#Go to the test section layout.
+Go to Layout [ “setupTestSection” (testSection) ]
 #
-Go to Layout [ “setupTestFocus” (tagLocation) ]
+#Clear the citation match variable.
+Set Variable [ $$citationMatch ]
 #
-#Find all test focuses for this test.
-#New tests will not have any foci so
-#error capture needs to be turned on.
+#Find all test sections for this library.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 View As
 [ View as List ]
 Enter Find Mode [ ]
-Set Field [ tagLocation::ksection; TEMP::ksection ]
-Set Field [ tagLocation::match; "focus" ]
+Set Field [ testSection::match; "testSection" ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: tagLocation::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testSection::tag; ascending ]
 [ Restore; No dialog ]
-Perform Script [ “insureEqualityOfSpellFields” ]
-January 7, 平成26 14:31:21 Imagination Quality Management.fp7 - editSectionFocuses -1-
+Go to Record/Request/Page
+[ First ]
+Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings (update)” ]
+#

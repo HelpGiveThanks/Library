@@ -1,4 +1,4 @@
-tagMenu: FindKeyOtherRef
+tagMenu: findKeyOtherRef
 #Select tag to be found.
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
 #
@@ -25,7 +25,7 @@ Set Variable [ $name; Value:tagMenus::tag ]
 #As going to the other window will be involved
 #stop the record load script on that window until
 #this script is finished to speed things up and
-#stop ﬂashing effect.
+#stop flashing effect.
 Set Variable [ $$stoploadCitation; Value:1 ]
 #
 #Go to the other window and start the find process.
@@ -92,7 +92,7 @@ Enter Browse Mode
 #If after removing this item from the list of found other
 #tagged records the list is empty, perform a find
 #that will result in zero records being found
-#to reﬂect the fact that the user currently has
+#to reflect the fact that the user currently has
 #an empty found other list.
 If [ $$foundOther = "" ]
 Set Variable [ $$firstFindOther ]
@@ -116,7 +116,6 @@ Else If [ $$foundOther ≠ "" ]
 #removed from this one at a time as they are found.
 Set Variable [ $findList; Value:$$foundOther ]
 #
-January 7, 平成26 16:44:23 Imagination Quality Management.fp7 - FindKeyOtherRef -1-tagMenu: FindKeyOtherRef
 #Get the menu item name so system will know
 #what field to put the ID number into to find
 #records tagged with this item.
@@ -229,12 +228,13 @@ Else If [ $menu = "o" ]
 Set Field [ reference::korgan; $find ]
 Else If [ $menu = "c" ]
 Set Field [ reference::kcopyist; $find ]
+Else If [ $menu = "r" ]
+Set Field [ reference::kcitation; $find ]
 End If
 #
 #
 Extend Found Set [ ]
 #
-January 7, 平成26 16:44:23 Imagination Quality Management.fp7 - FindKeyOtherRef -2-tagMenu: FindKeyOtherRef
 #If there is more than one item on the $$found
 #list, then find the rest of records tagged with
 #this items/tags.
@@ -292,7 +292,7 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadCitation (update)” ]
 #
 #Return focus to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -317,4 +317,4 @@ End If
 #
 #
 End If
-January 7, 平成26 16:44:23 Imagination Quality Management.fp7 - FindKeyOtherRef -3-
+August 19, ଘ౮28 23:17:21 Library.fp7 - findKeyOtherRef -1-

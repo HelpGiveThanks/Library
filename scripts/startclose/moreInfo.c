@@ -1,7 +1,1 @@
-startclose: moreInfo
-New Window [ Name: "More Info"; Left: Get ( WindowDesktopWidth ) - (Get ( WindowDesktopWidth ) / 2 ) ]
-Go to Layout [ “moreinfo” (tempSetup) ]
-Adjust Window
-[ Resize to Fit ]
-Pause/Resume Script [ Indefinitely ]
-January 23, 平成26 3:39:22 Imagination Quality Management.fp7 - about -1-
+librarySetup (name change fromchangeLibraryOrLibraryName): moreInfo (move)New Window [ Name: "More Info"; Left: Get ( WindowDesktopWidth ) - (Get ( WindowDesktopWidth ) / 2 ); Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]Go to Layout [ “moreInfo” (tempSetup) ] Adjust Window[ Resize to Fit ]Pause/Resume Script [ Indefinitely ] January 11, 2018 18:27:54 Library.fmp12 - moreInfo (move) -1-

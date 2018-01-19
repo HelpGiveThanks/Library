@@ -1,24 +1,23 @@
+January 15, 2018 16:24:02 Library.fmp12 - menuMedium -1-
 tagMenu: menuMedium
 #
 #
-#Clear sample and test tags so there conditional
+#Clear brainstorm and test tags so there conditional
 #formatting in the Learn window is removed.
-If [ $$citationMatch = "sample" or $$citationMatch = "test" ]
+If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
 Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
-Set Variable [ $$tagSample ]
+Set Variable [ $$tagBrainstorm ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 End If
-Sort Records [ Specified Sort Order: testlearn::date; descending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
+#Conditionally format Tag Menu button.
 Select Window [ Name: "Tag Menus"; Current file ]
-#
-#
-#Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"medium" ]
 #
 #Set match temp tag field to limit move pulldown
@@ -57,19 +56,19 @@ Perform Find [ ]
 #
 // #If no records exist then create one.
 // If [ Get (FoundCount)=0 ]
-// Perform Script [ “newCitationMenuGroup” ]
+// Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
 // End If
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
+#Sort according to current users wishes.
 If [ TEMP::sortMedium = "cat" or TEMP::sortMedium = "" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortMedium = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -111,7 +110,8 @@ If [ $$add = 1 ]
 #
 #But, give user option to keep the records currently
 #showing in the main window.
-Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to medium tags, or keep the current records shown?"; Buttons: “keep”, “show” ]
+Show Custom Dialog [ Message: "In the main window, show only records with pictures and links added to medium tags, or
+keep the current records shown?"; Default Button: “keep”, Commit: “Yes”; Button 2: “show”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 1 ]
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -119,17 +119,14 @@ Exit Script [ ]
 End If
 #
 #find on reference layout ...
-January 7, 平成26 15:58:32 Imagination Quality Management.fp7 - menuMedium -1-tagMenu: menuMedium
 If [ Left (Get (LayoutName) ; 1) = "r" ]
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
 Set Field [ reference::filterFind; "medium" ]
 Perform Find [ ]
 #
 #find on learn layout ...
 Else If [ Left (Get (LayoutName) ; 1) = "l" ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "medium" ]
 Perform Find [ ]
 End If
@@ -137,4 +134,3 @@ End If
 End If
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
-January 7, 平成26 15:58:32 Imagination Quality Management.fp7 - menuMedium -2-

@@ -1,31 +1,87 @@
-learn: cancelLearnFind
+January 17, 2018 11:30:40 Library.fmp12 - cancelLearnAndRefFind -1-
+learn: cancelLearnAndRefFind
 #
-#If the user decides to cancel their the find, then return
-#to the main record window.
+#This script is used by the findLearnRecord
+#and findReferenceRecord scripts.
+#
+#
+#!!! IMPORTANT !!! SAY WHAT !!! HERE YE, HERE YE !!!
+#
+#The cancel logic of this script is identical
+#to the logic in the ActionLog's cancelFindSpecificAction
+#script. Any changes made to this logic needs
+#to also be made to that script to keep
+#them identical.
+#
+#!!! IMPORTANT !!! SAY WHAT !!! HERE YE, HERE YE !!!
+#
+#
+#BEGIN identical catch error logic
+#
+#
+#Admin tasks.
+Allow User Abort [ Off ]
+Set Error Capture [ On ]
+#
+#Clear out any invalid find requests,
+#otherwise script will fail to go back
+# to the main layout.
+Set Field [ testlearn::note; "" ]
+Set Field [ testlearn::timestamp; "" ]
+Set Field [ testlearn::brainstormCasePoint; "" ]
+#
+Set Variable [ $$clearUserFindRequests; Value:1 ]
+Perform Script [ “CHUNK_findReferenceRecordUserFindRequests (new)” ]
+Set Variable [ $$clearUserFindRequests ]
+#
+#Then return to the main layout.
 If [ Get ( LayoutTableName ) = "reference" ]
+#
+If [ $$findReferenceLayout = "" ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Go to Layout [ “ReferenceStuff” (reference) ]
+Else
+Go to Layout [ “Reference” (reference) ]
+End If
+#
+Else
 Go to Layout [ $$findReferenceLayout ]
 Set Variable [ $$findReferenceLayout ]
+End If
+Else
+If [ $$findLearnLayout = "" ]
+#
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Go to Layout [ “learnStuff3” (testlearn) ]
+Else
+Go to Layout [ “learn3” (testlearn) ]
+End If
+#
 Else
 Go to Layout [ $$findLearnLayout ]
 Set Variable [ $$findLearnLayout ]
 End If
+End If
+#
+#Exit find mode.
 Enter Browse Mode
 #
-#DO NOT find all records. Just show user what
-#they where looking at before clicking find.
-// Show/Hide Status Area
-[ Hide ]
-// Show/Hide Text Ruler
-[ Hide ]
-// Enter Find Mode [ ]
-// If [ Get ( LayoutTableName ) = "reference" ]
-// Set Field [ reference::kcsection; TEMP::ksection ]
-// Else
-// Set Field [ testlearn::kcsection; TEMP::ksection ]
-// End If
-// Perform Find [ ]
-// Sort Records [ ]
-[ No dialog ]
-// Go to Record/Request/Page
-[ First ]
-June 27, 平成27 19:13:48 Library.fp7 - cancelLearnFind -1-
+#Only find all records if there are no records to
+#show (the records the user was looking at
+#before clicking find).
+If [ Get (FoundCount) = 0 ]
+Perform Script [ “findALL_LearnOrRefRecords (update moved from folder menuFind and name change findReference)” ]
+End If
+#
+#Clear user find request variables.
+Set Variable [ $$note ]
+Set Variable [ $$timestamp ]
+Set Variable [ $$brainstormCasePoint ]
+#
+#Clear out all the pause script requests.
+Halt Script
+#
+#
+#END identical cancel error logic
+#
+#

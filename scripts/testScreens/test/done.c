@@ -1,29 +1,29 @@
-testScreens: test: done
+January 15, 2018 15:11:36 Library.fmp12 - done -1-
+test: test: done
 #basic administration tasks
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Freeze Window
-Go to Layout [ “discoveries” (testlearn) ]
+Go to Layout [ “testSCRIPTloops” (testlearn) ]
 Enter Find Mode [ ]
-Set Field [ testlearn::ktestSubject; $$contact ]
-Set Field [ testlearn::kaudienceLocation; $$location ]
-Set Field [ InspectItems::kcfocusALL; $$itemLocation ]
+Set Field [ testlearn::ktestSubject; $$testSubject ]
+Set Field [ testlearn::ktestSection; $$testSection ]
+Set Field [ testSubsectionForSubject::kcsections; $$testSectionTemplate ]
 Perform Find [ ]
 If [ Get ( LastError ) = 401 ]
-Go to Layout [ “step3_InspectionItems” (InspectItems) ]
+Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
 Exit Script [ ]
 End If
-Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
+Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
 Enter Find Mode [ ]
-Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $$location ]
+Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
 Perform Find [ ]
-If [ tagTestSubjectLocation::inUse = "t" ]
-Set Field [ tagTestSubjectLocation::inUse; "d" ]
-Go to Layout [ “step3_InspectionItems” (InspectItems) ]
-Set Field [ InspectItems::gprogressGlobal; "status: done" ]
+If [ testSectionCreatedFromATemplate::inUse = "t" ]
+Set Field [ testSectionCreatedFromATemplate::inUse; "d" ]
+Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+Set Field [ testSubsectionForSubject::gprogressGlobal; "status: done" ]
 Exit Script [ ]
 End If
-Set Field [ tagTestSubjectLocation::inUse; "t" ]
-Go to Layout [ “step3_InspectionItems” (InspectItems) ]
-Set Field [ InspectItems::gprogressGlobal; "status: in progress" ]
-January 7, 平成26 12:34:20 Imagination Quality Management.fp7 - done -1-
+Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
+Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]

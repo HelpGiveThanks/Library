@@ -1,24 +1,31 @@
-testScreens: test: TestInfoOpenTextNewWindow
+January 15, 2018 14:46:22 Library.fmp12 - testInfoOpenTextNewWindow -1-
+test: test: testInfoOpenTextNewWindow
+#
+#Prevent the opening of the record's text
+#window when user goes to the record.
 If [ $$stopOpenNewTextWindow = 1 ]
 Set Variable [ $$stopOpenNewTextWindow ]
 Exit Script [ ]
 End If
+#
+#Stop record load script while new window
+#is opened.
 Go to Field [ ]
-Set Variable [ $$stopLoadCitation; Value:1 ]
-New Window [ ]
-If [ tagTLNodePrimary::orderOrLock = "" and Get (LayoutName) ≠ "testInfo" ]
+Set Variable [ $$stoploadtestinfo; Value:1 ]
+New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+#
+#If record is locked go to locked layout.
+If [ $$lockedMainLearnRecord = "" ]
 Scroll Window
 [ Home ]
 Go to Layout [ “testInfoText” (testlearnReportTags) ]
-// Go to Field [ testlearnReportTags::Caption ]
-Else If [ tagTLNodePrimary 2::orderOrLock = "" ]
-Scroll Window
-[ Home ]
-Go to Layout [ “testInfoText” (testlearnReportTags) ]
-// Go to Field [ testlearnReportTags::Caption ]
-Else If [ tagTLNodePrimary::orderOrLock ≠ "" or tagTLNodePrimary 2::orderOrLock ≠ "" ]
+#
+Else If [ $$lockedMainLearnRecord ≠ "" ]
 Go to Layout [ “testInfoTextLocked” (testlearnReportTags) ]
 End If
-Set Variable [ $$stopLoadCitation ]
+#
+#Turn back on record load script and pause
+#while user looks at text.
+Set Variable [ $$stopLoadTestInfo ]
 Pause/Resume Script [ Indefinitely ]
-January 7, 平成26 12:22:08 Imagination Quality Management.fp7 - TestInfoOpenTextNewWindow -1-
+#

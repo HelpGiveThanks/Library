@@ -1,33 +1,39 @@
-tagMenu: showTag
+January 15, 2018 17:16:27 Library.fmp12 - selectTestSection -1-
+tagMenu: selectTestSection
+#
+#If user deleted field contents,
+#then exit this script.
 Commit Records/Requests
-If [ TEMP::kfocus = "" ]
-Set Field [ TEMP::LocationName; "" ]
+If [ TEMP::kdefaultSectionTemplate = "" ]
+Set Field [ TEMP::DEFAULTSectionName; "" ]
 Exit Script [ ]
 End If
 #
-#the pulldown menu action selects the id number,
+#The pulldown menu action selects the ID number,
 #but not the name. To put the name into the TEMP
-#global field we will need to find it which is what the
+#global field we will need to find it, which is what the
 #rest of the script does.
-Set Variable [ $$stopSetReportNumber; Value:1 ]
-New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
-Set Variable [ $tag; Value:TEMP::kfocus ]
+Set Variable [ $$stopLoadTestRecord; Value:1 ]
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom
+Control Area: “Yes”; Resize: “Yes” ]
+Set Variable [ $tag; Value:TEMP::kdefaultSectionTemplate ]
+#
+#Remove highlight telling user
+#to select a section.
 Set Variable [ $$highlightTestSection ]
+#
 Go to Layout [ “tableTag” (tagTable) ]
 Enter Find Mode [ ]
 Set Field [ tagTable::_Ltag; $tag ]
 Perform Find [ ]
+#
 Set Variable [ $name; Value:tagTable::tag ]
+#
 Go to Layout [ original layout ]
-Set Field [ TEMP::LocationName; $name ]
+Set Field [ TEMP::DEFAULTSectionName; $name ]
+#
 Close Window [ Current Window ]
-Set Variable [ $$stopSetReportNumber ]
+Set Variable [ $$stopLoadTestRecord ]
+#
 Go to Field [ ]
 #
-// #Tells user to select an order number not in use
-// #if the order field is blank.
-// If [ TEMP::orderLocation = "" ]
-// Show Custom Dialog [ Message: "Order number required. It can be used to place location before or after any modifiers: small location or location upstairs for example."; Buttons: “OK” ]
-// Go to Field [ TEMP::orderLocation ]
-// End If
-July 11, 平成27 23:21:59 Library.fp7 - showTag -1-

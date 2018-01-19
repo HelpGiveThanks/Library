@@ -1,4 +1,4 @@
-testScreens: testReport: PagePulldown
+testScreens: report: PagePulldown
 Go to Field [ ]
 Set Variable [ $$first ]
 Set Variable [ $$last ]

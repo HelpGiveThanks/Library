@@ -1,4 +1,6 @@
+January 10, 2018 16:01:30 Library.fmp12 - closeLibrary -1-
 startclose: closeLibrary
-Close Window [ Current Window ]
-Close Window [ Name: "Tag Menus"; Current file ]
-December 9, 2015 12:01:44 Imagination Quality Management.fp7 - closeLibrary -1-
+#
+#This will close this Library's open windows.
+Close File [ Current File ]
+#

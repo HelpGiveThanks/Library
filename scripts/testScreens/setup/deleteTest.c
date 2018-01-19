@@ -1,34 +1,28 @@
-testScreens: setup: deleteTest
+January 12, 2018 14:10:02 Library.fmp12 - deleteSubsection -1-
+test: setup: deleteSubsection
 #
-#This script is for deleting a general inquiry.
-#
-#WHEN TIME PERMITS the vocabuary for scripts,
-#variable, fields, layouts, etc. needs to be updated
-#to reflect that a 'test' is now a 'general inquiry'
-#and an 'item' is now a 'specific inquiry' and a 'focus'
-#is now a test 'section', etc. A complete look at
-#the DDR to insure all vocabulary is updated
-#everywhere followed by testing for each
-#update is required.
+#This script is for deleting a test
+#subsection template.
 #
 #
-If [ nodeLockTest::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTest::tag & " -- in the setup
-tag window and enter the password to unlock it so that you can delete it."; Buttons: “OK” ]
+If [ testSectionCreatorLock::orderOrLock ≠ "" ]
+Show Custom Dialog [ Message: "This record is locked. Go the node that created it — " & testSectionCreatorLock::tag & " — in
+the setup tag window and enter the password to unlock it so that you can delete it."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
 #Set variables to conditionally format record to
 #to be deleted and to supply name for warning
 #messages, and to speed up script.
-Set Variable [ $delete; Value:test::_Ltest ]
+Set Variable [ $delete; Value:testSubsectionTemplate::_LtestSubsection ]
 Refresh Window
-Set Variable [ $$tagTest; Value:test::_Ltest ]
+Set Variable [ $$tagTest; Value:testSubsectionTemplate::_LtestSubsection ]
 Set Variable [ $$ID; Value:"ignore" ]
-If [ test::testName = "" ]
-Set Field [ test::testName; test::_Ltest ]
+If [ testSubsectionTemplate::name = "" ]
+Set Field [ testSubsectionTemplate::name; testSubsectionTemplate::_LtestSubsection ]
 End If
 Go to Field [ ]
+Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopDeleteTest; Value:1 ]
@@ -37,86 +31,89 @@ Set Variable [ $$stopTest; Value:1 ]
 #Check if item is in use as test tag on any Report
 #records, and if so stop the script.
 #
-New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000 ]
-// New Window [ ]
+New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize:
+“Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+// New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 Go to Layout [ “TEMP” (TEMP) ]
 Show All Records
 Delete All Records
 [ No dialog ]
 #
-Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
+Go to Layout [ “reportTestResult” (testlearnReportTags) ]
 Enter Find Mode [ ]
-Set Field [ testlearnReportTags::ktest; $delete ]
+Set Field [ testlearnReportTags::ktestSubsection; $delete ]
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Perform Find [ ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: ReportResultTestSubject::tag; ascending ]
+[ Restore; No dialog ]
+Go to Record/Request/Page
+[ First ]
 #
-#If records are found using test, then stop script.
+#If records are found using test, then tell the
+#user on which reports they where found.
 If [ Get (FoundCount) ≠ 0 ]
 Loop
-Set Variable [ $useList; Value:nodeReport::tag &
-" | test/report " &
-TextColor( TextStyleAdd ( testlearnReportTags::kreportNumber; "" ) ;RGB(0;0;0)) &
+Set Variable [ $useList; Value:
+TextColor( ReportResultTestSubject::tag &
+" | test " & testlearnReportTags::kreportNumber ; RGB(102;102;102)) &
 ¶ &
-"section " &
-TextColor( TextStyleAdd ( tagReportSubjectLocationNAME::focusName; "" ) ;RGB(0;0;0)) &
-¶ &
-"title " & TextColor( TextStyleAdd ( testlearnReportTags::Location; "" ) ;RGB(0;0;0)) ]
+testlearnReportTags::countOfONESubsectionsTestResults & " in section " &
+TextColor( tagReportTestSubjectSectionNAME::name ; RGB(0;0;0)) ]
+Set Variable [ $subSection; Value:testlearnReportTags::subsectionCustomName ]
 Go to Layout [ “TEMP” (TEMP) ]
 New Record/Request
-Set Field [ TEMP::RemoveFocusList; $useList ]
-Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
+Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
+Go to Layout [ “reportTestResult” (testlearnReportTags) ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
 Go to Layout [ “TEMP” (TEMP) ]
-Sort Records [ Specified Sort Order: TEMP::RemoveFocusList; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ]
 [ Restore; No dialog ]
 View As
 [ View as List ]
 #
-Show/Hide Status Area
-[ Lock; Hide ]
-Show/Hide Text Ruler
-[ Hide ]
+Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
 Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get
 ( ScreenWidth )/2 + 360) ]
-Set Field [ TEMP::Message; "Test results have been made under this general inquiry. To delete it, first delete these test results
-(in the test or report modules)." ]
+Set Field [ TEMP::Message; "Test results have been made using the sub-section template " & $subSection & ". To delete it, first
+delete the test results made in the test-subject's test-sections below, which use this template." ]
 Pause/Resume Script [ Indefinitely ]
 Close Window [ Current Window ]
 Set Variable [ $delete ]
+Set Variable [ $$stopLoadTestResultRecord ]
 Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
 Set Variable [ $$tagTest ]
-Set Variable [ $$ID; Value:test::_Ltest ]
+Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
 Refresh Window
 Exit Script [ ]
 Else
+Set Variable [ $$stopLoadTestResultRecord ]
 Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
-Set Variable [ $$ID; Value:test::_Ltest ]
+Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
 End If
 #
 #
 #Check if item is in use as test tag on any Learn
 #records, and if so stop the script.
 Set Variable [ $$stopLoadCitation; Value:1 ]
-Go to Layout [ “learn1” (testlearn) ]
+Go to Layout [ “learn2” (testlearn) ]
 #
 Set Window Title [ Current Window; New Title: "Learn" ]
 #
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" ]
-Set Field [ testlearn::kctest; "###" & $$tagTest ]
+Set Field [ testlearn::kctestSubsectionInfo; "###" & $$tagTest ]
 Perform Find [ ]
 Set Variable [ $$stopLoadCitation ]
 #
@@ -126,7 +123,7 @@ Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; T
 ( ScreenWidth )/2 + 360) ]
 Show Custom Dialog [ Message: "This general inquiry is linked to at least one learn record. To delete it 1) go to the learn
 module, 2) click 'test' in its tag-menus window, 3) select it, 4) untag it from all learn records, 5) return to test setup, 6) and
-delete it."; Buttons: “OK” ]
+delete it."; Default Button: “OK”, Commit: “Yes” ]
 #
 Close Window [ Current Window ]
 Set Variable [ $delete ]
@@ -135,7 +132,7 @@ Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
 Set Variable [ $$tagTest ]
-Set Variable [ $$ID; Value:test::_Ltest ]
+Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
 Refresh Window
 #
 Exit Script [ ]
@@ -147,12 +144,13 @@ Close Window [ Current Window ]
 #user may delete it. First the record is highlighted
 #in red and the user is asked if they really intend
 #to delete this record.
-Set Variable [ $delete; Value:test::_Ltest ]
+Set Variable [ $delete; Value:testSubsectionTemplate::_LtestSubsection ]
 Refresh Window
 Scroll Window
 [ To Selection ]
 Go to Field [ ]
-Show Custom Dialog [ Message: "Delete " & test::testName & "?"; Buttons: “Cancel”, “Delete” ]
+Show Custom Dialog [ Message: "Delete " & testSubsectionTemplate::name & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2:
+“Delete”, Commit: “No” ]
 #
 #If the user cancels the delete, then everything
 #goes back to the way it was before the delete
@@ -164,7 +162,7 @@ Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
 Set Variable [ $$tagTest ]
-Set Variable [ $$ID; Value:test::_Ltest ]
+Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
 Refresh Window
 Exit Script [ ]
 End If
@@ -178,22 +176,19 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopDeleteTest; Value:1 ]
 Set Variable [ $$stopTest; Value:1 ]
 #
-New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000 ]
-// New Window [ ]
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”;
+Zoom Control Area: “Yes”; Resize: “Yes” ]
+// New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 #
-Set Variable [ $section; Value:test::ksection ]
-#( a test group field is neccessary because a section
-# may have more than one test group, and so trying
-# to find a test group using the section key and
-# the testGroup match field would find all groups
-# when we need the system to find one group. )
-Set Variable [ $group; Value:test::ktestGroup ]
-Set Variable [ $test; Value:test::_Ltest ]
+#Set variables to find and remove all tests in
+#a group and its key from all test items.
+Set Variable [ $group; Value:testSubsectionTemplate::ksubsectionGroup ]
+Set Variable [ $testSubsection; Value:testSubsectionTemplate::_LtestSubsection ]
 #
 #Find all tests in this test group.
-Go to Layout [ “tableTest” (test) ]
+Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
 Enter Find Mode [ ]
-Set Field [ test::ktestGroup; $group ]
+Set Field [ testSubsectionTemplate::ksubsectionGroup; $group ]
 Perform Find [ ]
 #
 #If the test is the last test, the user is informed
@@ -207,8 +202,8 @@ Close Window [ Current Window ]
 #
 Set Variable [ $deleteGroup; Value:$delete ]
 Refresh Window
-Show Custom Dialog [ Title: "!"; Message: "If you delete this group's last test, it will also be deleted."; Buttons: “Cancel”,
-“Delete” ]
+Show Custom Dialog [ Title: "!"; Message: "If you delete this group's last test, it will also be deleted."; Default Button:
+“Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
 #
 #If the user cancels the delete, then everything
 #goes back to the way it was before the delete
@@ -221,7 +216,7 @@ Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
 Set Variable [ $$tagTest ]
-Set Variable [ $$ID; Value:test::_Ltest ]
+Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
 Refresh Window
 Exit Script [ ]
 End If
@@ -229,11 +224,11 @@ End If
 #If the user pressed delete then first the
 #test group is deleted.
 #
-New Window [ ]
+New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 #
-Go to Layout [ “tableGroupTag” (groupTest) ]
+Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
 Enter Find Mode [ ]
-Set Field [ groupTest::_Lgroup; $group ]
+Set Field [ testSubsectionGroup::_Lgroup; $group ]
 Perform Find [ ]
 Delete Record/Request
 [ No dialog ]
@@ -246,7 +241,7 @@ End If
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “setupTestItem” (tagMenus) ]
 Enter Find Mode [ ]
-Set Field [ ruleTagMenuTestGroups::match; $test & ¶ ]
+Set Field [ tagMenuTestItemGroup::match; $testSubsection & ¶ ]
 Perform Find [ ]
 Go to Record/Request/Page
 [ First ]
@@ -255,9 +250,9 @@ Loop
 #remove it. In the next step these test items
 # will be found and deleted along with the
 #test-item groups to which they belong.
-If [ ValueCount (ruleTagMenuTestGroups::match) > 1 ]
-Set Variable [ $match; Value:ruleTagMenuTestGroups::match ]
-Set Field [ ruleTagMenuTestGroups::match; Substitute ( $match ; $test & "¶" ; "" ) ]
+If [ ValueCount (tagMenuTestItemGroup::match) > 1 ]
+Set Variable [ $match; Value:tagMenuTestItemGroup::match ]
+Set Field [ tagMenuTestItemGroup::match; Substitute ( $match ; $testSubsection & "¶" ; "" ) ]
 End If
 Go to Record/Request/Page
 [ Next; Exit after last ]
@@ -266,7 +261,7 @@ End Loop
 #Delete the test items that are only linked
 #to this test.
 Enter Find Mode [ ]
-Set Field [ ruleTagMenuTestGroups::match; $test & ¶ ]
+Set Field [ tagMenuTestItemGroup::match; $testSubsection & ¶ ]
 Perform Find [ ]
 Delete All Records
 [ No dialog ]
@@ -274,55 +269,22 @@ Delete All Records
 #Delete the test-item groups that now have no
 #test items in them, and are no longer linked
 #to any tests.
-Go to Layout [ “tableGroupTag” (groupTest) ]
+Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
 Enter Find Mode [ ]
-Set Field [ groupTest::match; $test & ¶ ]
+Set Field [ testSubsectionGroup::match; $testSubsection & ¶ ]
 Perform Find [ ]
 Delete All Records
 [ No dialog ]
 Set Variable [ $$stopLoadTagRecord ]
 #
 #Finally, delete the test itself.
-Go to Layout [ “tableTest” (test) ]
+Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
 Enter Find Mode [ ]
-Set Field [ test::_Ltest; $test ]
+Set Field [ testSubsectionTemplate::_LtestSubsection; $testSubsection ]
 Perform Find [ ]
 Delete Record/Request
 [ No dialog ]
 Close Window [ Current Window ]
-#
-#If this was the last test and there are no more
-#tests, then the test focuses and attributes for
-#this test section will also be deleted (as
-#without any tests there is no need for a test
-#focus or attribute).
-If [ Get (FoundCount) = 0 ]
-#
-Set Field [ TEMP::ktestListtTestName; "" ]
-Set Field [ TEMP::ktestItemListOLD; "" ]
-Set Field [ TEMP::ktestItemList; "" ]
-Set Field [ TEMP::kcfocuses; "" ]
-Set Field [ TEMP::kfocus; "" ]
-Set Field [ TEMP::ktest; "" ]
-#
-New Window [ ]
-#
-Go to Layout [ “setupTestFocus” (tagLocation) ]
-Enter Find Mode [ ]
-Set Field [ tagLocation::ksection; TEMP::ksection ]
-Set Field [ tagLocation::match; "focus" ]
-Perform Find [ ]
-Delete All Records
-[ No dialog ]
-#
-Enter Find Mode [ ]
-Set Field [ tagLocation::ksection; TEMP::ksection ]
-Set Field [ tagLocation::match; "attribute" ]
-Perform Find [ ]
-Delete All Records
-#
-Close Window [ Current Window ]
-End If
 #
 #Load current test's information.
 Set Variable [ $$stopLoadTestRecord ]
@@ -331,5 +293,5 @@ Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
 Set Variable [ $$tagTest ]
 Set Variable [ $$ID ]
-Perform Script [ “loadSetupTestRecord” ]
-December 21, ଘ౮27 20:19:23 Library.fp7 - deleteTest -1-
+Perform Script [ “loadSetupTestSubsection (update name change loadSetupTestRecord)” ]
+#

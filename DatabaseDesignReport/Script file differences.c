@@ -5,24 +5,30 @@ Script Hierarchy
 startclose
 
 startDatabase (update)
-New Script
 start
-closeLibrary
+closeLibrary (updated)
 moreInfo
+gotoSolution (new)
+gotoWebsite (new)
+gotoDatabaseBudget (new)
+gotoDatabaseHeartWhisperer (new)
+allSolutionsMenu (new)
 libraryNewOrUpdate
 
 createNewLibrary (new)
-switchTestList
+switchTestList (update)
 import (update)
+importData (new)
 createEmptyLibrary (update)
 copyPrimaryNodeID
 sampleCopyCopyText
 importMANUAL (not sure if this is in use)
 libraryNameAndType
 
-changeLibraryName
-libraryTypeCheckBox
-switchLibrary
+changeLibraryName (update)
+libraryTypeCheckBoxRepition1 (update and name change from libraryTypeCheckBox)
+libraryTypeCheckBoxRepition2 (new)
+switchLibrary (retired for now) (update and name change)
 sectionScripts
 
 changeSectionGroupName
@@ -32,20 +38,21 @@ testScreens
 
 setup
 
-gotoSetupTest
-gotoTechView
+gotoSetupTest (update)
+gotoTechView (new?)
+gotoURLorEditURL (update)
 loadSetupTestRecord
 loadSetupTestItemRecord (new)
-newTestGroup
-newTest
-deleteTest
-deleteTestItem
-newTestItem
-moveTestItemToNewTestGroupStep1
-newTestItemGroup
+newTestGroup (update)
+newTest (update)
+deleteTest (update)
+deleteTestItem (update: fix sort to show groups)
+newTestItem (update)
+moveTestItemToNewTestGroupStep1 (update)
+newTestItemGroup (update)
 testNameToRevertNamField
 moveTestItemToNewTestGroupStep2
-(un)linkTestItemGroupToTestItemList
+(un)linkTestItemGroupToTestItemList (update)
 test
 
 testInfoOpenTextNewWindow
@@ -57,12 +64,12 @@ loadTestRecord
 newTestRecord
 linkTestFocusOrUnlinkTestFocus
 gotoTestItem
-step2_OpenInspectionItemsTEST
+step2_OpenInspectionItemsTEST (update)
 loadItemRecord
 step3_OpenOneItemJustLook
 returnToStep3
 done
-delete_Evidence
+delete_Evidence (update)
 OKonInpsection
 OKonReport
 inspectNextRecord
@@ -74,9 +81,9 @@ CHUNK_countInspectedItems
 exitAndStopclearCitationMatch
 exitAndOrderEvidence
 reportNewEvidence
-reportDeleteEvidence
+reportDeleteEvidence (update)
 reportSelectLocation
-returnToStep2
+returnToStep2 (update)
 probablyNotInUse
 
 returnToStep1
@@ -88,11 +95,16 @@ nextPage
 previousPage
 showModifier1
 showModifier2
-showPicture1
-showPicture2
-showPicture3
-showPicture4
-newInspectionLocation
+showPicture1 (update)
+showPicture2 (update)
+showPicture3 (update)
+showPicture4 (update)
+insertCaption1 (new)
+insertCaption2 (new)
+insertCaption3 (new)
+insertCaption4 (new)
+newInspectionLocation (update)
+newSectionTemplatePulldown (new)
 deleteInspectionLocation
 probablyNotInUse
 
@@ -106,27 +118,27 @@ newEvidenceWindow
 evidenceTag
 deleteSetupItems
 deleteInspectionSetupItem
-editReport
-CHUNK_gotoItemViaPulldown
+editReport (update)
+CHUNK_gotoItemViaPulldown (update)
 zoomReport
 unzoomReport
-inUsePart1
+inUsePart1 (update)
 inUsePart3
 deleteRowOfPhotosFromReport
 newRowOfPhotos
 sortReport
-editSectionFocuses
-newFocus
-deleteFocus
+editSectionFocuses (update)
+newFocus (update)
+deleteFocus (UPDATE)
 deleteAttribute
-gotoDefaultsOrReport
+gotoDefaultsOrReport (update)
 previewReport
 reportTagInfo
 reportTagDiscovery
 reportExitOnRecordLoad
 reportPreviewClose
 reportClearDiscoveryLink
-setupUpdateReportNumber
+setupUpdateReportNumber (update)
 openDetailWindow !!! FINISH LATER !!!
 Print
 
@@ -144,15 +156,15 @@ unzoomSetup
 zoomSetup
 gotoSetupReport
 returnToSetup
-menuNode
-menuKey
-menuHealth
+menuNode (update)
+menuKey (update)
+menuHealth (update)
 menuMedium
 menuTest
 menuTestItem
 menuSample
-menuCitation
-menuReference
+menuCitation (update)
+menuReference (update)
 menuCopyist
 menuPath
 menuOrgan
@@ -163,45 +175,46 @@ gotoMainFromTestTagMenus
 loadItemRecordForTestTagMenu
 addTagToTestSubject
 loadItemRecordForTestSetupTagMenu
-defaultTestLocationMenu
+defaultTestLocationMenu (update)
 setOrderForSampleOrTest (update)
 testAddTestItemTextOrKey
-moveTagToNewGroupStep1
+moveTagToNewGroupStep1 (update)
 moveTagToNewGroupStep1b
 moveTagToNewGroupStep2
 defaultNodeMenu
 defaultHealthMenu
-defaultSectionMenu
-checkIfLockedOnLearnTagMenus
+defaultSectionMenu (update)
+defaultsAll (new)
+checkIfLockedOnLearnTagMenus (update)
 menuReferenceNodesOrEditors
 loadItemRecordForSampleTagMenu
-toggleTagMenuWindowView
+toggleTagMenuWindowView (update)
 TgotoCitationMenu (update)
 showTag
 duplicateTheory
-addTagToMainRecord
-setLibraryDefaults
+addTagToMainRecord (update)
+setAsReferenceOrInventoryLibrary (update and name change from setLibraryDefaults)
 addBackSectionCreatorNode
 loadTagRecord
-addORremoveTagFromCitationStep1
-addORremoveTagFromCitationStep2keyword
+addORremoveTagFromCitationStep1 (update)
+addORremoveTagFromCitationStep2keyword (update)
 addORremoveTagFromCitationStep2node
 changeSpellingOfCitationNodes
 sortTags
 addORremoveRefTagStep1
-addORremoveCitationOrReferenceRefTag
-CHUNKaddReferenceNodesAndKeywords
+addORremoveCitationOrReferenceRefTag (update)
+CHUNKaddReferenceNodesAndKeywords (update)
 CHUNKaddMainSectionKeysToTagRecordKeychain_addMode
 CHUNKaddMainSectionKeysToTagRecordKeychain
 CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain
 addORremoveCiteOrRefTLTag
-changeSpellingOfKeywordOrNodeTag
+changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)
 changeSpellingOfTagCategory
 changeSpellingOfDetailCategory
 noCommasAllowed
 deleteKeywordTag
 deleteNodeTag
-deleteCPPPBtags
+deleteCPPPBtags (update Name Change from deleteCPPPtags)
 deleteBrainstormTags (NEW not sure if this needed?)
 addTagSectionKeysToMainRecordKeychain
 CHUNKaddLinkToTag
@@ -220,13 +233,14 @@ findPrimaryRef (update)
 findKeyOtherRef (update)
 CHUNKcheckForDragPasteChanges
 lock
-checkForDraggedPasteChangesIfLocked
-insureEqualityOfSpellFields
+checkForDraggedPasteChangesIfLocked (update)
+insureEqualityOfSpellFields (update)
 lockNodesRecords
-sampleExit
+sampleExit (update)
 newTag
 sortTLRecordsByOrderNumber
 changeTLRecordsSort_Button
+???DELETE YES DO loadRefTagCiteRecord (update and name change folder move)
 probablyNotInUse
 
 loadItemRecordForLearnTagMenuDELETE!!!
@@ -244,16 +258,17 @@ menuReferenceFind
 menuCopyistFind
 menuPathFind
 menuOrganFind
-findReference
+findReference (update Name change from findReferernce)
 pictures
 
-pictureInsert
-pictureViewButton
-showRefURLmedia
-selectRefMediaForLearnRecord
+pictureInsert (update)
+exitIfNotiPhone (new)
+pictureViewButton (update)
+showRefURLmedia (new? and update)
+selectRefMediaForLearnRecord (update)
 pictureReplaceButton (update)
-pictureDelete
-pictureExport
+pictureDelete (update)
+pictureExport (update)
 clearpicture1
 inUsePart2picture1
 inUsePart2picture2
@@ -268,8 +283,10 @@ addPicture1ToTag
 addPicture2ToTag
 addPicture3ToTag
 showCitationPicture1inNewWindow (update)
-showCitationPicture2inNewWindow
-showCitationPicture3inNewWindow
+showTestSubjectSetupPicture (new)
+showPrimaryNodePicture (new)
+showCitationPicture2inNewWindow (update)
+showCitationPicture3inNewWindow (update)
 showReferencePicture1
 showReferencePicture2
 showReferencePicture3
@@ -280,45 +297,47 @@ inUsePart2picture4 Copy
 addPicture2ToTag Copy
 learn
 
-sampleCopyForPasting
-showFileInTagandLearnWindows
-deleteLearnMainRecord
+sampleCopyForPasting (update)
+showFileInTagandLearnWindows (update)
+deleteLearnMainRecord (update)
 editLearn (update)
 editTestLearn
 finishTestLearnEdit
-duplicateLearnRecord
-learnOpenTextNewWindow
+duplicateLearnRecord (updated)
+learnOpenTextNewWindow (updated)
 gotoLearnWebsite
 findLearnRecord
 cancelLearnFind
 newLearn
+storageAreaLayoutCheckBox (update)
+haltShareScript (new)
 probablyNotInUse
 
 findLearnRecord Copy
 reference(citation)
 
-newReference
-editReference
-deleteReference
+newReference (update)
+editReference (update)
+deleteReference (update)
 showFileInReferenceWindow
 showReference1
 showReference2
 showReference3
-internalReferences
-externalReferences
+internalReferences (upate)
+externalReferences (update)
 changeSpellingOfReferenceNodes
-duplicateReferenceRecord
+duplicateReferenceRecord (update)
 addModeReferenceLearnToggle
 findReferenceRecord
-sortReferences
+sortReferences (update)
 extractCreateDateFromReferenceRecords
 REFERENCE LOOP
-finishReferenceEdit
-editCitation
+finishReferenceEdit (update)
+editCitation (update)
 showLongCitation
 showCitation
-loadCitation
-clearCitationMatch
+loadCitation (update)
+clearCitationMatch (update)
 copyrightHolder
 copyrightHolderDeleteEditor
 URLcheck
@@ -330,133 +349,43 @@ showFile3
 addFileLink4ToTag
 addFileLink5ToTag
 addFileLink6ToTag
-showFolder
+showFolder (update)
 openCitationURL
 setCitationMatchForAuthors
 publisherCheckboxRadioButtonActionPart1
 insertTimeInRefTimeField
 goToRefRecord
 helpReferenceFields
+changeFileLocationFolder (new)
 probablyNotInUse
 
 addReferenceNodesAndKeywords Copy
-DELETE???loadRecordIDcitationlistlalyout
 loadCitation OLD
 findReferenceRecord Copy
 sharedMainLayoutScripts
 
-copyAndpastTags
-backToLearnOrDefaultSetup
-backFromSetup
+copyAndpastTags (update)
+backToLearnOrDefaultSetup (update)
+backFromSetup (update)
 toggleMainWindowView
 returnToAddRecordPUTONHOLD!!!!
-gotoTimeLogMainWindow
+gotoTimeLogMainWindow (update)
 gotoTimeLogLogWindow
-stopScriptOniPhone
+stopScriptOniPhone (update by deleting)
 closeWindow (update)
 closeWindowHaltScript
 backtoSetup
-learn
+learn (update)
 Exit
 help
 
 helpBack
-help
+help (update)
 libraryHelp
-delte (DELETE)
-Resize window to fit
-
-		Next Script: [Resize window to fit]
-Script Name	delte (DELETE)
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #
-    #
-    #
-    #Look thru the referenced learn records to
-    #create a value list of their keys.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    // New Window [ Name: "LinkedLearnRecords"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
-    New Window [ Name: "LinkedLearnRecords" ]
-    Go to Layout [ “learn4EDIT” (testlearn) ]
-    Set Variable [ $findLinkedLearnRecords; Value:testlearn::_Ltestlearn ]
-    Loop
-    Go to Object [ Object Name: "ref2" ]
-    Exit Loop If [ Get (LastError) = 101 ]
-    Set Variable [ $findLinkedLearnRecords; Value:refTestLearn::_Ltestlearn & ¶ & $findLinkedLearnRecords ]
-    Go to Portal Row [ Select; Next; Exit after last ]
-    End Loop
-    #
-    #Show X learn records referenced? (Records
-    #that support, contain, etc. this record.)
-    If [ Length ( Filter( $$ref ; "L" ) ) > 0 and $$linkedLearnRecords = "" ]
-    Show Custom Dialog [ Message: "Show " & ValueCount ( $findLinkedLearnRecords ) - 1 & " learn records referenced? (Records that support, contain, etc. this record.)"; Buttons: “show”, “cancel” ]
-    End If
-    #
-    #Show X learn records referenced? (Records
-    #that support, contain, etc. this record.) OR
-    #Show these plus records that reference it?
-    #Records this record supports, contains, etc.)
-    If [ Abs ( $$linkedLearnRecords - ( ValueCount ( $findLinkedLearnRecords ) - 1 ) ) = 1 ]
-    End If
-    If [ Abs ( $$linkedLearnRecords - ( ValueCount ( $findLinkedLearnRecords ) - 1 ) ) = 1 ]
-    Show Custom Dialog [ Message: "Show " & ValueCount ( $findLinkedLearnRecords ) - 1 & " learn records referenced? (Records that support, contain, etc. this record.) " & "OR" & ¶ & "Show these plus " & Abs ( $$linkedLearnRecords - ( ValueCount ( $findLinkedLearnRecords ) - 1 ) ) & " record that references it? (A record this record supports, contains, etc.)"; Buttons: “show all”, “just refs”, “cancel” ]
-    Else
-    Show Custom Dialog [ Message: "Show " & ValueCount ( $findLinkedLearnRecords ) - 1 & " learn records referenced? (Records that support, contain, etc. this record.) " & "OR" & ¶ & "Show these plus " & Abs ( $$linkedLearnRecords - ( ValueCount ( $findLinkedLearnRecords ) - 1 ) ) & " records that reference it? (Records this record supports, contains, etc.)"; Buttons: “show all”, “just refs”, “cancel” ]
-    End If
-    #
-    If [ $$linkedLearnRecords + 1 > ValueCount ( $findLinkedLearnRecords ) ]
-    Else If [ ]
-    Show Custom Dialog [ Message: "This record references 0 learn records, and is referenced by _______ records. Show them?"; Buttons: “show”, “cancel” ]
-    End If
-    #
-    #
-    #
-    #
-    #
-    Close Window [ Current Window ]
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    #
-    #
-    #
-
-Fields used in this script
-
-    testlearn::_Ltestlearn
-    refTestLearn::_Ltestlearn
-
-Scripts used in this script
-
-Layouts used in this script
-
-    learn4EDIT
-
-Tables used in this script
-
-    testlearn
-
-Table occurrences used by this script
-
-    refTestLearn
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
+Resize window to fit (new)
 
 
-Previous Script: [delte (DELETE)]
-Script Name	Resize window to fit
+Script Name	Resize window to fit (new)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -484,7 +413,7 @@ Custom menu set used by this script
 
 
 startclose
-	Parent Folder: [startclose]	Next Script: [New Script]
+	Parent Folder: [startclose]	Next Script: [start]
 Script Name	startDatabase (update)
 Run script with full access privileges	Off
 Include In Menu	Yes
@@ -504,6 +433,7 @@ Script Steps
     Go to Layout [ “backup” (backup) ]
     Delete All Records [ No dialog ]
     New Record/Request
+    #
     If [ backup::newLibrary = "234874920347574weidf792342f9823984" ]
     Go to Layout [ “defaultSetup” (tempSetup) ]
     Show All Records
@@ -568,14 +498,38 @@ Script Steps
     Close Window [ Current Window ]
     End Loop
     #
-    #Go to main setup window.
+    #
+    #Force system to calculate new values if
+    #needed by deleting current and creating new
+    #default's record.
     Go to Layout [ “defaultSetup” (tempSetup) ]
     Show All Records
     Delete All Records [ No dialog ]
     New Record/Request
+    #
+    #Get library ID. NOTE: 'section' is still used
+    #instead of 'library'. The solution used to
+    #contain multible libraries, and then I decided
+    #that each section should be a separate library
+    #file, but never went thru the DDR (design
+    #report) to find all instances of the word
+    #'section' and change it to 'library'.
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    #
+    Go to Layout [ “tableGroupTag” (groupTest) ]
+    Enter Find Mode [ ]
+    Set Field [ groupTest::match; "section" ]
+    Perform Find [ ]
+    #
+    Set Field [ TEMP::ksection; groupTest::_Lgroup ]
+    Set Field [ TEMP::sectionName; groupTest::name ]
+    Go to Layout [ “defaultSetup” (tempSetup) ]
+    #
+    #Re-title and re-size main library setup window.
     Set Window Title [ Current Window; New Title: "Setup" ]
+    Show/Hide Text Ruler [ Hide ]
     If [ Get ( SystemPlatform ) = - 2 ]
-    // New Window [ Name: "Day"; Height: Get (WindowDesktopHeight) - 21; Width: 344; Top: 0; Left: Get (ScreenWidth) - 688 ]
     Move/Resize Window [ Current Window; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
     Else
     Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
@@ -588,10 +542,10 @@ Script Steps
     Else
     New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
     End If
-    Go to Layout [ “defaultHealth” (tagMenus) ]
+    Go to Layout [ “defaultSections” (tempSetup) ]
     #
     #Show regular menus if Admin logs in only.
-    Show/Hide Text Ruler [ Hide ]
+    Select Window [ Name: "Setup"; Current file ]
     If [ Get ( AccountName ) = "Admin" ]
     Show/Hide Status Area [ Hide ]
     Else
@@ -599,26 +553,44 @@ Script Steps
     End If
     #
     #Set library defaults.
-    Perform Script [ “defaultSectionMenu” ]
-    Perform Script [ “setLibraryDefaults” ]
-    Select Window [ Name: "Setup"; Current file ]
+    Perform Script [ “defaultSectionMenu (update)” ]
+    Perform Script [ “setAsReferenceOrInventoryLibrary (update and name change from setLibraryDefaults)” ]
     #
     #Tell other databases to go to this library
     #when user clicks the 'library' button in
     #another Help Give Thanks database.
     Go to Layout [ “startMemorySwitch” (MemorySwitch) ]
     Show All Records
+    #
     Go to Record/Request/Page [ First ]
     Loop
-    Exit Loop If [ Get ( FilePath ) = MemorySwitch::path ]
+    If [ Get (SystemPlatform) = 3 ]
+    Exit Loop If [ Get ( FileName ) = MemorySwitch::name ]
+    Else
+    Exit Loop If [ Get ( FilePath ) = MemorySwitch::path or Get ( FileName ) = MemorySwitch::name and MemorySwitch::path = "" ]
+    End If
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
-    If [ Get ( FilePath ) ≠ MemorySwitch::path ]
+    #
+    #On the iPhone/iPad, leave the path field
+    #blank. This script will add the path when
+    #used on a desktop/laptop. This allows one
+    #record per library, using the name to find it
+    #on iDevices and the path to find it on full
+    #computers.
+    If [ Get ( FileName ) = MemorySwitch::name and MemorySwitch::path = "" and Get (SystemPlatform) ≠ 3 ]
+    Set Field [ MemorySwitch::path; TEMP::filePath ]
+    Else If [ Get ( FileName ) ≠ MemorySwitch::name and Get ( FilePath ) ≠ MemorySwitch::path and Get (SystemPlatform) ≠ 3 ]
     New Record/Request
     Set Field [ MemorySwitch::path; TEMP::filePath ]
     Set Field [ MemorySwitch::name; TEMP::fileName ]
+    Else If [ Get ( FileName ) ≠ MemorySwitch::name and Get (SystemPlatform) = 3 ]
+    New Record/Request
+    Set Field [ MemorySwitch::name; TEMP::fileName ]
     End If
+    #
     Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
+    Set Field [ MemorySwitch::currentLibraryName; TEMP::fileName ]
     #
     #Report version number to Memory Switch Table.
     Set Field [ MemorySwitch::versionLibrary; tempSetup::verionNumber ]
@@ -653,10 +625,16 @@ Fields used in this script
     tempSetup::kdefaultNodePrimary
     backup::backup
     backup::filepath
+    groupTest::match
+    groupTest::_Lgroup
+    TEMP::ksection
+    groupTest::name
+    TEMP::sectionName
+    MemorySwitch::name
     MemorySwitch::path
     TEMP::filePath
-    MemorySwitch::name
     MemorySwitch::currentLibraryPath
+    MemorySwitch::currentLibraryName
     MemorySwitch::versionLibrary
 
 Scripts used in this script
@@ -664,15 +642,16 @@ Scripts used in this script
     createEmptyLibrary (update)
     import (update)
     startDatabase (update)
-    defaultSectionMenu
-    setLibraryDefaults
+    defaultSectionMenu (update)
+    setAsReferenceOrInventoryLibrary (update and name change from setLibraryDefaults)
     defaultNodeMenu
 
 Layouts used in this script
 
     backup
     defaultSetup
-    defaultHealth
+    tableGroupTag
+    defaultSections
     startMemorySwitch
 
 Tables used in this script
@@ -681,12 +660,14 @@ Tables used in this script
     TEMP
     TEMP
     backup
+    tagGroup
 
 Table occurrences used by this script
 
     MemorySwitch
     TEMP
     backup
+    groupTest
     tempSetup
 
 Custom Functions used by this script
@@ -697,45 +678,7 @@ Custom menu set used by this script
     HGT
 
 
-Previous Script: [startDatabase (update)]	Parent Folder: [startclose]	Next Script: [start]
-Script Name	New Script
-Run script with full access privileges	Off
-Include In Menu	Yes
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    Show All Records
-    Delete All Records [ No dialog ]
-    New Record/Request
-    Set Window Title [ Current Window; New Title: "Setup" ]
-    If [ Get ( SystemPlatform ) = - 2 ]
-    // New Window [ Name: "Day"; Height: Get (WindowDesktopHeight) - 21; Width: 344; Top: 0; Left: Get (ScreenWidth) - 688 ]
-    Move/Resize Window [ Current Window; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-    Else
-    Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-    End If
-    Go to Field [ ]
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [New Script]	Parent Folder: [startclose]	Next Script: [closeLibrary]
+Previous Script: [startDatabase (update)]	Parent Folder: [startclose]	Next Script: [closeLibrary (updated)]
 Script Name	start
 Run script with full access privileges	Off
 Include In Menu	No
@@ -788,13 +731,14 @@ Custom menu set used by this script
 
 
 Previous Script: [start]	Parent Folder: [startclose]	Next Script: [moreInfo]
-Script Name	closeLibrary
+Script Name	closeLibrary (updated)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultSetup
-    defaultSetup Copy
+    defaultTest
+    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -803,7 +747,7 @@ Scripts that use this script
 Script Definition
 Script Steps
 
-    Close Window [ Current Window ]
+    Close Window [ Name: "Setup"; Current file ]
     Close Window [ Name: "Tag Menus"; Current file ]
 
 Fields used in this script
@@ -821,7 +765,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [closeLibrary]	Parent Folder: [startclose]
+Previous Script: [closeLibrary (updated)]	Parent Folder: [startclose]	Next Script: [gotoSolution (new)]
 Script Name	moreInfo
 Run script with full access privileges	Off
 Include In Menu	Yes
@@ -856,8 +800,403 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
+Previous Script: [moreInfo]	Parent Folder: [startclose]	Next Script: [gotoWebsite (new)]
+Script Name	gotoSolution (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    allSolutions
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #This script needs to be kept identical to the
+    #same script in the ActionLog.
+    #
+    #
+    #Open using this url on iPad/iPhone.
+    If [ Get ( SystemPlatform ) = 3 ]
+    Set Error Capture [ On ]
+    #
+    Open URL [ "fmp://%7e/" & Substitute ( MemorySwitch::name ; " " ; "%20" ) ] [ No dialog ]
+    #
+    If [ Get ( LastError ) ≠ 0 ]
+    #If the library fails to open inform user why.
+    Show Custom Dialog [ Message: "Click the folder icon (top left corner) to start a library and add it to this menu. The one you selected is not available on this device or its name was changed so this shortcut is being deleted."; Buttons: “OK” ]
+    Delete Portal Row [ No dialog ]
+    Exit Script [ ]
+    End If
+    #
+    #Close all solutions window if open after selecting a library.
+    Close Window [ Name: "All Solutions"; Current file ]
+    Set Variable [ $$otherApps ]
+    Exit Script [ ]
+    #
+    End If
+    #
+    #
+    #Because this portal is to external database it is
+    #essential to get this record's path info for use in
+    #other script steps.
+    Set Variable [ $path; Value:MemorySwitch::path ]
+    Set Variable [ $name; Value:MemorySwitch::name ]
+    #
+    #If library path is blank (which should only happen if
+    #admin adds library manually with path), then delete
+    #this library name from the list.
+    If [ MemorySwitch::path = "" ]
+    Show Custom Dialog [ Message: "This library file cannot be found under the name " & MemorySwitch::name & ". It will be removed from this list. You can add it back by going to its folder on your PC and double clicking on it."; Buttons: “OK” ]
+    #
+    #This seems to work if just the portal row is
+    #deleted. Further testing is needed to confirm.
+    Delete Portal Row [ No dialog ]
+    #
+    // #ISSUE: If you have a portal into a table that is more
+    // #than one relationship away, and if that related table
+    // #exists in an external file, then you cannot delete
+    // #the portal row.
+    // Go to Portal Row [ $row ] [ No dialog ]
+    // Delete Record/Request [ No dialog ]
+    // Delete Portal Row [ No dialog ]
+    #
+    #Because the one step above seems to work, I
+    #am disabling these next steps for deleting a
+    #portal row.
+    // Go to Layout [ <unknown> ]
+    // Show All Records
+    // Go to Record/Request/Page [ First ]
+    // Loop
+    // Exit Loop If [ $path = MemorySwitch::path ]
+    // Go to Record/Request/Page [ Next; Exit after last ]
+    // End Loop
+    // If [ $path = MemorySwitch::path ]
+    // Delete Record/Request [ No dialog ]
+    // End If
+    // Go to Layout [ <unknown> ]
+    Exit Script [ ]
+    End If
+    #
+    #Select the current library windows if open and selected.
+    If [ MemorySwitch::currentLibraryPath = $path ]
+    Select Window [ Name: GetValue ( WindowNames ( Case ( Get ( SystemPlatform ) = - 2 ; MemorySwitch::name ; MemorySwitch::name ) ) ; 1 ) ]
+    Select Window [ Name: GetValue ( WindowNames ( Case ( Get ( SystemPlatform ) = - 2 ; MemorySwitch::name ; MemorySwitch::name ) ) ; 2 ) ]
+    Select Window [ Name: MemorySwitch::currentLibraryMainWIndow ]
+    End If
+    #
+    #If the library selected is not open, then close the current
+    #library, which means closing all of its windows, and
+    #then open the selected library.
+    If [ MemorySwitch::currentLibraryPath ≠ $path or Get (LastError) = 112 ]
+    #
+    Set Variable [ $number; Value:1 ]
+    Loop
+    Loop
+    Close Window [ Name: Case ( $number = 1 ; "Setup" ; $number = 2 ; "References" ; $number = 3 ; "Test" ; $number = 4 ; "Learn" ; $number = 5 ; "Report" ; $number = 6 ; "Tag Menus" ) ]
+    Exit Loop If [ Get (LastError) = 112 ]
+    End Loop
+    Set Variable [ $number; Value:$number + 1 ]
+    Exit Loop If [ $number = 7 ]
+    End Loop
+    #
+    Set Field [ MemorySwitch::currentLibraryPath; $path ]
+    Set Field [ MemorySwitch::currentLibraryName; $name ]
+    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute (MemorySwitch::path ; " " ; "%20" ) ; Substitute ( Substitute ( MemorySwitch::path ; "file:/" ; "file://" ) ; " " ; "%20" ) ) ] [ No dialog ]
+    End If
+    #
+    #If the path stored for the selected library failed to open
+    #the library, then that library is no longer there or its
+    #name has been changed, so delete it from the
+    #library list.
+    If [ Get (LastError) = 5 ]
+    Show Custom Dialog [ Message: "This library file cannot be found under the name " & MemorySwitch::name & ". It will be removed from this list. You can add it back by going to its folder on your PC and double clicking on it."; Buttons: “OK” ]
+    #
+    #This seems to work if just the portal row is
+    #deleted. Further testing is needed to confirm.
+    Delete Portal Row [ No dialog ]
+    #
+    // #ISSUE: If you have a portal into a table that is more
+    // #than one relationship away, and if that related table
+    // #exists in an external file, then you cannot delete
+    // #the portal row.
+    // Go to Portal Row [ $row ] [ No dialog ]
+    // Delete Record/Request [ No dialog ]
+    // Delete Portal Row [ No dialog ]
+    #
+    #Because the one step above seems to work, I
+    #am disabling these next steps for deleting a
+    #portal row.
+    // Go to Layout [ <unknown> ]
+    // Show All Records
+    // Go to Record/Request/Page [ First ]
+    // Loop
+    // Exit Loop If [ $path = MemorySwitch::path ]
+    // Go to Record/Request/Page [ Next; Exit after last ]
+    // End Loop
+    // If [ $path = MemorySwitch::path ]
+    // Delete Record/Request [ No dialog ]
+    // End If
+    // Go to Layout [ <unknown> ]
+    Exit Script [ ]
+    End If
+    #
+    #Close other solutions window if open after selecting a library.
+    If [ $$otherApps = 1 ]
+    Close Window [ Name: "All Solutions"; Current file ]
+    Set Variable [ $$otherApps ]
+    End If
+    #
+
+Fields used in this script
+
+    MemorySwitch::name
+    MemorySwitch::path
+    MemorySwitch::currentLibraryPath
+    MemorySwitch::currentLibraryMainWIndow
+    MemorySwitch::currentLibraryName
+
+Scripts used in this script
+
+Layouts used in this script
+
+    <Missing Layout>
+
+Tables used in this script
+
+    MemorySwitch
+
+Table occurrences used by this script
+
+    MemorySwitch
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoSolution (new)]	Parent Folder: [startclose]	Next Script: [gotoDatabaseBudget (new)]
+Script Name	gotoWebsite (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    allSolutions
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Close all solutions window after selecting website.
+    If [ $$otherApps = 1 ]
+    Set Variable [ $$otherApps ]
+    Close Window [ Name: "All Solutions"; Current file ]
+    Open URL [ "http://helpgivethanks.org/apps/thebuggenie/wiki/Overview" ] [ No dialog ]
+    End If
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoWebsite (new)]	Parent Folder: [startclose]	Next Script: [gotoDatabaseHeartWhisperer (new)]
+Script Name	gotoDatabaseBudget (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    allSolutions
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Open using this url on iPad/iPhone.
+    If [ Get ( SystemPlatform ) = 3 ]
+    Open URL [ "fmp://%7e/Budget%20Planner" ]
+    Exit Script [ ]
+    End If
+    #
+    Select Window [ Name: "Budget Planner" ]
+    If [ Get (LastError) = 112 ]
+    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file:/" ) & "Budget Planner." & Right ( Get ( FilePath ) ; 3 ) ; " " ; "%20" ) ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file://" ) & "Budget Planner." & Right ( Get ( FilePath ) ; 3 ) ; " " ; "%20" ) ) ] [ No dialog ]
+    If [ Get (LastError) = 5 ]
+    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file:/" ) & "Budget Research.HG2" ; " " ; "%20" ) ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file://" ) & "Budget Research.HG2" ; " " ; "%20" ) ) ] [ No dialog ]
+    End If
+    End If
+    #
+    #Close all solutions window.
+    If [ $$otherApps = 1 ]
+    Set Variable [ $$otherApps ]
+    Close Window [ Name: "All Solutions"; Current file ]
+    End If
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoDatabaseBudget (new)]	Parent Folder: [startclose]	Next Script: [allSolutionsMenu (new)]
+Script Name	gotoDatabaseHeartWhisperer (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    allSolutions
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Open using this url on iPad/iPhone.
+    If [ Get ( SystemPlatform ) = 3 ]
+    Open URL [ "fmp://%7e/Heart%20Whisperer" ]
+    Exit Script [ ]
+    End If
+    #
+    Select Window [ Name: "Icons" ]
+    Select Window [ Name: "Workout Editor" ]
+    Select Window [ Name: "Plan Week" ]
+    Select Window [ Name: "My Workouts" ]
+    Select Window [ Name: "Planned Workouts" ]
+    If [ MemorySwitch::fatPath = "Workout Editor" ]
+    Select Window [ Name: "Icons" ]
+    Select Window [ Name: "Workout Editor" ]
+    Select Window [ Name: "Plan Week" ]
+    Else If [ MemorySwitch::fatPath = "Plan Week" ]
+    Select Window [ Name: "Icons" ]
+    Select Window [ Name: "Workout Editor" ]
+    Select Window [ Name: "Plan Week" ]
+    Else If [ MemorySwitch::fatPath = "Icons" ]
+    Select Window [ Name: "Icons" ]
+    Select Window [ Name: "Workout Editor" ]
+    Select Window [ Name: "Plan Week" ]
+    Else If [ MemorySwitch::fatPath = "My Workouts" ]
+    Select Window [ Name: "My Workouts" ]
+    Select Window [ Name: "Planned Workouts" ]
+    Else If [ MemorySwitch::fatPath = "Planned Workouts" ]
+    Select Window [ Name: "My Workouts" ]
+    Select Window [ Name: "Planned Workouts" ]
+    End If
+    Select Window [ Name: MemorySwitch::fatPath ]
+    If [ Get (LastError) = 112 ]
+    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file:/" ) & "Heart Whisperer." & Right ( Get ( FilePath ) ; 3 ) ; " " ; "%20" ) ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file://" ) & "Heart Whisperer." & Right ( Get ( FilePath ) ; 3 ) ; " " ; "%20" ) ) ] [ No dialog ]
+    If [ Get (LastError) = 5 ]
+    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file:/" ) & "Heart Whisperer.HG2" ; " " ; "%20" ) ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file://" ) & "Heart Whisperer.HG2" ; " " ; "%20" ) ) ] [ No dialog ]
+    End If
+    End If
+    #
+    #Close all solutions window.
+    If [ $$otherApps = 1 ]
+    Set Variable [ $$otherApps ]
+    Close Window [ Name: "All Solutions"; Current file ]
+    End If
+
+Fields used in this script
+
+    MemorySwitch::fatPath
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    MemorySwitch
+
+Table occurrences used by this script
+
+    MemorySwitch
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoDatabaseHeartWhisperer (new)]	Parent Folder: [startclose]
+Script Name	allSolutionsMenu (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+    defaultTest
+    defaultTestNewFocus
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #PURPOSE go to all solutions menu.
+    #
+    #
+    #
+    #1 go to the edit/create layout and show all users.
+    Close Window [ Name: "All Solutions"; Current file ]
+    New Window [ Name: "All Solutions" ]
+    Go to Layout [ “allSolutions” (tempSetup) ]
+    Show All Records
+    #
+    #Size window to 100%
+    Set Zoom Level [ 100% ]
+    Adjust Window [ Resize to Fit ]
+    #
+    #Set variable that will close this other apps menu
+    #when the user selectes a new database.
+    Set Variable [ $$otherApps; Value:1 ]
+    Pause/Resume Script [ Indefinitely ]
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+    allSolutions
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
 libraryNewOrUpdate
-	Parent Folder: [libraryNewOrUpdate]	Next Script: [switchTestList]
+	Parent Folder: [libraryNewOrUpdate]	Next Script: [switchTestList (update)]
 Script Name	createNewLibrary (new)
 Run script with full access privileges	Off
 Include In Menu	Yes
@@ -921,7 +1260,7 @@ Script Steps
     #
     Show Custom Dialog [ Message: "This library will now close. Go to your new library's folder. Name your new library file. Double click it to start it up. Allow it to delete its files, which are duplicates of this library's files."; Buttons: “OK” ]
     #
-    Perform Script [ “closeLibrary” ]
+    Perform Script [ “closeLibrary (updated)” ]
     #
 
 Fields used in this script
@@ -930,7 +1269,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    closeLibrary
+    closeLibrary (updated)
 
 Layouts used in this script
 
@@ -951,7 +1290,7 @@ Custom menu set used by this script
 
 
 Previous Script: [createNewLibrary (new)]	Parent Folder: [libraryNewOrUpdate]	Next Script: [import (update)]
-Script Name	switchTestList
+Script Name	switchTestList (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -1109,7 +1448,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [switchTestList]	Parent Folder: [libraryNewOrUpdate]	Next Script: [createEmptyLibrary (update)]
+Previous Script: [switchTestList (update)]	Parent Folder: [libraryNewOrUpdate]	Next Script: [importData (new)]
 Script Name	import (update)
 Run script with full access privileges	Off
 Include In Menu	No
@@ -1149,7 +1488,7 @@ Script Steps
     #Test Section Records
     Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
     Show All Records
-    Import Records [ Source: “$filepath”; Target: “tagTestSubjectLocation”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to tagTestSubjectLocation::knode Source field 2 import to tagTestSubjectLocation::kfocus Source field 3 import to tagTestSubjectLocation::_LtestSubjectLocation Source field 4 import to tagTestSubjectLocation::kfocusAttribute1 Source field 5 import to tagTestSubjectLocation::focusName Source field 6 import to tagTestSubjectLocation::inUse Source field 7 import to tagTestSubjectLocation::order Source field 8 import to tagTestSubjectLocation::TimeStart Source field 9 import to tagTestSubjectLocation::TimeTotal Source field 10 import to tagTestSubjectLocation::_number Source field 11 import to tagTestSubjectLocation::kfocusAttribute2 Source field 12 import to tagTestSubjectLocation::ksection Source field 13 import to tagTestSubjectLocation::reportNumber Source field 14 import to tagTestSubjectLocation::kRecordCreatorNode ] [ No dialog ]
+    Import Records [ Source: “$filepath”; Target: “tagTestSubjectLocation”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to tagTestSubjectLocation::knode Source field 2 import to tagTestSubjectLocation::kfocus Source field 3 import to tagTestSubjectLocation::_LtestSubjectLocation Source field 4 import to tagTestSubjectLocation::kfocusAttribute1 Source field 5 import to tagTestSubjectLocation::focusName Source field 6 import to tagTestSubjectLocation::inUse Source field 7 import to tagTestSubjectLocation::order Source field 8 import to tagTestSubjectLocation::TimeStart Source field 9 import to tagTestSubjectLocation::TimeTotal Source field 10 import to tagTestSubjectLocation::_number Source field 11 import to tagTestSubjectLocation::kfocusAttribute2 Source field 12 import to tagTestSubjectLocation::ksection Source field 13 import to tagTestSubjectLocation::reportNumber Source field 14 import to tagTestSubjectLocation::kRecordCreatorNode ]
     #
     #
     #Test Records
@@ -1270,7 +1609,163 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [import (update)]	Parent Folder: [libraryNewOrUpdate]	Next Script: [copyPrimaryNodeID]
+Previous Script: [import (update)]	Parent Folder: [libraryNewOrUpdate]	Next Script: [createEmptyLibrary (update)]
+Script Name	importData (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+    defaultTest
+    defaultTestNewFocus
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    // If [ Get ( SystemPlatform ) ≠ 3 ]
+    // Exit Script [ ]
+    // End If
+    #
+    #
+    Save a Copy as [ ] [ copy of current file ]
+    #
+    #
+    Go to Layout [ “backup” (backup) ]
+    Delete All Records [ No dialog ]
+    New Record/Request
+    Set Field [ backup::backup; "update439asdkc;liasdu;irejf.as.dkfupea;lksdfa,sm.eupqoiwendssasdeawsrre5o983498woeirf" ]
+    Cut [ backup::backup ] [ Select ]
+    #2 open file and determine its location (path) then close it after its location has been pasted using that file's open script into the main data file
+    #file is unknown so user is given the opportunity to point the database to the backup copy of their choice
+    Go to Layout [ “defaultSetup” (tempSetup) ]
+    Open File [ <unknown> ]
+    If [ Get (LastError) = 1 ]
+    Close Window [ Current Window ]
+    Exit Script [ ]
+    End If
+    #
+    #Make sure the file has been opened by this script.
+    #The paste command will fail below if the
+    #selected library is already open as it will not
+    #be on the backup layout, which only occurs
+    #via the startup script when the library has
+    #just been opened.
+    Go to Layout [ “backup” (backup) ]
+    Paste [ backup::backup ] [ Select; No style ]
+    If [ "update439asdkc;liasdu;irejf.as.dkfupea;lksdfa,sm.eupqoiwendssasdeawsrre5o983498woeirf" = backup::backup ]
+    Show Custom Dialog [ Message: "Close the selected library. Then click update again to add its records to this updated version of the library application."; Buttons: “OK” ]
+    Exit Script [ ]
+    End If
+    Set Variable [ $filepath; Value:backup::backup ]
+    #
+    #
+    #Test Section Records
+    Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
+    Show All Records
+    Import Records [ Source: “$filepath”; Target: “tagTestSubjectLocation”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 import to tagTestSubjectLocation::knode Source field 2 import to tagTestSubjectLocation::kfocus Source field 3 match with tagTestSubjectLocation::_LtestSubjectLocation Source field 4 import to tagTestSubjectLocation::kfocusAttribute1 Source field 5 import to tagTestSubjectLocation::focusName Source field 6 import to tagTestSubjectLocation::inUse Source field 7 import to tagTestSubjectLocation::order Source field 8 import to tagTestSubjectLocation::TimeStart Source field 9 import to tagTestSubjectLocation::TimeTotal Source field 10 import to tagTestSubjectLocation::_number Source field 11 import to tagTestSubjectLocation::kfocusAttribute2 Source field 12 import to tagTestSubjectLocation::ksection Source field 13 import to tagTestSubjectLocation::reportNumber Source field 14 import to tagTestSubjectLocation::kRecordCreatorNode ] [ No dialog ]
+    #
+    #
+    #Test Records
+    Go to Layout [ “tableTest” (test) ]
+    Show All Records
+    Import Records [ Source: “$filepath”; Target: “test”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 match with test::_Ltest Source field 2 import to test::ktestGroup Source field 3 import to test::_number Source field 4 import to test::kcfocusALL Source field 5 import to test::testName Source field 6 import to test::order Source field 7 import to test::retire Source field 8 import to test::kgtester Source field 9 import to test::glocationNameGlobal Source field 10 import to test::gcontactNameGlobal Source field 11 import to test::kgaudienceLocation Source field 12 import to test::gprogressGlobal Source field 13 import to test::ksection Source field 14 import to test::kgreportNumber Source field 15 import to test::mtestGroup Source field 16 import to test::ktestItemList Source field 17 import to test::rule Source field 18 import to test::kRecordCreatorNode Source field 19 import to test::kRecordModifierNode Source field 20 import to test::RecordModifyDate Source field 21 import to test::testNameRevert ] [ No dialog ]
+    #
+    #
+    #TestLearn Records
+    Go to Layout [ “tableTestLearn” (testlearn) ]
+    Show All Records
+    Import Records [ Source: “$filepath”; Target: “testlearn”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 match with testlearn::_Ltestlearn Source field 2 import to testlearn::ktestSubject Source field 3 import to testlearn::_Number Source field 4 import to testlearn::ktest Source field 5 import to testlearn::Caption Source field 6 import to testlearn::Picture Source field 7 import to testlearn::Location Source field 8 import to testlearn::inUse Source field 9 import to testlearn::kaudienceLocation Source field 10 import to testlearn::InspectionItemCount Source field 11 import to testlearn::CheckboxCaption Source field 12 import to testlearn::recordnumberglobal Source field 13 import to testlearn::recordcountglobal Source field 14 import to testlearn::InspectionItemCountLocation Source field 15 import to testlearn::OK Source field 16 import to testlearn::kcsection Source field 17 import to testlearn::kshowReferencedMedia Source field 18 import to testlearn::TimeStart Source field 19 import to testlearn::TimeStop Source field 20 import to testlearn::TimeTotal Source field 21 import to testlearn::kreportNumber Source field 22 import to testlearn::timestamp Source field 24 import to testlearn::orderDiscovery Source field 25 import to testlearn::kcKeywordOther Source field 26 import to testlearn::kNodeOther Source field 27 import to testlearn::kHealth Source field 28 import to testlearn::kNodePrimary Source field 29 import to testlearn::kmedium Source field 30 import to testlearn::kcitation Source field 31 import to testlearn::kfileLocation Source field 32 import to testlearn::kfolderPath Source field 33 import to testlearn::kKeywordPrimary Source field 34 import to testlearn::OtherKeyWords Source field 35 import to testlearn::NodeOthers Source field 36 import to testlearn::URL Source field 37 import to testlearn::filename Source field 38 import to testlearn::kcreference Source field 40 import to testlearn::filterFind Source field 41 import to testlearn::kRecordCreatorNode Source field 42 import to testlearn::kRecordModifierNode Source field 43 import to testlearn::RecordModifyDate Source field 44 import to testlearn::incomplete Source field 46 import to testlearn::copyrightYear Source field 47 import to testlearn::URLPubDate Source field 48 import to testlearn::kcsample Source field 49 import to testlearn::gkaudienceLocation Source field 50 import to testlearn::kctest Source field 51 import to testlearn::orderTest Source field 52 import to testlearn::title Source field 53 import to testlearn::kctestItem Source field 54 import to testlearn::organEmailRecipient Source field 55 import to testlearn::korgan Source field 56 import to testlearn::kcopyist Source field 57 import to testlearn::emailDate Source field 59 import to testlearn::sampleCasePoint ] [ No dialog ]
+    #
+    #
+    #Tag Records
+    Go to Layout [ “tableTag” (tagTable) ]
+    Show All Records
+    Import Records [ Source: “$filepath”; Target: “tagTable”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 import to tagTable::kGroupOrTest Source field 2 match with tagTable::_Ltag Source field 3 import to tagTable::tag Source field 4 import to tagTable::orderOrLock Source field 5 import to tagTable::ksection Source field 6 import to tagTable::_Number Source field 7 import to tagTable::match Source field 8 import to tagTable::tagSpelling Source field 9 import to tagTable::kcsection Source field 10 import to tagTable::Kpicture1 Source field 11 import to tagTable::notesOrHealth Source field 12 import to tagTable::Ktitle1 Source field 13 import to tagTable::kfile Source field 15 import to tagTable::Kpicture2 Source field 17 import to tagTable::Kpicture3 Source field 19 import to tagTable::Ktitle2 Source field 20 import to tagTable::Ktitle3 Source field 24 import to tagTable::kRecordCreatorNode Source field 25 import to tagTable::kRecordModifierNode ] [ No dialog ]
+    #
+    #
+    #Tag Group Records
+    Go to Layout [ “tableGroupTag” (groupTest) ]
+    Show All Records
+    Import Records [ Source: “$filepath”; Target: “groupTest”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 match with groupTest::_Lgroup Source field 2 import to groupTest::_Number Source field 3 import to groupTest::match Source field 4 import to groupTest::name Source field 5 import to groupTest::ksection Source field 6 import to groupTest::defaultSectionInfo Source field 7 import to groupTest::testReportPicture Source field 8 import to groupTest::CaptionORinuseCheck Source field 9 import to groupTest::URLORHealth Source field 10 import to groupTest::order Source field 11 import to groupTest::nameSpelling Source field 12 import to groupTest::kRecordCreatorNode Source field 13 import to groupTest::kSectionCreatorNodesCreator Source field 14 import to groupTest::aboutSection ] [ No dialog ]
+    #
+    #
+    #Reference Records
+    Go to Layout [ “tableReference” (reference) ]
+    Show All Records
+    Import Records [ Source: “$filepath”; Target: “reference”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 import to reference::_Number Source field 2 match with reference::_Lreference Source field 3 import to reference::ktestSubject Source field 4 import to reference::ktest Source field 5 import to reference::kcsection Source field 6 import to reference::knodePrimary Source field 7 import to reference::pubYear Source field 8 import to reference::URL Source field 9 import to reference::URLdate Source field 10 import to reference::Title Source field 11 import to reference::korgan Source field 12 import to reference::volumeNumber Source field 13 import to reference::PubDate Source field 14 import to reference::pageNumberRange Source field 15 import to reference::kcopyist Source field 16 import to reference::OrginalCitation Source field 17 import to reference::kcopyrightType Source field 18 import to reference::kHealth Source field 19 import to reference::kmedium Source field 20 import to reference::kkeywordOther Source field 21 import to reference::kkeywordPrimary Source field 22 import to reference::thoughtsNotesEtc Source field 23 import to reference::kfolderpath Source field 24 import to reference::fileName Source field 27 import to reference::referenceNodes Source field 28 import to reference::CopyrightYear Source field 29 import to reference::kcopyrightHolder Source field 30 import to reference::referenceDump Source field 31 import to reference::knodeOther Source field 32 import to reference::NodeOthers Source field 33 import to reference::OtherKeyWords Source field 34 import to reference::referenceNodesOLD Source field 35 import to reference::filterFind Source field 36 import to reference::picture Source field 37 import to reference::kfileLocation Source field 38 import to reference::rights Source field 39 import to reference::mFileLocation Source field 40 import to reference::kcitation Source field 41 import to reference::incomplete Source field 42 import to reference::lock Source field 44 import to reference::kcreatorNode Source field 45 import to reference::kmodifierNode Source field 46 import to reference::modifyDate Source field 48 import to reference::TimeRange Source field 51 import to reference::createDate Source field 52 import to reference::showInLearn Source field 53 import to reference::library only Source field 54 import to reference::URLdoi Source field 55 import to reference::issueNumber Source field 56 import to reference::publisherLocation Source field 57 import to reference::compilationTitle Source field 58 import to reference::compilationEditors Source field 59 import to reference::kmedia Source field 60 import to reference::kmediaType Source field 61 import to reference::compilationNumberOfEditors Source field 62 import to reference::pubYearMonthRange Source field 63 import to reference::ISBN Source field 64 import to reference::pubDateOther Source field 65 import to reference::bookChapter Source field 66 import to reference::letterDate Source field 67 import to reference::compilationAbbr Source field 68 import to reference::emailRecipient Source field 69 import to reference::conferenceIntroWords Source field 70 import to reference::conferenceTitle Source field 71 import to reference::conferenceSubTitle Source field 72 import to reference::conferenceLocation Source field 73 import to reference::conferenceDate Source field 74 import to reference::conferenceGroupName Source field 75 import to reference::TypeOfMediumOther Source field 76 import to reference::GovernmentDocInfo Source field 77 import to reference::governmentAuthor Source field 78 import to reference::ISSN Source field 79 import to reference::publisherTypeAlternative Source field 80 import to reference::copyrightOtherHolder Source field 81 import to reference::publisherTypeOther Source field 82 import to reference::pageNumberOther Source field 83 import to reference::dissertationThesisUniversity Source field 87 import to reference::showMedia ] [ No dialog ]
+    #
+    #
+    #Report Records
+    Go to Layout [ “tableReport” (report) ]
+    Show All Records
+    Import Records [ Source: “$filepath”; Target: “report”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 match with report::_Lreport Source field 2 import to report::_Number Source field 3 import to report::ktestSubject Source field 4 import to report::_kfContactGeography Source field 5 import to report::general_info Source field 6 import to report::ktest Source field 7 import to report::krecommendation Source field 8 import to report::order Source field 9 import to report::Picture Source field 10 import to report::kthingRecommendationID Source field 11 import to report::kgeneralSpecificItemRecommendationID Source field 12 import to report::_kfPhoto Source field 13 import to report::_kfContactGeography2 Source field 14 import to report::_kfContactGeography3 Source field 15 import to report::_kfContactGeography4 Source field 16 import to report::_kfContactGeography5 Source field 17 import to report::PictureCaption Source field 18 import to report::textMain Source field 19 import to report::textPhotoRow1 Source field 20 import to report::pagenumberItem Source field 21 import to report::CurrentRecord Source field 22 import to report::_kfPhoto2 Source field 23 import to report::_kfPhoto3 Source field 24 import to report::_kfPhoto4 Source field 25 import to report::pagenumberTheme Source field 26 import to report::TOC Source field 27 import to report::TOCnumbers Source field 28 import to report::ReportCover Source field 29 import to report::ReportPDFtitle Source field 30 import to report::kreportNumber Source field 31 import to report::ksection Source field 32 import to report::kRecordCreatorNode Source field 33 import to report::kRecordModifierNode Source field 34 import to report::RecordModifyDate Source field 35 import to report::khealth Source field 36 import to report::textPhotoRow2 ] [ No dialog ]
+    #
+    Set Field [ backup::backup; "" ]
+    Go to Layout [ “defaultSetup” (tempSetup) ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Go to Layout [ “defaultSections” (tempSetup) ]
+    #
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ ruleSection::match; "section" ]
+    Perform Find [ ]
+    #
+    Select Window [ Name: "Setup"; Current file ]
+    Go to Layout [ “backup” (backup) ]
+    Set Field [ backup::newLibrary; "" ]
+    Set Field [ backup::backup; "" ]
+    Go to Layout [ “defaultSetup” (tempSetup) ]
+    #
+
+Fields used in this script
+
+    backup::backup
+    ruleSection::match
+    backup::newLibrary
+
+Scripts used in this script
+
+Layouts used in this script
+
+    backup
+    defaultSetup
+    tableTestSubjectFocus
+    tableTest
+    tableTestLearn
+    tableTag
+    tableGroupTag
+    tableReference
+    tableReport
+    defaultSections
+
+Tables used in this script
+
+    backup
+    tagGroup
+
+Table occurrences used by this script
+
+    backup
+    ruleSection
+    tagTestSubjectLocation
+    test
+    testlearn
+    tagTable
+    groupTest
+    reference
+    report
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [importData (new)]	Parent Folder: [libraryNewOrUpdate]	Next Script: [copyPrimaryNodeID]
 Script Name	createEmptyLibrary (update)
 Run script with full access privileges	Off
 Include In Menu	No
@@ -1380,7 +1875,7 @@ Script Steps
     #Create first section.
     Set Field [ TEMP::kdefaultNodePrimary; $$OldNodeID ]
     Select Window [ Name: "Tag Menus"; Current file ]
-    Go to Layout [ “defaultSections” (ruleSection) ]
+    Go to Layout [ “defaultSections” (tempSetup) ]
     Perform Script [ “newSectionOnSectionLayout” ]
     Set Field [ ruleSection::name ]
     Set Field [ TEMP::kdefaultNodePrimary; "" ]
@@ -1398,7 +1893,7 @@ Script Steps
     Set Variable [ $$OldNodeID; Value:tagMenus::_Ltag ]
     Set Field [ ruleTagMenuGroups::kRecordCreatorNode; $$OldNodeID ]
     Set Field [ tagMenus::tag; "lastName, firstName" ]
-    Perform Script [ “addTagToMainRecord” ]
+    Perform Script [ “addTagToMainRecord (update)” ]
     Set Variable [ $$stopAddBack ]
     #
     #Assign node to first created section as its creator.
@@ -1414,6 +1909,9 @@ Script Steps
     Go to Record/Request/Page [ Next ]
     Set Field [ groupTest::kRecordCreatorNode; $$OldNodeID ]
     Go to Layout [ “defaultSetup” (tempSetup) ]
+    #
+    #Make library a reference library.
+    Set Field [ TEMP::InventoryLibaryYN[2]; 1 ]
     #
     #Inform user of next steps.
     If [ $$OldNodeID ≠ "" ]
@@ -1442,6 +1940,7 @@ Fields used in this script
     groupTest::match
     groupTest::kSectionCreatorNodesCreator
     groupTest::aboutSection
+    TEMP::InventoryLibaryYN
 
 Scripts used in this script
 
@@ -1449,7 +1948,7 @@ Scripts used in this script
     newSectionOnSectionLayout
     defaultNodeMenu
     newCitationMenuGroup
-    addTagToMainRecord
+    addTagToMainRecord (update)
 
 Layouts used in this script
 
@@ -1544,6 +2043,7 @@ Include In Menu	No
 Layouts that use this script
 
     learnPreviewLayout
+    learnPreviewLayoutView
 
 Scripts that use this script
 
@@ -1692,8 +2192,8 @@ Custom menu set used by this script
 
 
 libraryNameAndType
-	Parent Folder: [libraryNameAndType]	Next Script: [libraryTypeCheckBox]
-Script Name	changeLibraryName
+	Parent Folder: [libraryNameAndType]	Next Script: [libraryTypeCheckBoxRepition1 (update and name change from libraryTypeCheckBox)]
+Script Name	changeLibraryName (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -1704,37 +2204,24 @@ Script Definition
 Script Steps
 
     #
-    If [ $$stopChangeSectionName ≠ 1 ]
     Commit Records/Requests
-    Set Variable [ $name; Value:ruleSection::name ]
+    Set Variable [ $name; Value:sectionAttributionInfo::name ]
     New Window [ ]
     Go to Layout [ “tableGroupTag” (groupTest) ]
     #
     Enter Find Mode [ ]
     Set Field [ groupTest::match; "section" ]
-    Set Field [ groupTest::name; "==" & $name ]
     Perform Find [ ]
-    Set Variable [ $count; Value:Get (FoundCount) ]
     Close Window [ Current Window ]
-    If [ $count ≠ 1 ]
-    Show Custom Dialog [ Title: "!"; Message: "Each section must have a unique name."; Buttons: “OK” ]
-    Set Field [ ruleSection::name; $name & " " & ruleSection::_Lgroup ]
-    Set Field [ ruleSection::nameSpelling; $name & " " & ruleSection::_Lgroup ]
-    Exit Script [ ]
-    End If
     #
     #Insure name in Setup window matches Library's name.
     Set Field [ tempSetup::sectionName; $name ]
     Go to Field [ ]
-    End If
 
 Fields used in this script
 
-    ruleSection::name
+    sectionAttributionInfo::name
     groupTest::match
-    groupTest::name
-    ruleSection::_Lgroup
-    ruleSection::nameSpelling
     tempSetup::sectionName
 
 Scripts used in this script
@@ -1752,7 +2239,7 @@ Tables used in this script
 Table occurrences used by this script
 
     groupTest
-    ruleSection
+    sectionAttributionInfo
     tempSetup
 
 Custom Functions used by this script
@@ -1760,8 +2247,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [changeLibraryName]	Parent Folder: [libraryNameAndType]	Next Script: [switchLibrary]
-Script Name	libraryTypeCheckBox
+Previous Script: [changeLibraryName (update)]	Parent Folder: [libraryNameAndType]	Next Script: [libraryTypeCheckBoxRepition2 (new)]
+Script Name	libraryTypeCheckBoxRepition1 (update and name change from libraryTypeCheckBox)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -1776,7 +2263,7 @@ Script Steps
     Go to Field [ ]
     #
     #Set default layouts for a reference library.
-    If [ tempSetup::InventoryLibaryYN = "" ]
+    If [ tempSetup::InventoryLibaryYN[1] = "" ]
     Set Field [ tempSetup::layoutLtagK; "" ]
     Set Field [ tempSetup::layoutRtagK; "" ]
     Set Field [ tempSetup::layoutLtagN; "" ]
@@ -1784,6 +2271,7 @@ Script Steps
     #
     #Designate library as a reference library.
     Set Field [ sectionAttributionInfo::order; "" ]
+    Set Field [ TEMP::InventoryLibaryYN[2]; 1 ]
     Else
     #
     #Set default layouts for a stuff/inventory library.
@@ -1794,6 +2282,8 @@ Script Steps
     #
     #Designate library as a stuff/inventory library.
     Set Field [ sectionAttributionInfo::order; 1 ]
+    Set Field [ TEMP::InventoryLibaryYN[2]; 1 ]
+    Set Field [ TEMP::InventoryLibaryYN[2]; "" ]
     End If
 
 Fields used in this script
@@ -1804,6 +2294,7 @@ Fields used in this script
     tempSetup::layoutLtagN
     tempSetup::layoutRtagN
     sectionAttributionInfo::order
+    TEMP::InventoryLibaryYN
 
 Scripts used in this script
 
@@ -1816,6 +2307,7 @@ Tables used in this script
 
 Table occurrences used by this script
 
+    TEMP
     sectionAttributionInfo
     tempSetup
 
@@ -1824,8 +2316,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [libraryTypeCheckBox]	Parent Folder: [libraryNameAndType]
-Script Name	switchLibrary
+Previous Script: [libraryTypeCheckBoxRepition1 (update and name change from libraryTypeCheckBox)]	Parent Folder: [libraryNameAndType]	Next Script: [switchLibrary (retired for now) (update and name change)]
+Script Name	libraryTypeCheckBoxRepition2 (new)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -1836,6 +2328,76 @@ Script Definition
 Script Steps
 
     #
+    #Exit the checkbox.
+    Go to Field [ ]
+    #
+    #Set default layouts for a reference library.
+    If [ tempSetup::InventoryLibaryYN[2] = 1 ]
+    Set Field [ tempSetup::layoutLtagK; "" ]
+    Set Field [ tempSetup::layoutRtagK; "" ]
+    Set Field [ tempSetup::layoutLtagN; "" ]
+    Set Field [ tempSetup::layoutRtagN; "" ]
+    #
+    #Designate library as a reference library.
+    Set Field [ sectionAttributionInfo::order; "" ]
+    Set Field [ TEMP::InventoryLibaryYN; "" ]
+    Else
+    #
+    #Set default layouts for a stuff/inventory library.
+    Set Field [ tempSetup::layoutLtagK; "moreltagNKs2" ]
+    Set Field [ tempSetup::layoutRtagK; "moreReferenceMenu2SkeywordOrNode1" ]
+    Set Field [ tempSetup::layoutLtagN; "moreltagNKs2" ]
+    Set Field [ tempSetup::layoutRtagN; "moreReferenceMenu2SkeywordOrNode1" ]
+    #
+    #Designate library as a stuff/inventory library.
+    Set Field [ sectionAttributionInfo::order; 1 ]
+    Set Field [ TEMP::InventoryLibaryYN; 1 ]
+    End If
+
+Fields used in this script
+
+    tempSetup::InventoryLibaryYN
+    tempSetup::layoutLtagK
+    tempSetup::layoutRtagK
+    tempSetup::layoutLtagN
+    tempSetup::layoutRtagN
+    sectionAttributionInfo::order
+    TEMP::InventoryLibaryYN
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    tagGroup
+
+Table occurrences used by this script
+
+    TEMP
+    sectionAttributionInfo
+    tempSetup
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [libraryTypeCheckBoxRepition2 (new)]	Parent Folder: [libraryNameAndType]
+Script Name	switchLibrary (retired for now) (update and name change)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Replacing with All Solutions window menu.
+    #
     #If on mobile device, stop the script.
     If [ Filter ( Get ( ApplicationVersion ) ; "go" ) = "go" ]
     Exit Script [ ]
@@ -1843,6 +2405,7 @@ Script Steps
     #
     #If library selected is the one open then exit the script.
     Set Variable [ $library; Value:tempSetup::filePathLibraryToSwitchTo ]
+    Set Variable [ $libraryName; Value:MemorySwitch::name ]
     If [ $library = Get (FilePath) ]
     Go to Field [ ]
     Exit Script [ ]
@@ -1929,6 +2492,7 @@ Script Steps
     Set Field [ MemorySwitch::name; tempSetup::fileName ]
     Perform Find [ ]
     Set Field [ TEMP::filePathLibraryToSwitchTo; MemorySwitch::path ]
+    Set Field [ MemorySwitch::currentLibraryName; $libraryName ]
     Go to Layout [ “defaultSetup” (tempSetup) ]
     Close Window [ Current Window ]
     Close Window [ Name: "Tag Menus"; Current file ]
@@ -1936,10 +2500,11 @@ Script Steps
 Fields used in this script
 
     tempSetup::filePathLibraryToSwitchTo
-    MemorySwitch::path
     MemorySwitch::name
+    MemorySwitch::path
     tempSetup::fileName
     TEMP::filePathLibraryToSwitchTo
+    MemorySwitch::currentLibraryName
 
 Scripts used in this script
 
@@ -2094,7 +2659,7 @@ Script Steps
     Go to Field [ ruleSection::name ]
     #
     #Assign section as default section.
-    Perform Script [ “setLibraryDefaults” ]
+    Perform Script [ “setAsReferenceOrInventoryLibrary (update and name change from setLibraryDefaults)” ]
     #
 
 Fields used in this script
@@ -2116,7 +2681,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    setLibraryDefaults
+    setAsReferenceOrInventoryLibrary (update and name change from setLibraryDefaults)
 
 Layouts used in this script
 
@@ -2225,7 +2790,7 @@ Script Steps
     Set Variable [ $$ID ]
     Set Variable [ $$stopTest ]
     #
-    Perform Script [ “defaultSectionMenu” ]
+    Perform Script [ “defaultSectionMenu (update)” ]
     Go to Record/Request/Page [ $recordNumber ] [ No dialog ]
     If [ $learnInUse = 1 or $testInUse = 1 or $referenceInUse = 1 or $TagInUse = 1 ]
     Set Variable [ $delete ]
@@ -2283,7 +2848,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    defaultSectionMenu
+    defaultSectionMenu (update)
 
 Layouts used in this script
 
@@ -2322,14 +2887,13 @@ Custom menu set used by this script
 testScreens
 
 setup
-	Parent Folder: [setup]	Next Script: [gotoTechView]
-Script Name	gotoSetupTest
+	Parent Folder: [setup]	Next Script: [gotoTechView (new?)]
+Script Name	gotoSetupTest (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultTest
-    defaultTestNewFocus
     learnTest
     learnSTest
     testMenuTestItem
@@ -2340,6 +2904,8 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    Select Window [ Name: "Tag Menus"; Current file ]
     #
     #Capture record ID so system can return user
     #after editing is complete.
@@ -2355,15 +2921,22 @@ Script Steps
     #after editing is complete.
     Set Variable [ $$module; Value:Get (LayoutName) ]
     #
-    #Go to detail tag menu so load item record script
+    #Go to section tag menu so section script
     #below will work properly.
-    Go to Layout [ “setupTestItem” (tagMenus) ]
+    Go to Layout [ “setupTestFocus” (tagLocation) ]
     #
-    #Set the citation match variable to detail as that
-    #is the layout the system goes to and that variable
-    #is needed by the add script if the user should
-    #click on the add button.
-    Set Variable [ $$citationMatch; Value:"testItem" ]
+    #Find all test focuses for this test.
+    #New tests will not have any foci so
+    #error capture needs to be turned on.
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    View As [ View as List ]
+    Enter Find Mode [ ]
+    Set Field [ tagLocation::ksection; TEMP::ksection ]
+    Set Field [ tagLocation::match; "focus" ]
+    Perform Find [ ]
+    Sort Records [ Specified Sort Order: tagLocation::tag; ascending ] [ Restore; No dialog ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     #
     #Capture record ID so system can return user
     #after editing is complete.
@@ -2394,7 +2967,7 @@ Script Steps
     Perform Find [ ]
     #
     #If no test exist, then make sure Tag Menus
-    #also shows no items.
+    #also shows no section templates.
     If [ Get (LastError) = 401 ]
     Select Window [ Name: "Tag Menus"; Current file ]
     Perform Find [ Specified Find Requests: Find Records; Criteria: tagMenus::_Ltag: “"findNOrecords"” ] [ Restore ]
@@ -2424,7 +2997,6 @@ Script Steps
     #user the Tag Menus window as they probably
     #want to add a new tag.
     If [ $$module = "testMenuTestItem" or $$module = "reportTagItem" ]
-    // If [ $$module = "reportTagItem" ]
     Set Variable [ $$ID; Value:"ignore" ]
     Go to Record/Request/Page [ First ]
     Loop
@@ -2433,7 +3005,6 @@ Script Steps
     End Loop
     Set Variable [ $$ID ]
     Perform Script [ “loadSetupTestRecord” ]
-    // End If
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Record/Request/Page [ $$recordNumber ] [ No dialog ]
     End If
@@ -2442,12 +3013,15 @@ Fields used in this script
 
     TEMP::ktest
     TEMP::ktestItemList
+    TEMP::ksection
+    tagLocation::ksection
+    tagLocation::match
+    tagLocation::tag
     testlearn::_Ltestlearn
     groupTest::order
     groupTest::name
     test::order
     test::testName
-    TEMP::ksection
     test::ksection
     tagMenus::_Ltag
     tempSetup::ktest
@@ -2455,16 +3029,18 @@ Fields used in this script
 
 Scripts used in this script
 
+    insureEqualityOfSpellFields (update)
     loadSetupTestRecord
 
 Layouts used in this script
 
-    setupTestItem
+    setupTestFocus
     testSetup
 
 Tables used in this script
 
     TEMP
+    tag
     tag
     tagGroup
     test
@@ -2474,6 +3050,7 @@ Table occurrences used by this script
 
     TEMP
     groupTest
+    tagLocation
     tagMenus
     tempSetup
     test
@@ -2484,8 +3061,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoSetupTest]	Parent Folder: [setup]	Next Script: [loadSetupTestRecord]
-Script Name	gotoTechView
+Previous Script: [gotoSetupTest (update)]	Parent Folder: [setup]	Next Script: [gotoURLorEditURL (update)]
+Script Name	gotoTechView (new?)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -2532,7 +3109,58 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoTechView]	Parent Folder: [setup]	Next Script: [loadSetupTestItemRecord (new)]
+Previous Script: [gotoTechView (new?)]	Parent Folder: [setup]	Next Script: [loadSetupTestRecord]
+Script Name	gotoURLorEditURL (update)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    If [ sectionAttributionInfo::URLORHealth = "" ]
+    #
+    #
+    Else
+    Show Custom Dialog [ Message: "Go to website " & sectionAttributionInfo::URLORHealth & " or edit website address/URL?"; Buttons: “go”, “edit”, “cancel” ]
+    #
+    If [ Get (LastMessageChoice) = 1 ]
+    Open URL [ sectionAttributionInfo::URLORHealth ] [ No dialog ]
+    Else If [ Get (LastMessageChoice) = 2 ]
+    Go to Field [ sectionAttributionInfo::URLORHealth ]
+    Else
+    Go to Field [ ]
+    End If
+    End If
+
+Fields used in this script
+
+    sectionAttributionInfo::URLORHealth
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    tagGroup
+
+Table occurrences used by this script
+
+    sectionAttributionInfo
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoURLorEditURL (update)]	Parent Folder: [setup]	Next Script: [loadSetupTestItemRecord (new)]
 Script Name	loadSetupTestRecord
 Run script with full access privileges	Off
 Include In Menu	No
@@ -2540,12 +3168,12 @@ Layouts that use this script
 
 Scripts that use this script
 
-    gotoSetupTest
-    deleteTest
+    gotoSetupTest (update)
+    deleteTest (update)
     pagePulldown
     nextPage
     previousPage
-    insureEqualityOfSpellFields
+    insureEqualityOfSpellFields (update)
 
 Script Definition
 Script Steps
@@ -2740,7 +3368,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [loadSetupTestRecord]	Parent Folder: [setup]	Next Script: [newTestGroup]
+Previous Script: [loadSetupTestRecord]	Parent Folder: [setup]	Next Script: [newTestGroup (update)]
 Script Name	loadSetupTestItemRecord (new)
 Run script with full access privileges	Off
 Include In Menu	No
@@ -2780,8 +3408,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [loadSetupTestItemRecord (new)]	Parent Folder: [setup]	Next Script: [newTest]
-Script Name	newTestGroup
+Previous Script: [loadSetupTestItemRecord (new)]	Parent Folder: [setup]	Next Script: [newTest (update)]
+Script Name	newTestGroup (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -2790,7 +3418,7 @@ Layouts that use this script
 
 Scripts that use this script
 
-    newTest
+    newTest (update)
 
 Script Definition
 Script Steps
@@ -2832,8 +3460,8 @@ Script Steps
     #the user back to the former name (as the name
     #field contains the duplicate name which is not
     #allowed).
-    Set Field [ groupTest::name; "general-inquiry_group" & groupTest::_Lgroup ]
-    Set Field [ groupTest::nameSpelling; "general-inquiry_group" & groupTest::_Lgroup ]
+    Set Field [ groupTest::name; "subsection_group" & groupTest::_Lgroup ]
+    Set Field [ groupTest::nameSpelling; "subsection_group" & groupTest::_Lgroup ]
     Set Variable [ $group; Value:groupTest::_Lgroup ]
     #
     #Create new general inquiry for this group.
@@ -2860,8 +3488,8 @@ Script Steps
     #confuse the user either, but I am including steps to
     #require a unique name so when locked name can
     #be revereted back to orignal name.
-    Set Field [ test::testName; "general_inquiry" & test::_Ltest ]
-    Set Field [ test::testNameRevert; "general_inquiry" & test::_Ltest ]
+    Set Field [ test::testName; "test-subsection_template" & test::_Ltest ]
+    Set Field [ test::testNameRevert; "test-subsection_template" & test::_Ltest ]
     Set Field [ test::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     #
     #
@@ -2899,15 +3527,16 @@ Script Steps
     #
     #Assign focus to test item as each test must have
     #at least one focus.
-    Perform Script [ “editSectionFocuses” ]
+    Perform Script [ “editSectionFocuses (update)” ]
     If [ Get (FoundCount) = 0 ]
+    Set Variable [ $layout ]
     Go to Layout [ “setupTestFocus” (tagLocation) ]
     New Record/Request
     Set Field [ tagLocation::ksection; TEMP::ksection ]
     Set Field [ tagLocation::match; "focus" ]
-    Set Field [ tagLocation::tag; "test_section" & tagLocation::_Ltag ]
-    Set Field [ tagLocation::tagSpelling; "test_section" & tagLocation::_Ltag ]
-    Perform Script [ “editSectionFocuses” ]
+    Set Field [ tagLocation::tag; "test-section_template" ]
+    Set Field [ tagLocation::tagSpelling; "test-section_template" ]
+    Perform Script [ “editSectionFocuses (update)” ]
     End If
     Go to Record/Request/Page [ First ]
     Perform Script [ “linkTestFocusOrUnlinkTestFocus” ]
@@ -2916,7 +3545,7 @@ Script Steps
     // #one test item.
     // Set Variable [ $$stopLoadTagRecord; Value:1 ]
     // Perform Script [ “menuTestItem” ]
-    // Perform Script [ “newTestItemGroup” ]
+    // Perform Script [ “newTestItemGroup (update)” ]
     // Set Field [ tagMenus::tag; "test item" ]
     // Go to Field [ ]
     #
@@ -2963,7 +3592,6 @@ Fields used in this script
     test::kcfocusALL
     tagLocation::ksection
     tagLocation::match
-    tagLocation::_Ltag
     tagLocation::tag
     tagLocation::tagSpelling
     tagMenus::tag
@@ -2973,10 +3601,10 @@ Fields used in this script
 
 Scripts used in this script
 
-    editSectionFocuses
+    editSectionFocuses (update)
     linkTestFocusOrUnlinkTestFocus
     menuTestItem
-    newTestItemGroup
+    newTestItemGroup (update)
 
 Layouts used in this script
 
@@ -3006,8 +3634,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [newTestGroup]	Parent Folder: [setup]	Next Script: [deleteTest]
-Script Name	newTest
+Previous Script: [newTestGroup (update)]	Parent Folder: [setup]	Next Script: [deleteTest (update)]
+Script Name	newTest (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -3033,7 +3661,7 @@ Script Steps
     #group first and then a test for that group.
     #All tests belong to a test groups.
     If [ Get (FoundCount) = 0 ]
-    Perform Script [ “newTestGroup” ]
+    Perform Script [ “newTestGroup (update)” ]
     Exit Script [ ]
     End If
     #
@@ -3073,8 +3701,8 @@ Script Steps
     #confuse the user either, but I am including steps to
     #require a unique name so when locked name can
     #be revereted back to orignal name.
-    Set Field [ test::testName; "general_inquiry" & test::_Ltest ]
-    Set Field [ test::testNameRevert; "general_inquiry" & test::_Ltest ]
+    Set Field [ test::testName; "test-subsection_template" & test::_Ltest ]
+    Set Field [ test::testNameRevert; "test-subsection_template" & test::_Ltest ]
     Set Field [ test::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     #
     #
@@ -3112,7 +3740,17 @@ Script Steps
     #
     #Assign focus to test item as each test must have
     #at least one focus.
-    Perform Script [ “editSectionFocuses” ]
+    Perform Script [ “editSectionFocuses (update)” ]
+    If [ Get (FoundCount) = 0 ]
+    Set Variable [ $layout ]
+    Go to Layout [ “setupTestFocus” (tagLocation) ]
+    New Record/Request
+    Set Field [ tagLocation::ksection; TEMP::ksection ]
+    Set Field [ tagLocation::match; "focus" ]
+    Set Field [ tagLocation::tag; "test-section_template" ]
+    Set Field [ tagLocation::tagSpelling; "test-section_template" ]
+    Perform Script [ “editSectionFocuses (update)” ]
+    End If
     Go to Record/Request/Page [ First ]
     Perform Script [ “linkTestFocusOrUnlinkTestFocus” ]
     #
@@ -3120,7 +3758,7 @@ Script Steps
     // #one test item.
     // Set Variable [ $$stopLoadTagRecord; Value:1 ]
     // Perform Script [ “menuTestItem” ]
-    // Perform Script [ “newTestItemGroup” ]
+    // Perform Script [ “newTestItemGroup (update)” ]
     // Set Field [ tagMenus::tag; "test item" ]
     // Go to Field [ ]
     #
@@ -3159,6 +3797,10 @@ Fields used in this script
     TEMP::ktest
     TEMP::testName
     test::kcfocusALL
+    tagLocation::ksection
+    tagLocation::match
+    tagLocation::tag
+    tagLocation::tagSpelling
     tagMenus::tag
     ruleSection::name
     groupTest::order
@@ -3167,11 +3809,11 @@ Fields used in this script
 
 Scripts used in this script
 
-    newTestGroup
-    editSectionFocuses
+    newTestGroup (update)
+    editSectionFocuses (update)
     linkTestFocusOrUnlinkTestFocus
     menuTestItem
-    newTestItemGroup
+    newTestItemGroup (update)
 
 Layouts used in this script
 
@@ -3191,6 +3833,7 @@ Table occurrences used by this script
     TEMP
     groupTest
     ruleSection
+    tagLocation
     tagMenus
     test
 
@@ -3199,8 +3842,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [newTest]	Parent Folder: [setup]	Next Script: [deleteTestItem]
-Script Name	deleteTest
+Previous Script: [newTest (update)]	Parent Folder: [setup]	Next Script: [deleteTestItem (update: fix sort to show groups)]
+Script Name	deleteTest (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -3477,37 +4120,37 @@ Script Steps
     Delete Record/Request [ No dialog ]
     Close Window [ Current Window ]
     #
-    #If this was the last test and there are no more
-    #tests, then the test focuses and attributes for
-    #this test section will also be deleted (as
-    #without any tests there is no need for a test
-    #focus or attribute).
-    If [ Get (FoundCount) = 0 ]
-    #
-    Set Field [ TEMP::ktestListtTestName; "" ]
-    Set Field [ TEMP::ktestItemListOLD; "" ]
-    Set Field [ TEMP::ktestItemList; "" ]
-    Set Field [ TEMP::kcfocuses; "" ]
-    Set Field [ TEMP::kfocus; "" ]
-    Set Field [ TEMP::ktest; "" ]
-    #
-    New Window [ ]
-    #
-    Go to Layout [ “setupTestFocus” (tagLocation) ]
-    Enter Find Mode [ ]
-    Set Field [ tagLocation::ksection; TEMP::ksection ]
-    Set Field [ tagLocation::match; "focus" ]
-    Perform Find [ ]
-    Delete All Records [ No dialog ]
-    #
-    Enter Find Mode [ ]
-    Set Field [ tagLocation::ksection; TEMP::ksection ]
-    Set Field [ tagLocation::match; "attribute" ]
-    Perform Find [ ]
-    Delete All Records
-    #
-    Close Window [ Current Window ]
-    End If
+    // #If this was the last test and there are no more
+    // #tests, then the test focuses and attributes for
+    // #this test section will also be deleted (as
+    // #without any tests there is no need for a test
+    // #focus or attribute).
+    // If [ Get (FoundCount) = 0 ]
+    // #
+    // Set Field [ TEMP::ktestListtTestName; "" ]
+    // Set Field [ TEMP::ktestItemListOLD; "" ]
+    // Set Field [ TEMP::ktestItemList; "" ]
+    // Set Field [ TEMP::kcfocuses; "" ]
+    // Set Field [ TEMP::kfocus; "" ]
+    // Set Field [ TEMP::ktest; "" ]
+    // #
+    // New Window [ ]
+    // #
+    // Go to Layout [ “setupTestFocus” (tagLocation) ]
+    // Enter Find Mode [ ]
+    // Set Field [ tagLocation::ksection; TEMP::ksection ]
+    // Set Field [ tagLocation::match; "focus" ]
+    // Perform Find [ ]
+    // Delete All Records [ No dialog ]
+    // #
+    // Enter Find Mode [ ]
+    // Set Field [ tagLocation::ksection; TEMP::ksection ]
+    // Set Field [ tagLocation::match; "attribute" ]
+    // Perform Find [ ]
+    // Delete All Records
+    // #
+    // Close Window [ Current Window ]
+    // End If
     #
     #Load current test's information.
     Set Variable [ $$stopLoadTestRecord ]
@@ -3593,8 +4236,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteTest]	Parent Folder: [setup]	Next Script: [newTestItem]
-Script Name	deleteTestItem
+Previous Script: [deleteTest (update)]	Parent Folder: [setup]	Next Script: [newTestItem (update)]
+Script Name	deleteTestItem (update: fix sort to show groups)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -3801,9 +4444,10 @@ Script Steps
     #
     #The records are sorted by category to show
     #the user which category is going to be deleted.
-    If [ TEMP::sortTestItem ≠ "cat" ]
-    Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order” ruleTagMenuGroups::name; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
-    End If
+    // If [ TEMP::sortTestItem ≠ "cat" ]
+    // Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order” ruleTagMenuGroups::name; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order” ruleTagMenuTestGroups::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    // End If
     #
     #Show user warning message dependening on
     #whether or not this group is part of other test's
@@ -3853,6 +4497,7 @@ Fields used in this script
     ruleTagMenuGroups::order
     ruleTagMenuGroups::name
     tagMenus::orderOrLock
+    ruleTagMenuTestGroups::order
     ruleTagMenuTestGroups::match
     groupTest::_Lgroup
 
@@ -3894,8 +4539,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteTestItem]	Parent Folder: [setup]	Next Script: [moveTestItemToNewTestGroupStep1]
-Script Name	newTestItem
+Previous Script: [deleteTestItem (update: fix sort to show groups)]	Parent Folder: [setup]	Next Script: [moveTestItemToNewTestGroupStep1 (update)]
+Script Name	newTestItem (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -3924,15 +4569,14 @@ Script Steps
     #
     #If node is currenlty locked then stop script, inform user.
     If [ TEMP::nodeLock ≠ "" ]
-    Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked. Select this node in the setup tag window and enter the password to unlock it so that you can create new records attributed to it."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked. Select this node and enter the password to unlock it so that you can create new records attributed to it."; Buttons: “OK” ]
     Exit Script [ ]
     End If
     #
-    #If there are no general test inquires, then
-    #stop this script as there are no general inquires
-    # to create specific inquires for.
+    #Stop this script if there are no subsections
+    #for which to create test items.
     If [ TEMP::ktest = "" ]
-    Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "All test items must belong to (be linked to) at least one test subsection. Create one now, and then you can create new test items and test-item groups for it."; Buttons: “OK” ]
     Exit Script [ ]
     End If
     #
@@ -3942,7 +4586,7 @@ Script Steps
     #tests. This allows test item groups to be added
     #to other test's test-item lists.
     If [ Get (FoundCount) = 0 ]
-    Perform Script [ “newTestItemGroup” ]
+    Perform Script [ “newTestItemGroup (update)” ]
     Exit Script [ ]
     End If
     #
@@ -3951,8 +4595,8 @@ Script Steps
     Set Field [ tagMenus::match; "testItem" ]
     Set Field [ tagMenus::kGroupOrTest; GetNthRecord ( tagMenus::kGroupOrTest ; Get (RecordNumber) - 1 ) ]
     Set Field [ tagMenus::ksection; TEMP::ksection ]
-    Set Field [ tagMenus::tag; "specific_inquiry" & tagMenus::_Ltag ]
-    Set Field [ tagMenus::tagSpelling; "specific_inquiry" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::tag; "test-item" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::tagSpelling; "test-item" & tagMenus::_Ltag ]
     Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     Go to Field [ ]
     Go to Field [ tagMenus::tag ] [ Select/perform ]
@@ -3974,7 +4618,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    newTestItemGroup
+    newTestItemGroup (update)
 
 Layouts used in this script
 
@@ -3993,8 +4637,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [newTestItem]	Parent Folder: [setup]	Next Script: [newTestItemGroup]
-Script Name	moveTestItemToNewTestGroupStep1
+Previous Script: [newTestItem (update)]	Parent Folder: [setup]	Next Script: [newTestItemGroup (update)]
+Script Name	moveTestItemToNewTestGroupStep1 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -4016,6 +4660,11 @@ Script Steps
     #everywhere followed by testing for each
     #update is required.
     #
+    #If there is only one group, exit script.
+    If [ ValueCount ( ValueListItems ( Get ( FileName ) ; "testGroup" ) ) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
     #
     #If node is currenlty locked then stop script, inform user.
     If [ nodeLockTest::orderOrLock ≠ "" ]
@@ -4053,8 +4702,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [moveTestItemToNewTestGroupStep1]	Parent Folder: [setup]	Next Script: [testNameToRevertNamField]
-Script Name	newTestItemGroup
+Previous Script: [moveTestItemToNewTestGroupStep1 (update)]	Parent Folder: [setup]	Next Script: [testNameToRevertNamField]
+Script Name	newTestItemGroup (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -4066,9 +4715,9 @@ Layouts that use this script
 
 Scripts that use this script
 
-    newTestGroup
-    newTest
-    newTestItem
+    newTestGroup (update)
+    newTest (update)
+    newTestItem (update)
 
 Script Definition
 Script Steps
@@ -4087,7 +4736,7 @@ Script Steps
     #
     #If node is currenlty locked then stop script, inform user.
     If [ TEMP::nodeLock ≠ "" ]
-    Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked. Select this node in the setuptag window and enter the password to unlock it so that you can create new records attributed to it."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked. Select this node and and enter the password to unlock it so that you can create new records attributed to it."; Buttons: “OK” ]
     Exit Script [ ]
     End If
     #
@@ -4095,7 +4744,7 @@ Script Steps
     #stop this script as there are no general inquires
     # to create specific inquires for.
     If [ TEMP::ktest = "" ]
-    Show Custom Dialog [ Message: "To create a specific inquiry there must be general test inquiry to assign it to."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "All test items must belong to (be linked to) at least one test subsection. Create one now, and then you can create new test items and test-item groups for it."; Buttons: “OK” ]
     Exit Script [ ]
     End If
     #
@@ -4106,15 +4755,15 @@ Script Steps
     #
     #BEGIN !!!!!!!!!!!!!!!!!!!!!!!!!!!
     #READ CAREFULLY!!! nameSpelling field used differently!!!
-    #Each general-test-inquiry group must have a unique name and
+    #Each test-item group must have a unique name and
     #the defaultSectionInfo field is used when the user
     #changes the name to a name already in use at
     #which point the defaultSectionInfo name can revert
     #the user back to the former name (as the name
     #field contains the duplicate name which is not
     #allowed).
-    Set Field [ groupTest::name; "specific-inquiry_group" & groupTest::_Lgroup ]
-    Set Field [ groupTest::defaultSectionInfo; "specific-inquiry_group" & groupTest::_Lgroup ]
+    Set Field [ groupTest::name; "test-item_group" & groupTest::_Lgroup ]
+    Set Field [ groupTest::defaultSectionInfo; "test-item_group" & groupTest::_Lgroup ]
     Set Field [ groupTest::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     Set Variable [ $group; Value:groupTest::_Lgroup ]
     #
@@ -4130,15 +4779,15 @@ Script Steps
     Set Field [ groupTest::nameSpelling; "testItemGroup" ]
     #END !!!!!!!!!!!!!!!!!!!!!!!!!!!
     #
-    #Create a general inquiry for this goup as all groups must
+    #Create a test item for this goup as all groups must
     #have at least one item. Item layout is sorted by
     #by group and then item and groups are only
     #shown as subheaders. So without an item
     #even if a group it existed it would not show up.
     Go to Layout [ original layout ]
     New Record/Request
-    Set Field [ tagMenus::tag; "specific_inquiry" & tagMenus::_Ltag ]
-    Set Field [ tagMenus::tagSpelling; "specific_inquiry" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::tag; "test-item" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::tagSpelling; "test-item" & tagMenus::_Ltag ]
     Set Field [ tagMenus::match; "testItem" ]
     Set Field [ tagMenus::kGroupOrTest; $group ]
     Set Field [ tagMenus::ksection; TEMP::ksection ]
@@ -4203,7 +4852,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [newTestItemGroup]	Parent Folder: [setup]	Next Script: [moveTestItemToNewTestGroupStep2]
+Previous Script: [newTestItemGroup (update)]	Parent Folder: [setup]	Next Script: [moveTestItemToNewTestGroupStep2]
 Script Name	testNameToRevertNamField
 Run script with full access privileges	Off
 Include In Menu	No
@@ -4246,7 +4895,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [testNameToRevertNamField]	Parent Folder: [setup]	Next Script: [(un)linkTestItemGroupToTestItemList]
+Previous Script: [testNameToRevertNamField]	Parent Folder: [setup]	Next Script: [(un)linkTestItemGroupToTestItemList (update)]
 Script Name	moveTestItemToNewTestGroupStep2
 Run script with full access privileges	Off
 Include In Menu	No
@@ -4365,7 +5014,7 @@ Custom menu set used by this script
 
 
 Previous Script: [moveTestItemToNewTestGroupStep2]	Parent Folder: [setup]
-Script Name	(un)linkTestItemGroupToTestItemList
+Script Name	(un)linkTestItemGroupToTestItemList (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -4555,6 +5204,8 @@ Script Steps
     Close Window [ Current Window ]
     Go to Field [ ]
     Show Custom Dialog [ Message: "This group cannot be unlinked because it is only linked to this test-item list and unlinking it would orphan it. Option 1: delete all items in group to remove it. Option 2: link it to another test and then unlink it from this test."; Buttons: “OK” ]
+    Set Variable [ $groupHighlight ]
+    Refresh Window
     Exit Script [ ]
     Else If [ ValueCount ( groupTest::match ) ≠ 1 ]
     Set Field [ groupTest::match; Substitute ( $match ; TEMP::ktestItemList & "¶" ; "" ) ]
@@ -4773,7 +5424,7 @@ Layouts that use this script
 Scripts that use this script
 
     inUsePart3
-    gotoDefaultsOrReport
+    gotoDefaultsOrReport (update)
     reportTagInfo
     reportClearDiscoveryLink
 
@@ -4853,8 +5504,8 @@ Scripts that use this script
 
     newTestRecord
     gotoTestItem
-    delete_Evidence
-    gotoDefaultsOrReport
+    delete_Evidence (update)
+    gotoDefaultsOrReport (update)
 
 Script Definition
 Script Steps
@@ -4920,7 +5571,7 @@ Layouts that use this script
 Scripts that use this script
 
     gotoTestItem
-    gotoDefaultsOrReport
+    gotoDefaultsOrReport (update)
 
 Script Definition
 Script Steps
@@ -5166,8 +5817,8 @@ Layouts that use this script
 
 Scripts that use this script
 
-    newTestGroup
-    newTest
+    newTestGroup (update)
+    newTest (update)
 
 Script Definition
 Script Steps
@@ -5364,7 +6015,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [linkTestFocusOrUnlinkTestFocus]	Parent Folder: [test]	Next Script: [step2_OpenInspectionItemsTEST]
+Previous Script: [linkTestFocusOrUnlinkTestFocus]	Parent Folder: [test]	Next Script: [step2_OpenInspectionItemsTEST (update)]
 Script Name	gotoTestItem
 Run script with full access privileges	Off
 Include In Menu	No
@@ -5513,13 +6164,12 @@ Custom menu set used by this script
 
 
 Previous Script: [gotoTestItem]	Parent Folder: [test]	Next Script: [loadItemRecord]
-Script Name	step2_OpenInspectionItemsTEST
+Script Name	step2_OpenInspectionItemsTEST (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -5561,29 +6211,33 @@ Script Steps
     Set Variable [ $$location; Value:tagTestSubjectLocation::_LtestSubjectLocation ]
     Set Variable [ $$itemLocation; Value:tagTestSubjectLocation::kfocus ]
     #
-    #Goto no tag layout in Tag Menus as this next
-    #main screen is for selection only. It does not
-    #show any records that the user might want to
-    #tag. I thought about closing the Tag Menus
+    #Goto no tag layout in Tag Menus as the test
+    #selection screen does not show any records
+    #that the user might want to tag.
+    #
+    #I thought about closing the Tag Menus
     #window, but in testing it was odd, and so better
     #just to keep the window open and show no tags
     #but do change its layout to the look and feel
     #of the layouts the user will see in test mode
     #in the Tag Menus window.
+    Select Window [ Name: "Tag Menus"; Current file ]
     Go to Layout [ “testMenuNoTag” (TEMP) ]
-    Select Window [ Name: "Setup"; Current file ]
     #
+    #Return to main window to complete script.
+    Select Window [ Name: "Setup"; Current file ]
     Set Field [ TEMP::testerAndsubject; //tagDefaultNodePrimary::tag & " testing " & ¶ & $testsubjectName & "'s"& ¶ & tempSetup::sectionName //$testsubjectName & ¶ & $$locationName & ¶ & tempSetup::sectionName //tempSetup::sectionName & " | " & $testsubjectName tempSetup::sectionName & " | " & tagDefaultTestSubject::tag ]
     Set Window Title [ Current Window; New Title: "Test" ]
     Go to Layout [ “step3_InspectionItems” (InspectItems) ]
     Enter Find Mode [ ]
     #
-    #now find and show all canned inspection items associated with this generic canned location
+    #Now find and show all canned inspection
+    #test-subsections that are part of this test section.
     Set Field [ InspectItems::kcfocusALL; $$itemLocation ]
     Perform Find [ ]
     If [ Get ( FoundCount ) = 0 ]
     Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
-    Perform Script [ “returnToStep2” ]
+    Perform Script [ “returnToStep2 (update)” ]
     Show Custom Dialog [ Message: "No general inquires have been added to this test section. To add some, 1) click the 'setup' button, 2) in the Tag Menus window, click on 'test section', and then 3) add some inquires."; Buttons: “OK” ]
     Exit Script [ ]
     End If
@@ -5636,7 +6290,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    returnToStep2
+    returnToStep2 (update)
 
 Layouts used in this script
 
@@ -5668,7 +6322,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [step2_OpenInspectionItemsTEST]	Parent Folder: [test]	Next Script: [step3_OpenOneItemJustLook]
+Previous Script: [step2_OpenInspectionItemsTEST (update)]	Parent Folder: [test]	Next Script: [step3_OpenOneItemJustLook]
 Script Name	loadItemRecord
 Run script with full access privileges	Off
 Include In Menu	No
@@ -5836,7 +6490,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [returnToStep3]	Parent Folder: [test]	Next Script: [delete_Evidence]
+Previous Script: [returnToStep3]	Parent Folder: [test]	Next Script: [delete_Evidence (update)]
 Script Name	done
 Run script with full access privileges	Off
 Include In Menu	No
@@ -5912,7 +6566,7 @@ Custom menu set used by this script
 
 
 Previous Script: [done]	Parent Folder: [test]	Next Script: [OKonInpsection]
-Script Name	delete_Evidence
+Script Name	delete_Evidence (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -5969,6 +6623,8 @@ Script Steps
     #
     #Mark the section template as no longer in use.
     #First, see if there are any N/A, or OK records.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
     Go to Layout [ “discoveries” (testlearn) ]
     Enter Find Mode [ ]
     Set Field [ testlearn::kaudienceLocation; $TempLocation ]
@@ -6163,7 +6819,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [delete_Evidence]	Parent Folder: [test]	Next Script: [OKonReport]
+Previous Script: [delete_Evidence (update)]	Parent Folder: [test]	Next Script: [OKonReport]
 Script Name	OKonInpsection
 Run script with full access privileges	Off
 Include In Menu	No
@@ -6730,7 +7386,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [exitAndOrderEvidence]	Parent Folder: [test]	Next Script: [reportDeleteEvidence]
+Previous Script: [exitAndOrderEvidence]	Parent Folder: [test]	Next Script: [reportDeleteEvidence (update)]
 Script Name	reportNewEvidence
 Run script with full access privileges	Off
 Include In Menu	No
@@ -6879,7 +7535,7 @@ Custom menu set used by this script
 
 
 Previous Script: [reportNewEvidence]	Parent Folder: [test]	Next Script: [reportSelectLocation]
-Script Name	reportDeleteEvidence
+Script Name	reportDeleteEvidence (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -6911,44 +7567,28 @@ Script Steps
     Set Variable [ $TempContact; Value:testlearnReportTags::ktestSubject ]
     Go to Field [ ]
     Refresh Window
+    #
+    #
     If [ testlearnReportTags::ktestSubject + testlearnReportTags::kreportNumber = $$contact + $$reportNumber ]
     Show Custom Dialog [ Title: "!"; Message: "Delete evidence number " & testlearnReportTags::_Number & " ?"; Buttons: “Cancel”, “Delete” ]
-    #THIS IS DISABLED AND SHOULD EVENTUALLY
-    #BE DELETED AFTER TESTING. THERE USE TO BE
-    #A FAVORITE FIELD THAT HAS BEEN REMOVED.
-    #SEE EARLIER VERSIONS FOR HOW THIS FUNCTIONED.
-    #IN SHORT, IT DID WHAT MAKE INFO BUTTON
-    #NOW DOES.
-    // Else If [ testlearnReportTags::ktestSubject + testlearnReportTags::kreportNumber ≠ $$contact + $$reportNumber ]
-    // Show Custom Dialog [ Title: "!"; Message: "Delete evidence number " & testlearnReportTags::_Number & " ? NOTE: THIS EVIDENCE IS A FAVORITE BELONGING A DIFFERENT REPORT."; Buttons: “Cancel”, “Delete” ]
     End If
+    #
+    #
     If [ Get ( LastMessageChoice ) = 2 ]
-    #user may be showing favorites, so first make sure
-    #only this reports records are showing in case this is
-    #the last record for this item in which case the report
-    #page for this item also needs to be deleted.
-    If [ testlearnReportTags::ktestSubject + testlearnReportTags::kreportNumber = $$contact + $$reportNumber ]
-    Go to Layout [ “discoveries” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktest; $$item ]
-    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
-    Set Field [ testlearn::ktestSubject; $TempContact ]
-    Perform Find [ ]
-    End If
-    Go to Record/Request/Page [ Last ]
-    If [ Get (RecordNumber) = 1 ]
-    #switch back to this layout to preserve found record
-    #set in case more than one record was found
-    Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
+    #
+    #
+    #
+    If [ Get ( FoundCount ) = 1 ]
     Show Custom Dialog [ Title: "!"; Message: "Deleting this last piece of evidence will delete this page of the report too, do you wish to proceed? If you wish to keep this report page then add new evidence before deleting this evidence."; Buttons: “Cancel”, “Delete” ]
     If [ Get ( LastMessageChoice ) = 2 ]
-    Go to Layout [ “discoveries” (testlearn) ]
     Delete Record/Request [ No dialog ]
     Else If [ Get ( LastMessageChoice ) = 1 ]
     Set Variable [ $delete ]
     Refresh Window
     Exit Script [ ]
     End If
+    #If there is only one test result then delete the
+    #report page to which it belongs.
     Go to Layout [ “PrintReportEdit” (report) ]
     Enter Find Mode [ ]
     Set Field [ report::ktestSubject; $TempContact ]
@@ -6958,12 +7598,14 @@ Script Steps
     Perform Find [ ]
     Delete All Records [ No dialog ]
     Set Variable [ $delete ]
-    #Unlock Item Location IF this was the last item
+    #See if this was the only test result in this section.
     Go to Layout [ “discoveries” (testlearn) ]
     Enter Find Mode [ ]
     Set Field [ testlearn::kaudienceLocation; $TempLocation ]
     Set Field [ testlearn::kreportNumber; $TempReportNumber ]
     Perform Find [ ]
+    #Unlock test section IF this deleted result was
+    #the only test result in this test section.
     If [ Get ( LastError ) = 401 ]
     Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
     Enter Find Mode [ ]
@@ -6971,22 +7613,36 @@ Script Steps
     Set Field [ tagTestSubjectLocation::reportNumber; $TempReportNumber ]
     Perform Find [ ]
     Set Field [ tagTestSubjectLocation::inUse; "" ]
-    #refind all location records for current library report number
+    #refind all test section records for current library report number
     Enter Find Mode [ ]
     Set Field [ tagTestSubjectLocation::knode; $TempContact ]
     Set Field [ tagTestSubjectLocation::reportNumber; $$reportNumber ]
     Set Field [ tagTestSubjectLocation::ksection; $$Library ]
     Perform Find [ ]
     Go to Layout [ “step3_InspectionItems” (InspectItems) ]
+    #Set this test section as pending testing.
     If [ InspectItems::kgaudienceLocation = $TempLocation ]
     Set Field [ InspectItems::gprogressGlobal; "status: pending" ]
     End If
     End If
-    Close Window [ Name: "Report"; Current file ]
-    Close Window [ Name: "Recommendations"; Current file ]
-    Perform Script [ “editReport” ]
+    #See if there are any other test sections in this
+    #report with results.
+    Select Window [ Name: "Report"; Current file ]
+    If [ ValueListItems ( Get ( FileName ) ; "reportTest" ) = "" ]
+    #If none, then return to main test layout.
+    Perform Script [ “returnToStep2 (update)” ]
+    Exit Script [ ]
+    Else
+    #If there are results in other sections then go
+    #to the first one of those sections.
+    Set Variable [ $$goToFirstReportPage; Value:GetValue ( ValueListItems ( Get ( FileName ) ; "reportTest" ) ; 1 ) ]
+    Perform Script [ “CHUNK_gotoItemViaPulldown (update)” ]
     Exit Script [ ]
     End If
+    End If
+    #
+    #
+    #
     #switch back to this layout so don't have reassign
     #fields for inspection layout. (script was written for
     #findings layout)
@@ -6994,31 +7650,6 @@ Script Steps
     Go to Record/Request/Page [ $record ] [ No dialog ]
     Delete Record/Request [ No dialog ]
     Go to Layout [ “discoveries” (testlearn) ]
-    #THIS IS DISABLED AND SHOULD EVENTUALLY
-    #BE DELETED AFTER TESTING. THERE USE TO BE
-    #A FAVORITE FIELD THAT HAS BEEN REMOVED.
-    #SEE EARLIER VERSIONS FOR HOW THIS FUNCTIONED.
-    #IN SHORT, IT DID WHAT MAKE INFO BUTTON
-    #NOW DOES.
-    // #If this is a favorite item and it is the only one then delete the report page created for it.
-    // If [ testlearnReportTags::ktestSubject + testlearnReportTags::kreportNumber ≠ $$contact + $$reportNumber ]
-    // Enter Find Mode [ ]
-    // Set Field [ testlearn::ktest; $$item ]
-    // Set Field [ testlearn::kreportNumber; $TempReportNumber ]
-    // Set Field [ testlearn::ktestSubject; $TempContact ]
-    // Perform Find [ ]
-    // If [ Get (LastError) = 401 ]
-    // Go to Layout [ “PrintReportEdit” (report) ]
-    // Enter Find Mode [ ]
-    // Set Field [ report::ktestSubject; $TempContact ]
-    // Set Field [ report::ktest; $$item ]
-    // Set Field [ report::kreportNumber; $TempReportNumber ]
-    // Set Field [ report::ksection; $$Library ]
-    // Perform Find [ ]
-    // Delete All Records [ No dialog ]
-    // Set Variable [ $delete ]
-    // End If
-    // End If
     #GET ID INFO as is from different location
     #Unlock Item Location
     #zero out findings for item for this contact's location
@@ -7072,25 +7703,6 @@ Script Steps
     Set Field [ testlearn::InspectionItemCount; $number ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
-    #THIS IS DISABLED AND SHOULD EVENTUALLY
-    #BE DELETED AFTER TESTING. THERE USE TO BE
-    #A FAVORITE FIELD THAT HAS BEEN REMOVED.
-    #SEE EARLIER VERSIONS FOR HOW THIS FUNCTIONED.
-    #IN SHORT, IT DID WHAT MAKE INFO BUTTON
-    #NOW DOES.
-    // If [ $TempLocation ≠ $$location ]
-    // Enter Find Mode [ ]
-    // Set Field [ testlearn::ktestSubject; $$contact ]
-    // Set Field [ testlearn::ktest; $$item ]
-    // Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    // Perform Find [ ]
-    // #since this was a favorite record that was deleted, show any favorite records that remain
-    // Enter Find Mode [ ]
-    // Set Field [ testlearn::ktest; $$item ]
-    // Extend Found Set [ ]
-    // Sort Records [ Specified Sort Order: testlearn::kcsection; ascending testlearn::kreportNumber; ascending ] [ Restore; No dialog ]
-    // Go to Record/Request/Page [ Last ]
-    // End If
     End If
     Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
     Set Variable [ $delete ]
@@ -7105,14 +7717,12 @@ Fields used in this script
     testlearnReportTags::kaudienceLocation
     testlearnReportTags::kreportNumber
     testlearnReportTags::ktestSubject
-    testlearn::ktest
-    testlearn::kreportNumber
-    testlearn::ktestSubject
     report::ktestSubject
     report::ktest
     report::kreportNumber
     report::ksection
     testlearn::kaudienceLocation
+    testlearn::kreportNumber
     tagTestSubjectLocation::_LtestSubjectLocation
     tagTestSubjectLocation::reportNumber
     tagTestSubjectLocation::inUse
@@ -7120,21 +7730,23 @@ Fields used in this script
     tagTestSubjectLocation::ksection
     InspectItems::kgaudienceLocation
     InspectItems::gprogressGlobal
+    testlearn::ktest
     testlearn::InspectionItemCountLocation
+    testlearn::ktestSubject
     testlearn::InspectionItemCount
-    testlearn::kcsection
 
 Scripts used in this script
 
-    editReport
+    returnToStep2 (update)
+    CHUNK_gotoItemViaPulldown (update)
 
 Layouts used in this script
 
-    discoveries
-    reportTagDiscovery
     PrintReportEdit
+    discoveries
     tableTestSubjectFocus
     step3_InspectionItems
+    reportTagDiscovery
     step4_InspectionFinding
 
 Tables used in this script
@@ -7142,7 +7754,6 @@ Tables used in this script
     report
     test
     testSubjectFocus
-    testlearn
     testlearn
 
 Table occurrences used by this script
@@ -7158,7 +7769,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [reportDeleteEvidence]	Parent Folder: [test]	Next Script: [returnToStep2]
+Previous Script: [reportDeleteEvidence (update)]	Parent Folder: [test]	Next Script: [returnToStep2 (update)]
 Script Name	reportSelectLocation
 Run script with full access privileges	Off
 Include In Menu	No
@@ -7227,7 +7838,7 @@ Custom menu set used by this script
 
 
 Previous Script: [reportSelectLocation]	Parent Folder: [test]
-Script Name	returnToStep2
+Script Name	returnToStep2 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -7237,8 +7848,9 @@ Layouts that use this script
 
 Scripts that use this script
 
-    step2_OpenInspectionItemsTEST
-    editReport
+    step2_OpenInspectionItemsTEST (update)
+    reportDeleteEvidence (update)
+    editReport (update)
 
 Script Definition
 Script Steps
@@ -7258,7 +7870,7 @@ Script Steps
     End If
     #
     #
-    Go to Layout [ “defaultSetup” (tempSetup) ]
+    Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
     Set Window Title [ Current Window; New Title: "Setup" ]
     #
     #Make sure window to fills half of the screen.
@@ -7273,39 +7885,62 @@ Script Steps
     #Make sure window to fills half of the screen.
     Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
     #
-    Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
-    Perform Script [ “defaultTestLocationMenu” ]
+    Go to Layout [ “defaultSections” (tempSetup) ]
+    Perform Script [ “defaultsAll (new)” ]
     #
+    #Find all created test section records.
+    Select Window [ Name: "Setup"; Current file ]
+    Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    Enter Find Mode [ ]
+    Set Field [ tagTestSubjectLocation::ksection; TEMP::ksection ]
+    Perform Find [ ]
+    #
+    #Sort
+    Sort Records [ Specified Sort Order: tagTestSubject::tag; ascending tagTestSubjectLocation::reportNumber; ascending tagTestSubjectLocation::order; based on value list: “order” tagTestSubjectLocation::focusName; ascending ] [ Restore; No dialog ]
+    #
+    #Go to selected test record.
     Go to Record/Request/Page [ $$TSRecordNumber ] [ No dialog ]
     Set Variable [ $$TSRecordNumber ]
     #
     If [ $InUse = "" and $testInUseCheck = 1 ]
     Set Field [ tagTestSubjectLocation::inUse; "" ]
-    Else If [ $InUse = 1 and $testInUseCheck = 1 ]
+    Else If [ $InUse = 1 and $testInUseCheck = 1 and tagTestSubjectLocation::inUse ≠ "d" ]
     Set Field [ tagTestSubjectLocation::inUse; "t" ]
     End If
 
 Fields used in this script
 
     tlResults::InspectionItemCountLocation
+    TEMP::ksection
+    tagTestSubjectLocation::ksection
+    tagTestSubject::tag
+    tagTestSubjectLocation::reportNumber
+    tagTestSubjectLocation::order
+    tagTestSubjectLocation::focusName
     tagTestSubjectLocation::inUse
 
 Scripts used in this script
 
-    defaultTestLocationMenu
+    defaultsAll (new)
 
 Layouts used in this script
 
-    defaultSetup
     defaultTest
+    defaultSections
 
 Tables used in this script
 
+    TEMP
+    tag
     testSubjectFocus
     testlearn
 
 Table occurrences used by this script
 
+    TEMP
+    tagTestSubject
     tagTestSubjectLocation
     tlResults
 
@@ -7786,7 +8421,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showModifier1]	Parent Folder: [testReport]	Next Script: [showPicture1]
+Previous Script: [showModifier1]	Parent Folder: [testReport]	Next Script: [showPicture1 (update)]
 Script Name	showModifier2
 Run script with full access privileges	Off
 Include In Menu	No
@@ -7853,8 +8488,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showModifier2]	Parent Folder: [testReport]	Next Script: [showPicture2]
-Script Name	showPicture1
+Previous Script: [showModifier2]	Parent Folder: [testReport]	Next Script: [showPicture2 (update)]
+Script Name	showPicture1 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -7869,6 +8504,7 @@ Script Steps
     #
     #Show picture in picture window.
     Set Variable [ $$PictureOnReportLayout; Value:testlearnReportTags::_Ltestlearn ]
+    Set Variable [ $$fileLocation; Value:Case ( testlearnReportTags::Picture ≠ "" ; "TLpicture" ; Case ( refShowMediaReport::picture ≠ "" ; "database" ; refShowMediaReport::kfileLocation ≠ "" and refShowMediaReport::fileName ≠ "" and refShowMediaReport::showMedia = "" ; "harddrive" ; refShowMediaReport::URL ≠ "" and refShowMediaReport::showMedia ≠ "" ; "web" ; "none" ) ) ]
     If [ $$PictureOnReportLayout ≠ "" ]
     Perform Script [ “showCitationPicture1inNewWindow (update)” ]
     End If
@@ -7876,6 +8512,12 @@ Script Steps
 Fields used in this script
 
     testlearnReportTags::_Ltestlearn
+    testlearnReportTags::Picture
+    refShowMediaReport::picture
+    refShowMediaReport::kfileLocation
+    refShowMediaReport::fileName
+    refShowMediaReport::showMedia
+    refShowMediaReport::URL
 
 Scripts used in this script
 
@@ -7885,10 +8527,12 @@ Layouts used in this script
 
 Tables used in this script
 
+    reference
     testlearn
 
 Table occurrences used by this script
 
+    refShowMediaReport
     testlearnReportTags
 
 Custom Functions used by this script
@@ -7896,8 +8540,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showPicture1]	Parent Folder: [testReport]	Next Script: [showPicture3]
-Script Name	showPicture2
+Previous Script: [showPicture1 (update)]	Parent Folder: [testReport]	Next Script: [showPicture3 (update)]
+Script Name	showPicture2 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -7911,14 +8555,21 @@ Script Steps
 
     #
     #Show picture in picture window.
-    Set Variable [ $$PictureOnReportLayout; Value:testlearn2::_Ltestlearn ]
+    Set Variable [ $$PictureOnReportLayout; Value:testlearnReportTags 2::_Ltestlearn ]
+    Set Variable [ $$fileLocation; Value:Case ( testlearnReportTags 2::Picture ≠ "" ; "TLpicture" ; Case ( refShowMediaReport 2::picture ≠ "" ; "database" ; refShowMediaReport 2::kfileLocation ≠ "" and refShowMediaReport 2::fileName ≠ "" and refShowMediaReport 2::showMedia = "" ; "harddrive" ; refShowMediaReport 2::URL ≠ "" and refShowMediaReport 2::showMedia ≠ "" ; "web" ; "none" ) ) ]
     If [ $$PictureOnReportLayout ≠ "" ]
     Perform Script [ “showCitationPicture1inNewWindow (update)” ]
     End If
 
 Fields used in this script
 
-    testlearn2::_Ltestlearn
+    testlearnReportTags 2::_Ltestlearn
+    testlearnReportTags 2::Picture
+    refShowMediaReport 2::picture
+    refShowMediaReport 2::kfileLocation
+    refShowMediaReport 2::fileName
+    refShowMediaReport 2::showMedia
+    refShowMediaReport 2::URL
 
 Scripts used in this script
 
@@ -7928,19 +8579,21 @@ Layouts used in this script
 
 Tables used in this script
 
+    reference
     testlearn
 
 Table occurrences used by this script
 
-    testlearn2
+    refShowMediaReport 2
+    testlearnReportTags 2
 
 Custom Functions used by this script
 
 Custom menu set used by this script
 
 
-Previous Script: [showPicture2]	Parent Folder: [testReport]	Next Script: [showPicture4]
-Script Name	showPicture3
+Previous Script: [showPicture2 (update)]	Parent Folder: [testReport]	Next Script: [showPicture4 (update)]
+Script Name	showPicture3 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -7954,14 +8607,21 @@ Script Steps
 
     #
     #Show picture in picture window.
-    Set Variable [ $$PictureOnReportLayout; Value:testlearn3::_Ltestlearn ]
+    Set Variable [ $$PictureOnReportLayout; Value:testlearnReportTags 3::_Ltestlearn ]
+    Set Variable [ $$fileLocation; Value:Case ( testlearnReportTags 3::Picture ≠ "" ; "TLpicture" ; Case ( refShowMediaReport 3::picture ≠ "" ; "database" ; refShowMediaReport 3::kfileLocation ≠ "" and refShowMediaReport 3::fileName ≠ "" and refShowMediaReport 3::showMedia = "" ; "harddrive" ; refShowMediaReport 3::URL ≠ "" and refShowMediaReport 3::showMedia ≠ "" ; "web" ; "none" ) ) ]
     If [ $$PictureOnReportLayout ≠ "" ]
     Perform Script [ “showCitationPicture1inNewWindow (update)” ]
     End If
 
 Fields used in this script
 
-    testlearn3::_Ltestlearn
+    testlearnReportTags 3::_Ltestlearn
+    testlearnReportTags 3::Picture
+    refShowMediaReport 3::picture
+    refShowMediaReport 3::kfileLocation
+    refShowMediaReport 3::fileName
+    refShowMediaReport 3::showMedia
+    refShowMediaReport 3::URL
 
 Scripts used in this script
 
@@ -7971,19 +8631,21 @@ Layouts used in this script
 
 Tables used in this script
 
+    reference
     testlearn
 
 Table occurrences used by this script
 
-    testlearn3
+    refShowMediaReport 3
+    testlearnReportTags 3
 
 Custom Functions used by this script
 
 Custom menu set used by this script
 
 
-Previous Script: [showPicture3]	Parent Folder: [testReport]	Next Script: [newInspectionLocation]
-Script Name	showPicture4
+Previous Script: [showPicture3 (update)]	Parent Folder: [testReport]	Next Script: [insertCaption1 (new)]
+Script Name	showPicture4 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -7997,14 +8659,21 @@ Script Steps
 
     #
     #Show picture in picture window.
-    Set Variable [ $$PictureOnReportLayout; Value:testlearn4::_Ltestlearn ]
+    Set Variable [ $$PictureOnReportLayout; Value:testlearnReportTags 4::_Ltestlearn ]
+    Set Variable [ $$fileLocation; Value:Case ( testlearnReportTags 4::Picture ≠ "" ; "TLpicture" ; Case ( refShowMediaReport 4::picture ≠ "" ; "database" ; refShowMediaReport 4::kfileLocation ≠ "" and refShowMediaReport 4::fileName ≠ "" and refShowMediaReport 4::showMedia = "" ; "harddrive" ; refShowMediaReport 4::URL ≠ "" and refShowMediaReport 4::showMedia ≠ "" ; "web" ; "none" ) ) ]
     If [ $$PictureOnReportLayout ≠ "" ]
     Perform Script [ “showCitationPicture1inNewWindow (update)” ]
     End If
 
 Fields used in this script
 
-    testlearn4::_Ltestlearn
+    testlearnReportTags 4::_Ltestlearn
+    testlearnReportTags 4::Picture
+    refShowMediaReport 4::picture
+    refShowMediaReport 4::kfileLocation
+    refShowMediaReport 4::fileName
+    refShowMediaReport 4::showMedia
+    refShowMediaReport 4::URL
 
 Scripts used in this script
 
@@ -8014,19 +8683,197 @@ Layouts used in this script
 
 Tables used in this script
 
+    reference
     testlearn
 
 Table occurrences used by this script
 
-    testlearn4
+    refShowMediaReport 4
+    testlearnReportTags 4
 
 Custom Functions used by this script
 
 Custom menu set used by this script
 
 
-Previous Script: [showPicture4]	Parent Folder: [testReport]	Next Script: [deleteInspectionLocation]
-Script Name	newInspectionLocation
+Previous Script: [showPicture4 (update)]	Parent Folder: [testReport]	Next Script: [insertCaption2 (new)]
+Script Name	insertCaption1 (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    If [ report::_kfPhoto ≠ "" ]
+    Set Field [ report::PictureCaption; testlearnReportTags::Caption ]
+    Go to Field [ ]
+    Else
+    Set Field [ report::PictureCaption; "" ]
+    Go to Field [ ]
+    End If
+
+Fields used in this script
+
+    report::_kfPhoto
+    testlearnReportTags::Caption
+    report::PictureCaption
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    report
+    testlearn
+
+Table occurrences used by this script
+
+    report
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertCaption1 (new)]	Parent Folder: [testReport]	Next Script: [insertCaption3 (new)]
+Script Name	insertCaption2 (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    If [ report::_kfPhoto2 ≠ "" ]
+    Set Field [ report::PictureCaption[2]; testlearnReportTags 2::Caption ]
+    Go to Field [ ]
+    Else
+    Set Field [ report::PictureCaption[2]; "" ]
+    Go to Field [ ]
+    End If
+
+Fields used in this script
+
+    report::_kfPhoto2
+    testlearnReportTags 2::Caption
+    report::PictureCaption
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    report
+    testlearn
+
+Table occurrences used by this script
+
+    report
+    testlearnReportTags 2
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertCaption2 (new)]	Parent Folder: [testReport]	Next Script: [insertCaption4 (new)]
+Script Name	insertCaption3 (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    If [ report::_kfPhoto3 ≠ "" ]
+    Set Field [ report::PictureCaption[3]; testlearnReportTags 3::Caption ]
+    Go to Field [ ]
+    Else
+    Set Field [ report::PictureCaption[3]; "" ]
+    Go to Field [ ]
+    End If
+
+Fields used in this script
+
+    report::_kfPhoto3
+    testlearnReportTags 3::Caption
+    report::PictureCaption
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    report
+    testlearn
+
+Table occurrences used by this script
+
+    report
+    testlearnReportTags 3
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertCaption3 (new)]	Parent Folder: [testReport]	Next Script: [newInspectionLocation (update)]
+Script Name	insertCaption4 (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    If [ report::_kfPhoto4 ≠ "" ]
+    Set Field [ report::PictureCaption[4]; testlearnReportTags 4::Caption ]
+    Go to Field [ ]
+    Else
+    Set Field [ report::PictureCaption[4]; "" ]
+    Go to Field [ ]
+    End If
+
+Fields used in this script
+
+    report::_kfPhoto4
+    testlearnReportTags 4::Caption
+    report::PictureCaption
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    report
+    testlearn
+
+Table occurrences used by this script
+
+    report
+    testlearnReportTags 4
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertCaption4 (new)]	Parent Folder: [testReport]	Next Script: [newSectionTemplatePulldown (new)]
+Script Name	newInspectionLocation (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -8039,21 +8886,32 @@ Script Definition
 Script Steps
 
     #
+    #
+    If [ $$pause = 1 ]
+    Exit Script [ ]
+    End If
+    #
     If [ TEMP::ksection = "" ]
     Go to Field [ TEMP::ksection ] [ Select/perform ]
-    Halt Script
-    Else If [ TEMP::reportNumber = "" ]
-    Go to Field [ TEMP::reportNumber ] [ Select/perform ]
     Halt Script
     Else If [ TEMP::LocationName = "" ]
     Set Variable [ $$highlightTestSection; Value:1 ]
     Refresh Window
-    Show Custom Dialog [ Message: "Click on the pulldown menu (now highlighted for you) and pick a test-section to add to your test."; Buttons: “OK” ]
-    Go to Field [ TEMP::kfocus ] [ Select/perform ]
-    Go to Object [ Object Name: "focus" ]
+    If [ ValueListItems ( Get ( FileName ) ; "LocationLayout2a" ) = "" ]
+    Show Custom Dialog [ Message: "There are no test-section templates available for creating new test sections. To create some 1) click 'back', then 2) click 'section-templatesetup' and finally 3) click 'new' to create your first test-section template. 4) Customize it to meet your needs."; Buttons: “OK” ]
+    Halt Script
+    End If
+    Show Custom Dialog [ Message: "Click 'select test section' now highlighted for you, and then select a test-section template from the pulldown menu that will appear. Your selected template will be used to create sections that you can add to any test."; Buttons: “OK” ]
+    Halt Script
+    Else If [ TEMP::reportNumber = "" ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    Show Custom Dialog [ Message: "Click '#' now highlighted for you, and then select the test's number that you want to add a new test-section to from the pulldown menu that will appear."; Buttons: “OK” ]
     Halt Script
     Else If [ TEMP::kdefaultNodeTestSubject = "" ]
-    Show Custom Dialog [ Message: "Test sections are created for test subjects. Click the 'node' button, and the select your test subject or create a new one."; Buttons: “OK” ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    Show Custom Dialog [ Message: "All tests must have a test subject. 1) Click 'tag' above and then in the tags-menu window 2) click 'node'. 3) Select a node to be your test subject, or create a new node, and then 4) click the 'TS' button next to it."; Buttons: “OK” ]
     Halt Script
     End If
     Set Variable [ $tag; Value:TEMP::kfocus ]
@@ -8084,10 +8942,10 @@ Script Steps
 Fields used in this script
 
     TEMP::ksection
-    TEMP::reportNumber
     TEMP::LocationName
-    TEMP::kfocus
+    TEMP::reportNumber
     TEMP::kdefaultNodeTestSubject
+    TEMP::kfocus
     TEMP::kmodifier1
     TEMP::kmodifier2
     tagTestSubjectLocation::_LtestSubjectLocation
@@ -8120,13 +8978,47 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [newInspectionLocation]	Parent Folder: [testReport]	Next Script: [evidenceTag]
+Previous Script: [newInspectionLocation (update)]	Parent Folder: [testReport]	Next Script: [deleteInspectionLocation]
+Script Name	newSectionTemplatePulldown (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    If [ ValueListItems ( Get ( FileName ) ; "LocationLayout2a" ) = "" ]
+    Show Custom Dialog [ Message: "There are no test-section templates available for creating new test sections. To create some 1) click 'back', then 2) click 'section-templatesetup' and finally 3) click 'new' to create your first test-section template. 4) Customize it to meet your needs."; Buttons: “OK” ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newSectionTemplatePulldown (new)]	Parent Folder: [testReport]	Next Script: [evidenceTag]
 Script Name	deleteInspectionLocation
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    defaultTest
     defaultTestNewFocus
 
 Scripts that use this script
@@ -8253,7 +9145,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteSetupItems]	Parent Folder: [testReport]	Next Script: [editReport]
+Previous Script: [deleteSetupItems]	Parent Folder: [testReport]	Next Script: [editReport (update)]
 Script Name	deleteInspectionSetupItem
 Run script with full access privileges	Off
 Include In Menu	No
@@ -8299,18 +9191,16 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteInspectionSetupItem]	Parent Folder: [testReport]	Next Script: [CHUNK_gotoItemViaPulldown]
-Script Name	editReport
+Previous Script: [deleteInspectionSetupItem]	Parent Folder: [testReport]	Next Script: [CHUNK_gotoItemViaPulldown (update)]
+Script Name	editReport (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
-    reportDeleteEvidence
     printThingReport
 
 Script Definition
@@ -8386,8 +9276,8 @@ Script Steps
     Set Field [ report::ksection; $$library ]
     Perform Find [ ]
     If [ Get (LastError) = 401 ]
-    Perform Script [ “returnToStep2” ]
-    Show Custom Dialog [ Message: "No test discoveries to report on."; Buttons: “OK” ]
+    Perform Script [ “returnToStep2 (update)” ]
+    Show Custom Dialog [ Message: "No test results to report on. 1) Click any test button under this report button, and 2) then click any test sub-section button to create reportable test-result records."; Buttons: “OK” ]
     Set Variable [ $$stopLoadReportRecord ]
     Exit Script [ ]
     End If
@@ -8415,7 +9305,7 @@ Script Steps
     Scroll Window [ Home ]
     #
     #Now find discoveries for this report item.
-    Perform Script [ “CHUNK_gotoItemViaPulldown” ]
+    Perform Script [ “CHUNK_gotoItemViaPulldown (update)” ]
     #
 
 Fields used in this script
@@ -8448,8 +9338,8 @@ Fields used in this script
 
 Scripts used in this script
 
-    returnToStep2
-    CHUNK_gotoItemViaPulldown
+    returnToStep2 (update)
+    CHUNK_gotoItemViaPulldown (update)
 
 Layouts used in this script
 
@@ -8484,15 +9374,16 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [editReport]	Parent Folder: [testReport]	Next Script: [zoomReport]
-Script Name	CHUNK_gotoItemViaPulldown
+Previous Script: [editReport (update)]	Parent Folder: [testReport]	Next Script: [zoomReport]
+Script Name	CHUNK_gotoItemViaPulldown (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
 Scripts that use this script
 
-    editReport
+    reportDeleteEvidence (update)
+    editReport (update)
 
 Script Definition
 Script Steps
@@ -8502,12 +9393,19 @@ Script Steps
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
     Set Field [ TEMP::kuserLocation; "" ]
-    #[by David Matson 4.16.11, last modified by same 4.18.11]
+    #
     #clear the $$finding and $window variables
     Set Variable [ $$finding ]
     Set Variable [ $$window ]
     Set Variable [ $contact; Value:report::ktestSubject ]
+    #
+    #Determine report page to go to.
+    If [ $$goToFirstReportPage = "" ]
     Set Variable [ $item; Value:TEMP::ktest ]
+    Else
+    Set Variable [ $item; Value:$$goToFirstReportPage ]
+    Set Variable [ $$goToFirstReportPage ]
+    End If
     #
     #clear global fields for creating new discovery
     #records, but put in current timestamp to help
@@ -8534,49 +9432,48 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     If [ Get (LastError) = 112 ]
     New Window [ Name: "Tag Menus"; Height: Get ( ScreenHeight ); Width: 330; Left: 0 ]
-    Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
     End If
-    If [ Left ( Get (LayoutName) ; 18 ) = "reportTagDiscovery" ]
+    Go to Layout [ “reportTagDiscovery” (testlearnReportTags) ]
+    // If [ Left ( Get (LayoutName) ; 18 ) = "reportTagDiscovery" ]
     Enter Find Mode [ ]
     Set Field [ testlearnReportTags::ktestSubject; TEMP::kdefaultNodeTestSubject ]
     Set Field [ testlearnReportTags::ktest; TEMP::ktest ]
     Set Field [ testlearnReportTags::kreportNumber; TEMP::reportNumber ]
     Perform Find [ ]
     Sort Records [ Specified Sort Order: testlearnReportTags::Location; ascending testlearnReportTags::timestamp; ascending testlearnReportTags::_Ltestlearn; ascending ] [ Restore; No dialog ]
-    Else If [ Left ( Get (LayoutName) ; 13 ) = "reportTagInfo" ]
-    Perform Script [ “reportTagInfo” ]
-    Else
-    #
-    #Find test list key as it may be different from test key.
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $$stopTest; Value:1 ]
-    Set Variable [ $$ID; Value:"ignore" ]
-    Go to Layout [ “testSetup” (test) ]
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    Set Field [ test::_Ltest; TEMP::ktest ]
-    Perform Find [ ]
-    Set Field [ TEMP::ktestItemList; test::ktestItemList ]
-    Go to Layout [ “reportTagItem” (tagMenus) ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$ID ]
-    #
-    #Find test items for section.
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    Set Field [ ruleTagMenuTestGroups::match; TEMP::ktestItemList & ¶ ]
-    Perform Find [ ]
-    #
-    Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order” ruleTagMenuTestGroups::name; ascending ruleTagMenuTestGroups::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
-    #
-    Go to Record/Request/Page [ First ]
-    #
-    End If
+    // Else If [ Left ( Get (LayoutName) ; 13 ) = "reportTagInfo" ]
+    // Perform Script [ “reportTagInfo” ]
+    // Else
+    // #
+    // #Find test list key as it may be different from test key.
+    // Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    // Set Variable [ $$stopTest; Value:1 ]
+    // Set Variable [ $$ID; Value:"ignore" ]
+    // Go to Layout [ “testSetup” (test) ]
+    // Set Error Capture [ On ]
+    // Allow User Abort [ Off ]
+    // Enter Find Mode [ ]
+    // Set Field [ test::_Ltest; TEMP::ktest ]
+    // Perform Find [ ]
+    // Set Field [ TEMP::ktestItemList; test::ktestItemList ]
+    // Go to Layout [ “reportTagItem” (tagMenus) ]
+    // Set Variable [ $$stopLoadTagRecord ]
+    // Set Variable [ $$stopTest ]
+    // Set Variable [ $$ID ]
+    // #
+    // #Find test items for section.
+    // Set Error Capture [ On ]
+    // Allow User Abort [ Off ]
+    // Enter Find Mode [ ]
+    // Set Field [ ruleTagMenuTestGroups::match; TEMP::ktestItemList & ¶ ]
+    // Perform Find [ ]
+    // #
+    // Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order” ruleTagMenuTestGroups::name; ascending ruleTagMenuTestGroups::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    // #
+    // Go to Record/Request/Page [ First ]
+    // #
+    // End If
     Select Window [ Name: "Report"; Current file ]
-    #[validated by David Matson 4.18.11]
     #
 
 Fields used in this script
@@ -8646,7 +9543,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [CHUNK_gotoItemViaPulldown]	Parent Folder: [testReport]	Next Script: [unzoomReport]
+Previous Script: [CHUNK_gotoItemViaPulldown (update)]	Parent Folder: [testReport]	Next Script: [unzoomReport]
 Script Name	zoomReport
 Run script with full access privileges	Off
 Include In Menu	No
@@ -8736,7 +9633,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [zoomReport]	Parent Folder: [testReport]	Next Script: [inUsePart1]
+Previous Script: [zoomReport]	Parent Folder: [testReport]	Next Script: [inUsePart1 (update)]
 Script Name	unzoomReport
 Run script with full access privileges	Off
 Include In Menu	No
@@ -8824,7 +9721,7 @@ Custom menu set used by this script
 
 
 Previous Script: [unzoomReport]	Parent Folder: [testReport]	Next Script: [inUsePart3]
-Script Name	inUsePart1
+Script Name	inUsePart1 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -8851,6 +9748,7 @@ Script Steps
     Halt Script
     End If
     Set Variable [ $$finding; Value:testlearnReportTags::_Ltestlearn ]
+    Set Variable [ $$findingCaption; Value:testlearnReportTags::Caption ]
     Set Variable [ $$window; Value:"Tag Menus" ]
     Go to Field [ ]
     Refresh Window
@@ -8864,6 +9762,7 @@ Fields used in this script
     testlearnReportTags::inUse
     testlearnReportTags::_Number
     testlearnReportTags::_Ltestlearn
+    testlearnReportTags::Caption
 
 Scripts used in this script
 
@@ -8882,7 +9781,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [inUsePart1]	Parent Folder: [testReport]	Next Script: [deleteRowOfPhotosFromReport]
+Previous Script: [inUsePart1 (update)]	Parent Folder: [testReport]	Next Script: [deleteRowOfPhotosFromReport]
 Script Name	inUsePart3
 Run script with full access privileges	Off
 Include In Menu	No
@@ -9374,7 +10273,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [newRowOfPhotos]	Parent Folder: [testReport]	Next Script: [editSectionFocuses]
+Previous Script: [newRowOfPhotos]	Parent Folder: [testReport]	Next Script: [editSectionFocuses (update)]
 Script Name	sortReport
 Run script with full access privileges	Off
 Include In Menu	No
@@ -9408,8 +10307,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [sortReport]	Parent Folder: [testReport]	Next Script: [newFocus]
-Script Name	editSectionFocuses
+Previous Script: [sortReport]	Parent Folder: [testReport]	Next Script: [newFocus (update)]
+Script Name	editSectionFocuses (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -9420,19 +10319,19 @@ Layouts that use this script
 
 Scripts that use this script
 
-    newTestGroup
-    newTest
+    newTestGroup (update)
+    newTest (update)
 
 Script Definition
 Script Steps
 
     #
-    #If there are no tests, then stop this script as there
-    #are no test to create things for.
-    If [ TEMP::ktest = "" ]
-    Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
-    Exit Script [ ]
-    End If
+    // #If there are no tests, then stop this script as there
+    // #are no test to create things for.
+    // If [ TEMP::ktest = "" ]
+    // Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
+    // Exit Script [ ]
+    // End If
     #
     Go to Layout [ “setupTestFocus” (tagLocation) ]
     #
@@ -9447,7 +10346,7 @@ Script Steps
     Set Field [ tagLocation::match; "focus" ]
     Perform Find [ ]
     Sort Records [ Specified Sort Order: tagLocation::tag; ascending ] [ Restore; No dialog ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     #
 
 Fields used in this script
@@ -9460,7 +10359,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    insureEqualityOfSpellFields
+    insureEqualityOfSpellFields (update)
 
 Layouts used in this script
 
@@ -9481,8 +10380,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [editSectionFocuses]	Parent Folder: [testReport]	Next Script: [deleteFocus]
-Script Name	newFocus
+Previous Script: [editSectionFocuses (update)]	Parent Folder: [testReport]	Next Script: [deleteFocus (UPDATE)]
+Script Name	newFocus (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -9512,19 +10411,19 @@ Script Steps
     Exit Script [ ]
     End If
     #
-    #If there are no tests, then stop this script as there
-    #are no test to create things for.
-    If [ TEMP::ktest = "" ]
-    Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
-    Exit Script [ ]
-    End If
+    // #If there are no tests, then stop this script as there
+    // #are no test to create things for.
+    // If [ TEMP::ktest = "" ]
+    // Show Custom Dialog [ Message: "There are no tests."; Buttons: “OK” ]
+    // Exit Script [ ]
+    // End If
     #
     #Create new focus that any test in this section could be assigned to.
     New Record/Request
     Set Field [ tagLocation::match; "focus" ]
     Set Field [ tagLocation::ksection; TEMP::ksection ]
-    Set Field [ tagLocation::tag; "test_section" ]
-    Set Field [ tagLocation::tagSpelling; "test_section" ]
+    Set Field [ tagLocation::tag; "test-section_template" ]
+    Set Field [ tagLocation::tagSpelling; "test-section_template" ]
     Set Field [ tagLocation::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
     Go to Field [ tagLocation::tag ]
 
@@ -9560,8 +10459,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [newFocus]	Parent Folder: [testReport]	Next Script: [deleteAttribute]
-Script Name	deleteFocus
+Previous Script: [newFocus (update)]	Parent Folder: [testReport]	Next Script: [deleteAttribute]
+Script Name	deleteFocus (UPDATE)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -9584,6 +10483,12 @@ Script Steps
     #everywhere followed by testing for each
     #update is required.
     #
+    #
+    #If there are no section templates, then stop
+    #this script.
+    If [ Get (FoundCount) = 0 ]
+    Exit Script [ ]
+    End If
     #
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
@@ -9645,7 +10550,7 @@ Script Steps
     #
     Show/Hide Status Area [ Lock; Hide ]
     Show/Hide Text Ruler [ Hide ]
-    Set Field [ TEMP::Message; "Before the highlighted test section template can be deleted, the sections created using it (listed below) must be deleted from the main test window." ]
+    Set Field [ TEMP::Message; "Before the highlighted test-section template can be deleted, the sections created using it (listed below) must be deleted. 1) Click 'main' 2) click 'back' 3) click 'editsection' 4) select a section and 5) click 'x'." ]
     Pause/Resume Script [ Indefinitely ]
     Close Window [ Current Window ]
     Set Variable [ $delete ]
@@ -9662,6 +10567,10 @@ Script Steps
     Set Variable [ $name; Value:tagLocation::tag ]
     Refresh Window
     Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Buttons: “Cancel”, “Delete” ]
+    #
+    // If [ Get (FoundCount) = 1 ]
+    // Show Custom Dialog [ Title: "!"; Message: "Delete " & $name & "?"; Buttons: “Cancel”, “Delete” ]
+    // End If
     #
     #If user decides to delete it then do so.
     If [ Get ( LastMessageChoice ) = 2 ]
@@ -9732,7 +10641,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteFocus]	Parent Folder: [testReport]	Next Script: [gotoDefaultsOrReport]
+Previous Script: [deleteFocus (UPDATE)]	Parent Folder: [testReport]	Next Script: [gotoDefaultsOrReport (update)]
 Script Name	deleteAttribute
 Run script with full access privileges	Off
 Include In Menu	No
@@ -9779,24 +10688,30 @@ Custom menu set used by this script
 
 
 Previous Script: [deleteAttribute]	Parent Folder: [testReport]	Next Script: [previewReport]
-Script Name	gotoDefaultsOrReport
+Script Name	gotoDefaultsOrReport (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learn1
     learnStuff1
+    learn2
     learnStuff2
     learn3
     learnStuff3
     learn4
     learnStuff4
     learn4 OLD has file path fields not in use
+    learnStuff2 Copy
 
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #Set in copyAndpastTags script.
+    Set Variable [ $$copyAndpastTagsRECORD ]
     #
     #Determine what module is active and then go
     #to the setup module if ...
@@ -9867,7 +10782,7 @@ Script Steps
     #Set citationMatch to color menu button with inUse color.
     Set Variable [ $$citationMatch; Value:"section" ]
     #
-    Go to Layout [ “defaultSections” (ruleSection) ]
+    Go to Layout [ “defaultSections” (tempSetup) ]
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     Enter Find Mode [ ]
@@ -9886,7 +10801,7 @@ Script Steps
     Go to Record/Request/Page [ First ]
     End If
     Set Variable [ $$stopAddTagToCitation ]
-    Perform Script [ “addTagToMainRecord” ]
+    Perform Script [ “addTagToMainRecord (update)” ]
     Refresh Window
     Exit Script [ ]
     Else If [ $$learnRecord ≠ "" and $$testTagRecord = "" ]
@@ -10075,7 +10990,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    addTagToMainRecord
+    addTagToMainRecord (update)
     reportTagInfo
     loadtestinfo
     newTestRecord
@@ -10118,7 +11033,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoDefaultsOrReport]	Parent Folder: [testReport]	Next Script: [reportTagInfo]
+Previous Script: [gotoDefaultsOrReport (update)]	Parent Folder: [testReport]	Next Script: [reportTagInfo]
 Script Name	previewReport
 Run script with full access privileges	Off
 Include In Menu	No
@@ -10222,9 +11137,9 @@ Layouts that use this script
 
 Scripts that use this script
 
-    CHUNK_gotoItemViaPulldown
+    CHUNK_gotoItemViaPulldown (update)
     inUsePart3
-    gotoDefaultsOrReport
+    gotoDefaultsOrReport (update)
     reportClearDiscoveryLink
 
 Script Definition
@@ -10490,7 +11405,7 @@ Custom menu set used by this script
     HGT
 
 
-Previous Script: [reportPreviewClose]	Parent Folder: [testReport]	Next Script: [setupUpdateReportNumber]
+Previous Script: [reportPreviewClose]	Parent Folder: [testReport]	Next Script: [setupUpdateReportNumber (update)]
 Script Name	reportClearDiscoveryLink
 Run script with full access privileges	Off
 Include In Menu	No
@@ -10583,7 +11498,7 @@ Custom menu set used by this script
 
 
 Previous Script: [reportClearDiscoveryLink]	Parent Folder: [testReport]	Next Script: [openDetailWindow !!! FINISH LATER !!!]
-Script Name	setupUpdateReportNumber
+Script Name	setupUpdateReportNumber (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -10593,15 +11508,37 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #Turn off highlights when leaving editsection
+    #layout (called defaultTestNewFocus).
+    Set Variable [ $$highlightTestSection ]
+    Refresh Window
+    #
+    #If no section-templates exist then clear the
+    #section-template name field.
+    If [ ValueListItems ( Get ( FileName ) ; "LocationLayout2a" ) = "" ]
+    Set Field [ TEMP::LocationName; "" ]
+    End If
+    #
+    #If no records exist then stop the script.
     If [ Get (FoundCount) = 0 and $$stopFocusLoad = "" or Get (FoundCount) ≠ 0 and $$stopFocusLoad = 1 or $$stopSetReportNumber = 1 ]
     Exit Script [ ]
     End If
-    Set Field [ TEMP::reportNumber; tagTestSubjectLocation::reportNumber ]
+    #
+    // Set Field [ TEMP::reportNumber; tagTestSubjectLocation::reportNumber ]
     // Set Field [ TEMP::kdefaultNodeTestSubject; tagTestSubjectLocation::knode ]
     Go to Field [ ]
+    #
+    #Pause prevents accidental click of
+    #'addsection' button after 'editsection' button
+    #is clicked.
+    Set Variable [ $$pause; Value:1 ]
+    Pause/Resume Script [ Duration (seconds): .5 ]
+    Set Variable [ $$pause ]
 
 Fields used in this script
 
+    TEMP::LocationName
     tagTestSubjectLocation::reportNumber
     TEMP::reportNumber
     tagTestSubjectLocation::knode
@@ -10626,7 +11563,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [setupUpdateReportNumber]	Parent Folder: [testReport]
+Previous Script: [setupUpdateReportNumber (update)]	Parent Folder: [testReport]
 Script Name	openDetailWindow !!! FINISH LATER !!!
 Run script with full access privileges	Off
 Include In Menu	No
@@ -11191,8 +12128,8 @@ Script Steps
     Go to Layout [ “defaultSetup” (tempSetup) ]
     New Window [ Name: "Tag Menus"; Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2 ]
     Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
-    // Perform Script [ “defaultTestLocationMenu” ]
-    Perform Script [ “editReport” ]
+    // Perform Script [ “defaultTestLocationMenu (update)” ]
+    Perform Script [ “editReport (update)” ]
     Go to Record/Request/Page [ $record ] [ No dialog ]
 
 Fields used in this script
@@ -11214,8 +12151,8 @@ Fields used in this script
 
 Scripts used in this script
 
-    defaultTestLocationMenu
-    editReport
+    defaultTestLocationMenu (update)
+    editReport (update)
 
 Layouts used in this script
 
@@ -11650,7 +12587,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoSetupReport]	Parent Folder: [tagMenu]	Next Script: [menuNode]
+Previous Script: [gotoSetupReport]	Parent Folder: [tagMenu]	Next Script: [menuNode (update)]
 Script Name	returnToSetup
 Run script with full access privileges	Off
 Include In Menu	No
@@ -11658,7 +12595,7 @@ Layouts that use this script
 
 Scripts that use this script
 
-    backFromSetup
+    backFromSetup (update)
 
 Script Definition
 Script Steps
@@ -11670,8 +12607,8 @@ Script Steps
     // #
     // #Go to Learn tag menu layout and loop back to record.
     // Select Window [ Name: "Tag Menus"; Current file ]
-    // Go to Layout [ “defaultSections” (ruleSection) ]
-    // Perform Script [ “defaultSectionMenu” ]
+    // Go to Layout [ “defaultSections” (tempSetup) ]
+    // Perform Script [ “defaultSectionMenu (update)” ]
     // Select Window [ Name: "Learn"; Current file ]
     // Go to Field [ ]
     // Refresh Window
@@ -11722,7 +12659,7 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Layout [ $$module ]
     If [ $$module = "defaultSections" ]
-    Perform Script [ “defaultSectionMenu” ]
+    Perform Script [ “defaultSectionMenu (update)” ]
     End If
     Go to Record/Request/Page [ $$recordNumber ] [ No dialog ]
     Set Variable [ $$recordNumber ]
@@ -11757,7 +12694,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    defaultSectionMenu
+    defaultSectionMenu (update)
     menuTestItem
 
 Layouts used in this script
@@ -11787,8 +12724,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [returnToSetup]	Parent Folder: [tagMenu]	Next Script: [menuKey]
-Script Name	menuNode
+Previous Script: [returnToSetup]	Parent Folder: [tagMenu]	Next Script: [menuKey (update)]
+Script Name	menuNode (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -11797,25 +12734,31 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2keywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2keywordOrNode5
     referenceMenuFINDref
     referenceFINDNK
     ltagNK1
     ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuSample
@@ -11881,30 +12824,18 @@ Script Steps
     #script.
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     #
-    #Goto correct layout.
-    #If in add mode ...
-    If [ $$add = 1 ]
-    Go to Layout [ “addMenuNodeKeyword” (tagMenus) ]
-    #
-    #If user has elected to show only the tag ...
-    Else If [ TEMP::layoutRtagN = "" or TEMP::layoutLtagN = "" ]
+    #Speed up script by going to layout with no
+    #pictures to load.
     If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ltagNKs2” (tagMenus) ]
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ltagNK1” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNKs1” (tagMenus) ]
     End If
-    Set Field [ TEMP::layoutLtagN; "more" & Get (LayoutName) ]
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
-    Set Field [ TEMP::layoutRtagN; "more" & Get (LayoutName) ]
-    End If
-    #
-    #If user has elected to show some pictures ...
-    Else If [ TEMP::layoutRtagN ≠ "" or TEMP::layoutLtagN ≠ "" ]
-    If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ Middle ( TEMP::layoutLtagN ; 5 ; 42 ) ]
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ Middle ( TEMP::layoutRtagN ; 5 ; 42 ) ]
+    Else
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+    Else
     End If
     End If
     #
@@ -11962,10 +12893,10 @@ Script Steps
     #that record.
     Go to Record/Request/Page [ First ]
     Loop
-    Exit Loop If [ $$primarykey = tagMenus::_Ltag ]
+    Exit Loop If [ $$primaryNode = tagMenus::_Ltag ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
-    If [ $$primarykey ≠ tagMenus::_Ltag ]
+    If [ $$primaryNode ≠ tagMenus::_Ltag ]
     Go to Record/Request/Page [ First ]
     End If
     #
@@ -11981,6 +12912,34 @@ Script Steps
     // Go to Record/Request/Page [ Next; Exit after last ]
     // End Loop
     // End If
+    #
+    #Goto correct layout.
+    #If in add mode ...
+    If [ $$add = 1 ]
+    Go to Layout [ “addMenuNodeKeyword” (tagMenus) ]
+    #
+    #If user has elected to show only the tag ...
+    Else If [ TEMP::layoutRtagN = "" and Left (Get (LayoutName) ; 1) = "r" or TEMP::layoutLtagN = "" and Left (Get (LayoutName) ; 1) = "l" ]
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ltagNKs2” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK2” (tagMenus) ]
+    End If
+    Set Field [ TEMP::layoutLtagN; "less" & Get (LayoutName) ]
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+    Set Field [ TEMP::layoutRtagN; "less" & Get (LayoutName) ]
+    End If
+    #
+    #If user has elected to show some pictures ...
+    Else If [ TEMP::layoutRtagN ≠ "" and Left (Get (LayoutName) ; 1) = "r" or TEMP::layoutLtagN ≠ "" and Left (Get (LayoutName) ; 1) = "l" ]
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ Middle ( TEMP::layoutLtagN ; 5 ; 42 ) ]
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    Go to Layout [ Middle ( TEMP::layoutRtagN ; 5 ; 42 ) ]
+    End If
+    End If
     #
     #Inform user of items use on both screens.
     Set Variable [ $$stopLoadTagRecord ]
@@ -12042,8 +13001,6 @@ Fields used in this script
     testlearn::date
     testlearn::timestamp
     TEMP::mTag
-    TEMP::layoutRtagN
-    TEMP::layoutLtagN
     TEMP::InventoryLibaryYN
     tagMenus::match
     TEMP::ksection
@@ -12054,6 +13011,8 @@ Fields used in this script
     tagMenus::orderOrLock
     tagMenus::tag
     tagMenus::_Ltag
+    TEMP::layoutRtagN
+    TEMP::layoutLtagN
     reference::kcsection
     reference::filterFind
     testlearn::kcsection
@@ -12067,10 +13026,13 @@ Scripts used in this script
 
 Layouts used in this script
 
+    ltagNK1
+    ltagNKs1
+    ReferenceMenu2keywordOrNode2
     addMenuNodeKeyword
-    ltagNK2
     ltagNKs2
-    ReferenceMenu2keywordOrNode1
+    ltagNK2
+    <Missing Layout>
 
 Tables used in this script
 
@@ -12093,8 +13055,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuNode]	Parent Folder: [tagMenu]	Next Script: [menuHealth]
-Script Name	menuKey
+Previous Script: [menuNode (update)]	Parent Folder: [tagMenu]	Next Script: [menuHealth (update) ]
+Script Name	menuKey (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -12103,42 +13065,41 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2SkeywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     referenceMenuFINDref
     referenceFINDNK
     referenceSFINDNK
     ltagNK1
-    ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
-    ltagNKs3
     ltagNK4
-    ltagNKs4
+    ltagNK5
     learnMenu1
     learnMenuHealth
-    learnMenuSHealth
     learnMenu3Cite
-    learnMenuRefStuff
+    learnMenu3CiteS
     learnMenu4RefCite
-    learnMenu4STUFFRefCite
+    learnMenu4RefCiteS
     learnTagWindowNoTags
     learnMenuSample
-    learnMenuStuffSample
     learnTest
-    learnSTest
 
 Scripts that use this script
 
     TgotoCitationMenu (update)
     findMode
-    editCitation
-    learn
+    editCitation (update)
+    learn (update)
 
 Script Definition
 Script Steps
@@ -12153,8 +13114,8 @@ Script Steps
     Set Variable [ $$tagtest ]
     Set Variable [ $$tagRecordID ]
     Set Variable [ $$tagEdit ]
-    End If
     Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    End If
     Select Window [ Name: "Tag Menus"; Current file ]
     #
     #Set citationMatch to color menu button with inUse color.
@@ -12174,31 +13135,23 @@ Script Steps
     #script.
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     #
-    #Goto correct layout.
-    #If in add mode ...
-    If [ $$add = 1 ]
-    Go to Layout [ “addMenuNodeKeyword” (tagMenus) ]
-    #
-    #If user has elected to show only the tag ...
-    Else If [ TEMP::layoutRtagK = "" or TEMP::layoutLtagK = "" ]
+    #Speed up script by going to layout with no
+    #pictures to load.
     If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
-    Set Field [ TEMP::layoutLtagK; "more" & Get (LayoutName) ]
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
-    Set Field [ TEMP::layoutRtagK; "more" & Get (LayoutName) ]
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ltagNK1” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNKs1” (tagMenus) ]
     End If
-    #
-    #If user has elected to show some pictures ...
-    Else If [ TEMP::layoutRtagK ≠ "" or TEMP::layoutLtagK ≠ "" ]
-    If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ Middle ( TEMP::layoutLtagK ; 5 ; 42 ) ]
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ Middle ( TEMP::layoutRtagK ; 5 ; 42 ) ]
+    Else
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+    Else
+    Go to Layout [ “ReferenceMenu2SkeywordOrNode3” (tagMenus) ]
     End If
     End If
     #
-    #Find key tags for library section.
+    #Find key tags for library section if not found.
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
     Enter Find Mode [ ]
@@ -12261,6 +13214,30 @@ Script Steps
     Scroll Window [ Home ]
     End If
     #
+    #Goto correct layout.
+    #If in add mode ...
+    If [ $$add = 1 ]
+    Go to Layout [ “addMenuNodeKeyword” (tagMenus) ]
+    #
+    #If user has elected to show only the tag ...
+    Else If [ TEMP::layoutRtagK = "" and Left (Get (LayoutName) ; 1) = "r" or TEMP::layoutLtagK = "" and Left (Get (LayoutName) ; 1) = "l" ]
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ “ltagNK2” (tagMenus) ]
+    Set Field [ TEMP::layoutLtagK; "less" & Get (LayoutName) ]
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+    Set Field [ TEMP::layoutRtagK; "less" & Get (LayoutName) ]
+    End If
+    #
+    #If user has elected to show some pictures ...
+    Else If [ TEMP::layoutRtagK ≠ "" and Left (Get (LayoutName) ; 1) = "r" or TEMP::layoutLtagK ≠ "" and Left (Get (LayoutName) ; 1) = "l" ]
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ Middle ( TEMP::layoutLtagK ; 5 ; 42 ) ]
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    Go to Layout [ Middle ( TEMP::layoutRtagK ; 5 ; 42 ) ]
+    End If
+    End If
+    #
     #Inform user of items use on both screens.
     Set Variable [ $$stopLoadTagRecord ]
     Perform Script [ “loadTagRecord” ]
@@ -12317,8 +13294,7 @@ Fields used in this script
     testlearn::date
     testlearn::timestamp
     TEMP::mTag
-    TEMP::layoutRtagK
-    TEMP::layoutLtagK
+    TEMP::InventoryLibaryYN
     tagMenus::match
     TEMP::ksection
     ruleTagMenuGroups::ksection
@@ -12328,6 +13304,8 @@ Fields used in this script
     tagMenus::orderOrLock
     tagMenus::tag
     tagMenus::_Ltag
+    TEMP::layoutRtagK
+    TEMP::layoutLtagK
     testlearn::kKeywordPrimary
     reference::kkeywordPrimary
     testlearn::kcsection
@@ -12343,9 +13321,13 @@ Scripts used in this script
 
 Layouts used in this script
 
+    ltagNK1
+    ltagNKs1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2SkeywordOrNode3
     addMenuNodeKeyword
     ltagNK2
-    ReferenceMenu2keywordOrNode1
+    <Missing Layout>
 
 Tables used in this script
 
@@ -12368,8 +13350,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuKey]	Parent Folder: [tagMenu]	Next Script: [menuMedium]
-Script Name	menuHealth
+Previous Script: [menuKey (update)]	Parent Folder: [tagMenu]	Next Script: [menuMedium]
+Script Name	menuHealth (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -12378,23 +13360,29 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2keywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2keywordOrNode5
     ltagNK1
     ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuSample
@@ -12443,23 +13431,23 @@ Script Steps
     #Turn off the loadtagrecord script to speed up the
     #loop portion of the script.
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
     #
-    #Goto correct layout.
-    #If in add mode ...
-    If [ $$add = 1 ]
-    Go to Layout [ “addMenu1” (tagMenus) ]
-    #
-    #If in learn mode ...
-    Else If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “learnMenuHealth” (tagMenus) ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “learnMenuSHealth” (tagMenus) ]
+    #Speed up script by going to layout with no
+    #pictures to load.
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ltagNK1” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNKs1” (tagMenus) ]
+    End If
+    Else
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+    Else
+    End If
     End If
     #
-    #If in reference mode ...
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “ReferenceMenuHealth” (tagMenus) ]
-    End If
     #
     #Find Permission tags. Permission tags are available to all library sections.
     Set Error Capture [ On ]
@@ -12491,8 +13479,26 @@ Script Steps
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
     #
+    #Goto correct layout.
+    #If in add mode ...
+    If [ $$add = 1 ]
+    Go to Layout [ “addMenu1” (tagMenus) ]
+    #
+    #If in learn mode ...
+    Else If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ “learnMenuHealth” (tagMenus) ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “learnMenuSHealth” (tagMenus) ]
+    End If
+    #
+    #If in reference mode ...
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    Go to Layout [ “ReferenceMenuHealth” (tagMenus) ]
+    End If
+    #
     #Turn loadtagrecord script back on.
     Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopTest ]
     #
     If [ $$health ≠ tagMenus::_Ltag ]
     Go to Record/Request/Page [ First ]
@@ -12568,6 +13574,9 @@ Scripts used in this script
 
 Layouts used in this script
 
+    ltagNK1
+    ltagNKs1
+    ReferenceMenu2keywordOrNode2
     addMenu1
     learnMenuHealth
     learnMenuSHealth
@@ -12594,7 +13603,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuHealth]	Parent Folder: [tagMenu]	Next Script: [menuTest]
+Previous Script: [menuHealth (update) ]	Parent Folder: [tagMenu]	Next Script: [menuTest]
 Script Name	menuMedium
 Run script with full access privileges	Off
 Include In Menu	No
@@ -12794,17 +13803,20 @@ Layouts that use this script
     ltagNK1
     ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuSample
@@ -12816,7 +13828,7 @@ Scripts that use this script
 
     findMode
     editLearn (update)
-    backFromSetup
+    backFromSetup (update)
 
 Script Definition
 Script Steps
@@ -12999,9 +14011,9 @@ Layouts that use this script
 
 Scripts that use this script
 
-    newTestGroup
-    newTest
-    (un)linkTestItemGroupToTestItemList
+    newTestGroup (update)
+    newTest (update)
+    (un)linkTestItemGroupToTestItemList (update)
     gotoTestItem
     evidenceDetailSpacetimeDELETE?????
     returnToSetup
@@ -13159,7 +14171,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuTestItem]	Parent Folder: [tagMenu]	Next Script: [menuCitation]
+Previous Script: [menuTestItem]	Parent Folder: [tagMenu]	Next Script: [menuCitation (update)]
 Script Name	menuSample
 Run script with full access privileges	Off
 Include In Menu	No
@@ -13168,17 +14180,20 @@ Layouts that use this script
     ltagNK1
     ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuSample
@@ -13300,7 +14315,7 @@ Script Steps
     #
     #Sample tags can duplicate each other, so no need
     #to check if they are any spelled the same.
-    // Perform Script [ “insureEqualityOfSpellFields” ]
+    // Perform Script [ “insureEqualityOfSpellFields (update)” ]
     #
     #Turn loadtagrecord script back on and perform
     #loadtag... script to highlight any Learn records
@@ -13326,7 +14341,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    insureEqualityOfSpellFields
+    insureEqualityOfSpellFields (update)
     loadItemRecordForSampleTagMenu
 
 Layouts used in this script
@@ -13354,8 +14369,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuSample]	Parent Folder: [tagMenu]	Next Script: [menuReference]
-Script Name	menuCitation
+Previous Script: [menuSample]	Parent Folder: [tagMenu]	Next Script: [menuReference (update)]
+Script Name	menuCitation (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -13364,9 +14379,12 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2keywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2keywordOrNode5
 
 Scripts that use this script
 
@@ -13409,9 +14427,9 @@ Script Steps
     #
     #Goto correct layout.
     If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “learnMenu3Cite” (reference) ]
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
     Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “ReferenceMenu3Cite” (reference) ]
+    Go to Layout [ “ReferenceMenu3CiteLOAD” (reference) ]
     End If
     #
     #Find Citations for this library.
@@ -13445,6 +14463,10 @@ Script Steps
     #Go to citation record's current selection or to first record.
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
+    #
+    #If current reference NOT LEARN record is
+    #tagged with a citation, find it.
+    If [ $$cite ≠ "" ]
     Loop
     Exit Loop If [ $$cite = reference::_Lreference ]
     Go to Record/Request/Page [ Next; Exit after last ]
@@ -13471,6 +14493,14 @@ Script Steps
     Refresh Window
     Select Window [ Name: "Tag Menus"; Current file ]
     Exit Script [ ]
+    End If
+    End If
+    #
+    #Goto correct layout.
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ “learnMenu3Cite” (reference) ]
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    Go to Layout [ “ReferenceMenu3Cite” (reference) ]
     End If
     #
     #Decided below was too much help. User can look
@@ -13523,6 +14553,8 @@ Scripts used in this script
 
 Layouts used in this script
 
+    learnMenu3CiteS
+    ReferenceMenu3CiteLOAD
     learnMenu3Cite
     ReferenceMenu3Cite
 
@@ -13549,8 +14581,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuCitation]	Parent Folder: [tagMenu]	Next Script: [menuCopyist]
-Script Name	menuReference
+Previous Script: [menuCitation (update)]	Parent Folder: [tagMenu]	Next Script: [menuCopyist]
+Script Name	menuReference (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -13558,17 +14590,20 @@ Layouts that use this script
     ltagNK1
     ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuSample
@@ -13578,9 +14613,11 @@ Layouts that use this script
 
 Scripts that use this script
 
+    TgotoCitationMenu (update)
     findMode
-    externalReferences
-    backToLearnOrDefaultSetup
+    externalReferences (update)
+    backToLearnOrDefaultSetup (update)
+    learn (update)
 
 Script Definition
 Script Steps
@@ -13593,7 +14630,7 @@ Script Steps
     // #If library is for inventory then go to container menu.
     // If [ TEMP::InventoryLibaryYN ≠ "" and Get ( LayoutName ) ≠ "learnMenu4STUFFRefCite" ]
     // Set Variable [ $$citationMatch; Value:"ref" ]
-    // Perform Script [ “externalReferences” ]
+    // Perform Script [ “externalReferences (update)” ]
     // Exit Script [ ]
     // End If
     #
@@ -13607,6 +14644,9 @@ Script Steps
     Set Variable [ $$tagRecordID ]
     Set Variable [ $$tagEdit ]
     End If
+    #
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
     Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     #
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -13620,20 +14660,23 @@ Script Steps
     #formatting to transparent.
     Set Variable [ $$internal ]
     #
-    #Goto correct layout.
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “learnMenuRefStuff” (reference) ]
-    Else
+    #Speed up script by going to layout with no
+    #pictures to load.
     If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “learnMenu3Cite” (reference) ]
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    Else
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    // Go to Layout [ “learnMenuRefStuff” (reference) ]
+    End If
+    Else
+    If [ TEMP::InventoryLibaryYN = "" ]
     Go to Layout [ “ReferenceMenu3Cite” (reference) ]
+    Else
     End If
     End If
     #
     #Find References for this section.
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
     Enter Find Mode [ ]
     Set Field [ reference::kcsection; TEMP::ksection ]
     Set Field [ reference::filterFind; "main" ]
@@ -13646,14 +14689,44 @@ Script Steps
     #
     #Sort according to current users wishes. By default
     #the sort will be by category which is set by editCitation script.
+    If [ TEMP::InventoryLibaryYN = "" ]
     Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceShort; ascending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::pubYear; based on value list: “order” reference::Title; ascending ] [ Restore; No dialog ]
+    End If
     #
     #Go to citation record's current selection or to first record.
     Go to Record/Request/Page [ First ]
+    #
+    #If current learn record is tagged with a
+    #references, find it.
+    If [ Length ( Filter ( $$ref ; "L" ) ) ≠ ValueCount ( $$ref ) ]
     Loop
     Exit Loop If [ FilterValues ( $$ref ; reference::_Lreference ) = reference::_Lreference & ¶ ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
+    End If
+    #
+    #Goto correct layout.
+    If [ TEMP::InventoryLibaryYN = "" ]
+    If [ TEMP::layoutLtagR = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    Set Field [ TEMP::layoutLtagR; "more" & Get (LayoutName) ]
+    Else
+    Go to Layout [ “learnMenu3Cite” (reference) ]
+    Set Field [ TEMP::layoutLtagR; "less" & Get (LayoutName) ]
+    End If
+    Else
+    Go to Layout [ Middle ( TEMP::layoutLtagR ; 5 ; 42 ) ]
+    End If
+    Else
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ “learnMenuRefStuff” (reference) ]
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    End If
+    End If
+    #
     If [ FilterValues ( $$ref ; reference::_Lreference ) ≠ reference::_Lreference & ¶ ]
     #
     #Decided below was too much help. User can look
@@ -13719,17 +14792,21 @@ Fields used in this script
     tagKeywordPrimary::orderOrLock
     tagKeywordPrimary::tag
     reference::referenceShort
+    reference::pubYear
     reference::_Lreference
+    TEMP::layoutLtagR
 
 Scripts used in this script
 
-    externalReferences
+    externalReferences (update)
 
 Layouts used in this script
 
+    learnMenu3CiteS
     learnMenuRefStuff
-    learnMenu3Cite
     ReferenceMenu3Cite
+    learnMenu3Cite
+    <Missing Layout>
 
 Tables used in this script
 
@@ -13750,7 +14827,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuReference]	Parent Folder: [tagMenu]	Next Script: [menuPath]
+Previous Script: [menuReference (update)]	Parent Folder: [tagMenu]	Next Script: [menuPath]
 Script Name	menuCopyist
 Run script with full access privileges	Off
 Include In Menu	No
@@ -13760,9 +14837,12 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2keywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2keywordOrNode5
 
 Scripts that use this script
 
@@ -13918,9 +14998,12 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2keywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2keywordOrNode5
 
 Scripts that use this script
 
@@ -14120,9 +15203,12 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2keywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2keywordOrNode5
 
 Scripts that use this script
 
@@ -14296,6 +15382,10 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     ltagNK1
     ltagNKs1
     ltagNK2
@@ -14304,6 +15394,8 @@ Layouts that use this script
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
@@ -14314,9 +15406,9 @@ Scripts that use this script
 
     createEmptyLibrary (update)
     openDetailWindow !!! FINISH LATER !!!
-    menuNode
-    menuKey
-    menuHealth
+    menuNode (update)
+    menuKey (update)
+    menuHealth (update)
     menuMedium
     menuCopyist
     menuPath
@@ -14470,6 +15562,10 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     ltagNK1
     ltagNKs1
     ltagNK2
@@ -14478,6 +15574,8 @@ Layouts that use this script
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
@@ -14642,12 +15740,13 @@ Include In Menu	No
 Layouts that use this script
 
     learnMenu3Cite
+    learnMenu3CiteS
 
 Scripts that use this script
 
-    externalReferences
+    externalReferences (update)
     loadCitation OLD
-    backToLearnOrDefaultSetup
+    backToLearnOrDefaultSetup (update)
 
 Script Definition
 Script Steps
@@ -14749,8 +15848,7 @@ Layouts that use this script
 Scripts that use this script
 
     menuTest
-    addTagToMainRecord
-    loadCitation
+    addTagToMainRecord (update)
     loadCitation OLD
 
 Script Definition
@@ -14955,6 +16053,8 @@ Include In Menu	No
 Layouts that use this script
 
     defaultNode1
+    defaultNode2
+    defaultNode3
 
 Scripts that use this script
 
@@ -15044,7 +16144,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addTagToTestSubject]	Parent Folder: [tagMenu]	Next Script: [defaultTestLocationMenu]
+Previous Script: [addTagToTestSubject]	Parent Folder: [tagMenu]	Next Script: [defaultTestLocationMenu (update)]
 Script Name	loadItemRecordForTestSetupTagMenu
 Run script with full access privileges	Off
 Include In Menu	No
@@ -15094,14 +16194,15 @@ Custom menu set used by this script
 
 
 Previous Script: [loadItemRecordForTestSetupTagMenu]	Parent Folder: [tagMenu]	Next Script: [setOrderForSampleOrTest (update)]
-Script Name	defaultTestLocationMenu
+Script Name	defaultTestLocationMenu (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultSetup
+
 Scripts that use this script
 
-    returnToStep2
     printThingReport
 
 Script Definition
@@ -15130,7 +16231,7 @@ Script Steps
     #sections can be created, which are based on/duplicated
     #from a section template.
     If [ TEMP::ksection = "" ]
-    Perform Script [ “defaultSectionMenu” ]
+    Perform Script [ “defaultSectionMenu (update)” ]
     Show Custom Dialog [ Message: "You must select a section template prior to clicking the 'test' button. All test sections are created from a section template. "; Buttons: “OK” ]
     Exit Script [ ]
     End If
@@ -15160,14 +16261,13 @@ Script Steps
     Set Variable [ $$testSubject; Value:tempSetup::kdefaultNodeTestSubject ]
     Set Field [ TEMP::DEFAULTNodeTestSubjectName; tagDefaultTestSubject::tag ]
     Refresh Window
-    Select Window [ Name: "Tag Menus"; Current file ]
+    // Select Window [ Name: "Tag Menus"; Current file ]
     #
     #Find all created test section records.
     Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     Enter Find Mode [ ]
-    // Set Field [ tagTestSubjectLocation::knode; TEMP::kdefaultNodeTestSubject ]
     Set Field [ tagTestSubjectLocation::ksection; TEMP::ksection ]
     Perform Find [ ]
     #
@@ -15175,14 +16275,14 @@ Script Steps
     Sort Records [ Specified Sort Order: tagTestSubject::tag; ascending tagTestSubjectLocation::reportNumber; ascending tagTestSubjectLocation::order; based on value list: “order” tagTestSubjectLocation::focusName; ascending ] [ Restore; No dialog ]
     #
     #
-    #Just in case user was in nonTag field on this
-    #window when user clicked a menu button on
-    #the other window, exit all fields.
-    Select Window [ Name: "Setup"; Current file ]
-    Refresh Window
-    #
-    #goto Tag Menus window
-    Select Window [ Name: "Tag Menus"; Current file ]
+    // #Just in case user was in nonTag field on this
+    // #window when user clicked a menu button on
+    // #the other window, exit all fields.
+    // Select Window [ Name: "Setup"; Current file ]
+    // Refresh Window
+    // #
+    // #goto Tag Menus window
+    // Select Window [ Name: "Tag Menus"; Current file ]
     #
     #Clear current temp field of section names in
     #case user has selected a section different from
@@ -15231,8 +16331,6 @@ Fields used in this script
     tempSetup::kdefaultNodeTestSubject
     tagDefaultTestSubject::tag
     TEMP::DEFAULTNodeTestSubjectName
-    TEMP::kdefaultNodeTestSubject
-    tagTestSubjectLocation::knode
     tagTestSubjectLocation::ksection
     tagTestSubject::tag
     tagTestSubjectLocation::reportNumber
@@ -15256,7 +16354,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    defaultSectionMenu
+    defaultSectionMenu (update)
     addBackSectionCreatorNode
     defaultNodeMenu
 
@@ -15287,7 +16385,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [defaultTestLocationMenu]	Parent Folder: [tagMenu]	Next Script: [testAddTestItemTextOrKey]
+Previous Script: [defaultTestLocationMenu (update)]	Parent Folder: [tagMenu]	Next Script: [testAddTestItemTextOrKey]
 Script Name	setOrderForSampleOrTest (update)
 Run script with full access privileges	Off
 Include In Menu	No
@@ -15411,7 +16509,12 @@ Script Steps
     Set Variable [ $number; Value:$add + 1 ]
     End Loop
     End If
+    #
     Sort Records [ ] [ No dialog ]
+    #
+    #Stop TgotoCitationMenu script.
+    Set Variable [ $$stopTgotoCitationMenu; Value:1 ]
+    #
 
 Fields used in this script
 
@@ -15439,7 +16542,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [setOrderForSampleOrTest (update)]	Parent Folder: [tagMenu]	Next Script: [moveTagToNewGroupStep1]
+Previous Script: [setOrderForSampleOrTest (update)]	Parent Folder: [tagMenu]	Next Script: [moveTagToNewGroupStep1 (update)]
 Script Name	testAddTestItemTextOrKey
 Run script with full access privileges	Off
 Include In Menu	No
@@ -15585,7 +16688,7 @@ Custom menu set used by this script
 
 
 Previous Script: [testAddTestItemTextOrKey]	Parent Folder: [tagMenu]	Next Script: [moveTagToNewGroupStep1b ]
-Script Name	moveTagToNewGroupStep1
+Script Name	moveTagToNewGroupStep1 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -15595,6 +16698,12 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #If there is only one group, exit script.
+    If [ ValueCount ( ValueListItems ( Get ( FileName ) ; "tagGroup" ) ) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
     #
     #If node is currenlty locked then stop script, inform user.
     If [ nodeLockTagMenus::orderOrLock ≠ "" ]
@@ -15655,7 +16764,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [moveTagToNewGroupStep1]	Parent Folder: [tagMenu]	Next Script: [moveTagToNewGroupStep2]
+Previous Script: [moveTagToNewGroupStep1 (update)]	Parent Folder: [tagMenu]	Next Script: [moveTagToNewGroupStep2]
 Script Name	moveTagToNewGroupStep1b
 Run script with full access privileges	Off
 Include In Menu	No
@@ -15883,15 +16992,16 @@ Layouts that use this script
 
     defaultSections
     defaultHealth
-    defaultTest
-    defaultTestNewFocus
+    defaultNode1
+    defaultNode2
+    defaultNode3
 
 Scripts that use this script
 
     startDatabase (update)
     import (update)
     createEmptyLibrary (update)
-    defaultTestLocationMenu
+    defaultTestLocationMenu (update)
     addLinksPicturesToTagsMode
 
 Script Definition
@@ -15901,7 +17011,7 @@ Script Steps
     #A section must be selected before nodes
     #can be assigned.
     If [ TEMP::ksection = "" ]
-    Perform Script [ “defaultSectionMenu” ]
+    Perform Script [ “defaultSectionMenu (update)” ]
     Show Custom Dialog [ Message: "All nodes are assigned to a library. You need to go the backup layout in admin mode and type in the words New Library, and then restart this database."; Buttons: “OK” ]
     Exit Script [ ]
     End If
@@ -15997,7 +17107,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    defaultSectionMenu
+    defaultSectionMenu (update)
     addBackSectionCreatorNode
 
 Layouts used in this script
@@ -16024,7 +17134,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [defaultNodeMenu]	Parent Folder: [tagMenu]	Next Script: [defaultSectionMenu]
+Previous Script: [defaultNodeMenu]	Parent Folder: [tagMenu]	Next Script: [defaultSectionMenu (update)]
 Script Name	defaultHealthMenu
 Run script with full access privileges	Off
 Include In Menu	No
@@ -16035,8 +17145,6 @@ Layouts that use this script
     defaultNode1
     defaultNode2
     defaultNode3
-    defaultTest
-    defaultTestNewFocus
 
 Scripts that use this script
 
@@ -16150,16 +17258,13 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [defaultHealthMenu]	Parent Folder: [tagMenu]	Next Script: [checkIfLockedOnLearnTagMenus]
-Script Name	defaultSectionMenu
+Previous Script: [defaultHealthMenu]	Parent Folder: [tagMenu]	Next Script: [defaultsAll (new)]
+Script Name	defaultSectionMenu (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
+    defaultSetup
     defaultTest
     defaultTestNewFocus
 
@@ -16168,9 +17273,8 @@ Scripts that use this script
     startDatabase (update)
     deleteSection
     returnToSetup
-    defaultTestLocationMenu
+    defaultTestLocationMenu (update)
     defaultNodeMenu
-    backToLearnOrDefaultSetup
 
 Script Definition
 Script Steps
@@ -16178,40 +17282,69 @@ Script Steps
     #
     #Set citationMatch to color menu button with inUse color.
     Set Variable [ $$citationMatch; Value:"section" ]
-    Set Variable [ $$stopAddTagToCitation; Value:1 ]
-    Select Window [ Name: "Setup"; Current file ]
+    Go to Layout [ “defaultSetup” (tempSetup) ]
     Set Variable [ $$citationitem; Value:TEMP::ksection ]
     Refresh Window
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Go to Layout [ “defaultSections” (ruleSection) ]
     #
-    #
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    Set Field [ ruleSection::match; "section" ]
-    Perform Find [ ]
-    #
-    Sort Records [ Specified Sort Order: ruleSection::name; ascending ] [ Restore; No dialog ]
-    #
-    #Go to citation record's current selection or to first record.
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ TEMP::ksection = ruleSection::ksection ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    If [ TEMP::ksection ≠ ruleSection::ksection ]
-    Go to Record/Request/Page [ First ]
-    End If
-    #
-    Set Variable [ $$stopAddTagToCitation ]
 
 Fields used in this script
 
     TEMP::ksection
-    ruleSection::match
-    ruleSection::name
-    ruleSection::ksection
+
+Scripts used in this script
+
+Layouts used in this script
+
+    defaultSetup
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [defaultSectionMenu (update)]	Parent Folder: [tagMenu]	Next Script: [checkIfLockedOnLearnTagMenus (update)]
+Script Name	defaultsAll (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultHealth
+    defaultNode1
+    defaultNode2
+    defaultNode3
+
+Scripts that use this script
+
+    returnToStep2 (update)
+    backToLearnOrDefaultSetup (update)
+
+Script Definition
+Script Steps
+
+    #
+    Go to Layout [ “defaultSections” (tempSetup) ]
+    Show All Records
+    #
+    #If no records exist then create a new one.
+    If [ Get (FoundCount) = 0 ]
+    New Record/Request
+    End If
+    Set Variable [ $$citationMatch; Value:"section" ]
+    Set Variable [ $$citationitem; Value:TEMP::ksection ]
+    Refresh Window
+    #
+
+Fields used in this script
+
+    TEMP::ksection
 
 Scripts used in this script
 
@@ -16222,20 +17355,18 @@ Layouts used in this script
 Tables used in this script
 
     TEMP
-    tagGroup
 
 Table occurrences used by this script
 
     TEMP
-    ruleSection
 
 Custom Functions used by this script
 
 Custom menu set used by this script
 
 
-Previous Script: [defaultSectionMenu]	Parent Folder: [tagMenu]	Next Script: [menuReferenceNodesOrEditors]
-Script Name	checkIfLockedOnLearnTagMenus
+Previous Script: [defaultsAll (new)]	Parent Folder: [tagMenu]	Next Script: [menuReferenceNodesOrEditors]
+Script Name	checkIfLockedOnLearnTagMenus (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -16248,7 +17379,7 @@ Script Definition
 Script Steps
 
     #
-    If [ $$citationMatch = "key" //or $$citationMatch = "node" or $$citationMatch = "health" or $$citationMatch = "medium" or $$citationMatch = "path" ]
+    If [ $$stopLockCheck = 1 or $$citationMatch = "key" //or $$citationMatch = "node" or $$citationMatch = "health" or $$citationMatch = "medium" or $$citationMatch = "path" ]
     Exit Script [ ]
     End If
     #Used on learn tag menus to keep user out of any
@@ -16301,7 +17432,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [checkIfLockedOnLearnTagMenus]	Parent Folder: [tagMenu]	Next Script: [loadItemRecordForSampleTagMenu]
+Previous Script: [checkIfLockedOnLearnTagMenus (update)]	Parent Folder: [tagMenu]	Next Script: [loadItemRecordForSampleTagMenu]
 Script Name	menuReferenceNodesOrEditors
 Run script with full access privileges	Off
 Include In Menu	No
@@ -16323,13 +17454,13 @@ Script Steps
     End If
     #
     Refresh Window
-    Perform Script [ “clearCitationMatch” ]
+    Perform Script [ “clearCitationMatch (update)” ]
 
 Fields used in this script
 
 Scripts used in this script
 
-    clearCitationMatch
+    clearCitationMatch (update)
 
 Layouts used in this script
 
@@ -16342,7 +17473,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuReferenceNodesOrEditors]	Parent Folder: [tagMenu]	Next Script: [toggleTagMenuWindowView]
+Previous Script: [menuReferenceNodesOrEditors]	Parent Folder: [tagMenu]	Next Script: [toggleTagMenuWindowView (update)]
 Script Name	loadItemRecordForSampleTagMenu
 Run script with full access privileges	Off
 Include In Menu	No
@@ -16352,8 +17483,8 @@ Scripts that use this script
 
     menuSample
     newCitationMenuGroup
-    addTagToMainRecord
-    deleteCPPPBtags
+    addTagToMainRecord (update)
+    deleteCPPPBtags (update Name Change from deleteCPPPtags)
 
 Script Definition
 Script Steps
@@ -16486,7 +17617,7 @@ Script Steps
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$returnFocusToThisRecord ]
     End If
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     Perform Script [ “sortTLRecordsByOrderNumber” ]
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -16543,7 +17674,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
     sortTLRecordsByOrderNumber
 
 Layouts used in this script
@@ -16568,7 +17699,7 @@ Custom menu set used by this script
 
 
 Previous Script: [loadItemRecordForSampleTagMenu]	Parent Folder: [tagMenu]	Next Script: [TgotoCitationMenu (update)]
-Script Name	toggleTagMenuWindowView
+Script Name	toggleTagMenuWindowView (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -16582,6 +17713,10 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     ltagNK1
     ltagNKs1
     ltagNK2
@@ -16590,6 +17725,12 @@ Layouts that use this script
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
+    learnMenu3Cite
+    learnMenu3CiteS
+    learnMenu4RefCite
+    learnMenu4RefCiteS
 
 Scripts that use this script
 
@@ -16599,82 +17740,120 @@ Script Steps
     #
     #Reveal more or fewer pictures and links for tag.
     #
+    #Speed up script.
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopLockCheck; Value:1 ]
+    #
     #First toggle from current view to next view.
     If [ Left (Get (LayoutName) ; 1) = "l" and $$citationMatch = "key" ]
     #from 1 to 2
     If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutLtagK ; 4 ) = "more" ]
     Go to Layout [ “ltagNK2” (tagMenus) ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ltagNKs2” (tagMenus) ]
-    End If
     #from 2 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutLtagK ; 4 ) = "more" ]
     Go to Layout [ “ltagNK3” (tagMenus) ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ltagNKs3” (tagMenus) ]
-    End If
     #from 3 to 4
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagK ; 4 ) = "more" ]
     Go to Layout [ “ltagNK4” (tagMenus) ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ltagNKs4” (tagMenus) ]
-    End If
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagK ; 4 ) = "more" ]
+    Go to Layout [ “ltagNK5” (tagMenus) ]
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutLtagK ; 4 ) = "less" ]
+    Go to Layout [ “ltagNK4” (tagMenus) ]
     #from 4 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagK ; 4 ) = "less" ]
     Go to Layout [ “ltagNK3” (tagMenus) ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ltagNKs3” (tagMenus) ]
-    End If
     #from 3 to 2
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagK ; 4 ) = "less" ]
     Go to Layout [ “ltagNK2” (tagMenus) ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ltagNKs2” (tagMenus) ]
-    End If
     #from 2 to 1
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutLtagK ; 4 ) = "less" ]
     Go to Layout [ “ltagNK1” (tagMenus) ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ltagNKs1” (tagMenus) ]
-    End If
     End If
     #
     Else If [ Left (Get (LayoutName) ; 1) = "l" and $$citationMatch = "node" ]
     #from 1 to 2
     If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutLtagN ; 4 ) = "more" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “ltagNKs2” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK2” (tagMenus) ]
     End If
     #from 2 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutLtagN ; 4 ) = "more" ]
-    Go to Layout [ “ltagNK3” (tagMenus) ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “ltagNKs3” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK3” (tagMenus) ]
+    End If
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagN ; 4 ) = "more" ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ltagNKs5” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK5” (tagMenus) ]
     End If
     #from 3 to 4
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagN ; 4 ) = "more" ]
-    Go to Layout [ “ltagNK4” (tagMenus) ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “ltagNKs4” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK4” (tagMenus) ]
+    End If
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutLtagN ; 4 ) = "less" ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ltagNKs4” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK4” (tagMenus) ]
     End If
     #from 4 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagN ; 4 ) = "less" ]
-    Go to Layout [ “ltagNK3” (tagMenus) ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “ltagNKs3” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK3” (tagMenus) ]
     End If
     #from 3 to 2
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagN ; 4 ) = "less" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “ltagNKs2” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK2” (tagMenus) ]
     End If
     #from 2 to 1
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutLtagN ; 4 ) = "less" ]
-    Go to Layout [ “ltagNK1” (tagMenus) ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “ltagNKs1” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNK1” (tagMenus) ]
+    End If
+    End If
+    #
+    Else If [ Left (Get (LayoutName) ; 1) = "l" and $$citationMatch = "ref" and Get (LayoutTableName) = "testLearn" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagL ; 4 ) = "more" ]
+    Go to Layout [ “learnMenu4RefCite” (testlearn) ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    End If
+    #from 2 to 1
+    Else
+    Go to Layout [ “learnMenu4RefCiteS” (testlearn) ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    End If
+    End If
+    #
+    Else If [ Left (Get (LayoutName) ; 1) = "l" and $$citationMatch = "ref" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagR ; 4 ) = "more" ]
+    Go to Layout [ “learnMenu3Cite” (reference) ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    End If
+    #from 2 to 1
+    Else
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
     End If
     End If
     #
@@ -16688,7 +17867,34 @@ Script Steps
     End If
     #from 2 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutRtagK ; 4 ) = "more" ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceMenu2SkeywordOrNode3” (tagMenus) ]
+    Else
     Go to Layout [ “ReferenceMenu2keywordOrNode3” (tagMenus) ]
+    End If
+    #from 3 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagK ; 4 ) = "more" ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceMenu2SkeywordOrNode4” (tagMenus) ]
+    Else
+    Go to Layout [ “ReferenceMenu2keywordOrNode4” (tagMenus) ]
+    End If
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutRtagK ; 4 ) = "more" ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceMenu2SkeywordOrNode5” (tagMenus) ]
+    Else
+    Go to Layout [ “ReferenceMenu2keywordOrNode5” (tagMenus) ]
+    End If
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutRtagK ; 4 ) = "less" ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceMenu2SkeywordOrNode4” (tagMenus) ]
+    Else
+    Go to Layout [ “ReferenceMenu2keywordOrNode4” (tagMenus) ]
+    End If
+    #from 4 to 3
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutRtagK ; 4 ) = "less" ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “ReferenceMenu2SkeywordOrNode3” (tagMenus) ]
     Else
@@ -16716,6 +17922,18 @@ Script Steps
     Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
     #from 2 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutRtagN ; 4 ) = "more" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode3” (tagMenus) ]
+    #from 3 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagN ; 4 ) = "more" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode4” (tagMenus) ]
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutRtagN ; 4 ) = "more" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode5” (tagMenus) ]
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutRtagN ; 4 ) = "less" ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode4” (tagMenus) ]
+    #from 4 to 3
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutRtagN ; 4 ) = "less" ]
     Go to Layout [ “ReferenceMenu2keywordOrNode3” (tagMenus) ]
     #from 3 to 2
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagN ; 4 ) = "less" ]
@@ -16757,6 +17975,12 @@ Script Steps
     Set Field [ TEMP::layoutLtagN; "more" & Get (LayoutName) ]
     #from 3 to 4
     Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagN ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutLtagN; "more" & Get (LayoutName) ]
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutLtagN ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutLtagN; "less" & Get (LayoutName) ]
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagN ; 4 ) = "less" ]
     Set Field [ TEMP::layoutLtagN; "less" & Get (LayoutName) ]
     #from 4 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagN ; 4 ) = "less" ]
@@ -16776,6 +18000,18 @@ Script Steps
     Set Field [ TEMP::layoutRtagN; "more" & Get (LayoutName) ]
     #from 2 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagN ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutRtagN; "more" & Get (LayoutName) ]
+    #from 3 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutRtagN ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutRtagN; "more" & Get (LayoutName) ]
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutRtagN ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutRtagN; "less" & Get (LayoutName) ]
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutRtagN ; 4 ) = "less" ]
+    Set Field [ TEMP::layoutRtagN; "less" & Get (LayoutName) ]
+    #from 4 to 3
+    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagN ; 4 ) = "less" ]
     Set Field [ TEMP::layoutRtagN; "less" & Get (LayoutName) ]
     #from 3 to 2
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutRtagN ; 4 ) = "less" ]
@@ -16813,6 +18049,12 @@ Script Steps
     Set Field [ TEMP::layoutLtagK; "more" & Get (LayoutName) ]
     #from 3 to 4
     Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagK ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutLtagK; "more" & Get (LayoutName) ]
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutLtagK ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutLtagK; "less" & Get (LayoutName) ]
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagK ; 4 ) = "less" ]
     Set Field [ TEMP::layoutLtagK; "less" & Get (LayoutName) ]
     #from 4 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagK ; 4 ) = "less" ]
@@ -16832,6 +18074,18 @@ Script Steps
     Set Field [ TEMP::layoutRtagK; "more" & Get (LayoutName) ]
     #from 2 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagK ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutRtagK; "more" & Get (LayoutName) ]
+    #from 3 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutRtagK ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutRtagK; "more" & Get (LayoutName) ]
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutRtagK ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutRtagK; "less" & Get (LayoutName) ]
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutRtagK ; 4 ) = "less" ]
+    Set Field [ TEMP::layoutRtagK; "less" & Get (LayoutName) ]
+    #from 4 to 3
+    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagK ; 4 ) = "less" ]
     Set Field [ TEMP::layoutRtagK; "less" & Get (LayoutName) ]
     #from 3 to 2
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutRtagK ; 4 ) = "less" ]
@@ -16842,13 +18096,49 @@ Script Steps
     End If
     #
     End If
+    #
+    #
+    Else If [ $$citationMatch = "ref" and Get (LayoutTableName) = "testLearn" ]
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    #
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagL ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutLtagL; "less" & Get (LayoutName) ]
+    #from 2 to 1
+    Else
+    Set Field [ TEMP::layoutLtagL; "more" & Get (LayoutName) ]
     End If
+    #
+    End If
+    #
+    #
+    Else If [ $$citationMatch = "ref" ]
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    #
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagR ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutLtagR; "less" & Get (LayoutName) ]
+    #from 2 to 1
+    Else
+    Set Field [ TEMP::layoutLtagR; "more" & Get (LayoutName) ]
+    End If
+    #
+    End If
+    End If
+    #
+    #
+    #Turn back on essential scripts.
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopLockCheck ]
+    #
 
 Fields used in this script
 
     TEMP::layoutLtagK
-    TEMP::InventoryLibaryYN
     TEMP::layoutLtagN
+    TEMP::InventoryLibaryYN
+    TEMP::layoutLtagL
+    TEMP::layoutLtagR
     TEMP::layoutRtagK
     TEMP::layoutRtagN
     TEMP::DefaultmoreORLessLayoutNode
@@ -16858,17 +18148,27 @@ Scripts used in this script
 Layouts used in this script
 
     ltagNK2
-    ltagNKs2
     ltagNK3
-    ltagNKs3
     ltagNK4
-    ltagNKs4
+    ltagNK5
     ltagNK1
+    ltagNKs2
+    ltagNKs3
+    ltagNKs5
+    ltagNKs4
     ltagNKs1
+    learnMenu4RefCite
+    learnMenu4RefCiteS
+    learnMenu3Cite
+    learnMenu3CiteS
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode2
-    ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode5
+    ReferenceMenu2keywordOrNode5
     ReferenceMenu2SkeywordOrNode1
     ReferenceMenu2keywordOrNode1
     defaultNode2
@@ -16888,7 +18188,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [toggleTagMenuWindowView]	Parent Folder: [tagMenu]	Next Script: [showTag]
+Previous Script: [toggleTagMenuWindowView (update)]	Parent Folder: [tagMenu]	Next Script: [showTag]
 Script Name	TgotoCitationMenu (update)
 Run script with full access privileges	Off
 Include In Menu	No
@@ -16896,45 +18196,51 @@ Layouts that use this script
 
 Scripts that use this script
 
-    loadCitation
+    loadCitation (update)
     loadCitation OLD
 
 Script Definition
 Script Steps
 
-    If [ Get ( ActiveFieldContents ) = "" ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    If [ $$add = 1 and Get ( ActiveFieldName ) = "kcitation" or $$add = 1 and Get ( ActiveFieldName ) = "kcReference" ]
-    Go to Field [ ]
-    Show Custom Dialog [ Message: "Learn records with references or a citation cannot be added to tags. Doing so would require adding all these reference and cite records' references and cite records, and then all of theirs, and so on. "; Buttons: “OK” ]
-    Exit Script [ ]
-    End If
-    // If [ TEMP::ksection & "¶" ≠ FilterValues ( reference::kcsection ; TEMP::ksection & "¶" ) ]
+    #
+    // If [ Get ( ActiveFieldContents ) = "" ]
     // Go to Field [ ]
-    // Show Custom Dialog [ Message: "This reference belongs to the " & ruleRefLibraryName::name & " section." & " You can add pictures and links from any reference record to any tag, but you can only add tags to the current default section's records (name shown top left)."; Buttons: “OK” ]
     // Exit Script [ ]
     // End If
-    If [ $$findMode ≠ "" ]
+    #
+    If [ $$findMode ≠ "" or $$stopTgotoCitationMenu = 1 ]
     Go to Field [ ]
+    Set Variable [ $$stopTgotoCitationMenu ]
     Exit Script [ ]
     End If
+    #
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
     #
     #Conditionally format selected item and button on menu screen.
     Set Variable [ $$citationItem; Value:Get (ActiveFieldContents) ]
     Set Variable [ $$citationMatch; Value:Get (ActiveFieldName) ]
-    If [ $$citationMatch = "referenceShort" ]
-    Set Variable [ $$citationMatch; Value:"kcitation" ]
-    Set Variable [ $$citationItem; Value:refReference::_Lreference ]
+    #
+    If [ Filter ( Get ( ActiveFieldTableName ) ; "refReference" ) = "refReference" ]
+    Set Variable [ $$citationMatch; Value:"ref" ]
+    Set Variable [ $learnRef; Value:refReference::_Lreference ]
     End If
-    If [ Left (Get (ActiveFieldName); 4) = "kkey" or Get (ActiveFieldName) = "" ]
+    #
+    If [ Left (Get (ActiveFieldName); 4) = "kkey" or Left (Get (ActiveFieldName); 5) = "kckey" or Get (ActiveFieldName) = "" ]
     Set Variable [ $$citationMatch; Value:"key" ]
-    Else If [ Left (Get (ActiveFieldName); 5) = "knode" ]
-    Set Variable [ $$citationMatch; Value:"node" ]
+    Set Variable [ $$citationItem; Value:tagTLKeywordPrimary::_Ltag ]
     End If
+    #
+    If [ Left ( Get ( ActiveFieldName ) ; 5 ) = "knode" or Filter ( Get (ActiveFieldTableName) ; "Node" ) = "Node" ]
+    Set Variable [ $$citationMatch; Value:"node" ]
+    Set Variable [ $$citationItem; Value:tagTLNodePrimary::_Ltag ]
+    End If
+    #
+    If [ Filter ( Get ( ActiveFieldName ) ; "node" ) = "node" ]
+    Set Variable [ $$citationMatch; Value:"node" ]
+    Set Variable [ $$citationItem; Value:reference::knodePrimary ]
+    End If
+    #
     Refresh Window
     #
     #Exit field so blinking cursor doesn't show up in empty field.
@@ -16947,61 +18253,195 @@ Script Steps
     New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
     End If
     #
-    #set citationMatch to color menu button with inUse color.
+    #
+    #
+    #
+    #
+    #LEARN WINDOW
     If [ $window = "Learn" ]
+    #
     If [ $$citationMatch = "kfolderpath" ]
     Go to Layout [ “learnMenu1” (tagMenus) ]
     Perform Script [ “menuPath” ]
+    #
     Else If [ $$citationMatch = "kmedium" ]
     Set Variable [ $$medium; Value:reference::kmedium ]
     Go to Layout [ “learnMenu1” (tagMenus) ]
     Perform Script [ “menuMedium” ]
+    #
     Else If [ $$citationMatch = "khealth" ]
     Go to Layout [ “learnMenuHealth” (tagMenus) ]
-    Perform Script [ “menuHealth” ]
+    Perform Script [ “menuHealth (update) ” ]
+    #
     Else If [ $$citationMatch = "key" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
-    Perform Script [ “menuKey” ]
-    Else If [ $$citationMatch = "node" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
-    Perform Script [ “menuNode” ]
-    Else If [ $$citationMatch = "kcitation" ]
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “learnMenuRefStuff” (reference) ]
-    Perform Script [ “externalReferences” ]
+    #KEY MENU
+    #
+    #See if user has selected requested menu.
+    If [ tagMenus::match ≠ "key" ]
+    #
+    #Menu NOT selected.
+    Perform Script [ “menuKey (update)” ]
+    #
     Else
-    Go to Layout [ “learnMenu3Cite” (reference) ]
-    Perform Script [ “menuCitation” ]
+    #Menu IS selected.
+    #
+    #Record not selected and there is only a
+    #primary key, do this:
+    If [ $$primaryKey ≠ tagMenus::_Ltag or $$PrimaryKey ≠ "" ]
+    #
+    #Go to a layout with no pictures
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $reflayoutname; Value:Get (LayoutName) ]
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ltagNK1” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNKs1” (tagMenus) ]
     End If
     #
-    #Go to citation record's current selection or to first record.
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Go to Record/Request/Page [ First ]
+    #Make sure records are showing.
+    Enter Find Mode [ ]
+    Set Field [ tagMenus::_Ltag; $$primaryKey ]
+    Extend Found Set [ ]
+    If [ $$otherKey ≠ "" ]
+    Set Variable [ $numberOfkeys; Value:1 ]
     Loop
-    Exit Loop If [ FilterValues ( $$citationItem ; reference::_Lreference ) = reference::_Lreference & ¶ ]
+    Enter Find Mode [ ]
+    Set Field [ tagMenus::_Ltag; GetValue ( $$OtherKey ; $numberOfkeys ) ]
+    Extend Found Set [ ]
+    Set Variable [ $numberOfkeys; Value:$numberOfkeys + 1 ]
+    Exit Loop If [ $numberOfkeys = ValueCount ( $$OtherKey ) + 1 ]
+    End Loop
+    End If
+    #
+    #Loop thru records to find user's selection.
+    Go to Record/Request/Page [ First ]
+    Scroll Window [ Home ]
+    Loop
+    Exit Loop If [ $$primaryKey = tagMenus::_Ltag ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
-    If [ FilterValues ( $$citationItem ; reference::_Lreference ) ≠ reference::_Lreference & ¶ ]
-    Scroll Window [ Home ]
-    Go to Record/Request/Page [ First ]
-    End If
-    Set Variable [ $$citationMatch; Value:"ref" ]
-    Refresh Window
+    #
+    #Finish.
+    Go to Layout [ $reflayoutname ]
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
-    Select Window [ Name: "Learn"; Current file ]
-    Refresh Window
+    End If
+    End If
+    #
+    #
+    Else If [ $$citationMatch = "node" ]
+    #NODE MENU
+    #
+    #See if user has selected requested menu.
+    If [ tagMenus::match ≠ "node" ]
+    #
+    #Menu NOT selected.
+    Perform Script [ “menuNode (update)” ]
+    #
+    Else
+    #Menu IS selected.
+    #
+    #Record not selected and there is only a
+    #primary node, do this:
+    If [ $$primaryNode ≠ tagMenus::_Ltag or $$Node ≠ "" ]
+    #
+    #Go to a layout with no pictures
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $reflayoutname; Value:Get (LayoutName) ]
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ltagNK1” (tagMenus) ]
+    Else
+    Go to Layout [ “ltagNKs1” (tagMenus) ]
+    End If
+    #
+    #Make sure records are showing.
+    Enter Find Mode [ ]
+    Set Field [ tagMenus::_Ltag; $$primaryNode ]
+    Extend Found Set [ ]
+    If [ $$Node ≠ "" ]
+    Set Variable [ $numberOfkeys; Value:1 ]
+    Loop
+    Enter Find Mode [ ]
+    Set Field [ tagMenus::_Ltag; GetValue ( $$Node ; $numberOfkeys ) ]
+    Extend Found Set [ ]
+    Set Variable [ $numberOfkeys; Value:$numberOfkeys + 1 ]
+    Exit Loop If [ $numberOfkeys = ValueCount ( $$Node ) + 1 ]
+    End Loop
+    End If
+    #
+    #Loop thru records to find user's selection.
+    Go to Record/Request/Page [ First ]
+    Scroll Window [ Home ]
+    Loop
+    Exit Loop If [ $$primaryNode = tagMenus::_Ltag ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Finish.
+    Go to Layout [ $reflayoutname ]
+    Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    End If
+    End If
+    #
+    #
+    Else If [ $$citationMatch = "ref" ]
+    #REFERENCE MENU
+    #
+    #See if user has selected requested menu.
+    If [ Get (LayoutTableName) ≠ "reference" ]
+    #
+    #Menu NOT selected.
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Perform Script [ “externalReferences (update)” ]
+    Else
+    Perform Script [ “menuReference (update)” ]
+    End If
+    #
+    Else
+    #Menu IS selected.
+    #
+    #Record not selected, do this:
+    If [ $learnRef ≠ reference::_Lreference ]
+    #
+    #Go to a layout with no pictures
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $reflayoutname; Value:Get (LayoutName) ]
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    #
+    #Make sure record is showing.
+    Enter Find Mode [ ]
+    Set Field [ reference::_Lreference; $learnRef ]
+    Extend Found Set [ ]
+    #
+    #Loop thru records to find user's selection.
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ $learnRef = reference::_Lreference ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Finish.
+    Go to Layout [ $reflayoutname ]
+    Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    End If
     End If
     #
     #
     #
     #
+    End If
+    #
+    #
+    #
+    #
+    #REFERENCE OR SETUP WINDOW
     Else If [ $window = "References" or $window = "Setup" ]
     #
     #If in add mode, prevent menu scripts from changing
     #the main window's set of records.
-    #Unlike learn records, reference records or created
+    #Unlike learn records, reference records are created
     #for specific uses such as providing a picture
     #or link for a specific set of tags, say keyword tags.
     #So, in add mode, when clicking on a menu item
@@ -17021,31 +18461,22 @@ Script Steps
     End If
     #
     If [ $$citationMatch = "kfolderpath" ]
-    Go to Layout [ “ReferenceMenu1” (tagMenus) ]
     Perform Script [ “menuPath” ]
     Else If [ $$citationMatch = "kmedium" ]
     Set Variable [ $$medium; Value:reference::kmedium ]
-    Go to Layout [ “ReferenceMenu1” (tagMenus) ]
     Perform Script [ “menuMedium” ]
     Else If [ $$citationMatch = "khealth" ]
-    Go to Layout [ “ReferenceMenuHealth” (tagMenus) ]
-    Perform Script [ “menuHealth” ]
+    Perform Script [ “menuHealth (update) ” ]
     Else If [ $$citationMatch = "korgan" ]
-    Go to Layout [ “ReferenceMenu1” (tagMenus) ]
     Perform Script [ “menuOrgan” ]
     Else If [ $$citationMatch = "kcopyist" ]
-    Go to Layout [ “ReferenceMenu1” (tagMenus) ]
     Perform Script [ “menuCopyist” ]
     Else If [ $$citationMatch = "key" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
-    Perform Script [ “menuKey” ]
+    Perform Script [ “menuKey (update)” ]
     Else If [ $$citationMatch = "node" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
-    Perform Script [ “menuNode” ]
+    Perform Script [ “menuNode (update)” ]
     Else If [ $$citationMatch = "kcitation" ]
-    Go to Layout [ “ReferenceMenu3Cite” (reference) ]
-    Perform Script [ “menuCitation” ]
-    End If
+    Perform Script [ “menuCitation (update)” ]
     End If
     #
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -17055,14 +18486,18 @@ Script Steps
     If [ $$add = 2 ]
     Set Variable [ $$add; Value:1 ]
     End If
+    End If
+    #
 
 Fields used in this script
 
-    TEMP::ksection
-    reference::kcsection
-    ruleRefLibraryName::name
     refReference::_Lreference
+    tagTLKeywordPrimary::_Ltag
+    tagTLNodePrimary::_Ltag
+    reference::knodePrimary
     reference::kmedium
+    tagMenus::match
+    tagMenus::_Ltag
     TEMP::InventoryLibaryYN
     reference::_Lreference
 
@@ -17070,39 +18505,40 @@ Scripts used in this script
 
     menuPath
     menuMedium
-    menuHealth
-    menuKey
-    menuNode
-    externalReferences
-    menuCitation
+    menuHealth (update)
+    menuKey (update)
+    menuNode (update)
+    externalReferences (update)
+    menuReference (update)
     menuOrgan
     menuCopyist
+    menuCitation (update)
 
 Layouts used in this script
 
     learnMenu1
     learnMenuHealth
-    ltagNK2
-    learnMenuRefStuff
-    learnMenu3Cite
-    ReferenceMenu1
-    ReferenceMenuHealth
-    ReferenceMenu2keywordOrNode1
-    ReferenceMenu3Cite
+    ltagNK1
+    ltagNKs1
+    <Missing Layout>
+    learnMenu3CiteS
 
 Tables used in this script
 
     TEMP
     reference
     reference
-    tagGroup
+    tag
+    tag
 
 Table occurrences used by this script
 
     TEMP
     refReference
     reference
-    ruleRefLibraryName
+    tagMenus
+    tagTLKeywordPrimary
+    tagTLNodePrimary
 
 Custom Functions used by this script
 
@@ -17181,7 +18617,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showTag]	Parent Folder: [tagMenu]	Next Script: [addTagToMainRecord]
+Previous Script: [showTag]	Parent Folder: [tagMenu]	Next Script: [addTagToMainRecord (update)]
 Script Name	duplicateTheory
 Run script with full access privileges	Off
 Include In Menu	No
@@ -17333,14 +18769,16 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [duplicateTheory]	Parent Folder: [tagMenu]	Next Script: [setLibraryDefaults]
-Script Name	addTagToMainRecord
+Previous Script: [duplicateTheory]	Parent Folder: [tagMenu]	Next Script: [setAsReferenceOrInventoryLibrary (update and name change from setLibraryDefaults)]
+Script Name	addTagToMainRecord (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultHealth
     defaultNode1
+    defaultNode2
+    defaultNode3
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
@@ -17348,6 +18786,12 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
@@ -17360,6 +18804,8 @@ Layouts that use this script
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
@@ -17371,7 +18817,7 @@ Layouts that use this script
 Scripts that use this script
 
     createEmptyLibrary (update)
-    gotoDefaultsOrReport
+    gotoDefaultsOrReport (update)
     addORremoveRefTagStep1
 
 Script Definition
@@ -17381,33 +18827,28 @@ Script Steps
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     #
-    // #Due to the fact that users click the add tag button
-    // #when they want to find records tagged with a tag,
-    // #I'm making it so that users can only add tags in edit mode.
-    // If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd ≠ 1 ]
-    // Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags. This inconvience was put in place because users kept forgetting to click find before click the P or O buttons."; Buttons: “OK” ]
-    // Exit Script [ ]
-    // End If
     #
-    // #Because I keep forgetting to press find mode, this
-    // #bit of script is to confirm that the user really wants
-    // #to add or change the tag of the first record instead of
-    // #finding records with selected tag.
-    // If [ $$referenceRecordOne = 1 ]
-    // Show Custom Dialog [ Message: "Did you mean to ADD this tag to the first record or FIND reference records with this tag?"; Buttons: “ADD”, “FIND”, “Cancel” ]
-    // If [ Get ( LastMessageChoice ) = 2 ]
-    // #This variable is needed becasue message choice 2
-    // #gets carried over to the Find Mode Script, which then
-    // #activates tag instead of reference record find mode.
-    // Set Variable [ $$ClearMessageChoice; Value:1 ]
-    // Perform Script [ “findMode” ]
-    // Else If [ Get ( LastMessageChoice ) = 3 ]
-    // Set Variable [ $$referenceRecordOne ]
-    // Exit Script [ ]
-    // Else If [ Get ( LastMessageChoice ) = 1 ]
-    // Set Variable [ $$referenceRecordOne ]
-    // End If
-    // End If
+    #Reference Section Only
+    #Because I keep forgetting to press find mode, this
+    #bit of script is to confirm that the user really wants
+    #to add or change the tag of the first record instead of
+    #finding records with selected tag.
+    If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd ≠ 1 ]
+    Show Custom Dialog [ Message: "Change tag OR find references with this tag?"; Buttons: “change”, “find”, “cancel” ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    #This variable is needed becasue message choice 2
+    #gets carried over to the Find Mode Script, which then
+    #activates tag instead of reference record find mode.
+    Set Variable [ $$ClearMessageChoice; Value:1 ]
+    Perform Script [ “findMode” ]
+    Exit Script [ ]
+    Else If [ Get ( LastMessageChoice ) = 3 ]
+    Set Variable [ $$referenceRecordOne ]
+    Exit Script [ ]
+    Else If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $$referenceRecordOne ]
+    End If
+    End If
     #
     #
     #This script adds tags to main reference or learn
@@ -17451,6 +18892,15 @@ Script Steps
     // Exit Script [ ]
     // End If
     // End If
+    #
+    #
+    #
+    #Set key word to test if need to re-sort after
+    #editing is completed (used in
+    #finishReferenceEdit script).
+    If [ $$citationMatch = "key" ]
+    Set Variable [ $$primaryKeyWord; Value:$$citationItem ]
+    End If
     #
     #
     #
@@ -17617,8 +19067,8 @@ Script Steps
     #is triggered and that section set as the default
     #section.
     Else If [ $$citationMatch = "section" ]
-    Set Field [ tempSetup::ksection; $tag ]
-    Set Field [ tempSetup::sectionName; $tagName ]
+    // Set Field [ tempSetup::ksection; $tag ]
+    // Set Field [ tempSetup::sectionName; $tagName ]
     Refresh Window
     #
     #goto Tag Menus window
@@ -17701,7 +19151,7 @@ Script Steps
     Else If [ testlearn::kcreference ≠ $tag ]
     Set Field [ testlearn::kcreference; $tag ]
     Set Variable [ $$ref; Value:testlearn::kcreference ]
-    Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+    Perform Script [ “CHUNKaddReferenceNodesAndKeywords (update)” ]
     End If
     #
     Else If [ $$citationMatch = "health" ]
@@ -17782,7 +19232,7 @@ Script Steps
     // Set Field [ testlearn::URL; $URL ]
     // Set Field [ testlearn::URLPubDate; $URLdate ]
     Select Window [ Name: "Tag Menus"; Current file ]
-    Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+    Perform Script [ “CHUNKaddReferenceNodesAndKeywords (update)” ]
     End If
     #
     Else If [ $$citationMatch = "key" ]
@@ -17801,13 +19251,14 @@ Script Steps
     Set Field [ testlearn::kKeywordPrimary; $tag ]
     Set Field [ testlearn::kcKeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( $$key ) ≠ ValueCount ( Substitute ( $$key ; $$citationItem & "¶" ; "" ) ) ; Substitute ( $$key ; $$citationItem & "¶" ; "" ) ; Substitute ( $$key ; $$citationItem ; "" ) ) ]
     Set Variable [ $$key; Value:testlearn::kcKeywordOther ]
+    Set Variable [ $$PrimaryKey; Value:$tag ]
     Set Variable [ $$skipFirstPartOfScript; Value:1 ]
     #
     #Record must be committed if user decides to
     #perform a script on it right after this one or
     #perform a find requiring the newly added key.
     Commit Records/Requests
-    Perform Script [ “addORremoveTagFromCitationStep2keyword” ]
+    Perform Script [ “addORremoveTagFromCitationStep2keyword (update)” ]
     Exit Script [ ]
     End If
     #
@@ -18030,7 +19481,7 @@ Script Steps
     Set Field [ reference::kcitation; $tag ]
     Set Variable [ $$cite; Value:reference::kcitation ]
     Select Window [ Name: "Tag Menus"; Current file ]
-    Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+    Perform Script [ “CHUNKaddReferenceNodesAndKeywords (update)” ]
     End If
     #
     Else If [ $$citationMatch = "organ" ]
@@ -18137,7 +19588,7 @@ Script Steps
     #perform a script on it right after this one or
     #perform a find requiring the newly added key.
     Commit Records/Requests
-    Perform Script [ “addORremoveTagFromCitationStep2keyword” ]
+    Perform Script [ “addORremoveTagFromCitationStep2keyword (update)” ]
     Exit Script [ ]
     End If
     #
@@ -18190,6 +19641,25 @@ Script Steps
     // End If
     Set Variable [ $$stoploadCitation ]
     End If
+    #
+    #Only need to re-sort if primary key was
+    #changed in reference mode.
+    If [ $$primaryKeyWord ≠ reference::kkeywordPrimary and $$citationMatch = "key" and $$stopAdd = "" and $$referenceSort = "" and Left ( Get ( LayoutName ) ; 1 ) ≠ "l" ]
+    Set Variable [ $$primaryKeyWord ]
+    Show Custom Dialog [ Message: "Record will now move to new keyword location. Scroll window to this location?"; Buttons: “no”, “yes” ]
+    If [ Get (LastMessageChoice) = 2 ]
+    Go to Layout [ “ReferenceStuffScriptLoops” (reference) ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
+    #
+    #Go to reference record layout.
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceStuff” (reference) ]
+    Else
+    Go to Layout [ “Reference” (reference) ]
+    End If
+    End If
+    End If
+    #
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Record/Request/Page [ $recordNumber ] [ No dialog ]
     #
@@ -18265,6 +19735,9 @@ Fields used in this script
     reference::knodeOther
     reference::korgan
     reference::kcopyist
+    tagKeywordPrimary::orderOrLock
+    reference::referenceForReferenceWindow
+    TEMP::InventoryLibaryYN
 
 Scripts used in this script
 
@@ -18272,13 +19745,17 @@ Scripts used in this script
     CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain
     CHUNKaddMainSectionKeysToTagRecordKeychain
     addORremoveTagFromCitationStep2node
-    CHUNKaddReferenceNodesAndKeywords
-    addORremoveTagFromCitationStep2keyword
+    CHUNKaddReferenceNodesAndKeywords (update)
+    addORremoveTagFromCitationStep2keyword (update)
     sortTLRecordsByOrderNumber
     loadItemRecordForTestTagMenu
     loadItemRecordForSampleTagMenu
 
 Layouts used in this script
+
+    ReferenceStuffScriptLoops
+    ReferenceStuff
+    Reference
 
 Tables used in this script
 
@@ -18307,8 +19784,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addTagToMainRecord]	Parent Folder: [tagMenu]	Next Script: [addBackSectionCreatorNode]
-Script Name	setLibraryDefaults
+Previous Script: [addTagToMainRecord (update)]	Parent Folder: [tagMenu]	Next Script: [addBackSectionCreatorNode]
+Script Name	setAsReferenceOrInventoryLibrary (update and name change from setLibraryDefaults)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -18322,220 +19799,226 @@ Script Definition
 Script Steps
 
     #
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    #
-    #Get key for tag that is to be added to record.
-    Set Variable [ $tag; Value:ruleSection::_Lgroup ]
-    Set Variable [ $tagName; Value:ruleSection::name ]
-    #
-    #Stop check spelling script as this script is triggered
-    #on section layout by record load trigger, and
-    #so before user can change the spelling.
-    Set Variable [ $$stopChangeSectionName; Value:1 ]
-    #
-    #Remove focus from field so can see
-    #conditional formatting.
-    Go to Field [ ]
-    #
-    #
-    #Select setup window.
-    Select Window [ Name: "Setup"; Current file ]
-    #
-    #Since sections are required, the deselect script
-    #steps are not needed. When the user clicks on
-    #a new record on the section layout this script
-    #is triggered and that section set as the default
-    #section.
-    Set Field [ tempSetup::ksection; $tag ]
-    Set Field [ tempSetup::sectionName; $tagName ]
-    Refresh Window
-    #
-    #goto Tag Menus window
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Refresh Window
-    #
-    #Allow duplicate tag check script to operate.
-    Set Variable [ $$stopChangeSectionName ]
-    #
-    #
-    #
-    #TURN INTO CHUNK!!!!!
-    #TURN INTO CHUNK!!!!!
-    #CHUNKaddReferenceNodesAndKeywords
-    #
-    #Check if nodes selected -- primary, other, and
-    #test subject -- are in the current section.
-    Select Window [ Name: "Setup"; Current file ]
-    Set Variable [ $nodePrimary; Value:tempSetup::kdefaultNodePrimary ]
-    Set Variable [ $nodeOther; Value:tempSetup::kdefaultNodeOther ]
-    Set Variable [ $nodeTestSubject; Value:tempSetup::kdefaultNodeTestSubject ]
-    #
-    #Find all nodes assigned to this section.
-    Go to Layout [ “defaultNode1” (tagMenus) ]
-    Enter Find Mode [ ]
-    Set Field [ tagMenus::match; "node" ]
-    Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
-    Perform Find [ ]
-    #
-    #PRIMARY NODE
-    #Loop thru records to find primary node.
-    Go to Record/Request/Page [ First ]
-    #
-    Loop
-    #
-    #If the key matches a lock or no locks exit the loop.
-    Exit Loop If [ $nodePrimary = tagMenus::_Ltag ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #If the record the loop ended up on does not accept
-    #the primary key being tested, then add its
-    #group to the current section. ( Node groups are
-    # are assigned to sections, not individual nodes.
-    # So if the user wants one node to be assigned
-    # to a new section, its group and all nodes in
-    # its group must be assigned to the new section.
-    # The reason for this is because the display of
-    # nodes by catergory requires that each group
-    # have a unique name and that each node belong
-    # to a group. For the node to be the same node
-    # The group key it holds has to be the same as
-    # well, which means the group has to appear
-    # with the node, and with the group comes
-    # all the nodes assigned to it. )
-    If [ $nodePrimary ≠ tagMenus::_Ltag and $nodePrimary ≠ "" ]
-    #
-    #Find the node to be added.
-    Enter Find Mode [ ]
-    Set Field [ tagMenus::_Ltag; $nodePrimary ]
-    Perform Find [ ]
-    #
-    #Next, add the current section key to this node's
-    #group's keychain.
-    Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
-    Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
-    #
-    #Finally, refind all nodes, which now includes the
-    #node just added.
-    Enter Find Mode [ ]
-    Set Field [ tagMenus::match; "node" ]
-    Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
-    Perform Find [ ]
-    End If
-    #
-    #TEST SUBJECT
-    #Loop thru records to find test subject node.
-    Go to Record/Request/Page [ First ]
-    #
-    Loop
-    #
-    #If the key matches a lock or no locks exit the loop.
-    Exit Loop If [ $nodeTestSubject = tagMenus::_Ltag ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #If the record the loop ended up on does not accept
-    #the test subject key being tested, then add its
-    #group to the current section. ( Node groups are
-    # are assigned to sections, not individual nodes.
-    # So if the user wants one node to be assigned
-    # to a new section, its group and all nodes in
-    # its group must be assigned to the new section.
-    # The reason for this is because the display of
-    # nodes by catergory requires that each group
-    # have a unique name and that each node belong
-    # to a group. For the node to be the same node
-    # The group key it holds has to be the same as
-    # well, which means the group has to appear
-    # with the node, and with the group comes
-    # all the nodes assigned to it. )
-    If [ $nodeTestSubject ≠ tagMenus::_Ltag and $nodeTestSubject ≠ "" ]
-    #
-    #Find the node to be added.
-    Enter Find Mode [ ]
-    Set Field [ tagMenus::_Ltag; $nodeTestSubject ]
-    Perform Find [ ]
-    #
-    #Next, add the current section key to this node's
-    #group's keychain.
-    Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
-    Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
-    #
-    #Finally, refind all nodes, which now includes the
-    #node just added.
-    Enter Find Mode [ ]
-    Set Field [ tagMenus::match; "node" ]
-    Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
-    Perform Find [ ]
-    End If
-    #
-    #OTHER NODES
-    #Determine how many keys there are to find for
-    #on the other nodes' keychain.
-    Set Variable [ $numberOfNodes; Value:ValueCount ( $nodeOther ) ]
-    #
-    #Loop thru each node record, with every key
-    #in the keychain.
-    Loop
-    Go to Record/Request/Page [ First ]
-    #
-    #Exit the loop when there are no more keys to check.
-    Exit Loop If [ $numberOfNodes = 0 ]
-    Loop
-    #
-    #If the key matches a lock or no locks exit the loop.
-    #( The get value calculation works by going to the
-    # key in the list specified by the numberOfNodes
-    # variable, set before entering the loops.
-    # The system starts with the last key and with each
-    # loop moves to the next key up, until there are
-    # no more keys to check. )
-    Exit Loop If [ GetValue ( $nodeOther ; $numberOfNodes ) = tagMenus::_Ltag ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #If the record the loop ended up on does not accept
-    #the other node key being tested, then add its
-    #group to the current section. ( Node groups are
-    # are assigned to sections, not individual nodes.
-    # So if the user wants one node to be assigned
-    # to a new section, its group and all nodes in
-    # its group must be assigned to the new section.
-    # The reason for this is because the display of
-    # nodes by catergory requires that each group
-    # have a unique name and that each node belong
-    # to a group. For the node to be the same node
-    # The group key it holds has to be the same as
-    # well, which means the group has to appear
-    # with the node, and with the group comes
-    # all the nodes assigned to it. )
-    If [ GetValue ( $nodeOther ; $numberOfNodes ) ≠ tagMenus::_Ltag and $nodeOther ≠ "" ]
-    #
-    #Find this node to be added.
-    Enter Find Mode [ ]
-    Set Field [ tagMenus::_Ltag; GetValue ( $nodeOther ; $numberOfNodes ) ]
-    Perform Find [ ]
-    #
-    #Next, add the current section key to this node's
-    #group's keychain.
-    Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
-    Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
-    #
-    #Finally, refind all nodes, which now includes the
-    #node just added.
-    Enter Find Mode [ ]
-    Set Field [ tagMenus::match; "node" ]
-    Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
-    Perform Find [ ]
-    #
-    End If
-    #
-    #Go the next key up from the bottom of the list
-    #of keys on this section's keychain.
-    Set Variable [ $numberOfNodes; Value:$numberOfNodes - 1 ]
-    End Loop
-    Go to Layout [ “defaultSetup” (tempSetup) ]
+    #These disabled steps can probably deleted as
+    #they where necessary when the library
+    #contained mulitble libraries, each library
+    #called a section. Now that there is only one
+    #section in each library file, these disabled
+    #steps are no longer needed.
+    // Allow User Abort [ Off ]
+    // Set Error Capture [ On ]
+    // #
+    // #Get key for tag that is to be added to record.
+    // Set Variable [ $tag; Value:ruleSection::_Lgroup ]
+    // Set Variable [ $tagName; Value:ruleSection::name ]
+    // #
+    // #Stop check spelling script as this script is triggered
+    // #on section layout by record load trigger, and
+    // #so before user can change the spelling.
+    // Set Variable [ $$stopChangeSectionName; Value:1 ]
+    // #
+    // #Remove focus from field so can see
+    // #conditional formatting.
+    // Go to Field [ ]
+    // #
+    // #
+    // #Select setup window.
+    // Select Window [ Name: "Setup"; Current file ]
+    // #
+    // #Since sections are required, the deselect script
+    // #steps are not needed. When the user clicks on
+    // #a new record on the section layout this script
+    // #is triggered and that section set as the default
+    // #section.
+    // Set Field [ tempSetup::ksection; $tag ]
+    // Set Field [ tempSetup::sectionName; $tagName ]
+    // Refresh Window
+    // #
+    // #goto Tag Menus window
+    // Select Window [ Name: "Tag Menus"; Current file ]
+    // Refresh Window
+    // #
+    // #Allow duplicate tag check script to operate.
+    // Set Variable [ $$stopChangeSectionName ]
+    // #
+    // #
+    // #
+    // #TURN INTO CHUNK!!!!!
+    // #TURN INTO CHUNK!!!!!
+    // #CHUNKaddReferenceNodesAndKeywords
+    // #
+    // #Check if nodes selected -- primary, other, and
+    // #test subject -- are in the current section.
+    // Select Window [ Name: "Setup"; Current file ]
+    // Set Variable [ $nodePrimary; Value:tempSetup::kdefaultNodePrimary ]
+    // Set Variable [ $nodeOther; Value:tempSetup::kdefaultNodeOther ]
+    // Set Variable [ $nodeTestSubject; Value:tempSetup::kdefaultNodeTestSubject ]
+    // #
+    // #Find all nodes assigned to this section.
+    // Go to Layout [ “defaultNode1” (tagMenus) ]
+    // Enter Find Mode [ ]
+    // Set Field [ tagMenus::match; "node" ]
+    // Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
+    // Perform Find [ ]
+    // #
+    // #PRIMARY NODE
+    // #Loop thru records to find primary node.
+    // Go to Record/Request/Page [ First ]
+    // #
+    // Loop
+    // #
+    // #If the key matches a lock or no locks exit the loop.
+    // Exit Loop If [ $nodePrimary = tagMenus::_Ltag ]
+    // Go to Record/Request/Page [ Next; Exit after last ]
+    // End Loop
+    // #
+    // #If the record the loop ended up on does not accept
+    // #the primary key being tested, then add its
+    // #group to the current section. ( Node groups are
+    // # are assigned to sections, not individual nodes.
+    // # So if the user wants one node to be assigned
+    // # to a new section, its group and all nodes in
+    // # its group must be assigned to the new section.
+    // # The reason for this is because the display of
+    // # nodes by catergory requires that each group
+    // # have a unique name and that each node belong
+    // # to a group. For the node to be the same node
+    // # The group key it holds has to be the same as
+    // # well, which means the group has to appear
+    // # with the node, and with the group comes
+    // # all the nodes assigned to it. )
+    // If [ $nodePrimary ≠ tagMenus::_Ltag and $nodePrimary ≠ "" ]
+    // #
+    // #Find the node to be added.
+    // Enter Find Mode [ ]
+    // Set Field [ tagMenus::_Ltag; $nodePrimary ]
+    // Perform Find [ ]
+    // #
+    // #Next, add the current section key to this node's
+    // #group's keychain.
+    // Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
+    // Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
+    // #
+    // #Finally, refind all nodes, which now includes the
+    // #node just added.
+    // Enter Find Mode [ ]
+    // Set Field [ tagMenus::match; "node" ]
+    // Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
+    // Perform Find [ ]
+    // End If
+    // #
+    // #TEST SUBJECT
+    // #Loop thru records to find test subject node.
+    // Go to Record/Request/Page [ First ]
+    // #
+    // Loop
+    // #
+    // #If the key matches a lock or no locks exit the loop.
+    // Exit Loop If [ $nodeTestSubject = tagMenus::_Ltag ]
+    // Go to Record/Request/Page [ Next; Exit after last ]
+    // End Loop
+    // #
+    // #If the record the loop ended up on does not accept
+    // #the test subject key being tested, then add its
+    // #group to the current section. ( Node groups are
+    // # are assigned to sections, not individual nodes.
+    // # So if the user wants one node to be assigned
+    // # to a new section, its group and all nodes in
+    // # its group must be assigned to the new section.
+    // # The reason for this is because the display of
+    // # nodes by catergory requires that each group
+    // # have a unique name and that each node belong
+    // # to a group. For the node to be the same node
+    // # The group key it holds has to be the same as
+    // # well, which means the group has to appear
+    // # with the node, and with the group comes
+    // # all the nodes assigned to it. )
+    // If [ $nodeTestSubject ≠ tagMenus::_Ltag and $nodeTestSubject ≠ "" ]
+    // #
+    // #Find the node to be added.
+    // Enter Find Mode [ ]
+    // Set Field [ tagMenus::_Ltag; $nodeTestSubject ]
+    // Perform Find [ ]
+    // #
+    // #Next, add the current section key to this node's
+    // #group's keychain.
+    // Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
+    // Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
+    // #
+    // #Finally, refind all nodes, which now includes the
+    // #node just added.
+    // Enter Find Mode [ ]
+    // Set Field [ tagMenus::match; "node" ]
+    // Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
+    // Perform Find [ ]
+    // End If
+    // #
+    // #OTHER NODES
+    // #Determine how many keys there are to find for
+    // #on the other nodes' keychain.
+    // Set Variable [ $numberOfNodes; Value:ValueCount ( $nodeOther ) ]
+    // #
+    // #Loop thru each node record, with every key
+    // #in the keychain.
+    // Loop
+    // Go to Record/Request/Page [ First ]
+    // #
+    // #Exit the loop when there are no more keys to check.
+    // Exit Loop If [ $numberOfNodes = 0 ]
+    // Loop
+    // #
+    // #If the key matches a lock or no locks exit the loop.
+    // #( The get value calculation works by going to the
+    // # key in the list specified by the numberOfNodes
+    // # variable, set before entering the loops.
+    // # The system starts with the last key and with each
+    // # loop moves to the next key up, until there are
+    // # no more keys to check. )
+    // Exit Loop If [ GetValue ( $nodeOther ; $numberOfNodes ) = tagMenus::_Ltag ]
+    // Go to Record/Request/Page [ Next; Exit after last ]
+    // End Loop
+    // #
+    // #If the record the loop ended up on does not accept
+    // #the other node key being tested, then add its
+    // #group to the current section. ( Node groups are
+    // # are assigned to sections, not individual nodes.
+    // # So if the user wants one node to be assigned
+    // # to a new section, its group and all nodes in
+    // # its group must be assigned to the new section.
+    // # The reason for this is because the display of
+    // # nodes by catergory requires that each group
+    // # have a unique name and that each node belong
+    // # to a group. For the node to be the same node
+    // # The group key it holds has to be the same as
+    // # well, which means the group has to appear
+    // # with the node, and with the group comes
+    // # all the nodes assigned to it. )
+    // If [ GetValue ( $nodeOther ; $numberOfNodes ) ≠ tagMenus::_Ltag and $nodeOther ≠ "" ]
+    // #
+    // #Find this node to be added.
+    // Enter Find Mode [ ]
+    // Set Field [ tagMenus::_Ltag; GetValue ( $nodeOther ; $numberOfNodes ) ]
+    // Perform Find [ ]
+    // #
+    // #Next, add the current section key to this node's
+    // #group's keychain.
+    // Set Variable [ $groupSectionKeychain; Value:ruleTagMenuGroups::ksection ]
+    // Set Field [ ruleTagMenuGroups::ksection; TEMP::ksection & ¶ & $groupSectionKeychain ]
+    // #
+    // #Finally, refind all nodes, which now includes the
+    // #node just added.
+    // Enter Find Mode [ ]
+    // Set Field [ tagMenus::match; "node" ]
+    // Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
+    // Perform Find [ ]
+    // #
+    // End If
+    // #
+    // #Go the next key up from the bottom of the list
+    // #of keys on this section's keychain.
+    // Set Variable [ $numberOfNodes; Value:$numberOfNodes - 1 ]
+    // End Loop
+    // Go to Layout [ “defaultSetup” (tempSetup) ]
     #
     #Determine if library is being used as a
     #reference or inventory library and set layout
@@ -18543,19 +20026,27 @@ Script Steps
     #
     #Set default layouts for a reference library.
     If [ sectionAttributionInfo::order = "" ]
-    Set Field [ tempSetup::layoutLtagK; "" ]
-    Set Field [ tempSetup::layoutRtagK; "" ]
-    Set Field [ tempSetup::layoutLtagN; "" ]
-    Set Field [ tempSetup::layoutRtagN; "" ]
+    #NOTE: decided to set these defaults with the
+    #menu script, so the user's preferences are
+    #not deleted every time this script is run (the
+    #database is started).
+    // Set Field [ tempSetup::layoutLtagK; "" ]
+    // Set Field [ tempSetup::layoutRtagK; "" ]
+    // Set Field [ tempSetup::layoutLtagN; "" ]
+    // Set Field [ tempSetup::layoutRtagN; "" ]
     #
     #Set database stuff/inventory checkbox.
     Set Field [ tempSetup::InventoryLibaryYN; "" ]
     Else
     #Set default layouts for a stuff/inventory library.
-    Set Field [ tempSetup::layoutLtagK; "moreltagNKs2" ]
-    Set Field [ tempSetup::layoutRtagK; "moreReferenceMenu2SkeywordOrNode1" ]
-    Set Field [ tempSetup::layoutLtagN; "moreltagNKs2" ]
-    Set Field [ tempSetup::layoutRtagN; "moreReferenceMenu2SkeywordOrNode1" ]
+    #NOTE: decided to set these defaults with the
+    #menu script, so the user's preferences are
+    #not deleted every time this script is run (the
+    #database is started).
+    // Set Field [ tempSetup::layoutLtagK; "lessltagNKs2" ]
+    // Set Field [ tempSetup::layoutRtagK; "lessReferenceMenu2SkeywordOrNode1" ]
+    // Set Field [ tempSetup::layoutLtagN; "lessltagNKs2" ]
+    // Set Field [ tempSetup::layoutRtagN; "lessReferenceMenu2SkeywordOrNode1" ]
     #
     #Set database stuff/inventory checkbox.
     Set Field [ tempSetup::InventoryLibaryYN; 1 ]
@@ -18611,7 +20102,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [setLibraryDefaults]	Parent Folder: [tagMenu]	Next Script: [loadTagRecord]
+Previous Script: [setAsReferenceOrInventoryLibrary (update and name change from setLibraryDefaults)]	Parent Folder: [tagMenu]	Next Script: [loadTagRecord]
 Script Name	addBackSectionCreatorNode
 Run script with full access privileges	Off
 Include In Menu	No
@@ -18619,10 +20110,10 @@ Layouts that use this script
 
 Scripts that use this script
 
-    defaultTestLocationMenu
+    defaultTestLocationMenu (update)
     defaultNodeMenu
-    editCitation
-    learn
+    editCitation (update)
+    learn (update)
 
 Script Definition
 Script Steps
@@ -18808,7 +20299,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addBackSectionCreatorNode]	Parent Folder: [tagMenu]	Next Script: [addORremoveTagFromCitationStep1]
+Previous Script: [addBackSectionCreatorNode]	Parent Folder: [tagMenu]	Next Script: [addORremoveTagFromCitationStep1 (update)]
 Script Name	loadTagRecord
 Run script with full access privileges	Off
 Include In Menu	No
@@ -18816,9 +20307,9 @@ Layouts that use this script
 
 Scripts that use this script
 
-    menuNode
-    menuKey
-    loadCitation
+    menuNode (update)
+    menuKey (update)
+    loadCitation (update)
     loadCitation OLD
     returnToAddRecordPUTONHOLD!!!!
 
@@ -18841,7 +20332,7 @@ Script Steps
     // Set Variable [ $$addRecord ]
     // End If
     Refresh Window
-    Perform Script [ “checkIfLockedOnLearnTagMenus” ]
+    Perform Script [ “checkIfLockedOnLearnTagMenus (update)” ]
     Go to Field [ ]
     End If
     #
@@ -18868,7 +20359,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    checkIfLockedOnLearnTagMenus
+    checkIfLockedOnLearnTagMenus (update)
 
 Layouts used in this script
 
@@ -18885,23 +20376,27 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [loadTagRecord]	Parent Folder: [tagMenu]	Next Script: [addORremoveTagFromCitationStep2keyword]
-Script Name	addORremoveTagFromCitationStep1
+Previous Script: [loadTagRecord]	Parent Folder: [tagMenu]	Next Script: [addORremoveTagFromCitationStep2keyword (update)]
+Script Name	addORremoveTagFromCitationStep1 (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultNode1
+    defaultNode2
+    defaultNode3
     ReferenceMenu2keywordOrNode1
-    ReferenceMenu2SkeywordOrNode1
     ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2keywordOrNode5
     ltagNK1
     ltagNKs1
     ltagNK2
     ltagNKs2
     ltagNK3
     ltagNKs3
+    ltagNK4
+    ltagNKs4
 
 Scripts that use this script
 
@@ -18917,13 +20412,36 @@ Script Steps
     Exit Script [ ]
     End If
     #
-    // #Due to the fact that users click the add tag button
-    // #when they want to find records tagged with a tag,
-    // #I'm making it so that users can only add tags in edit mode.
-    // If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd = "" ]
-    // Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags. This inconvience was put in place because users kept forgetting to click find before click the P or O buttons."; Buttons: “OK” ]
-    // Exit Script [ ]
-    // End If
+    #Reference Section Only
+    #Because I keep forgetting to press find mode, this
+    #bit of script is to confirm that the user really wants
+    #to add or change the tag of the first record instead of
+    #finding records with selected tag.
+    If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd = "" ]
+    Show Custom Dialog [ Message: "Change tag OR find references with this tag?"; Buttons: “change”, “find”, “cancel” ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    #This variable is needed becasue message choice 2
+    #gets carried over to the Find Mode Script, which then
+    #activates tag instead of reference record find mode.
+    Set Variable [ $$ClearMessageChoice; Value:1 ]
+    Perform Script [ “findMode” ]
+    Exit Script [ ]
+    Else If [ Get ( LastMessageChoice ) = 3 ]
+    Set Variable [ $$referenceRecordOne ]
+    Exit Script [ ]
+    Else If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $$referenceRecordOne ]
+    #
+    #If a primary key is being changed into an
+    #other key, then user needs to be informed
+    #that this will change its location in the
+    #References window.
+    If [ $$citationItem = $$PrimaryKey and $$referenceSort = "" ]
+    Set Variable [ $removedPrimaryKey; Value:1 ]
+    End If
+    End If
+    End If
+    #
     #
     #Remove focus from field so can see
     #conditional formatting.
@@ -18931,7 +20449,41 @@ Script Steps
     #
     #Determine if user is looking at nodes or keywords.
     If [ $$citationMatch = "key" ]
-    Perform Script [ “addORremoveTagFromCitationStep2keyword” ]
+    #
+    #Create this variable for use in the next script
+    #addORremoveTagFromCitationStep2, to stop
+    #resorting of OtherKey tags, which do not
+    #effect sort order.
+    Set Variable [ $$otherKeyDoNotLoop; Value:1 ]
+    #
+    #Finish key addition or removal.
+    Perform Script [ “addORremoveTagFromCitationStep2keyword (update)” ]
+    #
+    Set Variable [ $$otherKeyDoNotLoop ]
+    #
+    #
+    #
+    #
+    If [ $removedPrimaryKey = 1 ]
+    Show Custom Dialog [ Message: "Record will now move to new keyword location. Scroll window to this location?"; Buttons: “no”, “yes” ]
+    If [ Get (LastMessageChoice) = 2 ]
+    Select Window [ Name: "References"; Current file ]
+    Go to Layout [ “ReferenceStuffScriptLoops” (reference) ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
+    #
+    #Go to reference record layout.
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceStuff” (reference) ]
+    Else
+    Go to Layout [ “Reference” (reference) ]
+    End If
+    Select Window [ Name: "Tag Menus"; Current file ]
+    End If
+    End If
+    #
+    #
+    #
+    #
     Else If [ $$citationMatch = "node" ]
     Perform Script [ “addORremoveTagFromCitationStep2node” ]
     Close Window [ Name: "reorder"; Current file ]
@@ -18954,43 +20506,57 @@ Script Steps
     End If
     Refresh Window
     End If
+    #
 
 Fields used in this script
 
+    tagKeywordPrimary::orderOrLock
+    tagKeywordPrimary::tag
+    reference::referenceForReferenceWindow
+    TEMP::InventoryLibaryYN
     reference::kcopyrightHolder
     reference::knodeOther
     reference::knodePrimary
 
 Scripts used in this script
 
-    addORremoveTagFromCitationStep2keyword
+    findMode
+    addORremoveTagFromCitationStep2keyword (update)
     addORremoveTagFromCitationStep2node
 
 Layouts used in this script
 
+    ReferenceStuffScriptLoops
+    ReferenceStuff
+    Reference
+
 Tables used in this script
 
+    TEMP
     reference
+    tag
 
 Table occurrences used by this script
 
+    TEMP
     reference
+    tagKeywordPrimary
 
 Custom Functions used by this script
 
 Custom menu set used by this script
 
 
-Previous Script: [addORremoveTagFromCitationStep1]	Parent Folder: [tagMenu]	Next Script: [addORremoveTagFromCitationStep2node]
-Script Name	addORremoveTagFromCitationStep2keyword
+Previous Script: [addORremoveTagFromCitationStep1 (update)]	Parent Folder: [tagMenu]	Next Script: [addORremoveTagFromCitationStep2node]
+Script Name	addORremoveTagFromCitationStep2keyword (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
 Scripts that use this script
 
-    addTagToMainRecord
-    addORremoveTagFromCitationStep1
+    addTagToMainRecord (update)
+    addORremoveTagFromCitationStep1 (update)
 
 Script Definition
 Script Steps
@@ -19295,6 +20861,23 @@ Script Steps
     #
     #Clear the field now in case all tags have been de-selected.
     Set Field [ reference::OtherKeyWords; "" ]
+    #
+    #Re-sort records so focus is back on selected record.
+    If [ $$primaryKeyWord ≠ reference::kkeywordPrimary and $$citationMatch ≠ "cite" and $$stopAdd = "" and $$otherKeyDoNotLoop = "" and $$referenceSort = "" ]
+    Set Variable [ $$primaryKeyWord ]
+    Show Custom Dialog [ Message: "Record will now move to new keyword location. Scroll window to this location?"; Buttons: “no”, “yes” ]
+    If [ Get (LastMessageChoice) = 2 ]
+    Go to Layout [ “ReferenceStuffScriptLoops” (reference) ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
+    #
+    #Go to reference record layout.
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceStuff” (reference) ]
+    Else
+    Go to Layout [ “Reference” (reference) ]
+    End If
+    End If
+    End If
     End If
     #
     #
@@ -19413,6 +20996,10 @@ Fields used in this script
     ruleTagMenuGroups::name
     tagMenus::orderOrLock
     testlearn::_Ltestlearn
+    tagKeywordPrimary::orderOrLock
+    tagKeywordPrimary::tag
+    reference::referenceForReferenceWindow
+    TEMP::InventoryLibaryYN
 
 Scripts used in this script
 
@@ -19421,6 +21008,9 @@ Scripts used in this script
 Layouts used in this script
 
     ltagSCRIPTloops
+    ReferenceStuffScriptLoops
+    ReferenceStuff
+    Reference
     learnSCRIPTloops
 
 Tables used in this script
@@ -19436,6 +21026,7 @@ Table occurrences used by this script
     TEMP
     reference
     ruleTagMenuGroups
+    tagKeywordPrimary
     tagMenus
     testlearn
 
@@ -19444,7 +21035,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addORremoveTagFromCitationStep2keyword]	Parent Folder: [tagMenu]	Next Script: [changeSpellingOfCitationNodes]
+Previous Script: [addORremoveTagFromCitationStep2keyword (update)]	Parent Folder: [tagMenu]	Next Script: [changeSpellingOfCitationNodes]
 Script Name	addORremoveTagFromCitationStep2node
 Run script with full access privileges	Off
 Include In Menu	No
@@ -19452,8 +21043,8 @@ Layouts that use this script
 
 Scripts that use this script
 
-    addTagToMainRecord
-    addORremoveTagFromCitationStep1
+    addTagToMainRecord (update)
+    addORremoveTagFromCitationStep1 (update)
 
 Script Definition
 Script Steps
@@ -20032,12 +21623,17 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2SkeywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     ReferenceMenuFind
     ReferenceMenu3CiteFind
     ReferenceMenu2keywordOrNodeFind
@@ -20050,11 +21646,13 @@ Layouts that use this script
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
     learnMenu3Cite
-    learnMenuRefStuff
+    learnMenu3CiteS
     learnMenuSample
     learnMenuStuffSample
     learnTest
@@ -20267,15 +21865,17 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [sortTags]	Parent Folder: [tagMenu]	Next Script: [addORremoveCitationOrReferenceRefTag]
+Previous Script: [sortTags]	Parent Folder: [tagMenu]	Next Script: [addORremoveCitationOrReferenceRefTag (update)]
 Script Name	addORremoveRefTagStep1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
 
 Scripts that use this script
@@ -20295,7 +21895,7 @@ Script Steps
     #when there is time to properly test, these cite script
     #steps need to be removed. END NOTE
     If [ $$citationMatch = "cite" ]
-    Perform Script [ “addTagToMainRecord” ]
+    Perform Script [ “addTagToMainRecord (update)” ]
     Else If [ $$citationMatch = "ref" ]
     If [ Right ( Get (LayoutName) ; 7 ) = "RefCite" ]
     #
@@ -20313,7 +21913,7 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Exit Script [ ]
     End If
-    Perform Script [ “addORremoveCitationOrReferenceRefTag” ]
+    Perform Script [ “addORremoveCitationOrReferenceRefTag (update)” ]
     End If
 
 Fields used in this script
@@ -20322,9 +21922,9 @@ Fields used in this script
 
 Scripts used in this script
 
-    addTagToMainRecord
+    addTagToMainRecord (update)
     addORremoveCiteOrRefTLTag
-    addORremoveCitationOrReferenceRefTag
+    addORremoveCitationOrReferenceRefTag (update)
 
 Layouts used in this script
 
@@ -20341,8 +21941,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addORremoveRefTagStep1]	Parent Folder: [tagMenu]	Next Script: [CHUNKaddReferenceNodesAndKeywords]
-Script Name	addORremoveCitationOrReferenceRefTag
+Previous Script: [addORremoveRefTagStep1]	Parent Folder: [tagMenu]	Next Script: [CHUNKaddReferenceNodesAndKeywords (update)]
+Script Name	addORremoveCitationOrReferenceRefTag (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -20364,8 +21964,8 @@ Script Steps
     #Only allow user to have location tags for the
     #item or for the container the item is in.
     If [ TEMP::InventoryLibaryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
-    Show Custom Dialog [ Message: "This item is tagged with a container tag. Remove this tag (click 'containers') before tagging it with its own location tags. Items can be either in a location or in a container that is in a location."; Buttons: “OK” ]
     Select Window [ Name: "Tag Menus"; Current file ]
+    Show Custom Dialog [ Message: "This item is tagged with a storage tag. Remove this storage tag (click 'storage') before tagging it with its own location tags. Items can be either in storage or in a location."; Buttons: “OK” ]
     Halt Script
     End If
     #
@@ -20462,7 +22062,7 @@ Script Steps
     // #keychain so when this tag record is viewed in
     // #those sections, the reference or learn record
     // #just added to it will show up as well.
-    // Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+    // Perform Script [ “CHUNKaddReferenceNodesAndKeywords (update)” ]
     // #Sort records according to users wishes.
     // Freeze Window
     // If [ TEMP::sortRef = "cat" ]
@@ -20562,7 +22162,7 @@ Fields used in this script
 Scripts used in this script
 
     CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain
-    CHUNKaddReferenceNodesAndKeywords
+    CHUNKaddReferenceNodesAndKeywords (update)
 
 Layouts used in this script
 
@@ -20588,16 +22188,16 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addORremoveCitationOrReferenceRefTag]	Parent Folder: [tagMenu]	Next Script: [CHUNKaddMainSectionKeysToTagRecordKeychain_addMode]
-Script Name	CHUNKaddReferenceNodesAndKeywords
+Previous Script: [addORremoveCitationOrReferenceRefTag (update)]	Parent Folder: [tagMenu]	Next Script: [CHUNKaddMainSectionKeysToTagRecordKeychain_addMode]
+Script Name	CHUNKaddReferenceNodesAndKeywords (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
 Scripts that use this script
 
-    addTagToMainRecord
-    addORremoveCitationOrReferenceRefTag
+    addTagToMainRecord (update)
+    addORremoveCitationOrReferenceRefTag (update)
     CHUNKaddLinkToTag
     CHUNKaddPictureToTag
 
@@ -20842,7 +22442,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [CHUNKaddReferenceNodesAndKeywords]	Parent Folder: [tagMenu]	Next Script: [CHUNKaddMainSectionKeysToTagRecordKeychain]
+Previous Script: [CHUNKaddReferenceNodesAndKeywords (update)]	Parent Folder: [tagMenu]	Next Script: [CHUNKaddMainSectionKeysToTagRecordKeychain]
 Script Name	CHUNKaddMainSectionKeysToTagRecordKeychain_addMode
 Run script with full access privileges	Off
 Include In Menu	No
@@ -20850,7 +22450,7 @@ Layouts that use this script
 
 Scripts that use this script
 
-    CHUNKaddReferenceNodesAndKeywords
+    CHUNKaddReferenceNodesAndKeywords (update)
 
 Script Definition
 Script Steps
@@ -20923,8 +22523,8 @@ Layouts that use this script
 
 Scripts that use this script
 
-    addTagToMainRecord
-    addORremoveTagFromCitationStep2keyword
+    addTagToMainRecord (update)
+    addORremoveTagFromCitationStep2keyword (update)
     addORremoveTagFromCitationStep2node
 
 Script Definition
@@ -21014,8 +22614,8 @@ Layouts that use this script
 
 Scripts that use this script
 
-    addTagToMainRecord
-    addORremoveCitationOrReferenceRefTag
+    addTagToMainRecord (update)
+    addORremoveCitationOrReferenceRefTag (update)
     addORremoveCiteOrRefTLTag
 
 Script Definition
@@ -21026,7 +22626,6 @@ Script Steps
     Select Window [ Name: "Learn"; Current file ]
     If [ Get (LastError) = 0 ]
     Set Variable [ $keychain; Value:testlearn::kcsection ]
-    #
     #
     #BEGIN — NO LONGER USED I think. Testing required.
     // #If learn record that tag was added
@@ -21157,7 +22756,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain]	Parent Folder: [tagMenu]	Next Script: [changeSpellingOfKeywordOrNodeTag]
+Previous Script: [CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain]	Parent Folder: [tagMenu]	Next Script: [changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)]
 Script Name	addORremoveCiteOrRefTLTag
 Run script with full access privileges	Off
 Include In Menu	No
@@ -21210,12 +22809,23 @@ Script Steps
     #
     #If in inventory mode, only allow items
     #specified in learn records to be tagged as
-    #being in one container at a time.
+    #being in one storage location at a time.
     If [ TEMP::InventoryLibaryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
-    Show Custom Dialog [ Message: "This item is already tagged as being in a container (highlighted green). Untag it from this container before tagging it with a new one."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "This item is already tagged as being in a storage location (highlighted green). Untag it from this storage location before tagging it with a different one."; Buttons: “OK” ]
     Set Variable [ $$stopLoadTagRecord ]
     Halt Script
     End If
+    #
+    #Prevent user from tagging storage records
+    #with other storage tags. I.E., No storage
+    #inside of storage relationships allowed.
+    Select Window [ Name: "Learn"; Current file ]
+    If [ TEMP::InventoryLibaryYN ≠ "" and testlearn::sampleCasePoint ≠ "" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Show Custom Dialog [ Message: "This item is storage (box, shelf, etc.). To create a box-within-a-box relationship 1) create a location record for the pimary box, and 2) tag the secondary box as being in that location."; Buttons: “OK” ]
+    Halt Script
+    End If
+    Select Window [ Name: "Tag Menus"; Current file ]
     #
     #
     Set Variable [ $newRef; Value:testlearn::_Ltestlearn & "L" ]
@@ -21238,11 +22848,13 @@ Script Steps
     #have location tags for the item or for the
     #container the item is in.
     If [ $$ref ≠ "" ]
-    Show Custom Dialog [ Message: "NOTE: The item in the Learn window is tagged with location tags. Items can be either in a location or in a container that is in a location. By placing it in a container the item's location tags will be replaced with the container's location tags."; Buttons: “OK”, “cancel” ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Show Custom Dialog [ Message: "NOTE: Items can either be in a location or in storage: box, shelf, etc. that is in a location. Adding this storage tag will now delete your item's location tags."; Buttons: “OK”, “cancel” ]
     If [ Get ( LastMessageChoice ) = 2 ]
     Set Variable [ $$stopLoadTagRecord ]
     Halt Script
     End If
+    Select Window [ Name: "Learn"; Current file ]
     End If
     #
     #Set new reference and delete any
@@ -21317,6 +22929,7 @@ Fields used in this script
     reference::lock
     testlearn::_Ltestlearn
     TEMP::InventoryLibaryYN
+    testlearn::sampleCasePoint
     testlearn::kshowReferencedMedia
     testlearn::Caption
     testlearn::date
@@ -21346,14 +22959,14 @@ Custom menu set used by this script
 
 
 Previous Script: [addORremoveCiteOrRefTLTag]	Parent Folder: [tagMenu]	Next Script: [changeSpellingOfTagCategory]
-Script Name	changeSpellingOfKeywordOrNodeTag
+Script Name	changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
 Scripts that use this script
 
-    changeSpellingOfKeywordOrNodeTag
+    changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)
     noCommasAllowed
 
 Script Definition
@@ -21370,7 +22983,7 @@ Script Steps
     #text into field.
     Set Variable [ $$tag; Value:tagMenus::_Ltag ]
     Set Variable [ $tagSpelling; Value:tagMenus::tagSpelling ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     Set Variable [ $$tag ]
     Set Field [ tagMenus::tagSpelling; $tagSpelling ]
     #
@@ -21392,6 +23005,11 @@ Script Steps
     #
     Perform Script [ “removeTextFormattingAndCommas” ]
     #
+    #The $$key variable is set by main record load
+    #scripts, so remember it, and change it back
+    #to this setting when script is done.
+    Set Variable [ $RememberKey; Value:$$Key ]
+    #
     #Get the key for this record for later in script
     #when it will be used to change the spelling in
     #any records tagged with this key, but of course
@@ -21400,6 +23018,7 @@ Script Steps
     #not the tag, and so the spelling must be changed
     #in every record tagged.
     Set Variable [ $$key; Value:tagMenus::_Ltag ]
+    #
     #
     #Commit changes to the spellling.
     Commit Records/Requests
@@ -21456,6 +23075,9 @@ Script Steps
     #If new tag, user has been informed and we can exit.
     If [ tagMenus::tagSpelling = "" ]
     Set Field [ tagMenus::tagSpelling; tagMenus::tag ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
     Refresh Window
     Exit Script [ ]
     #
@@ -21470,6 +23092,9 @@ Script Steps
     If [ tagMenus::tagSpelling = "" ]
     #If user decided to delete new tag then delete it.
     Delete Record/Request [ No dialog ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
     Refresh Window
     Exit Script [ ]
     #
@@ -21477,6 +23102,9 @@ Script Steps
     #to part B.
     Else If [ tagMenus::tagSpelling ≠ "" ]
     Set Field [ tagMenus::tag; tagMenus::tagSpelling ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
     Refresh Window
     Exit Script [ ]
     End If
@@ -21490,6 +23118,9 @@ Script Steps
     #If new tag, user has been informed and we can exit.
     If [ tagMenus::tagSpelling = "" ]
     Set Field [ tagMenus::tagSpelling; tagMenus::tag ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
     Refresh Window
     Exit Script [ ]
     #
@@ -21504,7 +23135,11 @@ Script Steps
     #is already in use.
     Set Variable [ $newSpelling; Value:tagMenus::tag ]
     Refresh Window
-    Perform Script [ “changeSpellingOfKeywordOrNodeTag” ]
+    Perform Script [ “changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)” ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
+    Refresh Window
     Exit Script [ ]
     #
     End If
@@ -21590,6 +23225,9 @@ Script Steps
     Set Field [ tagMenus::tagSpelling; $newSpelling ]
     Set Variable [ $$key ]
     Set Variable [ $$keyOLD ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
     Exit Script [ ]
     End If
     #
@@ -21803,13 +23441,19 @@ Script Steps
     #the spell/duclicate check script finishes. This halt
     #script step takes care of the problem the exit does not.
     Go to Field [ ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
     Halt Script
     #
     #Choice 1, user wants to change spelling.
     Else If [ Get ( LastMessageChoice ) = 1 ]
     Set Variable [ $newSpelling ]
     Close Window [ Current Window ]
-    Perform Script [ “changeSpellingOfKeywordOrNodeTag” ]
+    Perform Script [ “changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)” ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
     Exit Script [ ]
     End If
     End If
@@ -22154,6 +23798,9 @@ Script Steps
     Sort Records [ Specified Sort Order: tagMenus::tag; ascending ] [ Restore; No dialog ]
     End If
     Set Variable [ $$stoploadCitation ]
+    #
+    #Reset $$key variable.
+    Set Variable [ $$Key; Value:$RememberKey ]
     Exit Script [ ]
     #
     End If
@@ -22202,9 +23849,9 @@ Fields used in this script
 
 Scripts used in this script
 
-    insureEqualityOfSpellFields
+    insureEqualityOfSpellFields (update)
     removeTextFormattingAndCommas
-    changeSpellingOfKeywordOrNodeTag
+    changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)
 
 Layouts used in this script
 
@@ -22238,7 +23885,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [changeSpellingOfKeywordOrNodeTag]	Parent Folder: [tagMenu]	Next Script: [changeSpellingOfDetailCategory]
+Previous Script: [changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)]	Parent Folder: [tagMenu]	Next Script: [changeSpellingOfDetailCategory]
 Script Name	changeSpellingOfTagCategory
 Run script with full access privileges	Off
 Include In Menu	No
@@ -22470,7 +24117,7 @@ Script Steps
     End If
     If [ $$changeSpelling = 1 ]
     Set Variable [ $$changeSpelling; Value:2 ]
-    Perform Script [ “changeSpellingOfKeywordOrNodeTag” ]
+    Perform Script [ “changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)” ]
     End If
 
 Fields used in this script
@@ -22479,7 +24126,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    changeSpellingOfKeywordOrNodeTag
+    changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)
 
 Layouts used in this script
 
@@ -22511,6 +24158,10 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     ltagNK1
     ltagNKs1
     ltagNK2
@@ -22519,6 +24170,8 @@ Layouts that use this script
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -23060,7 +24713,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteKeywordTag]	Parent Folder: [tagMenu]	Next Script: [deleteCPPPBtags]
+Previous Script: [deleteKeywordTag]	Parent Folder: [tagMenu]	Next Script: [deleteCPPPBtags (update Name Change from deleteCPPPtags)]
 Script Name	deleteNodeTag
 Run script with full access privileges	Off
 Include In Menu	No
@@ -23734,7 +25387,7 @@ Custom menu set used by this script
 
 
 Previous Script: [deleteNodeTag]	Parent Folder: [tagMenu]	Next Script: [deleteBrainstormTags (NEW not sure if this needed?)]
-Script Name	deleteCPPPBtags
+Script Name	deleteCPPPBtags (update Name Change from deleteCPPPtags)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -24038,7 +25691,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteCPPPBtags]	Parent Folder: [tagMenu]	Next Script: [addTagSectionKeysToMainRecordKeychain]
+Previous Script: [deleteCPPPBtags (update Name Change from deleteCPPPtags)]	Parent Folder: [tagMenu]	Next Script: [addTagSectionKeysToMainRecordKeychain]
 Script Name	deleteBrainstormTags (NEW not sure if this needed?)
 Run script with full access privileges	Off
 Include In Menu	No
@@ -24456,7 +26109,7 @@ Script Steps
     #
     #Now add all the added record’s node and keyword
     #tags to any newly added sections.
-    Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+    Perform Script [ “CHUNKaddReferenceNodesAndKeywords (update)” ]
     #
     #Complete process of adding link to tag.
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -24511,7 +26164,7 @@ Fields used in this script
 Scripts used in this script
 
     addTagSectionKeysToMainRecordKeychain
-    CHUNKaddReferenceNodesAndKeywords
+    CHUNKaddReferenceNodesAndKeywords (update)
 
 Layouts used in this script
 
@@ -24589,17 +26242,17 @@ Script Steps
     #Reveal more or fewer pictures and links for tag.
     If [ Right ( Get (LayoutName) ; 8 ) = "evenmore" ]
     If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “ltagNK3” (tagMenus) ]
+    Go to Layout [ “ltagNK4” (tagMenus) ]
     Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode4” (tagMenus) ]
     Else If [ Left (Get (LayoutName) ; 1) = "d" ]
     Go to Layout [ “defaultNode2” (tagMenus) ]
     End If
     Else If [ Right ( Get (LayoutName) ; 4 ) = "more" ]
     If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
+    Go to Layout [ “ltagNK3” (tagMenus) ]
     Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
     Else If [ Left (Get (LayoutName) ; 1) = "d" ]
     Go to Layout [ “defaultNode1” (tagMenus) ]
     End If
@@ -24635,11 +26288,11 @@ Scripts used in this script
 
 Layouts used in this script
 
+    ltagNK4
+    ReferenceMenu2keywordOrNode4
+    defaultNode2
     ltagNK3
     ReferenceMenu2keywordOrNode2
-    defaultNode2
-    ltagNK2
-    ReferenceMenu2keywordOrNode1
     defaultNode1
 
 Tables used in this script
@@ -24878,7 +26531,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -24892,7 +26545,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -24917,7 +26570,7 @@ Layouts that use this script
 
 Scripts that use this script
 
-    menuHealth
+    menuHealth (update)
     defaultHealthMenu
 
 Script Definition
@@ -25086,12 +26739,17 @@ Layouts that use this script
     ReferenceMenu1
     ReferenceMenuHealth
     ReferenceMenu3Cite
+    ReferenceMenu3CiteLOAD
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2SkeywordOrNode1
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     ReferenceMenuFind
     ReferenceMenu3CiteFind
     ReferenceMenu2keywordOrNodeFind
@@ -25102,17 +26760,20 @@ Layouts that use this script
     ltagNK1
     ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuSample
@@ -25138,7 +26799,8 @@ Layouts that use this script
 
 Scripts that use this script
 
-    addTagToMainRecord
+    addTagToMainRecord (update)
+    addORremoveTagFromCitationStep1 (update)
 
 Script Definition
 Script Steps
@@ -25310,7 +26972,7 @@ Script Steps
     #tags when find is activitated then take user to keywords
     #tag menu.
     If [ Get (LayoutName) = "ReferenceMenuNoTags" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
     End If
     #
     Set Variable [ $$findMode; Value:1 ]
@@ -25416,15 +27078,15 @@ Script Steps
     Set Variable [ $$foundOther ]
     Set Variable [ $$findLayout ]
     If [ $$citationmatch = "cite" ]
-    Perform Script [ “menuCitation” ]
+    Perform Script [ “menuCitation (update)” ]
     Else If [ $$citationmatch = "key" ]
-    Perform Script [ “menuKey” ]
+    Perform Script [ “menuKey (update)” ]
     Else If [ $$citationMatch = "node" ]
-    Perform Script [ “menuNode” ]
+    Perform Script [ “menuNode (update)” ]
     Else If [ $$citationMatch = "medium" ]
     Perform Script [ “menuMedium” ]
     Else If [ $$citationMatch = "health" ]
-    Perform Script [ “menuHealth” ]
+    Perform Script [ “menuHealth (update) ” ]
     Else If [ $$citationMatch = "path" ]
     Perform Script [ “menuPath” ]
     Else If [ $$citationMatch = "organ" ]
@@ -25436,9 +27098,9 @@ Script Steps
     Else If [ $$citationMatch = "test" ]
     Perform Script [ “menuTest” ]
     Else If [ $$citationMatch = "ref" and Get ( LayoutTableName ) = "testlearn" ]
-    Perform Script [ “internalReferences” ]
+    Perform Script [ “internalReferences (upate)” ]
     Else If [ $$citationMatch = "ref" and Get ( LayoutTableName ) ≠ "testlearn" ]
-    Perform Script [ “menuReference” ]
+    Perform Script [ “menuReference (update)” ]
     End If
     Set Variable [ $$stoploadCitation ]
     Exit Script [ ]
@@ -25470,18 +27132,18 @@ Fields used in this script
 
 Scripts used in this script
 
-    menuCitation
-    menuKey
-    menuNode
+    menuCitation (update)
+    menuKey (update)
+    menuNode (update)
     menuMedium
-    menuHealth
+    menuHealth (update)
     menuPath
     menuOrgan
     menuCopyist
     menuSample
     menuTest
-    internalReferences
-    menuReference
+    internalReferences (upate)
+    menuReference (update)
 
 Layouts used in this script
 
@@ -25493,7 +27155,7 @@ Layouts used in this script
     ltagFINDNK
     referenceSFINDNK
     referenceFINDNK
-    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
     learnMenu4RefStuffCiteFindTL
     learnMenu4RefCiteFindTL
     learnSFind
@@ -25578,6 +27240,8 @@ Layouts that use this script
 
     learnFind
     learnSFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
     learnFindTest
     learnFindSTest
     learnFindSample
@@ -25965,7 +27629,7 @@ Script Steps
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Return focus to Tag Menus window.
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -26034,7 +27698,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -26064,6 +27728,9 @@ Script Name	findKeyOtherTL
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
 
 Scripts that use this script
 
@@ -26370,7 +28037,7 @@ Script Steps
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Return focus to Tag Menus window.
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -26418,7 +28085,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -26447,6 +28114,8 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu2keywordOrNodeFind
+    ReferenceMenu2SkeywordOrNodeFind
 
 Scripts that use this script
 
@@ -26755,7 +28424,7 @@ Script Steps
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Return focus to Tag Menus window.
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -26814,7 +28483,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -26840,6 +28509,9 @@ Script Name	findKeyOtherRef (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceMenu2keywordOrNodeFind
+    ReferenceMenu2SkeywordOrNodeFind
 
 Scripts that use this script
 
@@ -27136,7 +28808,7 @@ Script Steps
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Return focus to Tag Menus window.
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -27182,7 +28854,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -27332,7 +29004,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [CHUNKcheckForDragPasteChanges]	Parent Folder: [tagMenu]	Next Script: [checkForDraggedPasteChangesIfLocked]
+Previous Script: [CHUNKcheckForDragPasteChanges]	Parent Folder: [tagMenu]	Next Script: [checkForDraggedPasteChangesIfLocked (update)]
 Script Name	lock
 Run script with full access privileges	Off
 Include In Menu	No
@@ -27371,8 +29043,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [lock]	Parent Folder: [tagMenu]	Next Script: [insureEqualityOfSpellFields]
-Script Name	checkForDraggedPasteChangesIfLocked
+Previous Script: [lock]	Parent Folder: [tagMenu]	Next Script: [insureEqualityOfSpellFields (update)]
+Script Name	checkForDraggedPasteChangesIfLocked (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -27387,7 +29059,7 @@ Script Steps
     #back to the original text.
     If [ //Test setup window nodeLockTest::orderOrLock ≠ "" or nodeLockTestGroup::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "name" ]
     Set Variable [ $lockedGroupName; Value:1 ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     If [ nodeLockTest::orderOrLock ≠ "" ]
     Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTest::tag & " -- and enter the password to unlock it."; Buttons: “OK” ]
     Exit Script [ ]
@@ -27406,7 +29078,7 @@ Script Steps
     End If
     Else If [ //Tag menus window nodeLockTestTagGroup::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "name" and $$citationMatch ≠ "path" //or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "health" or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "node" or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "copyist" or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "sample" or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "organ" or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "testItem" or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "key" ]
     Set Variable [ $lockedGroupName; Value:1 ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     If [ nodeLockTagMenus::orderOrLock ≠ "" ]
     Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTagMenus::tag & " -- and enter the password to unlock it."; Buttons: “OK” ]
     Exit Script [ ]
@@ -27434,7 +29106,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    insureEqualityOfSpellFields
+    insureEqualityOfSpellFields (update)
 
 Layouts used in this script
 
@@ -27457,28 +29129,29 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [checkForDraggedPasteChangesIfLocked]	Parent Folder: [tagMenu]	Next Script: [lockNodesRecords]
-Script Name	insureEqualityOfSpellFields
+Previous Script: [checkForDraggedPasteChangesIfLocked (update)]	Parent Folder: [tagMenu]	Next Script: [lockNodesRecords]
+Script Name	insureEqualityOfSpellFields (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
 Scripts that use this script
 
-    editSectionFocuses
+    gotoSetupTest (update)
+    editSectionFocuses (update)
     menuSample
-    changeSpellingOfKeywordOrNodeTag
-    checkForDraggedPasteChangesIfLocked
+    changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)
+    checkForDraggedPasteChangesIfLocked (update)
     removeTextFormattingAndCommas
-    backToLearnOrDefaultSetup
-    backFromSetup
+    backToLearnOrDefaultSetup (update)
+    backFromSetup (update)
 
 Script Definition
 Script Steps
 
     #
     #
-    If [ $$stopTest = 1 //or $$citationMatch = "key" //or $$citationMatch = "node" //or $$citationMatch = "health" or $$citationMatch = "path" or tagLocation::match = "focus" and nodeLockTest::orderOrLock = "" ]
+    If [ $$stopTest = 1 //or $$citationMatch = "key" //or $$citationMatch = "node" //or $$citationMatch = "health" or $$citationMatch = "path" //or tagLocation::match = "focus" and nodeLockTest::orderOrLock = "" ]
     Exit Script [ ]
     End If
     #
@@ -27595,6 +29268,9 @@ Script Steps
     Set Variable [ $$stopLoadTagRecord ]
     Close Window [ Current Window ]
     Else If [ Get (LayoutTableName) = "tagLocation" ]
+    #Get spelling change if any to change just the
+    #current record if not locked.
+    Set Variable [ $sectionTemplateSpelling; Value:Get (ActiveFieldContents) ]
     #
     #Exit any fields so do not get can't modify error message
     #because record is in use in another window.
@@ -27613,12 +29289,13 @@ Script Steps
     #field the user was just working on.
     Go to Record/Request/Page [ First ]
     Loop
-    If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock ≠ "" and tagLocation::match = "focus" ]
+    If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock ≠ "" and tagLocation::match = "focus" or $sectionTemplateSpelling ≠ tagLocation::tag ]
     Set Field [ tagLocation::tag; tagLocation::tagSpelling ]
     End If
     #
-    #But if node is not locked, then apply changes to field.
-    If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock = "" and tagLocation::match = "focus" ]
+    #But if node is not locked, then apply changes to
+    #field user was just in if any changes where made.
+    If [ tagLocation::tag ≠ tagLocation::tagSpelling and nodeLockTest::orderOrLock = "" and tagLocation::match = "focus" and $sectionTemplateSpelling = tagLocation::tag ]
     Set Field [ tagLocation::tagSpelling; tagLocation::tag ]
     End If
     Go to Record/Request/Page [ Next; Exit after last ]
@@ -27627,6 +29304,9 @@ Script Steps
     #Start up record load script and close the window.
     Set Variable [ $$stopLoadTagRecord ]
     Close Window [ Current Window ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$ID ]
+    Exit Script [ ]
     End If
     Set Variable [ $$stopTest ]
     Set Variable [ $$ID ]
@@ -27634,8 +29314,6 @@ Script Steps
 
 Fields used in this script
 
-    tagLocation::match
-    nodeLockTest::orderOrLock
     ruleTagMenuGroups::name
     ruleTagMenuGroups::nameSpelling
     nodeLockTagMenus::orderOrLock
@@ -27656,8 +29334,10 @@ Fields used in this script
     groupTest::match
     test::testName
     test::testNameRevert
+    nodeLockTest::orderOrLock
     tagLocation::tag
     tagLocation::tagSpelling
+    tagLocation::match
 
 Scripts used in this script
 
@@ -27667,7 +29347,6 @@ Layouts used in this script
 
 Tables used in this script
 
-    tag
     tag
     tag
     tagGroup
@@ -27692,13 +29371,11 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [insureEqualityOfSpellFields]	Parent Folder: [tagMenu]	Next Script: [sampleExit]
+Previous Script: [insureEqualityOfSpellFields (update)]	Parent Folder: [tagMenu]	Next Script: [sampleExit (update)]
 Script Name	lockNodesRecords
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    defaultNode2
 
 Scripts that use this script
 
@@ -27774,7 +29451,7 @@ Custom menu set used by this script
 
 
 Previous Script: [lockNodesRecords]	Parent Folder: [tagMenu]	Next Script: [newTag]
-Script Name	sampleExit
+Script Name	sampleExit (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -27785,6 +29462,7 @@ Script Definition
 Script Steps
 
     If [ $$citationMatch = "sample" and $$findMode = "" or $$citationmatch = "test" and $$findMode = "" ]
+    Set Variable [ $$stopTgotoCitationMenu ]
     Exit Script [ ]
     End If
     Go to Field [ ]
@@ -27804,7 +29482,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [sampleExit]	Parent Folder: [tagMenu]	Next Script: [sortTLRecordsByOrderNumber]
+Previous Script: [sampleExit (update)]	Parent Folder: [tagMenu]	Next Script: [sortTLRecordsByOrderNumber]
 Script Name	newTag
 Run script with full access privileges	Off
 Include In Menu	No
@@ -27855,7 +29533,7 @@ Scripts that use this script
 
     loadItemRecordForTestTagMenu
     loadItemRecordForSampleTagMenu
-    addTagToMainRecord
+    addTagToMainRecord (update)
     changeTLRecordsSort_Button
     loadItemRecordForLearnTagMenuDELETE!!!
 
@@ -28102,7 +29780,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [sortTLRecordsByOrderNumber]	Parent Folder: [tagMenu]
+Previous Script: [sortTLRecordsByOrderNumber]	Parent Folder: [tagMenu]	Next Script: [???DELETE YES DO loadRefTagCiteRecord (update and name change folder move)]
 Script Name	changeTLRecordsSort_Button
 Run script with full access privileges	Off
 Include In Menu	No
@@ -28111,6 +29789,7 @@ Layouts that use this script
     learn2
     learnStuff2
     learn4 OLD has file path fields not in use
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -28169,6 +29848,44 @@ Table occurrences used by this script
 
     TEMP
     testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [changeTLRecordsSort_Button]	Parent Folder: [tagMenu]
+Script Name	???DELETE YES DO loadRefTagCiteRecord (update and name change folder move)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #This first section is key to stopping this script
+    #when another script for example loops thru
+    #many records each of which would trigger this
+    #script and really slow down the program and
+    #create strobe effect that is really irritating to
+    #look at.
+    // If [ $$stoploadCitation = 1 ]
+    // Exit Script [ ]
+    // End If
+    // Set Variable [ $$recordID; Value:Get (RecordID) ]
+    // Refresh Window
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
 
 Custom Functions used by this script
 
@@ -28464,17 +30181,11 @@ Layouts that use this script
     ReferenceMenu2keywordOrNodeFind
     ReferenceMenu2SkeywordOrNodeFind
     learnFind
-    learnSFind
     learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
     learnFindTest
-    learnFindSTest
     learnFindSample
-    learnFindStuffSample
     learnFindCite
-    learnFindStuffCite
     learnMenu4RefCiteFindTL
-    learnMenu4RefStuffCiteFindTL
 
 Scripts that use this script
 
@@ -29401,7 +31112,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuPathFind]	Parent Folder: [menuFind]	Next Script: [findReference]
+Previous Script: [menuPathFind]	Parent Folder: [menuFind]	Next Script: [findReference (update Name change from findReferernce)]
 Script Name	menuOrganFind
 Run script with full access privileges	Off
 Include In Menu	No
@@ -29477,21 +31188,25 @@ Custom menu set used by this script
 
 
 Previous Script: [menuOrganFind]	Parent Folder: [menuFind]
-Script Name	findReference
+Script Name	findReference (update Name change from findReferernce)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
     ReferenceStuff
-    ReferenceAddToTag
+    learn1
     learnStuff1
+    learn2
     learnStuff2
     learn3
     learnStuff3
     learn4
     learnStuff4
     learn4 OLD has file path fields not in use
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -29562,20 +31277,15 @@ Script Steps
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     Exit Script [ ]
     End If
     #
     If [ Get ( WindowName ) = "References" ]
     #find on reference layout ...
     If [ Left (Get (LayoutName) ; 1) = "r" and $$add ≠ "" ]
-    Show Custom Dialog [ Message: "Find all reference records for the " & TEMP::sectionName & " section or show references for all sections in the library?"; Buttons: “section”, “all” ]
     Enter Find Mode [ ]
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Set Field [ reference::kcsection; TEMP::ksection ]
-    Else If [ Get ( LastMessageChoice ) = 2 ]
     Set Field [ reference::kcsection; "*" ]
-    End If
     Else If [ Left (Get (LayoutName) ; 1) = "r" and $$add = "" ]
     Enter Find Mode [ ]
     Set Field [ reference::kcsection; TEMP::ksection ]
@@ -29601,7 +31311,7 @@ Script Steps
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     Select Window [ Name: "Tag Menus"; Current file ]
 
 Fields used in this script
@@ -29621,7 +31331,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -29645,15 +31355,15 @@ Custom menu set used by this script
 
 
 pictures
-	Parent Folder: [pictures]	Next Script: [pictureViewButton]
-Script Name	pictureInsert
+	Parent Folder: [pictures]	Next Script: [exitIfNotiPhone (new)]
+Script Name	pictureInsert (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     ReferencePictureWindow
     ReferencePictureWindowEDIT
-    LearnPictureWindow
+    ReferenceSPictureWindowEDIT
 
 Scripts that use this script
 
@@ -29668,6 +31378,20 @@ Script Steps
     #
     #
     #REPLACE MEDIA
+    #
+    #
+    If [ Get (SystemPlatform) = 3 ]
+    If [ Get (LayoutTableName) = "testLearn" ]
+    Go to Field [ testlearn::Picture ]
+    Else
+    Go to Field [ reference::picture ]
+    End If
+    If [ reference::picture ≠ "" ]
+    Set Field [ reference::showMedia; "" ]
+    End If
+    End If
+    #
+    #
     #
     #
     #Reference — replace media.
@@ -29687,6 +31411,7 @@ Script Steps
     Else If [ Get ( LastMessageChoice ) = 3 ]
     Go to Field [ reference::picture ]
     Insert QuickTime [ ]
+    // Insert File [ ]
     Go to Field [ ]
     If [ reference::picture ≠ "" ]
     Set Field [ reference::showMedia; "" ]
@@ -29714,6 +31439,7 @@ Script Steps
     Else If [ Get ( LastMessageChoice ) = 3 ]
     Go to Field [ testlearn::Picture ]
     Insert QuickTime [ ]
+    // Insert File [ ]
     Go to Field [ ]
     If [ testlearn::Picture ≠ "" ]
     Set Field [ testlearn::kshowReferencedMedia; "" ]
@@ -29741,6 +31467,7 @@ Script Steps
     Else If [ Get ( LastMessageChoice ) = 3 ]
     Go to Field [ testlearnReportTags::Picture ]
     Insert QuickTime [ ]
+    // Insert File [ ]
     Go to Field [ ]
     If [ testlearnReportTags::Picture ≠ "" ]
     Set Field [ testlearnReportTags::Picture; "" ]
@@ -29767,7 +31494,27 @@ Script Steps
     Else If [ Get ( LastMessageChoice ) = 3 ]
     Go to Field [ testlearnReportTags::Picture ]
     Insert QuickTime [ ]
+    // Insert File [ ]
     Go to Field [ ]
+    End If
+    #
+    #
+    #Reference — insert media into empty field.
+    Else If [ Get ( LayoutTableName ) = "reference" ]
+    If [ reference::picture = "" ]
+    Go to Field [ reference::picture ]
+    Show Custom Dialog [ Message: "Select a picture or movie to insert."; Buttons: “cancel”, “picture”, “movie” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    Else If [ Get ( LastMessageChoice ) = 2 ]
+    Insert Picture [ ]
+    Go to Field [ ]
+    Else If [ Get ( LastMessageChoice ) = 3 ]
+    Insert QuickTime [ ]
+    Go to Field [ ]
+    End If
+    Exit Script [ ]
     End If
     #
     #
@@ -29785,6 +31532,7 @@ Script Steps
     Else If [ Get ( LastMessageChoice ) = 3 ]
     Go to Field [ groupTest::testReportPicture ]
     Insert QuickTime [ ]
+    // Insert File [ ]
     Go to Field [ ]
     End If
     Exit Script [ ]
@@ -29807,6 +31555,7 @@ Script Steps
     Else If [ Get ( LastMessageChoice ) = 3 ]
     Go to Field [ groupTest::testReportPicture ]
     Insert QuickTime [ ]
+    // Insert File [ ]
     Go to Field [ ]
     End If
     Else If [ Get ( LastMessageChoice ) = 3 ]
@@ -29819,11 +31568,11 @@ Script Steps
 
 Fields used in this script
 
-    reference::picture
-    reference::lock
-    reference::showMedia
-    reference::URL
     testlearn::Picture
+    reference::picture
+    reference::showMedia
+    reference::lock
+    reference::URL
     testlearn::kshowReferencedMedia
     testlearnReportTags::Picture
     testlearnReportTags::kshowReferencedMedia
@@ -29851,32 +31600,20 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [pictureInsert]	Parent Folder: [pictures]	Next Script: [showRefURLmedia]
-Script Name	pictureViewButton
+Previous Script: [pictureInsert (update)]	Parent Folder: [pictures]	Next Script: [pictureViewButton (update)]
+Script Name	exitIfNotiPhone (new)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferencePictureWindow
-    ReferencePictureWindowEDIT
 
 Scripts that use this script
 
 Script Definition
 Script Steps
 
-    #
-    #
-    #Toggle between small and full screen picture window.
+    If [ $$PictureOnReportLayout ≠ "" ]
     Go to Field [ ]
-    Move/Resize Window [ Current Window; Height: If ( Get (ScreenHeight) / 2 = Get (WindowHeight) ; Get (ScreenHeight) ; Get (ScreenHeight) / 2 ); Width: If ( Get (ScreenWidth) / 2 = Get (WindowWidth) ; Get (ScreenWidth) ; Get (ScreenWidth) / 2 ); Top: If ( Get (ScreenHeight) / 2 = Get (WindowHeight) ; 0 ; Get (ScreenHeight) / 4 ); Left: If ( Get (ScreenWidth) / 2 = Get (WindowWidth) ; 0 ; Get (ScreenWidth) / 4 ) ]
-    #
-    #Had to insert two zoom levels in order to get
-    #the header to show up. With the just the 100
-    #zoom, the header will sometimes disappear,
-    #until you manually zoom 75 then back to 100.
-    Set Zoom Level [ 75% ]
-    Set Zoom Level [ 100% ]
+    End If
 
 Fields used in this script
 
@@ -29893,8 +31630,63 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [pictureViewButton]	Parent Folder: [pictures]	Next Script: [selectRefMediaForLearnRecord]
-Script Name	showRefURLmedia
+Previous Script: [exitIfNotiPhone (new)]	Parent Folder: [pictures]	Next Script: [showRefURLmedia (new? and update)]
+Script Name	pictureViewButton (update)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    ReferencePictureWindow
+    ReferencePictureWindowEDIT
+    ReferenceSPictureWindowEDIT
+    ReferenceWebPictureWindow
+    ReferenceExternalPictureWindow
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Toggle between small and full screen picture window.
+    Go to Field [ ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Move/Resize Window [ Current Window; Height: If ( 435 = Get (WindowHeight) ; Get (ScreenHeight) ; 435 ); Width: If ( 435 = Get (WindowHeight); Get (ScreenWidth) ; 400 ); Top: If ( 435 = Get (WindowHeight) ; 0 ; Get (ScreenHeight) / 4 ); Left: If ( 435 = Get (WindowHeight) ; 0 ; Get (ScreenWidth) / 4 ) ]
+    Else
+    Move/Resize Window [ Current Window; Height: If ( 375 = Get (WindowHeight) ; Get (ScreenHeight) ; 375 ); Width: If ( 375 = Get (WindowHeight); Get (ScreenWidth) ; 400 ); Top: If ( 375 = Get (WindowHeight) ; 0 ; Get (ScreenHeight) / 4 ); Left: If ( 375= Get (WindowHeight) ; 0 ; Get (ScreenWidth) / 4 ) ]
+    End If
+    #
+    #Had to insert two zoom levels in order to get
+    #the header to show up. With the just the 100
+    #zoom, the header will sometimes disappear,
+    #until you manually zoom 75 then back to 100.
+    Set Zoom Level [ 75% ]
+    Set Zoom Level [ 100% ]
+
+Fields used in this script
+
+    TEMP::InventoryLibaryYN
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [pictureViewButton (update)]	Parent Folder: [pictures]	Next Script: [selectRefMediaForLearnRecord (update)]
+Script Name	showRefURLmedia (new? and update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -29906,19 +31698,20 @@ Script Steps
 
     #
     #Inform user if they have not enter a URL.
-    If [ reference::URL = "" and reference::showMedia ≠ "" ]
+    If [ reference::URL = "" and reference::picture = "" and reference::showMedia ≠ "" ]
     Show Custom Dialog [ Message: "Enter a valid URL below (web address) to see webmedia displayed here."; Buttons: “OK” ]
-    End If
-    If [ reference::picture ≠ "" and reference::showMedia ≠ "" ]
-    Show Custom Dialog [ Message: "Click on the picture and delete it to see your webmedia."; Buttons: “OK” ]
+    Set Field [ reference::showMedia; "" ]
+    Else If [ reference::picture ≠ "" and reference::showMedia ≠ "" ]
+    Show Custom Dialog [ Message: "Click on the picture and delete before selecting to view webmedia."; Buttons: “OK” ]
+    Set Field [ reference::showMedia; "" ]
     End If
     Go to Field [ ]
 
 Fields used in this script
 
     reference::URL
-    reference::showMedia
     reference::picture
+    reference::showMedia
 
 Scripts used in this script
 
@@ -29937,13 +31730,14 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showRefURLmedia]	Parent Folder: [pictures]	Next Script: [pictureReplaceButton (update)]
-Script Name	selectRefMediaForLearnRecord
+Previous Script: [showRefURLmedia (new? and update)]	Parent Folder: [pictures]	Next Script: [pictureReplaceButton (update)]
+Script Name	selectRefMediaForLearnRecord (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     learn4
+    learnStuff4
     learn4EDIT
     learn4EDITstuff
 
@@ -30004,14 +31798,18 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [selectRefMediaForLearnRecord]	Parent Folder: [pictures]	Next Script: [pictureDelete]
+Previous Script: [selectRefMediaForLearnRecord (update)]	Parent Folder: [pictures]	Next Script: [pictureDelete (update)]
 Script Name	pictureReplaceButton (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     ReferencePictureWindowEDIT
+    ReferenceSPictureWindowEDIT
     LearnPictureWindow
+    LearnRefPictureWindow
+    LearnRefExternalPictureWindow
+    LearnRefWebPictureWindow
 
 Scripts that use this script
 
@@ -30022,31 +31820,34 @@ Script Steps
     #
     #If the primary node for this record locked
     #then prevent it from being changed.
-    If [ tagTLNodePrimary::orderOrLock ≠ "" or $$PictureOnReportLayout ≠ "" ]
+    If [ tagTLNodePrimary::orderOrLock ≠ "" or $$PictureOnReportLayout ≠ "" or reference::picture = "" ]
     Exit Script [ ]
     End If
     #
     #Enable media to be replaced.
     Set Variable [ $$replaceButton; Value:1 ]
-    Perform Script [ “pictureInsert” ]
+    Perform Script [ “pictureInsert (update)” ]
     Set Variable [ $$replaceButton ]
 
 Fields used in this script
 
     tagTLNodePrimary::orderOrLock
+    reference::picture
 
 Scripts used in this script
 
-    pictureInsert
+    pictureInsert (update)
 
 Layouts used in this script
 
 Tables used in this script
 
+    reference
     tag
 
 Table occurrences used by this script
 
+    reference
     tagTLNodePrimary
 
 Custom Functions used by this script
@@ -30054,13 +31855,14 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [pictureReplaceButton (update)]	Parent Folder: [pictures]	Next Script: [pictureExport]
-Script Name	pictureDelete
+Previous Script: [pictureReplaceButton (update)]	Parent Folder: [pictures]	Next Script: [pictureExport (update)]
+Script Name	pictureDelete (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     ReferencePictureWindowEDIT
+    ReferenceSPictureWindowEDIT
     LearnPictureWindow
 
 Scripts that use this script
@@ -30081,8 +31883,10 @@ Script Steps
     Else If [ Get ( LastMessageChoice ) = 2 ]
     Set Field [ reference::picture; "" ]
     Set Field [ reference::showMedia; "" ]
+    If [ Get (SystemPlatform) ≠ 3 ]
     Close Window [ Current Window ]
     Halt Script
+    End If
     End If
     Else If [ testlearn::Picture ≠ "" ]
     Show Custom Dialog [ Message: "Delete current picture?"; Buttons: “Cancel”, “OK” ]
@@ -30091,8 +31895,10 @@ Script Steps
     Exit Script [ ]
     Else If [ Get ( LastMessageChoice ) = 2 ]
     Set Field [ testlearn::Picture; "" ]
+    If [ Get (SystemPlatform) ≠ 3 ]
     Close Window [ Current Window ]
     Halt Script
+    End If
     End If
     Else If [ testlearnReportTags::Picture ≠ "" ]
     Show Custom Dialog [ Message: "Delete current picture?"; Buttons: “Cancel”, “OK” ]
@@ -30101,8 +31907,10 @@ Script Steps
     Exit Script [ ]
     Else If [ Get ( LastMessageChoice ) = 2 ]
     Set Field [ testlearnReportTags::Picture; "" ]
+    If [ Get (SystemPlatform) ≠ 3 ]
     Close Window [ Current Window ]
     Halt Script
+    End If
     End If
     End If
     #
@@ -30137,15 +31945,17 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [pictureDelete]	Parent Folder: [pictures]	Next Script: [clearpicture1]
-Script Name	pictureExport
+Previous Script: [pictureDelete (update)]	Parent Folder: [pictures]	Next Script: [clearpicture1]
+Script Name	pictureExport (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     ReferencePictureWindow
     ReferencePictureWindowEDIT
+    ReferenceSPictureWindowEDIT
     LearnPictureWindow
+    LearnRefPictureWindow
 
 Scripts that use this script
 
@@ -30188,7 +31998,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [pictureExport]	Parent Folder: [pictures]	Next Script: [inUsePart2picture1]
+Previous Script: [pictureExport (update)]	Parent Folder: [pictures]	Next Script: [inUsePart2picture1]
 Script Name	clearpicture1
 Run script with full access privileges	Off
 Include In Menu	No
@@ -30542,6 +32352,10 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     ReferenceAddToTag
     addMenu1
     addMenuNodeKeyword
@@ -30555,6 +32369,8 @@ Layouts that use this script
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
@@ -30564,8 +32380,8 @@ Layouts that use this script
 
 Scripts that use this script
 
-    menuNode
-    menuKey
+    menuNode (update)
+    menuKey (update)
 
 Script Definition
 Script Steps
@@ -30698,7 +32514,7 @@ Script Steps
     #Clear the stop load record variable and load
     #the current record's info.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Go to tag menu window.
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -30848,7 +32664,7 @@ Script Steps
     Set Variable [ $$returnRecord ]
     Set Variable [ $$tagLayout ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #If the user was in reference mode prior to add mode ...
     Else If [ $$returnWIndow = "References" ]
@@ -30912,7 +32728,7 @@ Script Steps
     Set Variable [ $$returnLayout ]
     Set Variable [ $$returnRecord ]
     Set Variable [ $$returnWindow ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Go to record user was on before add mode.
     Scroll Window [ Home ]
@@ -30946,7 +32762,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
     menuTestItem
     defaultNodeMenu
 
@@ -31028,7 +32844,7 @@ Script Steps
     #
     #Now add all the added record’s node and keyword
     #tags to any newly added sections.
-    Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+    Perform Script [ “CHUNKaddReferenceNodesAndKeywords (update)” ]
     #
     #Complete process of adding picture to tag.
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -31090,7 +32906,7 @@ Fields used in this script
 Scripts used in this script
 
     addTagSectionKeysToMainRecordKeychain
-    CHUNKaddReferenceNodesAndKeywords
+    CHUNKaddReferenceNodesAndKeywords (update)
 
 Layouts used in this script
 
@@ -31116,6 +32932,8 @@ Script Name	addPicture1ToTag
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceAddToTag
 
 Scripts that use this script
 
@@ -31219,6 +33037,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceAddToTag
+
 Scripts that use this script
 
 Script Definition
@@ -31321,6 +33141,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceAddToTag
+
 Scripts that use this script
 
 Script Definition
@@ -31417,27 +33239,19 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addPicture3ToTag]	Parent Folder: [pictures]	Next Script: [showCitationPicture2inNewWindow]
+Previous Script: [addPicture3ToTag]	Parent Folder: [pictures]	Next Script: [showTestSubjectSetupPicture (new)]
 Script Name	showCitationPicture1inNewWindow (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    defaultSetup
-    defaultHealth
-    defaultNode1
-    defaultNode2
     Reference
     ReferenceStuff
     ReferenceEDIT
     ReferenceEDITstuff
     ReferenceMenuHealth
     ReferenceMenu3Cite
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
-    ReferenceMenu3CiteFind
+    ReferenceMenu3CiteLOAD
     ReferenceAddToTag
     learn2
     learnStuff2
@@ -31449,12 +33263,12 @@ Layouts that use this script
     learn4EDITstuff
     learn4 OLD has file path fields not in use
     LearnTextWindowLocked
-    ltagNK2
-    ltagNKs2
     ltagNK3
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
@@ -31462,7 +33276,6 @@ Layouts that use this script
     learnMenuRefStuff
     learnMenu4RefCite
     learnMenu4STUFFRefCite
-    LearnPictureWindow
     learnFindCite
     learnFindStuffCite
     learnMenu4RefCiteFindTL
@@ -31471,21 +33284,31 @@ Layouts that use this script
     testInfo
     reportTagInfo
     reportTagDiscovery
-    defaultSetup Copy
     learn4EDITstuff Copy
+    learnStuff2 Copy
 
 Scripts that use this script
 
-    showPicture1
-    showPicture2
-    showPicture3
-    showPicture4
+    showPicture1 (update)
+    showPicture2 (update)
+    showPicture3 (update)
+    showPicture4 (update)
+    showTestSubjectSetupPicture (new)
+    showPrimaryNodePicture (new)
+    showCitationPicture2inNewWindow (update)
+    showCitationPicture3inNewWindow (update)
+    newReference (update)
+    editCitation (update)
 
 Script Definition
 Script Steps
 
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
+    #
+    #
+    Close Window [ Name: "Media"; Current file ]
+    #
     #
     #Not sure why I decided lock this, but it seems user
     #can't do anything to data by viewing pictures so I
@@ -31496,260 +33319,205 @@ Script Steps
     // Exit Script [ ]
     // End If
     #
-    #iDEVICES not tested using this script since v3.1 udpate!!!!!
-    #Determine where picture or movie is located
-    #on iPhone and iPads.
-    If [ PatternCount ( Get ( ApplicationVersion ) ; "GO" ) ]
-    Set Variable [ $$stopLoadCitation; Value:1 ]
-    New Window [ Name: " "; Height: Get (ScreenHeight); Width: Get (ScreenWidth); Top: 0; Left: 0 ]
     #
-    If [ Get (LayoutTableName) = "reference" ]
+    #Determine where REFERENCE picture or
+    #movie is coming from and open it.
+    If [ Get (LayoutTableName) = "tempSetup" or Get (LayoutTableName) = "reference" or Get (LayoutTableName) = "tagMenus" ]
+    #
+    If [ Get (LayoutTableName) = "tempSetup" ]
+    #SETUP DEFAULTS WINDOW
+    Set Variable [ $picture; Value:Case ( $$defaultPrimaryNodePicture ≠ "" ; $$defaultPrimaryNodePicture ; $$defaultTestSubjecPicture ) ]
+    Set Variable [ $fileLocation; Value:$$fileLocation ]
+    #
+    Else If [ Get (LayoutTableName) = "reference" ]
+    #REFERENCE WINDOW
+    Set Variable [ $picture; Value:reference::_Lreference ]
+    Set Variable [ $fileLocation; Value:Case ( reference::picture ≠ "" ; "database" ; reference::kfileLocation ≠ "" and reference::fileName ≠ "" and reference::showMedia = "" ; "harddrive" ; reference::URL ≠ "" and reference::showMedia ≠ "" ; "web" ; "none" ) ]
+    #
+    Else If [ Get (LayoutTableName) = "tagMenus" ]
+    #TAG MENUS WINDOW (Reference and Learn tags)
+    If [ $$picture = "" ]
+    Set Variable [ $picture; Value:tagMenus::Kpicture1 ]
+    Set Variable [ $fileLocation; Value:Case ( citationPicture1::picture ≠ "" ; "database" ; citationPicture1::kfileLocation ≠ "" and citationPicture1::fileName ≠ "" and citationPicture1::showMedia = "" ; "harddrive" ; citationPicture1::URL ≠ "" and citationPicture1::showMedia ≠ "" ; "web" ; "none" ) ]
+    Else If [ $$picture = "Kpicture2" ]
+    Set Variable [ $picture; Value:tagMenus::Kpicture2 ]
+    Set Variable [ $fileLocation; Value:Case ( citationPicture2::picture ≠ "" ; "database" ; citationPicture2::kfileLocation ≠ "" and citationPicture2::fileName ≠ "" and citationPicture2::showMedia = "" ; "harddrive" ; citationPicture2::URL ≠ "" and citationPicture2::showMedia ≠ "" ; "web" ; "none" ) ]
+    Else If [ $$picture = "Kpicture3" ]
+    Set Variable [ $picture; Value:tagMenus::Kpicture3 ]
+    Set Variable [ $fileLocation; Value:Case ( citationPicture3::picture ≠ "" ; "database" ; citationPicture3::kfileLocation ≠ "" and citationPicture3::fileName ≠ "" and citationPicture3::showMedia = "" ; "harddrive" ; citationPicture3::URL ≠ "" and citationPicture3::showMedia ≠ "" ; "web" ; "none" ) ]
+    End If
+    End If
+    #
+    Set Variable [ $$picture ]
+    Set Variable [ $$fileLocation ]
+    Set Variable [ $$defaultPrimaryNodePicture ]
+    Set Variable [ $$defaultTestSubjecPicture ]
+    #
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    New Window [ Name: "Media"; Height: 435; Width: 400; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    Else
+    New Window [ Name: "Media"; Height: 375; Width: 400; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    End If
+    #
+    #Library database record
+    If [ $fileLocation = "database" or $fileLocation = "none" ]
+    #
+    #If this is a stuff library ...
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceSPictureWindowEDIT” (reference) ]
+    Else
+    #
+    #If this is a reference library ...
+    If [ Get (LayoutName) = "ReferenceEDIT" and tagTLNodePrimary::orderOrLock = "" ]
+    Go to Layout [ “ReferencePictureWindowEDIT” (reference) ]
+    Else
     Go to Layout [ “ReferencePictureWindow” (reference) ]
+    End If
+    End If
+    Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
     #
-    Else If [ Get (LayoutTableName) = "testlearn" ]
-    Go to Layout [ “LearnPictureWindow” (testlearn) ]
+    #If there is no picture and user is allowed to insert one ...
+    If [ $fileLocation = "none" and Get (LayoutName) = "ReferencePictureWindowEDIT" // or $fileLocation = "none" and Get (LayoutName) = "ReferenceSPictureWindowEDIT" ]
+    If [ Get ( SystemPlatform ) = 3 ]
+    #Untested !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    Go to Field [ reference::picture ] [ Select/perform ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Close Window [ Current Window ]
+    Exit Script [ ]
+    End If
+    Else If [ ]
+    Go to Field [ reference::picture ]
+    Show Custom Dialog [ Message: "Select a picture or movie to insert."; Buttons: “cancel”, “picture”, “movie” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Close Window [ Current Window ]
+    Exit Script [ ]
+    Else If [ Get ( LastMessageChoice ) = 2 ]
+    Insert Picture [ ]
+    Go to Field [ ]
+    Else If [ Get ( LastMessageChoice ) = 3 ]
+    #
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #Quicktime is no longer supported, so maybe get rid of limiting the user to just movie or picture files?
+    // Insert File [ ]
+    Insert QuickTime [ ]
+    Go to Field [ ]
+    End If
+    End If
+    Pause/Resume Script [ Indefinitely ]
+    Exit Script [ ]
+    End If
+    #
+    #Harddrive file
+    Else If [ $fileLocation = "harddrive" ]
+    Go to Layout [ “ReferenceExternalPictureWindow” (reference) ]
+    #
+    #Webpage
+    Else If [ $fileLocation = "web" ]
+    Go to Layout [ “ReferenceWebPictureWindow” (reference) ]
+    End If
+    #
+    Enter Find Mode [ ]
+    Set Field [ reference::_Lreference; $picture ]
+    Perform Find [ ]
+    #
+    Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    #
+    Pause/Resume Script [ Indefinitely ]
+    Exit Script [ ]
+    #
+    End If
+    #
+    #
+    #Determine where LEARN picture or
+    #movie is coming from and open it.
+    If [ Get (LayoutTableName) = "testLearn" or Get (LayoutTableName) = "testlearnReportTags" or Get (LayoutTableName) = "report" ]
+    #
+    If [ Get (LayoutTableName) = "testLearn" ]
+    #LEARN and TEST WINDOWS
+    Set Variable [ $picture; Value:testlearn::_Ltestlearn ]
+    Set Variable [ $fileLocation; Value:Case ( testlearn::Picture ≠ "" ; "TLpicture" ; Case ( refShowMedia::picture ≠ "" ; "database" ; refShowMedia::kfileLocation ≠ "" and refShowMedia::fileName ≠ "" and refShowMedia::showMedia = "" ; "harddrive" ; refShowMedia::URL ≠ "" and refShowMedia::showMedia ≠ "" ; "web" ; "none" ) ) ]
     #
     Else If [ Get (LayoutTableName) = "testlearnReportTags" ]
+    #TEST INFO and REPORT INFO WINDOWS
+    Set Variable [ $picture; Value:testlearnReportTags::_Ltestlearn ]
+    Set Variable [ $fileLocation; Value:Case ( testlearnReportTags::Picture ≠ "" ; "TLpicture" ; Case ( refShowMediaReport::picture ≠ "" ; "database" ; refShowMediaReport::kfileLocation ≠ "" and refShowMediaReport::fileName ≠ "" and refShowMediaReport::showMedia = "" ; "harddrive" ; refShowMediaReport::URL ≠ "" and refShowMediaReport::showMedia ≠ "" ; "web" ; "none" ) ) ]
     #
-    #Because there is no testlearnReportTags
-    #picture layout, capture the ID for this record
-    #so it can be found on the testlearn picture layout.
-    Set Variable [ $testlearnReportTagsID; Value:testlearnReportTags::_Ltestlearn ]
-    #
-    #Find this record for the testlearn layout.
-    Go to Layout [ “LearnPictureWindow” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::_Ltestlearn; $testlearnReportTagsID ]
-    Perform Find [ ]
+    Else If [ Get (LayoutTableName) = "report" ]
+    #REPORT IWINDOW
+    Set Variable [ $picture; Value:$$PictureOnReportLayout ]
+    Set Variable [ $fileLocation; Value:$$fileLocation ]
     End If
     #
-    Set Variable [ $$stopLoadCitation ]
-    Pause/Resume Script [ Indefinitely ]
+    If [ $fileLocation = "none" ]
+    Go to Field [ testlearn::Picture ]
+    Show Custom Dialog [ Message: "Select a picture or movie to insert."; Buttons: “cancel”, “picture”, “movie” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Go to Field [ ]
     Exit Script [ ]
-    End If
-    #
-    #
-    #
-    #BEGIN NOTE: Test layouts have no pictures,
-    #so this section of code is not in use.
-    #
-    #Determine where picture or movie is located
-    #on the reference window and then open it.
-    If [ Get ( LayoutTableName ) = "test" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    // Go to Field [ reference::picture ]
-    // Go to Field [ ]
-    // #
-    // New Window [ Name: reference::picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    // Go to Layout [ “ReferencePictureWindow” (reference) ]
+    Else If [ Get ( LastMessageChoice ) = 2 ]
     Insert Picture [ ]
-    #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
+    Go to Field [ ]
+    Else If [ Get ( LastMessageChoice ) = 3 ]
+    Insert QuickTime [ ]
+    Go to Field [ ]
+    End If
     Exit Script [ ]
     End If
     #
-    #END NOTE: Test layouts have no pictures,
-    #so this section of code is not in use.
-    #
-    #
-    #
-    #Determine where picture or movie is located
-    #on the reference window and then open it.
-    If [ reference::picture ≠ "" or reference::kfileLocation ≠ "" or reference::URL ≠ "" and reference::showMedia ≠ "" // and Get (LayoutName) ≠ "ReferenceEDIT" ]
-    If [ reference::picture ≠ "" ]
-    #To speed up script, stop this script from working.
     Set Variable [ $$stoploadCitation; Value:1 ]
-    Go to Field [ reference::picture ]
-    Go to Field [ ]
+    Set Variable [ $$stoploadtestinfo; Value:1 ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
     #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    If [ Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceEDITstuff" ]
-    Go to Layout [ “ReferencePictureWindowEDIT” (reference) ]
-    Else
-    Go to Layout [ “ReferencePictureWindow” (reference) ]
-    End If
+    New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
     #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    Else If [ FilterValues ( reference::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & reference::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & reference::fileName ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( reference::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & reference::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & reference::fileName ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( reference::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagRefFolderPath::tag ; " " ; "%20" ) & Case ( Left ( reference::fileName ; 1 ) = "/" ; Substitute ( reference::fileName ; " " ; "%20" ) ; "/" & Substitute ( reference::fileName ; " " ; "%20" ) ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagRefFolderPath::tag ; " " ; " " ) & Case ( Left ( reference::fileName ; 1 ) = "/" ; Substitute ( reference::fileName ; " " ; " " ) ; "/" & Substitute ( reference::fileName ; " " ; " " ) ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ reference::URL ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Go to Field [ reference::picture ]
-    Go to Field [ ]
+    If [ $fileLocation = "database" or $fileLocation = "TLpicture" ]
     #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    If [ Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceEDITstuff" ]
-    Go to Layout [ “ReferencePictureWindowEDIT” (reference) ]
-    Else
-    Go to Layout [ “ReferencePictureWindow” (reference) ]
-    End If
-    #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    Open URL [ reference::URL ] [ No dialog ]
-    Exit Script [ ]
-    End If
-    End If
-    #
-    #Determine where reference picture or movie is located
-    #on the tag menus window and then open it.
-    If [ citationPicture1::picture ≠ "" or citationPicture1::kfileLocation ≠ "" or citationPicture1::URL ≠ "" ]
-    If [ citationPicture1::picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Set Variable [ $picture; Value:tagMenus::Kpicture1 ]
-    Go to Field [ ]
-    #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “ReferencePictureWindow” (reference) ]
-    #
-    Enter Find Mode [ ]
-    Set Field [ reference::_Lreference; $picture ]
-    Perform Find [ ]
-    #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture1::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationPicture1::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationPicture1::fileName ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture1::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationPicture1::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationPicture1::fileName ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture1::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagPathPicture1_button::tag ; " " ; "%20" ) & Case ( Left ( citationPicture1::fileName ; 1 ) = "/" ; Substitute ( citationPicture1::fileName ; " " ; "%20" ) ; "/" & Substitute ( citationPicture1::fileName ; " " ; "%20" ) ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagPathPicture1_button::tag ; " " ; " " ) & Case ( Left ( citationPicture1::fileName ; 1 ) = "/" ; Substitute ( citationPicture1::fileName ; " " ; " " ) ; "/" & Substitute ( citationPicture1::fileName ; " " ; " " ) ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ citationPicture1::URL ≠ "" ]
-    #
-    #
-    If [ citationPicture1::showMedia ≠ "" ]
-    Set Variable [ $$stopLoadCitation; Value:1 ]
-    Set Variable [ $picture; Value:tagMenus::Kpicture1 ]
-    Go to Field [ ]
-    #
-    New Window [ Name: ""; Height: Get (ScreenHeight); Width: Get (ScreenWidth); Top: 0; Left: 0 ]
-    Go to Layout [ “ReferencePictureWindow” (reference) ]
-    #
-    Enter Find Mode [ ]
-    Set Field [ reference::_Lreference; $picture ]
-    Perform Find [ ]
-    #
-    Set Variable [ $$stopLoadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    End If
-    #
-    Open URL [ Substitute ( citationPicture1::URL ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    End If
-    End If
-    #
-    #Determine where testlearn picture or movie is located
-    #on the tag menus window and then open it.
-    If [ TLPicture1::Picture ≠ "" or TLPicture1::kfileLocation ≠ "" or TLPicture1::URL ≠ "" ]
-    If [ TLPicture1::Picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Set Variable [ $picture; Value:tagMenus::Kpicture1 ]
-    Go to Field [ ]
-    #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    #Library database record
+    If [ $fileLocation = "database" ]
+    Go to Layout [ “LearnRefPictureWindow” (testlearn) ]
+    Else If [ $fileLocation = "TLpicture" ]
     Go to Layout [ “LearnPictureWindow” (testlearn) ]
+    End If
+    #
+    Else If [ $fileLocation = "harddrive" ]
+    #Harddrive file
+    Go to Layout [ “LearnRefExternalPictureWindow” (testlearn) ]
+    #
+    Else If [ $fileLocation = "web" ]
+    #Webpage
+    Go to Layout [ “LearnRefWebPictureWindow” (testlearn) ]
+    End If
     #
     Enter Find Mode [ ]
     Set Field [ testlearn::_Ltestlearn; $picture ]
     Perform Find [ ]
     #
+    Set Variable [ $$stoploadtestinfo ]
     Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture1::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLPicture1::filename ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLPicture1::filename ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture1::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLPicture1::filename ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLPicture1::filename ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture1::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLPathPicture1_button::tag ; " " ; "%20" ) & Case ( Left ( TLPicture1::filename ; 1 ) = "/" ; Substitute ( TLPicture1::filename ; " " ; "%20" ) ; "/" & Substitute ( TLPicture1::filename ; " " ; "%20" ) ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLPathPicture1_button::tag ; " " ; " " ) & Case ( Left ( TLPicture1::filename ; 1 ) = "/" ; Substitute ( TLPicture1::filename ; " " ; " " ) ; "/" & Substitute ( TLPicture1::filename ; " " ; " " ) ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ TLPicture1::URL ≠ "" ]
-    Open URL [ Substitute ( TLPicture1::URL ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    End If
-    End If
+    Set Variable [ $$stopLoadTestRecord ]
     #
-    #Determine where testlearn picture or movie is located
-    #on testlearn Layout and then open it.
-    If [ testlearn::Picture ≠ "" or testlearn::kfileLocation ≠ "" or testlearn::URL ≠ "" or testlearn::kshowReferencedMedia ≠ "" ]
-    If [ testlearn::Picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Go to Field [ ]
-    #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “LearnPictureWindow” (testlearn) ]
-    Go to Field [ testlearn::Picture ]
-    Go to Field [ ]
-    #
-    Set Variable [ $$stoploadCitation ]
     Pause/Resume Script [ Indefinitely ]
     Exit Script [ ]
     #
-    Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & testlearn::filename ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & testlearn::filename ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & testlearn::filename ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & testlearn::filename ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLFolderPath::tag ; " " ; "%20" ) & Case ( Left ( testlearn::filename ; 1 ) = "/" ; Substitute ( testlearn::filename ; " " ; "%20" ) ; "/" & Substitute ( testlearn::filename ; " " ; "%20" ) ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLFolderPath::tag ; " " ; " " ) & Case ( Left ( testlearn::filename ; 1 ) = "/" ; Substitute ( testlearn::filename ; " " ; " " ) ; "/" & Substitute ( testlearn::filename ; " " ; " " ) ) ] [ No dialog ]
-    Exit Script [ ]
-    #
-    Else If [ testlearn::URL ≠ "" or testlearn::kshowReferencedMedia ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Go to Field [ ]
-    #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “LearnPictureWindow” (testlearn) ]
-    Go to Field [ testlearn::Picture ]
     End If
-    Go to Field [ ]
     #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
     #
-    // Else If [ testlearn::URL ≠ "" ]
-    // Open URL [ Substitute ( testlearn::URL ; " " ; "%20" ) ] [ No dialog ]
-    // Exit Script [ ]
-    // End If
-    End If
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
     #
     #Determine where testlearn picture or movie is located
     #on testlearnDiscoveryTag Layout and then open it.
@@ -31765,7 +33533,7 @@ Script Steps
     Set Variable [ $$stoploadCitation; Value:1 ]
     Go to Field [ ]
     #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
     Go to Layout [ “LearnPictureWindow” (testlearn) ]
     #
     #Find this record for the testlearn layout.
@@ -31785,7 +33553,7 @@ Script Steps
     Set Variable [ $$stoploadCitation; Value:1 ]
     Go to Field [ ]
     #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
     Go to Layout [ “LearnPictureWindow” (testlearn) ]
     #
     #Find this record for the testlearn layout.
@@ -31801,115 +33569,12 @@ Script Steps
     Pause/Resume Script [ Indefinitely ]
     Exit Script [ ]
     #
-    #Since version 2 the file path media option has
-    #been disabled. If that changes, then these
-    #script steps become useful.
-    // Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & testlearn::filename ; " " ; "%20" ) ] [ No dialog ]
-    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & testlearn::filename ; " " ; " " ) ] [ No dialog ]
-    // Exit Script [ ]
-    // Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & testlearn::filename ; " " ; "%20" ) ] [ No dialog ]
-    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & testlearn::filename ; " " ; " " ) ] [ No dialog ]
-    // Exit Script [ ]
-    // Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLFolderPath::tag ; " " ; "%20" ) & Case ( Left ( testlearn::filename ; 1 ) = "/" ; Substitute ( testlearn::filename ; " " ; "%20" ) ; "/" & Substitute ( testlearn::filename ; " " ; "%20" ) ) ] [ No dialog ]
-    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLFolderPath::tag ; " " ; " " ) & Case ( Left ( testlearn::filename ; 1 ) = "/" ; Substitute ( testlearn::filename ; " " ; " " ) ; "/" & Substitute ( testlearn::filename ; " " ; " " ) ) ] [ No dialog ]
-    // Exit Script [ ]
-    // Else If [ testlearn::URL ≠ "" ]
-    // Open URL [ Substitute ( testlearn::URL ; " " ; "%20" ) ] [ No dialog ]
-    // Exit Script [ ]
-    // End If
-    End If
-    #
-    #Determine where default picture or movie is located
-    #on default setup Layout and then open it.
-    If [ defaultPictureRef::picture ≠ "" or defaultPictureRef::kfileLocation ≠ "" or defaultPictureRef::URL ≠ "" ]
-    If [ defaultPictureRef::picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Set Variable [ $picture; Value:defaultPictureRef::_Lreference ]
-    Go to Field [ ]
-    #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “ReferencePictureWindow” (reference) ]
-    #
-    Enter Find Mode [ ]
-    Set Field [ reference::_Lreference; $picture ]
-    Pause/Resume Script [ Indefinitely ]
-    Perform Find [ ]
-    #
-    Set Variable [ $$stoploadCitation ]
-    Exit Script [ ]
-    Else If [ FilterValues ( defaultPictureRef::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & defaultPictureRef::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & defaultPictureRef::fileName ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( defaultPictureRef::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & defaultPictureRef::fileName ; " " ; " " ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & defaultPictureRef::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( defaultPictureRef::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagDefaultFolderPathRef::tag ; " " ; "%20" ) & Case ( Left ( defaultPictureRef::fileName ; 1 ) = "/" ; Substitute ( defaultPictureRef::fileName ; " " ; "%20" ) ; "/" & Substitute ( defaultPictureRef::fileName ; " " ; "%20" ) ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagDefaultFolderPathRef::tag ; " " ; " " ) & Case ( Left ( defaultPictureRef::fileName ; 1 ) = "/" ; Substitute ( defaultPictureRef::fileName ; " " ; " " ) ; "/" & Substitute ( defaultPictureRef::fileName ; " " ; " " ) ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ defaultPictureRef::URL ≠ "" ]
-    Open URL [ Substitute ( defaultPictureRef::URL ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    End If
-    Else If [ defaultPictureTL::Picture ≠ "" or defaultPictureTL::kfileLocation ≠ "" or defaultPictureTL::URL ≠ "" ]
-    If [ defaultPictureTL::Picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Set Variable [ $picture; Value:defaultPictureTL::_Ltestlearn ]
-    Go to Field [ ]
-    #
-    New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “LearnPictureWindow” (testlearn) ]
-    #
-    Enter Find Mode [ ]
-    Set Field [ testlearn::_Ltestlearn; $picture ]
-    Pause/Resume Script [ Indefinitely ]
-    Perform Find [ ]
-    #
-    Set Variable [ $$stoploadCitation ]
-    Exit Script [ ]
-    Else If [ FilterValues ( defaultPictureTL::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & defaultPictureTL::filename ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & defaultPictureTL::filename ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( defaultPictureTL::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & defaultPictureTL::filename ; " " ; "%20" ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & defaultPictureTL::filename ; " " ; " " ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( defaultPictureTL::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagDefaultFolderPathTL::tag ; " " ; "%20" ) & Case ( Left ( defaultPictureTL::filename ; 1 ) = "/" ; Substitute ( defaultPictureTL::filename ; " " ; "%20" ) ; "/" & Substitute ( defaultPictureTL::filename ; " " ; "%20" ) ) ] [ No dialog ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagDefaultFolderPathTL::tag ; " " ; " " ) & Case ( Left ( defaultPictureTL::filename ; 1 ) = "/" ; Substitute ( defaultPictureTL::filename ; " " ; " " ) ; "/" & Substitute ( defaultPictureTL::filename ; " " ; " " ) ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ defaultPictureTL::URL ≠ "" ]
-    Open URL [ Substitute ( defaultPictureTL::URL ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    End If
     End If
     #
     #If there is no file found then ask user what picture
     #to insert.
     If [ Get (LayoutTableName) = "reference" and Get ( WindowName ) ≠ "Tag Menus" ]
     Go to Field [ reference::picture ]
-    Show Custom Dialog [ Message: "Select a picture or movie to insert."; Buttons: “cancel”, “picture”, “movie” ]
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Go to Field [ ]
-    Exit Script [ ]
-    Else If [ Get ( LastMessageChoice ) = 2 ]
-    Insert Picture [ ]
-    Go to Field [ ]
-    Else If [ Get ( LastMessageChoice ) = 3 ]
-    Insert QuickTime [ ]
-    Go to Field [ ]
-    End If
-    Go to Field [ ]
-    Else If [ Get (LayoutTableName) = "testlearn" and Get ( WindowName ) ≠ "Tag Menus" ]
-    Go to Field [ testlearn::Picture ]
     Show Custom Dialog [ Message: "Select a picture or movie to insert."; Buttons: “cancel”, “picture”, “movie” ]
     If [ Get ( LastMessageChoice ) = 1 ]
     Go to Field [ ]
@@ -31942,82 +33607,82 @@ Script Steps
 Fields used in this script
 
     tagTLNodePrimary::orderOrLock
-    testlearnReportTags::_Ltestlearn
-    testlearn::_Ltestlearn
+    reference::_Lreference
     reference::picture
     reference::kfileLocation
-    reference::URL
-    reference::showMedia
     reference::fileName
-    tagRefFolderPath::tag
+    reference::showMedia
+    reference::URL
+    tagMenus::Kpicture1
     citationPicture1::picture
     citationPicture1::kfileLocation
-    citationPicture1::URL
-    tagMenus::Kpicture1
-    reference::_Lreference
     citationPicture1::fileName
-    tagPathPicture1_button::tag
     citationPicture1::showMedia
-    TLPicture1::Picture
-    TLPicture1::kfileLocation
-    TLPicture1::URL
-    TLPicture1::filename
-    tagTLPathPicture1_button::tag
+    citationPicture1::URL
+    tagMenus::Kpicture2
+    citationPicture2::picture
+    citationPicture2::kfileLocation
+    citationPicture2::fileName
+    citationPicture2::showMedia
+    citationPicture2::URL
+    tagMenus::Kpicture3
+    citationPicture3::picture
+    citationPicture3::kfileLocation
+    citationPicture3::fileName
+    citationPicture3::showMedia
+    citationPicture3::URL
+    TEMP::InventoryLibaryYN
+    testlearn::_Ltestlearn
     testlearn::Picture
-    testlearn::kfileLocation
-    testlearn::URL
-    testlearn::kshowReferencedMedia
-    testlearn::filename
-    tagTLFolderPath::tag
+    refShowMedia::picture
+    refShowMedia::kfileLocation
+    refShowMedia::fileName
+    refShowMedia::showMedia
+    refShowMedia::URL
+    testlearnReportTags::_Ltestlearn
     testlearnReportTags::Picture
+    refShowMediaReport::picture
+    refShowMediaReport::kfileLocation
+    refShowMediaReport::fileName
+    refShowMediaReport::showMedia
+    refShowMediaReport::URL
     testlearnReportTags::kfileLocation
     testlearnReportTags::URL
     testlearnReportTags::kshowReferencedMedia
-    defaultPictureRef::picture
-    defaultPictureRef::kfileLocation
-    defaultPictureRef::URL
-    defaultPictureRef::_Lreference
-    defaultPictureRef::fileName
-    tagDefaultFolderPathRef::tag
-    defaultPictureTL::Picture
-    defaultPictureTL::kfileLocation
-    defaultPictureTL::URL
-    defaultPictureTL::_Ltestlearn
-    defaultPictureTL::filename
-    tagDefaultFolderPathTL::tag
 
 Scripts used in this script
 
 Layouts used in this script
 
-    ReferencePictureWindow
-    LearnPictureWindow
+    ReferenceSPictureWindowEDIT
     ReferencePictureWindowEDIT
+    ReferencePictureWindow
+    ReferenceExternalPictureWindow
+    ReferenceWebPictureWindow
+    LearnRefPictureWindow
+    LearnPictureWindow
+    LearnRefExternalPictureWindow
+    LearnRefWebPictureWindow
 
 Tables used in this script
 
+    TEMP
     reference
     tag
     tag
-    tag
-    testlearn
     testlearn
 
 Table occurrences used by this script
 
-    TLPicture1
+    TEMP
     citationPicture1
-    defaultPictureRef
-    defaultPictureTL
+    citationPicture2
+    citationPicture3
+    refShowMedia
+    refShowMediaReport
     reference
-    tagDefaultFolderPathRef
-    tagDefaultFolderPathTL
     tagMenus
-    tagPathPicture1_button
-    tagRefFolderPath
-    tagTLFolderPath
     tagTLNodePrimary
-    tagTLPathPicture1_button
     testlearn
     testlearnReportTags
 
@@ -32026,14 +33691,13 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showCitationPicture1inNewWindow (update)]	Parent Folder: [pictures]	Next Script: [showCitationPicture3inNewWindow]
-Script Name	showCitationPicture2inNewWindow
+Previous Script: [showCitationPicture1inNewWindow (update)]	Parent Folder: [pictures]	Next Script: [showPrimaryNodePicture (new)]
+Script Name	showTestSubjectSetupPicture (new)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    defaultSections
 
 Scripts that use this script
 
@@ -32041,74 +33705,181 @@ Script Definition
 Script Steps
 
     #
-    #Determine where reference picture or movie is located
-    #on the tag menus window and then open it.
-    If [ citationPicture2::picture ≠ "" or citationPicture2::kfileLocation ≠ "" or citationPicture2::URL ≠ "" ]
-    If [ citationPicture2::picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Set Variable [ $picture; Value:tagMenus::Kpicture2 ]
-    Go to Field [ ]
     #
-    New Window [ Name: citationPicture2::picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “ReferencePictureWindow” (reference) ]
+    Set Variable [ $$defaultTestSubjecPicture; Value:defaultPictureRef_TS::_Lreference ]
+    Set Variable [ $$fileLocation; Value:Case ( defaultPictureRef_TS::picture ≠ "" ; "database" ; defaultPictureRef_TS::kfileLocation ≠ "" and defaultPictureRef_TS::fileName ≠ "" and defaultPictureRef_TS::showMedia = "" ; "harddrive" ; defaultPictureRef_TS::URL ≠ "" and defaultPictureRef_TS::showMedia ≠ "" ; "web" ; "none" ) ]
     #
-    Enter Find Mode [ ]
-    Set Field [ reference::_Lreference; $picture ]
-    Perform Find [ ]
     #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture2::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationPicture2::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture2::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationPicture2::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture2::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagPathPicture2_button::tag ; " " ; "%20" ) & Case ( Left ( citationPicture2::fileName ; 1 ) = "/" ; Substitute ( citationPicture2::fileName ; " " ; "%20" ) ; "/" & Substitute ( citationPicture2::fileName ; " " ; "%20" ) ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ citationPicture2::URL ≠ "" ]
-    Open URL [ Substitute ( citationPicture2::URL ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
+    If [ $$fileLocation ≠ "none" ]
+    Perform Script [ “showCitationPicture1inNewWindow (update)” ]
     End If
+
+Fields used in this script
+
+    defaultPictureRef_TS::_Lreference
+    defaultPictureRef_TS::picture
+    defaultPictureRef_TS::kfileLocation
+    defaultPictureRef_TS::fileName
+    defaultPictureRef_TS::showMedia
+    defaultPictureRef_TS::URL
+
+Scripts used in this script
+
+    showCitationPicture1inNewWindow (update)
+
+Layouts used in this script
+
+Tables used in this script
+
+    reference
+
+Table occurrences used by this script
+
+    defaultPictureRef_TS
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [showTestSubjectSetupPicture (new)]	Parent Folder: [pictures]	Next Script: [showCitationPicture2inNewWindow (update)]
+Script Name	showPrimaryNodePicture (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSections
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    Set Variable [ $$defaultPrimaryNodePicture; Value:defaultPictureRef::_Lreference ]
+    Set Variable [ $$fileLocation; Value:Case ( defaultPictureRef::picture ≠ "" ; "database" ; defaultPictureRef::kfileLocation ≠ "" and defaultPictureRef::fileName ≠ "" and defaultPictureRef::showMedia = "" ; "harddrive" ; defaultPictureRef::URL ≠ "" and defaultPictureRef::showMedia ≠ "" ; "web" ; "none" ) ]
+    #
+    #
+    If [ $$fileLocation ≠ "none" ]
+    Perform Script [ “showCitationPicture1inNewWindow (update)” ]
     End If
+
+Fields used in this script
+
+    defaultPictureRef::_Lreference
+    defaultPictureRef::picture
+    defaultPictureRef::kfileLocation
+    defaultPictureRef::fileName
+    defaultPictureRef::showMedia
+    defaultPictureRef::URL
+
+Scripts used in this script
+
+    showCitationPicture1inNewWindow (update)
+
+Layouts used in this script
+
+Tables used in this script
+
+    reference
+
+Table occurrences used by this script
+
+    defaultPictureRef
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [showPrimaryNodePicture (new)]	Parent Folder: [pictures]	Next Script: [showCitationPicture3inNewWindow (update)]
+Script Name	showCitationPicture2inNewWindow (update)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
     #
-    #Determine where testlearn picture or movie is located
-    #on the tag menus window and then open it.
-    If [ TLPicture2::Picture ≠ "" or TLPicture2::kfileLocation ≠ "" or TLPicture2::URL ≠ "" ]
-    If [ TLPicture2::Picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Set Variable [ $picture; Value:tagMenus::Kpicture2 ]
-    Go to Field [ ]
     #
-    New Window [ Name: TLPicture2::Picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “LearnPictureWindow” (testlearn) ]
     #
-    Enter Find Mode [ ]
-    Set Field [ testlearn::_Ltestlearn; $picture ]
-    Perform Find [ ]
+    Set Variable [ $$picture; Value:"Kpicture2" ]
+    Perform Script [ “showCitationPicture1inNewWindow (update)” ]
     #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture2::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLPicture2::filename ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture2::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLPicture2::filename ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture2::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( tagTLPathPicture2_button::tag & TLPicture2::filename ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ TLPicture2::URL ≠ "" ]
-    Open URL [ Substitute ( TLPicture2::URL ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    End If
-    End If
     #
+    #
+    // #Determine where reference picture or movie is located
+    // #on the tag menus window and then open it.
+    // If [ citationPicture2::picture ≠ "" or citationPicture2::kfileLocation ≠ "" or citationPicture2::URL ≠ "" ]
+    // If [ citationPicture2::picture ≠ "" ]
+    // #To speed up script, stop this script from working.
+    // Set Variable [ $$stoploadCitation; Value:1 ]
+    // Set Variable [ $picture; Value:tagMenus::Kpicture2 ]
+    // Go to Field [ ]
+    // #
+    // New Window [ Name: citationPicture2::picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    // Go to Layout [ “ReferencePictureWindow” (reference) ]
+    // #
+    // Enter Find Mode [ ]
+    // Set Field [ reference::_Lreference; $picture ]
+    // Perform Find [ ]
+    // #
+    // Set Variable [ $$stoploadCitation ]
+    // Pause/Resume Script [ Indefinitely ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( citationPicture2::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationPicture2::fileName ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( citationPicture2::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationPicture2::fileName ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( citationPicture2::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagPathPicture2_button::tag ; " " ; "%20" ) & Case ( Left ( citationPicture2::fileName ; 1 ) = "/" ; Substitute ( citationPicture2::fileName ; " " ; "%20" ) ; "/" & Substitute ( citationPicture2::fileName ; " " ; "%20" ) ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ citationPicture2::URL ≠ "" ]
+    // Open URL [ Substitute ( citationPicture2::URL ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // End If
+    // End If
+    // #
+    // #Determine where testlearn picture or movie is located
+    // #on the tag menus window and then open it.
+    // If [ TLPicture2::Picture ≠ "" or TLPicture2::kfileLocation ≠ "" or TLPicture2::URL ≠ "" ]
+    // If [ TLPicture2::Picture ≠ "" ]
+    // #To speed up script, stop this script from working.
+    // Set Variable [ $$stoploadCitation; Value:1 ]
+    // Set Variable [ $picture; Value:tagMenus::Kpicture2 ]
+    // Go to Field [ ]
+    // #
+    // New Window [ Name: TLPicture2::Picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    // Go to Layout [ “LearnPictureWindow” (testlearn) ]
+    // #
+    // Enter Find Mode [ ]
+    // Set Field [ testlearn::_Ltestlearn; $picture ]
+    // Perform Find [ ]
+    // #
+    // Set Variable [ $$stoploadCitation ]
+    // Pause/Resume Script [ Indefinitely ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( TLPicture2::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLPicture2::filename ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( TLPicture2::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLPicture2::filename ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( TLPicture2::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
+    // Open URL [ Substitute ( tagTLPathPicture2_button::tag & TLPicture2::filename ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ TLPicture2::URL ≠ "" ]
+    // Open URL [ Substitute ( TLPicture2::URL ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // End If
+    // End If
+    // #
 
 Fields used in this script
 
@@ -32127,6 +33898,8 @@ Fields used in this script
     tagTLPathPicture2_button::tag
 
 Scripts used in this script
+
+    showCitationPicture1inNewWindow (update)
 
 Layouts used in this script
 
@@ -32157,14 +33930,11 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showCitationPicture2inNewWindow]	Parent Folder: [pictures]	Next Script: [showReferencePicture1]
-Script Name	showCitationPicture3inNewWindow
+Previous Script: [showCitationPicture2inNewWindow (update)]	Parent Folder: [pictures]	Next Script: [showReferencePicture1]
+Script Name	showCitationPicture3inNewWindow (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
-
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
 
 Scripts that use this script
 
@@ -32172,73 +33942,81 @@ Script Definition
 Script Steps
 
     #
-    #Determine where reference picture or movie is located
-    #on the tag menus window and then open it.
-    If [ citationPicture3::picture ≠ "" or citationPicture3::kfileLocation ≠ "" or citationPicture3::URL ≠ "" ]
-    If [ citationPicture3::picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Set Variable [ $picture; Value:tagMenus::Kpicture3 ]
-    Go to Field [ ]
     #
-    New Window [ Name: citationPicture3::picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “ReferencePictureWindow” (reference) ]
     #
-    Enter Find Mode [ ]
-    Set Field [ reference::_Lreference; $picture ]
-    Perform Find [ ]
     #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture3::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationPicture3::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture3::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationPicture3::fileName ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citationPicture3::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagPathPicture3_button::tag ; " " ; "%20" ) & Case ( Left ( citationPicture3::fileName ; 1 ) = "/" ; Substitute ( citationPicture3::fileName ; " " ; "%20" ) ; "/" & Substitute ( citationPicture3::fileName ; " " ; "%20" ) ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ citationPicture3::URL ≠ "" ]
-    Open URL [ Substitute ( citationPicture3::URL ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    End If
-    End If
+    Set Variable [ $$picture; Value:"Kpicture3" ]
+    Perform Script [ “showCitationPicture1inNewWindow (update)” ]
     #
-    #Determine where testlearn picture or movie is located
-    #on the tag menus window and then open it.
-    If [ TLPicture3::Picture ≠ "" or TLPicture3::kfileLocation ≠ "" or TLPicture3::URL ≠ "" ]
-    If [ TLPicture3::Picture ≠ "" ]
-    #To speed up script, stop this script from working.
-    Set Variable [ $$stoploadCitation; Value:1 ]
-    Set Variable [ $picture; Value:tagMenus::Kpicture3 ]
-    Go to Field [ ]
     #
-    New Window [ Name: TLPicture3::Picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
-    Go to Layout [ “LearnPictureWindow” (testlearn) ]
     #
-    Enter Find Mode [ ]
-    Set Field [ testlearn::_Ltestlearn; $picture ]
-    Perform Find [ ]
-    #
-    Set Variable [ $$stoploadCitation ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture3::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLPicture3::filename ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture3::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLPicture3::filename ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( TLPicture3::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Open URL [ Substitute ( tagTLPathPicture3_button::tag & TLPicture3::filename ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ TLPicture3::URL ≠ "" ]
-    Open URL [ Substitute ( TLPicture3::URL ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    End If
-    End If
+    // #Determine where reference picture or movie is located
+    // #on the tag menus window and then open it.
+    // If [ citationPicture3::picture ≠ "" or citationPicture3::kfileLocation ≠ "" or citationPicture3::URL ≠ "" ]
+    // If [ citationPicture3::picture ≠ "" ]
+    // #To speed up script, stop this script from working.
+    // Set Variable [ $$stoploadCitation; Value:1 ]
+    // Set Variable [ $picture; Value:tagMenus::Kpicture3 ]
+    // Go to Field [ ]
+    // #
+    // New Window [ Name: citationPicture3::picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    // Go to Layout [ “ReferencePictureWindow” (reference) ]
+    // #
+    // Enter Find Mode [ ]
+    // Set Field [ reference::_Lreference; $picture ]
+    // Perform Find [ ]
+    // #
+    // Set Variable [ $$stoploadCitation ]
+    // Pause/Resume Script [ Indefinitely ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( citationPicture3::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationPicture3::fileName ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( citationPicture3::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationPicture3::fileName ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( citationPicture3::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagPathPicture3_button::tag ; " " ; "%20" ) & Case ( Left ( citationPicture3::fileName ; 1 ) = "/" ; Substitute ( citationPicture3::fileName ; " " ; "%20" ) ; "/" & Substitute ( citationPicture3::fileName ; " " ; "%20" ) ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ citationPicture3::URL ≠ "" ]
+    // Open URL [ Substitute ( citationPicture3::URL ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // End If
+    // End If
+    // #
+    // #Determine where testlearn picture or movie is located
+    // #on the tag menus window and then open it.
+    // If [ TLPicture3::Picture ≠ "" or TLPicture3::kfileLocation ≠ "" or TLPicture3::URL ≠ "" ]
+    // If [ TLPicture3::Picture ≠ "" ]
+    // #To speed up script, stop this script from working.
+    // Set Variable [ $$stoploadCitation; Value:1 ]
+    // Set Variable [ $picture; Value:tagMenus::Kpicture3 ]
+    // Go to Field [ ]
+    // #
+    // New Window [ Name: TLPicture3::Picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4 ]
+    // Go to Layout [ “LearnPictureWindow” (testlearn) ]
+    // #
+    // Enter Find Mode [ ]
+    // Set Field [ testlearn::_Ltestlearn; $picture ]
+    // Perform Find [ ]
+    // #
+    // Set Variable [ $$stoploadCitation ]
+    // Pause/Resume Script [ Indefinitely ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( TLPicture3::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLPicture3::filename ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( TLPicture3::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
+    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLPicture3::filename ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ FilterValues ( TLPicture3::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
+    // Open URL [ Substitute ( tagTLPathPicture3_button::tag & TLPicture3::filename ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // Else If [ TLPicture3::URL ≠ "" ]
+    // Open URL [ Substitute ( TLPicture3::URL ; " " ; "%20" ) ] [ No dialog ]
+    // Exit Script [ ]
+    // End If
+    // End If
     #
 
 Fields used in this script
@@ -32258,6 +34036,8 @@ Fields used in this script
     tagTLPathPicture3_button::tag
 
 Scripts used in this script
+
+    showCitationPicture1inNewWindow (update)
 
 Layouts used in this script
 
@@ -32288,21 +34068,21 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showCitationPicture3inNewWindow]	Parent Folder: [pictures]	Next Script: [showReferencePicture2]
+Previous Script: [showCitationPicture3inNewWindow (update)]	Parent Folder: [pictures]	Next Script: [showReferencePicture2]
 Script Name	showReferencePicture1
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK4
-    ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -32367,7 +34147,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -32403,7 +34183,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -32422,7 +34202,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -32455,14 +34235,14 @@ Include In Menu	No
 Layouts that use this script
 
     defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK4
-    ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -32527,7 +34307,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -32571,7 +34351,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -32590,7 +34370,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -32623,14 +34403,14 @@ Include In Menu	No
 Layouts that use this script
 
     defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK4
-    ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -32695,7 +34475,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -32731,7 +34511,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -32750,7 +34530,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -32964,8 +34744,8 @@ Custom menu set used by this script
 
 
 learn
-	Parent Folder: [learn]	Next Script: [showFileInTagandLearnWindows]
-Script Name	sampleCopyForPasting
+	Parent Folder: [learn]	Next Script: [showFileInTagandLearnWindows (update)]
+Script Name	sampleCopyForPasting (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -32981,6 +34761,7 @@ Layouts that use this script
     learn4EDIT
     learn4EDITstuff
     learn4EDITstuff Copy
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -33024,7 +34805,7 @@ Script Steps
     Set Variable [ $layoutName; Value:Get ( LayoutName ) ]
     #
     #
-    #BEGIN: SHARE Brainstorm and Inventory Records
+    #BEGIN: SHARE Brainstorm and Inventory Tagged Records
     #
     #If the Tag Menus window is showing the brainstorm
     #or inventory menu when the use clicked 'share'
@@ -33182,11 +34963,14 @@ Script Steps
     #
     Exit Script [ ]
     #
-    #END: SHARE Brainstorm and Inventory Records
+    #END: SHARE Brainstorm and Inventory Tagged Records
+    #
+    #
     #
     #
     #
     Else
+    #
     #
     #
     #
@@ -33237,9 +35021,9 @@ Script Steps
     Show Custom Dialog [ Message: "Share only linked learn records (text areas highlighted purple)?" & ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”, “cancel” ]
     Else
     If [ testlearn::sampleCasePoint = "" ]
-    Show Custom Dialog [ Message: "Share this item record and its linked storage area, container, etc. record?" & ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”, “cancel” ]
+    Show Custom Dialog [ Message: "Share this item and its storage records?" & ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”, “cancel” ]
     Else
-    Show Custom Dialog [ Message: "Share this storage area, container, etc. record and inventory records linked to it?" & ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”, “cancel” ]
+    Show Custom Dialog [ Message: "Share this storage record and inventory records linked to it?" & ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Buttons: “linked”, “all”, “cancel” ]
     End If
     End If
     If [ Get (LastMessageChoice) = 1 ]
@@ -33309,10 +35093,10 @@ Script Steps
     #it is likely to take, so they don't become frustrated.
     If [ $show = "all" and Get ( FoundCount ) > 500 ]
     If [ Get ( FoundCount ) > 999 ]
-    Show Custom Dialog [ Message: "FYI: It may take a minute or more to process this many records."; Buttons: “OK”, “cancel” ]
+    Show Custom Dialog [ Message: "FYI: It may take a minute or more to process this many records depending on each record's references and your computer's speed. An old MacBook Pro takes just under 10 minutes to process about 4,000 records."; Buttons: “OK”, “cancel” ]
     #
     Else If [ Get ( FoundCount ) > 500 ]
-    Show Custom Dialog [ Message: "FYI: It may take a minute to process this many records."; Buttons: “OK”, “cancel” ]
+    Show Custom Dialog [ Message: "FYI: It may take more than a minute to process this many records."; Buttons: “OK”, “cancel” ]
     End If
     #
     If [ Get ( LastMessageChoice ) = 2 ]
@@ -33320,6 +35104,9 @@ Script Steps
     Set Variable [ $$stopLoadTagRecord ]
     Exit Script [ ]
     End If
+    #
+    Install Menu Set [ “HGT Stop Share” ]
+    Show Custom Dialog [ Message: "If you get tired of waiting, just click on the 'Help' menu above and select 'Stop Share' to stop the processing of your records."; Buttons: “OK” ]
     End If
     #
     #
@@ -33330,9 +35117,10 @@ Script Steps
     #
     #Begin process of showing user selected
     #records.
-    New Window [ Name: "Print/Copy" ]
+    // New Window [ Name: "Print/Copy" ]
     New Window [ Name: "Print/Copy"; Height: 1; Width: 1; Top: 10000; Left: 10000 ]
-    // Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    Install Menu Set [ “HGT Stop Share” ]
     #
     #If user elected to show only selected record,
     #then only this record.
@@ -33382,7 +35170,7 @@ Script Steps
     End If
     #
     #
-    #Exit script if your clicks cancel.
+    #Exit script if user clicks cancel.
     If [ Get ( LastMessageChoice ) = 3 ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
@@ -33471,7 +35259,7 @@ Script Steps
     Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ & ¶) & //number Case ( testlearn::sampleCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //node TextColor ( " [" & tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) & //timestamp " " & testlearn::timestamp & "]" ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ & //main text TextFont ( testlearn::Caption ; "Georgia" ) & ¶ & //grey remain text TextColor ( //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ & "Attibutes = " & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ]
     End If
     #
-    #Increase evidence number if point is required.
+    #Increase 'main point' number if required.
     If [ testlearn::sampleCasePoint = "" ]
     Set Variable [ $evidence; Value:$evidence + 1 ]
     Else
@@ -33496,9 +35284,10 @@ Script Steps
     If [ testlearn::kcreference ≠ "" ]
     #
     #Name reference or inventory location section.
-    If [ TEMP::InventoryLibaryYN = "" ]
+    #Apply only if references are found.
+    If [ TEMP::InventoryLibaryYN = "" and Get (LastError) ≠ 101 ]
     Set Variable [ $copy; Value:$copy & ¶ & //grey text TextColor ( //references Case ( testlearn::kcreference ≠ "" ; "References" ; "" ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
-    Else
+    Else If [ Get (LastError) ≠ 101 ]
     Set Variable [ $copy; Value:$copy & ¶ & Case ( testlearn::kcreference ≠ "" ; ¶ & Case ( refTestLearn::concatenateSTUFF = "" ; TextColor ( "Location" ; RGB ( 119 ; 119 ; 119 ) ) ; TextColor ( "Location = " ; RGB ( 119 ; 119 ; 119 ) ) & refTestLearn::concatenateSTUFFcontainer // & TextColor ( ", located here:" ; RGB ( 119 ; 119 ; 119 ) ) ) ; "" ) ]
     End If
     #
@@ -33519,6 +35308,9 @@ Script Steps
     Go to Object [ Object Name: "container location" ]
     End If
     End If
+    #
+    #Exit the loop if there are no records.
+    Exit Loop If [ Get (LastError) = 101 ]
     #
     #If this is the first reference clear the
     #$portal variable and select portal's first record.
@@ -33604,12 +35396,14 @@ Script Steps
     #
     #Show window with final list.
     Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
+    Install Menu Set [ “HGT” ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
     Set Field [ TEMP::paste; TextSize ( $copy ; 12 ) ]
     Go to Field [ ]
     Scroll Window [ Home ]
     Select Window [ Name: "Print/Copy"; Current file ]
+    Go to Layout [ “learnPreviewLayoutView” (testlearn) ]
     Move/Resize Window [ Current Window ]
     #
     #
@@ -33654,6 +35448,7 @@ Layouts used in this script
 
     learnPreviewLayout
     TEMP
+    learnPreviewLayoutView
 
 Tables used in this script
 
@@ -33679,20 +35474,32 @@ Custom Functions used by this script
 
 Custom menu set used by this script
 
+    HGT Stop Share
+    HGT Stop Share
+    HGT
 
-Previous Script: [sampleCopyForPasting]	Parent Folder: [learn]	Next Script: [deleteLearnMainRecord]
-Script Name	showFileInTagandLearnWindows
+
+Previous Script: [sampleCopyForPasting (update)]	Parent Folder: [learn]	Next Script: [deleteLearnMainRecord (update)]
+Script Name	showFileInTagandLearnWindows (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
     ReferenceStuff
-    ReferenceAddToTag
+    ReferenceExternalPictureWindow
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4EDIT
     learnMenu3Cite
-    learnMenu4RefCite
+    learnMenu3CiteS
+    LearnRefExternalPictureWindow
     testInfo
     testInfoText
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
 
 Scripts that use this script
 
@@ -33757,7 +35564,13 @@ Script Steps
     End If
     #
     #Show 1st ref file from testlearn window.
-    If [ FilterValues ( refReference::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
+    If [ testlearn::kshowReferencedMedia ≠ "" ]
+    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & refShowMedia::fileName ; " " ; "%20" ) ] [ No dialog ]
+    If [ Get ( LastError ) ≠ 0 ]
+    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & refShowMedia::fileName ; " " ; " " ) ] [ No dialog ]
+    End If
+    #
+    Else If [ FilterValues ( refReference::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ and testlearn::kshowReferencedMedia = "" ]
     If [ ValueCount ( testlearn::kcreference ) > 1 ]
     Show Custom Dialog [ Message: "This is the first reference attached to this record. To see all references, click the 'QV' button in the Learn window or the 'references' button in the Tag Menus window."; Buttons: “OK” ]
     End If
@@ -33878,6 +35691,8 @@ Fields used in this script
     citeCite::kfileLocation
     citeCite::fileName
     TLciteFolderPath::tag
+    testlearn::kshowReferencedMedia
+    refShowMedia::fileName
     refReference::kfileLocation
     testlearn::kcreference
     refReference::fileName
@@ -33911,6 +35726,7 @@ Table occurrences used by this script
     citeTest
     citeTestFolderPath
     refReference
+    refShowMedia
     refTest
     refTestFolderPath
     reference
@@ -33923,8 +35739,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showFileInTagandLearnWindows]	Parent Folder: [learn]	Next Script: [editLearn (update)]
-Script Name	deleteLearnMainRecord
+Previous Script: [showFileInTagandLearnWindows (update)]	Parent Folder: [learn]	Next Script: [editLearn (update)]
+Script Name	deleteLearnMainRecord (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -33938,6 +35754,7 @@ Layouts that use this script
     learn4
     learnStuff4
     learn4 OLD has file path fields not in use
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -33974,7 +35791,7 @@ Script Steps
     Show Custom Dialog [ Message: "Tagged by inventory list and test tags. Remove these tags to delete. 1) Click the 'inventory list' button. 2) Scroll to the highlighted tags. 3) Click the square buttons next to each. 4) Click the 'test' button and repeat steps 2 and 3."; Buttons: “OK” ]
     End If
     Exit Script [ ]
-    Else If [ testlearn::kcsample ≠ "" ]
+    Else If [ //The following tests insures that paragraph returns with no numbes in them will not prevent delete. So field can be full of paragraph returns, but have no ID numers, and so can be deleted. testlearn::kcsample ≠ "" and Length ( testlearn::kcsample ) ≠ ValueCount ( testlearn::kcsample ) ]
     If [ TEMP::InventoryLibaryYN = "" ]
     Show Custom Dialog [ Message: "Tagged by brainstorm tags. Remove these tags to delete. 1) Click the 'brainstorm' button. 2) Scroll to the highlighted tags. 3) Click the square buttons next to each."; Buttons: “OK” ]
     Else
@@ -34002,7 +35819,7 @@ Script Steps
     #
     #Open a new window and look for record being
     #cited or used as a reference by another record.
-    New Window [ ]
+    New Window [ Height: 1; Width: 1; Top: 10000; Left: 10000 ]
     #
     Loop
     #
@@ -34277,7 +36094,7 @@ Script Steps
     Set Variable [ $delete ]
     Refresh Window
     If [ $$LinkedLearnRecords ≠ "" ]
-    Show Custom Dialog [ Message: "Record cannot be deleted as it in use in these windows: " & $inUse & ". To view learn records using it 1) click 'find' (above)."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "Record cannot be deleted as it in use in these windows: " & $inUse & ". To see them 1) Click 'find' (above). 2) Click 'linked' in the popup window."; Buttons: “OK” ]
     Else
     Show Custom Dialog [ Message: "Record cannot be deleted as it in use in these windows: " & $inUse & "."; Buttons: “OK” ]
     End If
@@ -34339,7 +36156,7 @@ Script Steps
     Set Variable [ $group ]
     Refresh Window
     If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" and TEMP::InventoryLibaryYN = "" or $$LinkedLearnRecords ≠ "" and TEMP::InventoryLibaryYN = "" ]
-    Show Custom Dialog [ Message: "NOTE: This record references other learn records. Are you sure you want to delete it? To see them 1) click 'cancel'. 2) Click 'find' (above). 3) Click 'purple' in the popup window."; Buttons: “cancel”, “delete” ]
+    Show Custom Dialog [ Message: "NOTE: This record has links to other learn records. Are you sure you want to delete it? To see them 1) click 'cancel'. 2) Click 'find' (above). 3) Click 'linked' in the popup window."; Buttons: “cancel”, “delete” ]
     Else
     Show Custom Dialog [ Message: "Delete current record?"; Buttons: “cancel”, “delete” ]
     End If
@@ -34370,7 +36187,7 @@ Script Steps
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
     #
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
 
 Fields used in this script
@@ -34398,7 +36215,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -34430,7 +36247,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteLearnMainRecord]	Parent Folder: [learn]	Next Script: [editTestLearn]
+Previous Script: [deleteLearnMainRecord (update)]	Parent Folder: [learn]	Next Script: [editTestLearn]
 Script Name	editLearn (update)
 Run script with full access privileges	Off
 Include In Menu	No
@@ -34609,6 +36426,7 @@ Layouts that use this script
     learn4
     learnStuff4
     learn4 OLD has file path fields not in use
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -34684,7 +36502,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [editTestLearn]	Parent Folder: [learn]	Next Script: [duplicateLearnRecord]
+Previous Script: [editTestLearn]	Parent Folder: [learn]	Next Script: [duplicateLearnRecord (updated)]
 Script Name	finishTestLearnEdit
 Run script with full access privileges	Off
 Include In Menu	No
@@ -34723,8 +36541,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [finishTestLearnEdit]	Parent Folder: [learn]	Next Script: [learnOpenTextNewWindow]
-Script Name	duplicateLearnRecord
+Previous Script: [finishTestLearnEdit]	Parent Folder: [learn]	Next Script: [learnOpenTextNewWindow (updated)]
+Script Name	duplicateLearnRecord (updated)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -34738,6 +36556,8 @@ Layouts that use this script
     learn4
     learnStuff4
     learn4 OLD has file path fields not in use
+    LearnTextWindow
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -34751,12 +36571,6 @@ Script Steps
     Exit Script [ ]
     End If
     #
-    #If in find mode, exit script.
-    If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
-    Exit Script [ ]
-    End If
-    #
     #Give user duplicate record options.
     If [ TEMP::InventoryLibaryYN = "" ]
     Show Custom Dialog [ Message: "Duplicate and reference current record? Click 'yes' if the duplicate is for capturing ideas, thoughts, etc. that link to the current record."; Buttons: “yes”, “no”, “cancel” ]
@@ -34765,6 +36579,22 @@ Script Steps
     If [ Get ( LastMessageChoice ) = 3 ]
     Exit Script [ ]
     End If
+    End If
+    #
+    #Close edit window if user clicked "d" button
+    #from this window.
+    If [ Get (WindowName) = "Edit" ]
+    Go to Field [ ]
+    Show/Hide Text Ruler [ Hide ]
+    Close Window [ Current Window ]
+    Set Variable [ $$DuplicateDontGoToTagMenuWindow; Value:1 ]
+    Set Variable [ $$PictureOnReportLayout ]
+    End If
+    #
+    #If in find mode, exit script.
+    If [ $$findMode ≠ "" ]
+    Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
+    Exit Script [ ]
     End If
     #
     #If user selects option 1 or 2 gather orignal record's info.
@@ -34829,9 +36659,17 @@ Script Steps
     Set Variable [ $record; Value:Get (RecordNumber) ]
     Go to Record/Request/Page [ $record ] [ No dialog ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     Set Variable [ $$stopOpenNewTextWindow ]
-    Perform Script [ “learnOpenTextNewWindow” ]
+    #
+    #Note that the new record is a duplicate so its
+    #text area should be highlighted when opened
+    #in the follow on script, which makes it easy
+    #for the user to replace the deleted text while
+    #keeping all the duplcated tags.
+    Set Variable [ $$duplicateRecord; Value:1 ]
+    #
+    Perform Script [ “learnOpenTextNewWindow (updated)” ]
 
 Fields used in this script
 
@@ -34863,8 +36701,8 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
-    learnOpenTextNewWindow
+    loadCitation (update)
+    learnOpenTextNewWindow (updated)
 
 Layouts used in this script
 
@@ -34883,8 +36721,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [duplicateLearnRecord]	Parent Folder: [learn]	Next Script: [gotoLearnWebsite]
-Script Name	learnOpenTextNewWindow
+Previous Script: [duplicateLearnRecord (updated)]	Parent Folder: [learn]	Next Script: [gotoLearnWebsite]
+Script Name	learnOpenTextNewWindow (updated)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -34901,10 +36739,11 @@ Layouts that use this script
     learn4EDITstuff
     learn4 OLD has file path fields not in use
     learn4EDITstuff Copy
+    learnStuff2 Copy
 
 Scripts that use this script
 
-    duplicateLearnRecord
+    duplicateLearnRecord (updated)
 
 Script Definition
 Script Steps
@@ -34920,7 +36759,7 @@ Script Steps
     Go to Field [ ]
     Set Variable [ $record; Value:testlearn::_Ltestlearn ]
     Set Variable [ $$stopLoadCitation; Value:1 ]
-    New Window [ Name: "Learn: Edit Note" ]
+    New Window [ Name: "Edit" ]
     If [ tagTLNodePrimary::orderOrLock = "" ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “LearnTextWindowStuff” (testlearn) ]
@@ -34935,6 +36774,10 @@ Script Steps
     Set Field [ testlearn::_Ltestlearn; $record ]
     Perform Find [ ]
     Set Variable [ $$stopLoadCitation ]
+    If [ $$duplicateRecord = 1 ]
+    Set Variable [ $$duplicateRecord ]
+    Go to Field [ testlearn::Caption ] [ Select/perform ]
+    End If
     Pause/Resume Script [ Indefinitely ]
 
 Fields used in this script
@@ -34969,7 +36812,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [learnOpenTextNewWindow]	Parent Folder: [learn]	Next Script: [findLearnRecord]
+Previous Script: [learnOpenTextNewWindow (updated)]	Parent Folder: [learn]	Next Script: [findLearnRecord]
 Script Name	gotoLearnWebsite
 Run script with full access privileges	Off
 Include In Menu	No
@@ -35011,13 +36854,16 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learn1
     learnStuff1
+    learn2
     learnStuff2
     learn3
     learnStuff3
     learn4
     learnStuff4
     learnFIND
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -35059,7 +36905,11 @@ Script Steps
     #If it does reference other Learn records, ask the user
     #if they would like to find just those records, or
     #continue to the find screen.
+    If [ TEMP::InventoryLibaryYN = "" ]
     Show Custom Dialog [ Message: "Find linked learn records (text areas highlighted purple)?" & ¶ & "OR" & ¶ & "Find other?"; Buttons: “other”, “linked”, “cancel” ]
+    Else
+    Show Custom Dialog [ Message: "Find linked inventory records (text areas highlighted purple)?" & ¶ & "OR" & ¶ & "Find other?"; Buttons: “other”, “linked”, “cancel” ]
+    End If
     #
     #Exit script if user clicks cancel.
     If [ Get ( LastMessageChoice ) = 3 ]
@@ -35076,7 +36926,12 @@ Script Steps
     #
     #If both are found ask user if they want to see
     #A records or A and B records.
+    If [ TEMP::InventoryLibaryYN = "" ]
     Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1 = Refs or 1 and 2 = Refs+?"; Buttons: “Ref+”, “Ref”, “cancel” ]
+    Else
+    Show Custom Dialog [ Message: "OPPS! Storage cannot be in storage. Storage tags must have been applied to other storage tags in reference-library mode. In this mode, storage tags are labled as reference learn tags."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "1) Remember the records that will now be found. 2) Click the 'back' button. 3) Uncheck the 'Inventory Library' checkbox. 4) Click the 'Learn' button. 5) Go to the reference learn tags menu, and 6) untag these records."; Buttons: “OK” ]
+    End If
     If [ Get (LastMessageChoice) = 1 ]
     Set Variable [ $showReferencesReferencingMe; Value:1 ]
     End If
@@ -35276,6 +37131,7 @@ Fields used in this script
     testlearn::Caption
     testlearn::timestamp
     testlearn::kcreference
+    TEMP::InventoryLibaryYN
     testlearn::_Ltestlearn
     testlearn::date
     refTestLearn::_Ltestlearn
@@ -35374,7 +37230,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [cancelLearnFind]	Parent Folder: [learn]
+Previous Script: [cancelLearnFind]	Parent Folder: [learn]	Next Script: [storageAreaLayoutCheckBox (update)]
 Script Name	newLearn
 Run script with full access privileges	Off
 Include In Menu	No
@@ -35389,6 +37245,7 @@ Layouts that use this script
     learn4
     learnStuff4
     learn4 OLD has file path fields not in use
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -35432,7 +37289,7 @@ Script Steps
     Set Variable [ $record; Value:Get (RecordNumber) ]
     Go to Record/Request/Page [ $record ] [ No dialog ]
     Set Variable [ $$stoploadCitation ]
-    // Perform Script [ “loadCitation” ]
+    // Perform Script [ “loadCitation (update)” ]
     Set Variable [ $$citation; Value:testlearn::_Ltestlearn ]
     #
     #capture keys of related tag menu items to
@@ -35512,7 +37369,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -35531,6 +37388,93 @@ Table occurrences used by this script
 Custom Functions used by this script
 
 Custom menu set used by this script
+
+
+Previous Script: [newLearn]	Parent Folder: [learn]	Next Script: [haltShareScript (new)]
+Script Name	storageAreaLayoutCheckBox (update)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Prevent user from tagging storage records
+    #with other storage tags. I.E., No storage
+    #inside of storage relationships allowed.
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Exit Script [ ]
+    End If
+    #
+    If [ Filter (testlearn::kcreference ; "L") ≠ "" ]
+    Set Field [ testlearn::sampleCasePoint; "" ]
+    Show Custom Dialog [ Message: "This item is in storage. To make it a storage location first remove it from storage. On the Tag Menu's window 1) click 'it's here', 2) click 'containers', and 3) click the button next to storage area where it is located."; Buttons: “OK” ]
+    Exit Script [ ]
+    End If
+    #
+
+Fields used in this script
+
+    TEMP::InventoryLibaryYN
+    testlearn::kcreference
+    testlearn::sampleCasePoint
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [storageAreaLayoutCheckBox (update)]	Parent Folder: [learn]
+Script Name	haltShareScript (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Stop share script.
+    Set Variable [ $$stopLoadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Close Window [ Name: "Print/Copy"; Current file ]
+    Install Menu Set [ “HGT” ]
+    Halt Script
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+    HGT
 
 
 probablyNotInUse
@@ -35595,16 +37539,20 @@ Custom menu set used by this script
 
 
 reference(citation)
-	Parent Folder: [reference(citation)]	Next Script: [editReference]
-Script Name	newReference
+	Parent Folder: [reference(citation)]	Next Script: [editReference (update)]
+Script Name	newReference (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
     ReferenceStuff
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
 
 Scripts that use this script
+
+    editCitation (update)
 
 Script Definition
 Script Steps
@@ -35638,24 +37586,39 @@ Script Steps
     #If user is in tag field and has changed spelling
     #exit this tag record, otherwise current reference record
     #will get deleted by the spelling check script.
+    If [ Get ( LayoutName ) ≠ "learnMenuRefStuff" ]
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Field [ ]
     Select Window [ Name: "References"; Current file ]
+    If [ TEMP::InventoryLibaryYN = "" ]
     If [ $$referenceSort = 2 ]
     Sort Records [ Specified Sort Order: reference::modifyDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
     Else If [ $$referenceSort = "" ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
     Else If [ $$referenceSort = 1 ]
     Sort Records [ Specified Sort Order: reference::createDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
     End If
+    End If
+    End If
+    #
+    Set Variable [ $P; Value:reference::kkeywordPrimary ]
     #
     Set Variable [ $$stoploadCitation; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Go to Field [ ]
     New Record/Request
+    #
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Set Field [ reference::showInLearn; "show in learn" ]
+    Set Field [ reference::pubYear; 0 ]
+    Else
+    Set Field [ reference::incomplete; "incomplete" & ¶ ]
+    End If
+    #
     Set Field [ reference::kcsection; TEMP::ksection ]
     Set Field [ reference::ktest; TEMP::ktest ]
-    Set Field [ reference::incomplete; "incomplete" & ¶ ]
-    If [ Get ( LayoutName ) = "Reference" or Get ( LayoutName ) = "ReferenceStuff" ]
+    If [ Get ( LayoutName ) = "ReferenceEDIT" or Get ( LayoutName ) = "ReferenceStuff" or Get ( LayoutName ) = "learnMenuRefStuff" ]
+    Set Field [ reference::kkeywordPrimary; $P ]
     Set Field [ reference::filterFind; "main" & ¶ ]
     Set Variable [ $$stoploadCitation ]
     #
@@ -35663,18 +37626,26 @@ Script Steps
     Else If [ Right ( Get ( LayoutName ) ; 3 ) = "TAG" ]
     Set Field [ reference::filterFind; $$addToTag & ¶ ]
     End If
-    Sort Records [ ] [ No dialog ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::pubYear; based on value list: “order” reference::Title; ascending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceShort; ascending ] [ Restore; No dialog ]
+    End If
     Set Variable [ $record; Value:Get (RecordNumber) ]
     Go to Record/Request/Page [ $record ] [ No dialog ]
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Set Variable [ $$stopLoadTagRecord ]
     #
     #Go to edit layout for this record.
     If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ReferenceEDITstuff” (reference) ]
+    If [ Get ( LayoutName ) = "learnMenuRefStuff" ]
+    Perform Script [ “showCitationPicture1inNewWindow (update)” ]
+    Halt Script
+    End If
     Else
     Go to Layout [ “ReferenceEDIT” (reference) ]
     End If
+    Perform Script [ “loadCitation (update)” ]
     #
     #Prevent add mode.
     Set Variable [ $$stopAdd; Value:1 ]
@@ -35682,26 +37653,33 @@ Script Steps
 Fields used in this script
 
     TEMP::nodeLock
+    TEMP::InventoryLibaryYN
     reference::modifyDate
     reference::referenceForReferenceSort
+    tagKeywordPrimary::orderOrLock
     tagKeywordPrimary::tag
+    reference::referenceForReferenceWindow
     reference::createDate
+    reference::kkeywordPrimary
+    reference::showInLearn
+    reference::pubYear
+    reference::incomplete
     TEMP::ksection
     reference::kcsection
     TEMP::ktest
     reference::ktest
-    reference::incomplete
     reference::filterFind
-    TEMP::InventoryLibaryYN
+    reference::Title
+    reference::referenceShort
 
 Scripts used in this script
 
-    loadCitation
+    showCitationPicture1inNewWindow (update)
+    loadCitation (update)
 
 Layouts used in this script
 
     <Missing Layout>
-    ReferenceEDITstuff
     ReferenceEDIT
 
 Tables used in this script
@@ -35721,14 +37699,14 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [newReference]	Parent Folder: [reference(citation)]	Next Script: [deleteReference]
-Script Name	editReference
+Previous Script: [newReference (update)]	Parent Folder: [reference(citation)]	Next Script: [deleteReference (update)]
+Script Name	editReference (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
-    ReferenceStuff
+    ReferenceScriptLoops
 
 Scripts that use this script
 
@@ -35767,15 +37745,23 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Field [ ]
     Select Window [ Name: "References"; Current file ]
-    If [ $$referenceSort = 2 ]
-    Sort Records [ Specified Sort Order: reference::modifyDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
-    Else If [ $$referenceSort = "" ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
-    Else If [ $$referenceSort = 1 ]
-    Sort Records [ Specified Sort Order: reference::createDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
-    End If
+    // If [ $$referenceSort = 2 ]
+    // Sort Records [ Specified Sort Order: reference::modifyDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    // Else If [ $$referenceSort = "" ]
+    // Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    // Else If [ $$referenceSort = 1 ]
+    // Sort Records [ Specified Sort Order: reference::createDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    // End If
     #
-    #Go to edit layout for this record.
+    #Go to edit layout in new window.
+    Set Window Title [ Current Window; New Title: "Hidden" ]
+    #
+    #For some reason it is essential that a Go to
+    #field step is included prior to opening the
+    #new window for Add to tags scripts to work.
+    Go to Field [ ]
+    #
+    New Window [ Name: "References" ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
     Go to Layout [ “ReferenceEDITstuff” (reference) ]
     Else
@@ -35787,6 +37773,17 @@ Script Steps
     #
     #Prevent add mode.
     Set Variable [ $$stopAdd; Value:1 ]
+    #
+    #Set key word to test if need to re-sort after
+    #editing is completed (used in
+    #finishReferenceEdit script).
+    Set Variable [ $$primaryKeyWord; Value:reference::kkeywordPrimary ]
+    #
+    #Find just the record to be edited.
+    Enter Find Mode [ ]
+    Set Field [ reference::_Lreference; $$citationRecord ]
+    Perform Find [ ]
+    #
 
 Fields used in this script
 
@@ -35797,6 +37794,8 @@ Fields used in this script
     reference::createDate
     TEMP::InventoryLibaryYN
     reference::bookChapter
+    reference::kkeywordPrimary
+    reference::_Lreference
 
 Scripts used in this script
 
@@ -35825,14 +37824,16 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [editReference]	Parent Folder: [reference(citation)]	Next Script: [showFileInReferenceWindow]
-Script Name	deleteReference
+Previous Script: [editReference (update)]	Parent Folder: [reference(citation)]	Next Script: [showFileInReferenceWindow]
+Script Name	deleteReference (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
     ReferenceStuff
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
 
 Scripts that use this script
 
@@ -35858,12 +37859,14 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Field [ ]
     Select Window [ Name: "References"; Current file ]
+    If [ TEMP::InventoryLibaryYN = "" ]
     If [ $$referenceSort = 2 ]
     Sort Records [ Specified Sort Order: reference::modifyDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
     Else If [ $$referenceSort = "" ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
     Else If [ $$referenceSort = 1 ]
     Sort Records [ Specified Sort Order: reference::createDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    End If
     End If
     #
     #Exit field so user can see red delete
@@ -36219,15 +38222,18 @@ Script Steps
     Set Variable [ $$addTagToCitation ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
 
 Fields used in this script
 
     tagNodeCreator::orderOrLock
+    TEMP::InventoryLibaryYN
     reference::modifyDate
     reference::referenceForReferenceSort
+    tagKeywordPrimary::orderOrLock
     tagKeywordPrimary::tag
+    reference::referenceForReferenceWindow
     reference::createDate
     reference::_Lreference
     reference::_Number
@@ -36250,7 +38256,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -36262,7 +38268,6 @@ Tables used in this script
 
     TEMP
     reference
-    tag
     tag
     tag
     tag
@@ -36287,28 +38292,29 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [deleteReference]	Parent Folder: [reference(citation)]	Next Script: [showReference1]
+Previous Script: [deleteReference (update)]	Parent Folder: [reference(citation)]	Next Script: [showReference1]
 Script Name	showFileInReferenceWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultHealth
     defaultNode2
     defaultNode3
     ReferenceMenu1
     ReferenceMenuHealth
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK3
-    ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
@@ -36394,14 +38400,14 @@ Include In Menu	No
 Layouts that use this script
 
     defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK4
-    ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -36466,7 +38472,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -36502,7 +38508,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -36521,7 +38527,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -36554,14 +38560,14 @@ Include In Menu	No
 Layouts that use this script
 
     defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK4
-    ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -36626,7 +38632,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -36662,7 +38668,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -36681,7 +38687,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -36707,21 +38713,21 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showReference2]	Parent Folder: [reference(citation)]	Next Script: [internalReferences]
+Previous Script: [showReference2]	Parent Folder: [reference(citation)]	Next Script: [internalReferences (upate)]
 Script Name	showReference3
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultNode3
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK4
-    ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -36786,7 +38792,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -36822,7 +38828,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -36841,7 +38847,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -36867,13 +38873,14 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showReference3]	Parent Folder: [reference(citation)]	Next Script: [externalReferences]
-Script Name	internalReferences
+Previous Script: [showReference3]	Parent Folder: [reference(citation)]	Next Script: [externalReferences (update)]
+Script Name	internalReferences (upate)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnFindCite
     learnFindStuffCite
@@ -36891,12 +38898,17 @@ Script Steps
     #formatting to green if there are any.
     Set Variable [ $$internal; Value:1 ]
     #
+    #Speed up script.
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    #
     #Show all internal reference possibilities.
     If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “learnMenu4STUFFRefCite” (testlearn) ]
+    Go to Layout [ “learnMenu4RefCiteS” (testlearn) ]
     Else
-    Go to Layout [ “learnMenu4RefCite” (testlearn) ]
+    Go to Layout [ “learnMenu4RefCiteS” (testlearn) ]
     End If
+    #
+    #Find learn records that can be referenced.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     Enter Find Mode [ ]
@@ -36915,44 +38927,54 @@ Script Steps
     #If the user has yet to create any Learn or internal records
     #let them know, and return user to outside reference records.
     If [ Get (LastError) = 401 ]
-    Perform Script [ “externalReferences” ]
+    #
+    #Turn back on essential variable.
+    Set Variable [ $$stoploadCitation ]
+    #
+    Perform Script [ “externalReferences (update)” ]
     Show Custom Dialog [ Message: "No inside (Learn) records have been created."; Buttons: “OK” ]
+    Exit Script [ ]
+    #
     End If
     #
     #Continue with show all internal reference possibilities...
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
+    #
+    #If the current learn record references another
+    #learn record, find it.
+    If [ Filter ( $$ref ; "L" ) ≠ "" ]
     Loop
-    Exit Loop If [ testlearn::_Ltestlearn = $$cite and $$citationMatch = "cite" or testlearn::_Ltestlearn & "¶" = FilterValues ( $$ref ; testlearn::_Ltestlearn & "¶" ) and $$citationMatch = "ref" ]
+    Exit Loop If [ testlearn::_Ltestlearn & "L¶" = FilterValues ( $$ref ; testlearn::_Ltestlearn & "L¶" ) and $$citationMatch = "ref" ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
-    #
-    #Decided below was too much help. User can look
-    #on main screen to see where cite or reference is located.
-    // #Capture information about location of ref and cite records.
-    // #Because it can be in four possible locations, conditonal
-    // #formatting is essential to help user remember.
-    // If [ testlearn::_Ltestlearn = $$citationitem and $$citationMatch = "cite" ]
-    // #
-    // #Turn on cite location variable that conditionally
-    // #formatts buttons to tell user where reference is located.
-    // Set Variable [ $$citeIsLearnRecord; Value:1 ]
-    // #
-    // Else If [ testlearn::_Ltestlearn & "¶" = FilterValues ( $$ref ; testlearn::_Ltestlearn & "¶" ) and $$citationMatch = "ref" ]
-    // #
-    // #Turn on reference location variable that conditionally
-    // #formatts buttons to tell user where reference is located.
-    // Set Variable [ $$refIsLearnRecord; Value:1 ]
-    // End If
     #
     #If no records are used as a cite or ref, go to first record.
     If [ Get (LastError) = 101 ]
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
+    End If
     #
-    // #Turn on reference location variable that conditionally
-    // #formatts buttons to tell user where reference is located.
-    // Set Variable [ $$refIsLearnRecord ]
+    End If
+    #
+    #Goto correct layout.
+    If [ TEMP::InventoryLibaryYN = "" ]
+    If [ TEMP::layoutLtagL = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “learnMenu4RefCiteS” (testlearn) ]
+    Set Field [ TEMP::layoutLtagL; "more" & Get (LayoutName) ]
+    Else
+    Go to Layout [ “learnMenu4RefCite” (testlearn) ]
+    Set Field [ TEMP::layoutLtagL; "less" & Get (LayoutName) ]
+    End If
+    Else
+    Go to Layout [ Middle ( TEMP::layoutLtagL ; 5 ; 42 ) ]
+    End If
+    Else
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ “learnMenu4STUFFRefCite” (testlearn) ]
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    End If
     End If
     #
     #Update conditional formatting in main window.
@@ -36965,6 +38987,9 @@ Script Steps
     End If
     Refresh Window
     Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #Turn back on essential variable.
+    Set Variable [ $$stoploadCitation ]
     #
     #If in find mode ...
     Else If [ $$findmode = 1 ]
@@ -37003,15 +39028,17 @@ Fields used in this script
     testlearn::date
     testlearn::timestamp
     testlearn::_Ltestlearn
+    TEMP::layoutLtagL
 
 Scripts used in this script
 
-    externalReferences
+    externalReferences (update)
 
 Layouts used in this script
 
-    learnMenu4STUFFRefCite
+    learnMenu4RefCiteS
     learnMenu4RefCite
+    learnMenu4STUFFRefCite
     learnMenu4RefStuffCiteFindTL
     learnMenu4RefCiteFindTL
 
@@ -37030,26 +39057,29 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [internalReferences]	Parent Folder: [reference(citation)]	Next Script: [changeSpellingOfReferenceNodes]
-Script Name	externalReferences
+Previous Script: [internalReferences (upate)]	Parent Folder: [reference(citation)]	Next Script: [changeSpellingOfReferenceNodes]
+Script Name	externalReferences (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
 
 Scripts that use this script
 
-    menuReference
+    menuReference (update)
     TgotoCitationMenu (update)
-    internalReferences
+    internalReferences (upate)
 
 Script Definition
 Script Steps
 
     #
     #
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
     #
     #Use this bit of code to make the default reference
     #point to the internal (Learn) records instead of
@@ -37057,7 +39087,7 @@ Script Steps
     #that needs to be turned on: menuReference,
     // #If library is for inventory then go to container menu.
     // If [ TEMP::InventoryLibaryYN ≠ "" ]
-    // Perform Script [ “menuReference” ]
+    // Perform Script [ “menuReference (update)” ]
     // Exit Script [ ]
     // End If
     #
@@ -37073,19 +39103,25 @@ Script Steps
     Set Variable [ $$internal ]
     #
     #Show all internal reference possibilities.
-    #
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “learnMenuRefStuff” (reference) ]
-    Else
-    Go to Layout [ “learnMenu3Cite” (reference) ]
-    End If
     Set Variable [ $$stoploadCitation; Value:1 ]
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    #
+    #Speed up script by going to layout with no
+    #pictures to load.
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    Else
+    Go to Layout [ “learnMenuRefStuff” (reference) ]
+    End If
     #
     #Go to citation record's current selection or to first record.
     Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
+    #
+    #If current learn record is tagged with a
+    #references, find it.
+    If [ Length ( Filter ( $$ref ; "L" ) ) ≠ ValueCount ( $$ref ) ]
     Loop
     Exit Loop If [ FilterValues ( $$ref ; reference::_Lreference ) = reference::_Lreference & ¶ ]
     Go to Record/Request/Page [ Next; Exit after last ]
@@ -37094,6 +39130,28 @@ Script Steps
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
     End If
+    End If
+    #
+    #Goto correct layout.
+    If [ TEMP::InventoryLibaryYN = "" ]
+    If [ TEMP::layoutLtagR = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    Set Field [ TEMP::layoutLtagR; "more" & Get (LayoutName) ]
+    Else
+    Go to Layout [ “learnMenu3Cite” (reference) ]
+    Set Field [ TEMP::layoutLtagR; "less" & Get (LayoutName) ]
+    End If
+    Else
+    Go to Layout [ Middle ( TEMP::layoutLtagR ; 5 ; 42 ) ]
+    End If
+    Else
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Go to Layout [ “learnMenuRefStuff” (reference) ]
+    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    End If
+    End If
+    #
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
     #
@@ -37124,16 +39182,19 @@ Fields used in this script
     tagKeywordPrimary::tag
     reference::referenceForReferenceWindow
     reference::_Lreference
+    TEMP::layoutLtagR
 
 Scripts used in this script
 
-    menuReference
+    menuReference (update)
     menuRefAddKeyWords
 
 Layouts used in this script
 
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu3Cite
+    <Missing Layout>
     learnFindCite
 
 Tables used in this script
@@ -37153,7 +39214,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [externalReferences]	Parent Folder: [reference(citation)]	Next Script: [duplicateReferenceRecord]
+Previous Script: [externalReferences (update)]	Parent Folder: [reference(citation)]	Next Script: [duplicateReferenceRecord (update)]
 Script Name	changeSpellingOfReferenceNodes
 Run script with full access privileges	Off
 Include In Menu	No
@@ -37200,13 +39261,15 @@ Custom menu set used by this script
 
 
 Previous Script: [changeSpellingOfReferenceNodes]	Parent Folder: [reference(citation)]	Next Script: [addModeReferenceLearnToggle]
-Script Name	duplicateReferenceRecord
+Script Name	duplicateReferenceRecord (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
     ReferenceStuff
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
 
 Scripts that use this script
 
@@ -37245,12 +39308,14 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Field [ ]
     Select Window [ Name: "References"; Current file ]
+    If [ TEMP::InventoryLibaryYN = "" ]
     If [ $$referenceSort = 2 ]
     Sort Records [ Specified Sort Order: reference::modifyDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
     Else If [ $$referenceSort = "" ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
     Else If [ $$referenceSort = 1 ]
     Sort Records [ Specified Sort Order: reference::createDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    End If
     End If
     #
     Set Variable [ $$stoploadCitation; Value:1 ]
@@ -37329,6 +39394,7 @@ Script Steps
     New Record/Request
     #
     #
+    If [ TEMP::InventoryLibaryYN = "" ]
     Set Field [ reference::kmediaType; $type ]
     Set Field [ reference::kmedia; $media ]
     Set Field [ reference::TypeOfMediumOther; $typeOther ]
@@ -37411,6 +39477,15 @@ Script Steps
     #
     Set Field [ reference::kcopyrightType; $$copyrightType ]
     Set Field [ reference::lock; $$Ref ]
+    #
+    #
+    Else If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Set Field [ reference::kkeywordPrimary; $P ]
+    Set Field [ reference::Title; $title ]
+    Set Field [ reference::picture; $picture ]
+    Set Field [ reference::kcsection; TEMP::ksection ]
+    End If
+    #
     If [ Get ( LayoutName ) = "Reference" or Get ( LayoutName ) = "ReferenceStuff" ]
     Set Field [ reference::filterFind; "main" & ¶ ]
     Set Variable [ $$stoploadCitation ]
@@ -37419,28 +39494,40 @@ Script Steps
     Else If [ Right ( Get ( LayoutName ) ; 3 ) = "TAG" ]
     Set Field [ reference::filterFind; $$addToTag & ¶ ]
     End If
+    #
+    If [ TEMP::InventoryLibaryYN = "" ]
     Sort Records [ ] [ No dialog ]
     Set Variable [ $record; Value:Get (RecordNumber) ]
     Go to Record/Request/Page [ $record ] [ No dialog ]
+    End If
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Go to edit layout for this record.
     If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ReferenceEDITstuff” (reference) ]
+    // Go to Layout [ “ReferenceEDITstuff” (reference) ]
     Else
     Go to Layout [ “ReferenceEDIT” (reference) ]
     End If
     #
     #Prevent add mode.
     Set Variable [ $$stopAdd; Value:1 ]
+    #
+    #Set key word to test if need to re-sort after
+    #editing is completed (used in
+    #finishReferenceEdit script).
+    Set Variable [ $$primaryKeyWord; Value:reference::kkeywordPrimary ]
+    #
 
 Fields used in this script
 
     TEMP::nodeLock
+    TEMP::InventoryLibaryYN
     reference::modifyDate
     reference::referenceForReferenceSort
+    tagKeywordPrimary::orderOrLock
     tagKeywordPrimary::tag
+    reference::referenceForReferenceWindow
     reference::createDate
     reference::kmediaType
     reference::kmedia
@@ -37510,11 +39597,10 @@ Fields used in this script
     reference::kcopyrightType
     reference::lock
     reference::filterFind
-    TEMP::InventoryLibaryYN
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -37539,7 +39625,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [duplicateReferenceRecord]	Parent Folder: [reference(citation)]	Next Script: [findReferenceRecord]
+Previous Script: [duplicateReferenceRecord (update)]	Parent Folder: [reference(citation)]	Next Script: [findReferenceRecord]
 Script Name	addModeReferenceLearnToggle
 Run script with full access privileges	Off
 Include In Menu	No
@@ -37576,7 +39662,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addModeReferenceLearnToggle]	Parent Folder: [reference(citation)]	Next Script: [sortReferences]
+Previous Script: [addModeReferenceLearnToggle]	Parent Folder: [reference(citation)]	Next Script: [sortReferences (update)]
 Script Name	findReferenceRecord
 Run script with full access privileges	Off
 Include In Menu	No
@@ -37585,6 +39671,8 @@ Layouts that use this script
     Reference
     ReferenceStuff
     ReferenceFIND
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
 
 Scripts that use this script
 
@@ -37941,21 +40029,22 @@ Custom menu set used by this script
 
 
 Previous Script: [findReferenceRecord]	Parent Folder: [reference(citation)]	Next Script: [extractCreateDateFromReferenceRecords]
-Script Name	sortReferences
+Script Name	sortReferences (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
-    ReferenceStuff
+    ReferenceAddToTag
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
 
 Scripts that use this script
 
 Script Definition
 Script Steps
 
-    If [ $$referenceSort = 2 ]
-    // Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    If [ $$referenceSort = 3 ]
     Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
     Set Variable [ $$referenceSort ]
     Else If [ $$referenceSort = "" ]
@@ -37964,16 +40053,20 @@ Script Steps
     Else If [ $$referenceSort = 1 ]
     Sort Records [ Specified Sort Order: reference::modifyDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
     Set Variable [ $$referenceSort; Value:2 ]
+    Else If [ $$referenceSort = 2 ]
+    Sort Records [ Specified Sort Order: reference::Title; ascending ] [ Restore; No dialog ]
+    Set Variable [ $$referenceSort; Value:3 ]
     End If
 
 Fields used in this script
 
-    tagKeywordPrimary::tag
-    reference::referenceForReferenceSort
     tagKeywordPrimary::orderOrLock
+    tagKeywordPrimary::tag
     reference::referenceForReferenceWindow
     reference::createDate
+    reference::referenceForReferenceSort
     reference::modifyDate
+    reference::Title
 
 Scripts used in this script
 
@@ -37994,7 +40087,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [sortReferences]	Parent Folder: [reference(citation)]	Next Script: [REFERENCE LOOP]
+Previous Script: [sortReferences (update)]	Parent Folder: [reference(citation)]	Next Script: [REFERENCE LOOP]
 Script Name	extractCreateDateFromReferenceRecords
 Run script with full access privileges	Off
 Include In Menu	No
@@ -38036,7 +40129,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [extractCreateDateFromReferenceRecords]	Parent Folder: [reference(citation)]	Next Script: [finishReferenceEdit]
+Previous Script: [extractCreateDateFromReferenceRecords]	Parent Folder: [reference(citation)]	Next Script: [finishReferenceEdit (update)]
 Script Name	REFERENCE LOOP
 Run script with full access privileges	Off
 Include In Menu	No
@@ -38115,8 +40208,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [REFERENCE LOOP]	Parent Folder: [reference(citation)]	Next Script: [editCitation]
-Script Name	finishReferenceEdit
+Previous Script: [REFERENCE LOOP]	Parent Folder: [reference(citation)]	Next Script: [editCitation (update)]
+Script Name	finishReferenceEdit (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -38143,20 +40236,21 @@ Script Steps
     Exit Script [ ]
     End If
     #
-    #Continue with going back to reference layout.
+    #Close editing window
+    Close Window [ Name: "References"; Current file ]
+    Select Window [ Name: "Hidden"; Current file ]
+    Set Window Title [ Current Window; New Title: "References" ]
+    #
+    #Only need to re-sort if primary key was changed.
+    If [ $$primaryKeyWord ≠ reference::kkeywordPrimary ]
     If [ $$referenceSort = 2 ]
     Sort Records [ Specified Sort Order: reference::modifyDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
     Else If [ $$referenceSort = "" ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
     Else If [ $$referenceSort = 1 ]
     Sort Records [ Specified Sort Order: reference::createDate; descending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
     End If
-    #
-    #Go to reference record layout.
-    If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ReferenceStuff” (reference) ]
-    Else
-    Go to Layout [ “Reference” (reference) ]
+    Set Variable [ $$primaryKeyWord ]
     End If
     #
     #Allow add mode.
@@ -38165,23 +40259,24 @@ Script Steps
     #Close reference help window if open.
     Close Window [ Name: "Reference Field Help"; Current file ]
     Set Variable [ $$turnOffThisScript ]
+    #
 
 Fields used in this script
 
     reference::kmedia
     TEMP::InventoryLibaryYN
     reference::kmediaType
+    reference::kkeywordPrimary
     reference::modifyDate
     reference::referenceForReferenceSort
+    tagKeywordPrimary::orderOrLock
     tagKeywordPrimary::tag
+    reference::referenceForReferenceWindow
     reference::createDate
 
 Scripts used in this script
 
 Layouts used in this script
-
-    ReferenceStuff
-    Reference
 
 Tables used in this script
 
@@ -38200,20 +40295,17 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [finishReferenceEdit]	Parent Folder: [reference(citation)]	Next Script: [showLongCitation]
-Script Name	editCitation
+Previous Script: [finishReferenceEdit (update)]	Parent Folder: [reference(citation)]	Next Script: [showLongCitation]
+Script Name	editCitation (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    defaultSections
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
+    defaultSetup
     defaultTest
     defaultTestNewFocus
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
 
 Scripts that use this script
@@ -38235,7 +40327,26 @@ Script Steps
     Else If [ tempSetup::kdefaultNodePrimary = "" ]
     Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Buttons: “OK” ]
     Halt Script
+    Else If [ Get (LayoutName) = "learnMenuRefStuff" ]
+    Show Custom Dialog [ Message: "New location or edit current location?"; Buttons: “new”, “edit”, “cancel” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    Show Custom Dialog [ Message: "Quick or complete? Complete includes the ability to edit, delete, and create new locations and location groups."; Buttons: “quick”, “complete”, “cancel” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    Perform Script [ “newReference (update)” ]
+    Else If [ Get (LastMessageChoice) = 2 ]
+    Else If [ Get (LastMessageChoice) = 3 ]
+    Halt Script
     End If
+    Perform Script [ “showCitationPicture1inNewWindow (update)” ]
+    Halt Script
+    Else If [ Get (LastMessageChoice) = 2 ]
+    Else If [ Get (LastMessageChoice) = 3 ]
+    Halt Script
+    End If
+    End If
+    #
+    #Set in copyAndpastTags script.
+    Set Variable [ $$copyAndpastTagsRECORD ]
     #
     #Make sure creator node's group is part of section group.
     Perform Script [ “addBackSectionCreatorNode” ]
@@ -38252,7 +40363,7 @@ Script Steps
     #Go to reference tag menu so load citation script
     #below will work properly.
     Set Variable [ $$stoploadTagRecord; Value:1 ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
     Set Variable [ $$stoploadTagRecord ]
     #
     #Capture record ID so system can return user
@@ -38260,12 +40371,13 @@ Script Steps
     Select Window [ Name: "Learn"; Current file ]
     Set Variable [ $$LearnEdit; Value:testlearn::_Ltestlearn ]
     #
-    #Take user to citation edit layout.
+    #Take user to reference layout without pictures
+    #for faster looping thru records.
     Set Variable [ $$stoploadCitation; Value:1 ]
     If [ TEMP::InventoryLibaryYN ≠ "" ]
-    Go to Layout [ “ReferenceStuff” (reference) ]
+    Go to Layout [ “ReferenceStuffScriptLoops” (reference) ]
     Else
-    Go to Layout [ “Reference” (reference) ]
+    Go to Layout [ “ReferenceStuffScriptLoops” (reference) ]
     End If
     Set Window Title [ Current Window; New Title: "References" ]
     #
@@ -38274,26 +40386,30 @@ Script Steps
     Allow User Abort [ Off ]
     Enter Find Mode [ ]
     Set Field [ reference::kcsection; TEMP::ksection ]
-    // Set Field [ reference::filterFind; "main" ]
     Perform Find [ ]
-    // Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceShort; ascending ] [ Restore; No dialog ]
     #
     #Loop to record to be edited.
     Go to Record/Request/Page [ First ]
+    Scroll Window [ Home ]
     Loop
     Exit Loop If [ $$tagEdit = reference::_Lreference ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
+    #
+    #Load selected records keys and the menu 'key'.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “menuKey” ]
-    Perform Script [ “loadCitation” ]
-    // Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
-    Set Variable [ $refRecordNumber; Value:Get ( RecordNumber ) ]
-    Scroll Window [ Home ]
-    Go to Record/Request/Page [ Last ]
-    Go to Record/Request/Page [ $refRecordNumber ] [ No dialog ]
+    Perform Script [ “menuKey (update)” ]
+    Perform Script [ “loadCitation (update)” ]
+    #
+    #Take user to reference edit layout with pictures.
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Go to Layout [ “ReferenceStuff” (reference) ]
+    Else
+    Go to Layout [ “Reference” (reference) ]
+    End If
+    Set Variable [ $$stoploadCitation ]
     #
     Else If [ Left ( Get (LayoutName) ; 1 ) = "d" ]
     #
@@ -38306,7 +40422,7 @@ Script Steps
     #Go to reference tag menu so load citation script
     #below will work properly.
     Set Variable [ $$stoploadTagRecord; Value:1 ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
     Set Variable [ $$stoploadTagRecord ]
     #
     #Capture record ID so system can return user
@@ -38327,20 +40443,19 @@ Script Steps
     Allow User Abort [ Off ]
     Enter Find Mode [ ]
     Set Field [ reference::kcsection; TEMP::ksection ]
-    // Set Field [ reference::filterFind; "main" ]
     Perform Find [ ]
-    // Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
+    If [ TEMP::InventoryLibaryYN ≠ "" ]
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::pubYear; based on value list: “order” reference::referenceSTUFF; ascending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceShort; ascending ] [ Restore; No dialog ]
+    End If
     #
-    #Loop to record to be edited.
+    #Go to first record.
     Go to Record/Request/Page [ First ]
-    Set Variable [ $$stoploadCitation ]
-    Go to Field [ reference::knodePrimary ]
-    Perform Script [ “menuKey” ]
-    Perform Script [ “loadCitation” ]
-    // Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending reference::referenceForReferenceSort; ascending ] [ Restore; No dialog ]
-    Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order” tagKeywordPrimary::tag; ascending reference::referenceForReferenceWindow; ascending ] [ Restore; No dialog ]
     Scroll Window [ Home ]
+    Set Variable [ $$stoploadCitation ]
+    Perform Script [ “menuKey (update)” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #
     End If
@@ -38354,22 +40469,24 @@ Fields used in this script
     testlearn::_Ltestlearn
     TEMP::InventoryLibaryYN
     reference::kcsection
-    reference::filterFind
-    tagKeywordPrimary::tag
-    reference::referenceForReferenceSort
     tagKeywordPrimary::orderOrLock
-    reference::referenceForReferenceWindow
-    reference::knodePrimary
+    tagKeywordPrimary::tag
+    reference::referenceShort
+    reference::pubYear
+    reference::referenceSTUFF
 
 Scripts used in this script
 
+    newReference (update)
+    showCitationPicture1inNewWindow (update)
     addBackSectionCreatorNode
-    menuKey
-    loadCitation
+    menuKey (update)
+    loadCitation (update)
 
 Layouts used in this script
 
-    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceStuffScriptLoops
     ReferenceStuff
     Reference
 
@@ -38394,7 +40511,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [editCitation]	Parent Folder: [reference(citation)]	Next Script: [showCitation]
+Previous Script: [editCitation (update)]	Parent Folder: [reference(citation)]	Next Script: [showCitation]
 Script Name	showLongCitation
 Run script with full access privileges	Off
 Include In Menu	No
@@ -38428,7 +40545,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showLongCitation]	Parent Folder: [reference(citation)]	Next Script: [loadCitation]
+Previous Script: [showLongCitation]	Parent Folder: [reference(citation)]	Next Script: [loadCitation (update)]
 Script Name	showCitation
 Run script with full access privileges	Off
 Include In Menu	No
@@ -38469,7 +40586,7 @@ Script Steps
     #
     #Allow the record load script to run and run it.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
     #
     #Put focus back on Tag Menus window and conditionally
     #format any items that may be linked to record
@@ -38483,7 +40600,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
@@ -38502,8 +40619,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showCitation]	Parent Folder: [reference(citation)]	Next Script: [clearCitationMatch]
-Script Name	loadCitation
+Previous Script: [showCitation]	Parent Folder: [reference(citation)]	Next Script: [clearCitationMatch (update)]
+Script Name	loadCitation (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -38516,24 +40633,23 @@ Scripts that use this script
     findKeyOtherTL
     findPrimaryRef (update)
     findKeyOtherRef (update)
-    findReference
+    findReference (update Name change from findReferernce)
     addLinksPicturesToTagsMode
     showReferencePicture1
     showReferencePicture2
     showReferencePicture3
-    deleteLearnMainRecord
-    duplicateLearnRecord
+    deleteLearnMainRecord (update)
+    duplicateLearnRecord (updated)
     newLearn
-    newReference
-    deleteReference
+    newReference (update)
+    deleteReference (update)
     showReference1
     showReference2
     showReference3
-    duplicateReferenceRecord
-    editCitation
+    duplicateReferenceRecord (update)
+    editCitation (update)
     showCitation
-    backToLearnOrDefaultSetup
-    learn
+    backToLearnOrDefaultSetup (update)
 
 Script Definition
 Script Steps
@@ -38557,7 +40673,6 @@ Script Steps
     If [ Get (LayoutName) = "learn1" or Get (LayoutName) = "learn2" or Get (LayoutName) = "learn3" or Get (LayoutName) = "learn4" or Get (LayoutName) = "learnStuff1" or Get (LayoutName) = "learnStuff2" or Get (LayoutName) = "learnStuff3" or Get (LayoutName) = "learnStuff4" ]
     Set Variable [ $$stopOpenNewTextWindow; Value:1 ]
     End If
-    #
     #
     #SEE WHAT WAS REMOVED IN OLD VERSION.
     #THE CODE REMOVED WAS DISABLED IN OLD VERSION.
@@ -38630,7 +40745,7 @@ Script Steps
     Set Variable [ $windowName; Value:Get (WindowName) ]
     Commit Records/Requests
     #
-    If [ $$add = "" ]
+    If [ $$add = "" and $$DuplicateDontGoToTagMenuWindow = "" ]
     #Match any records in tag window and go to
     #primary tag record or to first record if none.
     #And don't run LoadTagRecord until matching is
@@ -38642,53 +40757,8 @@ Script Steps
     Perform Script [ “TgotoCitationMenu (update)” ]
     End If
     Refresh Window
-    // If [ $$citationMatch = "sample" ]
-    // #SEE WHAT WAS REMOVED IN OLD VERSION.
-    // #THE CODE REMOVED WAS DISABLED IN OLD VERSION.
-    // Else If [ $$citationMatch = "test" ]
-    // Go to Record/Request/Page [ First ]
-    // Loop
-    // Set Variable [ $number; Value:1 ]
-    // Go to Field [ ]
-    // Loop
-    // Exit Loop If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) & "¶" = test::_Ltest & ¶ ]
-    // Exit Loop If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) = "" ]
-    // Set Variable [ $add; Value:$number ]
-    // Set Variable [ $number; Value:$add + 1 ]
-    // End Loop
-    // Exit Loop If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) & "¶" = test::_Ltest & ¶ ]
-    // Go to Record/Request/Page [ Next; Exit after last ]
-    // End Loop
-    // If [ Middle ( GetValue ( $$test ; $number ) ; 4 ; 42 ) & "¶" ≠ test::_Ltest & ¶ ]
-    // Go to Record/Request/Page [ First ]
-    // End If
-    // Else If [ $$citationMatch ≠ "sample" or $$citationMatch ≠ "test" ]
-    // Freeze Window
-    // Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    // Go to Record/Request/Page [ First ]
-    // Scroll Window [ Home ]
-    // Loop
-    // Exit Loop If [ tagMenus::_Ltag = $$citationItem or FilterValues ( $$sample ; tagMenus::_Ltag & "¶" ) = tagMenus::_Ltag & ¶ or FilterValues ( $$test ; test::_Ltest & "¶" ) = test::_Ltest & ¶ or reference::_Lreference = $$citationitem and $$citationMatch = "cite" or reference::_Lreference & "¶" = FilterValues ( $$ref ; reference::_Lreference & "¶" ) and $$citationMatch = "ref" or testlearn::_Ltestlearn = $$citationitem and $$citationMatch = "cite"or testlearn::_Ltestlearn & "¶" = FilterValues ( $$ref ; testlearn::_Ltestlearn & "¶" ) and $$citationMatch = "ref" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "node" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "key" ]
-    // Go to Record/Request/Page [ Next; Exit after last ]
-    // End Loop
-    // If [ Get (LastError) = 101 ]
-    // Go to Record/Request/Page [ First ]
-    // Scroll Window [ Home ]
-    // End If
-    // End If
-    // #
-    // Set Variable [ $$stopLoadTagRecord ]
-    // If [ Right (Get (LayoutName) ; 1 ) = "r" ]
-    // Perform Script [ “loadTagRecord” ]
-    // Else If [ $$citationMatch = "sample" ]
-    // #SEE WHAT WAS REMOVED IN OLD VERSION.
-    // #THE CODE REMOVED WAS DISABLED IN OLD VERSION.
-    // Else If [ $$citationMatch = "test" ]
-    // If [ testlearn::kctest ≠ "" ]
-    // Perform Script [ “loadItemRecordForTestTagMenu” ]
-    // End If
-    // End If
     End If
+    Set Variable [ $$DuplicateDontGoToTagMenuWindow ]
     #
     #
     #
@@ -38696,6 +40766,7 @@ Script Steps
     #
     Else If [ Get (LastError) ≠ 112 ]
     Set Variable [ $$citation; Value:reference::_Lreference ]
+    Set Field [ TEMP::ReferenceFolder; reference::kfileLocation ]
     If [ $$citationMatch = "node" ]
     Set Variable [ $$citationItem; Value:reference::knodePrimary ]
     Else If [ $$citationMatch = "medium" ]
@@ -38784,8 +40855,8 @@ Script Steps
     #window's 'find' button purple to indicate this.
     If [ Get ( WindowName ) = "Learn" ]
     Set Variable [ $$stoploadCitation; Value:1 ]
-    // New Window [ Name: "LinkedLearnRecords"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
-    New Window [ Name: "LinkedLearnRecords" ]
+    New Window [ Name: "LinkedLearnRecords"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+    // New Window [ Name: "LinkedLearnRecords" ]
     #
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
@@ -38827,9 +40898,9 @@ Fields used in this script
     testlearn::kNodeOther
     testlearn::kcKeywordOther
     testlearn::kcsection
-    test::_Ltest
-    tagMenus::_Ltag
     reference::_Lreference
+    reference::kfileLocation
+    TEMP::ReferenceFolder
     reference::knodePrimary
     reference::kmedium
     reference::kfolderpath
@@ -38842,17 +40913,19 @@ Fields used in this script
     reference::kcopyrightType
     reference::lock
     reference::kkeywordOther
+    tagMenus::_Ltag
+    test::_Ltest
 
 Scripts used in this script
 
     TgotoCitationMenu (update)
     loadTagRecord
-    loadItemRecordForTestTagMenu
 
 Layouts used in this script
 
 Tables used in this script
 
+    TEMP
     reference
     tag
     test
@@ -38860,6 +40933,7 @@ Tables used in this script
 
 Table occurrences used by this script
 
+    TEMP
     reference
     tagMenus
     test
@@ -38870,8 +40944,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [loadCitation]	Parent Folder: [reference(citation)]	Next Script: [copyrightHolder]
-Script Name	clearCitationMatch
+Previous Script: [loadCitation (update)]	Parent Folder: [reference(citation)]	Next Script: [copyrightHolder]
+Script Name	clearCitationMatch (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -38884,6 +40958,19 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #
+    #Decided for now to turn off this script and
+    #test if it is OK to let the Tag Menus switch
+    #only if the user clicks into a tag field, instead
+    #of switching to a blank Tag Menu if the field
+    #the user clicks into is a manual entry field/no tags.
+    #
+    Exit Script [ ]
+    #
+    #
+    #
+    #
     #
     #If node is currenlty locked then stop script, inform user.
     If [ tagNodeCreator::orderOrLock ≠ "" ]
@@ -38964,7 +41051,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [clearCitationMatch]	Parent Folder: [reference(citation)]	Next Script: [copyrightHolderDeleteEditor]
+Previous Script: [clearCitationMatch (update)]	Parent Folder: [reference(citation)]	Next Script: [copyrightHolderDeleteEditor]
 Script Name	copyrightHolder
 Run script with full access privileges	Off
 Include In Menu	No
@@ -39254,7 +41341,7 @@ Layouts that use this script
 
 Scripts that use this script
 
-    changeSpellingOfKeywordOrNodeTag
+    changeSpellingOfKeywordOrNodeTag (update Possibly moved into diferent folder????)
 
 Script Definition
 Script Steps
@@ -39273,7 +41360,7 @@ Script Steps
     End If
     Set Field [ tagMenus::tag; Trim ( tagMenus::tag ) ]
     If [ $$citationmatch = "health" or $$citationmatch = "sample" ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     End If
 
 Fields used in this script
@@ -39282,7 +41369,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    insureEqualityOfSpellFields
+    insureEqualityOfSpellFields (update)
 
 Layouts used in this script
 
@@ -39341,18 +41428,18 @@ Layouts that use this script
 
     defaultNode2
     defaultNode3
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK3
-    ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -39425,18 +41512,18 @@ Layouts that use this script
 
     defaultNode2
     defaultNode3
-    ReferenceMenu2keywordOrNode2
-    ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
-    ReferenceMenu2SkeywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2SkeywordOrNode4
+    ReferenceMenu2keywordOrNode5
+    ReferenceMenu2SkeywordOrNode5
     addMenu1
     addMenuNodeKeyword
     addMenu1
     addMenuTestItem
-    ltagNK3
-    ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
 
 Scripts that use this script
 
@@ -39506,6 +41593,8 @@ Script Name	addFileLink4ToTag
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceAddToTag
 
 Scripts that use this script
 
@@ -39630,6 +41719,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    ReferenceAddToTag
+
 Scripts that use this script
 
 Script Definition
@@ -39747,11 +41838,13 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addFileLink5ToTag]	Parent Folder: [reference(citation)]	Next Script: [showFolder]
+Previous Script: [addFileLink5ToTag]	Parent Folder: [reference(citation)]	Next Script: [showFolder (update)]
 Script Name	addFileLink6ToTag
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
+
+    ReferenceAddToTag
 
 Scripts that use this script
 
@@ -39865,16 +41958,20 @@ Custom menu set used by this script
 
 
 Previous Script: [addFileLink6ToTag]	Parent Folder: [reference(citation)]	Next Script: [openCitationURL]
-Script Name	showFolder
+Script Name	showFolder (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
     ReferenceStuff
-    ReferenceAddToTag
+    ReferenceExternalPictureWindow
+    learn4EDIT
+    LearnRefExternalPictureWindow
     testInfo
     testInfoText
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
 
 Scripts that use this script
 
@@ -39884,61 +41981,51 @@ Script Steps
     #
     #Show folder file is in Reference.
     If [ FilterValues ( reference::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Show Custom Dialog [ Message: reference::fileName; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "Folder that file — " & reference::fileName & " — is in will now open."; Buttons: “OK” ]
     Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" ; " " ; "%20" ) ] [ No dialog ]
     Exit Script [ ]
     Else If [ FilterValues ( reference::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Show Custom Dialog [ Message: reference::fileName; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "Folder that file — " & reference::fileName & " — is in will now open."; Buttons: “OK” ]
     Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) ; " " ; "%20" ) ] [ No dialog ]
     Exit Script [ ]
     Else If [ FilterValues ( reference::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Show Custom Dialog [ Message: reference::fileName; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "Folder that file — " & reference::fileName & " — is in will now open."; Buttons: “OK” ]
     Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagRefFolderPath::tag ; " " ; "%20" ) ] [ No dialog ]
     If [ Get (LastError) = 5 ]
-    Show Custom Dialog [ Message: "The folder has been moved, deleted, or the external drive this folder is on is not plugged in. The folder path on file is " & tagRefFolderPath::tag; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "The folder has been moved, deleted, or the external drive this folder is on is not plugged in. The stored folder path for the file is " & tagRefFolderPath::tag; Buttons: “OK” ]
     End If
     End If
     #
-    #Show folder for cite file in Learn.
-    If [ FilterValues ( citeCite::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    Show Custom Dialog [ Message: citeCite::fileName; Buttons: “OK” ]
+    #Show folder for selected media or 1st reference.
+    If [ testlearn::kshowReferencedMedia ≠ "" ]
+    Show Custom Dialog [ Message: "Folder that file — " & refShowMedia::fileName & " — is in will now open."; Buttons: “OK” ]
     Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citeCite::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    Show Custom Dialog [ Message: citeCite::fileName; Buttons: “OK” ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) ; " " ; "%20" ) ] [ No dialog ]
-    Exit Script [ ]
-    Else If [ FilterValues ( citeCite::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    Show Custom Dialog [ Message: citeCite::fileName; Buttons: “OK” ]
-    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & TLciteFolderPath::tag ; " " ; "%20" ) & Case ( Left ( citeCite::fileName ; 1 ) = "/" ; Substitute ( citeCite::fileName ; " " ; "%20" ) ) ] [ No dialog ]
-    If [ Get (LastError) = 5 ]
-    Show Custom Dialog [ Message: "The folder has been moved, deleted, or the external drive this folder is on is not plugged in. The folder path on file is " & TLciteFolderPath::tag; Buttons: “OK” ]
-    End If
+    If [ Get ( LastError ) ≠ 0 ]
+    Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & refShowMedia::fileName ; " " ; " " ) ] [ No dialog ]
     End If
     #
-    #Show folder for 1st ref file in Learn.
-    If [ FilterValues ( refTest::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
+    Else If [ FilterValues ( refTest::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
     If [ ValueCount ( testlearnReportTags::kcreference ) > 1 ]
-    Show Custom Dialog [ Message: "This is the first reference attached to this record. To see all references, click the 'edit/new' button in the main list view window, and once you are in the Learn module, click the 'QV' button in the Learn window or the 'references' button in the Learn Tag Menus window."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "Folder that file — " & refTest::fileName & " — is in will now open. This is the first reference attached to this record. To see all references, click the 'QV' button and scroll down the reference section."; Buttons: “OK” ]
     End If
     Show Custom Dialog [ Message: refTest::fileName; Buttons: “OK” ]
     Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" ; " " ; "%20" ) ] [ No dialog ]
     Exit Script [ ]
     Else If [ FilterValues ( refTest::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
     If [ ValueCount ( testlearnReportTags::kcreference ) > 1 ]
-    Show Custom Dialog [ Message: "This is the first reference attached to this record. To see all references, click the 'edit/new' button in the main list view window, and once you are in the Learn module, click the 'QV' button in the Learn window or the 'references' button in the Learn Tag Menus window."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "Folder that file — " & refTest::fileName & " — is in will now open. This is the first reference attached to this record. To see all references, click the 'QV' button and scroll down the reference section."; Buttons: “OK” ]
     End If
     Show Custom Dialog [ Message: refTest::fileName; Buttons: “OK” ]
     Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) ; " " ; "%20" ) ] [ No dialog ]
     Exit Script [ ]
     Else If [ FilterValues ( refTest::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
     If [ ValueCount ( testlearnReportTags::kcreference ) > 1 ]
-    Show Custom Dialog [ Message: "This is the first reference attached to this record. To see all references, click the 'edit/new' button in the main list view window, and once you are in the Learn module, click the 'QV' button in the Learn window or the 'references' button in the Learn Tag Menus window."; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "Folder that file — " & refTest::fileName & " — is in will now open. This is the first reference attached to this record. To see all references, click the 'QV' button and scroll down the reference section."; Buttons: “OK” ]
     End If
     Show Custom Dialog [ Message: refTest::fileName; Buttons: “OK” ]
     Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & refTestFolderPath::tag ; " " ; "%20" ) & Case ( Left ( refTest::fileName ; 1 ) = "/" ; Substitute ( refTest::fileName ; " " ; "%20" ) ) ] [ No dialog ]
     If [ Get (LastError) = 5 ]
-    Show Custom Dialog [ Message: "The folder has been moved, deleted, or the external drive this folder is on is not plugged in. The folder path on file is " & refTestFolderPath::tag; Buttons: “OK” ]
+    Show Custom Dialog [ Message: "The folder has been moved, deleted, or the external drive this folder is on is not plugged in. The stored folder path for the file is " & refTestFolderPath::tag; Buttons: “OK” ]
     End If
     End If
     #
@@ -39959,29 +42046,14 @@ Script Steps
     End If
     End If
     #
-    // #
-    // #Show folder file is in.
-    // If [ FilterValues ( testlearn::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-    // Show Custom Dialog [ Message: testlearn::filename; Buttons: “OK” ]
-    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" ; " " ; "%20" ) ] [ No dialog ]
-    // Exit Script [ ]
-    // Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-    // Show Custom Dialog [ Message: testlearn::filename; Buttons: “OK” ]
-    // Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) ; " " ; "%20" ) ] [ No dialog ]
-    // Exit Script [ ]
-    // Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-    // Show Custom Dialog [ Message: testlearn::filename; Buttons: “OK” ]
-    // Open URL [ Substitute ( tagTLFolderPath::tag ; " " ; "%20" ) ] [ No dialog ]
-    // End If
 
 Fields used in this script
 
     reference::kfileLocation
     reference::fileName
     tagRefFolderPath::tag
-    citeCite::kfileLocation
-    citeCite::fileName
-    TLciteFolderPath::tag
+    testlearn::kshowReferencedMedia
+    refShowMedia::fileName
     refTest::kfileLocation
     testlearnReportTags::kcreference
     refTest::fileName
@@ -39989,9 +42061,6 @@ Fields used in this script
     citeTest::kfileLocation
     citeTest::fileName
     citeTestFolderPath::tag
-    testlearn::kfileLocation
-    testlearn::filename
-    tagTLFolderPath::tag
 
 Scripts used in this script
 
@@ -40006,15 +42075,13 @@ Tables used in this script
 
 Table occurrences used by this script
 
-    TLciteFolderPath
-    citeCite
     citeTest
     citeTestFolderPath
+    refShowMedia
     refTest
     refTestFolderPath
     reference
     tagRefFolderPath
-    tagTLFolderPath
     testlearn
     testlearnReportTags
 
@@ -40023,13 +42090,17 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [showFolder]	Parent Folder: [reference(citation)]	Next Script: [setCitationMatchForAuthors]
+Previous Script: [showFolder (update)]	Parent Folder: [reference(citation)]	Next Script: [setCitationMatchForAuthors]
 Script Name	openCitationURL
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    ReferenceAddToTag
+    learn1
+    learn2
+    learn3
+    learn4
+    learn4EDIT
     testInfo
     testInfoText
 
@@ -40202,7 +42273,7 @@ Script Steps
     If [ reference::TimeRange = "" ]
     Set Field [ reference::TimeRange; "0:00:00" ]
     End If
-    Perform Script [ “clearCitationMatch” ]
+    Perform Script [ “clearCitationMatch (update)” ]
 
 Fields used in this script
 
@@ -40210,7 +42281,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    clearCitationMatch
+    clearCitationMatch (update)
 
 Layouts used in this script
 
@@ -40257,7 +42328,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [goToRefRecord]	Parent Folder: [reference(citation)]
+Previous Script: [goToRefRecord]	Parent Folder: [reference(citation)]	Next Script: [changeFileLocationFolder (new)]
 Script Name	helpReferenceFields
 Run script with full access privileges	Off
 Include In Menu	No
@@ -40301,8 +42372,52 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
+Previous Script: [helpReferenceFields]	Parent Folder: [reference(citation)]
+Script Name	changeFileLocationFolder (new)
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    If [ reference::kfileLocation = TEMP::ReferenceFolder ]
+    Show Custom Dialog [ Message: "Delete file folder location?"; Buttons: “yes”, “cancel” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    Set Field [ reference::kfileLocation; "" ]
+    End If
+    End If
+    Set Field [ TEMP::ReferenceFolder; reference::kfileLocation ]
+    Go to Field [ ]
+
+Fields used in this script
+
+    reference::kfileLocation
+    TEMP::ReferenceFolder
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    reference
+
+Table occurrences used by this script
+
+    TEMP
+    reference
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
 probablyNotInUse
-	Parent Folder: [probablyNotInUse]	Next Script: [DELETE???loadRecordIDcitationlistlalyout]
+	Parent Folder: [probablyNotInUse]	Next Script: [loadCitation OLD]
 Script Name	addReferenceNodesAndKeywords Copy
 Run script with full access privileges	Off
 Include In Menu	No
@@ -40682,46 +42797,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addReferenceNodesAndKeywords Copy]	Parent Folder: [probablyNotInUse]	Next Script: [loadCitation OLD]
-Script Name	DELETE???loadRecordIDcitationlistlalyout
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #REMOVED it from use after it kept resetting ID number and messing up text formatting on main TL window. It does not seem to be needed for an calc, but not sure entirely so have not deleted it yet.
-    #This first section is key to stopping this script
-    #when another script for example loops thru
-    #many records each of which would trigger this
-    #script and really slow down the program and
-    #create strobe effect that is really irritating to
-    #look at.
-    If [ $$stoploadCitation = 1 ]
-    Exit Script [ ]
-    End If
-    Set Variable [ $$recordID; Value:Get (RecordID) ]
-    Refresh Window
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [DELETE???loadRecordIDcitationlistlalyout]	Parent Folder: [probablyNotInUse]	Next Script: [findReferenceRecord Copy]
+Previous Script: [addReferenceNodesAndKeywords Copy]	Parent Folder: [probablyNotInUse]	Next Script: [findReferenceRecord Copy]
 Script Name	loadCitation OLD
 Run script with full access privileges	Off
 Include In Menu	No
@@ -41144,13 +43220,14 @@ Custom menu set used by this script
 
 
 sharedMainLayoutScripts
-	Parent Folder: [sharedMainLayoutScripts]	Next Script: [backToLearnOrDefaultSetup]
-Script Name	copyAndpastTags
+	Parent Folder: [sharedMainLayoutScripts]	Next Script: [backToLearnOrDefaultSetup (update)]
+Script Name	copyAndpastTags (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
+    learn2
 
 Scripts that use this script
 
@@ -41159,28 +43236,62 @@ Script Steps
 
     #
     #
-    #This is a script I'm developing and is not on any
-    #layout yet. Its purpose is to copy tags from a
-    #learn or reference record and then paste them
+    #This is a scripts purpose is to key tags from a
+    #learn or reference record and paste them
     #in a different record.
-    If [ $$copyAndpastTagsPrimaryID = "" ]
-    Set Variable [ $$copyAndpastTagsPrimaryID; Value:reference::kkeywordPrimary ]
-    Set Variable [ $$copyAndpastTagsOtherID; Value:reference::kkeywordOther ]
-    Set Variable [ $$copyAndpastTagsOther; Value:reference::OtherKeyWords ]
+    If [ $$copyAndpastTagsRECORD = "" ]
+    Set Variable [ $$copyAndpastTagsPrimaryID; Value:Case ( Get (LayoutTableName) = "reference" ; reference::kkeywordPrimary ; testlearn::kKeywordPrimary ) ]
+    Set Variable [ $$copyAndpastTagsOtherID; Value:Case ( Get (LayoutTableName) = "reference" ; reference::kkeywordOther ; testlearn::kcKeywordOther ) ]
+    Set Variable [ $$copyAndpastTagsOther; Value:Case ( Get (LayoutTableName) = "reference" ; reference::OtherKeyWords ; testlearn::OtherKeyWords ) ]
+    Set Variable [ $$copyAndpastTagsRECORD; Value:Case ( Get (LayoutTableName) = "reference" ; reference::_Lreference ; testlearn::_Ltestlearn ) ]
     Else
-    Set Field [ reference::kkeywordPrimary; $$copyAndpastTagsPrimaryID ]
-    Set Field [ reference::kkeywordOther; $$copyAndpastTagsOtherID ]
-    Set Field [ reference::OtherKeyWords; $$copyAndpastTagsOther ]
+    If [ $$copyAndpastTagsRECORD = reference::_Lreference or $$copyAndpastTagsRECORD = testlearn::_Ltestlearn ]
     Set Variable [ $$copyAndpastTagsPrimaryID ]
     Set Variable [ $$copyAndpastTagsOtherID ]
     Set Variable [ $$copyAndpastTagsOther ]
+    Set Variable [ $$copyAndpastTagsRECORD ]
+    Else
+    If [ $$copyAndpastTagsOtherID = "" and $$copyAndpastTagsPrimaryID = "" ]
+    Show Custom Dialog [ Message: "Paste blanks? FYI: You copied blanks, and pasting them will delete/blank this record's keywords."; Buttons: “yes”, “Cancel” ]
+    Else
+    Show Custom Dialog [ Message: "Replace this record's keywords with the copied ones?"; Buttons: “yes”, “Cancel” ]
     End If
+    If [ Get (LastMessageChoice) = 1 ]
+    If [ Get (LayoutTableName) = "reference" ]
+    Set Field [ reference::kkeywordPrimary; $$copyAndpastTagsPrimaryID ]
+    Set Field [ reference::kkeywordOther; $$copyAndpastTagsOtherID ]
+    Set Field [ reference::OtherKeyWords; $$copyAndpastTagsOther ]
+    Else
+    Set Field [ testlearn::kKeywordPrimary; $$copyAndpastTagsPrimaryID ]
+    Set Field [ testlearn::kcKeywordOther; $$copyAndpastTagsOtherID ]
+    Set Field [ testlearn::OtherKeyWords; $$copyAndpastTagsOther ]
+    End If
+    Set Variable [ $$copyAndpastTagsPrimaryID ]
+    Set Variable [ $$copyAndpastTagsOtherID ]
+    Set Variable [ $$copyAndpastTagsOther ]
+    Set Variable [ $$copyAndpastTagsRECORD ]
+    Else
+    Set Variable [ $$copyAndpastTagsPrimaryID ]
+    Set Variable [ $$copyAndpastTagsOtherID ]
+    Set Variable [ $$copyAndpastTagsOther ]
+    Set Variable [ $$copyAndpastTagsRECORD ]
+    End If
+    End If
+    End If
+    #
+    Refresh Window
+    #
 
 Fields used in this script
 
     reference::kkeywordPrimary
+    testlearn::kKeywordPrimary
     reference::kkeywordOther
+    testlearn::kcKeywordOther
     reference::OtherKeyWords
+    testlearn::OtherKeyWords
+    reference::_Lreference
+    testlearn::_Ltestlearn
 
 Scripts used in this script
 
@@ -41189,40 +43300,49 @@ Layouts used in this script
 Tables used in this script
 
     reference
+    testlearn
 
 Table occurrences used by this script
 
     reference
+    testlearn
 
 Custom Functions used by this script
 
 Custom menu set used by this script
 
 
-Previous Script: [copyAndpastTags]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [backFromSetup]
-Script Name	backToLearnOrDefaultSetup
+Previous Script: [copyAndpastTags (update)]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [backFromSetup (update)]
+Script Name	backToLearnOrDefaultSetup (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     Reference
     ReferenceStuff
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
 
 Scripts that use this script
 
-    backFromSetup
+    backFromSetup (update)
 
 Script Definition
 Script Steps
 
+    #
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     Set Variable [ $$referenceRecordOne ]
     Set Variable [ $$referenceSort ]
     Set Variable [ $$findMode ]
+    #
+    #Set in copyAndpastTags script.
+    Set Variable [ $$copyAndpastTagsRECORD ]
+    #
     If [ Left ( $$defaultTagLayout ; 1 ) = "d" ]
     #
-    #Go to testlearn layout and loop back to record.
+    #Go to default setup layout and loop back to record.
     Set Window Title [ Current Window; New Title: "Setup" ]
     Go to Layout [ “defaultSetup” (tempSetup) ]
     Show All Records
@@ -41240,17 +43360,17 @@ Script Steps
     Extend Found Set [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “health” ] [ Restore ]
     #node
     Extend Found Set [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “node” ] [ Restore ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     #
-    #Go to Learn tag menu layout and loop back to record.
+    #Go to Library tag menu layout.
     Set Variable [ $$stopAddTagToCitation; Value:1 ]
-    Go to Layout [ “defaultSections” (ruleSection) ]
+    Go to Layout [ “defaultSections” (tempSetup) ]
     Go to Record/Request/Page [ $$defaultRecordNumber ] [ No dialog ]
     Set Variable [ $$stopAddTagToCitation ]
     Set Variable [ $$defaultRecordNumber ]
     Set Variable [ $$defaultTagLayout ]
     Set Variable [ $$citationMatch; Value:"section" ]
-    Perform Script [ “defaultSectionMenu” ]
+    Perform Script [ “defaultsAll (new)” ]
     Exit Script [ ]
     End If
     #
@@ -41258,22 +43378,37 @@ Script Steps
     Set Variable [ $$stoploadCitation; Value:1 ]
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Set Window Title [ Current Window; New Title: "Learn" ]
-    If [ tempSetup::layoutLmain = "" ]
+    #
+    If [ TEMP::InventoryLibaryYN = "" ]
     Go to Layout [ “learn1” (testlearn) ]
-    Set Field [ TEMP::layoutLmain; "more" & Get (LayoutName) ]
-    Else If [ tempSetup::layoutLmain ≠ "" ]
-    Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
+    Else
+    Go to Layout [ “learnStuff1” (testlearn) ]
     End If
+    #
     Enter Find Mode [ ]
     Set Field [ testlearn::kcsection; TEMP::ksection ]
     Set Field [ testlearn::filterFind; "main" & ¶ ]
     Perform Find [ ]
+    #
     Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     Go to Record/Request/Page [ First ]
     Loop
     Exit Loop If [ $$LearnEdit = testlearn::_Ltestlearn ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
+    #
+    #Show user layout that they selected.
+    If [ tempSetup::layoutLmain = "" ]
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “learn1” (testlearn) ]
+    Else
+    Go to Layout [ “learnStuff2” (testlearn) ]
+    End If
+    Set Field [ TEMP::layoutLmain; "more" & Get (LayoutName) ]
+    Else If [ tempSetup::layoutLmain ≠ "" ]
+    Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
+    End If
+    #
     Set Variable [ $$stoploadCitation ]
     #
     #Go to Learn tag menu layout and loop back to record.
@@ -41283,7 +43418,7 @@ Script Steps
     Set Variable [ $$learnTagLayout ]
     Set Variable [ $$stopLoadTagRecord ]
     If [ $$citeORref = "ref" ]
-    Perform Script [ “menuReference” ]
+    Perform Script [ “menuReference (update)” ]
     Else
     #
     #NOT SURE WHY this is done, so I am disabling
@@ -41302,37 +43437,41 @@ Script Steps
     #
     #Perform Load Citation script to restore conditional
     #formatting.
-    Perform Script [ “loadCitation” ]
+    Perform Script [ “loadCitation (update)” ]
 
 Fields used in this script
 
     tagMenus::match
-    tempSetup::layoutLmain
-    TEMP::layoutLmain
+    TEMP::InventoryLibaryYN
     TEMP::ksection
     testlearn::kcsection
     testlearn::filterFind
     testlearn::date
     testlearn::timestamp
     testlearn::_Ltestlearn
+    tempSetup::layoutLmain
+    TEMP::layoutLmain
 
 Scripts used in this script
 
-    insureEqualityOfSpellFields
-    defaultSectionMenu
-    menuReference
+    insureEqualityOfSpellFields (update)
+    defaultsAll (new)
+    menuReference (update)
     menuRefAddKeyWords
-    loadCitation
+    loadCitation (update)
 
 Layouts used in this script
 
     defaultSetup
     defaultSections
     learn1
+    learnStuff1
+    learnStuff2
     <Missing Layout>
 
 Tables used in this script
 
+    TEMP
     TEMP
     tag
     testlearn
@@ -41349,8 +43488,8 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [backToLearnOrDefaultSetup]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [toggleMainWindowView]
-Script Name	backFromSetup
+Previous Script: [backToLearnOrDefaultSetup (update)]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [toggleMainWindowView]
+Script Name	backFromSetup (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -41367,13 +43506,13 @@ Script Steps
     #
     #Insure that all locked fields are revereted back if changed.
     Select Window [ Name: "Tag Menus"; Current file ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     Select Window [ Name: "Setup"; Current file ]
-    Perform Script [ “insureEqualityOfSpellFields” ]
+    Perform Script [ “insureEqualityOfSpellFields (update)” ]
     #
     #Return to default setup module from...
     If [ Left ( $$module ; 1 ) = "l" ]
-    Perform Script [ “backToLearnOrDefaultSetup” ]
+    Perform Script [ “backToLearnOrDefaultSetup (update)” ]
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Layout [ “learnMenu1” (tagMenus) ]
     Perform Script [ “menuTest” ]
@@ -41390,7 +43529,8 @@ Script Steps
     #containing them are deleted. With a new record
     #any info in their global fields will go into a
     #newly created record.
-    Go to Layout [ “defaultSetup” (tempSetup) ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Go to Layout [ “defaultSections” (tempSetup) ]
     Show All Records
     Delete All Records [ No dialog ]
     New Record/Request
@@ -41399,8 +43539,9 @@ Script Steps
     #Return to test setup layout on the Tag Menus
     #window, and clear the global fields needed for
     #creating and deleting tests in the test setup module.
-    Select Window [ Name: "Tag Menus"; Current file ]
+    Select Window [ Name: "Setup"; Current file ]
     Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
+    #
     Set Field [ TEMP::ktest; "" ]
     Set Field [ TEMP::ktestItemList; "" ]
     Set Field [ TEMP::ktestItemListOLD; "" ]
@@ -41437,15 +43578,15 @@ Fields used in this script
 
 Scripts used in this script
 
-    insureEqualityOfSpellFields
-    backToLearnOrDefaultSetup
+    insureEqualityOfSpellFields (update)
+    backToLearnOrDefaultSetup (update)
     menuTest
     returnToSetup
 
 Layouts used in this script
 
     learnMenu1
-    defaultSetup
+    defaultSections
     defaultTest
 
 Tables used in this script
@@ -41465,7 +43606,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [backFromSetup]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [returnToAddRecordPUTONHOLD!!!!]
+Previous Script: [backFromSetup (update)]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [returnToAddRecordPUTONHOLD!!!!]
 Script Name	toggleMainWindowView
 Run script with full access privileges	Off
 Include In Menu	No
@@ -41480,6 +43621,7 @@ Layouts that use this script
     learn4
     learnStuff4
     learn4 OLD has file path fields not in use
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -41598,7 +43740,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [toggleMainWindowView]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [gotoTimeLogMainWindow]
+Previous Script: [toggleMainWindowView]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [gotoTimeLogMainWindow (update)]
 Script Name	returnToAddRecordPUTONHOLD!!!!
 Run script with full access privileges	Off
 Include In Menu	No
@@ -41639,9 +43781,9 @@ Script Steps
     #Goto correct layout.
     If [ TEMP::layoutRtagN = "" or TEMP::layoutLtagN = "" ]
     If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
+    Go to Layout [ “ltagNK3” (tagMenus) ]
     Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
     End If
     #
     Else If [ TEMP::layoutRtagN ≠ "" or TEMP::layoutLtagN ≠ "" ]
@@ -41713,9 +43855,9 @@ Script Steps
     #Goto correct layout.
     If [ TEMP::layoutRtagK = "" or TEMP::layoutLtagK = "" ]
     If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
+    Go to Layout [ “ltagNK3” (tagMenus) ]
     Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
+    Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
     End If
     #
     Else If [ TEMP::layoutRtagK ≠ "" or TEMP::layoutLtagK ≠ "" ]
@@ -41838,8 +43980,8 @@ Scripts used in this script
 
 Layouts used in this script
 
-    ltagNK2
-    ReferenceMenu2keywordOrNode1
+    ltagNK3
+    ReferenceMenu2keywordOrNode2
     <Missing Layout>
     setupTestItem
 
@@ -41866,18 +44008,22 @@ Custom menu set used by this script
 
 
 Previous Script: [returnToAddRecordPUTONHOLD!!!!]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [gotoTimeLogLogWindow]
-Script Name	gotoTimeLogMainWindow
+Script Name	gotoTimeLogMainWindow (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     defaultSetup
+    defaultTest
+    defaultTestNewFocus
     Reference
     ReferenceStuff
     ReferenceEDIT
     ReferenceEDITstuff
     ReferenceAddToTag
+    learn1
     learnStuff1
+    learn2
     learnStuff2
     learn3
     learnStuff3
@@ -41891,12 +44037,23 @@ Layouts that use this script
     step4_InspectionFinding
     PrintReportEdit
     learn4EDITstuff Copy
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
+    learnStuff2 Copy
 
 Scripts that use this script
 
 Script Definition
 Script Steps
 
+    #
+    #Open using this url on iPad/iPhone.
+    If [ Get ( SystemPlatform ) = 3 ]
+    Open URL [ "fmp://%7e/ActionLog" ] [ No dialog ]
+    Exit Script [ ]
+    End If
+    #
+    #
     Set Field [ MemorySwitch::currentLibraryMainWIndow; Get ( WindowName ) ]
     Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
     Select Window [ Name: "Tag" ]
@@ -41906,12 +44063,13 @@ Script Steps
     If [ Get (LastError) = 112 ]
     Set Variable [ $timer; Value:Get (LastError) ]
     End If
-    Select Window [ Name: "HelpGiveThanks Apps" ]
+    Select Window [ Name: "HelpGiveThanks Solutions" ]
     If [ Get (LastError) = 112 ]
     Set Variable [ $app; Value:Get (LastError) ]
     End If
     If [ $timer + $app = 224 ]
     Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog82" ) ] [ No dialog ]
+    Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog" ) ] [ No dialog ]
     Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog" ) ] [ No dialog ]
     End If
 
@@ -41938,7 +44096,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoTimeLogMainWindow]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [stopScriptOniPhone]
+Previous Script: [gotoTimeLogMainWindow (update)]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [stopScriptOniPhone (update by deleting)]
 Script Name	gotoTimeLogLogWindow
 Run script with full access privileges	Off
 Include In Menu	No
@@ -41968,7 +44126,7 @@ Custom menu set used by this script
 
 
 Previous Script: [gotoTimeLogLogWindow]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [closeWindow (update)]
-Script Name	stopScriptOniPhone
+Script Name	stopScriptOniPhone (update by deleting)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -41979,7 +44137,7 @@ Script Definition
 Script Steps
 
     If [ PatternCount ( Get ( ApplicationVersion ) ; "GO" ) ]
-    Go to Layout [ “defaultSetup Copy” (tempSetup) ]
+    Go to Layout [ <unknown> ]
     End If
 
 Fields used in this script
@@ -41988,7 +44146,7 @@ Scripts used in this script
 
 Layouts used in this script
 
-    defaultSetup Copy
+    <Missing Layout>
 
 Tables used in this script
 
@@ -41999,7 +44157,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [stopScriptOniPhone]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [closeWindowHaltScript]
+Previous Script: [stopScriptOniPhone (update by deleting)]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [closeWindowHaltScript]
 Script Name	closeWindow (update)
 Run script with full access privileges	Off
 Include In Menu	No
@@ -42007,10 +44165,16 @@ Layouts that use this script
 
     ReferencePictureWindow
     ReferencePictureWindowEDIT
+    ReferenceSPictureWindowEDIT
+    ReferenceWebPictureWindow
+    ReferenceExternalPictureWindow
     LearnTextWindow
     LearnTextWindowStuff
     LearnTextWindowLocked
     LearnPictureWindow
+    LearnRefPictureWindow
+    LearnRefExternalPictureWindow
+    LearnRefWebPictureWindow
     testInfoText
     testInfoTextLocked
     learnMenuStuffSampleLocations
@@ -42047,6 +44211,7 @@ Include In Menu	No
 Layouts that use this script
 
     moreInfo
+    allSolutions
 
 Scripts that use this script
 
@@ -42071,7 +44236,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [closeWindowHaltScript]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [learn]
+Previous Script: [closeWindowHaltScript]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [learn (update)]
 Script Name	backtoSetup
 Run script with full access privileges	Off
 Include In Menu	No
@@ -42105,16 +44270,12 @@ Custom menu set used by this script
 
 
 Previous Script: [backtoSetup]	Parent Folder: [sharedMainLayoutScripts]	Next Script: [Exit]
-Script Name	learn
+Script Name	learn (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    defaultSections
-    defaultHealth
-    defaultNode1
-    defaultNode2
-    defaultNode3
+    defaultSetup
     defaultTest
     defaultTestNewFocus
 
@@ -42138,9 +44299,10 @@ Script Steps
     Halt Script
     End If
     #
-    #
-    #Make sure creator node's group is part of section group.
-    Perform Script [ “addBackSectionCreatorNode” ]
+    #Now that there is only one section per
+    #library, this script seems no longer needed.
+    // #Make sure creator node's group is part of section group.
+    // Perform Script [ “addBackSectionCreatorNode” ]
     #
     Select Window [ Name: "Setup"; Current file ]
     Set Window Title [ Current Window; New Title: "Learn" ]
@@ -42167,15 +44329,56 @@ Script Steps
     Set Field [ testlearn::kcsection; TEMP::ksection ]
     Set Field [ testlearn::filterFind; "main" & ¶ ]
     Perform Find [ ]
+    If [ TEMP::InventoryLibaryYN = "" ]
     Sort Records [ Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Specified Sort Order: testlearn::Caption; descending ] [ Restore; No dialog ]
+    End If
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Go to Layout [ “ltagNK2” (tagMenus) ]
-    Perform Script [ “menuKey” ]
-    Select Window [ Name: "Learn"; Current file ]
+    #
+    #capture keys of related tag menu items to
+    #to allow the citationMenu scripts to loop to the
+    #primary record of interest when the user navigates
+    #to a item on the Tag Menu window
+    #whose list of tags like node, keyword, medium, etc.
+    #might contain an item related to the current
+    #citation record, but which one, which is why all
+    #the keys have to be readied. Mmm... now that
+    #I write this out, I'm thinking I could have the
+    #citationMenu scripts select the citation window
+    #to grab the key if any in the current current
+    #record that applies the the menu item.
+    Set Variable [ $$citationRecord; Value:testlearn::_Ltestlearn ]
+    Set Variable [ $$node; Value:testlearn::kNodeOther ]
+    Set Variable [ $$primaryNode; Value:testlearn::kNodePrimary ]
+    Set Variable [ $$medium; Value:testlearn::kmedium ]
+    Set Variable [ $$health; Value:testlearn::kHealth ]
+    Set Variable [ $$Path; Value:testlearn::kfolderPath ]
+    Set Variable [ $$cite; Value:testlearn::kcitation ]
+    Set Variable [ $$ref; Value:testlearn::kcreference ]
+    Set Variable [ $$PrimaryKey; Value:testlearn::kKeywordPrimary ]
+    Set Variable [ $$Key; Value:testlearn::kcKeywordOther ]
+    Set Variable [ $$OtherKey; Value:testlearn::kcKeywordOther ]
+    Set Variable [ $$Section; Value:testlearn::kcsection ]
+    Set Variable [ $$test; Value:testlearn::kctest ]
+    Set Variable [ $$sample; Value:testlearn::kcsample ]
+    Set Variable [ $$RecordID; Value:Get (RecordID) ]
+    #
+    #Load keyword menu.
     Set Variable [ $$stoploadCitation ]
-    Perform Script [ “loadCitation” ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ TEMP::InventoryLibaryYN = "" ]
+    Go to Layout [ “ltagNK1” (tagMenus) ]
+    Perform Script [ “menuKey (update)” ]
+    Else
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    Perform Script [ “menuReference (update)” ]
+    End If
+    #
+    #Return focus to Learn window.
+    Select Window [ Name: "Learn"; Current file ]
+    #
 
 Fields used in this script
 
@@ -42189,18 +44392,32 @@ Fields used in this script
     testlearn::filterFind
     testlearn::date
     testlearn::timestamp
+    testlearn::Caption
+    testlearn::_Ltestlearn
+    testlearn::kNodeOther
+    testlearn::kNodePrimary
+    testlearn::kmedium
+    testlearn::kHealth
+    testlearn::kfolderPath
+    testlearn::kcitation
+    testlearn::kcreference
+    testlearn::kKeywordPrimary
+    testlearn::kcKeywordOther
+    testlearn::kctest
+    testlearn::kcsample
 
 Scripts used in this script
 
     addBackSectionCreatorNode
-    menuKey
-    loadCitation
+    menuKey (update)
+    menuReference (update)
 
 Layouts used in this script
 
     learn1
     learnStuff1
-    ltagNK2
+    ltagNK1
+    learnMenu3CiteS
 
 Tables used in this script
 
@@ -42219,7 +44436,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [learn]	Parent Folder: [sharedMainLayoutScripts]
+Previous Script: [learn (update)]	Parent Folder: [sharedMainLayoutScripts]
 Script Name	Exit
 Run script with full access privileges	Off
 Include In Menu	No
@@ -42248,7 +44465,7 @@ Custom menu set used by this script
 
 
 help
-	Parent Folder: [help]	Next Script: [help]
+	Parent Folder: [help]	Next Script: [help (update)]
 Script Name	helpBack
 Run script with full access privileges	Off
 Include In Menu	No
@@ -42294,11 +44511,12 @@ Custom menu set used by this script
 
 
 Previous Script: [helpBack]	Parent Folder: [help]	Next Script: [libraryHelp]
-Script Name	help
+Script Name	help (update)
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    allSolutions
     Reference
     ReferenceStuff
     ReferenceEDIT
@@ -42326,22 +44544,26 @@ Layouts that use this script
     learn4EDITstuff
     learn4 OLD has file path fields not in use
     learnPreviewLayout
+    learnPreviewLayoutView
     LearnTextWindow
     LearnTextWindowStuff
     ltagNK1
     ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
     ltagNKs3
     ltagNK4
     ltagNKs4
+    ltagNK5
+    ltagNKs5
     learnMenu1
     learnMenuHealth
     learnMenuSHealth
     learnMenu3Cite
+    learnMenu3CiteS
     learnMenuRefStuff
     learnMenu4RefCite
+    learnMenu4RefCiteS
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuSample
@@ -42375,6 +44597,9 @@ Layouts that use this script
     reportTagInfo
     reportTagDiscovery
     learn4EDITstuff Copy
+    ReferenceScriptLoops
+    ReferenceStuffScriptLoops
+    learnStuff2 Copy
 
 Scripts that use this script
 
@@ -42427,9 +44652,13 @@ Script Steps
     Select Window [ Name: "Report"; Current file ]
     End If
     #
-    #Determin the module.
+    #Determine the module.
     If [ Get ( LayoutTableName ) = "tempSetup" ]
     Set Field [ MemorySwitch::helpLayoutName; "Setup" ]
+    If [ Get (LayoutName) = "allSolutions" ]
+    Set Field [ MemorySwitch::helpLayoutName; "dashboard" ]
+    Set Field [ MemorySwitch::helpObjectName; "" ]
+    End If
     Else If [ Get ( LayoutTableName ) = "testLearn" and Get (LayoutName) ≠ "step4_InspectionFinding" ]
     Set Field [ MemorySwitch::helpLayoutName; "Learn" ]
     Else If [ Get ( LayoutTableName ) = "reference" ]
@@ -42502,8 +44731,12 @@ Script Steps
     #
     Pause/Resume Script [ Duration (seconds): .1 ]
     #
+    If [ Get ( SystemPlatform ) ≠ 3 ]
     Open URL [ MemorySwitch::helpPath ] [ No dialog ]
     Open URL [ Substitute ( MemorySwitch::helpPath ; "file://" ; "file:///Volumes/" ) ] [ No dialog ]
+    Else
+    Open URL [ "fmp://%7e/Help" ] [ No dialog ]
+    End If
     #
     Select Window [ Name: "Help" ]
     Select Window [ Name: "Tutorial" ]
@@ -42534,7 +44767,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [help]	Parent Folder: [help]
+Previous Script: [help (update)]	Parent Folder: [help]
 Script Name	libraryHelp
 Run script with full access privileges	Off
 Include In Menu	No
@@ -42562,14 +44795,14 @@ Script Steps
     #rather than figure this out, I just made this script
     #reference other one. As you can see by its name this
     #used to take users to an internal library help system.
-    Perform Script [ “help” ]
+    Perform Script [ “help (update)” ]
     #
 
 Fields used in this script
 
 Scripts used in this script
 
-    help
+    help (update)
 
 Layouts used in this script
 

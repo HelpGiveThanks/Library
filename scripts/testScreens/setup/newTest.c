@@ -1,90 +1,84 @@
-testScreens: setup: newTest
+January 12, 2018 14:08:37 Library.fmp12 - newSubsection -1-
+test: setup: newSubsection
 #
-#If node is currenlty locked then stop script, inform user.
-If [ TEMP::nodeLock ≠ "" ]
-Show Custom Dialog [ Message: "The default record creation node -- " & TEMP::DEFAULTNodePrimaryName & " -- is locked.
-Select this node in the setuptag window and enter the password to unlock it so that you can create new records attributed to
-it."; Buttons: “OK” ]
-Exit Script [ ]
-End If
+#If node is currenlty locked then stop script,
+#and inform the user.
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
 #
 #Stop spell check script.
 Set Variable [ $$stopTest; Value:1 ]
 #
-#If there are no tests, then create a new test
-#group first and then a test for that group.
-#All tests belong to a test groups.
+#If there are no subsections, then create a new
+#subsection group first and then a test for that
+#group. All subsections belong to a group.
 If [ Get (FoundCount) = 0 ]
-Perform Script [ “newTestGroup” ]
+Perform Script [ “newSubsectionGroup (update name change newTestGroup)” ]
 Exit Script [ ]
 End If
 #
-#Set variables needed to create new item.
+#Set variables needed to create new subsection.
 Set Variable [ $$ID; Value:"ignore" ]
-Set Variable [ $group; Value:test::ktestGroup ]
-#This script is for creating new general inquires.
+Set Variable [ $group; Value:testSubsectionTemplate::ksubsectionGroup ]
 #
-#WHEN TIME PERMITS the vocabuary for scripts,
-#variable, fields, layouts, etc. needs to be updated
-#to reflect that a 'test' is now a 'general inquiry'
-#and an 'item' is now a 'specific inquiry' and a 'focus'
-#is now a test 'section', etc. A complete look at
-#the DDR to insure all vocabulary is updated
-#everywhere followed by testing for each
-#update is required.
+#Copy current item's order number.
+Set Variable [ $orderNumber; Value:testSubsectionTemplate::order ]
 #
 #
-#new test
+#Create new subsection.
 New Record/Request
-Set Field [ test::ksection; TEMP::ksection ]
-#( a test group field is neccessary because a section
-# may have more than one test group, and so trying
-# to find a test group using the section key and
-# the testGroup match field would find all groups
+#( a test subsection group field is neccessary because a section
+# may have more than one test subsection group, and so trying
+# to find a test subsection group using the section key and
+# the testSubsection match field would find all groups
 # when we need the system to find one group. )
-Set Field [ test::ktestGroup; $group ]
+Set Field [ testSubsectionTemplate::ksubsectionGroup; $group ]
 #
-#A new test-item list is created with each new test.
-#This key field can be changed so that the test-item
-#list for another test can be used.
-Set Field [ test::ktestItemList; test::_Ltest ]
+#Set order number if any.
+Set Field [ testSubsectionTemplate::order; $orderNumber ]
 #
-#Tests do not need unique names. Unlike other
-#names, the names of tests if named the same
+#This new subsections key is placed in its test
+#item key field to create future test items
+#belonging in this subsection.
+Set Field [ testSubsectionTemplate::ktestItemGroup; testSubsectionTemplate::_LtestSubsection ]
+#
+#Subsections do not need unique names. Unlike other
+#names, the names of subsections if named the same
 #will not confuse the system. I don't think it will
 #confuse the user either, but I am including steps to
-#require a unique name so when locked name can
-#be revereted back to orignal name.
-Set Field [ test::testName; "general_inquiry" & test::_Ltest ]
-Set Field [ test::testNameRevert; "general_inquiry" & test::_Ltest ]
-Set Field [ test::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+#require a unique name so when locked by creator
+#the name can be revereted back to orignal name.
+Set Field [ testSubsectionTemplate::name; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
+Set Field [ testSubsectionTemplate::nameSpelling; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
+Set Field [ testSubsectionTemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
 #
 #
 #
 #Set temp variables for next part of script.
 #
-#The test item list temp fields allow users to switch
-#from their current list to another list.
-Set Field [ TEMP::ktestItemList; test::ktestItemList ]
-Set Field [ TEMP::ktestItemListOLD; test::ktestItemList ]
+#The subsection's item list temp fields allow
+#users to switch from their current list to
+#another list.
+Set Field [ TEMP::ktestItemSubsection; testSubsectionTemplate::ktestItemGroup ]
+Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionTemplate::ktestItemGroup ]
 #
 #Used on tag menus to unlock buttons and link
 #new records to test.
-Set Field [ TEMP::ktest; test::_Ltest ]
+Set Field [ TEMP::ktestSubsection; testSubsectionTemplate::_LtestSubsection ]
 #
 #Used on Tag Menus window item layout for switch.
-Set Field [ TEMP::testName; test::testName ]
+Set Field [ TEMP::testSubsectionName; testSubsectionTemplate::name ]
 #
-#Used on Tag Menus window focus layout for conditional
+#Used on Tag Menus window section layout for conditional
 #formatting.
-Set Variable [ $$focuses; Value:test::kcfocusALL ]
+Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
 #
 #
 #Go to the tag menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
-New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2 ]
-Go to Layout [ “setupTestFocus” (tagLocation) ]
+New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style:
+Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+Go to Layout [ “setupTestSection” (testSection) ]
 End If
 #
 #Remember layout user is currently seeing in
@@ -92,20 +86,21 @@ End If
 #to it at the end of the script.
 Set Variable [ $layout; Value:Get (LayoutName) ]
 #
-#Assign focus to test item as each test must have
-#at least one focus.
-Perform Script [ “editSectionFocuses” ]
+#Assign section to subsection as each
+#subsection must be in at least one section.
+Perform Script [ “menuTestSection (update and name change from editSectionFocuses)” ]
+If [ Get (FoundCount) = 0 ]
+Set Variable [ $layout ]
+Go to Layout [ “setupTestSection” (testSection) ]
+New Record/Request
+Set Field [ testSection::match; "testSection" ]
+Set Field [ testSection::tag; "section_template" ]
+Set Field [ testSection::tagSpelling; "section_template" ]
+Perform Script [ “menuTestSection (update and name change from editSectionFocuses)” ]
+End If
 Go to Record/Request/Page
 [ First ]
-Perform Script [ “linkTestFocusOrUnlinkTestFocus” ]
-#
-// #Create test item as each test must have at least
-// #one test item.
-// Set Variable [ $$stopLoadTagRecord; Value:1 ]
-// Perform Script [ “menuTestItem” ]
-// Perform Script [ “newTestItemGroup” ]
-// Set Field [ tagMenus::tag; "test item" ]
-// Go to Field [ ]
+Perform Script [ “linkOrUnlinkTestSection (update name change linkTestFocusOrUnlinkTestFocus)” ]
 #
 #Go to selected tag menu window layout.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
@@ -114,19 +109,21 @@ Set Variable [ $$stopLoadTagRecord ]
 Go to Layout [ $layout ]
 #
 #Set variables for new record.
-Select Window [ Name: "setup"; Current file ]
-Set Variable [ $$ID; Value:test::_Ltest ]
+Select Window [ Name: "Test Templates"; Current file ]
+Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
 #
 #Sort records.
-Sort Records [ Specified Sort Order: ruleSection::name; ascending
-groupTest::order; based on value list: “order”
-groupTest::name; ascending
-test::order; based on value list: “order”
-test::testName; ascending ]
+Scroll Window
+[ Home ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+testSubsectionGroup::name; ascending
+testSubsectionTemplate::order; based on value list: “order Pulldown List”
+testSubsectionTemplate::name; ascending ]
 [ Restore; No dialog ]
-Go to Field [ test::testName ]
+Go to Field [ testSubsectionTemplate::name ]
 [ Select/perform ]
 #
 #Start spell check script.
 Set Variable [ $$stopTest ]
-December 9, ଘ౮27 19:29:45 Library.fp7 - newTest -1-
+#

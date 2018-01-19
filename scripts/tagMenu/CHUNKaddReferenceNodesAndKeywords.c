@@ -1,4 +1,4 @@
-reference(citation): CHUNKaddReferenceNodesAndKeywords
+tagMenu: CHUNKaddReferenceNodesAndKeywords
 #
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
@@ -117,7 +117,6 @@ Exit Loop If [ $numberOfNodes = 0 ]
 Set Variable [ $$stopLoadCitation ]
 Go to Layout [ “ltagNK1” (tagMenus) ]
 Enter Find Mode [ ]
-January 7, 平成26 17:32:16 Imagination Quality Management.fp7 - CHUNKaddReferenceNodesAndKeywords -1-reference(citation): CHUNKaddReferenceNodesAndKeywords
 Set Field [ tagMenus::_Ltag; GetValue ( $nodeOther ; $numberOfNodes ) ]
 Perform Find [ ]
 #
@@ -191,4 +190,4 @@ Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$mainKeychain ]
 Close Window [ Current Window ]
 #
-January 7, 平成26 17:32:16 Imagination Quality Management.fp7 - CHUNKaddReferenceNodesAndKeywords -2-
+August 19, ଘ౮28 23:07:00 Library.fp7 - CHUNKaddReferenceNodesAndKeywords -1-

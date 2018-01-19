@@ -1,117 +1,478 @@
+//IMPORTANT: References to related tables are only allowed in Case and If functions in a web viewer, but NOT to display media.  ONLY fields from a layout's table will display media in a web viewer.  Just wanted to make a note of this because it took a lot of tinkering to figure out.
+
+//IMPORTANT: Spaces and quote types are parsed as code in some parts the web viewer!  For example, "<img works, but "< img fails.  Straight quotes " work, but curled quotes “ fail.  NOTE: The base64 code has been tested and works for all listed filetypes below.  Any change in spacing or coding will probably fail some file types, but not others.  
+
+//IMPORTANT: Base64 file size should be kept under 4 MB on slower computers and for best results under 1 MB.  Allowing larger files will just lock up FileMaker while Base64 tries to build the file and show it.  Solution to lock up = crash FileMaker, restart, and reduce file size for displaying container media on the set defaults layout.
+
+//REFERENCES: Found the following web-viewer related references valuable:   1) On showing a container field's content in the web-viewer http://www.filemakergeek.com/blog/2014/5/21/container-field-images-in-the-web-viewer    2) Using 'object' instead of 'img', 'video', etc to identify src type https://www.w3.org/TR/html401/struct/objects.html    3) A nifty open-source pluggin for the web viewer http://www.goya.com.au/baseelements/plugin 4) Base64 mime types for encoding various file formats https://github.com/rapid7/mime-types/tree/master/lib/mime/types 5)  PDF Thumbnails in FileMaker explained/tutorial https://filemakerhacks.com/2015/05/28/pdf-thumbnails-in-filemaker-14/
+
+//Each section of the code below begins with a test.  If passed, then variables are calculated, and something is displayed.  
+
+//-----START
+//———————————————Test
+//———————————————Variables
+//———————————————Display
+//-----END
+
+//If a test fails, then the computer goes to the next test, and so on.
+
+//THIS WEB-VIEWER CAN ...
+//Show FileMaker container-field contents
+//-----START: Show Thumbnail of Image in Container Field
+//-----START: Show Container Field File Info
+//-----START: Show Container Field PDF or Video Media
+
+//Show web media
+//-----START: Show YouTube Web Media
+//-----START: Show Other Web Media Info
+//-----START: Show Other Web Media
+
+//Show hard disk drive (HDD) media
+//-----START: Show HDD Media Info
+//-----START:  Show HDD Media
+
+//CASE BEGIN (figure out what this record has for the web-viewer to show and show it)
 Case (
-tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "jpg"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "gif"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "eps"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "jp2"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "psd"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "png"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "pct"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "pcs"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = ".qt"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "sgi"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "tga"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "tif"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "bmp"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "wmf"
-or tagMenus::pictureFileName3 ≠ "" and Right ( tagMenus::pictureFileName3 ; 3 )  = "emf"
 
-// The web viewer could show PDF image, but it is so small that it provides no useful information other than to put an icon in the viewer.  And since I am not putting icons for all the other types of media like movies, I the rule is no icons at all in this viewer.  The rule is this viewer is for pictures that help the user understand the tag and not the a file attached to the tag.  The next bit is the code neccessary to show a PDF:  or tagsCItationMenus::pictureFileName3 ≠ ""  and  rulePictureMediaLock3::name = "text"
-;
+
+
+//-----START: Show Thumbnail of Image in Container Field
+
+
+//------------------------------Test
+( (
+//-----Picture
+Right ( citationPicture3::picture ; 3 ) = "bmp" or
+//EPS doesn’t work!!! Right ( citationPicture3::picture ; 3 ) = "eps" or
+Right ( citationPicture3::picture ; 3 ) = "gif" or
+Right ( citationPicture3::picture ; 4 ) = "jpeg" or
+Right ( citationPicture3::picture ; 3 ) = "jpg" or
+Right ( citationPicture3::picture ; 3 ) = "png" or
+Right ( citationPicture3::picture ; 3 ) = "psd" or
+Right ( citationPicture3::picture ; 3 ) = "sgi" or
+Right ( citationPicture3::picture ; 3 ) = "tga" or
+Right ( citationPicture3::picture ; 3 ) = "tif" or
+Right ( citationPicture3::picture ; 4 ) = "tiff"
+) = 1  and  citationPicture3::picture ≠ "") and Right ( Get ( FilePath ) ; 3 ) ≠ "fp7" ;
+
+
+//------------------------------Variables
+Let([   
+BACKGROUND_COLOR = "#565e74" ];
+
+
+//------------------------------Display
+"data:text/html," &
+"<html><body  bgcolor=\"" & BACKGROUND_COLOR & "\"  LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"><div  align=\"center\"  >" &
+
+"<img src='data:image/jpg;base64," &
+Base64Encode ( citationPicture3::pictureThumbnail ) & "'/  height=\"100%\"  >" &
+
+"</div></body></html>" ) ;
+
+//-----END
+
+
+
+
+
+
+//-----START: Show Container Field File Info (because file type cannot be displayed by FileMaker, or file is too large, or both)
+
+
+//------------------------------Test
+( (
+//-----Picture
+//EPS images can contain characters that base64 can’t read, so display file name instead of file.
+//Right ( citationPicture3::picture ; 3 ) = "eps" or
+//-----PDF
+Right ( citationPicture3::picture ; 3 ) = "pdf" or
+//-----Video
+Right ( citationPicture3::picture ; 3 ) = "mov" or
+Right ( citationPicture3::picture ; 3 ) = "mp4" or
+Right ( citationPicture3::picture ; 3 ) = "m4v"
+) = 0  and  citationPicture3::picture ≠ "") or  
+citationPicture3::picture ≠ "" and Round ( Length ( citationPicture3::picture ) / 1000000; 2 ) > citationPicture3::PictureFileSizeCalc or
+citationPicture3::picture ≠ "" and Right ( Get ( FilePath ) ; 3 ) = "fp7" ;
+
+
+//------------------------------Variables
 Let([
+//Substitute calc replaces spaces and dashes with an underscore to insure filename stays on one line (the first line).  This insures that the file type, size, and module info will be seen by the user.  
 
-//In webviewer quotes operate differently from regular calc field.  The color hex numbers below have to be in quotes, so this would be the normal way to do that in calc field:
-// If ( citationList::kmedia = "711201118061225" ; Quote ( "#eeeeee" ); Quote ( "#565e74" ) )
-//But in the webviewer calc below is what works.
-//Some PDF files have a transparent background which requires the white #eeeeee in order to show up.  It may be that this color background needs to be set at the category level for white bacground pdf, gifs, and pngs.
+FILE_NAME = Let ( x = Length ( GetValue (  citationPicture3::picture  ; 1 ) ) ;
+Substitute ( Substitute ( Case (
+Middle ( citationPicture3::picture ; x - 3 ; 1 ) = "." ;
+     Left ( citationPicture3::picture ; x - 4 ) ;
+     Left ( citationPicture3::picture ; x - 5 ) ) ; " " ; "_" )  ; "-" ; "_" ) ) ;
 
-Bcolor = "#d7ceb4";
+FILEMAKER_OLDVERSION = Case ( Right ( Get ( FilePath ) ; 3 ) = "fp7" ; "(fp7 can't show container thumbs) " ) ;
 
-//purple "#473c5d"   tan = "#d7ceb4"
+FILE_TYPE = Let ( x = Position ( citationPicture3::picture ; "." ; 1 ; Length ( Filter ( citationPicture3::picture ; "." ) ) ) + 1 ;
+   Middle ( citationPicture3::picture ; x ; 20 ) ) ;
 
-//Only fields from the layout's table will work when it comes to getting data to be used in web viewer.  So I had to create the field below instead of using the related field data which failed to show the picture.
-Picture = tagMenus::pictureFileName3];
+FILE_SIZE = Let ( x = Length ( citationPicture3::picture ) ;
+Case (
+     Round ( x / 1000000; 2 ) < 1 ;
+     Middle ( x ; 1 ;3 )  & " KB";  
+     Round ( x / 1000000; 1 )  & " MB" ) ) ;
 
-"data:text/html,<html>¶
+MODULE =   "(reference)" ;
 
-<body  bgcolor=\"" & Bcolor & "\" LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"  border=\"0\" style=\"border:0;scrolling:no\">¶¶" &
-
-"<div align=\" center\"> <img src=\"" & Picture & "\"  height=\"100% \"  border=\"0\"><br>¶"  &
-"</body>¶
-</html>¶"
-)
-
-;
-
+BACKGROUND_COLOR = "#fff" ];
 
 
+//------------------------------Display
+"data:text/html," &
+"<html><body  bgcolor=\"" & BACKGROUND_COLOR & "\"  LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"><div  align=\"center\"  >" &
+
+FILE_NAME &
+"<br>" &
+FILEMAKER_OLDVERSION &
+FILE_TYPE &
+"<br>" &
+FILE_SIZE &
+"<br>" &
+MODULE &
+
+"</div></body></html>" ) ;
+
+//-----END
 
 
 
-citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "jpg"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "gif"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "eps"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "jp2"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "psd"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "png"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "pct"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "pcs"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = ".qt"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "sgi"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "tga"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "tif"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "bmp"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "wmf"
-or citationPicture3::URL ≠ "" and Right ( citationPicture3::URL ; 3 )  = "emf"
- ;
 
+
+
+//-----START: Show Container Field PDF or Video Media
+
+
+//------------------------------Test
+citationPicture3::picture ≠ "" ;
+
+
+//------------------------------Variables
+Let([   
+FILE_TYPE = Case (
+//-----PDF
+Right ( citationPicture3::picture ; 3 ) = "pdf"; "object data='data:application/pdf" ;
+//-----Video
+Right ( citationPicture3::picture ; 3 ) = "mov"; "video src='data:video/quicktime" ;
+Right ( citationPicture3::picture ; 3 ) = "mp4"; "video src='data:video/mp4" ;
+Right ( citationPicture3::picture ; 3 ) = "m4v"; "video src='data:video/mp4" ;
+"unknown" ) ;  
+
+HEIGHT_WIDTH = Case ( Right ( citationPicture3::picture ; 3 ) = "mp4" or Right ( citationPicture3::picture ; 3 ) = "m4v" or Right ( citationPicture3::picture ; 3 ) = "mov"; "height=\"100%\"" ; Right ( citationPicture3::picture ; 3 ) = "pdf"; "height=\"100%\"  width=\"100%\"" ; "height=\"100%\"" ) ;
+
+//Some PDF files have a transparent background which requires white backround in order to show up.  Video files need a black background.  Color background matching module colors is for image files.  
+
+BACKGROUND_COLOR =  Case( Right ( citationPicture3::picture ; 3 ) = "pdf" ; "#fff" ; Right ( citationPicture3::picture ; 3 ) = "mp4" or Right ( citationPicture3::picture ; 3 ) = "m4v" or Right ( citationPicture3::picture ; 3 ) = "mov"; "#000" ;"#565e74" ) ];
+
+
+//------------------------------Display
+"data:text/html," &
+"<html><body  bgcolor=\"" & BACKGROUND_COLOR & "\"  LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"><div  align=\"center\"  >" &  
+
+"<"& FILE_TYPE &";base64," &
+Base64Encode( citationPicture3::picture )&"'\"  "& HEIGHT_WIDTH &"  controls  >" &
+
+"</div></body></html>" ) ;
+
+//-----END
+
+
+
+
+
+
+//-----START: Show YouTube Web Media
+
+
+//------------------------------Test
+citationPicture3::showMedia[1] ≠ "" and Left ( citationPicture3::URL ; 19 ) = "https://www.youtube" ;  
+
+
+//------------------------------Display
+citationPicture3::URL ;
+
+
+//-----END
+
+
+
+
+
+
+//-----START: Show Other Web Media Info (because file type is unknown)
+
+
+//------------------------------Test
+(
+//-----Picture
+Right ( citationPicture3::URL ; 3 ) = "bmp" or
+//EPS images won’t work in web viewer, so display file name instead of file.
+//Right ( citationPicture3::URL ; 3 ) = "eps" or
+Right ( citationPicture3::URL ; 3 ) = "gif" or
+Right ( citationPicture3::URL ; 4 ) = "jpeg" or
+Right ( citationPicture3::URL ; 3 ) = "jpg" or
+Right ( citationPicture3::URL ; 3 ) = "png" or
+Right ( citationPicture3::URL ; 3 ) = "psd" or
+Right ( citationPicture3::URL ; 3 ) = "sgi" or
+Right ( citationPicture3::URL ; 3 ) = "tga" or
+Right ( citationPicture3::URL ; 3 ) = "tif" or
+Right ( citationPicture3::URL ; 4 ) = "tiff" or
+//-----PDF
+Right ( citationPicture3::URL ; 3 ) = "pdf" or
+//-----Video
+Right ( citationPicture3::URL ; 3 ) = "mov" or
+Right ( citationPicture3::URL ; 3 ) = "mp4" or
+Right ( citationPicture3::URL ; 3 ) = "m4v"
+) = 0 and citationPicture3::showMedia[1] ≠ "" and Left ( citationPicture3::URL ; 19) ≠ "https://www.youtube"
+or citationPicture3::pictureSourceSpeedLimit = 1;  
+
+
+//------------------------------Variables
 Let([
+//Substitute calc replaces spaces and dashes with an underscore to insure filename stays on one line (the first line).  This insures that the file type, size, and module info will be seen by the user.
 
-Fpath = citationPicture3::URL;
+FILE_NAME = Substitute ( Substitute (
+//Get position of file name’s first letter:
+Let ( x = Position ( citationPicture3::URL ; "/" ; 1 ; Length ( Filter ( citationPicture3::URL ; "/" ) ) ) + 1 ;
+//Get position of period after file name’s last letter:
+Let ( y = Position ( citationPicture3::URL ; "." ; 1 ; Length ( Filter ( citationPicture3::URL ; "." ) ) ) ;
+//Get file name (letters between last slash and last period:
+   Middle ( citationPicture3::URL ; x ; y - x ) ) )
+//Remove any spaces in the name to keep the name on one line (FileMaker will wrap name to next line if there is a space):
+; " " ; "_" ) ; "-" ; "_" ) ;
 
-Bcolor = "#d7ceb4"];
+FILE_TYPE = Let ( x = Position ( citationPicture3::URL ; "." ; 1 ; Length ( Filter ( citationPicture3::URL ; "." ) ) ) + 1 ;
+   Middle ( citationPicture3::URL ; x ; 20 ) ) ;
 
-"data:text/html,<html>¶
+FILE_LOCATION = //Check if URL points to the computer or the web:
+Case ( Left ( citationPicture3::URL ; 6 ) = "File:/" ;
+//Computer:
+Let ( p =  citationPicture3::URL ;
+//Get position of last folder name’s initial slash:
+Let ( x = Position ( p ; "/" ; 1 ; Length ( Filter ( p ; "/" ) ) - 1 ) ;
+//Get position of last folder name’s ending slash:
+Let ( y = Position ( p ; "/" ; 1 ; Length ( Filter ( p ; "/" ) ) ) ;
+//Display folder name:
+     "File://... " & Middle ( p ; x ; y - x + 1 ) ) ) ) ;
+//Web:
+Case ( Middle ( citationPicture3::URL ; 8 ; 1 ) = "/" ;
+               Left ( citationPicture3::URL ; 8 ) ;
+               Left ( citationPicture3::URL ; 7 ) ) ) ;
 
-<body  bgcolor=\"" & Bcolor & "\" LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"  border=\"0\" style=\"border:0;scrolling:no\">¶¶" &
+MODULE =   "(reference)" ;
 
-"<div align=\" center\"> <img src=\"" & Fpath & "\"  height=\"100% \"  border=\"0\"><br>¶"  &
-"</body>¶
-</html>¶"
-) ;
+MESSAGE =  "Click the 'web' button to view this file." & "<br>" & "<br>" & "This viewer cannot display " & FILE_TYPE & " files (or webpages). It can display " & "<br>" & "bmp, gif, jpeg, jpg, pdf, mov, mp4, m4v, png, psd, sgi,  tga, tif, tiff files," & "<br>" & "and YouTube videos if you have the software installed to view them." & "<br>" & "<br>" & "NOTE: mov files not supported on Windows PCs.  Convert to mp4." ;
 
+BACKGROUND_COLOR = "#fff" ];
 
 
-TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "jpg"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "gif"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "eps"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "jp2"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "psd"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "png"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "pct"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "pcs"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = ".qt"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "sgi"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "tga"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "tif"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "bmp"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "wmf"
-or TLPicture3::URL ≠ "" and Right ( TLPicture3::URL ; 3 )  = "emf"
-;
+//------------------------------Display
+"data:text/html," &
+"<html><body  bgcolor=\"" & BACKGROUND_COLOR & "\"  LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"><div  align=\"center\"  >" &
 
+FILE_NAME &
+"<br>" &
+FILE_TYPE &
+"<br>" &
+FILE_LOCATION &
+"<br>" &
+MODULE &
+"<br>" &
+"<br>" &
+MESSAGE &
+
+"</div></body></html>" ) ;
+
+//-----END
+
+
+
+
+
+
+//-----START: Show Other Web Media
+
+
+//------------------------------Test
+citationPicture3::showMedia[1] ≠ "" and Left ( citationPicture3::URL ; 19) ≠ "https://www.youtube" ;
+
+
+//------------------------------Variables
 Let([
+//Some PDF files have a transparent background which requires white backround in order to show up.  Video files need a black background.  Color background matching module colors is for image files.  
 
-Fpath = TLPicture3::URL;
+BACKGROUND_COLOR =  Case( Right ( citationPicture3::URL ; 3 ) = "pdf" ; "#fff" ; Right ( citationPicture3::URL ; 3 ) = "mp4" or Right ( citationPicture3::URL ; 3 ) = "m4v" or Right ( citationPicture3::URL ; 3 ) = "mov"; "#000" ;"#565e74" )  ;
 
-Bcolor = "#d7ceb4"];
+HEIGHT_WIDTH = Case ( Right ( citationPicture3::URL ; 3 ) = "mp4" or Right ( citationPicture3::URL ; 3 ) = "m4v" or Right ( citationPicture3::URL ; 3 ) = "mov";  "height=\"100%\"  width=\"100%\""; Right ( citationPicture3::URL ; 3 ) = "pdf"; "height=\"100%\"  width=\"100%\"" ; "height=\"100%\"" ) ;
 
-"data:text/html,<html>¶
+URL = Substitute ( citationPicture3::URL ; " " ; "%20" ) ;
 
-<body  bgcolor=\"" & Bcolor & "\" LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"  border=\"0\" style=\"border:0;scrolling:no\">¶¶" &
+MEDIA_TYPE =
+Case ( Right ( citationPicture3::URL ; 3 ) = "mp4" or Right ( citationPicture3::URL ; 3 ) = "m4v" or Right ( citationPicture3::URL ; 3 ) = "mov";  "video src" ;  
+Right ( citationPicture3::URL ; 3 ) = "pdf"; "object data" ;  "img src" ) ;
 
-"<div align=\" center\"> <img src=\"" & Fpath & "\"  height=\"100% \"  border=\"0\"><br>¶"  &
-"</body>¶
-</html>¶"
-) ;
+CONTROLS = Case ( Right ( citationPicture3::URL ; 3 ) = "mp4" or Right ( citationPicture3::URL ; 3 ) = "m4v" or Right ( citationPicture3::URL ; 3 ) = "mov";  "controls" ; "" ) ];
 
+
+//------------------------------Display
+"data:text/html," &
+"<html><body  bgcolor=\"" & BACKGROUND_COLOR & "\"  LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"><div  align=\"center\"  >" &
+
+     "<"& MEDIA_TYPE &"=\"" & URL & "\"  border=\"0\"  "& HEIGHT_WIDTH &"  "& CONTROLS &" >" &  
+
+"</div></body></html>" ) ;
+
+//-----END
+
+
+
+
+
+//-----START: Show HDD Media Info (because file type cannot be displayed by FileMaker)
+
+
+//------------------------------Test
+(
+//-----Picture
+Right ( citationPicture3::fileName ; 3 ) = "bmp" or
+//EPS images won’t work in web viewer, so display file name instead of file.
+//Right ( citationPicture3::fileName ; 3 ) = "eps" or
+Right ( citationPicture3::fileName ; 3 ) = "gif" or
+Right ( citationPicture3::fileName ; 4 ) = "jpeg" or
+Right ( citationPicture3::fileName ; 3 ) = "jpg" or
+Right ( citationPicture3::fileName ; 3 ) = "png" or
+Right ( citationPicture3::fileName ; 3 ) = "psd" or
+Right ( citationPicture3::fileName ; 3 ) = "sgi" or
+Right ( citationPicture3::fileName ; 3 ) = "tga" or
+Right ( citationPicture3::fileName ; 3 ) = "tif" or
+Right ( citationPicture3::fileName ; 4 ) = "tiff" or
+//-----PDF
+Right ( citationPicture3::fileName ; 3 ) = "pdf" or
+//-----Video
+Right ( citationPicture3::fileName ; 3 ) = "mov" or
+Right ( citationPicture3::fileName ; 3 ) = "mp4" or
+Right ( citationPicture3::fileName ; 3 ) = "m4v"
+) = 0 and citationPicture3::showMedia[2] ≠ "" ;  
+
+
+//------------------------------Variables
+Let([
+//Substitute calc replaces spaces and dashes with an underscore to insure filename stays on one line (the first line).  This insures that the file type, size, and module info will be seen by the user.
+
+FILE_NAME = Substitute ( Substitute (
+//Get position of period after file name’s last letter:
+Let ( y = Position ( citationPicture3::fileName ; "." ; 1 ; Length ( Filter ( citationPicture3::fileName ; "." ) ) ) ;
+//Get file name (letters between last slash and last period:
+   Middle ( citationPicture3::fileName ; 1 ; y - 1 ) )
+//Remove any spaces in the name to keep the name on one line (FileMaker will wrap name to next line if there is a space):
+; " " ; "_" ) ; "-" ; "_" ) ;
+
+FILE_TYPE = Let ( x = Position ( citationPicture3::fileName ; "." ; 1 ; Length ( Filter ( citationPicture3::fileName ; "." ) ) ) + 1 ;
+   Middle ( citationPicture3::fileName ; x ; 20 ) ) ;
+
+FILE_LOCATION = Let ( p =  Case (
+FilterValues ( citationPicture3::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ;  Get ( FilePath ) ;
+
+FilterValues ( citationPicture3::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ; Get ( FilePath ) & "/x/" ;
+
+FilterValues ( citationPicture3::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ; tagPathPicture3_button::tag & "/"  ) ;
+
+//Get position of last folder name’s initial slash:
+Let ( x = Position ( p ; "/" ; 1 ; Length ( Filter ( p ; "/" ) ) - 1 ) ;
+//Get position of last folder name’s ending slash:
+Let ( y = Position ( p ; "/" ; 1 ; Length ( Filter ( p ; "/" ) ) ) ;
+//Display folder name:
+     "File://... " & Middle ( p ; x ; y - x + 1 ) ) ) ) ;
+
+MODULE =   "(reference)" ;
+
+MESSAGE =  "Click the 'folder' button to see this file," & "<br>" & "or click 'file' to open it." & "<br>" & "<br>" & "This viewer cannot display " & FILE_TYPE & " files. It can display" & "<br>" & "bmp, gif, jpeg, jpg, pdf, mov, mp4, m4v, png, psd, sgi,  tga, tif," & "<br>" & "and tiff files if you have the software installed to open them." & "<br>" & "<br>" & "NOTE: mov files not supported on Windows PCs.  Convert to mp4." ;
+
+BACKGROUND_COLOR = "#fff" ];
+
+
+//------------------------------Display
+"data:text/html," &
+"<html><body  bgcolor=\"" & BACKGROUND_COLOR & "\"  LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\"><div  align=\"center\"  >" &
+
+FILE_NAME &
+"<br>" &
+FILE_TYPE &
+"<br>" &
+FILE_LOCATION &
+"<br>" &
+MODULE &
+"<br>" &
+"<br>" &
+MESSAGE &
+
+"</div></body></html>" ) ;
+
+//-----END
+
+
+
+
+
+
+//-----START:  Show HDD Media
+
+
+//------------------------------Test
+citationPicture3::showMedia[2] ≠ "" ;  
+
+
+//------------------------------Variables
+Let([
+FILE_PATH =
+//Get position of first slash = file path info common to both apple and windows computers:
+Let ( x = Position ( Get ( FilePath ) ; "/" ; 1 ; 1 ) ;
+//Get position of last slash = end of file path (or start of filename):
+Let ( y = Position ( Get (FilePath)  ; "/" ; 1 ; Length ( Filter ( Get (FilePath) ; "/" ) ) ) ;
+//Replace spaces with %20 so will show up on both apple and windows computers:
+Substitute (
+//Insure file will display on both apple and windows computers:
+Case ( Get ( SystemPlatform ) =  - 2 ; "file:" ; "file:/" )  &
+//Get file path (three possible paths: Main, X, and Other)
+Case (
+FilterValues ( citationPicture3::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ;
+Middle ( Get ( FilePath ) ; x ; y - x ) ;
+
+FilterValues ( citationPicture3::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ;
+Middle ( Get ( FilePath ) ; x ; y - x ) & "/x" ;
+
+FilterValues ( citationPicture3::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ;
+tagPathPicture3_button::tag )
+//Close out inquiry:
+ ; " " ; "%20" ) & "/" ) );
+
+FILE_NAME = Substitute ( citationPicture3::fileName ; " " ; "%20" ) ;
+
+//Some PDF files have a transparent background which requires white backround in order to show up.  Video files need a black background.  Color background matching module colors is for image files.  
+
+BACKGROUND_COLOR =  Case( Right ( citationPicture3::fileName ; 3 ) = "pdf" ; "#fff" ; Right ( citationPicture3::fileName ; 3 ) = "mp4" or Right ( citationPicture3::fileName ; 3 ) = "m4v" or Right ( citationPicture3::fileName ; 3 ) = "mov"; "#000" ;"#565e74" )  ;
+
+HEIGHT_WIDTH = Case ( Right ( citationPicture3::fileName ; 3 ) = "mp4" or Right ( citationPicture3::fileName ; 3 ) = "m4v" or Right ( citationPicture3::fileName ; 3 ) = "mov";  "height=\"100%\"  width=\"100%\""; Right ( citationPicture3::fileName ; 3 ) = "pdf"; "height=\"100%\"  width=\"100%\"" ; "height=\"100%\"" ) ;
+
+MEDIA_TYPE = Case ( Right ( citationPicture3::fileName ; 3 ) = "mp4" or Right ( citationPicture3::fileName ; 3 ) = "m4v" or Right ( citationPicture3::fileName ; 3 ) = "mov";  "video src" ; Right ( citationPicture3::fileName ; 3 ) = "pdf"; "object data" ;  "img src" ) ;
+
+CONTROLS = Case ( Right ( citationPicture3::fileName ; 3 ) = "mp4" or Right ( citationPicture3::fileName ; 3 ) = "m4v" or Right ( citationPicture3::fileName ; 3 ) = "mov";  "controls" ; "" ) ];
+
+
+//------------------------------Display
+"data:text/html," &
+"<html><body  bgcolor=\"" & BACKGROUND_COLOR & "\"  LeftMargin=\"0\" RightMargin=\"0\" TopMargin=\"0\" BottomMargin=\"0\" ><div  align=\"center\"  >" &
+
+     "<"& MEDIA_TYPE &"=\"" & FILE_PATH & FILE_NAME & "\"  border=\"0\"  "& HEIGHT_WIDTH &"  "& CONTROLS &"  >" &  
+
+"</div></body></html>" ) ;
+
+//-----END
 
 ""   )
+
+//CASE END

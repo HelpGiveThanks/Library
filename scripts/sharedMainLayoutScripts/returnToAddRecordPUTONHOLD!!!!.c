@@ -1,9 +1,10 @@
-sharedMainLayoutScripts: returnToAddRecordPUTONHOLD!!!!
+January 18, 2018 16:04:22 Library.fmp12 - returnToAddRecordPUTONHOLD!!!! -1-
+sharedLayoutScripts: returnToAddRecordPUTONHOLD!!!!
 #
 #I've decided to not continue finishing this script.
 #The idea was if the user navigated away from
 #the record they came into add mode to add to
-#this script would focus back on that record.
+#this script would re-select that record.
 #Part of the reason for this was that in add mode
 #The database was set to just keyword or node
 #in terms of noting the FilterFind field. But that
@@ -22,16 +23,16 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$citationMatch; Value:"node" ]
 #
 #Do not load tag records until the end of script
-#to prevent ﬂashing of window and to speed up
+#to prevent flashing of window and to speed up
 #script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Goto correct layout.
 If [ TEMP::layoutRtagN = "" or TEMP::layoutLtagN = "" ]
 If [ Left (Get (LayoutName) ; 1) = "l" ]
-Go to Layout [ “ltagNK2” (tagMenus) ]
+Go to Layout [ “ltagNK3” (tagMenus) ]
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
+Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
 End If
 #
 Else If [ TEMP::layoutRtagN ≠ "" or TEMP::layoutLtagN ≠ "" ]
@@ -47,24 +48,23 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
-Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #
 #If no records exist then create one.
 If [ Get (FoundCount)=0 ]
-Perform Script [ “newCitationMenuGroup” ]
+Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
 End If
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
+#Sort according to current users wishes.
 If [ TEMP::sortNode = "cat" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortNode = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -79,7 +79,7 @@ End Loop
 #
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 #
 #Just in case user was in nonTag field on this
 #window when user clicked a menu button on
@@ -103,22 +103,21 @@ Else If [ $$addCitationMatch = "key" and $$addCitationMatch ≠ $$CitationMatch 
 Set Variable [ $$citationMatch; Value:"key" ]
 #
 #Do not load tag records until the end of script
-#to prevent ﬂashing of window and to speed up
+#to prevent flashing of window and to speed up
 #script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Goto correct layout.
 If [ TEMP::layoutRtagK = "" or TEMP::layoutLtagK = "" ]
 If [ Left (Get (LayoutName) ; 1) = "l" ]
-Go to Layout [ “ltagNK2” (tagMenus) ]
+Go to Layout [ “ltagNK3” (tagMenus) ]
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
+Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
 End If
 #
 Else If [ TEMP::layoutRtagK ≠ "" or TEMP::layoutLtagK ≠ "" ]
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ TEMP::layoutLtagK ]
-January 7, 平成26 18:07:28 Imagination Quality Management.fp7 - returnToAddRecordPUTONHOLD!!!! -1-sharedMainLayoutScripts: returnToAddRecordPUTONHOLD!!!!
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ TEMP::layoutRtagK ]
 End If
@@ -129,24 +128,23 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
-Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #
 #If no records exist then create one.
 If [ Get (FoundCount)=0 ]
-Perform Script [ “newCitationMenuGroup” ]
+Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
 End If
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
+#Sort according to current users wishes.
 If [ TEMP::sortKey = "cat" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortKey = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -161,7 +159,7 @@ End Loop
 #
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 #
 #Just in case user was in nonTag field on this
 #window when user clicked a menu button on
@@ -193,17 +191,18 @@ Set Variable [ $$citationMatch; Value:"testItem" ]
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
-Set Field [ tagMenus::kGroupOrTest; TEMP::ktestItemList ]
+Set Field [ tagMenus::kGroupOrTest; TEMP::ktestItemSubsection ]
 Perform Find [ ]
 #
 #If no records exist then create one.
 If [ Get (FoundCount)=0 ]
-Perform Script [ “newCitationMenuGroup” ]
+Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
 End If
 #
-Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
-ruleTagMenuTestGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value
+list: “order Pulldown List”
+tagMenuTestItemGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 #
@@ -215,4 +214,3 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 End If
-January 7, 平成26 18:07:28 Imagination Quality Management.fp7 - returnToAddRecordPUTONHOLD!!!! -2-

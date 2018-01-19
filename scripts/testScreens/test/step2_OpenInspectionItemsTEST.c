@@ -1,93 +1,123 @@
-testScreens: test: step2_OpenInspectionItemsTEST
+January 15, 2018 15:05:17 Library.fmp12 - gotoTestSubsections -1-
+test: test: gotoTestSubsections
+#
+#If there is no report number or test subject
+#name, halt the script.
+If [ TEMP::reportNumber = "" ]
+Go to Field [ TEMP::reportNumber ]
+[ Select/perform ]
+Halt Script
+Else If [ testSectionCreatedFromATemplate::name = "" ]
+Halt Script
+End If
+#
 #basic administration tasks
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Set Variable [ $$TSRecordNumber; Value:Get (RecordNumber) ]
 Go to Field [ ]
 #
-If [ TEMP::ksection = "" ]
-Go to Field [ TEMP::ksection ]
-[ Select/perform ]
-Halt Script
-Else If [ TEMP::reportNumber = "" ]
-Go to Field [ TEMP::reportNumber ]
-[ Select/perform ]
-Halt Script
-Else If [ tagTestSubjectLocation::focusName = "" ]
-Halt Script
+#This variable stops the info button's script in
+#the Test and Report sections from opening a
+#Reference window, which is useful in idea
+#libraries to show references of ideas. In a
+#things library, reference records are used as
+#location records and each learn record can
+#have only one location, so showing a Reference
+#window in an inventory library would not be useful.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$doNotOpenReferenceWindow; Value:1 ]
+Else
+Set Variable [ $$doNotOpenReferenceWindow ]
 End If
-Set Field [ TEMP::kdefaultNodeTestSubject; tagTestSubjectLocation::knode ]
-Set Field [ TEMP::DEFAULTNodeTestSubjectName; tagTestSubject::tag ]
-Set Field [ tagTestSubjectLocation::TimeStart; Get ( CurrentTime ) ]
-Set Variable [ $status; Value:tagTestSubjectLocation::inUse ]
+#
+#If test subject is locked, note this by getting
+#the name for display in warning messages.
+If [ testSubjectName::orderOrLock ≠ "" ]
+Set Variable [ $$testSubjectIsLocked; Value:testSubjectName::tag ]
+Set Field [ tempSetup::testSubjectNodeIsLocked; 1 ]
+Else
+Set Variable [ $$testSubjectIsLocked ]
+Set Field [ tempSetup::testSubjectNodeIsLocked; "" ]
+End If
+#
+#Change the default to the selected subject.
+Set Field [ TEMP::kdefaultNodeTestSubject; testSectionCreatedFromATemplate::ktestSubjectNode ]
+Set Field [ TEMP::DEFAULTNodeTestSubjectName; testSubjectName::tag ]
+Set Variable [ $status; Value:testSectionCreatedFromATemplate::inUse ]
 Set Variable [ $$timeRecord; Value:Get ( RecordNumber ) ]
-Set Variable [ $$library; Value:TEMP::ksection ]
+Set Variable [ $$pictureWIndowColor; Value:"test" ]
 #
 #!!!need to go through database and remove all variables like $$reportnumber that are used in mulitple scripts and make it a temp field.
-Set Variable [ $$reportnumber; Value:tagTestSubjectLocation::reportNumber ]
-Set Field [ TEMP::reportNumber; tagTestSubjectLocation::reportNumber ]
-Set Variable [ $$contact; Value:TEMP::kdefaultNodeTestSubject ]
+Set Variable [ $$reportnumber; Value:testSectionCreatedFromATemplate::reportNumber ]
+Set Field [ TEMP::reportNumber; testSectionCreatedFromATemplate::reportNumber ]
+Set Variable [ $$testSubject; Value:TEMP::kdefaultNodeTestSubject ]
 #
 #note general or canned location user identified
-Set Variable [ $$locationName; Value:tagTestSubjectLocation::focusName ]
-Set Field [ TEMP::LocationName; TextStyleAdd ( $$locationName ; Titlecase ) ]
+Set Variable [ $$testSectionName; Value: TextStyleAdd ( testSectionCreatedFromATemplate::name ; Titlecase ) ]
+Set Field [ TEMP::testSubsectionNameForSubject; TextStyleAdd ( $$testSectionName ; Titlecase ) ]
 #
 #note new location ID number and name user created for this specific location in the contact's building
-Set Variable [ $$location; Value:tagTestSubjectLocation::_LtestSubjectLocation ]
-Set Variable [ $$itemLocation; Value:tagTestSubjectLocation::kfocus ]
+Set Variable [ $$testSection; Value:testSectionCreatedFromATemplate::_LtestSection ]
+Set Variable [ $$testSectionTemplate; Value:testSectionCreatedFromATemplate::ksectionTemplate ]
 #
-#Goto no tag layout in Tag Menus as this next
-#main screen is for selection only. It does not
-#show any records that the user might want to
-#tag. I thought about closing the Tag Menus
+#Goto no tag layout in Tag Menus as the test
+#selection screen does not show any records
+#that the user might want to tag.
+#
+#I thought about closing the Tag Menus
 #window, but in testing it was odd, and so better
 #just to keep the window open and show no tags
 #but do change its layout to the look and feel
 #of the layouts the user will see in test mode
 #in the Tag Menus window.
+Select Window [ Name: "Tag Menus"; Current file ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “testMenuNoTag” (TEMP) ]
-Select Window [ Name: "Setup"; Current file ]
+Set Variable [ $$stopLoadTagRecord ]
 #
-Set Field [ TEMP::testerAndsubject; //tagDefaultNodePrimary::tag & " testing " & ¶ & $testsubjectName & "'s"& ¶ & tempSetup::
-sectionName
-//$testsubjectName & ¶ & $$locationName & ¶ & tempSetup::sectionName
-//tempSetup::sectionName & " | " & $testsubjectName
-tempSetup::sectionName & " | " & tagDefaultTestSubject::tag ]
+#Return to main window to complete script.
+Select Window [ Name: "Setup"; Current file ]
+Set Field [ TEMP::testAndReportMainWindowHeader; tempSetup::userLibraryName & " | " & TEMP::
+DEFAULTNodeTestSubjectName ]
 Set Window Title [ Current Window; New Title: "Test" ]
-Go to Layout [ “step3_InspectionItems” (InspectItems) ]
+Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
 Enter Find Mode [ ]
 #
-#now find and show all canned inspection items associated with this generic canned location
-Set Field [ InspectItems::kcfocusALL; $$itemLocation ]
+#Now find and show all canned inspection
+#test-subsections that are part of this test section.
+Set Field [ testSubsectionForSubject::kcsections; $$testSectionTemplate ]
 Perform Find [ ]
 If [ Get ( FoundCount ) = 0 ]
-Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
-Perform Script [ “returnToStep2” ]
-Show Custom Dialog [ Message: "No general inquires have been added to this test section. To add some, 1) click the 'setup'
-button, 2) in the Tag Menus window, click on 'test section', and then 3) add some inquires."; Buttons: “OK” ]
+Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
+Perform Script [ “returnToTestSetup (update name change returnToStep2)” ]
+Show Custom Dialog [ Message: "This test section has no subsections to test. To add some, 1) click 'edit/newtemplate'. 2)
+Select a subsection. 3) In the Tag Menus window, click the button next to this test section to add it. Repeat 2 and 3 to add
+additional subsections."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
-// If [ PatternCount ( Get ( ApplicationVersion ) ; "GO" ) = "GO" ]
-Sort Records [ Specified Sort Order: ruleTestInpsection::name; ascending
-InspectItems::order; based on value list: “order” ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroupForSubject::name; ascending
+testSubsectionForSubject::order; based on value list: “order Pulldown List” ]
 [ Restore; No dialog ]
-Set Field [ InspectItems::glocationNameGlobal; $$locationName ]
-Set Field [ InspectItems::kgaudienceLocation; $$location ]
-Set Field [ InspectItems::gcontactNameGlobal; $$testsubjectName ]
-Set Field [ InspectItems::kgreportNumber; $$reportNumber ]
-Set Field [ InspectItems::kgtester; TEMP::kdefaultNodeTestSubject ]
+Go to Record/Request/Page
+[ First ]
+Set Variable [ $$stopLoadingTestSubSection ]
+Set Field [ testSubsectionForSubject::gtestSectionNameGlobal; $$testSectionName ]
+Set Field [ testSubsectionForSubject::kgtestSection; $$testSection ]
+Set Field [ testSubsectionForSubject::gtestSubjectNameGlobal; $$testsubjectName ]
+Set Field [ testSubsectionForSubject::kgreportNumber; $$reportNumber ]
+Set Field [ testSubsectionForSubject::kgtestSubject; TEMP::kdefaultNodeTestSubject ]
 If [ $status = "" ]
-Set Field [ InspectItems::gprogressGlobal; "status: pending" ]
+Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
 Scroll Window
 [ Home ]
 Exit Script [ ]
 Else If [ $status = "t" ]
-Set Field [ InspectItems::gprogressGlobal; "status: in progress" ]
+Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
 Scroll Window
 [ Home ]
 Exit Script [ ]
 End If
-Set Field [ InspectItems::gprogressGlobal; "status: done" ]
+Set Field [ testSubsectionForSubject::gprogressGlobal; "status: done" ]
 Scroll Window
 [ Home ]
-December 11, ଘ౮27 11:40:16 Library.fp7 - step2_OpenInspectionItemsTEST -1-

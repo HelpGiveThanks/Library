@@ -1,4 +1,5 @@
-learn: finishTestLearnEdit
+January 16, 2018 21:52:16 Library.fmp12 - closeLearnQV -1-
+learn: closeLearnQV
 #
 #Go to reference record layout.
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -7,4 +8,3 @@ Set Variable [ $$stoploadCitation ]
 #
 #Allow add mode.
 Set Variable [ $$stopAdd ]
-January 7, 平成26 17:25:00 Imagination Quality Management.fp7 - finishTestLearnEdit -1-

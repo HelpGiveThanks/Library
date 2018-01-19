@@ -1,27 +1,30 @@
+January 15, 2018 16:40:30 Library.fmp12 - menuReference -1-
 tagMenu: menuReference
 #
-#Use this bit of code to make the default reference
-#point to the internal (Learn) records instead of
-#the external references. Other scripts with code
-#that needs to be turned on: externalReferences,
-// #If library is for inventory then go to container menu.
-// If [ TEMP::InventoryLibaryYN ≠ "" and Get ( LayoutName ) ≠ "learnMenu4STUFFRefCite" ]
-// Set Variable [ $$citationMatch; Value:"ref" ]
-// Perform Script [ “externalReferences” ]
-// Exit Script [ ]
-// End If
 #
-#Clear sample and test tags so there conditional
+#Prevent halting of script.
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+#
+#If user is in tag field and has changed spelling
+#exit this tag record, otherwise current reference record
+#will get deleted by the spelling check script.
+Go to Field [ ]
+#
+#Clear brainstorm and test tags so there conditional
 #formatting in the Learn window is removed.
-If [ $$citationMatch = "sample" or $$citationMatch = "test" ]
+If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
 Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
-Set Variable [ $$tagSample ]
+Set Variable [ $$tagBrainstorm ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 End If
-Sort Records [ Specified Sort Order: testlearn::date; descending
+#
+#Admin tasks.
+Set Error Capture [ On ]
+Allow User Abort [ Off ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 #
@@ -29,6 +32,9 @@ Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"ref" ]
+#
+Set Variable [ $$doNotHaltOtherScripts ]
+#
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
@@ -36,48 +42,93 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #formatting to transparent.
 Set Variable [ $$internal ]
 #
-#Goto correct layout.
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Go to Layout [ “learnMenuRefStuff” (reference) ]
-Else
+#Speed up script by going to layout with no
+#pictures to load.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
-Go to Layout [ “learnMenu3Cite” (reference) ]
-Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ “learnMenu3CiteS” (reference) ]
+Else
+Go to Layout [ “learnMenu3CiteS” (reference) ]
+// Go to Layout [ “learnMenuRefStuff” (reference) ]
+End If
+Else
+If [ TEMP::InventoryLibraryYN = "" ]
 Go to Layout [ “ReferenceMenu3Cite” (reference) ]
+Else
 End If
 End If
 #
-#Find References for this section.
-Set Error Capture [ On ]
-Allow User Abort [ Off ]
+#Find References for the Learn module.
+If [ TEMP::InventoryLibraryYN = "" ]
+#
+#If in idea mode then show only references user
+#has selected to show in the Learn module.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" ]
 Set Field [ reference::showInLearn; "show in learn" ]
-// Set Field [ reference::ktest; TEMP::ktest ]
 Perform Find [ ]
-// Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::knodePrimary: “=” ]
-[ Restore ]
-// Extend Found Set [ Specified Find Requests: Find Records; Criteria: reference::referenceNodes: “*” ]
-[ Restore ]
-// Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::Title: “=” ]
-[ Restore ]
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
-Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+Else
+#
+#If in inventory mode then show all references
+#(except the locked references).
+Show All Records
+#
+#Omit locked records, which are the copyright
+#images used by default copyright tags.
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::lock: “lock” ]
+[ Restore ]
+End If
+#
+#Sort records.
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order
+Pulldown List”
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order
+Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::publicationYearOrStuffOrderNumber; based on value list: “order Pulldown List”
+reference::Title; ascending ]
+[ Restore; No dialog ]
+End If
 #
 #Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
+#
+#If current learn record is tagged with a
+#references, find it.
+If [ Length ( Filter ( $$ref ; "L" ) ) ≠ ValueCount ( $$ref ) ]
 Loop
 Exit Loop If [ FilterValues ( $$ref ; reference::_Lreference ) = reference::_Lreference & ¶ ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
+End If
+#
+#Goto correct layout.
+If [ TEMP::InventoryLibraryYN = "" ]
+If [ TEMP::layoutLtagR = "" ]
+If [ Get (SystemPlatform) = 3 ]
+Go to Layout [ “learnMenu3CiteS” (reference) ]
+Set Field [ TEMP::layoutLtagR; "more" & Get (LayoutName) ]
+Else
+Go to Layout [ “learnMenu3Cite” (reference) ]
+Set Field [ TEMP::layoutLtagR; "less" & Get (LayoutName) ]
+End If
+Else
+Go to Layout [ Middle ( TEMP::layoutLtagR ; 5 ; 42 ) ]
+End If
+Else
+If [ Left (Get (LayoutName) ; 1) = "l" ]
+Go to Layout [ “learnMenuRefStuff” (reference) ]
+Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+End If
+End If
+#
 If [ FilterValues ( $$ref ; reference::_Lreference ) ≠ reference::_Lreference & ¶ ]
 #
 #Decided below was too much help. User can look
@@ -129,4 +180,3 @@ Go to Field [ ]
 End If
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
-December 30, ଘ౮27 11:14:23 Library.fp7 - menuReference -1-

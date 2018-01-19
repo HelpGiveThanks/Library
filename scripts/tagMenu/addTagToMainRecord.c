@@ -1,57 +1,120 @@
-tagMenu: addTagToMainRecord
+January 15, 2018 17:19:27 Library.fmp12 - addORremovePrimaryTag -1-
+tagMenu: addORremovePrimaryTag
 #
+#Admin tasks.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
-// #Due to the fact that users click the add tag button
-// #when they want to find records tagged with a tag,
-// #I'm making it so that users can only add tags in edit mode.
-// If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd ≠ 1 ]
-// Show Custom Dialog [ Message: "Click the edit button in the References window (but not in Learn window) to add/change tags.
-This inconvience was put in place because users kept forgetting to click find before click the P or O buttons."; Buttons: “OK” ]
-// Exit Script [ ]
-// End If
+#This prevents the system trademark tag (not
+#user created) being used improperly.
+If [ tagMenuGroup::_Lgroup = "92020171119521809" and $$RecordID = "" ]
+Show Custom Dialog [ Message: "Trademark tags can only be added to reference records, and then only if if the reference is for
+a trademark, logo, brand, etc."; Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
 #
-// #Because I keep forgetting to press find mode, this
-// #bit of script is to confirm that the user really wants
-// #to add or change the tag of the first record instead of
-// #finding records with selected tag.
-// If [ $$referenceRecordOne = 1 ]
-// Show Custom Dialog [ Message: "Did you mean to ADD this tag to the first record or FIND reference records with this tag?";
-Buttons: “ADD”, “FIND”, “Cancel” ]
-// If [ Get ( LastMessageChoice ) = 2 ]
-// #This variable is needed becasue message choice 2
-// #gets carried over to the Find Mode Script, which then
-// #activates tag instead of reference record find mode.
-// Set Variable [ $$ClearMessageChoice; Value:1 ]
-// Perform Script [ “findMode” ]
-// Else If [ Get ( LastMessageChoice ) = 3 ]
-// Set Variable [ $$referenceRecordOne ]
-// Exit Script [ ]
-// Else If [ Get ( LastMessageChoice ) = 1 ]
-// Set Variable [ $$referenceRecordOne ]
-// End If
-// End If
+#Subsection is locked by its creator node.
+If [ testSectionCreatorLock::orderOrLock ≠ "" ]
+Show Custom Dialog [ Message: "Locked Test tags cannot be added or removed from learn records. Select this record's creator
+node — " & testSectionCreatorLock::tag & " — in the setup window and enter the password to unlock it."; Default Button:
+“OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
+#
+#Brainstorm tag is locked by its creator node.
+If [ tagCreatorLock::orderOrLock ≠ "" and $$citationMatch = "brainstorm" ]
+Show Custom Dialog [ Message: "Locked Brainstorm tags cannot be added or removed from learn records. Select this record's
+creator node — " & $$lockedMainLearnRecord & " — in the setup window and enter the password to unlock it."; Default
+Button: “OK”, Commit: “No” ]
+Halt Script
+End If
+#
+#If main record node is currenlty locked then
+#stop script and inform the user, unless the
+#user altering the key or path tag, which is
+#unique to the user's computer, for a locked
+#reference or learn record.
+If [ $$citationMatch ≠ "path"
+ and
+$$citationMatch ≠ "key"
+ and
+$$citationMatch ≠ "brainstorm"
+ and
+$$citationMatch ≠ "test" ]
+If [ $$lockedMainRefRecord ≠ "" and Left ( Get (LayoutName) ; 1 ) = "r" ]
+Show Custom Dialog [ Message: "Tags cannot be added or removed from locked reference records (EXCEPTIONS — Key
+P and O tags and Path tags). Select this record's creator node — " & $$lockedMainRefRecord & " — in the setup
+window and enter the password to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+Halt Script
+Else If [ $$lockedMainLearnRecord ≠ "" and Left ( Get (LayoutName) ; 1 ) = "l" ]
+Show Custom Dialog [ Message: "Tags cannot be added or removed from locked learn records. EXCEPTIONS — Key (P
+and O), Brainstorm, and Test tags. Select this record's creator node — " & $$lockedMainLearnRecord & " — in the
+setup window and enter the password to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+Halt Script
+End If
+End If
+#
+#If primary node is currenlty locked then stop
+#user from changing the default copyright.
+If [ $$citationMatch = "copyright" ]
+If [ TEMP::primaryNodeIsLocked ≠ "" ]
+Show Custom Dialog [ Message: "The default copyright can be changed once the default primary node — " & TEMP::
+DEFAULTNodePrimaryName & " — is unlocked, or an unlocked node is selected as the primary node."; Default Button:
+“OK”, Commit: “Yes” ]
+Halt Script
+Else If [ TEMP::primaryNodesCreatorNodeIsLocked ≠ "" ]
+Show Custom Dialog [ Message: "The default copyright can be changed once the creator — " & TEMP::
+primaryNodesCreatorNodeIsLocked & " — of the default primary node — " & TEMP::DEFAULTNodePrimaryName & "
+— is unlocked, or an unlocked node is selected as the primary node."; Default Button: “OK”, Commit: “Yes” ]
+Halt Script
+End If
+End If
 #
 #
-#This script adds tags to main reference or learn
-#primary tag fields, and a chunk of it adds section
-#keys found in the learn or reference record to
-#the keyword or node tag group of the tag just
-#added, to insure that this tag shows up in every
-#section in which the record it tagged shows up.
-#There may be sections where this keyword or
-#node tag shows up, and this newly tagged
-#reference or learn record does not, which is OK.
-#Reference and learn records do not require all
-#the section keys the added tag has.
+#Reference Section Only
+#Because I keep forgetting to press find mode, this
+#bit of script is to confirm that the user really wants
+#to add or change the tag of the first record instead of
+#finding records with selected tag.
+If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd ≠ 1 ]
+If [ //Primary node and key match
+tagMenus::_Ltag = $$citationitem and $$citationMatch = "node"
+or
+tagMenus::_Ltag = $$citationitem and $$citationMatch = "key"
+or
+//Other tags match
+tagMenus::_Ltag = $$citationitem and $$citationMatch = "copyright"
+or
+tagMenus::_Ltag = $$citationitem and $$citationMatch = "publication"
+or
+tagMenus::_Ltag = $$citationitem and $$citationMatch = "path"
+or
+tagMenus::_Ltag = $$citationitem and $$citationMatch = "publisher" ]
+Show Custom Dialog [ Message: "Remove Tag?" & ¶ &
+"OR " & ¶ &
+"Find references tagged with it?"; Default Button: “remove”, Commit: “Yes”; Button 2: “find”, Commit: “No”; Button 3:
+“cancel”, Commit: “No” ]
+Else
+Show Custom Dialog [ Message: "Add Tag?" & ¶ &
+"OR " & ¶ &
+"Find references tagged with it?"; Default Button: “add”, Commit: “Yes”; Button 2: “find”, Commit: “No”; Button 3:
+“cancel”, Commit: “No” ]
+End If
+If [ Get ( LastMessageChoice ) = 2 ]
+#This variable is needed becasue message choice 2
+#gets carried over to the Find Mode Script, which then
+#activates tag instead of reference record find mode.
+Set Variable [ $$ClearMessageChoice; Value:1 ]
+Perform Script [ “findMode (update)” ]
+Exit Script [ ]
+Else If [ Get ( LastMessageChoice ) = 3 ]
+Set Variable [ $$referenceRecordOne ]
+Exit Script [ ]
+Else If [ Get ( LastMessageChoice ) = 1 ]
+Set Variable [ $$referenceRecordOne ]
+End If
+End If
 #
-#NOTE: Most of these tags except keyword and node
-#tags are universal, and so there are no section keys
-#to add to them. In the case of sample and test
-#tags, because these tags are section specific, there
-#is no reason to add keys from other sections to
-#them.
 #
 If [ $$stopAddTagToCitation = 1 ]
 Exit Script [ ]
@@ -63,38 +126,26 @@ End If
 If [ $$add = 1 and $$citationMatch = "testSetup" ]
 Show Custom Dialog [ Message: "You cannot tag reference records with item tags. So why then are there buttons? The buttons
 show up because I have not made time to create a separate layout just for item tags. This issue has been logged as a minor
-irritation."; Buttons: “OK” ]
+irritation."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
-// #Stop script if user trying to add reference or learn record
-// #that has references or citations added to it.
-// #In the future this will be possible, but for now I need
-// #to focus on other things to get the beta released.
-// If [ reference::_Lreference ≠ $$cite ]
-// If [ testlearn::kcitation ≠ "" or testlearn::kcreference ≠ "" or reference::kcitation ≠ "" ]
-// Show Custom Dialog [ Message: "For now, you cannot use a record that has its own citation or references added to it as a
-citation or reference for another record. This is a known issue, and in a future release it will be resolved. "; Buttons:
-“OK” ]
-// Exit Script [ ]
-// End If
-// End If
 #
 #
+#Set key word if need to re-sort after
+#editing is completed (used in
+#finishReferenceEdit script).
+If [ $$citationMatch = "key" ]
+Set Variable [ $$primaryKeyWord; Value:$$citationItem ]
+End If
 #
-#If reference or learn record that tag was added
-#to belongs to more than one section, then
-#add these other sections to the tag's group
-#keychain so when this tag record is viewed in
-#those sections, the reference or learn record
-#just added to it will show up as well.
-If [ Get ( LayoutTableName ) = "testlearn" or Get ( LayoutTableName ) = "reference" ]
-Perform Script [ “CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain” ]
+#
 #
 #Check main checkbox if record is not already
 #a main record. This is because when going to
 #edit cite or reference records, only main records
 #are shown by default.
+If [ Get ( LayoutTableName ) = "testlearn" or Get ( LayoutTableName ) = "reference" ]
 If [ "main" & ¶ ≠ FilterValues ( testlearn::filterFind ; "main" & ¶ ) and Get ( LayoutTableName ) = "testlearn" ]
 Set Variable [ $filterFind; Value:testlearn::filterFind ]
 Set Field [ testlearn::filterFind; "main" & ¶ & $filterFind ]
@@ -102,9 +153,6 @@ Else If [ "main" & ¶ ≠ FilterValues ( reference::filterFind ; "main" & ¶ ) a
 Set Variable [ $filterFind; Value:reference::filterFind ]
 Set Field [ reference::filterFind; "main" & ¶ & $filterFind ]
 End If
-#
-Else If [ 1 = 1 ]
-Perform Script [ “CHUNKaddMainSectionKeysToTagRecordKeychain” ]
 End If
 #
 #Set variable to note table name in case tag is from
@@ -116,15 +164,15 @@ Set Variable [ $tableName; Value:Get ( LayoutTableName ) ]
 #
 #Get key for tag that is to be added to record.
 If [ Right ( Get (LayoutName) ; 4 ) = "test" ]
-Set Variable [ $tag; Value:test::_Ltest ]
-Set Variable [ $tagName; Value:ruleSection::name ]
+Set Variable [ $tag; Value:testSubsectionTemplate::_LtestSubsection ]
+Set Variable [ $tagName; Value:testSubsectionTemplate::name ]
 Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" ]
 Set Variable [ $tag; Value:reference::_Lreference ]
 Else If [ Right ( Get (LayoutName) ; 7 ) = "refcite" ]
 Set Variable [ $tag; Value:testlearn::_Ltestlearn ]
 Else If [ Right ( Get (LayoutName) ; 8 ) = "sections" ]
-Set Variable [ $tag; Value:ruleSection::_Lgroup ]
-Set Variable [ $tagName; Value:ruleSection::name ]
+Set Variable [ $tag; Value:testSubsectionLibraryName::_Lgroup ]
+Set Variable [ $tagName; Value:testSubsectionLibraryName::name ]
 #
 #Stop check spelling script as this script is triggered
 #on section layout by record load trigger, and
@@ -132,16 +180,42 @@ Set Variable [ $tagName; Value:ruleSection::name ]
 Set Variable [ $$stopChangeSectionName; Value:1 ]
 Else If [ Right ( Get (LayoutName) ; 4 ) ≠ "cite" ]
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
+#
+#If a node tag is being added in the setup
+#window this lock variable will be essential
+#below when this primary node is set as the
+#default node for the library. Locked nodes set
+#as default primary node turn off the users
+#ability to create new records with this locked
+#node.
+If [ $$createNewPrimary ≠ 1 ]
 Set Variable [ $lock; Value:tagMenus::orderOrLock ]
 End If
 #
-#Remove focus from field so can see
+#Also need to know the node's name to
+#populate the primary node name field
+#if necessary.
+Set Variable [ $nodeName; Value:tagMenus::tag ]
+#
+#Also need to know the node's creator in case it
+#is locked, so this node can also be locked.
+Set Variable [ $nodescreatorKey; Value:tagMenus::kRecordCreatorNode ]
+Set Variable [ $nodescreatorName; Value:tagCreatorLock::tag ]
+End If
+#
+#Leave field user so can see
 #conditional formatting.
 Go to Field [ ]
 #
-#If removing a discovery record, the database
-#will jump to the next records tag menu selection.
-#So to keep the users focus on the tag they orginally
+#Turn off the T scripts variable once the
+#user selects or unselects a tag. This variable
+#is set when the user navigates to a reference
+#field that is blank and triggers a Tag Menu script.
+Set Variable [ $$TgotoCitationMenuWithBlankField ]
+#
+#If removing a test result record, the database
+#will jump to the next record's tag menu selection.
+#So to keep the library on the tag orginally
 #selected, the system must record this record's
 #number now. This will be be used below
 #for test records only.
@@ -152,7 +226,7 @@ If [ Right ( Get (LayoutName) ; 4 ) ≠ "cite" ]
 Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]
 Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" ]
 Set Variable [ $$citationItem; Value:reference::_Lreference ]
-Set Variable [ $citeHealth; Value:reference::kHealth ]
+Set Variable [ $citeCopyright; Value:reference::kCopyright ]
 Set Variable [ $citeCopyrightDate; Value:reference::CopyrightYear ]
 Set Variable [ $citekeywordOther; Value:reference::kkeywordOther ]
 Set Variable [ $citekeywordOtherWords; Value:reference::OtherKeyWords ]
@@ -166,29 +240,39 @@ Set Variable [ $URL; Value:reference::URL ]
 Set Variable [ $URLdate; Value:reference::URLdate ]
 Else If [ Right ( Get (LayoutName) ; 7 ) = "refcite" ]
 Set Variable [ $$citationItem; Value:testlearn::_Ltestlearn ]
-Set Variable [ $citeHealth; Value:testlearn::kHealth ]
-Set Variable [ $citeCopyrightDate; Value:testlearn::copyrightYear ]
+Set Variable [ $citeCopyright; Value:testlearn::kcopyright ]
 Set Variable [ $citekeywordOther; Value:testlearn::kcKeywordOther ]
 Set Variable [ $citekeywordOtherWords; Value:testlearn::OtherKeyWords ]
 Set Variable [ $citekeywordPrimary; Value:testlearn::kKeywordPrimary ]
 End If
 #
-// New Window [ Name: "Add Tag" ]
+// New Window [ Name: "Add Tag"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”;
+Resize: “Yes” ]
 #
 #Select reference, learn, or setup window.
 Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
 Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) = 112 ]
-Select Window [ Name: "Setup"; Current file ]
+#
+#
+#
+#BEGIN — SETUP WINDOW
+#
+#
+#
+// Select Window [ Name: "Setup"; Current file ]
 #
 #Check which tag user is looking at and then...
 If [ $$citationMatch = "node" ]
 #
-#If primary node is in use, then remove it.
+#If primary node is in use, then remove it,
+#and its creators key.
 If [ tempSetup::kdefaultNodePrimary = $tag ]
 Set Field [ tempSetup::kdefaultNodePrimary; "" ]
 Set Field [ tempSetup::DEFAULTNodePrimaryName; "" ]
+Set Field [ tempSetup::kdefaultNodePrimaryCreator; "" ]
+Set Field [ tempSetup::primaryNodesCreatorNodeIsLocked; "" ]
 #
 #Finish removing the key.
 Set Variable [ $$citationItem ]
@@ -200,8 +284,25 @@ Set Variable [ $$PrimaryNode ]
 #preventing the same node showing up twice.
 Else If [ tempSetup::kdefaultNodePrimary ≠ $tag ]
 Set Field [ tempSetup::kdefaultNodePrimary; $tag ]
-Set Field [ tempSetup::nodeLock; $lock ]
-Set Field [ tempSetup::DEFAULTNodePrimaryName; tagDefaultNodePrimary::tag ]
+Set Field [ tempSetup::DEFAULTNodePrimaryName; $nodeName ]
+#
+#Also add the key for its creator node, as if it is
+#locked, this primary node also needs to be locked.
+Set Field [ tempSetup::kdefaultNodePrimaryCreator; $nodescreatorKey ]
+If [ primaryNodesCreatorLock::orderOrLock ≠ "" ]
+Set Field [ tempSetup::primaryNodesCreatorNodeIsLocked; $nodescreatorName ]
+Else
+Set Field [ tempSetup::primaryNodesCreatorNodeIsLocked; "" ]
+End If
+#
+#Lock creation of new records if this node is
+#locked using the script
+#stopNewRecordsBeingCreatedByLockedNode.
+If [ $lock ≠ "" ]
+Set Field [ tempSetup::primaryNodeIsLocked; $lock ]
+Else
+Set Field [ tempSetup::primaryNodeIsLocked; "" ]
+End If
 Set Variable [ $$node; Value:tempSetup::kdefaultNodeOther ]
 Set Field [ tempSetup::kdefaultNodeOther; //last item in list has no paragraph mark, so a valuecount test needs to
 be done and if item is not removed, then the removal calc without the paragraph mark is used
@@ -217,51 +318,53 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveTagFromCitationStep2node” ]
+Perform Script [ “addORremoveOtherTagStep2_node (update name addORremoveTagFromCitationStep2node)” ]
 Close Window [ Name: "reorder"; Current file ]
+#
 Exit Script [ ]
 End If
 #
-Else If [ $$citationMatch = "health" ]
-If [ tempSetup::kdefaultHealth = $tag ]
-Set Field [ tempSetup::kdefaultHealth; "" ]
+Else If [ $$citationMatch = "copyright" ]
+If [ tempSetup::kdefaultCopyright = $tag ]
+Set Field [ tempSetup::kdefaultCopyright; "" ]
 Set Variable [ $$citationItem ]
-Set Variable [ $$health ]
+Set Variable [ $$copyright ]
 Refresh Window
 #
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 Exit Script [ ]
-Else If [ testlearn::kHealth ≠ $tag ]
-Set Variable [ $$health; Value:tempSetup::kdefaultHealth ]
-Set Field [ tempSetup::kdefaultHealth; $tag ]
+Else If [ testlearn::kcopyright ≠ $tag ]
+Set Variable [ $$copyright; Value:tempSetup::kdefaultCopyright ]
+Set Field [ tempSetup::kdefaultCopyright; $tag ]
 Refresh Window
 #
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
+#
+#Update pimary node with this new copyright
+#information, so its test section, subsection,
+#and item records will reflect this copyright
+#selection. If the primary node is not selected
+#that is OK because the copyright tag will be
+#added when it is selected.
+If [ TEMP::kdefaultNodePrimary ≠ "" ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”;
+Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+Enter Find Mode [ ]
+Set Field [ tagMenus::_Ltag; TEMP::kdefaultNodePrimary ]
+Perform Find [ ]
+Set Field [ tagMenus::notesOrCopyright; $tag ]
+Close Window [ Current Window ]
+Set Variable [ $$stopLoadTagRecord ]
+End If
+Show Custom Dialog [ Message: "The default node's copyright has been updated to match the library's default
+copyright."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
-#
-#Since sections are required, the deselect script
-#steps are not needed. When the user clicks on
-#a new record on the section layout this script
-#is triggered and that section set as the default
-#section.
-Else If [ $$citationMatch = "section" ]
-Set Field [ tempSetup::ksection; $tag ]
-Set Field [ tempSetup::sectionName; $tagName ]
-Refresh Window
-#
-#goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current file ]
-Refresh Window
-#
-#Allow duplicate tag check script to operate.
-Set Variable [ $$stopChangeSectionName ]
-Exit Script [ ]
-#
 End If
 #
 #Record must be committed if user decides to
@@ -277,11 +380,15 @@ Set Variable [ $$stoploadCitation ]
 #
 #
 #
+#END — SETUP WINDOW
+#
+#
+#
+#BEGIN — LEARN WINDOW
+#
 #
 #
 Else If [ Get (LastError) ≠ 112 ]
-#
-#
 #
 #
 #
@@ -316,116 +423,21 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveTagFromCitationStep2node” ]
+Perform Script [ “addORremoveOtherTagStep2_node (update name addORremoveTagFromCitationStep2node)” ]
 Close Window [ Name: "reorder"; Current file ]
+Set Variable [ $$stopLoadTagRecord ]
+#
 Exit Script [ ]
 End If
 #
-Else If [ $$citationMatch = "medium" ]
-If [ testlearn::kmedium = $tag ]
-Set Field [ testlearn::kmedium; "" ]
+Else If [ $$citationMatch = "copyright" ]
+If [ testlearn::kcopyright = $tag ]
+Set Field [ testlearn::kcopyright; "" ]
 Set Variable [ $$citationItem ]
-Set Variable [ $$medium ]
-Else If [ testlearn::kmedium ≠ $tag ]
-Set Field [ testlearn::kmedium; $tag ]
-Set Variable [ $$medium; Value:$tag ]
-End If
-#
-Else If [ $$citationMatch = "ref" ]
-If [ testlearn::kcreference= $tag ]
-Set Field [ testlearn::kcreference; "" ]
-Set Variable [ $$citationItem ]
-Set Variable [ $$ref ]
-Else If [ testlearn::kcreference ≠ $tag ]
-Set Field [ testlearn::kcreference; $tag ]
-Set Variable [ $$ref; Value:testlearn::kcreference ]
-Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
-End If
-#
-Else If [ $$citationMatch = "health" ]
-If [ testlearn::kHealth = $tag ]
-Set Field [ testlearn::kHealth; "" ]
-Set Variable [ $$citationItem ]
-Set Variable [ $$health ]
-Else If [ testlearn::kHealth ≠ $tag ]
-Set Field [ testlearn::kHealth; $tag ]
-Set Variable [ $$health; Value:testlearn::kHealth ]
-End If
-#
-Else If [ $$citationMatch = "path" ]
-If [ testlearn::kfolderPath = $tag ]
-Set Field [ testlearn::kfolderPath; "" ]
-Set Variable [ $$citationItem ]
-Set Variable [ $$Path ]
-Else If [ testlearn::kfolderPath ≠ $tag ]
-Set Field [ testlearn::kfolderPath; $tag ]
-Set Variable [ $$Path; Value:testlearn::kfolderPath ]
-End If
-#
-Else If [ $$citationMatch = "cite" ]
-If [ Case ( $tableName = "testLearn" ; testlearn::kcitation = $tag & "L" ; testlearn::kcitation = $tag ) ]
-Set Field [ testlearn::kcitation; "" ]
-#
-// #Ask user if OK to remove keywords.
-// Show Custom Dialog [ Message: "Use the citation record's keywords? (This will replace this records keywords if
-there are any.)"; Buttons: “cancel”, “OK” ]
-// If [ Get ( LastMessageChoice ) = 2 ]
-// End If
-// Set Field [ testlearn::kHealth; "" ]
-// Set Field [ testlearn::copyrightYear; "" ]
-// Set Field [ testlearn::kKeywordPrimary; "" ]
-// Set Field [ testlearn::kcKeywordOther; "" ]
-// Set Field [ testlearn::OtherKeyWords; "" ]
-// #
-// Set Field [ testlearn::filename; "" ]
-// Set Field [ testlearn::kfileLocation; "" ]
-// Set Field [ testlearn::kfolderPath; "" ]
-// Set Field [ testlearn::kmedium; "" ]
-// Set Field [ testlearn::URL; "" ]
-// Set Field [ testlearn::URLPubDate; "" ]
-#
-Set Variable [ $$citationItem ]
-Set Variable [ $$cite ]
-// Set Variable [ $citeHealth ]
-// Set Variable [ $citeCopyrightYear ]
-// Set Variable [ $citekeywordOther ]
-// Set Variable [ $citekeywordOtherWords ]
-// Set Variable [ $citekeywordPrimary ]
-#The 'L' allows system to learn and reference records apart.
-Else If [ testlearn::kcitation & "L" ≠ $tag ]
-Set Field [ testlearn::kcitation; Case ( $tableName = "testLearn" ; $tag & "L" ; $tag ) ]
-Set Variable [ $$cite; Value:Case ( $tableName = "testLearn" ; $tag & "L" ; $tag ) ]
-Refresh Window
-#
-#Ask user if OK to replace keywords.
-Select Window [ Name: "Tag Menus"; Current file ]
-Show Custom Dialog [ Message: "Use citation record's keywords: " &
-//KEYWORDS
-Case ( tagKeywordPrimary::tag = "" ; "" ; tagKeywordPrimary::tag ; Bold & ", " ) &
-reference::OtherKeyWords &
-"? (This will replace keywords for this record, if there are any.)"; Buttons: “no”, “yes” ]
-Select Window [ Name: "Learn"; Current file ]
-If [ Get ( LastMessageChoice ) = 2 ]
-Set Field [ testlearn::kKeywordPrimary; $citekeywordPrimary ]
-Set Field [ testlearn::kcKeywordOther; $citekeywordOther ]
-Set Field [ testlearn::OtherKeyWords; $citekeywordOtherWords ]
-End If
-#
-#Health should blank and take copyright of cited record.
-Set Field [ testlearn::kHealth; "" ]
-#
-#Decided that user needs to go to tag window to get
-#link info, because if changed, it will not change here
-#because these items not linked to citation record.
-// Set Field [ testlearn::copyrightYear; $citeCopyrightDate ]
-// Set Field [ testlearn::filename; $filename ]
-// Set Field [ testlearn::kfileLocation; $fileLocation ]
-// Set Field [ testlearn::kfolderPath; $folderpath ]
-// Set Field [ testlearn::kmedium; $medium ]
-// Set Field [ testlearn::URL; $URL ]
-// Set Field [ testlearn::URLPubDate; $URLdate ]
-Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+Set Variable [ $$copyright ]
+Else If [ testlearn::kcopyright ≠ $tag ]
+Set Field [ testlearn::kcopyright; $tag ]
+Set Variable [ $$copyright; Value:testlearn::kcopyright ]
 End If
 #
 Else If [ $$citationMatch = "key" ]
@@ -449,59 +461,126 @@ Substitute ( $$key ; $$citationItem & "¶" ; "" ) ;
 Substitute ( $$key ; $$citationItem ; "" )
 ) ]
 Set Variable [ $$key; Value:testlearn::kcKeywordOther ]
+Set Variable [ $$PrimaryKey; Value:$tag ]
 Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #
 #Record must be committed if user decides to
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveTagFromCitationStep2keyword” ]
+Perform Script [ “addORremoveOtherTagStep2_keyword (update name
+addORremoveTagFromCitationStep2keyword)” ]
+#
 Exit Script [ ]
 End If
 #
 Else If [ $$citationMatch = "test" ]
 #
-#
-#If test item is in use, then remove it.
-#
-#But first determine if it is a discovery record.
-#Because discovery records are created in the
-#test module, and then end up here via the
-#info check box on the discovery tag menu, these
-#records only reason for showing up here in the
-#learn module is because of this link. Once
-#the user clears this link, the record will be omitted
-#and so to not surprise the user with this omission,
-#a warning is given to both inform and allow
-#the user to cancel clearing this link.
-If [ testlearn::ktest ≠ "" and GetValue ( testlearn::kctest ; 2 ) = "" ]
-Show Custom Dialog [ Message: "This discovery record will be removed from this section of your database: learn
-section. It will still be available in the " & TEMP::sectionName & " test section as a discovery record for " &
-TEMP::testName & ", report " & testlearn::kreportNumber & "."; Buttons: “OK”, “Cancel” ]
-If [ Get ( LastMessageChoice ) = 2 ]
-Select Window [ Name: "Tag Menus"; Current file ]
-Refresh Window
-Exit Script [ ]
-End If
-End If
+#If test tag is in use, then remove it.
 Set Variable [ $number; Value:1 ]
 Loop
-If [ FilterValues ( Middle ( GetValue ( testlearn::kctest ; $number ) ; 4 ; 42 ) ; $tag & "¶" ) = $tag & ¶ ]
-Set Field [ testlearn::kctest; Substitute ( $$test ; GetValue ( testlearn::kctest ; $number ) & "¶" ; "" ) ]
-Set Field [ testlearn::orderTest; "" ]
+If [ Case ( Left ( testlearn::kctestSubsectionInfo ; 2 ) = "00" ;
+//If there two zeros in front of the order number, get the key using this calculation:
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; $number ) ; 4 ; 999 ) ; $tag & "¶" ) = $tag
+& ¶ ;
+//If there is only one zero in front of the order number, get the key using this calculation:
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; $number ) ; 3 ; 999 ) ; $tag & "¶" ) = $tag
+& ¶
+) ]
 #
-#If as discussed above this is a discovery record,
-#clear the filterfind field to prevent it from being
-#part of the learn record set and then omit it.
-If [ testlearn::ktest ≠ "" and testlearn::kctest = "" ]
-Set Field [ testlearn::filterFind; "" ]
-Omit Record
-End If
-Set Variable [ $$test; Value:testlearn::kctest ]
+#
+#Check if Learn record is in use
+#on any reports.
+Set Variable [ $$stoploadCitation; Value:1 ]
+New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”;
+Resize: “Yes” ]
+Go to Layout [ “tableReport” (report) ]
+Set Variable [ $$stoploadCitation ]
+#
+#See if any picture 1 slots use
+#this Learn record,
+Enter Find Mode [ ]
+Set Field [ report::ktestSubsection; $tag ]
+Set Field [ report::kTag1; $$main ]
+Perform Find [ ]
+#Or picture 2 slots,
+Enter Find Mode [ ]
+Set Field [ report::ktestSubsection; $tag ]
+Set Field [ report::kTag2; $$main ]
+Extend Found Set [ ]
+#Or picture 3 slots,
+Enter Find Mode [ ]
+Set Field [ report::ktestSubsection; $tag ]
+Set Field [ report::kTag3; $$main ]
+Extend Found Set [ ]
+#Or picture 4 slots.
+Enter Find Mode [ ]
+Set Field [ report::ktestSubsection; $tag ]
+Set Field [ report::kTag4; $$main ]
+Extend Found Set [ ]
+#
+#If this record is in use on a report, this test
+#tag cannot be removed until it is removed
+#from these found reports. Tell the user this.
+If [ Get (FoundCount) > 0 ]
+Go to Layout [ “TEMP” (TEMP) ]
+Show All Records
+Delete All Records
+[ No dialog ]
+#
+Go to Layout [ “tableReport” (report) ]
+Loop
+Set Variable [ $useList; Value:ReportTestSubject::tag &
+" | report " &
+TextColor( TextStyleAdd ( report::kreportNumber; "" ) ;RGB(0;0;0)) &
+¶ &
+"sub-section >> " & TextColor( TextStyleAdd ( reportSubsection::name; "" ) ;RGB(0;0;0)) ]
+Go to Layout [ “TEMP” (TEMP) ]
+New Record/Request
+Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
+Go to Layout [ “tableReport” (report) ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+#
+Go to Layout [ “TEMP” (TEMP) ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::
+DeleteMessageInTempWindow1; ascending ]
+[ Restore; No dialog ]
+View As
+[ View as List ]
+#
+#Due to a bug in FM13, window must first be
+#moved back into the screen area before the
+#calculation of the current screen's
+#dimensions can be taken.
+Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
+Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get
+( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+Set Field [ TEMP::Message; "This Learn record is linked to sub-sections on the reports shown below,
+and must be unlinked from all them to unlink it from this test tag." ]
+Pause/Resume Script [ Indefinitely ]
+Close Window [ Current Window ]
+#
+#
+Set Variable [ $number; Value:"exit" ]
+#
+#Remove tag if Learn record is not in use on
+#any reports.
+Else
+Close Window [ Current Window ]
+Set Field [ testlearn::kctestSubsectionInfo; Substitute ( $$test ; GetValue ( testlearn::
+kctestSubsectionInfo ; $number ) & "¶" ; "" ) ]
+Set Field [ testlearn::orderTestInformation; "" ]
+#
+#
+Set Variable [ $$test; Value:testlearn::kctestSubsectionInfo ]
 Set Variable [ $$citationItem ]
 Set Variable [ $number; Value:"exit" ]
 End If
-Exit Loop If [ GetValue ( testlearn::kctest ; $number ) = "" ]
+End If
+Exit Loop If [ GetValue ( testlearn::kctestSubsectionInfo ; $number ) = "" //$number = exit will turn up a blank and
+so exit this loop. ]
 Exit Loop If [ $number = "" ]
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
@@ -511,10 +590,17 @@ End Loop
 If [ $number ≠ "exit" ]
 Set Variable [ $number; Value:1 ]
 Loop
-If [ FilterValues ( Middle ( GetValue ( testlearn::kctest ; $number ) ; 4 ; 42 ) ; $$test & "¶" ) ≠ $tag & ¶ ]
-Set Field [ testlearn::kctest; "100" & $tag & ¶ & $$test ]
-Set Field [ testlearn::orderTest; "100" ]
-Set Variable [ $$test; Value:testlearn::kctest ]
+If [ Case ( Left ( testlearn::kctestSubsectionInfo ; 2 ) = "00" ;
+//If there two zeros in front of the order number, get the key using this calculation:
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; $number ) ; 4 ; 999 ) ; $$test & "¶" ) ≠
+$tag & ¶ ;
+//If there is only one zero in front of the order number, get the key using this calculation:
+FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; $number ) ; 3 ; 999 ) ; $$test & "¶" ) ≠
+$tag & ¶
+) ]
+Set Field [ testlearn::kctestSubsectionInfo; "001" & $tag & ¶ & $$test ]
+Set Field [ testlearn::orderTestInformation; "001" ]
+Set Variable [ $$test; Value:testlearn::kctestSubsectionInfo ]
 Set Variable [ $number ]
 #
 #Record must be committed if user decides to
@@ -522,36 +608,37 @@ Set Variable [ $number ]
 #perform a find requiring the newly added key.
 Commit Records/Requests
 End If
-Exit Loop If [ FilterValues ( Middle ( GetValue ( testlearn::kctest ; $number ) ; 4 ; 42 ) ; $$test & "¶" ) = "" ]
+Exit Loop If [ FilterValues ( Middle ( GetValue ( testlearn::kctestSubsectionInfo ; $number ) ; 4 ; 42 ) ; $$test &
+"¶" ) = "" ]
 Exit Loop If [ $number = "" ]
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
 End Loop
 #
-#If the system is currently sorting test records
-#by order number, then give this newly tagged
-#record the number 100, and then sort it the records
-#so that it shows up as part of the current tag's
-#record set.
-Set Field [ testlearn::orderTest; "100" ]
+#Give this newly tagged record the order
+#number 001, and then sort all records
+#so that it shows up as part of the current
+#test tag's record set.
+Set Field [ testlearn::orderTestInformation; "001" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “sortTLRecordsByOrderNumber” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from
+sortTLRecordsByOrderNumber)” ]
 End If
 #
-Else If [ $$citationMatch = "sample" ]
+Else If [ $$citationMatch = "brainstorm" ]
 #
-#If sample item is in use, then remove it.
+#If brainstorm item is in use, then remove it.
 Set Variable [ $number; Value:1 ]
 Loop
-If [ FilterValues ( Middle ( GetValue ( testlearn::kcsample ; $number ) ; 4 ; 42 ) ; $tag & "¶" ) = $tag & ¶ ]
-Set Field [ testlearn::kcsample; Substitute ( $$sample ; GetValue ( testlearn::kcsample ; $number ) & "¶" ;
-"" ) ]
-Set Field [ testlearn::orderTest; "" ]
-Set Variable [ $$sample; Value:testlearn::kcsample ]
+If [ FilterValues ( Middle ( GetValue ( testlearn::kcbrainstorm ; $number ) ; 4 ; 42 ) ; $tag & "¶" ) = $tag & ¶ ]
+Set Field [ testlearn::kcbrainstorm; Substitute ( $$brainstorm ; GetValue ( testlearn::kcbrainstorm ; $number )
+& "¶" ; "" ) ]
+Set Field [ testlearn::orderTestInformation; "" ]
+Set Variable [ $$brainstorm; Value:testlearn::kcbrainstorm ]
 Set Variable [ $$citationItem ]
 Set Variable [ $number; Value:"exit" ]
 End If
-Exit Loop If [ GetValue ( testlearn::kcsample ; $number ) = "" ]
+Exit Loop If [ GetValue ( testlearn::kcbrainstorm ; $number ) = "" ]
 Exit Loop If [ $number = "" ]
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
@@ -560,12 +647,10 @@ End Loop
 If [ $number ≠ "exit" ]
 Set Variable [ $number; Value:1 ]
 Loop
-#If sample item is not in use add it.
-If [ FilterValues ( Middle ( GetValue ( testlearn::kcsample ; $number ) ; 4 ; 42 ) ; $tagS & "¶" ) ≠ $tag & ¶ ]
-// Set Variable [ $$sample; Value:testlearn::kcsample ]
-Set Field [ testlearn::kcsample; "100" & $tag & ¶ & $$sample ]
-// Set Field [ testlearn::orderTest; "100" ]
-Set Variable [ $$sample; Value:testlearn::kcsample ]
+#If brainstorm item is not in use add it.
+If [ FilterValues ( Middle ( GetValue ( testlearn::kcbrainstorm ; $number ) ; 4 ; 42 ) ; $tagS & "¶" ) ≠ $tag & ¶ ]
+Set Field [ testlearn::kcbrainstorm; "001" & $tag & ¶ & $$brainstorm ]
+Set Variable [ $$brainstorm; Value:testlearn::kcbrainstorm ]
 Set Variable [ $number ]
 #
 #Record must be committed if user decides to
@@ -573,20 +658,21 @@ Set Variable [ $number ]
 #perform a find requiring the newly added key.
 Commit Records/Requests
 End If
-Exit Loop If [ FilterValues ( Middle ( GetValue ( testlearn::kcsample ; $number ) ; 4 ; 42 ) ; $tagS & "¶" ) = "" ]
+Exit Loop If [ FilterValues ( Middle ( GetValue ( testlearn::kcbrainstorm ; $number ) ; 4 ; 42 ) ; $tagS & "¶" ) =
+"" ]
 Exit Loop If [ $number = "" ]
 Set Variable [ $add; Value:$number ]
 Set Variable [ $number; Value:$add + 1 ]
 End Loop
 #
-#If the system is currently sorting test records
-#by order number, then give this newly tagged
-#record the number 100, and then sort the records
-#so that it shows up as part of the current tag's
-#record set.
-Set Field [ testlearn::orderTest; "100" ]
+#Give this newly tagged record the order
+#number 001, and then sort all records
+#so that it shows up as part of the current
+#test tag's record set.
+Set Field [ testlearn::orderTestInformation; "001" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “sortTLRecordsByOrderNumber” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from
+sortTLRecordsByOrderNumber)” ]
 End If
 End If
 #
@@ -604,9 +690,11 @@ End If
 #
 #
 #
+#END — LEARN WINDOW
 #
 #
 #
+#BEGIN — REFERENCE WINDOW
 #
 #
 #
@@ -618,14 +706,21 @@ If [ $$citationMatch = "node" ]
 If [ reference::knodePrimary = $tag ]
 Set Field [ reference::knodePrimary; "" ]
 #
-#Get the keys currently unlocking who is a
-#copyright holder.
-Set Variable [ $keyChain; Value:reference::kcopyrightHolder ]
-#
-#Remove key from keychain if it is on
-#the copyright holder keychain.
-If [ reference::knodeOther = "" and reference::knodePrimary = "" ]
-Set Field [ reference::kcopyrightHolder; Substitute ( $keyChain ; "node738fds8ef" & "¶" ; "" ) ]
+#Remove author copyright holder if there are
+#no authors.
+If [ reference::knodeOther = "" and reference::knodePrimary = "" and reference::referenceNodes = "" ]
+#Perform removal for items with and without a
+#paragraph mark, as the last item in checklist
+#has no paragraph mark after it.
+If [ Filter ( reference::kcopyrightHolder ; "1" ) = 1 ]
+Show Custom Dialog [ Message: "Author is currently checked in the copyright section for this reference as a
+copyright holder. Remove this check?"; Default Button: “No”, Commit: “Yes”; Button 2: “Yes”, Commit:
+“No” ]
+If [ Get ( LastMessageChoice ) = 2 ]
+Set Field [ reference::kcopyrightHolder; Substitute ( reference::kcopyrightHolder ; "1" & "¶" ; "" ) ]
+Set Field [ reference::kcopyrightHolder; Substitute ( reference::kcopyrightHolder ; "1" ; "" ) ]
+End If
+End If
 End If
 #
 #Finish removing the key.
@@ -652,8 +747,91 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveTagFromCitationStep2node” ]
+Perform Script [ “addORremoveOtherTagStep2_node (update name addORremoveTagFromCitationStep2node)” ]
 Close Window [ Name: "reorder"; Current file ]
+#
+#If the user is adding a node tag to reference
+#record on the main reference layout, then
+#inform why they will not see it if the 'open
+#authors' field is filled in.
+Select Window [ Name: "References"; Current file ]
+If [ reference::referenceNodes ≠ "" and Get (LayoutName) = "Reference" ]
+Show Custom Dialog [ Message: "Because the open authors field is filled in, this node tag — while added to this
+reference — will not show up as a reference author. Click 'edit' to edit the open authors field and see this
+reference's node tags."; Default Button: “OK”, Commit: “Yes” ]
+#
+#Return to the Tag Menus window.
+Select Window [ Name: "Tag Menus"; Current file ]
+Set Variable [ $$stopLoadTagRecord ]
+#
+#If the node tag was changed then see if it
+#affects the order of the current reference.
+Else If [ $$citationMatch = "node" ]
+#If this is the reference section and user is
+#looking at either author/node or keyword/
+#subject ordered records, check to see if this
+#order has changed as a result of re-ordering
+#the author/node or keyword/subject tags.
+Commit Records/Requests
+#
+#See if the edited record changed position in
+#the main reference window as a result of
+#alphabetical or order number changing edits.
+Set Variable [ $$stoploadCitation; Value:1 ]
+Set Variable [ $currentrecord; Value:Get (RecordNumber) ]
+New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”;
+Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based
+on value list: “testPulldownListANDsortOrderList”
+tagKeywordPrimary::tag; ascending
+reference::publicationYearOrStuffOrderNumber; based on value list: “testPulldownListANDsortOrderList”
+reference::Title; ascending
+reference::thoughtsNotesEtc; ascending ]
+[ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based
+on value list: “order Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
+[ Restore; No dialog ]
+End If
+#
+#If the edited record moved then note this.
+If [ $currentrecord ≠ Get (RecordNumber) ]
+Set Variable [ $recordMoved; Value:Get (RecordNumber) ]
+End If
+Close Window [ Name: "CheckDuplicateRecordPosition"; Current file ]
+#
+#Re-sort to view edited record if it
+#was moved.
+If [ $recordMoved ≠ "" ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock;
+based on value list: “testPulldownListANDsortOrderList”
+tagKeywordPrimary::tag; ascending
+reference::publicationYearOrStuffOrderNumber; based on value list:
+“testPulldownListANDsortOrderList”
+reference::Title; ascending
+reference::thoughtsNotesEtc; ascending ]
+[ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock;
+based on value list: “order Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
+[ Restore; No dialog ]
+End If
+Go to Record/Request/Page [ $recordMoved ]
+[ No dialog ]
+End If
+End If
+Set Variable [ $$stoploadCitation ]
+Set Variable [ $$stopLoadTagRecord ]
+#
+#Return to the Tag Menus window.
+Select Window [ Name: "Tag Menus"; Current file ]
+#
 Exit Script [ ]
 End If
 #
@@ -667,14 +845,14 @@ Set Field [ reference::kmedium; $tag ]
 Set Variable [ $$medium; Value:reference::kmedium ]
 End If
 #
-Else If [ $$citationMatch = "health" ]
-If [ reference::kHealth = $tag ]
-Set Field [ reference::kHealth; "" ]
+Else If [ $$citationMatch = "copyright" ]
+If [ reference::kCopyright = $tag ]
+Set Field [ reference::kCopyright; "" ]
 Set Variable [ $$citationItem ]
-Set Variable [ $$health ]
-Else If [ reference::kHealth ≠ $tag ]
-Set Field [ reference::kHealth; $tag ]
-Set Variable [ $$health; Value:reference::kHealth ]
+Set Variable [ $$copyright ]
+Else If [ reference::kCopyright ≠ $tag ]
+Set Field [ reference::kCopyright; $tag ]
+Set Variable [ $$copyright; Value:reference::kCopyright ]
 End If
 #
 Else If [ $$citationMatch = "cite" ]
@@ -686,78 +864,64 @@ Else If [ reference::kcitation ≠ $tag ]
 Set Field [ reference::kcitation; $tag ]
 Set Variable [ $$cite; Value:reference::kcitation ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+Perform Script [ “CHUNKaddReferenceNodeAndKeywordTagIDs (update name
+CHUNKaddReferenceNodesAndKeywords)” ]
 End If
 #
-Else If [ $$citationMatch = "organ" ]
-If [ reference::korgan = $tag ]
-Set Field [ reference::korgan; "" ]
+Else If [ $$citationMatch = "publication" ]
+If [ reference::kpublication = $tag ]
+Set Field [ reference::kpublication; "" ]
 #
-#Get the keys currently unlocking
-#copyright holder.
-Set Variable [ $keyChain; Value:reference::kcopyrightHolder ]
+#Remove publication copyright holder.
+#Perform removal for items with and without a
+#paragraph mark, as the last item in checklist
+#has no paragraph mark after it.
+If [ Filter ( reference::kcopyrightHolder ; "4" ) = 4 ]
+Show Custom Dialog [ Message: "Publication is currently checked in the copyright section for this reference as a
+copyright holder. Remove this check?"; Default Button: “No”, Commit: “Yes”; Button 2: “Yes”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 2 ]
+Set Field [ reference::kcopyrightHolder; Substitute ( reference::kcopyrightHolder ; "4" & "¶" ; "" ) ]
+Set Field [ reference::kcopyrightHolder; Substitute ( reference::kcopyrightHolder ; "4" ; "" ) ]
+End If
+End If
 #
-#Remove key from keychain if it is on
-#the copyright holder keychain.
-Set Field [ reference::kcopyrightHolder; Substitute ( $keyChain ; $$citationItem & "¶" ; "" ) ]
 #Finish removing the key.
 Set Variable [ $$citationItem ]
-Set Variable [ $$organ ]
+Set Variable [ $$publication ]
 #
-Else If [ reference::korgan ≠ $tag ]
+Else If [ reference::kpublication ≠ $tag ]
 #
-#Get the keys currently unlocking
-#copyright holder if on the chain.
-Set Variable [ $oldCopyrightKey; Value:reference::korgan ]
-If [ FilterValues ( reference::kcopyrightHolder ; $oldCopyrightKey & ¶ ) = $oldCopyrightKey & ¶ ]
-Set Variable [ $keyChain; Value:reference::kcopyrightHolder ]
-#
-#Remove old key from keychain if it is on
-#the copyright holder keychain.
-Set Field [ reference::kcopyrightHolder; Substitute ( $keyChain ; $oldCopyrightKey & "¶" ; "" ) ]
-#
-#Add new key to copyright keychain.
-Set Variable [ $keyChain; Value:reference::kcopyrightHolder ]
-Set Field [ reference::kcopyrightHolder; $tag & "¶" & $keyChain ]
-End If
-Set Field [ reference::korgan; $tag ]
-Set Variable [ $$organ; Value:reference::korgan ]
+#Add new key to reference.
+Set Field [ reference::kpublication; $tag ]
+Set Variable [ $$publication; Value:reference::kpublication ]
 End If
 #
-Else If [ $$citationMatch = "copyist" ]
-If [ reference::kcopyist = $tag ]
-Set Field [ reference::kcopyist; "" ]
+Else If [ $$citationMatch = "publisher" ]
+If [ reference::kpublisher = $tag ]
+Set Field [ reference::kpublisher; "" ]
 #
-#Get the keys currently unlocking
-#copyright holder.
-Set Variable [ $keyChain; Value:reference::kcopyrightHolder ]
+#Remove publication copyright holder.
+#Perform removal for items with and without a
+#paragraph mark, as the last item in checklist
+#has no paragraph mark after it.
+If [ Filter ( reference::kcopyrightHolder ; "5" ) = 5 ]
+Show Custom Dialog [ Message: "Publisher is currently checked in the copyright section for this reference as a
+copyright holder. Remove this check?"; Default Button: “No”, Commit: “Yes”; Button 2: “Yes”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 2 ]
+Set Field [ reference::kcopyrightHolder; Substitute ( reference::kcopyrightHolder ; "5" & "¶" ; "" ) ]
+Set Field [ reference::kcopyrightHolder; Substitute ( reference::kcopyrightHolder ; "5" ; "" ) ]
+End If
+End If
 #
-#Remove key from keychain if it is on
-#the copyright holder keychain.
-Set Field [ reference::kcopyrightHolder; Substitute ( $keyChain ; $$citationItem & "¶" ; "" ) ]
 #Finish removing the key.
 Set Variable [ $$citationItem ]
-Set Variable [ $$copyist ]
+Set Variable [ $$publisher ]
 #
-Else If [ reference::kcopyist ≠ $tag ]
+Else If [ reference::kpublisher ≠ $tag ]
 #
-#Get the keys currently unlocking
-#copyright holder if on the chain.
-Set Variable [ $oldCopyrightKey; Value:reference::kcopyist ]
-If [ FilterValues ( reference::kcopyrightHolder ; $oldCopyrightKey & ¶ ) = $oldCopyrightKey & ¶ ]
-Set Variable [ $keyChain; Value:reference::kcopyrightHolder ]
-#
-#Remove old key from keychain if it is on
-#the copyright holder keychain.
-Set Field [ reference::kcopyrightHolder; Substitute ( $keyChain ; $oldCopyrightKey & "¶" ; "" ) ]
-#
-#Add new key to copyright keychain.
-Set Variable [ $keyChain; Value:reference::kcopyrightHolder ]
-Set Field [ reference::kcopyrightHolder; $tag & "¶" & $keyChain ]
-End If
-#
-Set Field [ reference::kcopyist; $tag ]
-Set Variable [ $$copyist; Value:reference::kcopyist ]
+#Add key to reference.
+Set Field [ reference::kpublisher; $tag ]
+Set Variable [ $$publisher; Value:reference::kpublisher ]
 End If
 #
 Else If [ $$citationMatch = "Path" ]
@@ -798,7 +962,8 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveTagFromCitationStep2keyword” ]
+Perform Script [ “addORremoveOtherTagStep2_keyword (update name
+addORremoveTagFromCitationStep2keyword)” ]
 Exit Script [ ]
 End If
 #
@@ -813,69 +978,62 @@ Commit Records/Requests
 #will show up.
 Refresh Window
 #
-#Since references can only be tagged in edit mode
-#this next part of the script is not needed, and actually
-#causes problems.
-// #Take user to where record sorts to.
-// #will show up.
-// Set Variable [ $$stoploadCitation; Value:1 ]
-// Set Variable [ $record; Value:reference::_Lreference ]
-// If [ $$citationMatch = "node" ]
-// Go to Record/Request/Page
-[ First ]
-// Sort Records [ ]
-[ No dialog ]
-// Loop
-// Exit Loop If [ reference::_Lreference = $record ]
-// Go to Record/Request/Page
-[ Next; Exit after last ]
-// End Loop
-// Else If [ $$citationMatch = "medium" ]
-// Go to Record/Request/Page
-[ First ]
-// Sort Records [ ]
-[ No dialog ]
-// Loop
-// Exit Loop If [ reference::_Lreference = $record ]
-// Go to Record/Request/Page
-[ Next; Exit after last ]
-// End Loop
-// Else If [ $$citationMatch = "Path" ]
-// Go to Record/Request/Page
-[ First ]
-// Sort Records [ ]
-[ No dialog ]
-// Loop
-// Exit Loop If [ reference::_Lreference = $record ]
-// Go to Record/Request/Page
-[ Next; Exit after last ]
-// End Loop
-// Else If [ $$citationMatch = "key" ]
-// Go to Record/Request/Page
-[ First ]
-// Sort Records [ ]
-[ No dialog ]
-// Loop
-// Exit Loop If [ reference::_Lreference = $record ]
-// Go to Record/Request/Page
-[ Next; Exit after last ]
-// End Loop
-// End If
 Set Variable [ $$stoploadCitation ]
 End If
+#
+#Only need to re-sort if primary key was
+#changed or primary author in reference mode.
+If [ $$primaryKeyWord ≠ reference::kkeywordPrimary and
+$$citationMatch = "key" and
+$$stopAdd = "" and
+$$referenceSort = "" and
+Left ( Get ( LayoutName ) ; 1 ) ≠ "l" ]
+Set Variable [ $$primaryKeyWord ]
+Show Custom Dialog [ Message: "Record will now move to new keyword location. Scroll window to this location?"; Default
+Button: “no”, Commit: “Yes”; Button 2: “yes”, Commit: “No” ]
+If [ Get (LastMessageChoice) = 2 ]
+Go to Layout [ “ReferenceStuffScriptLoops” (reference) ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list:
+“order Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
+[ Restore; No dialog ]
+#
+#Go to reference record layout.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Go to Layout [ “ReferenceStuff” (reference) ]
+Else
+Go to Layout [ “Reference” (reference) ]
+End If
+End If
+Else If [ $$citationMatch = "node" and $$referenceSort = ""
+or
+$$citationMatch = "node" and $$referenceSort = "author" ]
+Sort Records [ ]
+[ No dialog ]
+End If
+#
+#
+#
+#END — REFERENCE WINDOW
+#
+#
+#
+#Return tag window and refresh to show newly
+#added or removed tag selection.
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 #
 #Check if any Learn records are tagged with a
 #test item (if currently in test mode), or a
-#sample item (if in brainstorm mode) and sort
+#brainstorm item (if in brainstorm mode) and sort
 #by order and then date and time.
 If [ $$citationMatch = "test" ]
-Perform Script [ “loadItemRecordForTestTagMenu” ]
-Else If [ $$citationMatch = "sample" ]
-Perform Script [ “loadItemRecordForSampleTagMenu” ]
+Perform Script [ “loadTestTags (update and name change from loadItemRecordForTestTagMenu)” ]
+Else If [ $$citationMatch = "brainstorm" ]
+Perform Script [ “loadBrainstormTags (update name change loadItemRecordForSampleTagMenu)” ]
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-December 10, ଘ౮27 17:01:02 Library.fp7 - addTagToMainRecord -1-
+#

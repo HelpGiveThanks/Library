@@ -1,8 +1,8 @@
-testScreens: test: ReturnToInspectionItems
-Go to Layout [ “step3_InspectionItems” (InspectItems) ]
+January 15, 2018 15:17:44 Library.fmp12 - returnToInspectionItems -1-
+test: test: returnToInspectionItems
+Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
 Enter Find Mode [ ]
-Set Field [ InspectItems::kcfocusALL; $$genlocation ]
+Set Field [ testSubsectionForSubject::kcsections; $$genlocation ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: <Table Missing>; ascending ]
-[ Restore; No dialog ]
-January 7, 平成26 12:43:43 Imagination Quality Management.fp7 - ReturnToInspectionItems -1-
+Sort Records [ ]
+[ No dialog ]

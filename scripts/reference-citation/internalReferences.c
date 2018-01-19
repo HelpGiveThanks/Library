@@ -1,32 +1,55 @@
-reference(citation): internalReferences
+January 18, 2018 14:54:33 Library.fmp12 - menuLearn -1-
+reference: menuLearn
 #
-If [ $$findmode ≠ 1 ]
+#
+#Clear brainstorm and test tags so there conditional
+#formatting in the Learn window is removed.
+If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
+Select Window [ Name: "Learn"; Current file ]
+Go to Field [ ]
+Set Variable [ $$tagBrainstorm ]
+Set Variable [ $$tagtest ]
+Set Variable [ $$tagRecordID ]
+Set Variable [ $$tagEdit ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
+testlearn::timestamp; descending ]
+[ Restore; No dialog ]
+End If
+Select Window [ Name: "Tag Menus"; Current file ]
+#
+#Set citationMatch to color menu button with inUse color.
+Set Variable [ $$citationMatch; Value:"learn" ]
+#
 #Set testlearn internal reference field conditional
 #formatting to green if there are any.
 Set Variable [ $$internal; Value:1 ]
 #
+#Speed up script.
+Set Variable [ $$stoploadCitation; Value:1 ]
+#
 #Show all internal reference possibilities.
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Go to Layout [ “learnMenu4STUFFRefCite” (testlearn) ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Go to Layout [ “learnMenu4noPicRefCite” (testlearn) ]
 Else
-Go to Layout [ “learnMenu4RefCite” (testlearn) ]
+Go to Layout [ “learnMenu4noPicRefCite” (testlearn) ]
 End If
+#
+#Find learn records that can be referenced.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Set Field [ testlearn::sampleCasePoint; "1" ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Field [ testlearn::brainstormCasePoint; "1" ]
 End If
 Set Field [ testlearn::filterFind; "main" ]
 Perform Find [ ]
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Sort Records [ Specified Sort Order: testlearn::Caption; ascending
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending
 testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Specified Sort Order: testlearn::date; descending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 End If
@@ -34,8 +57,14 @@ End If
 #If the user has yet to create any Learn or internal records
 #let them know, and return user to outside reference records.
 If [ Get (LastError) = 401 ]
-Perform Script [ “externalReferences” ]
-Show Custom Dialog [ Message: "No inside (Learn) records have been created."; Buttons: “OK” ]
+#
+#Turn back on essential variable.
+Set Variable [ $$stoploadCitation ]
+#
+Perform Script [ “<unknown>” ]
+Show Custom Dialog [ Message: "No inside (Learn) records have been created."; Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+#
 End If
 #
 #Continue with show all internal reference possibilities...
@@ -43,30 +72,15 @@ Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
+#
+#If the current learn record references another
+#learn record, find it.
+If [ Filter ( $$ref ; "L" ) ≠ "" ]
 Loop
-Exit Loop If [ testlearn::_Ltestlearn = $$cite and $$citationMatch = "cite" or
-testlearn::_Ltestlearn & "¶" = FilterValues ( $$ref ; testlearn::_Ltestlearn & "¶" ) and $$citationMatch = "ref" ]
+Exit Loop If [ testlearn::_Ltestlearn & "L¶" = FilterValues ( $$ref ; testlearn::_Ltestlearn & "L¶" ) and $$citationMatch = "ref" ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-#
-#Decided below was too much help. User can look
-#on main screen to see where cite or reference is located.
-// #Capture information about location of ref and cite records.
-// #Because it can be in four possible locations, conditonal
-// #formatting is essential to help user remember.
-// If [ testlearn::_Ltestlearn = $$citationitem and $$citationMatch = "cite" ]
-// #
-// #Turn on cite location variable that conditionally
-// #formatts buttons to tell user where reference is located.
-// Set Variable [ $$citeIsLearnRecord; Value:1 ]
-// #
-// Else If [ testlearn::_Ltestlearn & "¶" = FilterValues ( $$ref ; testlearn::_Ltestlearn & "¶" ) and $$citationMatch = "ref" ]
-// #
-// #Turn on reference location variable that conditionally
-// #formatts buttons to tell user where reference is located.
-// Set Variable [ $$refIsLearnRecord; Value:1 ]
-// End If
 #
 #If no records are used as a cite or ref, go to first record.
 If [ Get (LastError) = 101 ]
@@ -74,10 +88,28 @@ Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
+End If
 #
-// #Turn on reference location variable that conditionally
-// #formatts buttons to tell user where reference is located.
-// Set Variable [ $$refIsLearnRecord ]
+End If
+#
+#Goto correct layout.
+If [ TEMP::InventoryLibraryYN = "" ]
+If [ TEMP::layoutLtagL = "" ]
+If [ Get (SystemPlatform) = 3 ]
+Go to Layout [ “learnMenu4noPicRefCite” (testlearn) ]
+Set Field [ TEMP::layoutLtagL; "more" & Get (LayoutName) ]
+Else
+Go to Layout [ “learnMenu4RefCite” (testlearn) ]
+Set Field [ TEMP::layoutLtagL; "less" & Get (LayoutName) ]
+End If
+Else
+Go to Layout [ Middle ( TEMP::layoutLtagL ; 5 ; 42 ) ]
+End If
+Else
+If [ Left (Get (LayoutName) ; 1) = "l" ]
+Go to Layout [ “learnMenu4STUFFRefCite” (testlearn) ]
+Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+End If
 End If
 #
 #Update conditional formatting in main window.
@@ -91,35 +123,6 @@ End If
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
 #
-#If in find mode ...
-Else If [ $$findmode = 1 ]
-#Set testlearn internal reference field conditional
-#formatting to green if there are any.
-Set Variable [ $$internal; Value:1 ]
+#Turn back on essential variable.
+Set Variable [ $$stoploadCitation ]
 #
-#Show all internal reference possibilities.
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Go to Layout [ “learnMenu4RefStuffCiteFindTL” (testlearn) ]
-Else
-Go to Layout [ “learnMenu4RefCiteFindTL” (testlearn) ]
-End If
-Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Set Field [ testlearn::sampleCasePoint; "1" ]
-End If
-Perform Find [ ]
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Sort Records [ Specified Sort Order: testlearn::Caption; ascending
-testlearn::date; descending
-testlearn::timestamp; descending ]
-[ Restore; No dialog ]
-Else
-Sort Records [ Specified Sort Order: testlearn::date; descending
-testlearn::timestamp; descending ]
-[ Restore; No dialog ]
-End If
-Go to Record/Request/Page
-[ First ]
-End If
-December 10, ଘ౮27 18:26:57 Library.fp7 - internalReferences -1-

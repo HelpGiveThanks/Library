@@ -1,4 +1,5 @@
-testScreens: testReport: Print: PrintThingReport
+January 15, 2018 16:07:30 Library.fmp12 - printThingReport -1-
+test: report: Print: printThingReport
 #
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
@@ -6,14 +7,13 @@ Set Variable [ $record; Value:Get (RecordNumber) ]
 Close Window [ Name: "Tag Menus"; Current file ]
 #find all contact records, sort them, enter preview (print) mode
 Go to Layout [ “PrintReport” (report) ]
-Set Variable [ $contact; Value:report::ktestSubject ]
+Set Variable [ $testSubject; Value:report::ktestSubject ]
 Enter Find Mode [ ]
-Set Field [ report::ktestSubject; $contact ]
+Set Field [ report::ktestSubject; $testSubject ]
 Set Field [ report::kreportNumber; $$reportNumber ]
-Set Field [ report::ksection; $$Library ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: ruleTestReport::name; ascending
-reportItem::testName; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: ruleTestReport::name; ascending
+reportSubsection::name; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
@@ -23,7 +23,8 @@ Go to Record/Request/Page
 Enter Preview Mode
 Set Window Title [ Current Window; New Title: "Report" ]
 Move/Resize Window [ Name: "Report"; Current file; Width: Get ( ScreenWidth ) / 2; Left: 0 ]
-New Window [ Name: "Numbers"; Width: Get ( ScreenWidth ) / 2; Left: Get ( ScreenWidth ) / 2 ]
+New Window [ Name: "Numbers"; Width: Get ( ScreenWidth ) / 2; Left: Get ( ScreenWidth ) / 2; Style: Document; Close: “Yes”;
+Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 Enter Browse Mode
 // Arrange All Windows
 [ Tile Vertically ]
@@ -36,10 +37,10 @@ Set Variable [ $$themepage; Value:2 ]
 Set Field [ TEMP::pageNumber; 1 ]
 Select Window [ Name: "Numbers"; Current file ]
 Loop
-Set Variable [ $duplicate; Value:report::ktest ]
+Set Variable [ $duplicate; Value:report::ktestSubsection ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
-If [ report::ktest = $duplicate ]
+If [ report::ktestSubsection = $duplicate ]
 Omit Record
 Go to Record/Request/Page
 [ Previous ]
@@ -52,12 +53,11 @@ Go to Record/Request/Page
 Pause/Resume Script [ Indefinitely ]
 #refind all report records omitted for page numbering
 Enter Find Mode [ ]
-Set Field [ report::ktestSubject; $contact ]
+Set Field [ report::ktestSubject; $testSubject ]
 Set Field [ report::kreportNumber; $$reportNumber ]
-Set Field [ report::ksection; $$Library ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: ruleTestReport::name; ascending
-reportItem::testName; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: ruleTestReport::name; ascending
+reportSubsection::name; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
@@ -76,8 +76,7 @@ Set Variable [ $path; Value:Get ( TemporaryPath ) ]
 Close Window [ Name: "Report"; Current file ]
 Adjust Window
 [ Resize to Fit ]
-Set Zoom Level
-[ 100% ]
+Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 Go to Layout [ “reportCover” (report) ]
 Enter Browse Mode
 Go to Record/Request/Page
@@ -100,9 +99,11 @@ Enter Find Mode [ ]
 Set Field [ report::_Lreport; $printcover ]
 Perform Find [ ]
 If [ Left ( Get (ApplicationVersion) ; 3) = "run" and Get ( SystemPlatform ) ≠ 3 ]
-Show Custom Dialog [ Message: "The report cover, table of contents, and report should now be saved as 3 PDFs. In the print dialogue box select the PDF option (bottom left corner) and save this first PDF as cover."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "The report cover, table of contents, and report should now be saved as 3 PDFs. In the print
+dialogue box select the PDF option (bottom left corner) and save this first PDF as cover."; Default Button: “OK”, Commit:
+“No” ]
 Print [ Records being browsed; All Pages; Orientation: Portrait; Paper size: 8.5" x 11" ]
-[ Restore ]
+[ Restore: Bluetooth ]
 Else If [ Left ( Get (ApplicationVersion) ; 3) ≠ "run" or Get ( SystemPlatform ) = 3 ]
 Print Setup [ Orientation: Portrait; Paper size: 8.5" x 11" ]
 [ Restore; No dialog ]
@@ -117,22 +118,20 @@ End If
 #pdf table of contents
 Go to Layout [ “TOCpdf” (report) ]
 Enter Find Mode [ ]
-Set Field [ report::ktestSubject; $contact ]
+Set Field [ report::ktestSubject; $testSubject ]
 Set Field [ report::kreportNumber; $$reportNumber ]
-Set Field [ report::ksection; $$Library ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: report::TOC; ascending
+Sort Records [ Keep records in sorted order; Specified Sort Order: report::TOC; ascending
 ruleTestReport::name; ascending
-reportItem::testName; ascending ]
+reportSubsection::name; ascending ]
 [ Restore; No dialog ]
-January 7, 平成26 14:45:57 Imagination Quality Management.fp7 - PrintThingReport -1-testScreens: testReport: Print: PrintThingReport
 Go to Record/Request/Page
 [ First ]
 Loop
-Set Variable [ $duplicate; Value:report::ktest ]
+Set Variable [ $duplicate; Value:report::ktestSubsection ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
-If [ report::ktest = $duplicate ]
+If [ report::ktestSubsection = $duplicate ]
 Omit Record
 Go to Record/Request/Page
 [ Previous ]
@@ -140,9 +139,9 @@ End If
 End Loop
 Enter Preview Mode
 If [ Left ( Get (ApplicationVersion) ; 3) = "run" and Get ( SystemPlatform ) ≠ 3 ]
-Show Custom Dialog [ Message: "Save this second PDF as TOC."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Save this second PDF as TOC."; Default Button: “OK”, Commit: “No” ]
 Print [ Records being browsed; All Pages; Orientation: Portrait; Paper size: 8.5" x 11" ]
-[ Restore ]
+[ Restore: EPSON WorkForce 630 ]
 Else If [ Left ( Get (ApplicationVersion) ; 3) ≠ "run" or Get ( SystemPlatform ) = 3 ]
 Save Records as PDF [ File Name: “$path/$pdf”; Records being browsed ]
 [ Document - Compatibility: Acrobat 5 and later ]
@@ -155,21 +154,22 @@ End If
 #pdf report
 Go to Layout [ “PrintReport” (report) ]
 Enter Find Mode [ ]
-Set Field [ report::ktestSubject; $contact ]
+Set Field [ report::ktestSubject; $testSubject ]
 Set Field [ report::kreportNumber; $$reportNumber ]
-Set Field [ report::ksection; $$Library ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: ruleTestReport::name; ascending
-reportItem::testName; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: ruleTestReport::name; ascending
+reportSubsection::name; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
 Enter Preview Mode
 If [ Left ( Get (ApplicationVersion) ; 3) = "run" and Get ( SystemPlatform ) ≠ 3 ]
-Show Custom Dialog [ Message: "Save this third PDF as Report."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Save this third PDF as Report."; Default Button: “OK”, Commit: “No” ]
 Print [ Records being browsed; All Pages; Orientation: Portrait; Paper size: 8.5" x 11" ]
-[ Restore ]
-Show Custom Dialog [ Message: "Open up all three PDFs. Drag the cover and TOC page thumbnails into the Report.pdf along with any other PDF thumbnails you wish from Preview's sidebar. Save this PDF. Trash the other two."; Buttons: “OK” ]
+[ Restore: EPSON WorkForce 630 ]
+Show Custom Dialog [ Message: "Open up all three PDFs. Drag the cover and TOC page thumbnails into the Report.pdf along
+with any other PDF thumbnails you wish from Preview's sidebar. Save this PDF. Trash the other two."; Default Button: “OK”,
+Commit: “No” ]
 Else If [ Left ( Get (ApplicationVersion) ; 3) ≠ "run" or Get ( SystemPlatform ) = 3 ]
 Save Records as PDF [ File Name: “$path/$pdf”; Automatically open; Records being browsed ]
 [ Document - Compatibility: Acrobat 5 and later ]
@@ -180,11 +180,11 @@ Save Records as PDF [ File Name: “$path/$pdf”; Automatically open; Records b
 End If
 Set Window Title [ Current Window; New Title: "Setup" ]
 Move/Resize Window [ Name: "Setup"; Current file; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-Go to Layout [ “defaultSetup” (tempSetup) ]
-New Window [ Name: "Tag Menus"; Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2 ]
-Go to Layout [ “defaultTest” (tagTestSubjectLocation) ]
-// Perform Script [ “defaultTestLocationMenu” ]
-Perform Script [ “EditReport” ]
+Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+New Window [ Name: "Tag Menus"; Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”;
+Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
+// Perform Script [ “templateTestSectionMenu (update and name change from defaultTestLocationMenu)” ]
+Perform Script [ “editReport (update)” ]
 Go to Record/Request/Page [ $record ]
 [ No dialog ]
-January 7, 平成26 14:45:57 Imagination Quality Management.fp7 - PrintThingReport -2-

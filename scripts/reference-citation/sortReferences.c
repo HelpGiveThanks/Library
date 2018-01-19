@@ -1,22 +1,26 @@
-reference(citation): sortReferences
-If [ $$referenceSort = 2 ]
-// Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
-reference::referenceForReferenceSort; ascending ]
+January 18, 2018 15:27:05 Library.fmp12 - sortRefByDate -1-
+reference: sortRefByDate
+#
+#
+#
+Show Custom Dialog [ Message: "Sort by date created or modified or published?"; Default Button: “created”, Commit: “Yes”; Button 2:
+“modified”, Commit: “No”; Button 3: “published”, Commit: “No” ]
+#
+If [ Get ( LastMessageChoice ) = 1 ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::createDate; descending
+reference::referenceShort; ascending ]
 [ Restore; No dialog ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
-tagKeywordPrimary::tag; ascending
-reference::referenceForReferenceWindow; ascending ]
+Set Variable [ $$referenceSort; Value:"dateCreated" ]
+Else If [ Get ( LastMessageChoice ) = 2 ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::modifyDate; descending
+reference::referenceShort; ascending ]
 [ Restore; No dialog ]
-Set Variable [ $$referenceSort ]
-Else If [ $$referenceSort = "" ]
-Sort Records [ Specified Sort Order: reference::createDate; descending
-reference::referenceForReferenceSort; ascending ]
+Set Variable [ $$referenceSort; Value:"dateModified" ]
+Else If [ Get ( LastMessageChoice ) = 3 ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByDatePublished; ascending
+reference::referenceShort; ascending ]
 [ Restore; No dialog ]
-Set Variable [ $$referenceSort; Value:1 ]
-Else If [ $$referenceSort = 1 ]
-Sort Records [ Specified Sort Order: reference::modifyDate; descending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-Set Variable [ $$referenceSort; Value:2 ]
+Set Variable [ $$referenceSort; Value:"datePublished" ]
 End If
-December 30, ଘ౮27 11:08:01 Library.fp7 - sortReferences -1-
+#
+#

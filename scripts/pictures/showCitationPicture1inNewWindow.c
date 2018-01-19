@@ -1,594 +1,541 @@
+January 15, 2018 18:03:33 Library.fmp12 - showCitationPicture1inNewWindow -1-
 pictures: showCitationPicture1inNewWindow
+#
+#
+#Admin tasks.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
-#Not sure why I decided lock this, but it seems user
-#can't do anything to data by viewing pictures so I
-#disabled the lock steps below.
-// #If node is currenlty locked then stop script, inform user.
-// If [ tagTLNodePrimary::orderOrLock ≠ "" ]
-// Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
-password to unlock it, then you will able to add pictures to records assigned to this node."; Buttons: “OK” ]
-// Exit Script [ ]
-// End If
 #
-#iDEVICES not tested using this script since v3.1 udpate!!!!!
-#Determine where picture or movie is located
-#on iPhone and iPads.
-If [ PatternCount ( Get ( ApplicationVersion ) ; "GO" ) ]
-Set Variable [ $$stopLoadCitation; Value:1 ]
-New Window [ Name: " "; Height: Get (ScreenHeight); Width: Get (ScreenWidth); Top: 0; Left: 0 ]
+#Make sure on layouts where long text field
+#extends over the picture field AND when this
+#field is has text because there is no picture to
+#cover up, that this script is stopped, and the
+#user is taken to this long text field instead of
+#the picture window opening up.
+If [ reference::referenceShortLong ≠ "" and Get (LayoutTableName) = "reference" and Get (WindowName) = "Tag Menus"
+ or
+reference::referenceShortLong ≠ "" and Get (LayoutName) = "TestInfoReference" ]
+Go to Object [ Object Name: "tag 1" ]
+Set Variable [ $$stopGoToKeyTag; Value:1 ]
+Exit Script [ ]
+Else If [ Get (LayoutTableName) = "tagMenus" and tagMenus::tagTestTextItemOrLongTagField ≠ "" ]
+Go to Object [ Object Name: "tag 1" ]
+Exit Script [ ]
+End If
 #
-If [ Get (LayoutTableName) = "reference" ]
-Go to Layout [ “ReferencePictureWindow” (reference) ]
+#If in stuff/inventory mode and the user is in
+#the reference section which does not have an
+#edit screen, then tell user when they click on
+#a picture that they cannot edit if its creator is
+#locked. In reference mode, the user expects
+#to see a view only picture window on the
+#main reference list screen. The edit picture
+#reference window only shows up in reference
+#mode when the user is on the edit screen, but
+#since in stuff mode the list view shows
+#editable records, show this message so the
+#user knows why they are not seeing an edit
+#picture screen.
+If [ TEMP::InventoryLibraryYN ≠ "" and Get(LayoutTableName) = "reference" and $$add = "" and Get (WindowName) ≠ "Tag Menus" ]
+If [ refCreatorNode::orderOrLock ≠ "" ]
+Show Custom Dialog [ Message: "The node that created this record — " & refCreatorNode::tag & " — is locked. Select this
+node in the setup window and enter the password to unlock it, then you will able to edit records assigned to it."; Default
+Button: “OK”, Commit: “Yes” ]
+Else If [ TEMP::primaryNodeIsLocked ≠ "" ]
+Show Custom Dialog [ Message: "The default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked.
+Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C)
+create a new primary node."; Default Button: “OK”, Commit: “No” ]
+End If
+End If
 #
-Else If [ Get (LayoutTableName) = "testlearn" ]
-Go to Layout [ “LearnPictureWindow” (testlearn) ]
+#If reference media is required and the user is on a
+#reference edit layout, note this in case user decides
+#to cancel the insert media section of this script.
+If [ reference::picture = "Replace Me. Media Required" and Get (LayoutName) = "ReferenceEDIT"
+ or
+reference::picture = "Replace Me. Media Required" and Get (LayoutName) = "ReferenceStuff" ]
+Set Field [ reference::picture; "" ]
+Set Variable [ $$ReplaceMeMediaRequired; Value:1 ]
+Go to Field [ ]
+Else
+Set Variable [ $$ReplaceMeMediaRequired ]
+End If
+#
+#
+#To prevent multiple copies of the media
+#window being left open, always close it when
+#starting this script.
+Close Window [ Name: "Media"; Current file ]
+#
+#
+#If the PRIMARY node is currenlty locked then
+If [ $$add = "" ]
+If [ TEMP::primaryNodeIsLocked ≠ "" ]
+Set Variable [ $lock; Value:1 ]
+// #If the primary node's CREATOR node is
+// Else If [ TEMP::primaryNodesCreatorNodeIsLocked ≠ "" ]
+// Set Variable [ $lock; Value:1 ]
+#If the TEST SUBJECT node is locked then stop
+Else If [ testSubsectionTestSubjectLock::orderOrLock = "0"
+ or
+ReportResultTestSubject::orderOrLock ≠ ""
+ or
+reportTestSubjectLock::orderOrLock = "0" ]
+Set Variable [ $lock; Value:1 ]
+#If the LEARN record's creator node is locked then stop
+Else If [ tagTLNodePrimary::orderOrLock = "0"
+ or
+tagTLReportNodePrimary::orderOrLock = "0" ]
+Set Variable [ $lock; Value:1 ]
+#If the REFERENCE record's creator node is locked then stop
+Else If [ refCreatorNode::orderOrLock = "0" or refLearnCreatorNodeLock::orderOrLock = "0" or refLearnTestCreatorNodeLock::
+orderOrLock = "0" ]
+Set Variable [ $lock; Value:1 ]
+End If
+End If
+#
+#
+#
+#Determine source of media and layout. This
+#info/variables will determine whether to show
+#user an edit or view-only window, and whether
+#to show user a web, harddrive, or FileMaker
+#media window.
+#
+#
+#If user is on a reference layout...
+If [ Get (LayoutTableName) = "tempSetup" or Get (LayoutTableName) = "reference" or Get (LayoutTableName) = "tagMenus" ]
+Set Variable [ $referenceLayout; Value:1 ]
+#
+If [ Get (LayoutTableName) = "tempSetup" ]
+#SETUP DEFAULTS WINDOW
+If [ $$defaultTestSubjecPicture ≠ "" ]
+Set Variable [ $picture; Value:$$defaultTestSubjecPicture ]
+Set Variable [ $fileLocation; Value:$$fileLocation ]
+Else If [ $$defaultPrimaryNodePicture ≠ "" ]
+Set Variable [ $picture; Value:$$defaultPrimaryNodePicture ]
+Set Variable [ $fileLocation; Value:$$fileLocation ]
+Else
+Set Variable [ $picture; Value:defaultNodesCopyright::Kpicture1 ]
+Set Variable [ $fileLocation; Value:Case (
+defaultNodeCopyrightsPicture::picture ≠ "" ; "database" ;
+defaultNodeCopyrightsPicture::kfileLocation ≠ "" and defaultNodeCopyrightsPicture::fileName ≠ "" and
+defaultNodeCopyrightsPicture::showMedia = "" ; "harddrive" ;
+defaultNodeCopyrightsPicture::URL ≠ "" and defaultNodeCopyrightsPicture::showMedia ≠ "" ; "web" ;
+"tag=none" ) ]
+End If
+#
+Else If [ Get (LayoutTableName) = "reference" ]
+#REFERENCE WINDOW
+Set Variable [ $picture; Value:reference::_Lreference ]
+Set Variable [ $fileLocation; Value:Case (
+reference::picture ≠ "" ; "database" ;
+reference::kfileLocation ≠ "" and reference::fileName ≠ "" and reference::showMedia[2] ≠ "" ; "harddrive" ;
+reference::URL ≠ "" and reference::showMedia ≠ "" ; "web" ;
+Case ( Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceSTUFF" ; "none" ; "tag=none" )
+) ]
+If [ Get (LayoutName) = "ReferenceEDIT" and tagTLNodePrimary::orderOrLock = "" ]
+Set Variable [ $referenceEDIT; Value:1 ]
+End If
+#
+Else If [ Get (LayoutTableName) = "tagMenus" ]
+#TAG MENUS WINDOW (Reference and Learn tags)
+If [ $$picture = "" ]
+Set Variable [ $picture; Value:tagMenus::Kpicture1 ]
+Set Variable [ $fileLocation; Value:Case (
+refPicture1::picture ≠ "" ; "database" ;
+refPicture1::kfileLocation ≠ "" and refPicture1::fileName ≠ "" and refPicture1::showMedia = "" ; "harddrive" ;
+refPicture1::URL ≠ "" and refPicture1::showMedia ≠ "" ; "web" ;
+"tag=none" ) ]
+Else If [ $$picture = "Kpicture2" ]
+Set Variable [ $picture; Value:tagMenus::Kpicture2 ]
+Set Variable [ $fileLocation; Value:Case (
+refPicture2::picture ≠ "" ; "database" ;
+refPicture2::kfileLocation ≠ "" and refPicture2::fileName ≠ "" and refPicture2::showMedia = "" ; "harddrive" ;
+refPicture2::URL ≠ "" and refPicture2::showMedia ≠ "" ; "web" ;
+"tag=none" ) ]
+Else If [ $$picture = "Kpicture3" ]
+Set Variable [ $picture; Value:tagMenus::Kpicture3 ]
+Set Variable [ $fileLocation; Value:Case (
+refPicture3::picture ≠ "" ; "database" ;
+refPicture3::kfileLocation ≠ "" and refPicture3::fileName ≠ "" and refPicture3::showMedia = "" ; "harddrive" ;
+refPicture3::URL ≠ "" and refPicture3::showMedia ≠ "" ; "web" ;
+"tag=none" ) ]
+End If
+End If
+#
+#
+#If user is on a learn layout...
+Else If [ Get (LayoutTableName) = "testLearn" or Get (LayoutTableName) = "testlearnReportTags" or Get (LayoutTableName) =
+"report" ]
+Set Variable [ $learnLayout; Value:1 ]
+#
+If [ Get (LayoutTableName) = "testLearn" ]
+#LEARN and TEST WINDOWS
+Set Variable [ $picture; Value:testlearn::_Ltestlearn ]
+Set Variable [ $fileLocation; Value:Case ( testlearn::picture ≠ "" ; "TLpicture" ;
+Case (
+refLearnShowMedia::picture ≠ "" ; "database" ;
+refLearnShowMedia::kfileLocation ≠ "" and refLearnShowMedia::fileName ≠ "" and refLearnShowMedia::showMedia =
+"" ; "harddrive" ;
+refLearnShowMedia::URL ≠ "" and refLearnShowMedia::showMedia ≠ "" ; "web" ;
+"none" )
+) ]
 #
 Else If [ Get (LayoutTableName) = "testlearnReportTags" ]
+#TEST INFO and REPORT INFO WINDOWS
+Set Variable [ $picture; Value:testlearnReportTags::_Ltestlearn ]
+Set Variable [ $fileLocation; Value:Case ( testlearnReportTags::picture ≠ "" ; "TLpicture" ;
+Case (
+refTestShowMedia::picture ≠ "" ; "database" ;
+refTestShowMedia::kfileLocation ≠ "" and refTestShowMedia::fileName ≠ "" and refTestShowMedia::showMedia = "" ;
+"harddrive" ;
+refTestShowMedia::URL ≠ "" and refTestShowMedia::showMedia ≠ "" ; "web" ;
+Case ( testlearnReportTags::filterFind = "" ; "none" ; "tag=none" ) )
+) ]
+Set Variable [ $reportTable; Value:1 ]
 #
-#Because there is no testlearnReportTags
-#picture layout, capture the ID for this record
-#so it can be found on the testlearn picture layout.
-Set Variable [ $testlearnReportTagsID; Value:testlearnReportTags::_Ltestlearn ]
-#
-#Find this record for the testlearn layout.
-Go to Layout [ “LearnPictureWindow” (testlearn) ]
-Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; $testlearnReportTagsID ]
-Perform Find [ ]
+Else If [ Get (LayoutTableName) = "report" ]
+#REPORT IWINDOW
+Set Variable [ $picture; Value:$$PictureOnReportLayout ]
+Set Variable [ $fileLocation; Value:$$fileLocation ]
+Set Variable [ $reportTable; Value:1 ]
+End If
 End If
 #
-Set Variable [ $$stopLoadCitation ]
-Pause/Resume Script [ Indefinitely ]
+#
+#Clear variables that transferred information
+#about a picture field on the default setup, tag
+#menu, or report layout when the user clicked
+#on it triggering this script.
+Set Variable [ $$picture ]
+Set Variable [ $$fileLocation ]
+Set Variable [ $$PictureOnReportLayout ]
+Set Variable [ $$defaultTestSubjecPicture ]
+Set Variable [ $$defaultPrimaryNodePicture ]
+#
+#
+#If the user clicked on a picture field that is
+#empty in the tag window exit this script.
+If [ $fileLocation = "tag=none"
+ or
+$fileLocation = "none" and $lock = 1 ]
+#
+#Don't bother telling user how to add a picture
+#to tag, as most of the time these empt fields
+#are clicked on to navigate to a tag record and
+#not to add a picture to them.
+// Show Custom Dialog [ Message: "Use the 'add' button above to add pictures to this tag." ]
+#
+#
+#
+#
+Set Variable [ $$ReplaceMeMediaRequired ]
+#
+#
 Exit Script [ ]
 End If
 #
 #
-#
-#BEGIN NOTE: Test layouts have no pictures,
-#so this section of code is not in use.
-#
-#Determine where picture or movie is located
-#on the reference window and then open it.
-If [ Get ( LayoutTableName ) = "test" ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-// Go to Field [ reference::picture ]
-// Go to Field [ ]
-// #
-// New Window [ Name: reference::picture; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4;
-Left: Get (ScreenWidth)/4 ]
-// Go to Layout [ “ReferencePictureWindow” (reference) ]
-Insert Picture [ ]
-#
-Set Variable [ $$stoploadCitation ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
-End If
-#
-#END NOTE: Test layouts have no pictures,
-#so this section of code is not in use.
-#
-#
-#
-#Determine where picture or movie is located
-#on the reference window and then open it.
-If [ reference::picture ≠ ""
-or reference::kfileLocation ≠ ""
-or reference::URL ≠ "" and reference::showMedia ≠ ""
- // and Get (LayoutName) ≠ "ReferenceEDIT" ]
-If [ reference::picture ≠ "" ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Go to Field [ reference::picture ]
+#Exit any field to avoid in-use error = 301 error.
 Go to Field [ ]
 #
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-If [ Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceEDITstuff" ]
+#
+#
+#
+#
+#BEGIN insert or take new picture or movie
+#
+#
+#If there is no picture (see note) and record
+#is not locked then start the insert script.
+#NOTE: Calculations above deterimined that
+#there is no picture internally (in the database),
+#or externally on the web or hard drive.
+If [ $fileLocation = "none"
+//$fileLocation = "none" and Get (LayoutName) = "ReferencePictureWindowEDIT"
+// or $fileLocation = "none" and Get (LayoutName) = "ReferenceSPictureWindowEDIT" ]
+#
+#Get variables needed to run
+#the insert script below.
+Set Variable [ $$picture; Value:$picture ]
+Set Variable [ $$reportTable; Value:$reportTable ]
+Set Variable [ $$fileLocation; Value:$fileLocation ]
+Set Variable [ $$learnLayout; Value:$learnLayout ]
+Set Variable [ $$referenceLayout; Value:$referenceLayout ]
+#
+Perform Script [ “CHUNK_insertPictureOrMovie (update)” ]
+#
+#If the user canceled the media add, then exit
+#this script as there is no picture to show.
+If [ reference::picture = ""
+ or
+reference::picture = "Replace Me. Media Required" ]
+Exit Script [ ]
+End If
+#
+End If
+#
+#
+#
+#
+#WHY???? Testing required!
+Set Variable [ $$ReplaceMeMediaRequired ]
+#
+#
+#END insert or take new picture or movie
+#
+#
+#
+#
+#
+#BEGIN display picture or movie
+#
+#
+#REFERENCE SECTION
+#
+#If user is on a reference layout when they
+#clicked the picture thumbnail...
+If [ $referenceLayout = 1 ]
+Set Variable [ $$stoploadCitation; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $$stopWhenLoadingInfoRecordReferences; Value:1 ]
+If [ Get ( WindowName ) ≠ "Media" ]
+New Window [ Name: "Media"; Height: 435; Width: 400; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4; Style:
+Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+End If
+#
+#
+#If in stuff library mode just go to the reference
+#picture edit window, because harddrive and
+#web pictures are not allowed in stuff mode.
+#Also, there is no reason to prevent user from
+#editing a location picture from the tag menu.
+If [ $lock = "" and TEMP::InventoryLibraryYN ≠ "" and $fileLocation = "database" and $$citationMatch ≠ "node" ]
+If [ Get (LayoutTableName) = "reference" and Left ( Get (LayoutName) ; 1 ) = "l" ]
+Go to Layout [ “ReferenceSTagMenusPictureWindowEDIT” (reference) ]
+#
+#Need to know this keyword information just
+#in case the user changes while in this picture
+#window. If they do, the Tag Menus window
+#will need to be re-sorted to show the new
+#location keyword group the user put this
+#Reference/Location record in.
+Set Variable [ $$locationKeyword; Value:reference::kkeywordPrimary ]
+#
+#Go to reference edit picture layout if in the
+#Reference section for a stuff/inventory library.
+Else If [ Get (LayoutTableName) = "reference" and Left ( Get (LayoutName) ; 1 ) = "r" ]
+Go to Layout [ “ReferenceSPictureWindowEDIT” (reference) ]
+#
+#Go the view layout if the above two
+#if statements are not true.
+Else
+Go to Layout [ “ReferenceSPictureWindow” (reference) ]
+End If
+#
+#
+#UNLESS ... the user is locked, or on
+#the node tag menu.
+Else If [ $lock ≠ "" and TEMP::InventoryLibraryYN ≠ "" and $fileLocation = "database"
+ or
+$$citationMatch = "node" and TEMP::InventoryLibraryYN ≠ "" and $fileLocation = "database" ]
+Go to Layout [ “ReferenceSPictureWindow” (reference) ]
+#
+#Inform user if the picture record was created
+#while in reference mode versus stuff mode,
+#and how to edit it.
+Else If [ TEMP::InventoryLibraryYN ≠ "" and $fileLocation = "harddrive" ]
+Go to Layout [ “ReferencePictureWindow_HDD” (reference) ]
+Show Custom Dialog [ Message: "This library is set to remember things. When it was set to remember ideas, a link to this
+harddrive media was added to it. If you need to edit this link, you must do so in idea mode."; Default Button: “OK”,
+Commit: “Yes” ]
+Show Custom Dialog [ Message: "To switch back to idea mode 1) click the 'back' buttons in the media and main windows. 2)
+On the main screen, click the checkbox next to 'idea library'."; Default Button: “OK”, Commit: “Yes” ]
+Else If [ TEMP::InventoryLibraryYN ≠ "" and $fileLocation = "web" ]
+Go to Layout [ “ReferencePictureWindow_Web” (reference) ]
+Show Custom Dialog [ Message: "This library is set to remember things. When it was set to remember ideas, a link to this
+web media was added to it. If you need to edit this link, you must do so in idea mode."; Default Button: “OK”, Commit:
+“Yes” ]
+Show Custom Dialog [ Message: "To switch back to idea mode 1) click the 'back' buttons in the media and main windows. 2)
+On the main screen, click the checkbox next to 'idea library'."; Default Button: “OK”, Commit: “Yes” ]
+#
+#
+#If in reference library mode determine the
+#where the media file is located and display it in
+#on the correct layout.
+#
+#Display database file.
+Else If [ TEMP::InventoryLibraryYN = "" ]
+#
+#Go to edit media layout only if on the
+#referenceEDIT layout, and the node
+#that created the referenced hasn't
+#locked it.
+If [ $fileLocation = "database" ]
+If [ $referenceEDIT = 1 and $lock = "" ]
 Go to Layout [ “ReferencePictureWindowEDIT” (reference) ]
 Else
 Go to Layout [ “ReferencePictureWindow” (reference) ]
 End If
 #
-Set Variable [ $$stoploadCitation ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
-Else If [ FilterValues ( reference::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & reference::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & reference::fileName ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( reference::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & reference::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & reference::fileName ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( reference::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagRefFolderPath::tag ; " " ; "%20" ) &
-Case ( Left ( reference::fileName ; 1 ) = "/" ; Substitute ( reference::fileName ; " " ; "%20" ) ;
- "/" & Substitute ( reference::fileName ; " " ; "%20" ) ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagRefFolderPath::tag ; " " ; " " ) &
-Case ( Left ( reference::fileName ; 1 ) = "/" ; Substitute ( reference::fileName ; " " ; " " ) ;
- "/" & Substitute ( reference::fileName ; " " ; " " ) ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ reference::URL ≠ "" ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Go to Field [ reference::picture ]
-Go to Field [ ]
-#
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-If [ Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceEDITstuff" ]
-Go to Layout [ “ReferencePictureWindowEDIT” (reference) ]
+#Display harddrive file.
+Else If [ $fileLocation = "harddrive" ]
+If [ $referenceEDIT = 1 and $lock = "" ]
+Go to Layout [ “ReferencePictureWindow_HDDEDIT” (reference) ]
 Else
-Go to Layout [ “ReferencePictureWindow” (reference) ]
+Go to Layout [ “ReferencePictureWindow_HDD” (reference) ]
 End If
 #
-Set Variable [ $$stoploadCitation ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
-Open URL [ reference::URL ]
-[ No dialog ]
-Exit Script [ ]
+#Display webpage.
+Else If [ $fileLocation = "web" ]
+If [ $referenceEDIT = 1 and $lock = "" ]
+Go to Layout [ “ReferencePictureWindow_WebEDIT” (reference) ]
+Else
+Go to Layout [ “ReferencePictureWindow_Web” (reference) ]
 End If
 End If
+End If
 #
-#Determine where reference picture or movie is located
-#on the tag menus window and then open it.
-If [ citationPicture1::picture ≠ ""
-or citationPicture1::kfileLocation ≠ ""
-or citationPicture1::URL ≠ "" ]
-If [ citationPicture1::picture ≠ "" ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Set Variable [ $picture; Value:tagMenus::Kpicture1 ]
-Go to Field [ ]
-#
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-Go to Layout [ “ReferencePictureWindow” (reference) ]
-#
+#Show only the record of interest.
 Enter Find Mode [ ]
 Set Field [ reference::_Lreference; $picture ]
 Perform Find [ ]
 #
-Set Variable [ $$stoploadCitation ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
-Else If [ FilterValues ( citationPicture1::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationPicture1::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationPicture1::fileName ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( citationPicture1::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationPicture1::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationPicture1::fileName ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( citationPicture1::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagPathPicture1_button::tag ; " " ; "%20" ) &
-Case ( Left ( citationPicture1::fileName ; 1 ) = "/" ; Substitute ( citationPicture1::fileName ; " " ; "%20" ) ;
- "/" & Substitute ( citationPicture1::fileName ; " " ; "%20" ) ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagPathPicture1_button::tag ; " " ; " " ) &
-Case ( Left ( citationPicture1::fileName ; 1 ) = "/" ; Substitute ( citationPicture1::fileName ; " " ; " " ) ;
- "/" & Substitute ( citationPicture1::fileName ; " " ; " " ) ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ citationPicture1::URL ≠ "" ]
-#
-#
-If [ citationPicture1::showMedia ≠ "" ]
-Set Variable [ $$stopLoadCitation; Value:1 ]
-Set Variable [ $picture; Value:tagMenus::Kpicture1 ]
-Go to Field [ ]
-#
-New Window [ Name: ""; Height: Get (ScreenHeight); Width: Get (ScreenWidth); Top: 0; Left: 0 ]
+#If picture is of a locked copyright image,
+#then go to view only layout. This layout
+#check is needed if the user happens to be in
+#inventory mode on the Setup copyright
+#layout, where it is essential that a full
+#reference library reference is shown
+#versus the inventory library reference.
+If [ reference::lock = "lock"
+ or
+$$citationMatch = "copyright" and $$add ≠ "" ]
 Go to Layout [ “ReferencePictureWindow” (reference) ]
+// Else If [ $$add ≠ "" ]
+// Go to Layout [ “ReferenceSPictureWindow” (reference) ]
+End If
 #
-Enter Find Mode [ ]
-Set Field [ reference::_Lreference; $picture ]
-Perform Find [ ]
 #
-Set Variable [ $$stopLoadCitation ]
+#Turn back on the record load variables and
+#pause the script to allow the user the
+#opportunity to look at the media. Pausing will
+#prevent the user from doing anything else until
+#they are finished and close the media window.
+Set Variable [ $$stoploadCitation ]
+Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$stopWhenLoadingInfoRecordReferences ]
+#Resize window so it is compatible with the
+#pictureViewButton script's window sizes.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Move/Resize Window [ Current Window; Height: 435; Width: 400; Top: Get (ScreenHeight) / 4; Left: Get (ScreenWidth) / 4 ]
+Else
+Move/Resize Window [ Current Window; Height: 395; Width: 400; Top: Get (ScreenHeight) / 4; Left: Get (ScreenWidth) / 4 ]
+End If
 Pause/Resume Script [ Indefinitely ]
 Exit Script [ ]
+#
+#
 End If
 #
-Open URL [ Substitute ( citationPicture1::URL ; " " ; "%20" ) ]
-[ No dialog ]
-Exit Script [ ]
-End If
-End If
+#REFERENCE SECTION
 #
-#Determine where testlearn picture or movie is located
-#on the tag menus window and then open it.
-If [ TLPicture1::Picture ≠ ""
-or TLPicture1::kfileLocation ≠ ""
-or TLPicture1::URL ≠ "" ]
-If [ TLPicture1::Picture ≠ "" ]
-#To speed up script, stop this script from working.
+#
+#LEARN SECTION
+#
+#NOTE: Learn records can display both
+#referenced reference record's media
+#as well as their own media.
+#
+#If user is on a testlearn table layout when they
+#clicked the picture thumbnail...
+If [ Get (LayoutTableName) = "testLearn" or Get (LayoutTableName) = "testlearnReportTags" or Get (LayoutTableName) = "report" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
-Set Variable [ $picture; Value:tagMenus::Kpicture1 ]
-Go to Field [ ]
+Set Variable [ $$stoploadtestinfo; Value:1 ]
+Set Variable [ $$stopLoadTestRecord; Value:1 ]
+New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
+(ScreenWidth)/4; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 #
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
+#
+#Go to edit media layout only if on a
+#Learn window layout, and the node
+#that created the learn record hasn't
+#locked it.
+If [ $lock = "" and testlearnReportTags::filterFind = "" and tagTLNodePrimary::orderOrLock = "" and tagTLReportNodePrimary::
+orderOrLock = "" and Get (LayoutName) ≠ "PrintReportEdit" ]
+#
+#Display database file.
+If [ $fileLocation = "database" or $fileLocation = "TLpicture" ]
+If [ $fileLocation = "database" ]
+Go to Layout [ “LearnRefPictureWindowEDIT” (testlearn) ]
+Else If [ $fileLocation = "TLpicture" ]
+#
+#If looking at learn media on an inventory
+#library's Tag Menu, go to the view layout.
+If [ Right ( Get (LayoutName) ; 4 ) = "Cite" ]
 Go to Layout [ “LearnPictureWindow” (testlearn) ]
+Else
+Go to Layout [ “LearnPictureWindowEDIT” (testlearn) ]
+End If
+End If
 #
+#Display harddrive file.
+Else If [ $fileLocation = "harddrive" ]
+Go to Layout [ “LearnRefExternalPictureWindowEDIT” (testlearn) ]
+#
+#Display webpage.
+Else If [ $fileLocation = "web" ]
+Go to Layout [ “LearnRefWebPictureWindowEDIT” (testlearn) ]
+End If
+#
+#Not editable (view only) layouts.
+Else If [ $lock ≠ "" or $reportTable ≠ "" or tagTLNodePrimary::orderOrLock ≠ "" or tagTLReportNodePrimary::orderOrLock ≠ "" or
+Get (LayoutName) = "PrintReportEdit" // or Right ( Get (LayoutName) ; 4 ) = "info" ]
+#
+#Display database file.
+If [ $fileLocation = "database" or $fileLocation = "TLpicture" ]
+If [ $fileLocation = "database" ]
+Go to Layout [ “LearnRefPictureWindow” (testlearn) ]
+Else If [ $fileLocation = "TLpicture" ]
+Go to Layout [ “LearnPictureWindow” (testlearn) ]
+End If
+#
+#Display harddrive file.
+Else If [ $fileLocation = "harddrive" ]
+Go to Layout [ “LearnRefExternalPictureWindow” (testlearn) ]
+#
+#Display webpage.
+Else If [ $fileLocation = "web" ]
+Go to Layout [ “LearnRefWebPictureWindow” (testlearn) ]
+End If
+End If
+#
+#Show only the record of interest.
 Enter Find Mode [ ]
 Set Field [ testlearn::_Ltestlearn; $picture ]
 Perform Find [ ]
 #
+#Turn back on the record load variables and
+#pause the script to allow the user the
+#opportunity to look at the media. Pausing will
+#prevent the user from doing anything else until
+#they are finished and close the media window.
+Set Variable [ $$stoploadtestinfo ]
 Set Variable [ $$stoploadCitation ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
-Else If [ FilterValues ( TLPicture1::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLPicture1::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLPicture1::filename ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( TLPicture1::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLPicture1::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLPicture1::filename ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( TLPicture1::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLPathPicture1_button::tag ; " " ; "%
-20" ) &
-Case ( Left ( TLPicture1::filename ; 1 ) = "/" ; Substitute ( TLPicture1::filename ; " " ; "%20" ) ;
- "/" & Substitute ( TLPicture1::filename ; " " ; "%20" ) ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLPathPicture1_button::tag ; " " ; " " ) &
-Case ( Left ( TLPicture1::filename ; 1 ) = "/" ; Substitute ( TLPicture1::filename ; " " ; " " ) ;
- "/" & Substitute ( TLPicture1::filename ; " " ; " " ) ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ TLPicture1::URL ≠ "" ]
-Open URL [ Substitute ( TLPicture1::URL ; " " ; "%20" ) ]
-[ No dialog ]
-Exit Script [ ]
+Set Variable [ $$stopLoadTestRecord ]
+#Resize window so it is compatible with the
+#pictureViewButton script's window sizes.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Move/Resize Window [ Current Window; Height: 435; Width: 400; Top: Get (ScreenHeight) / 4; Left: Get (ScreenWidth) / 4 ]
+Else
+Move/Resize Window [ Current Window; Height: 395; Width: 400; Top: Get (ScreenHeight) / 4; Left: Get (ScreenWidth) / 4 ]
 End If
-End If
-#
-#Determine where testlearn picture or movie is located
-#on testlearn Layout and then open it.
-If [ testlearn::Picture ≠ ""
-or testlearn::kfileLocation ≠ ""
-or testlearn::URL ≠ ""
-or testlearn::kshowReferencedMedia ≠ "" ]
-If [ testlearn::Picture ≠ "" ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Go to Field [ ]
-#
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-Go to Layout [ “LearnPictureWindow” (testlearn) ]
-Go to Field [ testlearn::Picture ]
-Go to Field [ ]
-#
-Set Variable [ $$stoploadCitation ]
 Pause/Resume Script [ Indefinitely ]
 Exit Script [ ]
 #
-Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & testlearn::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & testlearn::filename ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & testlearn::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & testlearn::filename ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLFolderPath::tag ; " " ; "%20" ) &
-Case ( Left ( testlearn::filename ; 1 ) = "/" ; Substitute ( testlearn::filename ; " " ; "%20" ) ;
- "/" & Substitute ( testlearn::filename ; " " ; "%20" ) ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLFolderPath::tag ; " " ; " " ) &
-Case ( Left ( testlearn::filename ; 1 ) = "/" ; Substitute ( testlearn::filename ; " " ; " " ) ;
- "/" & Substitute ( testlearn::filename ; " " ; " " ) ) ]
-[ No dialog ]
-Exit Script [ ]
-#
-Else If [ testlearn::URL ≠ "" or
-testlearn::kshowReferencedMedia ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Go to Field [ ]
-#
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-Go to Layout [ “LearnPictureWindow” (testlearn) ]
-Go to Field [ testlearn::Picture ]
-End If
-Go to Field [ ]
-#
-Set Variable [ $$stoploadCitation ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
-#
-// Else If [ testlearn::URL ≠ "" ]
-// Open URL [ Substitute ( testlearn::URL ; " " ; "%20" ) ]
-[ No dialog ]
-// Exit Script [ ]
-// End If
 End If
 #
-#Determine where testlearn picture or movie is located
-#on testlearnDiscoveryTag Layout and then open it.
+#LEARN SECTION
 #
-#Because there is no testlearnReportTags
-#picture layout, capture the ID for this record
-#so it can be found on the testlearn picture layout.
-Set Variable [ $testlearnReportTagsID; Value:testlearnReportTags::_Ltestlearn ]
-#
-If [ testlearnReportTags::Picture ≠ ""
-or testlearnReportTags::kfileLocation ≠ ""
-or testlearnReportTags::URL ≠ ""
-or testlearnReportTags::kshowReferencedMedia ≠ "" ]
-If [ testlearnReportTags::Picture ≠ "" ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Go to Field [ ]
-#
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-Go to Layout [ “LearnPictureWindow” (testlearn) ]
-#
-#Find this record for the testlearn layout.
-Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; $testlearnReportTagsID ]
-Perform Find [ ]
-#
-Go to Field [ testlearn::Picture ]
-Go to Field [ ]
-#
-Set Variable [ $$stoploadCitation ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
-#
-Else If [ testlearnReportTags::URL ≠ "" or
-testlearnReportTags::kshowReferencedMedia ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Go to Field [ ]
-#
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-Go to Layout [ “LearnPictureWindow” (testlearn) ]
-#
-#Find this record for the testlearn layout.
-Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; $testlearnReportTagsID ]
-Perform Find [ ]
-#
-Go to Field [ testlearn::Picture ]
-End If
-Go to Field [ ]
-#
-Set Variable [ $$stoploadCitation ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
-#
-#Since version 2 the file path media option has
-#been disabled. If that changes, then these
-#script steps become useful.
-// Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-// Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & testlearn::filename ; " " ; "%20" ) ]
-[ No dialog ]
-// Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & testlearn::filename ; " " ; " " ) ]
-[ No dialog ]
-// Exit Script [ ]
-// Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-// Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & testlearn::filename ; " " ; "%20" ) ]
-[ No dialog ]
-// Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & testlearn::filename ; " " ; " " ) ]
-[ No dialog ]
-// Exit Script [ ]
-// Else If [ FilterValues ( testlearn::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-// Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLFolderPath::tag ; " " ; "%20" ) &
-Case ( Left ( testlearn::filename ; 1 ) = "/" ; Substitute ( testlearn::filename ; " " ; "%20" ) ;
- "/" & Substitute ( testlearn::filename ; " " ; "%20" ) ) ]
-[ No dialog ]
-// Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagTLFolderPath::tag ; " " ; " " ) &
-Case ( Left ( testlearn::filename ; 1 ) = "/" ; Substitute ( testlearn::filename ; " " ; " " ) ;
- "/" & Substitute ( testlearn::filename ; " " ; " " ) ) ]
-[ No dialog ]
-// Exit Script [ ]
-// Else If [ testlearn::URL ≠ "" ]
-// Open URL [ Substitute ( testlearn::URL ; " " ; "%20" ) ]
-[ No dialog ]
-// Exit Script [ ]
-// End If
-End If
-#
-#Determine where default picture or movie is located
-#on default setup Layout and then open it.
-If [ defaultPictureRef::picture ≠ ""
-or defaultPictureRef::kfileLocation ≠ ""
-or defaultPictureRef::URL ≠ "" ]
-If [ defaultPictureRef::picture ≠ "" ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Set Variable [ $picture; Value:defaultPictureRef::_Lreference ]
-Go to Field [ ]
-#
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-Go to Layout [ “ReferencePictureWindow” (reference) ]
-#
-Enter Find Mode [ ]
-Set Field [ reference::_Lreference; $picture ]
-Pause/Resume Script [ Indefinitely ]
-Perform Find [ ]
-#
-Set Variable [ $$stoploadCitation ]
-Exit Script [ ]
-Else If [ FilterValues ( defaultPictureRef::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & defaultPictureRef::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & defaultPictureRef::fileName ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( defaultPictureRef::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & defaultPictureRef::fileName ; " " ; " " ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & defaultPictureRef::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( defaultPictureRef::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagDefaultFolderPathRef::tag ; " " ; "%20" )
-&
-Case ( Left ( defaultPictureRef::fileName ; 1 ) = "/" ; Substitute ( defaultPictureRef::fileName ; " " ; "%20" ) ;
- "/" & Substitute ( defaultPictureRef::fileName ; " " ; "%20" ) ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagDefaultFolderPathRef::tag ; " " ; " " ) &
-Case ( Left ( defaultPictureRef::fileName ; 1 ) = "/" ; Substitute ( defaultPictureRef::fileName ; " " ; " " ) ;
- "/" & Substitute ( defaultPictureRef::fileName ; " " ; " " ) ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ defaultPictureRef::URL ≠ "" ]
-Open URL [ Substitute ( defaultPictureRef::URL ; " " ; "%20" ) ]
-[ No dialog ]
-Exit Script [ ]
-End If
-Else If [ defaultPictureTL::Picture ≠ ""
-or defaultPictureTL::kfileLocation ≠ ""
-or defaultPictureTL::URL ≠ "" ]
-If [ defaultPictureTL::Picture ≠ "" ]
-#To speed up script, stop this script from working.
-Set Variable [ $$stoploadCitation; Value:1 ]
-Set Variable [ $picture; Value:defaultPictureTL::_Ltestlearn ]
-Go to Field [ ]
-#
-New Window [ Name: " "; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
-(ScreenWidth)/4 ]
-Go to Layout [ “LearnPictureWindow” (testlearn) ]
-#
-Enter Find Mode [ ]
-Set Field [ testlearn::_Ltestlearn; $picture ]
-Pause/Resume Script [ Indefinitely ]
-Perform Find [ ]
-#
-Set Variable [ $$stoploadCitation ]
-Exit Script [ ]
-Else If [ FilterValues ( defaultPictureTL::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & defaultPictureTL::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & defaultPictureTL::filename ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( defaultPictureTL::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & defaultPictureTL::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 9) & defaultPictureTL::filename ; " " ; " " ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( defaultPictureTL::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagDefaultFolderPathTL::tag ; " " ; "%20" )
-&
-Case ( Left ( defaultPictureTL::filename ; 1 ) = "/" ; Substitute ( defaultPictureTL::filename ; " " ; "%20" ) ;
- "/" & Substitute ( defaultPictureTL::filename ; " " ; "%20" ) ) ]
-[ No dialog ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:/" ; "file:///" ) & tagDefaultFolderPathTL::tag ; " " ; " " ) &
-Case ( Left ( defaultPictureTL::filename ; 1 ) = "/" ; Substitute ( defaultPictureTL::filename ; " " ; " " ) ;
- "/" & Substitute ( defaultPictureTL::filename ; " " ; " " ) ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ defaultPictureTL::URL ≠ "" ]
-Open URL [ Substitute ( defaultPictureTL::URL ; " " ; "%20" ) ]
-[ No dialog ]
-Exit Script [ ]
-End If
-End If
-#
-#If there is no file found then ask user what picture
-#to insert.
-If [ Get (LayoutTableName) = "reference" and Get ( WindowName ) ≠ "Tag Menus" ]
-Go to Field [ reference::picture ]
-Show Custom Dialog [ Message: "Select a picture or movie to insert."; Buttons: “cancel”, “picture”, “movie” ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Go to Field [ ]
-Exit Script [ ]
-Else If [ Get ( LastMessageChoice ) = 2 ]
-Insert Picture [ ]
-Go to Field [ ]
-Else If [ Get ( LastMessageChoice ) = 3 ]
-Insert QuickTime [ ]
-Go to Field [ ]
-End If
-Go to Field [ ]
-Else If [ Get (LayoutTableName) = "testlearn" and Get ( WindowName ) ≠ "Tag Menus" ]
-Go to Field [ testlearn::Picture ]
-Show Custom Dialog [ Message: "Select a picture or movie to insert."; Buttons: “cancel”, “picture”, “movie” ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Go to Field [ ]
-Exit Script [ ]
-Else If [ Get ( LastMessageChoice ) = 2 ]
-Insert Picture [ ]
-Go to Field [ ]
-Else If [ Get ( LastMessageChoice ) = 3 ]
-Insert QuickTime [ ]
-Go to Field [ ]
-End If
-Go to Field [ ]
-Else If [ Get (LayoutTableName) = "testlearnReportTags" and Get ( WindowName ) = "Tag Menus" ]
-Go to Field [ testlearnReportTags::Picture ]
-Show Custom Dialog [ Message: "Select a picture or movie to insert."; Buttons: “cancel”, “picture”, “movie” ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Go to Field [ ]
-Exit Script [ ]
-Else If [ Get ( LastMessageChoice ) = 2 ]
-Insert Picture [ ]
-Go to Field [ ]
-Else If [ Get ( LastMessageChoice ) = 3 ]
-Insert QuickTime [ ]
-Go to Field [ ]
-End If
-Go to Field [ ]
-End If
-December 27, ଘ౮27 18:42:57 Library.fp7 - showCitationPicture1inNewWindow -1-

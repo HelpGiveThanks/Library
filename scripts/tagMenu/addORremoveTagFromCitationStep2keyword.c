@@ -56,7 +56,8 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $tagName; Value:tagMenus::tag ]
 Set Variable [ $tagKey; Value:tagMenus::_Ltag ]
 New Window [ ]
-Enter Find Mode [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “key” AND ruleTagMenuGroups::ksection: “==7052011234235374” ]
+Enter Find Mode [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “key” AND ruleTagMenuGroups::
+ksection: “==7052011234235374” ]
 [ Restore ]
 Set Field [ tagMenus::tag; "==" & $tagName ]
 Set Field [ TEMP::ksection ]
@@ -73,7 +74,9 @@ Set Field [ tagMenus::tag; $tagName & tagMenus::_Ltag ]
 Set Field [ tagMenus::tagSpelling; $tagName & tagMenus::_Ltag ]
 #
 Close Window [ Current Window ]
-Show Custom Dialog [ Message: "Keywords must have different spellings in each section. The ID number has been added to this keyword to make it different from its duplicate. Please do change it to something meaningful."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Keywords must have different spellings in each section. The ID number has been
+added to this keyword to make it different from its duplicate. Please do change it to something meaningful.";
+Buttons: “OK” ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Else If [ Get ( FoundCount ) ≤ 1 ]
 Close Window [ Current Window ]
@@ -118,7 +121,6 @@ Refresh Window
 Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-January 7, 平成26 16:24:13 Imagination Quality Management.fp7 - addORremoveTagFromCitationStep2keyword -1-tagMenu: addORremoveTagFromCitationStep2keyword
 Go to Record/Request/Page
 [ First ]
 #
@@ -236,13 +238,8 @@ Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
 Select Window [ Name: "Learn"; Current file ]
-Set Field [ testlearn::kcKeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
-If ( ValueCount ( $$key ) ≠ ValueCount ( Substitute ( $$key ; $removekey & "¶" ; "" ) ) ;
-Substitute ( $$key ; $removekey & "¶" ; "" ) ;
-Substitute ( $$key ; $removekey ; "" )
-) ]
-January 7, 平成26 16:24:13 Imagination Quality Management.fp7 - addORremoveTagFromCitationStep2keyword -2-tagMenu: addORremoveTagFromCitationStep2keyword
-Set Field [ testlearn::kcKeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
+Set Field [ testlearn::kcKeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if
+item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $$key ) ≠ ValueCount ( Substitute ( $$key ; $removekey & "¶" ; "" ) ) ;
 Substitute ( $$key ; $removekey & "¶" ; "" ) ;
 Substitute ( $$key ; $removekey ; "" )
@@ -250,7 +247,8 @@ Substitute ( $$key ; $removekey ; "" )
 Set Variable [ $$key; Value:testlearn::kcKeywordOther ]
 Go to Field [ ]
 Else If [ Get (LastError) ≠ 112 ]
-Set Field [ reference::kkeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used
+Set Field [ reference::kkeywordOther; //last item in list has no paragraph mark, so a valuecount test needs to be done and if
+item is not removed, then the removal calc without the paragraph mark is used
 If ( ValueCount ( $$key ) ≠ ValueCount ( Substitute ( $$key ; $removekey & "¶" ; "" ) ) ;
 Substitute ( $$key ; $removekey & "¶" ; "" ) ;
 Substitute ( $$key ; $removekey ; "" )
@@ -333,6 +331,28 @@ Set Variable [ $otherKeys; Value:reference::OtherKeyWords ]
 #
 #Clear the field now in case all tags have been de-selected.
 Set Field [ reference::OtherKeyWords; "" ]
+#
+#Re-sort records so focus is back on selected record.
+If [ $$primaryKeyWord ≠ reference::kkeywordPrimary and $$citationMatch ≠ "cite" and $$stopAdd = "" and $$otherKeyDoNotLoop
+= "" and $$referenceSort = "" ]
+Set Variable [ $$primaryKeyWord ]
+Show Custom Dialog [ Message: "Record will now move to new keyword location. Scroll window to this location?"; Buttons:
+“no”, “yes” ]
+If [ Get (LastMessageChoice) = 2 ]
+Go to Layout [ “ReferenceStuffScriptLoops” (reference) ]
+Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
+[ Restore; No dialog ]
+#
+#Go to reference record layout.
+If [ TEMP::InventoryLibaryYN ≠ "" ]
+Go to Layout [ “ReferenceStuff” (reference) ]
+Else
+Go to Layout [ “Reference” (reference) ]
+End If
+End If
+End If
 End If
 #
 #
@@ -359,7 +379,6 @@ Set Field [ testlearn::OtherKeyWords; $newKey ]
 Set Variable [ $otherKeys; Value:testlearn::OtherKeyWords ]
 Else If [ Get (LastError) ≠ 112 ]
 Set Field [ reference::OtherKeyWords; $newKey ]
-January 7, 平成26 16:24:13 Imagination Quality Management.fp7 - addORremoveTagFromCitationStep2keyword -3-tagMenu: addORremoveTagFromCitationStep2keyword
 Set Variable [ $otherKeys; Value:reference::OtherKeyWords ]
 End If
 End If
@@ -449,4 +468,4 @@ Set Window Title [ Of Window: "Tag Menus Change Back When Done"; Current file; N
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-January 7, 平成26 16:24:13 Imagination Quality Management.fp7 - addORremoveTagFromCitationStep2keyword -4-
+August 19, ଘ౮28 19:55:09 Library.fp7 - addORremoveTagFromCitationStep2keyword -1-

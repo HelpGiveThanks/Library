@@ -1,77 +1,85 @@
-testScreens: test: reportNewEvidence
+January 15, 2018 15:19:24 Library.fmp12 - reportNewTestResult -1-
+test: test: reportNewTestResult
+#
+#If node is currenlty locked then stop script,
+#and inform the user.
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
 #
 #basic administration tasks
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
-If [ testlearnReportTags::gkaudienceLocation = "" ]
-Show Custom Dialog [ Title: "!"; Message: "Select a test section by 1) clicking on the USE button under a picture or by 2) clicking the test section button (next to new button)."; Buttons: “OK” ]
+If [ testlearnReportTags::kgtestSection = "" ]
+Show Custom Dialog [ Title: "!"; Message: "Select a test section by 1) clicking on the USE button under a picture or by 2) clicking
+the test section button (next to new button)."; Default Button: “OK”, Commit: “Yes” ]
 Halt Script
 End If
 #
 #
-New Record/Request
-Set Field [ testlearnReportTags::ktestSubject; $$contact ]
-Set Field [ testlearnReportTags::kaudienceLocation; TEMP::kuserLocation ]
-Set Field [ testlearnReportTags::kcsection; TEMP::ksection ]
-Set Field [ testlearnReportTags::kreportNumber; TEMP::reportNumber ]
-Set Field [ testlearnReportTags::Location; TEMP::LocationName ]
-Set Field [ testlearnReportTags::ktest; TEMP::ktest ]
-Set Field [ testlearnReportTags::timestamp; TEMP::TimeStamp ]
-Set Field [ testlearn::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-Set Field [ testlearn::RecordModifyDate; Get ( CurrentTimeStamp ) ]
-Set Field [ testlearn::kHealth; TEMP::kdefaultHealth ]
+Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
 #
-#note the new record id so when after you sort the
-#the records you will be able to put the focus back on
-#this newly created record in a loop at the end of this script.
+New Record/Request
+Set Field [ testlearnReportTags::ktestSubject; $$testSubject ]
+Set Field [ testlearnReportTags::ktestSection; TEMP::ktestSection ]
+Set Field [ testlearnReportTags::kreportNumber; TEMP::reportNumber ]
+Set Field [ testlearnReportTags::subsectionCustomName; $$subsectionCustomName ]
+Set Field [ testlearnReportTags::ktestSubsection; TEMP::ktestSubsection ]
+Set Field [ testlearnReportTags::timestamp; TEMP::TimeStamp ]
+Set Field [ testlearnReportTags::kNodePrimary; TEMP::kdefaultNodePrimary ]
+Set Field [ testlearnReportTags::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+Set Field [ testlearnReportTags::dateModify; Get ( CurrentTimeStamp ) ]
+Set Field [ testlearnReportTags::kcopyright; TEMP::kdefaultCopyright ]
+#
+#Note the new record ID so after sort the
+#the database will be able to select it.
 Set Variable [ $kpn; Value:testlearnReportTags::_Ltestlearn ]
 #
-#increase number of findings for item for this contact's location
-Go to Layout [ “discoveries” (testlearn) ]
+#Increase number of findings for item for
+#this subject's location.
+Go to Layout [ “testSCRIPTloops” (testlearn) ]
 Enter Find Mode [ ]
-Set Field [ testlearn::ktestSubject; $$contact ]
-Set Field [ testlearn::kaudienceLocation; $$location ]
-Set Field [ testlearn::ktest; $$item ]
+Set Field [ testlearn::ktestSubject; $$testSubject ]
+Set Field [ testlearn::ktestSection; $$testSection ]
+Set Field [ testlearn::ktestSubsection; $$testSubsection ]
 Perform Find [ ]
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $number; Value:Get (FoundCount) ]
 Loop
-Set Field [ testlearn::InspectionItemCountLocation; $number ]
+Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
-#increase number of findings for item
+#Increase number of test results.
 Enter Find Mode [ ]
-Set Field [ testlearn::ktestSubject; $$contact ]
-Set Field [ testlearn::ktest; $$item ]
+Set Field [ testlearn::ktestSubject; $$testSubject ]
+Set Field [ testlearn::ktestSubsection; $$testSubsection ]
 Set Field [ testlearn::kreportNumber; $$reportNumber ]
 Perform Find [ ]
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $number; Value:Get (FoundCount) ]
 Loop
-Set Field [ testlearn::InspectionItemCount; $number ]
+Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 #
-#lock item location so it cannot be deleted unless all findings for it are deleted
-Go to Layout [ “tableTestSubjectFocus” (tagTestSubjectLocation) ]
+#Lock item's section so it cannot be deleted
+#unless all findings for it are deleted.
+Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
 Enter Find Mode [ ]
-Set Field [ tagTestSubjectLocation::_LtestSubjectLocation; $$location ]
+Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
 Perform Find [ ]
-Set Field [ tagTestSubjectLocation::inUse; "t" ]
+Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
 #
-#refind all location records for this session
+#Refind all section records for this session.
 Enter Find Mode [ ]
-Set Field [ tagTestSubjectLocation::knode; $$contact ]
-Set Field [ tagTestSubjectLocation::ksection; $$Library ]
-Set Field [ tagTestSubjectLocation::reportNumber; $$ReportNumber ]
+Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $$testSubject ]
+Set Field [ testSectionCreatedFromATemplate::reportNumber; $$ReportNumber ]
 Perform Find [ ]
 Go to Layout [ original layout ]
-Sort Records [ Specified Sort Order: testlearnReportTags::Location; ascending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::subsectionCustomName; ascending
 testlearnReportTags::timestamp; ascending
 testlearnReportTags::_Ltestlearn; ascending ]
 [ Restore; No dialog ]
@@ -82,4 +90,12 @@ Exit Loop If [ testlearnReportTags::_Ltestlearn = $kpn ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-January 7, 平成26 12:49:13 Imagination Quality Management.fp7 - reportNewEvidence -1-
+#
+#Set conditional formatting variables, turn on
+#the load script, and then go to the result's
+#note field.
+Set Variable [ $$RecordID; Value:Get (RecordID) ]
+Set Variable [ $$main; Value:testlearnReportTags::_Ltestlearn ]
+Set Variable [ $$stopLoadTestResultRecord ]
+Go to Field [ testlearnReportTags::note ]
+#

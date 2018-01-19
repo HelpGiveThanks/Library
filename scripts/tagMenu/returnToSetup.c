@@ -1,25 +1,13 @@
+January 15, 2018 16:16:17 Library.fmp12 - returnToSetup -1-
 tagMenu: returnToSetup
-// If [ $$learnEdit ≠ "" and $$defaultMode ≠ 1 ]
-// #Go to testlearn layout and loop back to record.
-// Set Window Title [ Current Window; New Title: "Learn" ]
-// Go to Layout [ “learn1” (testlearn) ]
-// #
-// #Go to Learn tag menu layout and loop back to record.
-// Select Window [ Name: "Tag Menus"; Current file ]
-// Go to Layout [ “defaultSections” (ruleSection) ]
-// Perform Script [ “defaultSectionMenu” ]
-// Select Window [ Name: "Learn"; Current file ]
-// Go to Field [ ]
-// Refresh Window
-// #
-// Set Field [ TEMP::ktest; "" ]
-// #
-// Exit Script [ ]
+#
+#
+#Return to last library module.
 If [ $$module = "testmenudetail" ]
 #
 #Go to testlearn layout and loop back to record.
 Set Window Title [ Current Window; New Title: "Test" ]
-Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+Go to Layout [ Middle ( TEMP::layoutTmain ; 5 ; 99 ) ]
 #
 #Go to Learn tag menu layout and loop back to record.
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -27,11 +15,12 @@ Go to Layout [ “testMenuTestItem” (tagMenus) ]
 #
 #Reset temp item ID and clear variable holding
 #ID while editing item information.
-Set Field [ TEMP::ktest; $$itemID ]
-Set Field [ TEMP::ktestItemList; $$detailID ]
+Set Field [ TEMP::ktestSubsection; $$itemID ]
+Set Field [ TEMP::ktestItemSubsection; $$detailID ]
 Set Variable [ $$itemID ]
 #
-Perform Script [ “menuTestItem” ]
+#Load up all test items for this subsection.
+Perform Script [ “menuTestItem (update)” ]
 #
 Exit Script [ ]
 Else If [ $$module = "reportTagItem" ]
@@ -46,25 +35,25 @@ Go to Layout [ “reportTagItem” (tagMenus) ]
 #
 #Reset temp item ID and clear variable holding
 #ID while editing item information.
-Set Field [ TEMP::ktest; $$itemID ]
-Set Field [ TEMP::ktestItemList; $$detailID ]
+Set Field [ TEMP::ktestSubsection; $$itemID ]
+Set Field [ TEMP::ktestItemSubsection; $$detailID ]
 Set Variable [ $$itemID ]
 #
-Perform Script [ “menuTestItem” ]
+Perform Script [ “menuTestItem (update)” ]
 #
 Exit Script [ ]
 Else If [ $$module = "defaultSections" ]
-Go to Layout [ “defaultSetup” (tempSetup) ]
+Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ $$module ]
 If [ $$module = "defaultSections" ]
-Perform Script [ “defaultSectionMenu” ]
+Perform Script [ “defaultLibraryButton (update name change defaultSectionMenu)” ]
 End If
 Go to Record/Request/Page [ $$recordNumber ]
 [ No dialog ]
 Set Variable [ $$recordNumber ]
 #
-Set Field [ TEMP::ktest; "" ]
+Set Field [ TEMP::ktestSubsection; "" ]
 #
 #
 Exit Script [ ]
@@ -72,19 +61,31 @@ End If
 #
 #Go to testlearn layout and loop back to record.
 Set Window Title [ Current Window; New Title: "Test" ]
-Go to Layout [ “step4_InspectionFinding” (testlearn) ]
 #
-#Go to Learn tag menu layout and loop back to record.
+#Stop load tag script until the end.
+Set Variable [ $$returnToSetup; Value:1 ]
+#
+#Go to unlocked or locked layout depending
+#lock status of the test subject.
+If [ testSubsectionTestSubjectLock::orderOrLock = "0" ]
+Go to Layout [ "testResultLOCKED" & Right ( TEMP::layoutTmain ; 1) ]
+Else
+Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
+End If
+#
+#Go to test item tag menu layout and go to
+#record user was on before editing test items.
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “testMenuTestItem” (tagMenus) ]
-Sort Records [ Specified Sort Order: ruleTagMenuTestGroups::order; based on value list: “order”
-ruleTagMenuTestGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
-tagMenus::tag; ascending ]
-[ Restore; No dialog ]
+#
+#Load up all test items for this subsection.
+Perform Script [ “menuTestItem (update)” ]
+#
+#Turn back on load tag script and go
+#to selected tag.
+Set Variable [ $$returnToSetup ]
 Go to Record/Request/Page [ $$recordNumber ]
 [ No dialog ]
 Set Variable [ $$recordNumber ]
 #
 Exit Script [ ]
-January 7, 平成26 15:56:26 Imagination Quality Management.fp7 - returnToSetup -1-

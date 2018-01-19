@@ -1,99 +1,86 @@
-testScreens: testReport: reportTagInfo
-#basic administration tasks
+January 15, 2018 15:51:11 Library.fmp12 - reportTagInfo -1-
+test: report: reportTagInfo
+#
+#Admin tasks.
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 #
-If [ Left ( Get (LayoutName) ; 6 ) = "report" ]
-Go to Layout [ “reportTagInfo” (testlearnReportTags) ]
-Else If [ Left ( Get (LayoutName) ; 6 ) ≠ "report" ]
-Go to Layout [ “testInfo” (testlearnReportTags) ]
-End If
-#Turn off the loadtagrecord script to speed up the
-#loop portion of the script.
+#Turn off record load scripts.
 Set Variable [ $$stoploadtestinfo; Value:1 ]
+Set Variable [ $$stoploadCitation; Value:1 ]
+#
+#Note if in testing or reporting mode.
+If [ Left ( Get (LayoutName) ; 6 ) = "report" ]
+Set Variable [ $reportLayout; Value:1 ]
+Else If [ Left ( Get (LayoutName) ; 6 ) ≠ "report" ]
+Set Variable [ $testLayout; Value:1 ]
+End If
+Go to Layout [ “reportTagInfo” (testlearnReportTags) ]
+#
+#Go to testinfo layout.
 Enter Find Mode [ ]
 #
-#now find and show all canned inspection items associated with this generic canned location
-Set Field [ testlearnReportTags::kcsection; TEMP::ksection ]
-Set Field [ testlearnReportTags::kctest; "###" & $$item ]
+#Find and show all informational
+#(Learn module) records tagged
+#to this test section.
+Set Field [ testlearnReportTags::kctestSubsectionInfo; "###" & $$testSubsection ]
 Perform Find [ ]
 #
-#Clear sample and test tags.
-Set Variable [ $$tagSample ]
+#Clear brainstorm and test tags.
+Set Variable [ $$tagBrainstorm ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
 #
-#
-#If sort by order number is on then sort by
-#order number.
-#Go the first record.
-Go to Record/Request/Page
-[ First ]
-#
-Loop
+#Now refind these same records on this
+#testlearn layout to perform the next part of
+#this script.
+Go to Layout [ “learn2” (testlearn) ]
+Enter Find Mode [ ]
+Set Field [ testlearn::kctestSubsectionInfo; "###" & $$testSubsection ]
+Perform Find [ ]
 #
 #The order number is the left three digits of a
-#sample or test record lock number. ( Remember
+#brainstorm or test record lock number. ( Remember
 #each record in the database has lock number or
 #ID number. To open the lock and see any record's
 #contents requires a key number that fits the lock.
 #So if a lock number is 123, then the key that will
-#fit this lock is 123 too. ) Because the sample
+#fit this lock is 123 too. ) Because the brainstorm
 #and test key fields (think of key chains) may
 #have several keys, because any one learn record
-#may be part of more than one sample or test.
+#may be part of more than one brainstorm or test,
 #the system must check each learn record's keys
-#one at a time to see if any fit the current sample
+#one at a time to see if any fit the current brainstorm
 #or test's lock. So beginning with number one
-#the system checks each key. The left most 3 numbers
-#are order numbers so below you will note that
-#they system starts the check on the 4th number
-#from the left.
-Set Variable [ $number; Value:1 ]
-Go to Field [ ]
-Loop
+#the system checks each key.
+# The left most 3 numbers are order
+#numbers which the next script will copy,
+#paste into the records' testOrder fields, and
+#then sort based on this these temporary test
+#order numbers.
+Set Variable [ $$citationMatch; Value:"test" ]
+Set Variable [ $$tagTest; Value:$$testSubsection ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from sortTLRecordsByOrderNumber)” ]
 #
-#The first step is to blank or clear each record's
-#order field, so only those records that are part
-#of the current sample or test will have order numbers
-#and be part of the sort coming right after this
-#assignment of sort order numbers.
-Set Field [ testlearnReportTags::orderTest; "" ]
+If [ $reportLayout = 1 ]
+Go to Layout [ “reportTagInfo” (testlearnReportTags) ]
+Else If [ $testLayout = 1 ]
+Go to Layout [ “testInfo” (testlearnReportTags) ]
+End If
 #
-#When and if a key is found that fits the current
-#sample or test record's lock, the order number
-#( left most 3 digits ) is caputred and placed in
-#in the order field.
-Set Field [ testlearnReportTags::orderTest; Left ( GetValue ( testlearnReportTags::kctest ; $number ) ; 3 ) ]
-#
-#The 'number' variable is made blank to trigger
-#the exit from this loop, the order number having
-#been assigned.
-Set Variable [ $number ]
-Exit Loop If [ $number = "" ]
-#
-#Exit loop if the current record is not part
-#of the selected sample or test after checking
-#all of its keys.
-Exit Loop If [ GetValue ( testlearnReportTags::kctest ; $number ) = "" ]
-#
-#Add 1 to the 'number' varaible after each key
-#in the key field is checked, to direct the system
-#to check the next key.
-Set Variable [ $add; Value:$number ]
-Set Variable [ $number; Value:$add + 1 ]
-End Loop
-Go to Record/Request/Page
-[ Next; Exit after last ]
-End Loop
+#Sort button script uses the "order" text to tell
+#it to perform the next sort by date instead of
+#by order number which is the default sort.
+Set Field [ TEMP::TLTestSort; "order" ]
 #
 #Sort the records by order field.
-Sort Records [ Specified Sort Order: testlearnReportTags::orderTest; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::orderTestInformation; based on value list:
+“order Pulldown List”
 testlearnReportTags::timestamp; descending ]
 [ Restore; No dialog ]
 #
-#Return focus to record user was focused on at
+#Return to record user was on at
 #the start of this script.
 Go to Record/Request/Page
 [ First ]
@@ -102,5 +89,7 @@ Scroll Window
 #
 #Turn loadcitation script back on and exit script.
 Set Variable [ $$stoploadtestinfo ]
-Perform Script [ “loadtestinfo” ]
-January 7, 平成26 14:41:42 Imagination Quality Management.fp7 - reportTagInfo -1-
+Set Variable [ $$stoploadCitation ]
+Perform Script [ “loadTestInfo (update)” ]
+#
+#

@@ -1,15 +1,9 @@
-learn: editTestLearn
-#
-#If node is currenlty locked then stop script, inform user.
-If [ tagTLNodePrimary::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "The default node selected is locked. Select this node in the setup window and enter the
-password to unlock it, then you will able to edit records assigned to this node."; Buttons: “OK” ]
-Exit Script [ ]
-End If
+January 16, 2018 21:48:55 Library.fmp12 - gotoLearnQV -1-
+learn: gotoLearnQV
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit find mode, then click this button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Exit find mode, then click this button."; Default Button: “OK”, Commit: “No” ]
 Exit Script [ ]
 End If
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -31,7 +25,7 @@ End If
 Set Variable [ $$testLearnLayoutName; Value:Get (LayoutName) ]
 #
 #Go to edit layout for this record.
-If [ TEMP::InventoryLibaryYN ≠ "" ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
 Go to Layout [ “learn4EDITstuff” (testlearn) ]
 Else
 Go to Layout [ “learn4EDIT” (testlearn) ]
@@ -40,4 +34,3 @@ End If
 #Prevent add mode.
 Set Variable [ $$stopAdd; Value:1 ]
 Set Variable [ $$stoploadCitation ]
-December 10, ଘ౮27 17:46:03 Library.fp7 - editTestLearn -1-

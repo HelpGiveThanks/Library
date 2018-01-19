@@ -1,8 +1,10 @@
-tagMenu: menuFind: findReference
+January 18, 2018 15:02:20 Library.fmp12 - findALL_LearnOrRefRecords -1-
+reference: findALL_LearnOrRefRecords
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit find mode in the Tag Menus window, then click this button."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "Exit find mode in the Tag Menus window, then click this button."; Default Button: “OK”,
+Commit: “No” ]
 Exit Script [ ]
 End If
 #
@@ -13,19 +15,6 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
 Select Window [ Name: "References"; Current file ]
 Select Window [ Name: "Learn"; Current file ]
-If [ $$referenceSort = 2 ]
-Sort Records [ Specified Sort Order: reference::modifyDate; descending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-Else If [ $$referenceSort = "" ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-Else If [ $$referenceSort = 1 ]
-Sort Records [ Specified Sort Order: reference::createDate; descending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-End If
 #
 #As going to the other window will be involved
 #stop the record load script on that window until
@@ -44,85 +33,109 @@ Set Variable [ $$foundOther ]
 #on the tag screen and was showing only a few
 #of a section's records using this mode.
 If [ Get ( WindowName ) = "Learn" ]
-If [ $$add = 1 ]
-Show Custom Dialog [ Message: "Find learn, or
-test discovery, or
-both types of records?"; Buttons: “learn”, “discovery”, “both” ]
 Enter Find Mode [ ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Set Field [ testlearn::kcsection; "*" ]
-Else If [ Get ( LastMessageChoice ) = 2 ]
-Set Field [ testlearn::kaudienceLocation; "*" ]
-Else If [ Get ( LastMessageChoice ) = 3 ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
-End If
-Show Custom Dialog [ Message: "limit find to just this section -- " & TEMP::sectionName & " -- or find for entire library?";
-Buttons: “section”, “library” ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Set Field [ reference::kcsection; "==" & TEMP::ksection ]
-Else If [ Get ( LastMessageChoice ) = 2 ]
-End If
-Else If [ $$add ≠ 1 ]
-Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
-Set Field [ testlearn::filterFind; "main" & ¶ ]
-End If
 Perform Find [ ]
-Sort Records [ Specified Sort Order: testlearn::date; descending
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
 Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
 Exit Script [ ]
 End If
 #
 If [ Get ( WindowName ) = "References" ]
 #find on reference layout ...
-If [ Left (Get (LayoutName) ; 1) = "r" and $$add ≠ "" ]
-Show Custom Dialog [ Message: "Find all reference records for the " & TEMP::sectionName & " section or show references
-for all sections in the library?"; Buttons: “section”, “all” ]
-Enter Find Mode [ ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Else If [ Get ( LastMessageChoice ) = 2 ]
-Set Field [ reference::kcsection; "*" ]
-End If
-Else If [ Left (Get (LayoutName) ; 1) = "r" and $$add = "" ]
-Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
+If [ Left (Get (LayoutName) ; 1) = "r" ]
+Show All Records
 #
 #find on learn layout ...
 Else If [ Left (Get (LayoutName) ; 1) = "l" ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
-End If
-Else If [ Get ( WindowName ) = "Tag Menus" ]
-Show Custom Dialog [ Message: "Find all reference records for the " & TEMP::sectionName & " section or show references for
-all sections in the library?"; Buttons: “section”, “all” ]
-Enter Find Mode [ ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Set Field [ reference::kcsection; "==" & TEMP::ksection ]
-Else If [ Get ( LastMessageChoice ) = 2 ]
-Set Field [ reference::kcsection; "*" ]
-End If
-End If
 Perform Find [ ]
-Sort Records [ Specified Sort Order: testlearn::date; descending
+End If
+End If
+#
+#Omit locked records, which are the copyright
+#images used by default copyright tags.
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::lock: “lock” ]
+[ Restore ]
+#
+#Sort and go to the first record. Due to bugs,
+#two sorts are required to scroll the window to
+#first record.
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
-reference::referenceForReferenceSort; ascending ]
+If [ TEMP::InventoryLibraryYN = "" ]
+#
+#If reference is sorted by ...
+If [ $$referenceSort = "" ]
+#keyword
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list:
+“order Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::referenceShort; ascending ]
 [ Restore; No dialog ]
+Else If [ $$referenceSort = "author" ]
+#author
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByAuthor; ascending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "dateCreated" ]
+#dateCreated
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::createDate; descending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "dateModified" ]
+#dateModified
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::modifyDate; descending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "datePublished" ]
+#datePublished
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByDatePublished; ascending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "publication" ]
+#publication title
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByPublication; ascending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "publisher" ]
+#publisher's name
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagPublisher::tag; ascending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ $$referenceSort = "title" ]
+#title
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByTitle; ascending ]
+[ Restore; No dialog ]
+End If
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list:
+“testPulldownListANDsortOrderList”
+tagKeywordPrimary::tag; ascending
+reference::publicationYearOrStuffOrderNumber; based on value list: “testPulldownListANDsortOrderList”
+reference::Title; ascending
+reference::thoughtsNotesEtc; ascending ]
+[ Restore; No dialog ]
+End If
 Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
-Select Window [ Name: "Tag Menus"; Current file ]
-January 8, ଘ౮28 14:39:45 Library.fp7 - findReference -1-
+Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+#
+#

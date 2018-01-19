@@ -1,4 +1,17 @@
-testScreens: testReport: gotoDefaultsOrReport
+January 15, 2018 15:48:49 Library.fmp12 - gotoDefaultsOrReport -1-
+test: report: gotoDefaultsOrReport
+#
+#Select window Learn, in case the user clicked
+#the back button on the Test Tag Menu.
+Select Window [ Name: "Learn"; Current file ]
+#
+#
+#
+#Set in copyAndpastTags script.
+Set Variable [ $$copyAndpastTagsRECORD ]
+#
+#Clear main record node lock variable.
+Set Variable [ $$lockedMainLearnRecord ]
 #
 #Determine what module is active and then go
 #to the setup module if ...
@@ -9,52 +22,37 @@ If [ $$learnRecord = "" and $$testTagRecord = "" ]
 #will get deleted by the spelling check script.
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
+#
+#Check for any dragged changes to tag spellings.
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
+Show All Records
+Set Variable [ $$stopLoadTagRecord ]
+Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+#
+#Go to default tags layout
+#and load up defaults.
+Perform Script [ “defaultsAll (update)” ]
+#
+#Change main window to Setup.
 Select Window [ Name: "References"; Current file ]
 Select Window [ Name: "Learn"; Current file ]
-If [ $$referenceSort = 2 ]
-Sort Records [ Specified Sort Order: reference::modifyDate; descending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-Else If [ $$referenceSort = "" ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-Else If [ $$referenceSort = 1 ]
-Sort Records [ Specified Sort Order: reference::createDate; descending
-reference::referenceForReferenceSort; ascending ]
-[ Restore; No dialog ]
-End If
-#
-#Addtotag... script is activated by the load record
-#trigger. This script needs to be turned off until
-#the section record is looped selected by the user.
-Set Variable [ $$stopAddTagToCitation; Value:1 ]
-#
-Go to Layout [ “defaultSetup” (tempSetup) ]
-Show All Records
-Delete All Records
-[ No dialog ]
-New Record/Request
 Set Window Title [ Current Window; New Title: "Setup" ]
 Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
+Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
 #
-#goto Tag Menus window
-Select Window [ Name: "Tag Menus"; Current file ]
-If [ Get (LastError) = 112 ]
-New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
-End If
-Select Window [ Name: "Setup"; Current file ]
-Set Variable [ $$citationitem; Value:tempSetup::ksection ]
-Set Variable [ $$citationMatch; Value:"section" ]
-Refresh Window
+#Clear variables that where set
+#in other modules.
 Go to Field [ ]
+Set Variable [ $$citationitem; Value:tempSetup::klibrary ]
+Set Variable [ $$citationMatch ]
 Set Variable [ $$node ]
-Set Variable [ $$tagSample ]
+Set Variable [ $$tagBrainstorm ]
 Set Variable [ $$tagTest ]
 Set Variable [ $$citationRecord ]
 Set Variable [ $$primaryNode ]
 Set Variable [ $$medium ]
-Set Variable [ $$health ]
+Set Variable [ $$copyright ]
 Set Variable [ $$Path ]
 Set Variable [ $$cite ]
 Set Variable [ $$ref ]
@@ -63,7 +61,7 @@ Set Variable [ $$Key ]
 Set Variable [ $$OtherKey ]
 Set Variable [ $$RecordID ]
 #
-Set Field [ TEMP::ktest; "" ]
+Set Field [ TEMP::ktestSubsection; "" ]
 #
 Set Variable [ $$findMode ]
 Set Variable [ $$firstFind ]
@@ -71,37 +69,10 @@ Set Variable [ $$firstFindOther ]
 Set Variable [ $$found ]
 Set Variable [ $$foundOther ]
 Set Variable [ $$findLayout ]
-Select Window [ Name: "Tag Menus"; Current file ]
-#
-#Set citationMatch to color menu button with inUse color.
-Set Variable [ $$citationMatch; Value:"section" ]
-#
-Go to Layout [ “defaultSections” (ruleSection) ]
-Allow User Abort [ Off ]
-Set Error Capture [ On ]
-Enter Find Mode [ ]
-Set Field [ ruleSection::match; "section" ]
-Perform Find [ ]
-#
-Sort Records [ Specified Sort Order: ruleSection::name; ascending ]
-[ Restore; No dialog ]
-#
-#Go to citation record's current selection or to first record.
-Go to Record/Request/Page
-[ First ]
-Loop
-Exit Loop If [ TEMP::ksection = ruleSection::ksection ]
-Go to Record/Request/Page
-[ Next; Exit after last ]
-End Loop
-If [ TEMP::ksection ≠ ruleSection::ksection ]
-Go to Record/Request/Page
-[ First ]
-End If
-Set Variable [ $$stopAddTagToCitation ]
-Perform Script [ “addTagToMainRecord” ]
-Refresh Window
 Exit Script [ ]
+#
+#
+#
 Else If [ $$learnRecord ≠ "" and $$testTagRecord = "" ]
 Set Window Title [ Current Window; New Title: "Report" ]
 Go to Layout [ “PrintReportEdit” (report) ]
@@ -109,31 +80,49 @@ Scroll Window
 [ Home ]
 #
 Enter Find Mode [ ]
-Set Field [ report::ktestSubject; $$contact ]
+Set Field [ report::ktestSubject; $$testSubject ]
 Set Field [ report::kreportNumber; $$reportNumber ]
-Set Field [ report::ksection; $$library ]
-Set Field [ report::ktest; $$returnItem ]
+Set Field [ report::ktestSubsection; $$returnItem ]
 Perform Find [ ]
-Sort Records [ Specified Sort Order: report::ktest; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: report::ktestSubsection; ascending ]
 [ Restore; No dialog ]
 #
 View As
 [ View as List ]
 Scroll Window
 [ Home ]
-January 7, 平成26 14:40:27 Imagination Quality Management.fp7 - gotoDefaultsOrReport -1-testScreens: testReport: gotoDefaultsOrReport
 #
 #Just in case user went to a different item before
 #returning to this item, put the item being tested
 #back in the temp field.
-Set Field [ TEMP::ktest; $$returnItem ]
-Set Field [ TEMP::testName; $$returnItemName ]
+Set Field [ TEMP::ktestSubsection; $$returnItem ]
+Set Field [ TEMP::testSubsectionName; $$returnItemName ]
+#
+#If user is in tag field and has changed spelling
+#exit this tag record, otherwise current reference record
+#will get deleted by the spelling check script.
+Select Window [ Name: "Tag Menus"; Current file ]
+Go to Field [ ]
+#
+#Check for any dragged changes to tag spellings.
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
+Show All Records
+Set Variable [ $$stopLoadTagRecord ]
+Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
 #
 #Now find discoveries for this report item.
-Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
 Go to Layout [ “reportTagInfo” (testlearnReportTags) ]
-Perform Script [ “reportTagInfo” ]
+Perform Script [ “reportTagInfo (update)” ]
+#
+#Clear this variable, which is needed only
+#when going to edit Learn info records.
+If [ TEMP::InventoryLibraryYN = "" ]
+Set Variable [ $$doNotOpenReferenceWindow ]
+End If
+#
+#Now go the test record the user was on.
 Go to Record/Request/Page
 [ First ]
 Loop
@@ -144,7 +133,7 @@ End Loop
 Set Variable [ $$stoploadtestinfo ]
 Set Variable [ $$returnItem ]
 Set Variable [ $$learnRecord ]
-Perform Script [ “loadtestinfo” ]
+Perform Script [ “loadTestInfo (update)” ]
 #
 Else If [ $$learnRecord = "" and $$testTagRecord ≠ "" ]
 Set Window Title [ Current Window; New Title: "Test" ]
@@ -154,27 +143,26 @@ Set Window Title [ Current Window; New Title: "Test" ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 #
 #find and show all test records.
-Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+Go to Layout [ “testResult0” (testlearn) ]
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
-Set Field [ testlearn::ktestSubject; $$contact ]
-Set Field [ testlearn::ktest; $$returnItem ]
-Set Field [ testlearn::kcsection; $$library ]
+Set Field [ testlearn::ktestSubject; $$testSubject ]
+Set Field [ testlearn::ktestSubsection; $$returnItem ]
 Set Field [ testlearn::kreportNumber; $$reportNumber ]
 Perform Find [ ]
 #
 #Just in case user went to a different item before
 #returning to this item, put the item being tested
 #back in the temp field.
-Set Field [ TEMP::ktest; $$returnItem ]
-Set Field [ TEMP::testName; $$returnItemName ]
+Set Field [ TEMP::ktestSubsection; $$returnItem ]
+Set Field [ TEMP::testSubsectionName; $$returnItemName ]
 #
 #This field does show up elsewhere but I am not
 #sure after what it does. My bad for not making
 #thorough comments during earlier developement.
-Set Field [ InspectItems::glocationNameGlobal;
-TextStyleAdd ( TEMP::LocationName ; Lowercase ) ]
+Set Field [ testSubsectionForSubject::gtestSectionNameGlobal;
+TextStyleAdd ( TEMP::testSubsectionNameForSubject ; Lowercase ) ]
 #
 #Create new test record if there are none.
 #( I know, there where records here when the
@@ -183,7 +171,7 @@ TextStyleAdd ( TEMP::LocationName ; Lowercase ) ]
 # to leave this step in for in case that unlikely
 # thing happened ).
 If [ Get (LastError) = 401 ]
-Perform Script [ “newTestRecord” ]
+Perform Script [ “newTestResult (update name change newTestRecord)” ]
 #
 #If there is OK or NA record, change it into a test
 #record. (NA and OK records tell the user they
@@ -193,25 +181,25 @@ Perform Script [ “newTestRecord” ]
 #but it is not being used to record details.
 #These next steps will turn that non-test record
 #into a test record.)
-Else If [ Get (FoundCount) = 1 and $$Location = testlearn::kaudienceLocation and testlearn::kreportNumber = $$reportNumber and
-testlearn::InspectionItemCountLocation = "N/A" or
-Get (FoundCount) = 1 and $$Location = testlearn::kaudienceLocation and testlearn::kreportNumber = $$reportNumber and
-testlearn::InspectionItemCountLocation = "OK" or
-Get (FoundCount) = 1 and $$Location = testlearn::kaudienceLocation and testlearn::kreportNumber = $$reportNumber and
-testlearn::InspectionItemCountLocation = "★" ]
+Else If [ Get (FoundCount) = 1 and $$testSection = testlearn::ktestSection and testlearn::kreportNumber = $$reportNumber and
+testlearn::countOfONESubsectionsTestResults = "N/A" or
+Get (FoundCount) = 1 and $$testSection = testlearn::ktestSection and testlearn::kreportNumber = $$reportNumber and
+testlearn::countOfONESubsectionsTestResults = "OK" or
+Get (FoundCount) = 1 and $$testSection = testlearn::ktestSection and testlearn::kreportNumber = $$reportNumber and
+testlearn::countOfONESubsectionsTestResults = "̣" ]
 #
 #If there is OK or NA record, change it into a test
 #by change NA or OK to 1, as in 1 test record.
-Set Field [ testlearn::InspectionItemCountLocation; 1 ]
+Set Field [ testlearn::countOfONESubsectionsTestResults; 1 ]
 #
 #increase number of test records for item overall
 #from zero to 1.
-Set Field [ testlearn::InspectionItemCount; 1 ]
-Go to Layout [ “step4_InspectionFinding” (testlearn) ]
+Set Field [ testlearn::countOfALLSubsectionsTestResults; 1 ]
+Go to Layout [ “testResult0” (testlearn) ]
 End If
 #
 #Group records by test subject location.
-Sort Records [ Specified Sort Order: testlearn::Location; ascending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::subsectionCustomName; ascending
 testlearn::_Number; ascending ]
 [ Restore; No dialog ]
 #
@@ -225,9 +213,9 @@ testlearn::_Number; ascending ]
 Go to Record/Request/Page
 [ First ]
 Loop
-If [ testlearn::InspectionItemCountLocation = "N/A" or
-testlearn::InspectionItemCountLocation = "OK" or
-testlearn::InspectionItemCountLocation = "★" ]
+If [ testlearn::countOfONESubsectionsTestResults = "N/A" or
+testlearn::countOfONESubsectionsTestResults = "OK" or
+testlearn::countOfONESubsectionsTestResults = "̣" ]
 Omit Record
 Go to Record/Request/Page
 [ Previous ]
@@ -243,8 +231,6 @@ Loop
 Exit Loop If [ testlearn::_Ltestlearn = $$testLearnRecord ]
 Go to Record/Request/Page
 [ Previous; Exit after last ]
-January 7, 平成26 14:40:27 Imagination Quality Management.fp7 - gotoDefaultsOrReport -2-testScreens: testReport: gotoDefaultsOrReport Go to Record/Request/Page
-[ Previous; Exit after last ]
 End Loop
 #
 #Set the numbers for the navigation arrows
@@ -252,13 +238,31 @@ End Loop
 Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
 Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
 #
+#If the test subject or the primary node is
+#locked go the locked layout.
+If [ testSubsectionTestSubjectLock::orderOrLock = "0"
+or
+TEMP::primaryNodeIsLocked ≠ ""
+// or
+//TEMP::primaryNodesCreatorNodeIsLocked ≠ "" ]
+Go to Layout [ "testResultLOCKED" & Right ( TEMP::layoutTmain ; 1) ]
+Else
+Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
+End If
+#
 #Conditionally format current test record and tags.
 Set Variable [ $$sopLoadTestRecord ]
-Perform Script [ “loadTestRecord” ]
+Perform Script [ “loadTestResultRecord (update name change loadTestRecord)” ]
 #
 #Find all details for this item.
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “reportTagInfo” ]
+Perform Script [ “reportTagInfo (update)” ]
+#
+#Clear this variable, which is needed only
+#when going to edit Learn info records.
+If [ TEMP::InventoryLibraryYN = "" ]
+Set Variable [ $$doNotOpenReferenceWindow ]
+End If
 #
 #Now go the test record the user was on.
 Set Variable [ $$stoploadtestinfo; Value:1 ]
@@ -269,13 +273,14 @@ Exit Loop If [ testlearnReportTags::_Ltestlearn = $$testTagRecord ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
+#
+#Load up the current records variables.
 Set Variable [ $$stoploadtestinfo ]
-Perform Script [ “loadtestinfo” ]
+Perform Script [ “loadTestInfo (update)” ]
 #
-#
+#Clear the variables specific to this script.
 Set Variable [ $$returnItem ]
 Set Variable [ $$testTagRecord ]
 Set Variable [ $$testLearnRecord ]
 #
 End If
-January 7, 平成26 14:40:27 Imagination Quality Management.fp7 - gotoDefaultsOrReport -3-

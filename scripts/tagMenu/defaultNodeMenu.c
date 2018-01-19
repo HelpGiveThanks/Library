@@ -1,15 +1,15 @@
+January 15, 2018 17:07:56 Library.fmp12 - defaultNodeMenu -1-
 tagMenu: defaultNodeMenu
 #
-#A section must be selected before nodes
-#can be assigned.
-If [ TEMP::ksection = "" ]
-Perform Script [ “defaultSectionMenu” ]
-Show Custom Dialog [ Message: "All nodes are assigned to a library. You need to go the backup layout in admin mode and type in the words New Library, and then restart this database."; Buttons: “OK” ]
-Exit Script [ ]
-End If
+#Do not load tag records until the end of script
+#to prevent flashing of window and to speed up
+#script.
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
-#Make sure creator node's group is part of section group.
-Perform Script [ “addBackSectionCreatorNode” ]
+#Make sure library's creator node and the
+#creator node's group exists.
+Perform Script [ “CHUNKcheckCreatorNodeAndPrimaryNode (update move name change addBackSectionCreatorNode)” ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"node" ]
@@ -22,33 +22,30 @@ Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
 #
 #Find all node records.
-If [ tempSetup::DefaultmoreORLessLayoutNode = "" ]
 Go to Layout [ “defaultNode1” (tagMenus) ]
-Set Field [ TEMP::DefaultmoreORLessLayoutNode; "more" & Get (LayoutName) ]
-Else If [ tempSetup::DefaultmoreORLessLayoutNode ≠ "" ]
-Go to Layout [ Middle ( TEMP::DefaultmoreORLessLayoutNode ; 5 ; 42 ) ]
-End If
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
-Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
+#
+#In Seupt section only show creator nodes,
+#as these are the only nodes that can create
+#or edit library records.
+Set Field [ tagMenus::textStyleOrCreatorNodeFlag; 123456789 ]
 Perform Find [ ]
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
+#Sort according to current users wishes.
 If [ TEMP::sortNode = "cat"
  or
 TEMP::sortNode = "" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Set Field [ TEMP::sortNode; "cat" ]
 Else If [ TEMP::sortNode = "abc" ]
-Sort Records [ Specified Sort Order: ruleTagSectionName::name; ascending
-tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -74,8 +71,17 @@ Go to Record/Request/Page
 [ First ]
 End If
 #
+#Go to user's selected menu view.
+If [ tempSetup::DefaultmoreORLessLayoutNode = "" ]
+Go to Layout [ “defaultNode1” (tagMenus) ]
+Set Field [ TEMP::DefaultmoreORLessLayoutNode; "more" & Get (LayoutName) ]
+Else If [ tempSetup::DefaultmoreORLessLayoutNode ≠ "" ]
+Go to Layout [ Middle ( TEMP::DefaultmoreORLessLayoutNode ; 5 ; 42 ) ]
+End If
+#
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
+Perform Script [ “loadTagRecord (update)” ]
 Refresh Window
 #
 #
@@ -88,4 +94,26 @@ Refresh Window
 #goto Tag Menus window
 Select Window [ Name: "Tag Menus"; Current file ]
 #
-January 28, 平成26 15:54:56 Empty Library copy.fp7 - defaultNodeMenu -1-
+#Inform user node was added back.
+If [ $$creatorNodeAddedBack = 1 ]
+Show Custom Dialog [ Message: "The creator node for this library was added back. You may change the name but not delete
+this node."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "A newly created group was created for this node. Rename this group, or move the node to a
+group of your choice."; Default Button: “OK”, Commit: “Yes” ]
+Set Variable [ $$creatorNodeAddedBack ]
+End If
+#
+#Show creator node explanation
+#once per session.
+If [ $$showCreatorNodemessageOnlyOnce = "" ]
+Show Custom Dialog [ Message: "Node's created in this Setup section, and in the Learn section of this library, are used to create
+and edit all records in this library, while node/author tags created in the Reference section can only be used to tag
+Referenced works."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "NOTE: Setup and Learn record creator nodes will also show up in the Reference section,
+where they can be used to tag a Reference if it is for a work authored by one or more of this library's creators."; Default
+Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "This message appears only per session. Restart this library to see it again."; Default Button:
+“OK”, Commit: “Yes” ]
+Set Variable [ $$showCreatorNodemessageOnlyOnce; Value:1 ]
+End If
+#

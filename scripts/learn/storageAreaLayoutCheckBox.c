@@ -1,18 +1,17 @@
-learn: storageAreaLayoutCheckBox
+January 17, 2018 11:35:37 Library.fmp12 - holderCheckBox -1-
+learn: holderCheckBox
 #
-#Prevent user from tagging storage records
-#with other storage tags. I.E., No storage
-#inside of storage relationships allowed.
-If [ TEMP::InventoryLibaryYN = "" ]
+#Prevent user from tagging holder records
+#with other holder tags. I.E., No holder
+#inside of holder relationships allowed.
+If [ TEMP::InventoryLibraryYN = "" ]
 Exit Script [ ]
 End If
 #
 If [ Filter (testlearn::kcreference ; "L") ≠ "" ]
-Set Field [ testlearn::sampleCasePoint; "" ]
-Show Custom Dialog [ Message: "This item is in storage. To make it a storage location first remove it from storage. On the Tag
-Menu's window 1) click 'it's here', 2) click 'containers', and 3) click the button next to storage area where it is located.";
-Buttons: “OK” ]
+Set Field [ testlearn::brainstormCasePoint; "" ]
+Show Custom Dialog [ Message: "This item is in/on a holder (box, shelf, etc.). To make it a location tag, 1) click 'tag', 2) click 'it's
+here', 3) click 'holder', and 4) remove it from its current holder."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
-January 18, ଘ౮28 16:18:06 Library.fp7 - storageAreaLayoutCheckBox -1-

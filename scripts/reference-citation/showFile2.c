@@ -1,34 +1,26 @@
-reference(citation): showFile2
+January 18, 2018 15:41:45 Library.fmp12 - showTagLink2 -1-
+reference: showTagLink2
 #
-#Show reference file.
-If [ FilterValues ( citationTitle2::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & citationTitle2::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Else If [ FilterValues ( citationTitle2::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & citationTitle2::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( citationTitle2::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-Open URL [ Substitute ( tagFolderPathForFile::tag & citationTitle2::fileName ; " " ; "%20" ) ]
-[ No dialog ]
-Else If [ citationTitle2::URL ≠ "" ]
-Open URL [ citationTitle2::URL ]
-[ No dialog ]
-End If
+#Capture needed link info.
+Set Variable [ $$tagMenusRealCheckbox; Value:tagFileLocation2::kfileORkTestItemCreatorNode ]
+Set Variable [ $$tagMenusFilePath; Value:tagFileLocation2::tag ]
+Set Variable [ $$tagMenusFileName; Value:refTitle2::fileName ]
+Set Variable [ $$tagMenusFileLocation; Value:refTitle2::kfileLocation ]
+Set Variable [ $$tagMenusURL; Value:refTitle2::URL ]
+Set Variable [ $$tagMenusISBN; Value:refTitle2::ISBN ]
+Set Variable [ $$tagMenusISSN; Value:refTitle2::ISSN ]
+Set Variable [ $$tagMenusDOI; Value:refTitle2::DOI ]
 #
-#Show testlearn file.
-If [ FilterValues ( TLTitle2::kfileLocation ; "8162011225532313" ) = "8162011225532313" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & "x/" & TLTitle2::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Else If [ FilterValues ( TLTitle2::kfileLocation ; "8162011225558314" ) = "8162011225558314" & ¶ ]
-Open URL [ Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 9) & TLTitle2::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Exit Script [ ]
-Else If [ FilterValues ( TLTitle2::kfileLocation ; "8162011225605315" ) = "8162011225605315" & ¶ ]
-Open URL [ Substitute ( tagTLFolderPathForFile2::tag & TLTitle2::filename ; " " ; "%20" ) ]
-[ No dialog ]
-Else If [ TLTitle2::URL ≠ "" ]
-Open URL [ TLTitle2::URL ]
-[ No dialog ]
-End If
-January 7, 平成26 17:56:07 Imagination Quality Management.fp7 - showFile2 -1-
+#Open link for user.
+Perform Script [ “showReferencedFileFolderOrWebsite (update and name showFileInTagandLearnWindows)” ]
+#
+#Clear link variables.
+Set Variable [ $$tagMenusRealCheckbox ]
+Set Variable [ $$tagMenusFilePath ]
+Set Variable [ $$tagMenusFileName ]
+Set Variable [ $$tagMenusFileLocation ]
+Set Variable [ $$tagMenusURL ]
+Set Variable [ $$tagMenusISBN ]
+Set Variable [ $$tagMenusISSN ]
+Set Variable [ $$tagMenusDOI ]
+#
