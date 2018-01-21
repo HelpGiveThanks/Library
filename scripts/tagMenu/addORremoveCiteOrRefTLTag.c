@@ -1,16 +1,9 @@
-tagMenu: addORremoveCiteOrRefTLTag
+January 19, 2018 14:41:35 Library.fmp12 - addORremoveRefTagStep2_forLearnRecord -1-
+tagMenu: addORremoveRefTagStep2_forLearnRecord
 #
 #Conditionally format field in learn or
 #observation window.
 Set Variable [ $$refTestLearn; Value:1 ]
-#
-#If reference or learn record that tag was added
-#to belongs to more than one section, then
-#add these other sections to the tag's group
-#keychain so when this tag record is viewed in
-#those sections, the reference or learn record
-#just added to it will show up as well.
-Perform Script [ “CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain (update)” ]
 #
 #Check main checkbox if record is not already
 #a main record. This is because when going to
@@ -40,9 +33,9 @@ If [ testlearn::_Ltestlearn & "L¶" ≠ FilterValues ( $$ref ; testlearn::_Ltest
 #If in inventory mode, only allow items
 #specified in learn records to be tagged as
 #being in one storage location at a time.
-If [ TEMP::InventoryLibaryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
-Show Custom Dialog [ Message: "This item is already tagged as being in a storage location (highlighted green). Untag it
-from this storage location before tagging it with a different one."; Buttons: “OK” ]
+If [ TEMP::InventoryLibraryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
+Show Custom Dialog [ Message: "This item is already tagged as being in a location (highlighted in the Tag Menus window).
+Untag it from this location before tagging it with a different one."; Default Button: “OK”, Commit: “Yes” ]
 Set Variable [ $$stopLoadTagRecord ]
 Halt Script
 End If
@@ -51,10 +44,11 @@ End If
 #with other storage tags. I.E., No storage
 #inside of storage relationships allowed.
 Select Window [ Name: "Learn"; Current file ]
-If [ TEMP::InventoryLibaryYN ≠ "" and testlearn::sampleCasePoint ≠ "" ]
+If [ TEMP::InventoryLibraryYN ≠ "" and testlearn::brainstormCasePoint ≠ "" ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Show Custom Dialog [ Message: "This item is storage (box, shelf, etc.). To create a box-within-a-box relationship 1) create
-a location record for the pimary box, and 2) tag the secondary box as being in that location."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This item is a holder (box, shelf, etc.). To create a holder-within-a-holder relationship 1)
+create a location record for the pimary holder, and 2) tag the secondary holder as being in that location."; Default Button:
+“OK”, Commit: “Yes” ]
 Halt Script
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -72,7 +66,7 @@ Select Window [ Name: "Learn"; Current file ]
 #
 #For reference libraries, add reference to list
 #of learn record's references.
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Set Field [ testlearn::kcreference; $newRef & "¶" & $$ref ]
 #
 Else
@@ -81,8 +75,9 @@ Else
 #container the item is in.
 If [ $$ref ≠ "" ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Show Custom Dialog [ Message: "NOTE: Items can either be in a location or in storage: box, shelf, etc. that is in a
-location. Adding this storage tag will now delete your item's location tags."; Buttons: “OK”, “cancel” ]
+Show Custom Dialog [ Message: "Inventory can be in locations (shed, bedroom, etc.) or in/on an inventory holder
+(box, shelf, etc.). To add this holder tag, the location tag will be removed when you click OK."; Default Button:
+“OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Variable [ $$stopLoadTagRecord ]
 Halt Script
@@ -109,11 +104,11 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #Sort records according to users wishes.
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Sort Records [ Specified Sort Order: testlearn::Caption; ascending ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Specified Sort Order: testlearn::date; descending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 End If
@@ -159,11 +154,11 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #Sort records according to users wishes.
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Sort Records [ Specified Sort Order: testlearn::Caption; ascending ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Specified Sort Order: testlearn::date; descending
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 End If
@@ -176,4 +171,4 @@ Scroll Window
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$skipFirstPartOfScript ]
-January 18, ଘ౮28 17:35:50 Library.fp7 - addORremoveCiteOrRefTLTag -1-
+#

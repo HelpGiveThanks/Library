@@ -1,56 +1,71 @@
-tagMenu: checkForDraggedPasteChangesIfLocked
+January 20, 2018 18:10:01 Library.fmp12 - CHUNKcheckForDragPasteChanges -1-
+tagMenu: CHUNKcheckForDragPasteChanges
 #
-#Used on test setup layouts to revert any locked fields
-#back to the original text.
-If [ //Test setup window
-nodeLockTest::orderOrLock ≠ "" or nodeLockTestGroup::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "name" ]
-Set Variable [ $lockedGroupName; Value:1 ]
-Perform Script [ “insureEqualityOfSpellFields (update)” ]
-If [ nodeLockTest::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTest::tag & " -- and
-enter the password to unlock it."; Buttons: “OK” ]
-Exit Script [ ]
-End If
-If [ $lockedGroupName = 1 ]
-Show Custom Dialog [ Message: "This group name is locked. Go the node that created it -- " & nodeLockTestGroup::tag & "
--- and enter the password to unlock it."; Buttons: “OK” ]
-Exit Script [ ]
-End If
-Go to Field [ ]
-Else If [ //Tag menus window
-ruleTagMenuGroups::order ≠ "" and ruleTagMenuGroups::match = "health"
-or
-tagMenus::orderOrLock = "lock" ]
 #
-#If record is locked by system...
-If [ ruleTagMenuGroups::order ≠ "" and ruleTagMenuGroups::match = "health" and Get ( ActiveFieldName ) = "name"
-or
-tagMenus::orderOrLock = "lock" ]
-Show Custom Dialog [ Message: "Record is locked by the system. So you can look and copy text but any changes will be
-undone by the system."; Buttons: “OK” ]
-Exit Script [ ]
-End If
-Else If [ //Tag menus window
-nodeLockTestTagGroup::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "name" and $$citationMatch ≠ "path"
-//or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "health"
-or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "node"
-or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "copyist"
-or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "sample"
-or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "organ"
-or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "testItem"
-or nodeLockTagMenus::orderOrLock ≠ "" and Get ( ActiveFieldName ) = "tag" and $$citationMatch = "key" ]
-Set Variable [ $lockedGroupName; Value:1 ]
-Perform Script [ “insureEqualityOfSpellFields (update)” ]
-If [ nodeLockTagMenus::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & nodeLockTagMenus::tag & " --
-and enter the password to unlock it."; Buttons: “OK” ]
-Exit Script [ ]
-End If
-If [ $lockedGroupName = 1 ]
-Show Custom Dialog [ Message: "This group name is locked. Go the node that created it -- " & nodeLockTestTagGroup::
-tag & " -- and enter the password to unlock it."; Buttons: “OK” ]
-Exit Script [ ]
-End If
+#Used by script changeSpellingOfKeywordOrNodeTag
+#removeTextFormattingAndCommas
+If [ Get (LayoutTableName) = "tagMenus" ]
+#
+#Exit any fields so do not get can't modify error message
+#because record is in use in another window.
 Go to Field [ ]
+#
+#Speed up script by stopping record load script.
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+#
+#New window so user's window is not changed.
+New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”;
+Zoom Control Area: “Yes”; Resize: “Yes” ]
+#
+#Loop thru all records and make sure their spelling
+#has not been changed, and if it has change it back
+#to the way it was, unless the change was made in the
+#field the user was just working on.
+Go to Record/Request/Page
+[ First ]
+Loop
+#
+#Group name check EXCEPT for
+#test item group names.
+If [ Get (LayoutName) ≠ "setupTestItem" ]
+If [ tagMenuGroup::nameSpellingEXCEPTForTestItemGroup ≠ "testItemGroup" ]
+If [ tagMenuGroup::nameSpellingEXCEPTForTestItemGroup ≠ tagMenuGroup::name and
+$$Tag ≠ tagMenuGroup::_Lgroup and
+$$citationMatch ≠ "testItem" ]
+Set Field [ tagMenuGroup::name; tagMenuGroup::nameSpellingEXCEPTForTestItemGroup ]
 End If
-August 19, ଘ౮28 23:20:47 Library.fp7 - checkForDraggedPasteChangesIfLocked -1-
+End If
+End If
+#
+#Test item group name check.
+If [ Get (LayoutName) = "setupTestItem"
+ or
+tagMenuGroup::nameSpellingEXCEPTForTestItemGroup = "testItemGroup" ]
+If [ tagMenuTestItemGroup::name ≠ tagMenuTestItemGroup::nameSpellingFORTestItemGroup and
+$$Tag ≠ tagMenuTestItemGroup::_Lgroup and
+//Test item group match field is the name spelling check field for other tag groups.
+tagMenuTestItemGroup::nameSpellingEXCEPTForTestItemGroup = "testItemGroup" ]
+Set Field [ tagMenuTestItemGroup::name; tagMenuTestItemGroup::nameSpellingFORTestItemGroup ]
+End If
+End If
+#
+#Tag name check.
+If [ tagMenus::tag ≠ tagMenus::tagSpelling ]
+If [ $$tag ≠ "" and $$tag ≠ tagMenus::_Ltag
+ or
+$$tag = ""
+ or
+tagCreatorLock::orderOrLock ≠ "" ]
+Set Field [ tagMenus::tag; tagMenus::tagSpelling ]
+End If
+End If
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+#
+#Start up record load script and close the window.
+Set Variable [ $$stopLoadTagRecord ]
+Close Window [ Current Window ]
+#
+#
+End If

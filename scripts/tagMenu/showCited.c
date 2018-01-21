@@ -1,3 +1,4 @@
+January 20, 2018 18:03:11 Library.fmp12 - showCited -1-
 tagMenu: showCited
 #
 #If user is not in add mode then inform user they
@@ -40,11 +41,10 @@ End Loop
 #
 #Allow the record load script to run and run it.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
-#Put focus back on Tag Menus window and conditionally
+#Reselect record in Tag Menus window and conditionally
 #format any items that may be linked to record
 #in the other window.
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-January 7, 平成26 16:37:58 Imagination Quality Management.fp7 - showCited -1-

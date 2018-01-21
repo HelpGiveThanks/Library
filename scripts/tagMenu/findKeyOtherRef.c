@@ -1,3 +1,4 @@
+January 20, 2018 18:08:55 Library.fmp12 - findKeyOtherRef -1-
 tagMenu: findKeyOtherRef
 #Select tag to be found.
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
@@ -33,7 +34,6 @@ Select Window [ Name: "References"; Current file ]
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
 // Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
@@ -134,8 +134,7 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" & ¶ ]
+// Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
 If [ $menu = "k" ]
@@ -168,8 +167,7 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" & ¶ ]
+// Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
 If [ $menu = "k" ]
@@ -210,26 +208,13 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" & ¶ ]
+// Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
 If [ $menu = "k" ]
 Set Field [ reference::kkeywordPrimary; $find ]
 Else If [ $menu = "n" ]
 Set Field [ reference::knodePrimary; $find ]
-Else If [ $menu = "m" ]
-Set Field [ reference::kmedium; $find ]
-Else If [ $menu = "h" ]
-Set Field [ reference::kHealth; $find ]
-Else If [ $menu = "p" ]
-Set Field [ reference::kfolderpath; $find ]
-Else If [ $menu = "o" ]
-Set Field [ reference::korgan; $find ]
-Else If [ $menu = "c" ]
-Set Field [ reference::kcopyist; $find ]
-Else If [ $menu = "r" ]
-Set Field [ reference::kcitation; $find ]
 End If
 #
 #
@@ -257,24 +242,13 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" & ¶ ]
+// Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
 If [ $menu = "k" ]
 Set Field [ reference::kkeywordPrimary; $find ]
 Else If [ $menu = "n" ]
 Set Field [ reference::knodePrimary; $find ]
-Else If [ $menu = "m" ]
-Set Field [ reference::kmedium; $find ]
-Else If [ $menu = "h" ]
-Set Field [ reference::kHealth; $find ]
-Else If [ $menu = "p" ]
-Set Field [ reference::kfolderpath; $find ]
-Else If [ $menu = "o" ]
-Set Field [ reference::korgan; $find ]
-Else If [ $menu = "c" ]
-Set Field [ reference::kcopyist; $find ]
 End If
 #
 #
@@ -292,9 +266,9 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
-#Return focus to Tag Menus window.
+#Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 #
 #If no records where found tell user why and
@@ -310,11 +284,11 @@ Refresh Window
 #
 #
 If [ $$citationMatch = "key" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as an other keyword."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as an other keyword."; Default Button: “OK”, Commit:
+“Yes” ]
 Else If [ $$citationMatch = "node" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as an other node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as an other node."; Default Button: “OK”, Commit: “Yes” ]
 End If
 #
 #
 End If
-August 19, ଘ౮28 23:17:21 Library.fp7 - findKeyOtherRef -1-

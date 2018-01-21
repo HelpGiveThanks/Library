@@ -1,3 +1,4 @@
+January 20, 2018 18:05:22 Library.fmp12 - findPrimaryTL -1-
 tagMenu: findPrimaryTL
 #
 #Select tag to be found.
@@ -6,7 +7,7 @@ Set Variable [ $tag; Value:reference::_Lreference ]
 Else If [ Right ( Get (LayoutName) ; 4 ) = "find" or Get (LayoutTableName) = "tagMenus" ]
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
 Else If [ Right ( Get (LayoutName) ; 4 ) = "test" ]
-Set Variable [ $tag; Value:test::_Ltest ]
+Set Variable [ $tag; Value:testSubsectionTemplate::_LtestSubsection ]
 Else If [ Right ( Get (LayoutName) ; 2 ) = "tl" ]
 Set Variable [ $tag; Value:testlearn::_Ltestlearn ]
 #
@@ -43,9 +44,9 @@ Set Variable [ $name; Value:reference::referenceShort ]
 Else If [ Right ( Get (LayoutName) ; 4 ) = "find" or Get (LayoutTableName) = "tagMenus" ]
 Set Variable [ $name; Value:tagMenus::tag ]
 Else If [ Right ( Get (LayoutName) ; 4 ) = "test" ]
-Set Variable [ $name; Value:test::testName ]
+Set Variable [ $name; Value:testSubsectionTemplate::name ]
 Else If [ Right ( Get (LayoutName) ; 2 ) = "tl" ]
-Set Variable [ $name; Value:testlearn::Caption ]
+Set Variable [ $name; Value:testlearn::note ]
 End If
 #
 #As going to the other window will be involved
@@ -59,7 +60,6 @@ Select Window [ Name: "Learn"; Current file ]
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 // Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -67,20 +67,12 @@ If [ $menu = "k" ]
 Set Field [ testlearn::kKeywordPrimary; $tag ]
 Else If [ $menu = "n" ]
 Set Field [ testlearn::kNodePrimary; $tag ]
-Else If [ $menu = "m" ]
-Set Field [ testlearn::kmedium; $tag ]
-Else If [ $menu = "h" ]
-Set Field [ testlearn::kHealth; $tag ]
 Else If [ $menu = "r" or $menu = "L" ]
 Set Field [ testlearn::kcreference; $tag ]
-Else If [ $menu = "c" ]
-Set Field [ testlearn::kcitation; $tag ]
-Else If [ $menu = "p" ]
-Set Field [ testlearn::kfolderPath; $tag ]
 Else If [ $menu = "t" ]
-Set Field [ testlearn::kctest; "*" & $tag & ¶ ]
-Else If [ $menu = "s" ]
-Set Field [ testlearn::kcsample; "*" & $tag & ¶ ]
+Set Field [ testlearn::kctestSubsectionInfo; "*" & $tag & ¶ ]
+Else If [ $menu = "b" ]
+Set Field [ testlearn::kcbrainstorm; "*" & $tag & ¶ ]
 End If
 #
 #
@@ -174,7 +166,6 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -182,20 +173,12 @@ If [ $menu = "k" ]
 Set Field [ testlearn::kKeywordPrimary; $find ]
 Else If [ $menu = "n" ]
 Set Field [ testlearn::kNodePrimary; $find ]
-Else If [ $menu = "m" ]
-Set Field [ testlearn::kmedium; $find ]
-Else If [ $menu = "h" ]
-Set Field [ testlearn::kHealth; $find ]
 Else If [ $menu = "r" or $menu = "L" ]
 Set Field [ testlearn::kcreference; $find ]
-Else If [ $menu = "c" ]
-Set Field [ testlearn::kcitation; $find ]
-Else If [ $menu = "p" ]
-Set Field [ testlearn::kfolderPath; $find ]
 Else If [ $menu = "t" ]
-Set Field [ testlearn::kctest; "*" & $find & ¶ ]
-Else If [ $menu = "s" ]
-Set Field [ testlearn::kcsample; "*" & $find & ¶ ]
+Set Field [ testlearn::kctestSubsectionInfo; "*" & $find & ¶ ]
+Else If [ $menu = "b" ]
+Set Field [ testlearn::kcbrainstorm; "*" & $find & ¶ ]
 End If
 #
 #
@@ -222,7 +205,6 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -230,20 +212,12 @@ If [ $menu = "k" ]
 Set Field [ testlearn::kKeywordPrimary; $find ]
 Else If [ $menu = "n" ]
 Set Field [ testlearn::kNodePrimary; $find ]
-Else If [ $menu = "m" ]
-Set Field [ testlearn::kmedium; $find ]
-Else If [ $menu = "h" ]
-Set Field [ testlearn::kHealth; $find ]
 Else If [ $menu = "r" or $menu = "L" ]
 Set Field [ testlearn::kcreference; $find ]
-Else If [ $menu = "c" ]
-Set Field [ testlearn::kcitation; $find ]
-Else If [ $menu = "p" ]
-Set Field [ testlearn::kfolderPath; $find ]
 Else If [ $menu = "t" ]
-Set Field [ testlearn::ktest; $find ]
-Else If [ $menu = "s" ]
-Set Field [ testlearn::kcsample; $find ]
+Set Field [ testlearn::ktestSubsection; $find ]
+Else If [ $menu = "b" ]
+Set Field [ testlearn::kcbrainstorm; $find ]
 End If
 #
 #
@@ -274,7 +248,6 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -309,7 +282,6 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -328,7 +300,7 @@ End If
 #learn record, find this learn record too so user
 #can see full context of linked/tagged
 #records/thoughts/notes/etc..
-If [ TEMP::InventoryLibaryYN = "" ]
+If [ TEMP::InventoryLibraryYN = "" and $error = 0 ]
 If [ Filter ( $$found ; "L" ) = "L" ]
 #
 #Create a copy of the found list. Items will be
@@ -375,9 +347,9 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
-#Return focus to Tag Menus window.
+#Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 #
 #If no records where found tell user why and
@@ -393,25 +365,19 @@ Refresh Window
 #
 #
 If [ $$citationMatch = "key" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary keyword."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary keyword."; Default Button: “OK”, Commit:
+“No” ]
 Else If [ $$citationMatch = "node" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary node."; Buttons: “OK” ]
-Else If [ $$citationMatch = "medium" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
-Else If [ $$citationMatch = "health" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary node."; Default Button: “OK”, Commit: “No” ]
 Else If [ $$citationMatch = "ref" ]
-Show Custom Dialog [ Message: "'" & Left ( $name ; 65 ) & "..." & "'" & " is not in use."; Buttons: “OK” ]
-Else If [ $$citationMatch = "cite" ]
-Show Custom Dialog [ Message: "'" & Left ( $name ; 65 ) & "..." & "'" & " is not in use."; Buttons: “OK” ]
-Else If [ $$citationMatch = "path" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & Left ( $name ; 65 ) & "..." & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
+Else If [ $$citationMatch = "learn" ]
+Show Custom Dialog [ Message: "'" & Left ( $name ; 65 ) & "..." & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
 Else If [ $$citationMatch = "test" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
-Else If [ $$citationMatch = "sample" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
+Else If [ $$citationMatch = "brainstorm" ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
 End If
 #
 #
 End If
-January 8, ଘ౮28 14:44:34 Library.fp7 - findPrimaryTL -1-

@@ -1,4 +1,5 @@
-tagMenu: addORremoveCitationOrReferenceRefTag
+January 19, 2018 14:39:52 Library.fmp12 - addORremoveRefTagStep2_forRefRecord -1-
+tagMenu: addORremoveRefTagStep2_forRefRecord
 #
 #Get current record IDs in reference or
 #observation window.
@@ -8,20 +9,14 @@ Select Window [ Name: "Learn"; Current file ]
 #
 #Only allow user to have location tags for the
 #item or for the container the item is in.
-If [ TEMP::InventoryLibaryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
+If [ TEMP::InventoryLibraryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Show Custom Dialog [ Message: "This item is tagged with a storage tag. Remove this storage tag (click 'storage') before
-tagging it with its own location tags. Items can be either in storage or in a location."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "This item is tagged with a holder tag. Remove this holder tag before tagging it with a
+location tag. In the Tag Menus window 1) click 'holder' then 2) deslect the highlighted tag. Items can be either in a
+holder or in a location."; Default Button: “OK”, Commit: “Yes” ]
 Halt Script
 End If
 #
-If [ testlearn::kcitation ≠ "" ]
-Show Custom Dialog [ Message: "References can be added after the citation is removed. (Cite the source of an unchanged
-copy, clip, quote, etc. from one source. Reference the sources of your rewording/remixing of one or more texts, movies,
-etc.)"; Buttons: “OK” ]
-Select Window [ Name: "Tag Menus"; Current file ]
-Halt Script
-End If
 Set Variable [ $$ref; Value:testlearn::kcreference ]
 Else If [ Get (LastError) ≠ 112 ]
 Set Variable [ $$ref; Value:reference::lock ]
@@ -30,19 +25,6 @@ Select Window [ Name: "Tag Menus"; Current file ]
 #
 #If tag user clicked has not yet been selected, then add it.
 If [ reference::_Lreference & "¶" ≠ FilterValues ( $$ref ; reference::_Lreference & "¶" ) ]
-Freeze Window
-Perform Script [ “CHUNKaddMainRecordSectionKeysToCiteOrRefSectionKeychain” ]
-// #
-// #Stop script if user trying to add reference or learn record
-// #that has references or citations added to it.
-// #In the future this will be possible, but for now I need
-// #to focus on other things to get the beta released.
-// If [ testlearn::kcitation ≠ "" or testlearn::kcreference ≠ "" or reference::kcitation ≠ "" ]
-// Show Custom Dialog [ Message: "For now, you cannot use a record that has its own citation or references added to it as a
-citation or reference for another record. This is a known issue, and in a future release it will be resolved. "; Buttons:
-“OK” ]
-// Exit Script [ ]
-// End If
 #
 #If the reference has media, then prepare to
 #ask user if they would like to show it.
@@ -96,10 +78,16 @@ Go to Field [ ]
 #
 #Ask user if they would like to show the
 #reference's media if there is any to show.
-If [ $media = 1 and testlearn::Picture = "" ]
-Show Custom Dialog [ Message: "Display reference's media? Learn layouts with an unused picture area can display
-reference media. Click any reference's picture-selection button (QV layout) to toggle showing/not showing its
-media."; Buttons: “no”, “yes” ]
+If [ $media = 1 and testlearn::picture = "" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Show Custom Dialog [ Message: "Display reference's media? Learn layouts with an unused picture area can
+display reference media. Click any Learn record's picture-selection button (in QV window) to show/not show
+reference media."; Default Button: “no”, Commit: “Yes”; Button 2: “yes”, Commit: “No” ]
+Else
+Show Custom Dialog [ Message: "Display location's media? Learn layouts with an unused picture area can
+display location media. Click any Learn record's picture-selection button (in QV window) to show/not show
+location media."; Default Button: “no”, Commit: “Yes”; Button 2: “yes”, Commit: “No” ]
+End If
 If [ Get (LastMessageChoice) = 2 ]
 Set Field [ testlearn::kshowReferencedMedia; $newRef ]
 End If
@@ -113,22 +101,6 @@ End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
-// #Sort records according to users wishes.
-// If [ TEMP::sortKey = "cat" ]
-// Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
-tagMenus::tag; ascending ]
-[ Restore; No dialog ]
-// Else If [ TEMP::sortKey = "abc" ]
-// Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
-[ Restore; No dialog ]
-// End If
-// Set Variable [ $$stopLoadTagRecord ]
-// Go to Record/Request/Page
-[ First ]
-// Scroll Window
-[ Home ]
 Freeze Window
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
@@ -141,50 +113,6 @@ If [ "main" & ¶ ≠ FilterValues ( reference::filterFind ; "main" & ¶ ) and Ge
 Set Variable [ $filterFind; Value:reference::filterFind ]
 Set Field [ reference::filterFind; "main" & ¶ & $filterFind ]
 End If
-#
-#NOTE: Library used to consist of multilbe
-#sections and now it consists of only one, so
-#these next steps are no longer neccessary.
-#I'll leave them until the next version in case
-#further testing reveals a need for them after all.
-#
-// #If reference or learn record that tag was added
-// #to belongs to more than one section, then
-// #add these other sections to the tag's group
-// #keychain so when this tag record is viewed in
-// #those sections, the reference or learn record
-// #just added to it will show up as well.
-// Perform Script [ “CHUNKaddReferenceNodesAndKeywords (update)” ]
-// #Sort records according to users wishes.
-// Freeze Window
-// If [ TEMP::sortRef = "cat" ]
-// Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
-tagKeywordPrimary::tag; ascending
-reference::referenceShort; ascending ]
-[ Restore; No dialog ]
-// Else If [ TEMP::sortRef = "abc" ]
-// Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
-[ Restore; No dialog ]
-// End If
-// Set Variable [ $$stoploadCitation; Value:1 ]
-// Set Variable [ $$stopLoadTagRecord; Value:1 ]
-// #
-// #Go to citation record's current selection or to first record.
-// Go to Record/Request/Page
-[ First ]
-// Scroll Window
-[ Home ]
-// Loop
-// Exit Loop If [ FilterValues ( $$ref ; reference::_Lreference ) = reference::_Lreference & ¶ ]
-// Go to Record/Request/Page
-[ Next; Exit after last ]
-// End Loop
-// If [ FilterValues ( $$ref ; reference::_Lreference ) ≠ reference::_Lreference & ¶ ]
-// Scroll Window
-[ Home ]
-// Go to Record/Request/Page
-[ First ]
-// End If
 #
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
@@ -234,12 +162,12 @@ Refresh Window
 #seems to work fine without them.
 // #Sort records according to users wishes.
 // If [ TEMP::sortRef = "cat" ]
-// Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
+// Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
 // Else If [ TEMP::sortRef = "abc" ]
-// Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+// Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 // End If
 Set Variable [ $$stopLoadTagRecord ]
@@ -249,5 +177,7 @@ Set Variable [ $$stopLoadTagRecord ]
 [ Home ]
 // Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
+#
+#Turn of the skip part script variable.
 Set Variable [ $$skipFirstPartOfScript ]
-August 19, ଘ౮28 19:56:22 Library.fp7 - addORremoveCitationOrReferenceRefTag -1-
+#

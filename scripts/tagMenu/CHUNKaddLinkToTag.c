@@ -1,3 +1,4 @@
+January 20, 2018 17:58:54 Library.fmp12 - CHUNKaddLinkToTag -1-
 tagMenu: CHUNKaddLinkToTag
 #
 #Get key for link that is to be added to tag.
@@ -17,17 +18,14 @@ Set Variable [ $$name ]
 Set Variable [ $window; Value:Get (WindowName) ]
 End If
 #
-#Add all tag's section keys to reference or learn record.
-Perform Script [ “addTagSectionKeysToMainRecordKeychain” ]
-#
 #Now add all the added record’s node and keyword
 #tags to any newly added sections.
-Perform Script [ “CHUNKaddReferenceNodesAndKeywords” ]
+Perform Script [ “CHUNKaddReferenceNodeAndKeywordTagIDs (update name CHUNKaddReferenceNodesAndKeywords)” ]
 #
 #Complete process of adding link to tag.
 Select Window [ Name: "Tag Menus"; Current file ]
 #
-#Remove focus from field so can see
+#Leave field so user can see
 #conditional formatting.
 Go to Field [ ]
 #
@@ -65,4 +63,3 @@ Else If [ tagMenus::Ktitle3 = $tag and $number = 3 ]
 Set Field [ tagMenus::Ktitle3; "" ]
 End If
 Select Window [ Name: $window; Current file ]
-January 7, 平成26 16:34:51 Imagination Quality Management.fp7 - CHUNKaddLinkToTag -1-

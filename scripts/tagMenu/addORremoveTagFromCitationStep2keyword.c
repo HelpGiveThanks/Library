@@ -1,4 +1,5 @@
-tagMenu: addORremoveTagFromCitationStep2keyword
+January 19, 2018 14:34:24 Library.fmp12 - addORremoveOtherTagStep2_keyword -1-
+tagMenu: addORremoveOtherTagStep2_keyword
 #
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
@@ -19,7 +20,7 @@ End If
 Select Window [ Name: "Tag Menus" ]
 #
 #Create a new window in order to perform the next part
-#without moving the focus around on the tag window.
+#without moving from the reccord in the tag window.
 #To do this, as this is being added after the script below
 #was written, a hack is needed (so not the best way to
 #accomplish this). Rename the current window and then
@@ -29,13 +30,15 @@ Set Variable [ $currentSelectedTag; Value:tagMenus::_Ltag ]
 Set Variable [ $closeWindowWhenDone; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Window Title [ Current Window; New Title: "Tag Menus Change Back When Done" ]
-New Window [ Name: "Tag Menus"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+// New Window [ Name: "Tag Menus"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area:
+“Yes”; Resize: “Yes” ]
+New Window [ Name: "Tag Menus"; Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”;
+Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 #
 #Make sure all tags are showing. User may be only
 #showing a few of the tags after performing a find.
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
-Set Field [ ruleTagMenuGroups::ksection; "==" & TEMP::ksection ]
 Perform Find [ ]
 #
 #Now loop to user selected tag.
@@ -53,14 +56,13 @@ If [ tagMenus::_Ltag & "¶" ≠ FilterValues ( $$key ; tagMenus::_Ltag & "¶" ) 
 #
 #Check for duplicates, prior to adding to a record.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-Set Variable [ $tagName; Value:tagMenus::tag ]
 Set Variable [ $tagKey; Value:tagMenus::_Ltag ]
-New Window [ ]
-Enter Find Mode [ Specified Find Requests: Find Records; Criteria: tagMenus::match: “key” AND ruleTagMenuGroups::
-ksection: “==7052011234235374” ]
-[ Restore ]
+Set Variable [ $tagName; Value:tagMenus::tag ]
+Set Variable [ $tagMatch; Value:tagMenus::match ]
+New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+Enter Find Mode [ ]
+Set Field [ tagMenus::match; $tagMatch ]
 Set Field [ tagMenus::tag; "==" & $tagName ]
-Set Field [ TEMP::ksection ]
 Perform Find [ ]
 Go to Record/Request/Page
 [ First ]
@@ -74,9 +76,9 @@ Set Field [ tagMenus::tag; $tagName & tagMenus::_Ltag ]
 Set Field [ tagMenus::tagSpelling; $tagName & tagMenus::_Ltag ]
 #
 Close Window [ Current Window ]
-Show Custom Dialog [ Message: "Keywords must have different spellings in each section. The ID number has been
-added to this keyword to make it different from its duplicate. Please do change it to something meaningful.";
-Buttons: “OK” ]
+Show Custom Dialog [ Message: "Keywords must have different spellings. The ID number has been added to this
+keyword to make it different from its duplicate. Please do change it to something meaningful."; Default Button:
+“OK”, Commit: “Yes” ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Else If [ Get ( FoundCount ) ≤ 1 ]
 Close Window [ Current Window ]
@@ -118,7 +120,7 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #Now re-alphabetize and add new keyword to citation.
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Record/Request/Page
@@ -191,16 +193,18 @@ Go to Field [ ]
 #
 #Sort records according to users wishes.
 If [ TEMP::sortKey = "cat" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value
+list: “order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortKey = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 Go to Record/Request/Page
 [ First ]
 Scroll Window
@@ -208,20 +212,13 @@ Scroll Window
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 #
-#If reference or learn record that tag was added
-#to belongs to more than one section, then
-#add these other sections to the tag's group
-#keychain so when this tag record is viewed in
-#those sections, the reference or learn record
-#just added to it will show up as well.
-Perform Script [ “CHUNKaddMainSectionKeysToTagRecordKeychain” ]
-#
 #Now close working Tag Menus window and rename
 #users Tag Menus window to Tag Menus.
 Close Window [ Name: "Tag Menus"; Current file ]
 Set Window Title [ Of Window: "Tag Menus Change Back When Done"; Current file; New Title: "Tag Menus" ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
+Set Variable [ $$doNotHaltOtherScripts ]
 Exit Script [ ]
 End If
 #
@@ -309,9 +306,10 @@ End If
 #Order list alphabetically to re-construct otherKey
 #field belonging to the citation record.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
-New Window [ Name: "reorder"; Height: 1; Width: 1; Top: -1000; Left: -1000 ]
+New Window [ Name: "reorder"; Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”;
+Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
@@ -332,21 +330,23 @@ Set Variable [ $otherKeys; Value:reference::OtherKeyWords ]
 #Clear the field now in case all tags have been de-selected.
 Set Field [ reference::OtherKeyWords; "" ]
 #
-#Re-sort records so focus is back on selected record.
+#Re-sort records so library is back on the
+#selected record.
 If [ $$primaryKeyWord ≠ reference::kkeywordPrimary and $$citationMatch ≠ "cite" and $$stopAdd = "" and $$otherKeyDoNotLoop
 = "" and $$referenceSort = "" ]
 Set Variable [ $$primaryKeyWord ]
-Show Custom Dialog [ Message: "Record will now move to new keyword location. Scroll window to this location?"; Buttons:
-“no”, “yes” ]
-If [ Get (LastMessageChoice) = 2 ]
+Show Custom Dialog [ Message: "The reference record will now move to its new subject/keyword location."; Default Button:
+“OK”, Commit: “No” ]
+If [ Get (LastMessageChoice) = 1 ]
 Go to Layout [ “ReferenceStuffScriptLoops” (reference) ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value
+list: “order Pulldown List”
 tagKeywordPrimary::tag; ascending
 reference::referenceForReferenceWindow; ascending ]
 [ Restore; No dialog ]
 #
 #Go to reference record layout.
-If [ TEMP::InventoryLibaryYN ≠ "" ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
 Go to Layout [ “ReferenceStuff” (reference) ]
 Else
 Go to Layout [ “Reference” (reference) ]
@@ -399,6 +399,7 @@ Go to Record/Request/Page
 [ Next ]
 If [ Get (LastError) = 101 ]
 Set Variable [ $$stopLoadTagRecord ]
+Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 Close Window [ Name: "reorder"; Current file ]
 Set Variable [ $$skipFirstPartOfScript ]
 #
@@ -410,6 +411,7 @@ Set Window Title [ Of Window: "Tag Menus Change Back When Done"; Current file; N
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
+Set Variable [ $$doNotHaltOtherScripts ]
 Exit Script [ ]
 End If
 Loop
@@ -439,24 +441,7 @@ Go to Record/Request/Page
 End Loop
 End If
 #
-// #Sort records according to users wishes.
-// If [ TEMP::sortKey = "cat" ]
-// Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
-tagMenus::tag; ascending ]
-[ Restore; No dialog ]
-// Else If [ TEMP::sortKey = "abc" ]
-// Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
-[ Restore; No dialog ]
-// End If
 Set Variable [ $$stopLoadTagRecord ]
-// Go to Record/Request/Page
-[ First ]
-// Scroll Window
-[ Home ]
-// Go to Record/Request/Page [ $recordNumber ]
-[ No dialog ]
 Close Window [ Name: "reorder"; Current file ]
 Set Variable [ $$skipFirstPartOfScript ]
 #
@@ -468,4 +453,4 @@ Set Window Title [ Of Window: "Tag Menus Change Back When Done"; Current file; N
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
-August 19, ଘ౮28 19:55:09 Library.fp7 - addORremoveTagFromCitationStep2keyword -1-
+#

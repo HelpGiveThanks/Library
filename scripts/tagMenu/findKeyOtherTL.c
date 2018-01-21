@@ -1,3 +1,4 @@
+January 20, 2018 18:06:22 Library.fmp12 - findKeyOtherTL -1-
 tagMenu: findKeyOtherTL
 #Select tag to be found.
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
@@ -33,7 +34,6 @@ Select Window [ Name: "Learn"; Current file ]
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 // Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -138,7 +138,6 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -172,7 +171,6 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -214,7 +212,6 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -222,20 +219,12 @@ If [ $menu = "k" ]
 Set Field [ testlearn::kKeywordPrimary; $find ]
 Else If [ $menu = "n" ]
 Set Field [ testlearn::kNodePrimary; $find ]
-Else If [ $menu = "m" ]
-Set Field [ testlearn::kmedium; $find ]
-Else If [ $menu = "h" ]
-Set Field [ testlearn::kHealth; $find ]
 Else If [ $menu = "r" ]
 Set Field [ testlearn::kcreference; $find ]
-Else If [ $menu = "c" ]
-Set Field [ testlearn::kcitation; $find ]
-Else If [ $menu = "p" ]
-Set Field [ testlearn::kfolderPath; $find ]
 Else If [ $menu = "t" ]
-Set Field [ testlearn::kctest; "*" & $find & ¶ ]
-Else If [ $menu = "s" ]
-Set Field [ testlearn::kcsample; "*" & $find & ¶ ]
+Set Field [ testlearn::kctestSubsectionInfo; "*" & $find & ¶ ]
+Else If [ $menu = "b" ]
+Set Field [ testlearn::kcbrainstorm; "*" & $find & ¶ ]
 End If
 #
 #
@@ -263,7 +252,6 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ testlearn::kcsection; TEMP::ksection ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 #
 #
@@ -271,20 +259,12 @@ If [ $menu = "k" ]
 Set Field [ testlearn::kKeywordPrimary; $find ]
 Else If [ $menu = "n" ]
 Set Field [ testlearn::kNodePrimary; $find ]
-Else If [ $menu = "m" ]
-Set Field [ testlearn::kmedium; $find ]
-Else If [ $menu = "h" ]
-Set Field [ testlearn::kHealth; $find ]
 Else If [ $menu = "r" ]
 Set Field [ testlearn::kcreference; $find ]
-Else If [ $menu = "c" ]
-Set Field [ testlearn::kcitation; $find ]
-Else If [ $menu = "p" ]
-Set Field [ testlearn::kfolderPath; $find ]
 Else If [ $menu = "t" ]
-Set Field [ testlearn::ktest; $find ]
-Else If [ $menu = "s" ]
-Set Field [ testlearn::kcsample; $find ]
+Set Field [ testlearn::ktestSubsection; $find ]
+Else If [ $menu = "b" ]
+Set Field [ testlearn::kcbrainstorm; $find ]
 End If
 #
 #
@@ -302,9 +282,9 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
-#Return focus to Tag Menus window.
+#Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 #
 #If no records where found tell user why and
@@ -320,11 +300,11 @@ Refresh Window
 #
 #
 If [ $$citationMatch = "key" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as an other keyword."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as an other keyword."; Default Button: “OK”, Commit:
+“Yes” ]
 Else If [ $$citationMatch = "node" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as an other node."; Default Button: “OK”, Commit: “Yes” ]
 End If
 #
 #
 End If
-January 8, ଘ౮28 14:34:24 Library.fp7 - findKeyOtherTL -1-

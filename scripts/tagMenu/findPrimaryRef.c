@@ -1,3 +1,4 @@
+January 20, 2018 18:07:40 Library.fmp12 - findPrimaryRef -1-
 tagMenu: findPrimaryRef
 #
 #Select tag to be found.
@@ -22,11 +23,18 @@ End If
 Set Variable [ $menu; Value:Left ( $$citationMatch ; 1 ) ]
 If [ $menu = "c" and $$citationMatch = "cite" ]
 Set Variable [ $menu; Value:"r" ]
+Else If [ $menu = "p" and $$citationMatch = "publisher" ]
+Set Variable [ $menu; Value:"x" ]
+Else If [ $menu = "p" and $$citationMatch = "publication" ]
+Set Variable [ $menu; Value:"y" ]
 End If
 #
 #Get the name of the tag for error message
 #at bottom of this script if needed.
 Set Variable [ $name; Value:tagMenus::tag ]
+If [ $$citationMatch = "cite" ]
+Set Variable [ $name; Value:reference::Title ]
+End If
 #
 #As going to the other window will be involved
 #stop the record load script on that window until
@@ -39,7 +47,6 @@ Select Window [ Name: "References"; Current file ]
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
 // Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
@@ -49,14 +56,14 @@ Else If [ $menu = "n" ]
 Set Field [ reference::knodePrimary; $tag ]
 Else If [ $menu = "m" ]
 Set Field [ reference::kmedium; $tag ]
-Else If [ $menu = "h" ]
-Set Field [ reference::kHealth; $tag ]
+Else If [ $menu = "c" and $$citationMatch ≠ "cite" ]
+Set Field [ reference::kCopyright; $tag ]
 Else If [ $menu = "p" ]
 Set Field [ reference::kfolderpath; $tag ]
-Else If [ $menu = "o" ]
-Set Field [ reference::korgan; $tag ]
-Else If [ $menu = "c" and $$citationMatch ≠ "cite" ]
-Set Field [ reference::kcopyist; $tag ]
+Else If [ $menu = "x" ]
+Set Field [ reference::kpublisher; $tag ]
+Else If [ $menu = "y" ]
+Set Field [ reference::kpublication; $tag ]
 Else If [ $menu = "r" ]
 Set Field [ reference::kcitation; $tag ]
 End If
@@ -152,8 +159,7 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" & ¶ ]
+// Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
 If [ $menu = "k" ]
@@ -162,14 +168,14 @@ Else If [ $menu = "n" ]
 Set Field [ reference::knodePrimary; $find ]
 Else If [ $menu = "m" ]
 Set Field [ reference::kmedium; $find ]
-Else If [ $menu = "h" ]
-Set Field [ reference::kHealth; $find ]
+Else If [ $menu = "c" ]
+Set Field [ reference::kCopyright; $find ]
 Else If [ $menu = "p" ]
 Set Field [ reference::kfolderpath; $find ]
-Else If [ $menu = "o" ]
-Set Field [ reference::korgan; $find ]
-Else If [ $menu = "c" ]
-Set Field [ reference::kcopyist; $find ]
+Else If [ $menu = "x" ]
+Set Field [ reference::kpublisher; $find ]
+Else If [ $menu = "y" ]
+Set Field [ reference::kpublication; $find ]
 End If
 #
 #
@@ -196,8 +202,7 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" & ¶ ]
+// Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
 If [ $menu = "k" ]
@@ -206,14 +211,14 @@ Else If [ $menu = "n" ]
 Set Field [ reference::knodePrimary; $find ]
 Else If [ $menu = "m" ]
 Set Field [ reference::kmedium; $find ]
-Else If [ $menu = "h" ]
-Set Field [ reference::kHealth; $find ]
+Else If [ $menu = "c" ]
+Set Field [ reference::kCopyright; $find ]
 Else If [ $menu = "p" ]
 Set Field [ reference::kfolderpath; $find ]
-Else If [ $menu = "o" ]
-Set Field [ reference::korgan; $find ]
-Else If [ $menu = "c" ]
-Set Field [ reference::kcopyist; $find ]
+Else If [ $menu = "x" ]
+Set Field [ reference::kpublisher; $find ]
+Else If [ $menu = "y" ]
+Set Field [ reference::kpublication; $find ]
 End If
 #
 #
@@ -244,8 +249,7 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" & ¶ ]
+// Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
 If [ $menu = "k" ]
@@ -279,8 +283,7 @@ Set Variable [ $findList; Value:Substitute ( $subtract ; $menu & $find & ¶ ; ""
 #
 #Find main window records tagged with it.
 Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::filterFind; "main" & ¶ ]
+// Set Field [ reference::filterFind; "main" & ¶ ]
 #
 #
 If [ $menu = "k" ]
@@ -304,9 +307,9 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadCitation (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
-#Return focus to Tag Menus window.
+#Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 #
 #If no records where found tell user why and
@@ -322,23 +325,23 @@ Refresh Window
 #
 #
 If [ $$citationMatch = "key" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary keyword."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary keyword."; Default Button: “OK”, Commit:
+“No” ]
 Else If [ $$citationMatch = "node" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary node."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use as a primary node."; Default Button: “OK”, Commit: “No” ]
 Else If [ $$citationMatch = "medium" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
-Else If [ $$citationMatch = "health" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
+Else If [ $$citationMatch = "copyright" ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
 Else If [ $$citationMatch = "path" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
-Else If [ $$citationMatch = "organ" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
-Else If [ $$citationMatch = "copyist" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
+Else If [ $$citationMatch = "publication" ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
+Else If [ $$citationMatch = "publisher" ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
 Else If [ $$citationMatch = "cite" ]
-Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Buttons: “OK” ]
+Show Custom Dialog [ Message: "'" & $name & "'" & " is not in use."; Default Button: “OK”, Commit: “No” ]
 End If
 #
 #
 End If
-August 19, ଘ౮28 23:15:49 Library.fp7 - findPrimaryRef -1-
