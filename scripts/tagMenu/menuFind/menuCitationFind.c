@@ -1,3 +1,4 @@
+January 20, 2018 19:13:45 Library.fmp12 - menuCitationFind -1-
 tagMenu: menuFind: menuCitationFind
 #
 #Set citationMatch to color menu button with inUse color.
@@ -13,85 +14,42 @@ Set Variable [ $$internal ]
 #Goto correct layout.
 Go to Layout [ “ReferenceMenu3CiteFind” (reference) ]
 #
-#Find Citations for this library.
-Set Error Capture [ On ]
-Allow User Abort [ Off ]
-Enter Find Mode [ ]
-If [ Left (Get (LayoutName) ; 9 ) ≠ "reference" ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-Set Field [ reference::showInLearn; "show in learn" ]
-Else
-Set Field [ reference::kcsection; TEMP::ksection ]
-End If
-Perform Find [ ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::tag; ascending ]
-[ Restore; No dialog ]
+#Find references for reference module.
+Show All Records
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
-Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
+#Omit locked records, which are the copyright
+#images used by default copyright tags.
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::lock: “lock” ]
+[ Restore ]
+#
+#Sort and go to the first record. Due to bugs,
+#two sorts are required to get to the
+#first record.
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
+testlearn::timestamp; descending ]
+[ Restore; No dialog ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order
+Pulldown List”
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
+Else
+#There is no cite menu for inventory libraries,
+#so no need to perform a sort.
+End If
+Go to Record/Request/Page
+[ First ]
+Scroll Window
+[ Home ]
+Set Variable [ $$stoploadCitation ]
 #
 #Go to citation record's current selection or to first record.
 Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
-Loop
-Exit Loop If [ $$cite = reference::_Lreference ]
-Go to Record/Request/Page
-[ Next; Exit after last ]
-End Loop
-If [ $$cite ≠ reference::_Lreference ]
-#
-#Decided below was too much help. User can look
-#on main screen to see where cite or reference is located.
-// #Clear reference location variable that conditionally
-// #formatts buttons to tell user where reference is located.
-// Set Variable [ $$refIsRefRecord ]
-#
-Go to Record/Request/Page
-[ First ]
-Scroll Window
-[ Home ]
-Set Variable [ $$stoploadCitation ]
-Set Variable [ $$stopLoadTagRecord ]
-Select Window [ Name: "References"; Current file ]
-If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current file ]
-Go to Field [ ]
-Else If [ Get (LastError) ≠ 112 ]
-Go to Field [ ]
-End If
-Refresh Window
-Select Window [ Name: "Tag Menus"; Current file ]
-Exit Script [ ]
-End If
-#
-#Decided below was too much help. User can look
-#on main screen to see where cite or reference is located.
-// #Turn on reference location variable that conditionally
-// #formatts buttons to tell user where reference is located.
-// Set Variable [ $$refIsRefRecord; Value:1 ]
 #
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 #
-#Inform user of items use on both screens.
-Set Variable [ $$citationItem; Value:reference::_Lreference ]
-Refresh Window
-#Just in case user was in nonTag field on this
-#window when user clicked a menu button on
-#the other window, exit all fields.
-Select Window [ Name: "References"; Current file ]
-If [ Get (LastError) = 112 ]
-Select Window [ Name: "Learn"; Current file ]
-Go to Field [ ]
-Else If [ Get (LastError) ≠ 112 ]
-Go to Field [ ]
-End If
-Refresh Window
-Select Window [ Name: "Tag Menus"; Current file ]
-August 19, ଘ౮28 23:30:11 Library.fp7 - menuCitationFind -1-

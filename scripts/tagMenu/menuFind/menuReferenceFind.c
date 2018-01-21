@@ -1,3 +1,4 @@
+January 20, 2018 19:14:40 Library.fmp12 - menuReferenceFind -1-
 tagMenu: menuFind: menuReferenceFind
 #
 #Set citationMatch to color menu button with inUse color.
@@ -10,47 +11,49 @@ Set Variable [ $$internal ]
 #Goto correct layout.
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnFindCite” (reference) ]
-If [ TEMP::InventoryLibaryYN ≠ "" ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
 Go to Layout [ “learnFindStuffCite” (reference) ]
 End If
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 Go to Layout [ “learnFindCite” (reference) ]
 End If
 #
-#Find References for this library.
-Set Error Capture [ On ]
-Allow User Abort [ Off ]
-Enter Find Mode [ ]
-Set Field [ reference::kcsection; TEMP::ksection ]
-If [ TEMP::InventoryLibaryYN ≠ "" ]
-Set Field [ reference::filterFind; "main" ]
-Set Field [ reference::show; "show in learn" ]
-End If
-// Set Field [ reference::filterFind; "main" ]
-// Set Field [ reference::ktest; TEMP::ktest ]
-Perform Find [ ]
-If [ TEMP::InventoryLibaryYN = "" ]
-Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::knodePrimary: “=” ]
-[ Restore ]
-Extend Found Set [ Specified Find Requests: Find Records; Criteria: reference::referenceNodes: “*” ]
-[ Restore ]
-Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::Title: “=” ]
-[ Restore ]
-End If
-Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
-tagKeywordPrimary::tag; ascending
-reference::referenceShort; ascending ]
-[ Restore; No dialog ]
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
-If [ TEMP::sortRef = "cat" or TEMP::sortRef = "" ]
-Sort Records [ Specified Sort Order: tagKeywordPrimary::orderOrLock; ascending
+#Find References for the Learn module.
+If [ TEMP::InventoryLibraryYN = "" ]
+#
+#If in idea mode then show only references user
+#has selected to show in the Learn module.
+Enter Find Mode [ ]
+Set Field [ reference::showInLearn; "show in learn" ]
+Perform Find [ ]
+#
+Else
+#
+#If in inventory mode then show all references
+#(except the locked references).
+Show All Records
+#
+#Omit locked records, which are the copyright
+#images used by default copyright tags.
+Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::lock: “lock” ]
+[ Restore ]
+End If
+#
+#
+#Sort records.
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order
+Pulldown List”
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
-Else If [ TEMP::sortRef = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order
+Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::publicationYearOrStuffOrderNumber; based on value list: “order Pulldown List”
+reference::Title; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -59,4 +62,3 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stopLoadTagRecord ]
-May 10, 平成27 10:58:24 Library.fp7 - menuReferenceFind -1-
