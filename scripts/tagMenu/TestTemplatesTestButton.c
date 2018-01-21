@@ -1,5 +1,5 @@
-January 15, 2018 16:55:12 Library.fmp12 - TestTemplatesTestButton -1-
-tagMenu: TestTemplatesTestButton
+January 15, 2018 16:55:12 Library.fmp12 - testTemplatesTestButton -1-
+tagMenu: testTemplatesTestButton
 #
 #
 #Don't go to the test module if the user has

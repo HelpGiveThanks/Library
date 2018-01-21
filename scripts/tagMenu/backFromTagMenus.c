@@ -1,3 +1,4 @@
+January 21, 2018 11:39:19 Library.fmp12 - backFromTagMenus -1-
 tagMenu: backFromTagMenus
 If [ Left ( $$openedFrom ; 4 ) = "step" ]
 Close Window [ Current Window ]
@@ -6,4 +7,3 @@ Select Window [ Name: "Setup"; Current file ]
 Else If [ Get (WindowName) = "Recommendations" ]
 Select Window [ Name: "Report"; Current file ]
 End If
-January 7, 平成26 15:35:38 Imagination Quality Management.fp7 - backFromTagMenus -1-

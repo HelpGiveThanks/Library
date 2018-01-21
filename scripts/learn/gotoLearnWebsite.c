@@ -1,4 +1,4 @@
+January 19, 2018 2:04:41 Library.fmp12 - gotoLearnWebsite -1-
 learn: gotoLearnWebsite
-Open URL [ learnSampleWebsite::URL ]
+Open URL [ learnBrainstormWebsite::URL ]
 [ No dialog ]
-January 7, 平成26 17:26:43 Imagination Quality Management.fp7 - gotoLearnWebsite -1-

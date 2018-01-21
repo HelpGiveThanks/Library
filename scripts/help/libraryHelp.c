@@ -1,3 +1,4 @@
+January 19, 2018 1:25:25 Library.fmp12 - libraryHelp -1-
 help: libraryHelp
 #
 #So there are two help button scripts because I changed
@@ -9,4 +10,3 @@ help: libraryHelp
 #used to take users to an internal library help system.
 Perform Script [ “help” ]
 #
-January 7, 平成26 18:18:42 Imagination Quality Management.fp7 - libraryHelp -1-

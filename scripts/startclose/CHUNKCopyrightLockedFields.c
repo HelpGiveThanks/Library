@@ -1,5 +1,5 @@
-January 10, 2018 15:37:48 Library.fmp12 - CHUNKCopyrightLockedFields -1-
-startclose: CHUNKCopyrightLockedFields
+January 10, 2018 15:37:48 Library.fmp12 - CHUNK_CopyrightLockedFields -1-
+startclose: CHUNK_CopyrightLockedFields
 #
 #
 #Admin tasks.

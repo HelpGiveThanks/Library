@@ -1,5 +1,5 @@
+January 19, 2018 2:50:40 Library.fmp12 - exitIfNotiPhone -1-
 pictures: exitIfNotiPhone
 If [ $$PictureOnReportLayout ≠ "" ]
 Go to Field [ ]
 End If
-August 20, ଘ౮28 14:38:16 Library.fp7 - exitIfNotiPhone -1-

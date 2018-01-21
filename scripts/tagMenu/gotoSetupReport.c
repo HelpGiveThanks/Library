@@ -1,5 +1,6 @@
+January 21, 2018 11:45:08 Library.fmp12 - gotoSetupReport -1-
 tagMenu: gotoSetupReport
 Close Window [ Name: "Cover Page"; Current file ]
-New Window [ Name: "Cover Page" ]
-Go to Layout [ “setupReport” (test) ]
-January 7, 平成26 15:55:56 Imagination Quality Management.fp7 - gotoSetupReport -1-
+New Window [ Name: "Cover Page"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”;
+Resize: “Yes” ]
+Go to Layout [ “setupReport” (testSubsectionTemplate) ]

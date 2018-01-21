@@ -7,7 +7,6 @@ Allow User Abort [ Off ]
 Set Variable [ $$first ]
 Set Variable [ $$last; Value:report::ktestSubsection ]
 Set Field [ TEMP::ktestSection; "" ]
-#[by David Matson 4.16.11, last modified by same 4.18.11]
 #clear the $$finding and $window variables
 Set Variable [ $$finding ]
 Set Variable [ $$window ]

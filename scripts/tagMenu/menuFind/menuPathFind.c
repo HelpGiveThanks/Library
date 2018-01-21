@@ -1,3 +1,4 @@
+January 21, 2018 12:01:07 Library.fmp12 - menuPathFind -1-
 tagMenu: menuFind: menuPathFind
 #
 #Set citationMatch to color menu button with inUse color.
@@ -17,16 +18,16 @@ Enter Find Mode [ ]
 Set Field [ tagMenus::match; "Path" ]
 Perform Find [ ]
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
+#Sort according to current users wishes.
 If [ TEMP::sortPath = "cat" or TEMP::sortPath = "" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortPath = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -35,4 +36,3 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stopLoadTagRecord ]
-January 7, 平成26 16:55:02 Imagination Quality Management.fp7 - menuPathFind -1-

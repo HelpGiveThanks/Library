@@ -1,10 +1,11 @@
+January 21, 2018 12:00:28 Library.fmp12 - menuMediumFind -1-
 tagMenu: menuFind: menuMediumFind
 #
 #Set citationMatch to color menu button with inUse color.
 Set Variable [ $$citationMatch; Value:"medium" ]
 #
 #Do not load tag records until the end of script
-#to prevent ﬂashing of window and to speed up
+#to prevent flashing of window and to speed up
 #script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
@@ -22,16 +23,16 @@ Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
 Perform Find [ ]
 #
-#Sort according to current users wishes. By default
-#the sort will be by category which is set by editCitation script.
+#Sort according to current users wishes.
 If [ TEMP::sortMedium = "cat" or TEMP::sortMedium = "" ]
-Sort Records [ Specified Sort Order: ruleTagMenuGroups::order; based on value list: “order”
-ruleTagMenuGroups::name; ascending
-tagMenus::orderOrLock; based on value list: “order”
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 Else If [ TEMP::sortMedium = "abc" ]
-Sort Records [ Specified Sort Order: tagMenus::tag; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenus::tag; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -40,4 +41,3 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stopLoadTagRecord ]
-January 7, 平成26 16:53:07 Imagination Quality Management.fp7 - menuMediumFind -1-
