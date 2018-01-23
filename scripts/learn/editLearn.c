@@ -147,7 +147,7 @@ Set Variable [ $$stopLoadCitation ]
 #Go to test menu in Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$editTestInfo; Value:1 ]
-Perform Script [ “menuTest (update)” ]
+Perform Script [ “menuTest” ]
 #
 #
 #
@@ -207,6 +207,6 @@ Set Variable [ $$stopLoadCitation ]
 #Go to test menu in Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$editTestInfo; Value:1 ]
-Perform Script [ “menuTest (update)” ]
+Perform Script [ “menuTest” ]
 End If
 #

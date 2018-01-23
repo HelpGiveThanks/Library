@@ -85,7 +85,7 @@ If [ $$finding = testlearnReportTags::_Ltestlearn ]
 #it is copied and not in use.
 Set Field [ testlearnReportTags::kcInUseOnReportSubsection; "" ]
 #
-Perform Script [ “loadReportTestResultRecord (new)” ]
+Perform Script [ “loadReportTestResultRecord” ]
 #
 Select Window [ Name: "Report"; Current file ]
 Halt Script
@@ -103,7 +103,7 @@ If [ $$finding ≠ testlearnReportTags::_Ltestlearn ]
 #Turn off record load script and find
 #all info records for this test section.
 Set Variable [ $$stopPart3InProgress; Value:1 ]
-Perform Script [ “reportTagInfo (update)” ]
+Perform Script [ “reportTagInfo” ]
 #
 #Find and select copied test info record.
 Go to Record/Request/Page
@@ -150,7 +150,7 @@ Set Variable [ $$stopPart3InProgress ]
 #return to the Report window and halt
 #this script allowing the user to paste
 #the info record's key into a yellow slot.
-Perform Script [ “loadTestInfo (update)” ]
+Perform Script [ “loadTestInfo” ]
 #
 Select Window [ Name: "Report"; Current file ]
 Halt Script
@@ -236,7 +236,7 @@ Set Field [ testlearnReportTags::kcInUseOnReportSubsection; $$testSubject & $$re
 #conditional formatting variables.
 Set Variable [ $$finding ]
 Set Variable [ $$window ]
-Perform Script [ “loadReportTestResultRecord (new)” ]
+Perform Script [ “loadReportTestResultRecord” ]
 #
 Select Window [ Name: "Report"; Current file ]
 Refresh Window
@@ -255,7 +255,7 @@ If [ $$finding ≠ testlearnReportTags::_Ltestlearn ]
 #Turn off record load script and find
 #all info records for this test section.
 Set Variable [ $$stopPart3InProgress; Value:1 ]
-Perform Script [ “reportTagInfo (update)” ]
+Perform Script [ “reportTagInfo” ]
 #
 #Find and select copied test info record.
 Go to Record/Request/Page
@@ -280,7 +280,7 @@ Set Variable [ $$stopPart3InProgress ]
 #conditional formatting variables.
 Set Variable [ $$finding ]
 Set Variable [ $$window ]
-Perform Script [ “loadTestInfo (update)” ]
+Perform Script [ “loadTestInfo” ]
 #
 Select Window [ Name: "Report"; Current file ]
 Refresh Window
@@ -418,7 +418,7 @@ Set Field [ testlearnReportTags::kcInUseOnReportSubsection; $$testSubject & $$re
 #conditional formatting variables.
 Set Variable [ $$finding ]
 Set Variable [ $$window ]
-Perform Script [ “loadReportTestResultRecord (new)” ]
+Perform Script [ “loadReportTestResultRecord” ]
 #
 Select Window [ Name: "Report"; Current file ]
 Refresh Window
@@ -437,7 +437,7 @@ If [ $$finding ≠ testlearnReportTags::_Ltestlearn ]
 #Turn off record load script and find
 #all info records for this test section.
 Set Variable [ $$stopPart3InProgress; Value:1 ]
-Perform Script [ “reportTagInfo (update)” ]
+Perform Script [ “reportTagInfo” ]
 #
 #Find and select copied test info record.
 Go to Record/Request/Page
@@ -462,7 +462,7 @@ Set Variable [ $$stopPart3InProgress ]
 #conditional formatting variables.
 Set Variable [ $$finding ]
 Set Variable [ $$window ]
-Perform Script [ “loadTestInfo (update)” ]
+Perform Script [ “loadTestInfo” ]
 #
 Select Window [ Name: "Report"; Current file ]
 Refresh Window

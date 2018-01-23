@@ -101,10 +101,10 @@ Set Variable [ $$stoploadCitation ]
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ TEMP::InventoryLibraryYN = "" ]
 Go to Layout [ “ltagNK1” (tagMenus) ]
-Perform Script [ “menuKey (update)” ]
+Perform Script [ “menuKey” ]
 Else
 Go to Layout [ “learnMenu3CiteS” (reference) ]
-Perform Script [ “menuReference (update)” ]
+Perform Script [ “menuReference” ]
 End If
 #
 #Return to Learn window.

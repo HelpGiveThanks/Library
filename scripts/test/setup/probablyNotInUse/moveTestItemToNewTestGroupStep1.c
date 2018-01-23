@@ -1,5 +1,5 @@
 January 12, 2018 14:14:19 Library.fmp12 - moveTestItemToNewTestGroupStep1 -1-
-test: setup: moveTestItemToNewTestGroupStep1
+test: setup: probablyNotInUse: moveTestItemToNewTestGroupStep1
 #
 #
 #This script is for moving a test item

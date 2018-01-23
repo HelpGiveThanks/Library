@@ -11,5 +11,5 @@ Set Variable [ $$stopClosingResizingWindows; Value:1 ]
 #the next script needs to focus, and then
 #perform this script.
 Go to Field [ report::kTag3 ]
-Perform Script [ “reportCopyPastPart3 (update)” ]
+Perform Script [ “reportCopyPastPart3” ]
 Go to Field [ ]

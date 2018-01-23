@@ -19,5 +19,5 @@ Sort Records [ Keep records in sorted order; Specified Sort Order: testSection::
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
-Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings (update)” ]
+Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings” ]
 #

@@ -4,7 +4,7 @@ test: setup: newSection
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Create new section that can be added to
 #any subject's test.

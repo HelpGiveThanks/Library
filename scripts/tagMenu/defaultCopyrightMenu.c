@@ -74,7 +74,7 @@ Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopTest ]
 #
 #Inform user of items use on both screens.
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Refresh Window
 #
 #

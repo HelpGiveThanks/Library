@@ -134,9 +134,9 @@ End Loop
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$returnFocusToThisRecord ]
 End If
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from sortTLRecordsByOrderNumber)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]

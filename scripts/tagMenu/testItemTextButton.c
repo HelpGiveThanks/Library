@@ -19,6 +19,6 @@ End If
 #case the user expects to go to the text field.
 Set Variable [ $$textButton; Value:1 ]
 #
-Perform Script [ “checkORaddTestItem (update name change testAddTestItemTextOrKey)” ]
+Perform Script [ “checkORaddTestItem” ]
 #
 #

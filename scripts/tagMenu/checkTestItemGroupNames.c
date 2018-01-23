@@ -4,14 +4,14 @@ tagMenu: checkTestItemGroupNames
 #If user approved spelling for this tag and no
 #changes have been made then cancel the script.
 If [ tagMenuTestItemGroup::name = tagMenuTestItemGroup::nameSpellingFORTestItemGroup ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 Exit Script [ ]
 End If
 #
 #changes have been made then cancel the script.
 If [ nodeLockTestTagItemGroup::orderOrLock ≠ "" ]
 Set Field [ tagMenuTestItemGroup::name; tagMenuTestItemGroup::nameSpellingFORTestItemGroup ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 Exit Script [ ]
 End If
 #
@@ -42,11 +42,11 @@ tagMenuTestItemGroup::name ]
 #Choice 1, user wants to change spelling.
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Variable [ $newSpelling ]
-Perform Script [ “checkTestItemGroupNamess (update)” ]
+Perform Script [ “checkTestItemGroupNamess” ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 3 ]
 Set Field [ tagMenuTestItemGroup::name; tagMenuTestItemGroup::nameSpellingFORTestItemGroup ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 Exit Script [ ]
 End If
 End If
@@ -58,5 +58,5 @@ End If
 #tag list.
 Set Field [ tagMenuTestItemGroup::nameSpellingFORTestItemGroup; $newSpelling ]
 #
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 #

@@ -96,15 +96,14 @@ End If
 Select Window [ Name: "Report"; Current file ]
 If [ ValueListItems ( Get ( FileName ) ; "reportTestSubsections" ) = "" ]
 #If none, then return to main test layout.
-Perform Script [ “returnToTestSetup (update name change returnToStep2)” ]
+Perform Script [ “returnToTestSetup” ]
 Exit Script [ ]
 Else
 #If there are results in other sections then go
 #to the first one of those sections.
 Set Variable [ $$goToFirstReportPage; Value:GetValue ( ValueListItems ( Get ( FileName ) ; "reportTestSubsections" ) ;
 1 ) ]
-Perform Script [ “CHUNK_gotoTestSubsectionViaPulldown (update name change from
-CHUNK_gotoItemViaPulldown)” ]
+Perform Script [ “CHUNK_gotoTestSubsectionViaPulldown” ]
 Exit Script [ ]
 End If
 End If

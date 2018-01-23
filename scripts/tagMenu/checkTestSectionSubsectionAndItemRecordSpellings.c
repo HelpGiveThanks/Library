@@ -260,7 +260,7 @@ End If
 Set Variable [ $$ID ]
 Set Variable [ $$stopTest ]
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadSetupTestSubsection (update name change loadSetupTestRecord)” ]
+Perform Script [ “loadSetupTestSubsection” ]
 #
 #
 #END Test subsection template layout check

@@ -17,7 +17,7 @@ End If
 #spellings that where changed by dragging
 #text into them.
 If [ Get (LayoutName) = "setupTestSection" ]
-Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings (update)” ]
+Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings” ]
 End If
 #
 #
@@ -25,7 +25,7 @@ End If
 #the test item window.
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ $$citationMatch ≠ "testItem" ]
-Perform Script [ “menuTestItem (update)” ]
+Perform Script [ “menuTestItem” ]
 End If
 #
 #

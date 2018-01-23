@@ -12,5 +12,5 @@ Set Variable [ $$stopClosingResizingWindows; Value:1 ]
 #perform this script.
 Go to Field [ report::kTag4 ]
 Set Variable [ $$photo ]
-Perform Script [ “reportCopyPastPart3 (update)” ]
+Perform Script [ “reportCopyPastPart3” ]
 Go to Field [ ]

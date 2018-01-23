@@ -20,7 +20,7 @@ Set Field [ TEMP::ktestItemSubsection; $$detailID ]
 Set Variable [ $$itemID ]
 #
 #Load up all test items for this subsection.
-Perform Script [ “menuTestItem (update)” ]
+Perform Script [ “menuTestItem” ]
 #
 Exit Script [ ]
 Else If [ $$module = "reportTagItem" ]
@@ -39,7 +39,7 @@ Set Field [ TEMP::ktestSubsection; $$itemID ]
 Set Field [ TEMP::ktestItemSubsection; $$detailID ]
 Set Variable [ $$itemID ]
 #
-Perform Script [ “menuTestItem (update)” ]
+Perform Script [ “menuTestItem” ]
 #
 Exit Script [ ]
 Else If [ $$module = "defaultSections" ]
@@ -47,7 +47,7 @@ Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ $$module ]
 If [ $$module = "defaultSections" ]
-Perform Script [ “defaultLibraryButton (update name change defaultSectionMenu)” ]
+Perform Script [ “defaultLibraryButton” ]
 End If
 Go to Record/Request/Page [ $$recordNumber ]
 [ No dialog ]
@@ -79,7 +79,7 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Go to Layout [ “testMenuTestItem” (tagMenus) ]
 #
 #Load up all test items for this subsection.
-Perform Script [ “menuTestItem (update)” ]
+Perform Script [ “menuTestItem” ]
 #
 #Turn back on load tag script and go
 #to selected tag.

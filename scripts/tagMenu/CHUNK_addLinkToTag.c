@@ -20,7 +20,7 @@ End If
 #
 #Now add all the added record’s node and keyword
 #tags to any newly added sections.
-Perform Script [ “CHUNKaddReferenceNodeAndKeywordTagIDs (update name CHUNKaddReferenceNodesAndKeywords)” ]
+Perform Script [ “CHUNKaddReferenceNodeAndKeywordTagIDs” ]
 #
 #Complete process of adding link to tag.
 Select Window [ Name: "Tag Menus"; Current file ]

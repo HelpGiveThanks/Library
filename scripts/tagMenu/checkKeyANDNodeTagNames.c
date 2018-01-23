@@ -26,7 +26,7 @@ If [ Get ( ActiveFieldName ) = "tag" ]
 Set Variable [ $$tag; Value:tagMenus::_Ltag ]
 End If
 Set Variable [ $tagSpelling; Value:tagMenus::tagSpelling ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 Set Variable [ $$tag ]
 Set Field [ tagMenus::tagSpelling; $tagSpelling ]
 #

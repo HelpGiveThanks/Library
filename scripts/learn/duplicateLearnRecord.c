@@ -9,7 +9,7 @@ End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Give user duplicate record options.
 If [ TEMP::InventoryLibraryYN = "" ]
@@ -104,7 +104,7 @@ Set Variable [ $record; Value:Get (RecordNumber) ]
 Go to Record/Request/Page [ $record ]
 [ No dialog ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 Set Variable [ $$stopOpenNewTextWindow ]
 #
 #Note that the new record is a duplicate so its
@@ -116,5 +116,5 @@ Set Variable [ $$duplicateRecord; Value:1 ]
 #
 #Open duplicate record in text window so
 #user can now edit it.
-Perform Script [ “learnOpenTextNewWindow (update)” ]
+Perform Script [ “learnOpenTextNewWindow” ]
 #

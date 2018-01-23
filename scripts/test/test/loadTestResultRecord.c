@@ -36,7 +36,7 @@ Refresh Window
 #window where this create form script starts, it
 #is most efficient if it is started here.
 If [ $$addFormToNewTestResult ≠ "" ]
-Perform Script [ “createFormOutOf_FT_TestItems (new)” ]
+Perform Script [ “createFormOutOf_FT_TestItems” ]
 Set Variable [ $$addFormToNewTestResult ]
 End If
 #

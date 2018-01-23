@@ -92,7 +92,7 @@ Set Field [ report::ktestSubject; $$testSubject ]
 Set Field [ report::kreportNumber; $$reportNumber ]
 Perform Find [ ]
 If [ Get (LastError) = 401 ]
-Perform Script [ “returnToTestSetup (update name change returnToStep2)” ]
+Perform Script [ “returnToTestSetup” ]
 Show Custom Dialog [ Message: "No test results to report on. 1) Click any test button under this report button, and 2) then click
 any test sub-section button to create reportable test-result records."; Default Button: “OK”, Commit: “Yes” ]
 Set Variable [ $$stopLoadReportRecord ]
@@ -123,5 +123,5 @@ Go to Layout [ “PrintReportLock” (report) ]
 End If
 #
 #Now find test results for the report subsection.
-Perform Script [ “CHUNK_gotoTestSubsectionViaPulldown (update name change from CHUNK_gotoItemViaPulldown)” ]
+Perform Script [ “CHUNK_gotoTestSubsectionViaPulldown” ]
 #

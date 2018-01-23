@@ -227,14 +227,14 @@ Show Custom Dialog [ Message: "Test items can ONLY be added and removed from the
 subsections' test items, 1) click the back buttons until you return to Library Setup. 2) Click Test, and 3) click 2-3-4
 templates."; Default Button: “OK”, Commit: “Yes” ]
 End If
-Perform Script [ “loadSetupTestSubsection (update name change loadSetupTestRecord)” ]
+Perform Script [ “loadSetupTestSubsection” ]
 #
 #If coming from the test or report module show
 #user the Tag Menus window as they probably
 #want to edit a tag or add a new tag.
 If [ $$module = "testMenuTestItem" or $$module = "reportTagItem" ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “menuTestItem (update)” ]
+Perform Script [ “menuTestItem” ]
 End If
 #
 #Turn back on spell check script.

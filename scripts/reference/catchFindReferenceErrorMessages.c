@@ -26,7 +26,7 @@ Set Error Capture [ On ]
 #
 #Copy the user's current find request.
 Set Variable [ $$captureUserFindRequests; Value:1 ]
-Perform Script [ “CHUNK_findReferenceRecordUserFindRequests (new)” ]
+Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
 Set Variable [ $$captureUserFindRequests ]
 #
 #
@@ -112,7 +112,7 @@ Else If [ $$GoToField = "" ]
 #script or the cancel find script will halt all
 #copies of the script launched during the
 #sesion.
-Perform Script [ “findReferenceRecord (update)” ]
+Perform Script [ “findReferenceRecord” ]
 Exit Script [ ]
 End If
 End If
@@ -162,7 +162,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findReferenceRecord (update)” ]
+Perform Script [ “findReferenceRecord” ]
 Exit Script [ ]
 End If
 End If
@@ -211,7 +211,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findReferenceRecord (update)” ]
+Perform Script [ “findReferenceRecord” ]
 Exit Script [ ]
 End If
 End If
@@ -255,7 +255,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findReferenceRecord (update)” ]
+Perform Script [ “findReferenceRecord” ]
 Exit Script [ ]
 End If
 End If

@@ -106,11 +106,11 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Show All Records
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 #
 #Go to default tags layout
 #and load up defaults.
-Perform Script [ “defaultsAll (update)” ]
+Perform Script [ “defaultsAll” ]
 Set Variable [ $$stopAddTagToCitation ]
 Set Variable [ $$defaultRecordNumber ]
 Set Variable [ $$defaultTagLayout ]
@@ -220,15 +220,15 @@ Set Variable [ $$stopLoadTagRecord ]
 #Prevent halting to loadTagRecord script.
 Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 #
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 #
 Go to Layout [ $$learnTagLayout ]
 Set Variable [ $$learnTagLayout ]
 Set Variable [ $$stopLoadTagRecord ]
 If [ $$module = "ref" ]
-Perform Script [ “menuReference (update)” ]
+Perform Script [ “menuReference” ]
 Else If [ $$module = "learnTest" ]
-Perform Script [ “menuTest (update)” ]
+Perform Script [ “menuTest” ]
 End If
 #
 #Turn of stop halt variable.
@@ -238,7 +238,7 @@ Select Window [ Name: "Learn"; Current file ]
 #
 #Perform Load Citation script to restore conditional
 #formatting.
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #Finish up back script on the Tag Menus
 #if this is where the user started from by

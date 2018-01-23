@@ -30,7 +30,7 @@ End If
 #text into field.
 If [ $$citationMatch ≠ "copyright" ]
 Set Variable [ $$tag; Value:tagMenuGroup::_Lgroup ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 Set Variable [ $$tag ]
 End If
 #
@@ -90,7 +90,7 @@ Commit Records/Requests
 #If change was made to a new tag check
 #if spelling is already in use.
 Set Variable [ $newSpelling; Value:tagMenus::tag ]
-Perform Script [ “checkTagGroupNamesEXCEPTtestItemGroups (update)” ]
+Perform Script [ “checkTagGroupNamesEXCEPTtestItemGroups” ]
 #
 #Exit script, otherwise main and tag
 #menu windows will be closed.

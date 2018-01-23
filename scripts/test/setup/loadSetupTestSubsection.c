@@ -207,7 +207,7 @@ Select Window [ Name: "Test Templates"; Current file ]
 Refresh Window
 #
 #
-Perform Script [ “Exit (update)” ]
+Perform Script [ “exit” ]
 #
 #Stop dragged spelling changes check. It's too
 #annoying. It is run when user leaves the

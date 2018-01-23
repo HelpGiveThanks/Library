@@ -23,7 +23,7 @@ New Record/Request
 #than starting up this copy of the library as
 #ready to use library file.
 If [ backup::newLibrary = "234874920347574weidf792342f9823984" ]
-Perform Script [ “newLibraryStep2eraseRecordsInCopyOfLibrary (update name change createEmptyLibrary)” ]
+Perform Script [ “newLibraryStep2eraseRecordsInCopyOfLibrary” ]
 Exit Script [ ]
 End If
 #
@@ -52,13 +52,12 @@ Exit Script [ ]
 #
 #Perform step 3A if the user clicks new.
 Else If [ Get ( LastMessageChoice ) = 1 ]
-Perform Script [ “newLibraryStep3A_makeEmptiedLibraryANewLibrary (update move name change
-newSectionOnSectionLayout)” ]
+Perform Script [ “newLibraryStep3A_makeEmptiedLibraryANewLibrary” ]
 Exit Script [ ]
 #
 #Perform step 3B if the user clicks import.
 Else If [ Get ( LastMessageChoice ) = 2 ]
-Perform Script [ “newLibraryStep3B_importLibraryIntoEmptiedLibrary (update and name change import)” ]
+Perform Script [ “newLibraryStep3B_importLibraryIntoEmptiedLibrary” ]
 Exit Script [ ]
 End If
 End If
@@ -99,7 +98,7 @@ If [ Case (tempSetup::InventoryLibraryYN[1] ; 1 ; 2 ) ≠ $ideasORthingsLibrary
 Set Field [ backup::backup; Case (tempSetup::InventoryLibraryYN[1] ; "inventory" ; "ideas" ) ]
 Cut [ backup::backup ]
 [ Select ]
-Perform Script [ “closeLibrary (update)” ]
+Perform Script [ “closeLibrary” ]
 Exit Script [ ]
 #
 #
@@ -122,7 +121,7 @@ Show All Records
 Delete All Records
 [ No dialog ]
 New Record/Request
-Perform Script [ “closeLibrary (update)” ]
+Perform Script [ “closeLibrary” ]
 Exit Script [ ]
 End If
 End If
@@ -138,7 +137,7 @@ backup::backup ≠ "" ]
 // Set Field [ backup::backup; "failure" ]
 // Cut [ backup::backup ]
 [ Select ]
-// Perform Script [ “closeLibrary (update)” ]
+// Perform Script [ “closeLibrary” ]
 // Exit Script [ ]
 // End If
 #
@@ -255,11 +254,11 @@ End If
 #
 #Make sure library's creator node and
 #its tag node group exists.
-Perform Script [ “CHUNKcheckCreatorNodeAndPrimaryNode (update move name change addBackSectionCreatorNode)” ]
+Perform Script [ “CHUNKcheckCreatorNodeAndPrimaryNode” ]
 #
 #Insure filelocation records are present,
 #and default copyright tags.
-Perform Script [ “CHUNKCopyrightLockedFields (update name change)” ]
+Perform Script [ “CHUNKCopyrightLockedFields” ]
 #
 #Insure during last session, user didn't drag
 #new spellings into locked tag records.
@@ -267,7 +266,7 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Show All Records
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 #
 #Show regular menus if Admin logs in only.
 If [ Get ( AccountName ) = "Admin" ]
@@ -291,7 +290,7 @@ Print Setup [ Orientation: Portrait; Paper size: 8.5" x 11" ]
 End If
 #
 #Set library defaults.
-Perform Script [ “defaultLibraryButton (update name change defaultSectionMenu)” ]
+Perform Script [ “defaultLibraryButton” ]
 If [ tempSetup::InventoryLibraryYN = "" and tempSetup::InventoryLibraryYN[2] = "" ]
 #Set default layout views for
 #a reference library.
@@ -379,7 +378,7 @@ End If
 If [ $$newLibraryNextSteps = 1 ]
 Set Variable [ $$newLibraryNextSteps ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “defaultNodeMenu (update)” ]
+Perform Script [ “defaultNodeMenu” ]
 Show Custom Dialog [ Message: "Your new library is almost ready! Change the name of the first node to your name since you
 will be the creator of new library records."; Default Button: “OK”, Commit: “Yes” ]
 Show Custom Dialog [ Message: "Select the default copyright for your new records, and last, click 'main' and change the name of
@@ -393,11 +392,11 @@ Set Variable [ $$import ]
 #Force remaking of picture thumbnails to sure
 #all pictures have thumbnails with the current
 #database's specified dimensions.
-Perform Script [ “Interactivate (new)” ]
+Perform Script [ “Interactivate” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Show Custom Dialog [ Message: "Import is complete! Make sure you're selected as the primary node (the one creating new
 records), and check your selected copyright!"; Default Button: “OK”, Commit: “Yes” ]
-Perform Script [ “defaultNodeMenu (update)” ]
+Perform Script [ “defaultNodeMenu” ]
 End If
 #
 #Finish the import of new records.
@@ -407,7 +406,7 @@ If [ $$addRecords = 1 ]
 #all pictures have thumbnails with the current
 #database's specified dimensions.
 Set Variable [ $$addRecords ]
-Perform Script [ “Interactivate (new)” ]
+Perform Script [ “Interactivate” ]
 Show Custom Dialog [ Message: "Successful import! Delete the backup file created before this import. It now lacks the files, just
 imported. Of course, it is always good to regularly backup your most current Library file."; Default Button: “OK”, Commit:
 “No” ]

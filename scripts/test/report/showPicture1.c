@@ -13,7 +13,7 @@ refTestShowMedia::URL ≠ "" and refTestShowMedia::showMedia ≠ "" ; "web" ;
 #
 #... if there is a picture to show.
 If [ $$PictureOnReportLayout ≠ "" and $$fileLocation ≠ "none" ]
-Perform Script [ “showCitationPicture1inNewWindow (update)” ]
+Perform Script [ “showCitationPicture1inNewWindow” ]
 #
 #Otherwise, do nothing.
 Else

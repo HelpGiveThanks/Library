@@ -61,7 +61,7 @@ Perform Find [ ]
 #order numbers.
 Set Variable [ $$citationMatch; Value:"test" ]
 Set Variable [ $$tagTest; Value:$$testSubsection ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from sortTLRecordsByOrderNumber)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 #
 If [ $reportLayout = 1 ]
 Go to Layout [ “reportTagInfo” (testlearnReportTags) ]
@@ -90,6 +90,6 @@ Scroll Window
 #Turn loadcitation script back on and exit script.
 Set Variable [ $$stoploadtestinfo ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadTestInfo (update)” ]
+Perform Script [ “loadTestInfo” ]
 #
 #

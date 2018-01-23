@@ -1,5 +1,5 @@
 January 15, 2018 15:46:28 Library.fmp12 - deleteTestSectionTemplate -1-
-test: report: deleteTestSectionTemplate
+test: setup: deleteTestSectionTemplate
 #
 #
 #If there are no section templates, then stop

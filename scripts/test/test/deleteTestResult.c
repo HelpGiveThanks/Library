@@ -233,7 +233,7 @@ Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
 Go to Record/Request/Page [ testlearn::recordnumberglobal ]
 [ No dialog ]
 Set Variable [ $$stopLoadTestRecord ]
-Perform Script [ “loadTestResultRecord (update name change loadTestRecord)” ]
+Perform Script [ “loadTestResultRecord” ]
 #
 Exit Script [ ]
 End If

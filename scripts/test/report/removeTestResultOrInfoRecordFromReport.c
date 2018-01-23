@@ -73,7 +73,7 @@ If [ $clear = testlearnReportTags::_Ltestlearn ]
 #it is not in use.
 Set Field [ testlearnReportTags::kcInUseOnReportSubsection; "" ]
 #
-Perform Script [ “loadReportTestResultRecord (new)” ]
+Perform Script [ “loadReportTestResultRecord” ]
 Refresh Window
 #
 Select Window [ Name: "Report"; Current file ]
@@ -91,7 +91,7 @@ If [ $clear ≠ testlearnReportTags::_Ltestlearn ]
 #Turn off record load script and find
 #all info records for this test section.
 Set Variable [ $$stopPart3InProgress; Value:1 ]
-Perform Script [ “reportTagInfo (update)” ]
+Perform Script [ “reportTagInfo” ]
 #
 #Find and select cleared test info record.
 Go to Record/Request/Page
@@ -137,7 +137,7 @@ Set Variable [ $$stopPart3InProgress ]
 #Reset conditional formatting variables, then
 #return to the Report window and halt
 #this script.
-Perform Script [ “loadTestInfo (update)” ]
+Perform Script [ “loadTestInfo” ]
 #
 Select Window [ Name: "Report"; Current file ]
 Halt Script

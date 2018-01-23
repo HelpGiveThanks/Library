@@ -90,7 +90,7 @@ Set Field [ testSubsectionForSubject::kcsections; $$testSectionTemplate ]
 Perform Find [ ]
 If [ Get ( FoundCount ) = 0 ]
 Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
-Perform Script [ “returnToTestSetup (update name change returnToStep2)” ]
+Perform Script [ “returnToTestSetup” ]
 Show Custom Dialog [ Message: "This test section has no subsections to test. To add some, 1) click 'edit/newtemplate'. 2)
 Select a subsection. 3) In the Tag Menus window, click the button next to this test section to add it. Repeat 2 and 3 to add
 additional subsections."; Default Button: “OK”, Commit: “Yes” ]

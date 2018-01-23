@@ -99,7 +99,7 @@ reportTestSubjectLock::orderOrLock = "0" ]
 #return to it before informing the user about
 #the locked status of the test subject.
 If [ Get (LayoutName) = "testResult" ]
-Perform Script [ “returnToSubsections (update and name change returnToStep3)” ]
+Perform Script [ “returnToSubsections” ]
 Else If [ $$checkORaddTestItem = 1 and Get ( WindowName ) = "Test"
  or
 $$checkORaddTestItem = 1 and Get ( WindowName ) = "Report" ]

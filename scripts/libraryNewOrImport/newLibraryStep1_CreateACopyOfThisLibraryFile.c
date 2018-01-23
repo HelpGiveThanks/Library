@@ -112,7 +112,7 @@ it to start it up. Allow it to delete its files, which are duplicates of this li
 #
 #Close all open windows, which will
 #close this library.
-Perform Script [ “closeLibrary (update)” ]
+Perform Script [ “closeLibrary” ]
 #
 #END STEP 1: Create a copy of this library.
 #

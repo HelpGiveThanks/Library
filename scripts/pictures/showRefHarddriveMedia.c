@@ -116,11 +116,11 @@ Go to Field [ ]
 #attempt to edit it.
 If [ reference::showMedia = "" and reference::showMedia[2] = "" ]
 Set Variable [ $$showRefURLmedia; Value:2 ]
-Perform Script [ “CHUNK_checkIfReferencePicIsInUse (new)” ]
+Perform Script [ “CHUNK_checkIfReferencePicIsInUse” ]
 Go to Field [ ]
 Set Variable [ $$showRefURLmedia ]
 If [ reference::picture = "Replace Me. Media Required" ]
-Perform Script [ “showCitationPicture1inNewWindow (update)” ]
+Perform Script [ “showCitationPicture1inNewWindow” ]
 End If
 End If
 #

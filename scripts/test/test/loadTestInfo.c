@@ -127,7 +127,7 @@ Set Variable [ $$stopOpenNewTextWindow; Value:1 ]
 #this subsection.
 If [ $$doNotOpenReferenceWindow ≠ 1 and ValueCount ( testlearnReportTags::kcreference ) - Length ( Filter ( testlearnReportTags::
 kcreference ; "L" ) ) > 0 ]
-Perform Script [ “CHUNK_testInfoReferences (new)” ]
+Perform Script [ “CHUNK_testInfoReferences” ]
 #
 #
 #If there are no reference records for this info

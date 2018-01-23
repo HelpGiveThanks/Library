@@ -10,7 +10,7 @@ End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Do not allow user to create a new section if...
 #
@@ -103,7 +103,7 @@ testSectionCreatedFromATemplate::name; ascending ]
 #
 #Load up this new test section.
 Set Variable [ $$stopLoadTestRecord ]
-Perform Script [ “loadSetupTestSection (update and move name change setupUpdateReportNumber)” ]
+Perform Script [ “loadSetupTestSection” ]
 #
 #Allow the user the change
 #this section's name.

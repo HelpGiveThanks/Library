@@ -1,5 +1,5 @@
-January 18, 2018 16:05:10 Library.fmp12 - gotoTimeLogMainWindow -1-
-sharedLayoutScripts: gotoTimeLogMainWindow
+January 18, 2018 16:05:10 Library.fmp12 - gotoAllSolutsionMenuORTimeLogApp -1-
+sharedLayoutScripts: gotoAllSolutsionMenuORTimeLogApp
 #
 #
 #Ask user if they want to go the timer or
@@ -7,7 +7,7 @@ sharedLayoutScripts: gotoTimeLogMainWindow
 Show Custom Dialog [ Message: "Open the Action Log (timer) or the All Apps menu?"; Default Button: “timer”, Commit: “Yes”; Button
 2: “All”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 2 ]
-Perform Script [ “allSolutionsMenu (new)” ]
+Perform Script [ “allSolutionsMenu” ]
 Exit Script [ ]
 End If
 #

@@ -6,7 +6,7 @@ test: test: testItemTextOrFormTemplateButton
 #item, and if an FT is showing change the item
 #into a check item.
 If [ tagMenus::notesOrCopyright = "FT" or tagMenus::notesOrCopyright = "T" ]
-Perform Script [ “testItemCheckOrTextOrForm (new)” ]
+Perform Script [ “testItemCheckOrTextOrForm” ]
 #
 #
 #If neither a T or FT (no button) is showing then

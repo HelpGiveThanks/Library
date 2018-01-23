@@ -74,6 +74,6 @@ Scroll Window
 [ Home ]
 #
 #Load this records variables.
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 #
 #

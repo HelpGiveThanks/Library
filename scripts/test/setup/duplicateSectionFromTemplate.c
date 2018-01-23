@@ -10,7 +10,7 @@ End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #If the primary default node is unselected,
 #inform user and stop script.
@@ -127,5 +127,5 @@ End Loop
 #
 #Load it up.
 Set Variable [ $$stopLoadTestRecord ]
-Perform Script [ “loadSetupTestSection (update and move name change setupUpdateReportNumber)” ]
+Perform Script [ “loadSetupTestSection” ]
 #

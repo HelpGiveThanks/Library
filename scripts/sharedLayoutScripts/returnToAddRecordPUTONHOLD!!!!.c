@@ -52,7 +52,7 @@ Perform Find [ ]
 #
 #If no records exist then create one.
 If [ Get (FoundCount)=0 ]
-Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
+Perform Script [ “newTagMenuTagGroup” ]
 End If
 #
 #Sort according to current users wishes.
@@ -79,7 +79,7 @@ End Loop
 #
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 #
 #Just in case user was in nonTag field on this
 #window when user clicked a menu button on
@@ -132,7 +132,7 @@ Perform Find [ ]
 #
 #If no records exist then create one.
 If [ Get (FoundCount)=0 ]
-Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
+Perform Script [ “newTagMenuTagGroup” ]
 End If
 #
 #Sort according to current users wishes.
@@ -159,7 +159,7 @@ End Loop
 #
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 #
 #Just in case user was in nonTag field on this
 #window when user clicked a menu button on
@@ -196,7 +196,7 @@ Perform Find [ ]
 #
 #If no records exist then create one.
 If [ Get (FoundCount)=0 ]
-Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
+Perform Script [ “newTagMenuTagGroup” ]
 End If
 #
 Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value

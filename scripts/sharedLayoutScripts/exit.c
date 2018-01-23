@@ -1,5 +1,5 @@
-January 18, 2018 16:09:49 Library.fmp12 - Exit -1-
-sharedLayoutScripts: Exit
+January 18, 2018 16:09:49 Library.fmp12 - exit -1-
+sharedLayoutScripts: exit
 #
 // #Follow the record whose order number was
 // #changed on the reportTestResult layout.

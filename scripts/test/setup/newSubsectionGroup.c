@@ -6,7 +6,7 @@ test: setup: newSubsectionGroup
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Stop spell check script.
 Set Variable [ $$stopTest; Value:1 ]
@@ -90,7 +90,7 @@ Set Variable [ $layout; Value:Get (LayoutName) ]
 #
 #Assign section to test item as each test must have
 #at least one section.
-Perform Script [ “menuTestSection (update and name change from editSectionFocuses)” ]
+Perform Script [ “menuTestSection” ]
 If [ Get (FoundCount) = 0 ]
 Set Variable [ $layout ]
 Go to Layout [ “setupTestSection” (testSection) ]
@@ -98,11 +98,11 @@ New Record/Request
 Set Field [ testSection::match; "testSection" ]
 Set Field [ testSection::tag; "test-section_template" ]
 Set Field [ testSection::tagSpelling; "test-section_template" ]
-Perform Script [ “menuTestSection (update and name change from editSectionFocuses)” ]
+Perform Script [ “menuTestSection” ]
 End If
 Go to Record/Request/Page
 [ First ]
-Perform Script [ “linkOrUnlinkTestSection (update name change linkTestFocusOrUnlinkTestFocus)” ]
+Perform Script [ “linkOrUnlinkTestSection” ]
 #
 #Go to selected tag menu window layout.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]

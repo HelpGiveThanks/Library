@@ -62,16 +62,16 @@ If [ $window = "Learn" ]
 #
 If [ $$citationMatch = "kfolderpath" ]
 Go to Layout [ “learnMenu1” (tagMenus) ]
-Perform Script [ “menuPath (update)” ]
+Perform Script [ “menuPath” ]
 #
 Else If [ $$citationMatch = "kmedium" ]
 Set Variable [ $$medium; Value:reference::kmedium ]
 Go to Layout [ “learnMenu1” (tagMenus) ]
-Perform Script [ “menuMedium (update)” ]
+Perform Script [ “menuMedium” ]
 #
 Else If [ $$citationMatch = "khealth" ]
 Go to Layout [ “learnMenuCopyright” (tagMenus) ]
-Perform Script [ “menuCopyright (update name change menuHealth)” ]
+Perform Script [ “menuCopyright” ]
 #
 Else If [ $$citationMatch = "key" ]
 #KEY MENU
@@ -80,7 +80,7 @@ Else If [ $$citationMatch = "key" ]
 If [ tagMenus::match ≠ "key" ]
 #
 #Menu NOT selected.
-Perform Script [ “menuKey (update)” ]
+Perform Script [ “menuKey” ]
 #
 Else
 #Menu IS selected.
@@ -139,7 +139,7 @@ Else If [ $$citationMatch = "node" ]
 If [ tagMenus::match ≠ "node" ]
 #
 #Menu NOT selected.
-Perform Script [ “menuNode (update)” ]
+Perform Script [ “menuNode” ]
 #
 Else
 #Menu IS selected.
@@ -198,7 +198,7 @@ Else If [ $$citationMatch = "ref" ]
 If [ Get (LayoutTableName) ≠ "reference" ]
 #
 #Menu NOT selected.
-Perform Script [ “menuReference (update)” ]
+Perform Script [ “menuReference” ]
 End If
 #
 #Menu IS selected.
@@ -272,22 +272,22 @@ Set Variable [ $$TgotoCitationMenuWithBlankField ]
 End If
 #
 If [ $$citationMatch = "kfolderpath" ]
-Perform Script [ “menuPath (update)” ]
+Perform Script [ “menuPath” ]
 Else If [ $$citationMatch = "kmedium" ]
 Set Variable [ $$medium; Value:reference::kmedium ]
-Perform Script [ “menuMedium (update)” ]
+Perform Script [ “menuMedium” ]
 Else If [ $$citationMatch = "kcopyright" ]
-Perform Script [ “menuCopyright (update name change menuHealth)” ]
+Perform Script [ “menuCopyright” ]
 Else If [ $$citationMatch = "kpublication" ]
-Perform Script [ “menuPublication (update name change menuOrgan)” ]
+Perform Script [ “menuPublication” ]
 Else If [ $$citationMatch = "kpublisher" ]
-Perform Script [ “menuPublisher (update name change menuCopyist)” ]
+Perform Script [ “menuPublisher” ]
 Else If [ $$citationMatch = "key" ]
-Perform Script [ “menuKey (update)” ]
+Perform Script [ “menuKey” ]
 Else If [ $$citationMatch = "node" ]
-Perform Script [ “menuNode (update)” ]
+Perform Script [ “menuNode” ]
 Else If [ $$citationMatch = "kcitation" ]
-Perform Script [ “menuCitation (update)” ]
+Perform Script [ “menuCitation” ]
 End If
 #
 Select Window [ Name: "Tag Menus"; Current file ]

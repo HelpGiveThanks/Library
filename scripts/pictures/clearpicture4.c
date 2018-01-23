@@ -10,5 +10,5 @@ Set Variable [ $$stopClosingResizingWindows; Value:1 ]
 #the next script needs to focus, and then
 #perform this script.
 Go to Field [ report::kTag4 ]
-Perform Script [ “removeTestResultOrInfoRecordFromReport (update name change reportClearDiscoveryLink)” ]
+Perform Script [ “removeTestResultOrInfoRecordFromReport” ]
 Go to Field [ ]

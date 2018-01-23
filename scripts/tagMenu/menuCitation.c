@@ -114,5 +114,5 @@ Go to Field [ ]
 End If
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “loadRefCiteTag (new)” ]
+Perform Script [ “loadRefCiteTag” ]
 #

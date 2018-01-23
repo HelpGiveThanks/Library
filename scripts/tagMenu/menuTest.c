@@ -135,5 +135,5 @@ End If
 #load-test-tag script to highlight any Learn records
 #tagged with the current tag record.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTestTags (update and name change from loadItemRecordForTestTagMenu)” ]
+Perform Script [ “loadTestTags” ]
 #

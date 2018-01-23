@@ -62,7 +62,7 @@ Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (Scr
 2 ]
 #
 Go to Layout [ “defaultsAll” (tempSetup) ]
-Perform Script [ “defaultsAll (update)” ]
+Perform Script [ “defaultsAll” ]
 #
 #Find all created test section records.
 Select Window [ Name: "Setup"; Current file ]

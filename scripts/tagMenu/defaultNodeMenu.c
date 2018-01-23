@@ -8,7 +8,7 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Make sure library's creator node and the
 #creator node's group exists.
-Perform Script [ “CHUNKcheckCreatorNodeAndPrimaryNode (update move name change addBackSectionCreatorNode)” ]
+Perform Script [ “CHUNKcheckCreatorNodeAndPrimaryNode” ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Set citationMatch to color menu button with inUse color.
@@ -81,7 +81,7 @@ End If
 #
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Refresh Window
 #
 #

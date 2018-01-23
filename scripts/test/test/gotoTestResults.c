@@ -110,12 +110,12 @@ Perform Find [ ]
 If [ Get (FoundCount) = 0 ]
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
-Perform Script [ “newTestResult (update name change newTestRecord)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+Perform Script [ “newTestResult” ]
 #
 #Find all test items for this test result.
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “menuTestItem (update)” ]
+Perform Script [ “menuTestItem” ]
 #
 #Return to Test window.
 Select Window [ Name: "Test"; Current file ]
@@ -158,12 +158,12 @@ Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
 #
 #Conditionally format current test record and tags.
 Set Variable [ $$stopLoadTestRecord ]
-Perform Script [ “loadTestResultRecord (update name change loadTestRecord)” ]
+Perform Script [ “loadTestResultRecord” ]
 Set Variable [ $$loadTestItemRecord; Value:testlearn::kctestResultCheckedItems ]
 #
 #Find all test items for this test result.
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “menuTestItem (update)” ]
+Perform Script [ “menuTestItem” ]
 #
 #Return to Test window.
 Select Window [ Name: "Test"; Current file ]

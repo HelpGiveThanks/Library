@@ -3,5 +3,5 @@ reference: catchFindReferenceErrorMessages_BUTTONCreateDateField
 #
 Set Variable [ $$GoToField; Value:"createDate" ]
 #
-Perform Script [ “catchFindReferenceErrorMessages (new)” ]
+Perform Script [ “catchFindReferenceErrorMessages” ]
 #

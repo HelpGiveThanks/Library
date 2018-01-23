@@ -64,7 +64,7 @@ Set Variable [ $kshowReferencedMedia; Value:testlearn::kshowReferencedMedia ]
 #Go to Learn media layout to accept
 #new learn media.
 Go to Layout [ “LearnPictureWindowEDIT” (testlearn) ]
-Perform Script [ “CHUNK_insertPictureOrMovie (update)” ]
+Perform Script [ “CHUNK_insertPictureOrMovie” ]
 If [ testlearn::picture = "" ]
 Go to Layout [ $refMediaLayout ]
 Set Field [ testlearn::kshowReferencedMedia; $kshowReferencedMedia ]
@@ -86,7 +86,7 @@ Else If [ Left ( Get ( LayoutName ) ; 9 ) = "reference" and Get ( LayoutTableNam
 #don't ask any questions, just proceed to
 #replacing it.
 If [ TEMP::InventoryLibraryYN ≠ "" ]
-Perform Script [ “CHUNK_insertPictureOrMovie (update)” ]
+Perform Script [ “CHUNK_insertPictureOrMovie” ]
 #
 Else If [ TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "Add a new picture or movie, or display web or harddrive media?"; Default Button:
@@ -129,7 +129,7 @@ Else If [ Get (LastMessageChoice) = 3 ]
 Go to Layout [ “ReferencePictureWindowEDIT” (reference) ]
 #
 #Add new media.
-Perform Script [ “CHUNK_insertPictureOrMovie (update)” ]
+Perform Script [ “CHUNK_insertPictureOrMovie” ]
 #
 #If user canceled add and there is no picture
 #return to the layout on which the replace was
@@ -189,7 +189,7 @@ End If
 #
 Else If [ Get (LastMessageChoice) = 3 ]
 #If the user decides on new media, add new media.
-Perform Script [ “CHUNK_insertPictureOrMovie (update)” ]
+Perform Script [ “CHUNK_insertPictureOrMovie” ]
 End If
 End If
 #

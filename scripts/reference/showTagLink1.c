@@ -12,7 +12,7 @@ Set Variable [ $$tagMenusISSN; Value:refTitle1::ISSN ]
 Set Variable [ $$tagMenusDOI; Value:refTitle1::DOI ]
 #
 #Open link for user.
-Perform Script [ “showReferencedFileFolderOrWebsite (update and name showFileInTagandLearnWindows)” ]
+Perform Script [ “showReferencedFileFolderOrWebsite” ]
 #
 #Clear link variables.
 Set Variable [ $$tagMenusRealCheckbox ]

@@ -28,11 +28,11 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Show All Records
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 #
 #Go to default tags layout
 #and load up defaults.
-Perform Script [ “defaultsAll (update)” ]
+Perform Script [ “defaultsAll” ]
 #
 #Change main window to Setup.
 Select Window [ Name: "References"; Current file ]
@@ -109,12 +109,12 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Show All Records
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 #
 #Now find discoveries for this report item.
 Set Variable [ $$stoploadtestinfo; Value:1 ]
 Go to Layout [ “reportTagInfo” (testlearnReportTags) ]
-Perform Script [ “reportTagInfo (update)” ]
+Perform Script [ “reportTagInfo” ]
 #
 #Clear this variable, which is needed only
 #when going to edit Learn info records.
@@ -133,7 +133,7 @@ End Loop
 Set Variable [ $$stoploadtestinfo ]
 Set Variable [ $$returnItem ]
 Set Variable [ $$learnRecord ]
-Perform Script [ “loadTestInfo (update)” ]
+Perform Script [ “loadTestInfo” ]
 #
 Else If [ $$learnRecord = "" and $$testTagRecord ≠ "" ]
 Set Window Title [ Current Window; New Title: "Test" ]
@@ -171,7 +171,7 @@ TextStyleAdd ( TEMP::testSubsectionNameForSubject ; Lowercase ) ]
 # to leave this step in for in case that unlikely
 # thing happened ).
 If [ Get (LastError) = 401 ]
-Perform Script [ “newTestResult (update name change newTestRecord)” ]
+Perform Script [ “newTestResult” ]
 #
 #If there is OK or NA record, change it into a test
 #record. (NA and OK records tell the user they
@@ -252,11 +252,11 @@ End If
 #
 #Conditionally format current test record and tags.
 Set Variable [ $$sopLoadTestRecord ]
-Perform Script [ “loadTestResultRecord (update name change loadTestRecord)” ]
+Perform Script [ “loadTestResultRecord” ]
 #
 #Find all details for this item.
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “reportTagInfo (update)” ]
+Perform Script [ “reportTagInfo” ]
 #
 #Clear this variable, which is needed only
 #when going to edit Learn info records.
@@ -276,7 +276,7 @@ End Loop
 #
 #Load up the current records variables.
 Set Variable [ $$stoploadtestinfo ]
-Perform Script [ “loadTestInfo (update)” ]
+Perform Script [ “loadTestInfo” ]
 #
 #Clear the variables specific to this script.
 Set Variable [ $$returnItem ]

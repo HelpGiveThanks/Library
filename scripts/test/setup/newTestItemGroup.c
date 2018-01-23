@@ -6,7 +6,7 @@ test: setup: newTestItemGroup
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #If there are no general test inquires, then
 #stop this script as there are no general inquires
@@ -103,7 +103,7 @@ Scroll Window
 [ Home ]
 #
 #Load up all tag variables.
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]
 #

@@ -115,7 +115,7 @@ End If
 // #mode back to citation mode (or adding node
 // #tags to citations instead of the other way around).
 // If [ $$add = 1 and $$addcitationMatch = "key" ]
-// Perform Script [ “addLinksPicturesToTagsMode (update)” ]
+// Perform Script [ “addLinksPicturesToTagsMode” ]
 // End If
 #
 #Go to citation record's current selection or to first record.
@@ -172,7 +172,7 @@ End If
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Set Variable [ $$doNotHaltOtherScripts ]
 #
 #Just in case user was in nonTag field on this

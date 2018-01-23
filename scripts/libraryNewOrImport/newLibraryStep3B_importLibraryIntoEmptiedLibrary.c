@@ -119,7 +119,7 @@ Button: “OK”, Commit: “Yes” ]
 Set Field [ backup::backup; "" ]
 Commit Records/Requests
 [ Skip data entry validation; No dialog ]
-Perform Script [ “startDatabase (update)” ]
+Perform Script [ “startDatabase” ]
 Exit Script [ ]
 End If
 #
@@ -562,7 +562,7 @@ Set Field [ backup::newLibrary; "" ]
 # This variable will trigger these final steps
 #found at the end of startDatabase script.
 Set Variable [ $$import; Value:1 ]
-Perform Script [ “startDatabase (update)” ]
+Perform Script [ “startDatabase” ]
 #
 #END STEP 3B: Upgrade (import) old library.
 #

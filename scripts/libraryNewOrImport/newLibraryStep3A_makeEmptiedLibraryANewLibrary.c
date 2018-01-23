@@ -106,7 +106,7 @@ Set Field [ backup::newLibrary; "" ]
 # This variable will trigger these final steps
 #found at the end of startDatabase script.
 Set Variable [ $$newLibraryNextSteps; Value:1 ]
-Perform Script [ “startDatabase (update)” ]
+Perform Script [ “startDatabase” ]
 #
 #END STEP 3A: Create new library records.
 #

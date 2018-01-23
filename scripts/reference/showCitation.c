@@ -32,7 +32,7 @@ End Loop
 #
 #Allow the record load script to run and run it.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #Return to Tag Menus window and conditionally
 #format any items that may be linked to record

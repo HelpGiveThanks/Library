@@ -28,7 +28,7 @@ Halt Script
 End If
 #
 #First see if the filename is valid.
-Perform Script [ “seeIfFilenameIsValid (update name change URLcheck)” ]
+Perform Script [ “seeIfFilenameIsValid” ]
 #
 #Check if file has a file extension.
 If [ Left ( Right ( reference::fileName ; 4 ) ; 1 ) = "." or

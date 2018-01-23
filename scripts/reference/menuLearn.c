@@ -1,4 +1,4 @@
-January 18, 2018 14:54:33 Library.fmp12 - menuLearn -1-
+January 23, 2018 12:05:34 Library.fmp12 - menuLearn -1-
 reference: menuLearn
 #
 #
@@ -43,6 +43,20 @@ Set Field [ testlearn::brainstormCasePoint; "1" ]
 End If
 Set Field [ testlearn::filterFind; "main" ]
 Perform Find [ ]
+#
+#If the user has yet to create any Learn or internal records
+#let them know, and return user to outside reference records.
+If [ Get (FoundCount) = 0 ]
+#
+Show Custom Dialog [ Message: "No Learn records have been created."; Default Button: “OK”, Commit: “Yes” ]
+#
+#Turn back on essential variable.
+Set Variable [ $$stoploadCitation ]
+Exit Script [ ]
+#
+End If
+#
+#Continue with show all internal reference possibilities...
 If [ TEMP::InventoryLibraryYN ≠ "" ]
 Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending
 testlearn::date; descending
@@ -54,20 +68,6 @@ testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 End If
 #
-#If the user has yet to create any Learn or internal records
-#let them know, and return user to outside reference records.
-If [ Get (LastError) = 401 ]
-#
-#Turn back on essential variable.
-Set Variable [ $$stoploadCitation ]
-#
-Perform Script [ “<unknown>” ]
-Show Custom Dialog [ Message: "No inside (Learn) records have been created."; Default Button: “OK”, Commit: “Yes” ]
-Exit Script [ ]
-#
-End If
-#
-#Continue with show all internal reference possibilities...
 Go to Record/Request/Page
 [ First ]
 Scroll Window

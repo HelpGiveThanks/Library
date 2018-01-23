@@ -4,7 +4,7 @@ tagMenu: deleteKeywordTag
 #
 #If user is looking at Node switch to that script.
 If [ $$citationMatch = "node" ]
-Perform Script [ “deleteNodeTag (update)” ]
+Perform Script [ “deleteNodeTag” ]
 Exit Script [ ]
 End If
 #

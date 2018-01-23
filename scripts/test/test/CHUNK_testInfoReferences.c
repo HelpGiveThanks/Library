@@ -59,7 +59,7 @@ Extend Found Set [ ]
 End Loop
 #
 #Sor the references by keyword (subject).
-Perform Script [ “sortRefBySubject (new)” ]
+Perform Script [ “sortRefBySubject” ]
 #
 #Resize the Reference window along with the
 #other windows. The Test and Report sections

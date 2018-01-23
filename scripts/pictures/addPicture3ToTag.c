@@ -48,6 +48,6 @@ links to " &
 End If
 #
 #Now perform the script that adds the tag.
-Perform Script [ “CHUNKaddPictureToTag (update)” ]
+Perform Script [ “CHUNKaddPictureToTag” ]
 End If
 #

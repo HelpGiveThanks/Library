@@ -109,7 +109,7 @@ If [ $$add = "" and $$DuplicateDontGoToTagMenuWindow = "" ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
-Perform Script [ “TgotoCitationMenu (update)” ]
+Perform Script [ “TgotoCitationMenu” ]
 End If
 Refresh Window
 Go to Field [ ]
@@ -208,7 +208,7 @@ If [ $$add = "" ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
-Perform Script [ “TgotoCitationMenu (update)” ]
+Perform Script [ “TgotoCitationMenu” ]
 End If
 Refresh Window
 End If

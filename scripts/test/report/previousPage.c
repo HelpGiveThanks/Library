@@ -6,7 +6,7 @@ Go to Record/Request/Page
 [ Previous ]
 If [ $$first ≠ testSubsectionTemplate::_LtestSubsection or Get (LastError) = 101 ]
 Set Field [ TEMP::theme; testSubsectionTemplate::name ]
-Perform Script [ “loadSetupTestSubsection (update name change loadSetupTestRecord)” ]
+Perform Script [ “loadSetupTestSubsection” ]
 Refresh Window
 End If
 Go to Field [ ]

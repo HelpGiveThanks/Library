@@ -85,8 +85,8 @@ End Loop
 #
 #Load selected records keys and the menu 'key'.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “menuKey (update)” ]
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “menuKey” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #Take user to reference edit layout with pictures.
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -159,8 +159,8 @@ End If
 Go to Record/Request/Page
 [ First ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “menuKey (update)” ]
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “menuKey” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 Scroll Window
 [ Home ]
 #

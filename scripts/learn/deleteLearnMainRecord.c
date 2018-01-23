@@ -308,5 +308,5 @@ Set Variable [ $$addTagToCitation ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 #
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #

@@ -174,7 +174,7 @@ Set Field [ tempSetup::InventoryLibraryYN[2]; "" ]
 #attempting to import an old library into it.)
 Show Custom Dialog [ Message: "This library is now ready for use. It will close. When users next open it they will be asked if
 they want to use it as a new library or import records from an old Library file into it."; Default Button: “OK”, Commit: “Yes” ]
-Perform Script [ “closeLibrary (update)” ]
+Perform Script [ “closeLibrary” ]
 #
 // End If
 #

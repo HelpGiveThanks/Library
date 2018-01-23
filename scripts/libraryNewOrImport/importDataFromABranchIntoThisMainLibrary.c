@@ -884,6 +884,6 @@ Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
 #fields and variables.
 Show Custom Dialog [ Message: "Library will now restart to reset values that could have changed due to changes made during
 import." ]
-Perform Script [ “startDatabase (update)” ]
+Perform Script [ “startDatabase” ]
 #
 #

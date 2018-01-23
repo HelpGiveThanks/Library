@@ -5,7 +5,7 @@ sharedLayoutScripts: closeWindow
 #In copyright tag review window, check
 #changes to any locked group names.
 If [ $$citationMatch = "copyright" ]
-Perform Script [ “checkTagGroupNamesEXCEPTtestItemGroups (update)” ]
+Perform Script [ “checkTagGroupNamesEXCEPTtestItemGroups” ]
 End If
 #
 #

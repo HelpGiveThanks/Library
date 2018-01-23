@@ -1,4 +1,4 @@
-The reference table and testlearn table has web viewers on the layouts below (01 = layout number for Library v3.2b beta).
+The reference table and testlearn table have web viewers on the layouts below (01 = layout number for Library v3.2b beta).
 
 * Folder name reference = layout table.
 * File names (ex: filename path.md) = the names of the related tables sourcing the picture, movie, etc., minus the 'path' and 'URL' tags.

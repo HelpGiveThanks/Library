@@ -12,5 +12,5 @@ testSubjectsCopyrightPicture::URL ≠ "" and testSubjectsCopyrightPicture::showM
 #
 #
 If [ $$fileLocation ≠ "none" ]
-Perform Script [ “showCitationPicture1inNewWindow (update)” ]
+Perform Script [ “showCitationPicture1inNewWindow” ]
 End If

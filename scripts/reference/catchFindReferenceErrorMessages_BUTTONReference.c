@@ -3,5 +3,5 @@ reference: catchFindReferenceErrorMessages_BUTTONReference
 #
 Set Variable [ $$GoToField; Value:"reference" ]
 #
-Perform Script [ “catchFindReferenceErrorMessages (new)” ]
+Perform Script [ “catchFindReferenceErrorMessages” ]
 #

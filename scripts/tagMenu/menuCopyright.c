@@ -111,7 +111,7 @@ Go to Record/Request/Page
 #Turn loadtagrecord script back on.
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopTest ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Exit Script [ ]
 End If
 #
@@ -121,7 +121,7 @@ Set Variable [ $$stopTest ]
 #
 #Inform user of items use on both screens.
 Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Refresh Window
 #
 #Just in case user was in nonTag field on this

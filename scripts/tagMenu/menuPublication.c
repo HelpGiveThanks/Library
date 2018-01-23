@@ -45,7 +45,7 @@ Perform Find [ ]
 #
 #If no records exist then create one.
 If [ Get (FoundCount)=0 ]
-Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
+Perform Script [ “newTagMenuTagGroup” ]
 End If
 #
 #Sort according to current users wishes.
@@ -94,7 +94,7 @@ End If
 #
 #Turn on loading tag record script.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 #
 #Inform user of items use on both screens.
 Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]

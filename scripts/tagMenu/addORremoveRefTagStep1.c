@@ -36,7 +36,7 @@ Halt Script
 End If
 #
 #Complete process.
-Perform Script [ “addORremoveRefTagStep2_forLearnRecord (update name addORremoveCiteOrRefTLTag)” ]
+Perform Script [ “addORremoveRefTagStep2_forLearnRecord” ]
 Select Window [ Name: "Learn"; Current file ]
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -44,5 +44,5 @@ Exit Script [ ]
 End If
 #
 #If user is looking at reference records do this.
-Perform Script [ “addORremoveRefTagStep2_forRefRecord (update name addORremoveCitationOrReferenceRefTag)” ]
+Perform Script [ “addORremoveRefTagStep2_forRefRecord” ]
 #

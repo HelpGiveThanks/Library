@@ -14,7 +14,7 @@ End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Stop this script if there are no subsections
 #for which to create test items.
@@ -30,7 +30,7 @@ End If
 #tests. This allows test item groups to be added
 #to other test's test-item lists.
 If [ Get (FoundCount) = 0 ]
-Perform Script [ “newTestItemGroup (update)” ]
+Perform Script [ “newTestItemGroup” ]
 Exit Script [ ]
 End If
 #

@@ -276,7 +276,7 @@ End If
 #to be re-entered by this script to
 #allow the user to edit it for success.
 If [ Get (WindowMode) = 1 ]
-Perform Script [ “catchFindLearnErrorMessages (new)” ]
+Perform Script [ “catchFindLearnErrorMessages” ]
 End If
 #
 #
@@ -316,7 +316,7 @@ If [ $error = 508 or $error = 1 ]
 Enter Find Mode [ ]
 #
 #Start this script over.
-Perform Script [ “findLearnRecord (update)” ]
+Perform Script [ “findLearnRecord” ]
 #
 End If
 #
@@ -358,7 +358,7 @@ Pause/Resume Script [ Indefinitely ]
 #perform the find request.
 #
 #Start this script over. SEE NOTE ABOVE.
-Perform Script [ “findLearnRecord (update)” ]
+Perform Script [ “findLearnRecord” ]
 #
 #
 #If they cancel the find ...
@@ -366,7 +366,7 @@ Else If [ Get ( LastMessageChoice ) = 1 ]
 #
 #Return to main layout and
 #enter browse mode.
-Perform Script [ “cancelLearnAndRefFind (update and name change)” ]
+Perform Script [ “cancelLearnAndRefFind” ]
 #
 End If
 #

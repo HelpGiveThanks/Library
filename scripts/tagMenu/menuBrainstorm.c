@@ -109,5 +109,5 @@ Set Variable [ $$stopLoadTagRecord ]
 #loadtag... script to highlight any Learn records
 #tagged with the current tag record.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadBrainstormTags (update name change loadItemRecordForSampleTagMenu)” ]
+Perform Script [ “loadBrainstormTags” ]
 #

@@ -270,7 +270,7 @@ End If
 #spell check script.
 Set Variable [ $$stopTest ]
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 #
 #If on the Report item layout then tell user
 #that all check items will be treated as text

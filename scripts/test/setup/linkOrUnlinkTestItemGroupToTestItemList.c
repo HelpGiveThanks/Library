@@ -220,7 +220,7 @@ Close Window [ Current Window ]
 End If
 #
 #Show newly added group and its test items.
-Perform Script [ “menuTestItem (update)” ]
+Perform Script [ “menuTestItem” ]
 #
 #Take user to group added.
 If [ $newGrouphasBeenAdded ]
@@ -237,7 +237,7 @@ Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 End If
 #
 #

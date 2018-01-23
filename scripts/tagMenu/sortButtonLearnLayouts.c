@@ -32,11 +32,11 @@ testlearnReportTags::timestamp; descending ]
 [ Restore; No dialog ]
 Exit Script [ ]
 End If
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from sortTLRecordsByOrderNumber)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 Exit Script [ ]
 Else If [ TEMP::TLBrainstormSort = "" and $$citationMatch = "brainstorm" ]
 Set Field [ TEMP::TLBrainstormSort; "order" ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from sortTLRecordsByOrderNumber)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 Exit Script [ ]
 End If
 Set Field [ TEMP::TLTestSort; "" ]

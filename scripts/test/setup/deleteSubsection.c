@@ -293,5 +293,5 @@ Set Variable [ $$stopDeleteTest ]
 Set Variable [ $$stopTest ]
 Set Variable [ $$tagTest ]
 Set Variable [ $$ID ]
-Perform Script [ “loadSetupTestSubsection (update name change loadSetupTestRecord)” ]
+Perform Script [ “loadSetupTestSubsection” ]
 #

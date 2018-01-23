@@ -265,7 +265,7 @@ Set Variable [ $$fileLocation; Value:$fileLocation ]
 Set Variable [ $$learnLayout; Value:$learnLayout ]
 Set Variable [ $$referenceLayout; Value:$referenceLayout ]
 #
-Perform Script [ “CHUNK_insertPictureOrMovie (update)” ]
+Perform Script [ “CHUNK_insertPictureOrMovie” ]
 #
 #If the user canceled the media add, then exit
 #this script as there is no picture to show.

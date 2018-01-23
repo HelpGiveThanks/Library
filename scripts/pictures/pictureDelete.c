@@ -37,7 +37,7 @@ End If
 # inform user if it is that they cannot delete it.
 Set Variable [ $$pictureDelete; Value:1 ]
 If [ Get (LayoutTableName) = "reference" ]
-Perform Script [ “CHUNK_checkIfReferencePicIsInUse (new)” ]
+Perform Script [ “CHUNK_checkIfReferencePicIsInUse” ]
 End If
 #
 #If CHUNK_checkIfReferencePicIsInUse finds that the
@@ -47,7 +47,7 @@ Set Variable [ $$pictureDelete ]
 #
 #
 If [ $$replacePicture = 1 ]
-Perform Script [ “pictureReplaceButton (update)” ]
+Perform Script [ “pictureReplaceButton” ]
 End If
 #
 #Halt the script if the Media window was just

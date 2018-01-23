@@ -3,7 +3,7 @@ test: report: newRowOfPhotos
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 Set Variable [ $testSubsection; Value:report::ktestSubsection ]
 #

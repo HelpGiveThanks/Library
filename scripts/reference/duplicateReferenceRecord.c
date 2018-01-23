@@ -3,7 +3,7 @@ reference: duplicateReferenceRecord
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
@@ -199,7 +199,7 @@ Set Field [ reference::lock; $$Ref ]
 #Load new record as the record being
 #focused on.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #Determine if in stuff or idea mode.
 If [ TEMP::InventoryLibraryYN ≠ "" ]

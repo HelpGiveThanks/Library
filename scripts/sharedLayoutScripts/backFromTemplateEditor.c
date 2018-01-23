@@ -26,16 +26,16 @@ Set Variable [ $$lockedMainSubsectionRecord ]
 #Insure that all locked fields are revereted back if changed.
 Set Variable [ $$goBackToSetup; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings (update)” ]
+Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings” ]
 Select Window [ Name: "Test Templates"; Current file ]
-Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings (update)” ]
+Perform Script [ “checkTestSectionSubsectionAndItemRecordSpellings” ]
 Set Variable [ $$goBackToSetup ]
 #
 #Return to Learn module.
 If [ Left ( $$module ; 1 ) = "l" ]
 Set Variable [ $$citationMatch; Value:"test" ]
 Set Variable [ $$testSubsection ]
-Perform Script [ “backToLearnOrDefaultSetup (update)” ]
+Perform Script [ “backToLearnOrDefaultSetup” ]
 Exit Script [ ]
 #
 #
@@ -94,5 +94,5 @@ End If
 #
 #
 #Return to Report or Test sections.
-Perform Script [ “returnToSetup (update)” ]
+Perform Script [ “returnToSetup” ]
 #

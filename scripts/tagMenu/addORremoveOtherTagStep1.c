@@ -58,7 +58,7 @@ If [ Get ( LastMessageChoice ) = 2 ]
 #gets carried over to the Find Mode Script, which then
 #activates tag instead of reference record find mode.
 Set Variable [ $$ClearMessageChoice; Value:1 ]
-Perform Script [ “findMode (update)” ]
+Perform Script [ “findMode” ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 3 ]
 Set Variable [ $$referenceRecordOne ]
@@ -97,7 +97,7 @@ If [ $$citationMatch = "key" ]
 Set Variable [ $$otherKeyDoNotLoop; Value:1 ]
 #
 #Finish key addition or removal.
-Perform Script [ “addORremoveOtherTagStep2_keyword (update name addORremoveTagFromCitationStep2keyword)” ]
+Perform Script [ “addORremoveOtherTagStep2_keyword” ]
 #
 Set Variable [ $$otherKeyDoNotLoop ]
 #
@@ -130,7 +130,7 @@ End If
 #
 #
 Else If [ $$citationMatch = "node" ]
-Perform Script [ “addORremoveOtherTagStep2_node (update name addORremoveTagFromCitationStep2node)” ]
+Perform Script [ “addORremoveOtherTagStep2_node” ]
 Close Window [ Name: "reorder"; Current file ]
 Set Variable [ $$stopLoadTagRecord ]
 #

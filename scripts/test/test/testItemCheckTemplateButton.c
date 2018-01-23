@@ -5,7 +5,7 @@ test: test: testItemCheckTemplateButton
 #If a check is showing change the item into text
 #or form item.
 If [ tagMenus::notesOrCopyright = "✓" ]
-Perform Script [ “testItemCheckOrTextOrForm (new)” ]
+Perform Script [ “testItemCheckOrTextOrForm” ]
 #
 #
 #If no check (no button) is showing then

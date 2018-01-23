@@ -66,7 +66,7 @@ Perform Find [ ]
 #
 #If no records exist then create one.
 If [ Get (FoundCount)=0 ]
-Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
+Perform Script [ “newTagMenuTagGroup” ]
 End If
 #
 #Sort according to current users wishes.

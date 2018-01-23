@@ -105,7 +105,7 @@ If [ Get ( LastMessageChoice ) = 2 ]
 #gets carried over to the Find Mode Script, which then
 #activates tag instead of reference record find mode.
 Set Variable [ $$ClearMessageChoice; Value:1 ]
-Perform Script [ “findMode (update)” ]
+Perform Script [ “findMode” ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 3 ]
 Set Variable [ $$referenceRecordOne ]
@@ -318,7 +318,7 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveOtherTagStep2_node (update name addORremoveTagFromCitationStep2node)” ]
+Perform Script [ “addORremoveOtherTagStep2_node” ]
 Close Window [ Name: "reorder"; Current file ]
 #
 Exit Script [ ]
@@ -423,7 +423,7 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveOtherTagStep2_node (update name addORremoveTagFromCitationStep2node)” ]
+Perform Script [ “addORremoveOtherTagStep2_node” ]
 Close Window [ Name: "reorder"; Current file ]
 Set Variable [ $$stopLoadTagRecord ]
 #
@@ -468,8 +468,7 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveOtherTagStep2_keyword (update name
-addORremoveTagFromCitationStep2keyword)” ]
+Perform Script [ “addORremoveOtherTagStep2_keyword” ]
 #
 Exit Script [ ]
 End If
@@ -621,8 +620,7 @@ End Loop
 #test tag's record set.
 Set Field [ testlearn::orderTestInformation; "001" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from
-sortTLRecordsByOrderNumber)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 End If
 #
 Else If [ $$citationMatch = "brainstorm" ]
@@ -671,8 +669,7 @@ End Loop
 #test tag's record set.
 Set Field [ testlearn::orderTestInformation; "001" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from
-sortTLRecordsByOrderNumber)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 End If
 End If
 #
@@ -747,7 +744,7 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveOtherTagStep2_node (update name addORremoveTagFromCitationStep2node)” ]
+Perform Script [ “addORremoveOtherTagStep2_node” ]
 Close Window [ Name: "reorder"; Current file ]
 #
 #If the user is adding a node tag to reference
@@ -864,8 +861,7 @@ Else If [ reference::kcitation ≠ $tag ]
 Set Field [ reference::kcitation; $tag ]
 Set Variable [ $$cite; Value:reference::kcitation ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “CHUNKaddReferenceNodeAndKeywordTagIDs (update name
-CHUNKaddReferenceNodesAndKeywords)” ]
+Perform Script [ “CHUNKaddReferenceNodeAndKeywordTagIDs” ]
 End If
 #
 Else If [ $$citationMatch = "publication" ]
@@ -962,8 +958,7 @@ Set Variable [ $$skipFirstPartOfScript; Value:1 ]
 #perform a script on it right after this one or
 #perform a find requiring the newly added key.
 Commit Records/Requests
-Perform Script [ “addORremoveOtherTagStep2_keyword (update name
-addORremoveTagFromCitationStep2keyword)” ]
+Perform Script [ “addORremoveOtherTagStep2_keyword” ]
 Exit Script [ ]
 End If
 #
@@ -1030,9 +1025,9 @@ Go to Record/Request/Page [ $recordNumber ]
 #brainstorm item (if in brainstorm mode) and sort
 #by order and then date and time.
 If [ $$citationMatch = "test" ]
-Perform Script [ “loadTestTags (update and name change from loadItemRecordForTestTagMenu)” ]
+Perform Script [ “loadTestTags” ]
 Else If [ $$citationMatch = "brainstorm" ]
-Perform Script [ “loadBrainstormTags (update name change loadItemRecordForSampleTagMenu)” ]
+Perform Script [ “loadBrainstormTags” ]
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window

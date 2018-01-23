@@ -77,7 +77,7 @@ End If
 #
 #Turn on loading tag record script.
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 #
 #Inform user of items use on both screens.
 Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]

@@ -138,7 +138,7 @@ If [ $$citationMatch = "ref"
 $$citationMatch = "key"
  or
 $$citationMatch = "node" ]
-Perform Script [ “enterShortOrLongTagField (new)” ]
+Perform Script [ “enterShortOrLongTagField” ]
 // Show Custom Dialog [ Title: "halt"; Message: "halt"; Default Button: “OK”, Commit: “Yes” ]
 Halt Script
 End If

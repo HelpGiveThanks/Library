@@ -51,7 +51,7 @@ $$citationmatch = "path"
 $$citationmatch = "publication"
  or
 $$citationmatch = "publisher" ]
-Perform Script [ “CHUNKcheckForDragPasteChanges (update)” ]
+Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 End If
 #
 #If on the Tag Menus path layout ...

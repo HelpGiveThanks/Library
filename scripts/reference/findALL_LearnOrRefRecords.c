@@ -49,7 +49,7 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 Exit Script [ ]
 End If
 #
@@ -136,6 +136,6 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #

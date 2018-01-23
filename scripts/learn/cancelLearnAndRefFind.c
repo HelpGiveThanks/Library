@@ -31,7 +31,7 @@ Set Field [ testlearn::timestamp; "" ]
 Set Field [ testlearn::brainstormCasePoint; "" ]
 #
 Set Variable [ $$clearUserFindRequests; Value:1 ]
-Perform Script [ “CHUNK_findReferenceRecordUserFindRequests (new)” ]
+Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
 Set Variable [ $$clearUserFindRequests ]
 #
 #Then return to the main layout.
@@ -70,7 +70,7 @@ Enter Browse Mode
 #show (the records the user was looking at
 #before clicking find).
 If [ Get (FoundCount) = 0 ]
-Perform Script [ “findALL_LearnOrRefRecords (update moved from folder menuFind and name change findReference)” ]
+Perform Script [ “findALL_LearnOrRefRecords” ]
 End If
 #
 #Clear user find request variables.

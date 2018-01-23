@@ -4,7 +4,7 @@ tagMenu: duplicateBrainstorm
 #If node is currenlty locked then stop script,
 #and inform the user.
 Go to Field [ ]
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (new)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 If [ tempSetup::kdefaultNodePrimary = "" ]
 Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Default Button: “OK”,

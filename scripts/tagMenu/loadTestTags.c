@@ -160,7 +160,7 @@ Scroll Window
 [ Home ]
 Set Field [ TEMP::TLTestSort; "" ]
 Set Variable [ $$stopLoadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update name change loadCitation)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
@@ -196,8 +196,7 @@ Refresh Window
 Set Field [ TEMP::TLTestSort; "order" ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "Learn"; Current file ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update name change from
-sortTLRecordsByOrderNumber)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]

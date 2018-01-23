@@ -54,7 +54,7 @@ links to " &
 End If
 #
 #Now perform the script that adds the tag.
-Perform Script [ “CHUNKaddLinkToTag (update)” ]
+Perform Script [ “CHUNKaddLinkToTag” ]
 Exit Script [ ]
 End If
 #
@@ -70,5 +70,5 @@ Show Custom Dialog [ Message: "Select a file path from the Tag Menus window. If 
 file with a browser (Firefox, Explore, etc.) and dragging/pasting the address into a new tag's text box."; Default Button: “OK”,
 Commit: “No” ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “menuPath (update)” ]
+Perform Script [ “menuPath” ]
 End If

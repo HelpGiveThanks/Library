@@ -65,7 +65,7 @@ Perform Find [ ]
 #
 // #If no records exist then create one.
 // If [ Get (FoundCount)=0 ]
-// Perform Script [ “newTagMenuTagGroup (update and name change newCitationMenuGroup)” ]
+// Perform Script [ “newTagMenuTagGroup” ]
 // End If
 #
 #Sort according to current users wishes.
@@ -100,7 +100,7 @@ End If
 // #mode back to citation mode (or adding node
 // #tags to citations instead of the other way around).
 // If [ $$add = 1 and $$addcitationMatch = "node" ]
-// Perform Script [ “addLinksPicturesToTagsMode (update)” ]
+// Perform Script [ “addLinksPicturesToTagsMode” ]
 // End If
 #
 #Go to citation record's current selection or to first record.
@@ -159,7 +159,7 @@ Set Variable [ $$stopLoadTagRecord ]
 #
 #Prevent halting to loadTagRecord script.
 Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Set Variable [ $$doNotHaltOtherScripts ]
 #
 #Just in case user was in nonTag field on this
