@@ -251,7 +251,7 @@ Refresh Window
 #checked for duplication when this script is
 #run all over again right now.
 Set Variable [ $$tag; Value:tagMenus::_Ltag ]
-Perform Script [ “checkKeyANDNodeTagNames (update)” ]
+Perform Script [ “checkKeyANDNodeTagNames” ]
 #
 #Reset $$key variable.
 Set Variable [ $$Key; Value:$RememberKey ]

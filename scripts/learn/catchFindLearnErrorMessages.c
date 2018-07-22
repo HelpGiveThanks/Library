@@ -111,7 +111,7 @@ Else If [ $$GoToField = "" ]
 #script or the cancel find script will halt all
 #copies of the script launched during the
 #sesion.
-Perform Script [ “findLearnRecord (update)” ]
+Perform Script [ “findLearnRecord” ]
 Exit Script [ ]
 End If
 End If
@@ -161,7 +161,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findLearnRecord (update)” ]
+Perform Script [ “findLearnRecord” ]
 Exit Script [ ]
 End If
 End If
@@ -206,7 +206,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findLearnRecord (update)” ]
+Perform Script [ “findLearnRecord” ]
 Exit Script [ ]
 End If
 End If

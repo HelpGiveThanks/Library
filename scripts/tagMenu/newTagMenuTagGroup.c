@@ -13,7 +13,7 @@ End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #If the user has not selected a primary node,
 #then prevent this script from creating new
@@ -184,7 +184,7 @@ Year ( Get ( CurrentDate ) ) & " from https://website.org for your convenience.]
 pick from those included in this library." ]
 Commit Records/Requests
 [ Skip data entry validation; No dialog ]
-Perform Script [ “reviewCopyright (update)” ]
+Perform Script [ “reviewCopyright” ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]
 End If
@@ -192,7 +192,7 @@ End If
 #Run primary node script if user is creating a
 #new primary node.
 If [ $$createNewPrimary = 1 ]
-Perform Script [ “addORremovePrimaryTag (update)” ]
+Perform Script [ “addORremovePrimaryTag” ]
 Set Variable [ $$createNewPrimary ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]

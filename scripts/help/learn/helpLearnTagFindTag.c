@@ -28,7 +28,7 @@ If [ Get (LastMessageChoice) = 1 ]
 Set Variable [ $$gotoHelpObject; Value:1 ]
 Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 Enter Browse Mode
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 Set Variable [ $$doNotHaltOtherScripts ]
 Select Window [ Name: "Help" ]
 Set Variable [ $$gotoHelpObject ]

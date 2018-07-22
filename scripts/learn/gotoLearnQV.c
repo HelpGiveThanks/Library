@@ -27,7 +27,7 @@ End If
 If [ Get ( LastMessageChoice ) = 2 ]
 #Find this record's references and display them
 #in the Tag Menus window.
-Perform Script [ “CHUNK_findLearnRecordsReferences (update and name CHUNK_testInfoReferences)” ]
+Perform Script [ “CHUNK_findLearnRecordsReferences” ]
 Exit Script [ ]
 End If
 If [ Get ( LastMessageChoice ) = 3 ]

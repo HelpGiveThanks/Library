@@ -25,14 +25,14 @@ End If
 #this first tag to belong to. All tags must belong
 #to a tag group.
 If [ Get (FoundCount) = 0 ]
-Perform Script [ “newTagMenuTagGroup (update)” ]
+Perform Script [ “newTagMenuTagGroup” ]
 Exit Script [ ]
 End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
 If [ tempSetup::kdefaultNodePrimary ≠ "self" ]
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 End If
 #
 #Stop spelling check script.
@@ -187,14 +187,14 @@ TextSize ( ¶ &
 pick from those included in this library." ; 18 ) ]
 Commit Records/Requests
 [ Skip data entry validation; No dialog ]
-Perform Script [ “reviewCopyright (update)” ]
+Perform Script [ “reviewCopyright” ]
 Go to Field [ tagMenus::tag ]
 End If
 #
 #Run primary node script if user is creating a
 #new primary node.
 If [ $$createNewPrimary = 1 ]
-Perform Script [ “addORremovePrimaryTag (update)” ]
+Perform Script [ “addORremovePrimaryTag” ]
 Set Variable [ $$createNewPrimary ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]

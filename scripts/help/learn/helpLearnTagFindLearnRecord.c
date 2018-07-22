@@ -13,6 +13,6 @@ Set Variable [ $$helpColumnName; Value:"G" ]
 Else
 Set Variable [ $$helpColumnName; Value:"H" ]
 End If
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 #
 #

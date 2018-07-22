@@ -21,7 +21,7 @@ If [ Get (LastMessageChoice) = 1 ]
 #asked redunant questions by the help script.
 Set Variable [ $$gotoHelpObject; Value:1 ]
 Close Window [ Current Window ]
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 Set Variable [ $$gotoHelpObject ]
 #
 #Tell user how to get the help for this interface

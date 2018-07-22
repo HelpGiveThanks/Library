@@ -51,7 +51,7 @@ Exit Script [ ]
 #
 #Perform step 3A if the user clicks new.
 Else If [ Get ( LastMessageChoice ) = 1 ]
-Perform Script [ “newLibraryStep3A_makeEmptiedLibraryANewLibrary (update)” ]
+Perform Script [ “newLibraryStep3A_makeEmptiedLibraryANewLibrary” ]
 Exit Script [ ]
 #
 #Perform step 3B if the user clicks import.
@@ -256,7 +256,7 @@ Perform Script [ “CHUNK_checkCreatorNodeAndPrimaryNode” ]
 #
 #Insure filelocation records are present,
 #and default copyright tags.
-Perform Script [ “CHUNK_CopyrightLockedFields (update)” ]
+Perform Script [ “CHUNK_CopyrightLockedFields” ]
 #
 #Insure during last session, user didn't drag
 #new spellings into locked tag records.

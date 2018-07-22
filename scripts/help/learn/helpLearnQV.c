@@ -7,6 +7,6 @@ help: learn: helpLearnQV
 #user to help for this layout and column.
 Set Variable [ $$helpLayoutName; Value:"Learn" ]
 Set Variable [ $$helpColumnName; Value:"A14" ]
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 #
 #

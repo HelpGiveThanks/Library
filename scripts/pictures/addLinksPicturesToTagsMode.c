@@ -235,7 +235,7 @@ End If
 #Clear the stop load record variable and load
 #the current record's info.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #Go to tag menu window.
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -328,7 +328,7 @@ Go to Layout [ “defaultCopyright” (tagMenus) ]
 Set Variable [ $$citationitem; Value:tempSetup::kdefaultCopyright ]
 Refresh Window
 If [ $$userInCopyrightWindow = 1 ]
-Perform Script [ “reviewCopyright (update)” ]
+Perform Script [ “reviewCopyright” ]
 #
 #
 #Turn back on the last section of the
@@ -428,7 +428,7 @@ Set Variable [ $$returnLayout ]
 Set Variable [ $$returnRecord ]
 Set Variable [ $$tagLayout ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #If the user was in reference mode prior to add mode ...
 Else If [ $$returnWIndow = "References" ]
@@ -514,7 +514,7 @@ Set Variable [ $$stoploadCitation ]
 Set Variable [ $$returnLayout ]
 Set Variable [ $$returnRecord ]
 Set Variable [ $$returnWindow ]
-Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #Go to record user was on before add mode.
 Scroll Window
@@ -527,7 +527,7 @@ Go to Record/Request/Page [ $recordNumber ]
 #return user to this window.
 If [ $$userInCopyrightWindow = 1 ]
 Set Variable [ $$userInCopyrightWindow ]
-Perform Script [ “reviewCopyright (update)” ]
+Perform Script [ “reviewCopyright” ]
 End If
 #
 End If

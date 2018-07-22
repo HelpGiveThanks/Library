@@ -343,7 +343,7 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]

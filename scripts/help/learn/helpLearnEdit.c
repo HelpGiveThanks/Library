@@ -1,5 +1,5 @@
 July 21, 2018 14:37:39 Library.fmp12 - helpLearnEdit -1-
-help: learn: helpLearnEdit 
+help: learn: helpLearnEdit
 #
 #
 #Send general layout name and help column
@@ -7,6 +7,6 @@ help: learn: helpLearnEdit
 #user to help for this layout and column.
 Set Variable [ $$helpLayoutName; Value:"Learn" ]
 Set Variable [ $$helpColumnName; Value:"B" ]
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 #
 #

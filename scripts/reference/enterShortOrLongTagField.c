@@ -14,7 +14,7 @@ If [ $$keyOrderNumberPossibleChanged ≠ "" ]
 #Disable this variable as the exit script needs
 #to know if the order field triggered this script.
 // Set Variable [ $$keyOrderNumberPossibleChanged ]
-Perform Script [ “exit (update)” ]
+Perform Script [ “exit” ]
 End If
 Exit Script [ ]
 End If

@@ -120,7 +120,7 @@ Set Field [ TEMP::sortInsertRef; "abc" ]
 Else If [ TEMP::sortInsertRef = "abc" ]
 Set Field [ TEMP::sortInsertRef; "cat" ]
 End If
-Perform Script [ “sortTags (update)” ]
+Perform Script [ “sortTags” ]
 Go to Record/Request/Page
 [ First ]
 Scroll Window

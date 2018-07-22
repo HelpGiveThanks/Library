@@ -171,7 +171,7 @@ Else
 Go to Layout [ Middle ( TEMP::layoutLtagR ; 5 ; 42 ) ]
 End If
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 End If
 #
 #

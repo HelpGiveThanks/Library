@@ -7,6 +7,6 @@ help: setup: helpSetupTest
 #user to help for this layout and column.
 Set Variable [ $$helpLayoutName; Value:"Setup" ]
 Set Variable [ $$helpColumnName; Value:"C" ]
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 #
 #

@@ -3,7 +3,7 @@ test: test: newTestResult
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #basic administration tasks
 Set Error Capture [ On ]

@@ -4,7 +4,7 @@ reference: newLocationRecord
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Copy primary key word/subject of current
 #record so it can be given to then new record.
@@ -31,7 +31,7 @@ Set Field [ reference::publicationYearOrStuffOrderNumber; $pubYear ]
 #focused on.
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 #
 #Now go the new record's title field.
 Set Variable [ $$editLocation; Value:reference::_Lreference ]

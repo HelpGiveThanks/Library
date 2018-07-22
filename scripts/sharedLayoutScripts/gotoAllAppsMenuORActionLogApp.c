@@ -7,7 +7,7 @@ sharedLayoutScripts: gotoAllAppsMenuORActionLogApp
 Show Custom Dialog [ Message: "Open the Action Log (timer) or the all apps menu?"; Default Button: “timer”, Commit: “Yes”; Button
 2: “all apps”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 2 ]
-Perform Script [ “allAppsMenu (update)” ]
+Perform Script [ “allAppsMenu” ]
 Exit Script [ ]
 End If
 #

@@ -179,7 +179,7 @@ Set Variable [ $$stopLoadTagRecord ]
 #In inventory mode prevent the showing of
 #hidden edit fields.
 If [ TEMP::InventoryLibraryYN ≠ "" ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Exit Script [ ]
 End If
 #

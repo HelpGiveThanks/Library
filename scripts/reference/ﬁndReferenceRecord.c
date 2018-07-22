@@ -75,7 +75,7 @@ End If
 #to be re-entered by this script to
 #allow the user to edit it for success.
 If [ Get (WindowMode) = 1 ]
-Perform Script [ “catchFindReferenceErrorMessages (update)” ]
+Perform Script [ “catchFindReferenceErrorMessages” ]
 End If
 #
 #
@@ -123,7 +123,7 @@ If [ $error = 508 or $error = 1 ]
 Enter Find Mode [ ]
 #
 #Start this script over.
-Perform Script [ “findReferenceRecord (update)” ]
+Perform Script [ “findReferenceRecord” ]
 #
 End If
 #
@@ -141,7 +141,7 @@ End If
 #Replace user's last find requests so they can
 #modify if they want to.
 Set Variable [ $$putBackUserFindRequests; Value:1 ]
-Perform Script [ “CHUNK_findReferenceRecordUserFindRequests (update)” ]
+Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
 Set Variable [ $$putBackUserFindRequests ]
 #
 #Inform the user that their find request found
@@ -165,7 +165,7 @@ Pause/Resume Script [ Indefinitely ]
 #perform the find request.
 #
 #Start this script over. SEE NOTE ABOVE.
-Perform Script [ “findReferenceRecord (update)” ]
+Perform Script [ “findReferenceRecord” ]
 #
 #
 #If they cancel the find ...
@@ -173,7 +173,7 @@ Else If [ Get ( LastMessageChoice ) = 1 ]
 #
 #Return to main layout and
 #enter browse mode.
-Perform Script [ “cancelLearnAndRefFind (update)” ]
+Perform Script [ “cancelLearnAndRefFind” ]
 #
 End If
 #
@@ -207,7 +207,7 @@ Go to Record/Request/Page
 #
 #Clear user find request variables.
 Set Variable [ $$clearUserFindRequests; Value:1 ]
-Perform Script [ “CHUNK_findReferenceRecordUserFindRequests (update)” ]
+Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
 Set Variable [ $$clearUserFindRequests ]
 #
 #Clear out all paused find scripts.

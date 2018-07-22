@@ -50,7 +50,7 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 Exit Script [ ]
 End If
 #
@@ -137,6 +137,6 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #

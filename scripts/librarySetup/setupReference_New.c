@@ -11,7 +11,7 @@ End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Make sure user understands the reason
 #to create a setup reference record.
@@ -53,7 +53,7 @@ Set Field [ librarySetupReferenceMain::version; "1" ]
 #
 #Go to edit setup reference window.
 Set Variable [ $$newSetupReference; Value:1 ]
-Perform Script [ “setupReference_GoToPortalReferenceRevieworWebsite (update)” ]
+Perform Script [ “setupReference_GoToPortalReferenceRevieworWebsite” ]
 #
 #
 #

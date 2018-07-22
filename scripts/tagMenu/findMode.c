@@ -58,7 +58,7 @@ reference::referenceShort; ascending ]
 Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::lock: “lock” ]
 [ Restore ]
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Halt Script
 Else
 #
@@ -84,7 +84,7 @@ tagMenus::tag; ascending ]
 End If
 #
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Halt Script
 End If
 #
@@ -188,7 +188,7 @@ tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Halt Script
 Exit Script [ ]
 #
@@ -270,7 +270,7 @@ tagMenus::tag; ascending ]
 End If
 #
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 Exit Script [ ]
 End If
 #
@@ -470,11 +470,11 @@ Set Variable [ $$found ]
 Set Variable [ $$foundOther ]
 Set Variable [ $$findLayout ]
 If [ $$citationmatch = "cite" ]
-Perform Script [ “menuCitation (update)” ]
+Perform Script [ “menuCitation” ]
 Else If [ $$citationmatch = "key" ]
 Perform Script [ “menuKey (udpate)” ]
 Else If [ $$citationMatch = "node" ]
-Perform Script [ “menuNode (update)” ]
+Perform Script [ “menuNode” ]
 Else If [ $$citationMatch = "medium" ]
 Perform Script [ “menuMedium” ]
 Else If [ $$citationMatch = "copyright" ]
@@ -492,7 +492,7 @@ Perform Script [ “menuTest” ]
 Else If [ $$citationMatch = "learn" ]
 Perform Script [ “menuLearn (udpate)” ]
 Else If [ $$citationMatch = "ref" ]
-Perform Script [ “menuReference (update)” ]
+Perform Script [ “menuReference” ]
 End If
 Set Variable [ $$stoploadCitation ]
 Exit Script [ ]

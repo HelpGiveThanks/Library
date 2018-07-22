@@ -231,7 +231,7 @@ Go to Layout [ $$learnTagLayout ]
 Set Variable [ $$learnTagLayout ]
 Set Variable [ $$stopLoadTagRecord ]
 If [ $$module = "ref" ]
-Perform Script [ “menuReference (update)” ]
+Perform Script [ “menuReference” ]
 Else If [ $$module = "learnTest"
  or
 $$module = "learnSTest" ]
@@ -245,7 +245,7 @@ Select Window [ Name: "Learn"; Current file ]
 #
 #Perform Load Citation script to restore conditional
 #formatting.
-Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+Perform Script [ “loadLearnOrRefMainRecord” ]
 #
 #Finish up back script on the Tag Menus
 #if this is where the user started from by

@@ -7,6 +7,6 @@ help: reference: helpReferenceEdit
 #user to help for this layout and column.
 Set Variable [ $$helpLayoutName; Value:"Reference" ]
 Set Variable [ $$helpColumnName; Value:"B" ]
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 #
 #

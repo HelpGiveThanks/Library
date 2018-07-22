@@ -31,7 +31,7 @@ Set Field [ testlearn::timestamp; "" ]
 Set Field [ testlearn::brainstormCasePoint; "" ]
 #
 Set Variable [ $$clearUserFindRequests; Value:1 ]
-Perform Script [ “CHUNK_findReferenceRecordUserFindRequests (update)” ]
+Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
 Set Variable [ $$clearUserFindRequests ]
 #
 #Then return to the main layout.

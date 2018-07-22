@@ -166,7 +166,7 @@ Else If [ $$citationMatch = "node" ]
 If [ tagMenus::match ≠ "node" ]
 #
 #Menu NOT selected.
-Perform Script [ “menuNode (update)” ]
+Perform Script [ “menuNode” ]
 #
 Else
 #Menu IS selected.
@@ -227,7 +227,7 @@ Else If [ $$citationMatch = "ref" ]
 If [ Get (LayoutTableName) ≠ "reference" ]
 #
 #Menu NOT selected.
-Perform Script [ “menuReference (update)” ]
+Perform Script [ “menuReference” ]
 #
 #Reset this variable which is changed
 #by the menuReference script.
@@ -367,9 +367,9 @@ Perform Script [ “menuPublisher” ]
 Else If [ $$citationMatch = "key" ]
 Perform Script [ “menuKey (udpate)” ]
 Else If [ $$citationMatch = "node" ]
-Perform Script [ “menuNode (update)” ]
+Perform Script [ “menuNode” ]
 Else If [ $$citationMatch = "kcitation" ]
-Perform Script [ “menuCitation (update)” ]
+Perform Script [ “menuCitation” ]
 End If
 #
 Select Window [ Name: "Tag Menus"; Current file ]

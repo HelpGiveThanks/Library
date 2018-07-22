@@ -7,6 +7,6 @@ help: test: helpTestReportTagInfo
 #user to help for this layout and column.
 Set Variable [ $$helpLayoutName; Value:"Test" ]
 Set Variable [ $$helpColumnName; Value:"G" ]
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 #
 #

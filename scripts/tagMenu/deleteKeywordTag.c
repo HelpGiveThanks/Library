@@ -4,7 +4,7 @@ tagMenu: deleteKeywordTag
 #
 #If user is looking at Node switch to that script.
 If [ $$citationMatch = "node" ]
-Perform Script [ “deleteNodeTag (update)” ]
+Perform Script [ “deleteNodeTag” ]
 Exit Script [ ]
 End If
 #
@@ -226,7 +226,7 @@ Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 #
 #Load keys for tag focus is now on.
-Perform Script [ “loadTagRecord (update)” ]
+Perform Script [ “loadTagRecord” ]
 End If
 #
 #If the keyword is found in use then tell user

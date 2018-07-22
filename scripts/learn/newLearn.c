@@ -3,7 +3,7 @@ learn: newLearn
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
@@ -53,7 +53,7 @@ Set Variable [ $record; Value:Get (RecordNumber) ]
 Go to Record/Request/Page [ $record ]
 [ No dialog ]
 Set Variable [ $$stoploadCitation ]
-// Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+// Perform Script [ “loadLearnOrRefMainRecord” ]
 Set Variable [ $$main; Value:testlearn::_Ltestlearn ]
 #
 #capture keys of related tag menu items to
@@ -94,5 +94,5 @@ Set Variable [ $$stopLoadCitation ]
 #
 #Open new record in text window so
 #user can now edit it.
-Perform Script [ “learnOpenTextNewWindow (update)” ]
+Perform Script [ “learnOpenTextNewWindow” ]
 #

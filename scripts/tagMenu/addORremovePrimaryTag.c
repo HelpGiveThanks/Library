@@ -136,7 +136,7 @@ If [ Get ( LastMessageChoice ) = 2 ]
 #gets carried over to the Find Mode Script, which then
 #activates tag instead of reference record find mode.
 Set Variable [ $$ClearMessageChoice; Value:1 ]
-Perform Script [ “findMode (update)” ]
+Perform Script [ “findMode” ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 3 ]
 Set Variable [ $$referenceRecordOne ]
@@ -668,7 +668,7 @@ End Loop
 #test tag's record set.
 Set Field [ testlearn::orderTestInformation; "001" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 End If
 #
 Else If [ $$citationMatch = "brainstorm" ]
@@ -717,7 +717,7 @@ End Loop
 #test tag's record set.
 Set Field [ testlearn::orderTestInformation; "001" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update)” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
 End If
 End If
 #
@@ -1073,7 +1073,7 @@ Go to Record/Request/Page [ $recordNumber ]
 #brainstorm item (if in brainstorm mode) and sort
 #by order and then date and time.
 If [ $$citationMatch = "test" ]
-Perform Script [ “loadTestTags (update)” ]
+Perform Script [ “loadTestTags” ]
 Else If [ $$citationMatch = "brainstorm" ]
 Perform Script [ “loadBrainstormTags (udpate)” ]
 End If

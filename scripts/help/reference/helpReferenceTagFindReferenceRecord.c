@@ -9,6 +9,6 @@ Set Variable [ $$helpLayoutName; Value:"Reference" ]
 #
 #Send user to help column.
 Set Variable [ $$helpColumnName; Value:"H" ]
-Perform Script [ “help (update)” ]
+Perform Script [ “help” ]
 #
 #
