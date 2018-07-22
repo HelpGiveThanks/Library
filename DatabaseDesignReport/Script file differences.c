@@ -6,14 +6,52 @@ dataCleanUpScripts
 
 nextLayout
 referenceLoop
+ResizeToFit
 subsectionLoop
 tagGroupLoop
 tagLoop
 help
 
 help
+helpAllApps
 helpBack
+helpReferenceAddToTag
+learn
+
+helpLearnEdit
+helpLearnFind
+helpLearnMain
+helpLearnQV
+helpLearnShare
+helpLearnTag
+helpLearnTagFindLearnRecord
+helpLearnTagFindTag
 libraryHelp
+reference
+
+helpReferenceEdit
+helpReferenceFind
+helpReferenceMain
+helpReferenceTag
+helpReferenceTagFindReferenceRecord
+helpReferenceTagFindTag
+setup
+
+helpSetupMain
+helpSetupTagAllDefault
+helpSetupTagCopyright
+helpSetupTagCopyrightReview
+helpSetupTagNode
+helpSetupTest
+helpSetupTestEdit
+test
+
+helpSetupTest
+helpTest
+helpTestReportMain
+helpTestReportTagInfo
+helpTestReportTagItem
+helpTestReportTagResult
 learn
 
 cancelLearnAndRefFind
@@ -32,13 +70,14 @@ gotoLearnQV
 gotoLearnWebsite
 haltShareScript
 holderCheckBox
+learnInsertReferenceIntoNote
 learnOpenTextNewWindow
 newLearn
 probablyNotInUse
 
 shareLearnRecords
 shareWindowCopyTextButton
-showReferencedFileFolderOrWebsite
+showReferencedFileFolder
 libraryNewOrImport
 
 importDataFromABranchIntoThisMainLibrary
@@ -49,11 +88,12 @@ newLibraryStep3A_makeEmptiedLibraryANewLibrary
 newLibraryStep3B_importLibraryIntoEmptiedLibrary
 librarySetup
 
-allSolutionsMenu
+allAppsMenu
 changeLibraryName
 gotoBudgetPlanner
 gotoHeartWhisperer
 gotoHelpGiveThanksWebsite
+gotoIQLogs
 gotoOtherLibrary
 libraryMainOrBranchRepition1
 libraryMainOrBranchRepition2
@@ -63,6 +103,7 @@ moreInfo
 probablyNotInUse
 
 copyPrimaryNodeID
+setupReference_Delete
 setupReference_GoToPortalReferenceRevieworWebsite
 setupReference_GoToReviewOrEditWindow
 setupReference_GoToWebsite
@@ -119,6 +160,7 @@ deleteReference
 duplicateReferenceRecord
 editReference
 enterShortOrLongTagField
+exitAndStopClearCitationMatch
 exitLockedStuffRef
 extractCreateDateFromReferenceRecords
 findALL_LearnOrRefRecords
@@ -132,7 +174,9 @@ insertTimeInRefTimeField
 isONpulldownMenu
 isWHATpulldownMenu
 loadLearnOrRefMainRecord
+LocationEditFieldsHIDE
 menuLearn
+newLocationRecord
 newReference
 openReferenceWebsite
 probablyNotInUse
@@ -158,19 +202,19 @@ sortRefByPub
 sortRefBySubject
 sortRefByTitle
 viewReference
-Resize window to fit
 sharedLayoutScripts
 
 backFromTemplateEditor
 backToLearnOrDefaultSetup
 backtoSetup
 closeWindow
+closeWindowResumePause
 closeWindowHaltScript
 copyAndpastTags
 exit
 exitOnly
 findInactiveButtonMessage
-gotoAllSolutsionMenuORTimeLogApp
+gotoAllAppsMenuORActionLogApp
 gotoTimeLogLogWindow
 returnToAddRecordPUTONHOLD!!!!
 stopLockedNodesRecordsBeingDeleted
@@ -181,6 +225,7 @@ startclose
 
 CHUNK_checkCreatorNodeAndPrimaryNode
 CHUNK_CopyrightLockedFields
+New Script
 closeLibrary
 startDatabase
 tagMenu
@@ -194,6 +239,7 @@ addORremoveRefTagStep1
 addORremoveRefTagStep2_forRefRecord
 addORremoveRefTagStep2_forLearnRecord
 addRefsKeywordsToMainRecord
+archiveChecklist
 backFromTagMenus
 brainstormExit
 checkActiveFieldForChangesAndTellUserIfItIsLocked
@@ -229,8 +275,15 @@ gotoMainFromTestTagMenus
 gotoMoreDetailLayout
 gotoSetupReport
 hideFormTextTestItemsFTs
+insertGenericNumberOrTimeReference
+insertGenericTimeReference
+insertRefenceToRefenceAndPageNumber
+insertRefenceToRefenceAndTime
+insertReferenceToReference
 loadBrainstormTags
+loadLearnTagRecord
 loadRefCiteTag
+loadReferenceForInsertIntoText
 loadReportTestResultRecord
 loadTagRecord
 loadTestTagMenu
@@ -254,6 +307,7 @@ menuPublicationFind
 menuPublisherFind
 menuReferenceFind
 menuTestFind
+cancelFind
 menuKey
 menuMedium
 menuNode
@@ -293,68 +347,6 @@ unzoomSetup
 zoomSetup
 test
 
-setup
-
-deleteSubsection
-deleteSubsectionFromUserTest
-deleteTestItem
-duplicateSectionFromTemplate
-gotoSetupTest_Template
-gotoSetupTest_TestSubjectTest
-gotoTechView
-gotoTestSubject_CreationDateField
-gotoTestSubject_SectionField
-linkOrUnlinkTestItemGroupToTestItemList
-loadSetupTestSection
-loadSetupTestSubsection
-loadTestSubjectTestSection
-moveSubsectionToOtherGroup
-moveTestItemToNewTestGroupStep1
-newSection
-newSectionFromTemplate
-newSubsection
-newSubsectionGroup
-newTestItem
-newTestItemGroup
-newTestSectionTemplatePulldownCheck
-showSubsectionsInThisSection
-test
-
-CHUNK_countTestResults
-CHUNK_testInfoReferences
-deleteReportTestResult
-deleteTestResult
-done
-exitAndOrderTestResults
-exitAndStopClearCitationMatch
-gotoTestResults
-gotoTestSubsections
-identifyTestsThatHaveResults
-informUserHowToEditLockedLayoutText
-inspectAddProblemToFinding
-inspectNextRecord
-inspectPreviousRecord
-linkOrUnlinkTestSection
-loadSubsection
-loadTestInfo
-loadTestResultRecord
-newTestResult
-probablyNotInUse
-
-switchTestList
-reportNewTestResult
-returnToInspectionItems
-returnToSubsections
-returnToTestSetup
-testInfoOpenTextNewWindow
-testItemCheckOrTextOrForm
-testItemCheckTemplateButton
-testItemStyles
-testItemTextOrFormTemplateButton
-testSubsectionNA
-toggleTestWindowView
-testResultInformationPulldown
-useSubsectionAndCurrentTimeStamp
 report
 
 CHUNK_gotoTestSubsectionViaPulldown
@@ -399,34 +391,69 @@ showPicture4
 sortReport
 unzoomReport
 zoomReport
+setup
 
+deleteSubsection
+deleteSubsectionFromUserTest
+deleteTestItem
+duplicateSectionFromTemplate
+gotoSetupTest_Template
+gotoSetupTest_TestSubjectTest
+gotoTechView
+gotoTestSubject_CreationDateField
+gotoTestSubject_SectionField
+linkOrUnlinkTestItemGroupToTestItemList
+loadSetupTestSection
+loadSetupTestSubsection
+loadTestSubjectTestSection
+moveSubsectionToOtherGroup
+newSection
+newSectionFromTemplate
+newSubsection
+newSubsectionGroup
+newTestItem
+newTestItemGroup
+newTestSectionTemplatePulldownCheck
+probablyNotInUse
 
-Script Name	Resize window to fit
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
+moveTestItemToNewTestGroupStep1
+showSubsectionsInThisSection
+test
 
-Scripts that use this script
+CHUNK_countTestResults
+CHUNK_findLearnRecordsReferences
+deleteReportTestResult
+deleteTestResult
+done
+exitAndOrderTestResults
+gotoTestResults
+gotoTestSubsections
+identifyTestsThatHaveResults
+informUserHowToEditLockedLayoutText
+inspectAddProblemToFinding
+inspectNextRecord
+inspectPreviousRecord
+linkOrUnlinkTestSection
+loadSubsection
+loadTestInfo
+loadTestResultRecord
+newTestResult
+probablyNotInUse
 
-Script Definition
-Script Steps
-
-    Adjust Window [ Resize to Fit ]
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
+switchTestList
+reportNewTestResult
+returnToInspectionItems
+returnToSubsections
+returnToTestSetup
+testInfoOpenTextNewWindow
+testItemCheckOrTextOrForm
+testItemCheckTemplateButton
+testItemStyles
+testItemTextOrFormTemplateButton
+testSubsectionNA
+toggleTestWindowView
+testResultInformationPulldown
+useSubsectionAndCurrentTimeStamp
 
 dataCleanUpScripts
 	Parent Folder: [dataCleanUpScripts]	Next Script: [referenceLoop]
@@ -473,7 +500,7 @@ Custom menu set used by this script
     [Standard FileMaker Menus]
 
 
-Previous Script: [nextLayout]	Parent Folder: [dataCleanUpScripts]	Next Script: [subsectionLoop]
+Previous Script: [nextLayout]	Parent Folder: [dataCleanUpScripts]	Next Script: [ResizeToFit]
 Script Name	referenceLoop
 Run script with full access privileges	Off
 Include In Menu	No
@@ -550,7 +577,35 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [referenceLoop]	Parent Folder: [dataCleanUpScripts]	Next Script: [tagGroupLoop]
+Previous Script: [referenceLoop]	Parent Folder: [dataCleanUpScripts]	Next Script: [subsectionLoop]
+Script Name	ResizeToFit
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Adjust Window [ Resize to Fit ]
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [ResizeToFit]	Parent Folder: [dataCleanUpScripts]	Next Script: [tagGroupLoop]
 Script Name	subsectionLoop
 Run script with full access privileges	Off
 Include In Menu	No
@@ -783,287 +838,327 @@ Custom menu set used by this script
 
 
 help
-	Parent Folder: [help]	Next Script: [helpBack]
+	Parent Folder: [help]	Next Script: [helpAllApps]
 Script Name	help
 Run script with full access privileges	Off
-Include In Menu	Yes
+Include In Menu	No
 Layouts that use this script
 
-    allSolutions
-    Reference
     ReferenceStuff
-    ReferenceEDIT
-    ReferenceFilePathEDIT
-    ReferenceFIND
     ReferenceFINDallfields
-    ReferenceFINDstuff
     ReferenceMenuNoTags
-    ReferenceMenu1
-    ReferenceMenuCopyright
-    ReferenceMenu3Cite
-    ReferenceMenu3CiteNoPicture
-    ReferenceMenu2keywordOrNode1
     ReferenceMenu2SkeywordOrNode1
-    ReferenceMenu2keywordOrNode2
     ReferenceMenu2SkeywordOrNode2
-    ReferenceMenu2keywordOrNode3
     ReferenceMenu2SkeywordOrNode3
-    ReferenceMenu2keywordOrNode4
     ReferenceMenu2SkeywordOrNode4
-    ReferenceMenu2keywordOrNode5
     ReferenceMenu2SkeywordOrNode5
-    ReferenceMenuFind
-    ReferenceMenu3CiteFind
-    ReferenceMenu2keywordOrNodeFind
     ReferenceMenu2SkeywordOrNodeFind
-    referenceMenuFINDref
-    referenceFINDNK
-    referenceSFINDNK
-    addMenu1
-    addMenuNodeKeyword
-    addMenu2
-    addMenuTestItem
-    ReferenceAddToTag
-    ReferenceAddToCopyright
-    learn0
-    learnStuff0
-    learn1
-    learnStuff1
-    learn2
-    learnStuff2
-    learn3
-    learnStuff3
-    learn4
-    learnStuff4
-    learn5
-    learnStuff5
-    learn4EDIT
-    learn4EDITstuff
     learnPreviewLayout
-    learnPreviewLayoutView
-    LearnTextWindow
-    LearnTextWindow_iDevice
-    LearnTextWindowStuff
-    LearnTextWindowStuff_iDevice
-    ltagNK1
-    ltagNKs1
-    ltagNK2
-    ltagNKs2
-    ltagNK3
-    ltagNKs3
-    ltagNK4
-    ltagNKs4
-    ltagNK5
-    ltagNKs5
-    learnMenu3Cite
-    learnMenu3CiteS
-    learnMenuRefStuff
-    learnMenu4RefCite
-    learnMenu4noPicRefCite
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
-    learnMenuBrainstorm
-    learnMenuStuffBrainstorm
-    learnTest
     learnSTest
-    learnFIND
-    learnFind
     learnSFind
-    learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
-    learnFindTest
     learnFindSTest
-    learnFindBrainstorm
-    learnFindStuffBrainstorm
-    learnFindCite
-    learnFindStuffCite
-    learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
-    learnMenuFINDref
-    learnMenuFINDrefLearn
-    learnMenuFINDstuffRef
     learnMenuFINDstuffRefLearn
-    ltagFINDNK
-    ltagFINDstuffNK
-    setupTestSection
-    setupTestSubsection
-    setupTestItem
-    setupTestItemLOCKED
     testSetupTechView
     setupTestItemTechView
-    testingSubsectionMenu
-    testResult0
-    testResultLOCKED0
-    testResult1
-    testResultLOCKED1
-    testResult2
-    testResultLOCKED2
-    testResult3
-    testResultLOCKED3
-    testResult4
-    testResultLOCKED4
-    testResult5
-    testResultLOCKED5
-    testInfo
-    TestInfoReference
-    testMenuTestItem
-    PrintReportEdit
-    PrintReportLock
-    reportTestResult
-    reportTestResultLocked
-    reportTagItem
-    reportTagInfo
 
 Scripts that use this script
 
+    helpAllApps
+    helpReferenceAddToTag
+    helpLearnEdit
+    helpLearnFind
+    helpLearnMain
+    helpLearnQV
+    helpLearnShare
+    helpLearnTag
+    helpLearnTagFindLearnRecord
+    helpLearnTagFindTag
     libraryHelp
+    helpReferenceEdit
+    helpReferenceFind
+    helpReferenceMain
+    helpReferenceTag
+    helpReferenceTagFindReferenceRecord
+    helpReferenceTagFindTag
+    helpSetupMain
+    helpSetupTagAllDefault
+    helpSetupTagCopyright
+    helpSetupTagCopyrightReview
+    helpSetupTagNode
+    helpSetupTest
+    helpSetupTestEdit
+    helpSetupTest
+    helpTest
+    helpTestReportMain
+    helpTestReportTagInfo
+    helpTestReportTagItem
+    helpTestReportTagResult
 
 Script Definition
 Script Steps
 
     #
     #
-    // Close Window [ Name: "Help" ]
+    #BEGIN Help interface and column message
     #
-    #Set back path from help to this solution.
+    #If the help app is open figure out if it is
+    #focused on help for the interface the user
+    #is currently looking at.
+    If [ MemorySwitch::helpAppIsRunning ≠ "" ]
+    #
+    #If not focused on the help layout or column for
+    #the current interface then ask the user if they
+    #would like to go to help for this interface, or
+    #return the help for the interface currently showing.
+    If [ MemorySwitch::helpLayoutName ≠ $$helpLayoutName or MemorySwitch::helpLayoutColumnName ≠ $$helpColumnName ]
+    If [ $$helpLayoutName = "Test" ]
+    If [ $$helpColumnName = "B" ]
+    Show Custom Dialog [ Message: "Go to help for this interface (Test Templates" & ": Column — " & $$helpColumnName & "), or return to the interface help being viewed?"; Default Button: “return”, Commit: “Yes”; Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Else If [ $$helpColumnName = "C" ]
+    Show Custom Dialog [ Message: "Go to help for this interface (Test" & ": Column — " & $$helpColumnName & "), or return to the interface help being viewed?"; Default Button: “return”, Commit: “Yes”; Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Go to help for this interface (Report" & ": Column — " & $$helpColumnName & "), or return to the interface help being viewed?"; Default Button: “return”, Commit: “Yes”; Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
+    Else
+    #
+    #If the $$gotoHelpObject variable is blank,
+    #meaning the user has already been asked if
+    #they want to go help for an interface that has
+    #to close to do so, ask if they want to go to help.
+    If [ $$gotoHelpObject = "" ]
+    Show Custom Dialog [ Message: "Go to help for this interface (" & $$helpLayoutName & ": Column — " & $$helpColumnName & "), or return to the interface help being viewed?"; Default Button: “return”, Commit: “Yes”; Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
+    End If
+    #
+    #
+    #
+    If [ Get (LastMessageChoice) = 2 or $$gotoHelpObject ≠ "" ]
+    Set Field [ MemorySwitch::helpLayoutName; $$helpLayoutName ]
+    Set Field [ MemorySwitch::helpLayoutColumnName; $$helpColumnName ]
+    Set Field [ MemorySwitch::helpLayoutObjectName; $$helpColumnName ]
+    Set Variable [ $messageChoice; Value:2 ]
+    End If
+    #
+    If [ Get (LastMessageChoice) = 3 ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If focused on the help layout and column for
+    #the current interface then just go to it.
+    Else
+    If [ Get ( SystemPlatform ) ≠ 3 ]
+    Select Window [ Name: "Help" ]
+    Else
+    Open URL [ "fmp://%7e/Help" ] [ No dialog ]
+    End If
+    Exit Script [ ]
+    End If
+    #
+    #If the help app is not open, then tell the user
+    #what interface and column they are going
+    #to be taken to when it is opened.
+    Else
+    Set Field [ MemorySwitch::helpLayoutName; $$helpLayoutName ]
+    Set Field [ MemorySwitch::helpLayoutColumnName; $$helpColumnName ]
+    Set Field [ MemorySwitch::helpLayoutObjectName; $$helpColumnName ]
+    If [ $$helpLayoutName = "Test" ]
+    If [ $$helpColumnName = "B" ]
+    Show Custom Dialog [ Message: "Now going to help for this interface (Test Templates" & ": Column — " & $$helpColumnName & ")."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    Else If [ $$helpColumnName = "C" ]
+    Show Custom Dialog [ Message: "Now going to help for this interface (Test" & ": Column — " & $$helpColumnName & ")."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Now going to help for this interface (Report" & ": Column — " & $$helpColumnName & ")."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    End If
+    Else
+    Show Custom Dialog [ Message: "Now going to help for this interface (" & $$helpLayoutName & ": Column — " & $$helpColumnName & ")."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    End If
+    #
+    If [ Get (LastMessageChoice) = 2 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #
+    #END Help interface and column message
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Find and record all open windows
+    #
+    #
+    #Get the name of the window that the user
+    #clicked the help button on.
+    Set Variable [ $windowHelpWasClickedOn; Value:Get (WindowName) ]
+    #
+    #Update the current app being used info.
     Set Field [ MemorySwitch::backToSolution; "Library" ]
     #
     #
-    #Set tag menu variable to 1 if user is on tag menu, and
-    #then select the main window to determin the module.
-    If [ Get (WindowName) = "Tag Menus" ]
-    If [ $$findMode = 1 ]
-    Set Field [ MemorySwitch::helpObjectName; "find" ]
-    Else
-    If [ $$citationMatch = "publisher" or $$citationMatch = "path" or $$citationMatch = "publication" ]
-    Set Field [ MemorySwitch::helpObjectName; "key" ]
-    Else
-    Set Field [ MemorySwitch::helpObjectName; $$citationMatch ]
-    End If
-    #
-    If [ Get (LayoutName) = "testMenuTestItem" ]
-    Set Field [ MemorySwitch::helpObjectName; "test item" ]
-    Else If [ Get (LayoutName) = "testInfo" ]
-    Set Field [ MemorySwitch::helpObjectName; "test info" ]
-    Else If [ Get (LayoutName) = "reportTestResult" ]
-    Set Field [ MemorySwitch::helpObjectName; "result" ]
-    Else If [ Get (LayoutName) = "reportTagItem" ]
-    Set Field [ MemorySwitch::helpObjectName; "item" ]
-    Else If [ Get (LayoutName) = "reportTagInfo" ]
-    Set Field [ MemorySwitch::helpObjectName; "info" ]
-    Else If [ Get (LayoutName) = "setupTestSection" ]
-    Set Field [ MemorySwitch::helpObjectName; "section" ]
-    End If
-    #
-    End If
-    Set Variable [ $tagWindow; Value:1 ]
-    Select Window [ Name: "Setup"; Current file ]
+    #Now figure out what other windows are open.
+    #There can be up to three windows open.
+    #LEARN
+    #Is this window open and not alread recorded?
     Select Window [ Name: "Learn"; Current file ]
-    Select Window [ Name: "Share"; Current file ]
-    Select Window [ Name: "References"; Current file ]
-    Select Window [ Name: "Test"; Current file ]
-    Select Window [ Name: "Report"; Current file ]
-    End If
-    #
-    #Determine the module.
-    If [ Get ( LayoutTableName ) = "tempSetup" ]
-    Set Field [ MemorySwitch::helpLayoutName; "Setup" ]
-    If [ Get (LayoutName) = "allSolutions" ]
-    Set Field [ MemorySwitch::helpLayoutName; "dashboard" ]
-    Set Field [ MemorySwitch::helpObjectName; "" ]
-    End If
-    Else If [ Get ( LayoutTableName ) = "testLearn" and Get (LayoutName) ≠ "testResult" ]
-    Set Field [ MemorySwitch::helpLayoutName; "Learn" ]
-    Else If [ Get ( LayoutTableName ) = "reference" ]
-    Set Field [ MemorySwitch::helpLayoutName; "Reference" ]
-    Else If [ Get ( LayoutTableName ) = "testSubsection" ]
-    Set Field [ MemorySwitch::helpLayoutName; "Test" ]
-    Else If [ Get ( LayoutTableName ) = "testSubjectsTestSubsection" ]
-    Set Field [ MemorySwitch::helpLayoutName; "Test" ]
-    Else If [ Get ( LayoutTableName ) = "testLearn" and Get (LayoutName) = "testResult" ]
-    Set Field [ MemorySwitch::helpLayoutName; "Test" ]
-    Else If [ Get ( LayoutTableName ) = "report" ]
-    Set Field [ MemorySwitch::helpLayoutName; "Test" ]
-    End If
-    #
-    If [ $tagWindow ≠ 1 ]
-    #Help for library setup module main window.
-    If [ Get (LayoutName) = "defaultSetup" ]
-    Set Field [ MemorySwitch::helpObjectName; "library" ]
-    End If
-    #
-    #Help for test setup module main window.
-    If [ Get (LayoutName) = "setupTestSubsection" ]
-    Set Field [ MemorySwitch::helpObjectName; "test templates" ]
-    End If
-    #
-    #Help for test select main window.
-    If [ Get (LayoutName) = "testingSubsectionMenu" ]
-    Set Field [ MemorySwitch::helpObjectName; "test select" ]
-    End If
-    #
-    #Help for test select main window.
-    If [ Get (LayoutName) = "testResult" ]
-    Set Field [ MemorySwitch::helpObjectName; "test finding" ]
-    End If
-    #
-    #Help for report main window.
-    If [ Get (LayoutName) = "PrintReportEdit" ]
-    Set Field [ MemorySwitch::helpObjectName; "report" ]
-    End If
-    #
-    #Help for learn module main window.
-    If [ Get (LayoutName) = "learn1" or Get (LayoutName) = "learn2" or Get (LayoutName) = "learn3" or Get (LayoutName) = "learn4" ]
-    Set Field [ MemorySwitch::helpObjectName; "learn" ]
-    Else If [ Get (LayoutName) = "LearnTextWindow" ]
-    Set Field [ MemorySwitch::helpObjectName; "edit" ]
-    Show Custom Dialog [ Message: "This edit-note window will be closed while you view help for this window. Your work will be saved! When you are finished viewing help, click on your text to re-open this window and continue editing."; Default Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Pause/Resume Script [ Indefinitely ]
-    Exit Script [ ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
     Else
-    Close Window [ Current Window ]
-    End If
-    Else If [ Get (LayoutName) = "Learn4EDIT" ]
-    Set Field [ MemorySwitch::helpObjectName; "qv" ]
-    Else If [ Get (LayoutName) = "learnFind" ]
-    Set Field [ MemorySwitch::helpObjectName; "learnFind" ]
-    Else If [ Get (LayoutName) = "learnPreviewLayout" ]
-    Set Field [ MemorySwitch::helpObjectName; "print" ]
-    #
-    #Help for reference module main window.
-    Else If [ Get (LayoutName) = "reference" ]
-    Set Field [ MemorySwitch::helpObjectName; "ref" ]
-    Else If [ Get (LayoutName) = "referenceEdit" ]
-    Set Field [ MemorySwitch::helpObjectName; "ref edit" ]
-    Else If [ Get (LayoutName) = "referenceFind" ]
-    Set Field [ MemorySwitch::helpObjectName; "ref find" ]
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
     End If
     End If
+    #REFERENCE (NOTE: Change this window
+    #name to references when time permits.)
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Reference"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #REFERENCES
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "References"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #REPORT
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Report"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #SETUP
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Setup"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #SHARE
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Share"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #TAG MENUS
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #TEST
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Test"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #TEST TEMPLATES
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Test Templates"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #
+    Set Field [ MemorySwitch::helpAppWindowName; $windowHelpWasClickedOn ]
+    Set Field [ MemorySwitch::helpAppWindowName[2]; $windowAlsoOpen2 ]
+    Set Field [ MemorySwitch::helpAppWindowName[3]; $windowAlsoOpen3 ]
     #
     #
-    Pause/Resume Script [ Duration (seconds): .1 ]
+    #END Find and record all open windows
     #
+    #
+    #
+    #
+    #Go to the help windows if the app is open.
     If [ Get ( SystemPlatform ) ≠ 3 ]
-    Open URL [ MemorySwitch::helpPath ] [ No dialog ]
-    Open URL [ Substitute ( MemorySwitch::helpPath ; "file://" ; "file:///Volumes/" ) ] [ No dialog ]
+    Select Window [ Name: "Tutorial" ]
+    Select Window [ Name: "Menu" ]
+    Select Window [ Name: "Help" ]
     Else
     Open URL [ "fmp://%7e/Help" ] [ No dialog ]
     End If
     #
-    Select Window [ Name: "Help" ]
-    Select Window [ Name: "Tutorial" ]
+    #
+    #If open, then run the script that forces help
+    #to go the user's selected help location.
+    If [ Get (LastError) ≠ 112 //window is missing = 112 ]
+    If [ $messageChoice = 2 ]
+    Perform Script [ “TRIGGERED_SCRIPTByOtherApp (new)” from file: “Help” ]
+    Else
+    Perform Script [ “fixForLearnLayoutBug (new)” from file: “Help” ]
+    End If
+    #
+    Else
+    #
+    #If help is not open, then open it.
+    If [ Get ( SystemPlatform ) ≠ 3 ]
+    Open URL [ MemorySwitch::helpPath ] [ No dialog ]
+    Open URL [ Substitute ( MemorySwitch::helpPath ; "file://" ; "file:///Volumes/" ) ] [ No dialog ]
+    Else
+    Open URL [ "fmp://%7e/Help" ]
+    End If
+    End If
     #
     #
 
 Fields used in this script
 
-    MemorySwitch::backToSolution
-    MemorySwitch::helpObjectName
+    MemorySwitch::helpAppIsRunning
     MemorySwitch::helpLayoutName
+    MemorySwitch::helpLayoutColumnName
+    MemorySwitch::helpLayoutObjectName
+    MemorySwitch::backToSolution
+    MemorySwitch::helpAppWindowName
     MemorySwitch::helpPath
 
 Scripts used in this script
+
+    TRIGGERED_SCRIPTByOtherApp (new)
+    fixForLearnLayoutBug (new)
 
 Layouts used in this script
 
@@ -1080,7 +1175,68 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [help]	Parent Folder: [help]	Next Script: [libraryHelp]
+Previous Script: [help]	Parent Folder: [help]	Next Script: [helpBack]
+Script Name	helpAllApps
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    allApps
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"All Apps" ]
+    Set Variable [ $$helpColumnName; Value:"A" ]
+    #
+    #Inform user they must cancel the find before
+    #they will be able to go to the help window as
+    #in find mode the focus is locked on it until
+    #the find is complete.
+    Show Custom Dialog [ Message: "If you are OK with exiting this interface to navigate to its help column — " & $$helpColumnName & " — click OK. The system is locked while its focused on this interface, which is why exiting it is requried."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    #
+    #This next variable prevents the user getting
+    #asked redunant questions by the help script.
+    Set Variable [ $$gotoHelpObject; Value:1 ]
+    Close Window [ Current Window ]
+    Perform Script [ “help” ]
+    Set Variable [ $$gotoHelpObject ]
+    #
+    #Tell user how to get the help for this interface
+    #if they choose to remain focused on it.
+    Else
+    Show Custom Dialog [ Message: "To view help for this interface once you are done with it 1) click any ? button. 2) Click the return button if given that option. 3) Click the Help App's menu button. 3) Click — " & $$helpLayoutName & "."; Default Button: “OK”, Commit: “Yes” ]
+    Pause/Resume Script [ Indefinitely ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpAllApps]	Parent Folder: [help]	Next Script: [helpReferenceAddToTag]
 Script Name	helpBack
 Run script with full access privileges	Off
 Include In Menu	No
@@ -1125,23 +1281,59 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [helpBack]	Parent Folder: [help]
-Script Name	libraryHelp
+Previous Script: [helpBack]	Parent Folder: [help]	Next Script: [libraryHelp]
+Script Name	helpReferenceAddToTag
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    defaultSetup
-    defaultTest
-    defaultTestNewSection
-    defaultsAll
-    defaultCopyright
-    defaultNode1
-    defaultNode2
-    defaultNode3
-    defaultNode4
-    learnMenuCopyrightVIEW
-    learnMenuCopyrightEDIT
+    addMenu1
+    addMenuNodeKeyword
+    addMenu2
+    addMenuTestItem
+    ReferenceAddToTag
+    ReferenceAddToCopyright
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Reference" ]
+    #
+    #Send user to help column.
+    Set Variable [ $$helpColumnName; Value:"A" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpReferenceAddToTag]	Parent Folder: [help]
+Script Name	libraryHelp
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
 
 Scripts that use this script
 
@@ -1177,6 +1369,1382 @@ Custom menu set used by this script
 
 
 learn
+	Parent Folder: [learn]	Next Script: [helpLearnFind]
+Script Name	helpLearnEdit
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    LearnTextWindow
+    LearnTextWindow_iDevice
+    LearnTextWindowStuff
+    LearnTextWindowStuff_iDevice
+    LearnTextWindowLocked
+    LearnTextWindowLocked_iDevice
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    Set Variable [ $$helpColumnName; Value:"B" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpLearnEdit]	Parent Folder: [learn]	Next Script: [helpLearnMain]
+Script Name	helpLearnFind
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnFIND
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    Set Variable [ $$helpColumnName; Value:"C" ]
+    #
+    #
+    #Inform user they must cancel the find before
+    #they will be able to go to the help window as
+    #in find mode the focus is locked on it until
+    #the find is complete.
+    Show Custom Dialog [ Message: "If you are OK with exiting this interface to navigate to its help column — " & $$helpColumnName & " — click OK. The system is locked while its focused on this interface, which is why exiting it is requried."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    #This next variable prevents the user getting
+    #asked redunant questions by the help script.
+    Set Variable [ $$gotoHelpObject; Value:1 ]
+    Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+    Perform Script [ “cancelLearnAndRefFind” ]
+    Set Variable [ $$doNotHaltOtherScripts ]
+    Perform Script [ “help” ]
+    Set Variable [ $$gotoHelpObject ]
+    Select Window [ Name: "Help" ]
+    Select Window [ Name: "Tutorial" ]
+    Halt Script
+    #
+    #Tell user how to get the help for this interface
+    #if they choose to remain focused on it.
+    Else
+    Show Custom Dialog [ Message: "To view help when done 1) click any ? button. 2) Click the return button, if given that option. 3) Click the Help App's menu button. 3) Click — " & $$helpLayoutName & " 3) Scroll to column — " & $$helpColumnName & "."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    cancelLearnAndRefFind
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpLearnFind]	Parent Folder: [learn]	Next Script: [helpLearnQV]
+Script Name	helpLearnMain
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learn0
+    learnStuff0
+    learn1
+    learnStuff1
+    learn2
+    learnStuff2
+    learn3
+    learnStuff3
+    learn4
+    learnStuff4
+    learn5
+    learnStuff5
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    Set Variable [ $$helpColumnName; Value:"A" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpLearnMain]	Parent Folder: [learn]	Next Script: [helpLearnShare]
+Script Name	helpLearnQV
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learn4EDIT
+    learn4EDITLocked
+    learn4EDITstuff
+    learn4EDITstuffLocked
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    Set Variable [ $$helpColumnName; Value:"A14" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpLearnQV]	Parent Folder: [learn]	Next Script: [helpLearnTag]
+Script Name	helpLearnShare
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnPreviewLayoutView
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    Set Variable [ $$helpColumnName; Value:"D" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpLearnShare]	Parent Folder: [learn]	Next Script: [helpLearnTagFindLearnRecord]
+Script Name	helpLearnTag
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    ltagNK1
+    ltagNKs1
+    ltagNK2
+    ltagNKs2
+    ltagNK3
+    ltagNKs3
+    ltagNK4
+    ltagNKs4
+    ltagNK5
+    ltagNKs5
+    learnMenu3Cite
+    learnMenu3CiteS
+    learnMenuRefStuff
+    learnMenu4RefCite
+    learnMenu4noPicRefCite
+    learnMenuBrainstorm
+    learnMenuStuffBrainstorm
+    learnTest
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    #
+    #Send user to idea or inventory help column.
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Set Variable [ $$helpColumnName; Value:"E" ]
+    Else
+    Set Variable [ $$helpColumnName; Value:"F" ]
+    End If
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+    TEMP::InventoryLibraryYN
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpLearnTag]	Parent Folder: [learn]	Next Script: [helpLearnTagFindTag]
+Script Name	helpLearnTagFindLearnRecord
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnFind
+    learnKeywordOrNodeFind
+    learnKeywordOrNodeSFind
+    learnFindTest
+    learnFindBrainstorm
+    learnFindStuffBrainstorm
+    learnFindCite
+    learnFindCiteS
+    learnFindStuffCite
+    learnMenu4NoPicRefCiteFindTL
+    learnMenu4RefCiteFindTL
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    #
+    #Send user to idea or inventory help column.
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Set Variable [ $$helpColumnName; Value:"G" ]
+    Else
+    Set Variable [ $$helpColumnName; Value:"H" ]
+    End If
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+    TEMP::InventoryLibraryYN
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpLearnTagFindLearnRecord]	Parent Folder: [learn]
+Script Name	helpLearnTagFindTag
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnMenuFINDref
+    learnMenuFINDrefLearn
+    learnMenuFINDstuffRef
+    ltagFINDNK
+    ltagFINDstuffNK
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    #Send user to idea or inventory help column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    #
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Set Variable [ $$helpColumnName; Value:"I" ]
+    Else
+    Set Variable [ $$helpColumnName; Value:"J" ]
+    End If
+    #
+    #
+    #Inform user they must cancel the find before
+    #they will be able to go to the help window as
+    #in find mode the focus is locked on it until
+    #the find is complete.
+    Show Custom Dialog [ Message: "If you are OK with exiting this interface to navigate to its help column — " & $$helpColumnName & " — click OK. The system is locked while its focused on this interface, which is why exiting it is requried."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    #This next variable prevents the user getting
+    #asked redunant questions by the help script.
+    Set Variable [ $$gotoHelpObject; Value:1 ]
+    Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+    Enter Browse Mode
+    Perform Script [ “help” ]
+    Set Variable [ $$doNotHaltOtherScripts ]
+    Select Window [ Name: "Help" ]
+    Set Variable [ $$gotoHelpObject ]
+    Select Window [ Name: "Tutorial" ]
+    Halt Script
+    #
+    #Tell user how to get the help for this interface
+    #if they choose to remain focused on it.
+    Else
+    Show Custom Dialog [ Message: "To view help when done 1) click any ? button. 2) Click the return button, if given that option. 3) Click the Help App's menu button. 3) Click — " & $$helpLayoutName & " 3) Scroll to column — " & $$helpColumnName & "."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    TEMP::InventoryLibraryYN
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+reference
+	Parent Folder: [reference]	Next Script: [helpReferenceFind]
+Script Name	helpReferenceEdit
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    ReferenceEDIT
+    ReferenceFilePathEDIT
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Reference" ]
+    Set Variable [ $$helpColumnName; Value:"B" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpReferenceEdit]	Parent Folder: [reference]	Next Script: [helpReferenceMain]
+Script Name	helpReferenceFind
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    ReferenceFIND
+    ReferenceFINDstuff
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Reference" ]
+    Set Variable [ $$helpColumnName; Value:"C" ]
+    #
+    #
+    #Inform user they must cancel the find before
+    #they will be able to go to the help window as
+    #in find mode the focus is locked on it until
+    #the find is complete.
+    Show Custom Dialog [ Message: "If you are OK with exiting this interface to navigate to its help column — " & $$helpColumnName & " — click OK. The system is locked while its focused on this interface, which is why exiting it is requried."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    #This next variable prevents the user getting
+    #asked redunant questions by the help script.
+    Set Variable [ $$gotoHelpObject; Value:1 ]
+    Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+    Perform Script [ “cancelLearnAndRefFind” ]
+    Set Variable [ $$doNotHaltOtherScripts ]
+    Perform Script [ “help” ]
+    Set Variable [ $$gotoHelpObject ]
+    Select Window [ Name: "Help" ]
+    Select Window [ Name: "Tutorial" ]
+    Halt Script
+    #
+    #Tell user how to get the help for this interface
+    #if they choose to remain focused on it.
+    Else
+    Show Custom Dialog [ Message: "To view help when done 1) click any ? button. 2) Click the return button, if given that option. 3) Click the Help App's menu button. 3) Click — " & $$helpLayoutName & " 3) Scroll to column — " & $$helpColumnName & "."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    cancelLearnAndRefFind
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpReferenceFind]	Parent Folder: [reference]	Next Script: [helpReferenceTag]
+Script Name	helpReferenceMain
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    Reference
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Reference" ]
+    Set Variable [ $$helpColumnName; Value:"A" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpReferenceMain]	Parent Folder: [reference]	Next Script: [helpReferenceTagFindReferenceRecord]
+Script Name	helpReferenceTag
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    ReferenceMenu1
+    ReferenceMenuCopyright
+    ReferenceMenu3Cite
+    ReferenceMenu3CiteNoPicture
+    ReferenceMenu2keywordOrNode1
+    ReferenceMenu2keywordOrNode2
+    ReferenceMenu2keywordOrNode3
+    ReferenceMenu2keywordOrNode4
+    ReferenceMenu2keywordOrNode5
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Reference" ]
+    #
+    #Send user to help column.
+    If [ $$citationMatch = "node" ]
+    Set Variable [ $$helpColumnName; Value:"D" ]
+    Else If [ $$citationMatch = "copyright" ]
+    Set Variable [ $$helpColumnName; Value:"E" ]
+    Else If [ $$citationMatch = "cite" ]
+    Set Variable [ $$helpColumnName; Value:"G" ]
+    Else
+    Set Variable [ $$helpColumnName; Value:"F" ]
+    End If
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpReferenceTag]	Parent Folder: [reference]	Next Script: [helpReferenceTagFindTag]
+Script Name	helpReferenceTagFindReferenceRecord
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    ReferenceMenuFind
+    ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
+    ReferenceMenu2keywordOrNodeFind
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Reference" ]
+    #
+    #Send user to help column.
+    Set Variable [ $$helpColumnName; Value:"H" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpReferenceTagFindReferenceRecord]	Parent Folder: [reference]
+Script Name	helpReferenceTagFindTag
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    referenceMenuFINDref
+    referenceFINDNK
+    referenceSFINDNK
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    #Send user to idea or inventory help column.
+    Set Variable [ $$helpLayoutName; Value:"Learn" ]
+    #
+    Set Variable [ $$helpColumnName; Value:"H" ]
+    #
+    #
+    #Inform user they must cancel the find before
+    #they will be able to go to the help window as
+    #in find mode the focus is locked on it until
+    #the find is complete.
+    Show Custom Dialog [ Message: "If you are OK with exiting this interface to navigate to its help column — " & $$helpColumnName & " — click OK. The system is locked while its focused on this interface, which is why exiting it is requried."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    #This next variable prevents the user getting
+    #asked redunant questions by the help script.
+    Set Variable [ $$gotoHelpObject; Value:1 ]
+    Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+    Enter Browse Mode
+    Perform Script [ “help” ]
+    Set Variable [ $$doNotHaltOtherScripts ]
+    Select Window [ Name: "Help" ]
+    Set Variable [ $$gotoHelpObject ]
+    Select Window [ Name: "Tutorial" ]
+    Halt Script
+    #
+    #Tell user how to get the help for this interface
+    #if they choose to remain focused on it.
+    Else
+    Show Custom Dialog [ Message: "To view help when done 1) click any ? button. 2) Click the return button, if given that option. 3) Click the Help App's menu button. 3) Click — " & $$helpLayoutName & " 3) Scroll to column — " & $$helpColumnName & "."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+setup
+	Parent Folder: [setup]	Next Script: [helpSetupTagAllDefault]
+Script Name	helpSetupMain
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Setup" ]
+    Set Variable [ $$helpColumnName; Value:"A" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpSetupMain]	Parent Folder: [setup]	Next Script: [helpSetupTagCopyright]
+Script Name	helpSetupTagAllDefault
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultsAll
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Setup" ]
+    #
+    #Send user to help column.
+    Set Variable [ $$helpColumnName; Value:"E" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpSetupTagAllDefault]	Parent Folder: [setup]	Next Script: [helpSetupTagCopyrightReview]
+Script Name	helpSetupTagCopyright
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultCopyright
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Setup" ]
+    #
+    #Send user to help column.
+    Set Variable [ $$helpColumnName; Value:"G" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpSetupTagCopyright]	Parent Folder: [setup]	Next Script: [helpSetupTagNode]
+Script Name	helpSetupTagCopyrightReview
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    CopyrightVIEW
+    CopyrightEDIT
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Setup" ]
+    Set Variable [ $$helpColumnName; Value:"H" ]
+    #
+    #Inform user they must cancel the find before
+    #they will be able to go to the help window as
+    #in find mode the focus is locked on it until
+    #the find is complete.
+    Show Custom Dialog [ Message: "If you are OK with exiting this interface to navigate to its help column — " & $$helpColumnName & " — click OK. The system is locked while its focused on this interface, which is why exiting it is requried."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    #
+    #This next variable prevents the user getting
+    #asked redunant questions by the help script.
+    Set Variable [ $$gotoHelpObject; Value:1 ]
+    Close Window [ Current Window ]
+    Perform Script [ “help” ]
+    Set Variable [ $$gotoHelpObject ]
+    #
+    #Tell user how to get the help for this interface
+    #if they choose to remain focused on it.
+    Else
+    Show Custom Dialog [ Message: "To view help for this interface once you are done with it 1) click any ? button. 2) Click the return button if given that option. 3) Click the Help App's menu button. 3) Click — " & $$helpLayoutName & "."; Default Button: “OK”, Commit: “Yes” ]
+    Pause/Resume Script [ Indefinitely ]
+    End If
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpSetupTagCopyrightReview]	Parent Folder: [setup]	Next Script: [helpSetupTest]
+Script Name	helpSetupTagNode
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultNode1
+    defaultNode2
+    defaultNodeS2
+    defaultNode3
+    defaultNodeS3
+    defaultNodeS4
+    defaultNode4
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Setup" ]
+    #
+    #Send user to help column.
+    Set Variable [ $$helpColumnName; Value:"F" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpSetupTagNode]	Parent Folder: [setup]	Next Script: [helpSetupTestEdit]
+Script Name	helpSetupTest
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTest
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Setup" ]
+    Set Variable [ $$helpColumnName; Value:"C" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpSetupTest]	Parent Folder: [setup]
+Script Name	helpSetupTestEdit
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTestNewSection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Setup" ]
+    Set Variable [ $$helpColumnName; Value:"D" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+test
+	Parent Folder: [test]	Next Script: [helpTest]
+Script Name	helpSetupTest
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestSection
+    setupTestSubsection
+    setupTestItem
+    setupTestItemLOCKED
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Test" ]
+    Set Variable [ $$helpColumnName; Value:"B" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpSetupTest]	Parent Folder: [test]	Next Script: [helpTestReportMain]
+Script Name	helpTest
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testingSubsectionMenu
+    testResult0
+    testResultLOCKED0
+    testResult1
+    testResultLOCKED1
+    testResult2
+    testResultLOCKED2
+    testResult3
+    testResultLOCKED3
+    testResult4
+    testResultLOCKED4
+    testResult5
+    testResultLOCKED5
+    testInfo
+    testMenuTestItem
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Test" ]
+    Set Variable [ $$helpColumnName; Value:"C" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpTest]	Parent Folder: [test]	Next Script: [helpTestReportTagInfo]
+Script Name	helpTestReportMain
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    PrintReportEdit
+    PrintReportLock
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Test" ]
+    Set Variable [ $$helpColumnName; Value:"D" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpTestReportMain]	Parent Folder: [test]	Next Script: [helpTestReportTagItem]
+Script Name	helpTestReportTagInfo
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    TestInfoReference
+    reportTagInfo
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Test" ]
+    Set Variable [ $$helpColumnName; Value:"G" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpTestReportTagInfo]	Parent Folder: [test]	Next Script: [helpTestReportTagResult]
+Script Name	helpTestReportTagItem
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    reportTagItem
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Test" ]
+    Set Variable [ $$helpColumnName; Value:"F" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [helpTestReportTagItem]	Parent Folder: [test]
+Script Name	helpTestReportTagResult
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    reportTestResult
+    reportTestResultLocked
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Send general layout name and help column
+    #number to the help script so it can take the
+    #user to help for this layout and column.
+    Set Variable [ $$helpLayoutName; Value:"Test" ]
+    Set Variable [ $$helpColumnName; Value:"E" ]
+    Perform Script [ “help” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    help
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+learn
 	Parent Folder: [learn]	Next Script: [catchFindLearnErrorMessages]
 Script Name	cancelLearnAndRefFind
 Run script with full access privileges	Off
@@ -1190,6 +2758,8 @@ Layouts that use this script
 
 Scripts that use this script
 
+    helpLearnFind
+    helpReferenceFind
     findLearnRecord
     findReferenceRecord
 
@@ -1274,8 +2844,13 @@ Script Steps
     Set Variable [ $$timestamp ]
     Set Variable [ $$brainstormCasePoint ]
     #
-    #Clear out all the pause script requests.
+    #Clear out all the pause script requests,
+    #unless this script was started by the help
+    #script, in which case it will halt all scripts
+    #after it is finished.
+    If [ $$doNotHaltOtherScripts = "" ]
     Halt Script
+    End If
     #
     #
     #END identical cancel error logic
@@ -1465,8 +3040,8 @@ Script Steps
     #
     #Explain problems with enter date and time
     #and how this problem can be addressed.
-    Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2016 12:25:30."; Default Button: “OK”, Commit: “No” ]
-    Show Custom Dialog [ Message: "You can replace the M/D/2016 H:M:S numbers with asterisks to, for example, search by year = */*/2016 *:*:*"; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2018 12:25:30."; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "You can replace the M/D/2018 H:M:S numbers with asterisks to, for example, search by year = */*/2018 *:*:*"; Default Button: “OK”, Commit: “No” ]
     Show Custom Dialog [ Message: "Click the 'less than' (or search before this date), 'more than' (or search after this date), or between dates search strategy buttons, and a properly formatted date search will be inserted for you to edit."; Default Button: “OK”, Commit: “No” ]
     #
     #Return to the timestamp field and allow the
@@ -1716,7 +3291,9 @@ Include In Menu	No
 Layouts that use this script
 
     learn4EDIT
+    learn4EDITLocked
     learn4EDITstuff
+    learn4EDITstuffLocked
 
 Scripts that use this script
 
@@ -1727,12 +3304,29 @@ Script Steps
     #Go to reference record layout.
     Set Variable [ $$stoploadCitation; Value:1 ]
     Go to Layout [ $$testLearnLayoutName ]
+    Set Variable [ $$testLearnLayoutName ]
     Set Variable [ $$stoploadCitation ]
     #
     #Allow add mode.
     Set Variable [ $$stopAdd ]
+    #
+    #Capture note and timestamp. If these are
+    #changed while on the Qv layout it will effect
+    #the record's sort location and require a resort
+    #for the user to see the record they went to the
+    #QV window to look at.
+    If [ $$QvNote ≠ testlearn::note or $$QvLocation ≠ testlearn::orderInventoryGroupNumber or $$QvTimestamp ≠ testlearn::timestamp ]
+    Set Variable [ $$QvNote ]
+    Set Variable [ $$QvLocation ]
+    Set Variable [ $$QvTimestamp ]
+    Sort Records [ ] [ No dialog ]
+    End If
 
 Fields used in this script
+
+    testlearn::note
+    testlearn::orderInventoryGroupNumber
+    testlearn::timestamp
 
 Scripts used in this script
 
@@ -1740,7 +3334,11 @@ Layouts used in this script
 
 Tables used in this script
 
+    testlearn
+
 Table occurrences used by this script
+
+    testlearn
 
 Custom Functions used by this script
 
@@ -1783,7 +3381,7 @@ Script Steps
     #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Exit find mode, then click this button."; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
@@ -2112,7 +3710,7 @@ Script Steps
     #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Exit find mode, then click this button."; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
@@ -2123,6 +3721,23 @@ Script Steps
     #Give user duplicate record options.
     If [ TEMP::InventoryLibraryYN = "" ]
     Show Custom Dialog [ Message: "Duplicate and reference current record? Click 'yes' if the duplicate is for capturing ideas, thoughts, etc. that link to the current record."; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    #
+    #If user wants to reference current record, note
+    #this and then ask if the want to also duplicate
+    #previous record's reference tags.
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $referenceCurrentRecord; Value:1 ]
+    #
+    #Mmm... Save this for another version.
+    // Show Custom Dialog [ Message: "Duplicate current record's references (reference tags) too? Click 'yes' if in this follow-on note you will reference the same references."; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    // #
+    // #If user wants to reference current record, note
+    // #this and then ask if the want to also duplicate
+    // #previous record's reference tags.
+    // If [ Get ( LastMessageChoice ) = 1 ]
+    // Set Variable [ $referenceReferences; Value:1 ]
+    // End If
+    End If
     #
     #If user cancels, then exit script.
     If [ Get ( LastMessageChoice ) = 3 ]
@@ -2151,6 +3766,7 @@ Script Steps
     Set Variable [ $getRecordNumberInCaseUserCancles; Value:Get ( RecordNumber ) ]
     Go to Field [ ]
     Set Variable [ $note; Value:testlearn::note ]
+    Set Variable [ $point; Value:testlearn::brainstormCasePoint ]
     Set Variable [ $P; Value:testlearn::kKeywordPrimary ]
     Set Variable [ $O; Value:testlearn::kcKeywordOther ]
     Set Variable [ $Owords; Value:testlearn::OtherKeyWords ]
@@ -2172,7 +3788,6 @@ Script Steps
     Set Field [ testlearn::filterFind; "main" & ¶ ]
     Set Field [ testlearn::kKeywordPrimary; $P ]
     Set Field [ testlearn::OtherKeyWords; $Owords ]
-    Set Field [ testlearn::note; $O ]
     Set Field [ testlearn::picture; $picture ]
     #
     #Filemaker has a bug that is stripping out the paragraphs
@@ -2180,15 +3795,17 @@ Script Steps
     #other word field. But put them into the note field and then
     #from note into the otherword key field and everything
     #is fine.
+    Set Field [ testlearn::note; $O ]
     Set Field [ testlearn::kcKeywordOther; testlearn::note ]
     Set Field [ testlearn::note; $note ]
+    Set Field [ testlearn::brainstormCasePoint; $point ]
     Set Variable [ $$stoploadCitation ]
     #
     #If user selects to reference current record in
     #the duplicate record, then add its key to
     #list (if any) of other referenced Learn record keys
     #that are referenced by the current record.
-    If [ Get ( LastMessageChoice ) = 1 ]
+    If [ $referenceCurrentRecord = 1 ]
     Set Field [ testlearn::kcreference; $referenceOriginal & ¶ & $reference ]
     Set Field [ testlearn::kshowReferencedMedia; $showReferencedMedia ]
     #
@@ -2199,6 +3816,29 @@ Script Steps
     Set Field [ testlearn::kcreference; $reference ]
     Set Field [ testlearn::kshowReferencedMedia; $showReferencedMedia ]
     End If
+    #
+    #
+    #Save this removal of reference tags for
+    #another version. The code as written doesn't
+    #do the job, and was copied from another
+    #do the job, and was copied from another
+    // If [ ]
+    // Set Variable [ $referenceNumber; Value:1 ]
+    // Loop
+    // If [ Filter ( GetValue ( testlearn::kcreference ; 1 ) ; "L" ) = "L" ]
+    // Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( $$ref) ≠ ValueCount ( Substitute ( $$ref ; $removeRef & "¶" ; "" ) ) ; Substitute ( $$ref ; $removeRef & "¶" ; "" ) ; Substitute ( $$ref ; $removeRef; "" ) ) ]
+    // Set Variable [ $$ref; Value:testlearn::kcreference ]
+    // #
+    // #Make sure the reference being removed also
+    // #gets its picture removed from this learn
+    // #record if it is being used.
+    // If [ $removeRef = testlearn::kshowReferencedMedia ]
+    // Set Field [ testlearn::kshowReferencedMedia; "" ]
+    // End If
+    // End If
+    // End Loop
+    // End If
+    #
     #
     #Sort the new record to the top of window, and
     #go to this new record, run the loadCition script,
@@ -2226,6 +3866,7 @@ Fields used in this script
 
     TEMP::InventoryLibraryYN
     testlearn::note
+    testlearn::brainstormCasePoint
     testlearn::kKeywordPrimary
     testlearn::kcKeywordOther
     testlearn::OtherKeyWords
@@ -2648,9 +4289,13 @@ Script Steps
     #the user if they would like to find just those
     #records, or continue to the find screen.
     If [ TEMP::InventoryLibraryYN = "" ]
-    Show Custom Dialog [ Message: "Find linked learn records (text areas highlighted purple)?" & ¶ & "OR" & ¶ & "Find other?"; Default Button: “other”, Commit: “No”; Button 2: “linked”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Find notes linked to this note?" & ¶ & "OR" & ¶ & "Find other notes?"; Default Button: “other”, Commit: “No”; Button 2: “linked”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     Else
-    Show Custom Dialog [ Message: "Find linked inventory records (text areas highlighted purple)?" & ¶ & "OR" & ¶ & "Find other?"; Default Button: “other”, Commit: “No”; Button 2: “linked”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    If [ testlearn::brainstormCasePoint = "" ]
+    Show Custom Dialog [ Message: "Find inventory with the same in/on tag as this item?" & ¶ & "OR" & ¶ & "Find other inventory items?"; Default Button: “other”, Commit: “No”; Button 2: “tagged”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Find inventory tagged with this in/on tag?" & ¶ & "OR" & ¶ & "Find other inventory items?"; Default Button: “other”, Commit: “No”; Button 2: “tagged”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
     End If
     #
     #Exit script if user clicks cancel.
@@ -2671,7 +4316,13 @@ Script Steps
     #If both are found ask user if they want to see
     #just the A records, or both A and B records.
     If [ TEMP::InventoryLibraryYN = "" ]
-    Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1 = Refs or 1 and 2 = Refs+?"; Default Button: “Ref+”, Commit: “Yes”; Button 2: “Ref”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    #
+    #This feature works! BUT, it is hard to
+    #understand, so for now I'm disabling it. The
+    #effect is that if the user chooses to see linked
+    #records, it will find all linked records.
+    // Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1 = Refs or 1 and 2 = Refs+?"; Default Button: “Ref+”, Commit: “Yes”; Button 2: “Ref”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Set Variable [ $showReferencesReferencingMe; Value:1 ]
     Else
     Show Custom Dialog [ Message: "OPPS! A holder cannot be tagged with another holder tag. Return to idea-library mode, where holder tags are labled as reference tags, and untag this record."; Default Button: “OK”, Commit: “Yes” ]
     Show Custom Dialog [ Message: "1) Remember the records that will now be found. 2) Click the 'back' button. 3) Uncheck the 'inventory library' checkbox. 4) Click the 'Learn' button. 5) Go to the reference tags menu, and 6) untag these records."; Default Button: “OK”, Commit: “Yes” ]
@@ -2703,7 +4354,11 @@ Script Steps
     Set Field [ testlearn::kcreference; $$main ]
     Extend Found Set [ ]
     #
+    If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
     Go to Record/Request/Page [ First ]
     #
     #Go to orignal record.
@@ -2788,7 +4443,11 @@ Script Steps
     Extend Found Set [ ]
     End If
     #
+    If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
     Go to Record/Request/Page [ First ]
     #
     #Go to orignal record.
@@ -2963,7 +4622,7 @@ Script Steps
     If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     Else
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
     End If
     Scroll Window [ Home ]
     Go to Record/Request/Page [ First ]
@@ -2986,13 +4645,14 @@ Fields used in this script
 
     testlearn::kcreference
     TEMP::InventoryLibraryYN
+    testlearn::brainstormCasePoint
     testlearn::_Ltestlearn
     testlearn::date
     testlearn::timestamp
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     refTestLearn::_Ltestlearn
     testlearn::filterFind
-    testlearn::note
-    testlearn::brainstormCasePoint
 
 Scripts used in this script
 
@@ -3086,7 +4746,7 @@ Script Steps
     If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     Else
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
     End If
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
@@ -3155,6 +4815,7 @@ Fields used in this script
     testlearn::filterFind
     testlearn::date
     testlearn::timestamp
+    testlearn::orderInventoryGroupNumber
     testlearn::note
     testlearn::_Ltestlearn
     testlearn::kcreference
@@ -3226,9 +4887,33 @@ Script Steps
     #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Exit find mode, then click this button."; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
+    #
+    #Check if there are an references from the
+    #reference setion of the library (not learn
+    #references). And if there are then ask if the
+    #user would like to find them or go the QV
+    #interface for this record.
+    If [ ( testlearn::kcreference = "" or ValueCount ( testlearn::kcreference ) - Length ( Filter ( testlearn::kcreference ; "L" ) ) = 0 ) = 0 ]
+    Show Custom Dialog [ Message: "Go to the QV interface for this record?" & ¶ & " OR " & ¶ & "Find all its references?"; Default Button: “go”, Commit: “Yes”; Button 2: “find”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    #Continue with this script.
+    End If
+    If [ Get ( LastMessageChoice ) = 2 ]
+    #Find this record's references and display them
+    #in the Tag Menus window.
+    Perform Script [ “CHUNK_findLearnRecordsReferences” ]
+    Exit Script [ ]
+    End If
+    If [ Get ( LastMessageChoice ) = 3 ]
+    #Cancel.
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #Prevent the unnecessary loading of records.
     Set Variable [ $$stoploadCitation; Value:1 ]
     #
     #If in find mode, exit find mode.
@@ -3247,36 +4932,71 @@ Script Steps
     #Capture layout name.
     Set Variable [ $$testLearnLayoutName; Value:Get (LayoutName) ]
     #
+    #Capture note and timestamp. If these are
+    #changed while on the Qv layout it will effect
+    #the record's sort location and require a resort
+    #for the user to see the record they went to the
+    #QV window to look at.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$QvNote; Value:testlearn::note ]
+    Set Variable [ $$QvLocation; Value:testlearn::orderInventoryGroupNumber ]
+    Else
+    Set Variable [ $$QvTimestamp; Value:testlearn::timestamp ]
+    End If
+    #
     #Go to edit layout for this record.
     If [ TEMP::InventoryLibraryYN ≠ "" ]
+    If [ tagTLNodePrimary::orderOrLock = "" ]
     Go to Layout [ “learn4EDITstuff” (testlearn) ]
     Else
+    Go to Layout [ “learn4EDITstuffLocked” (testlearn) ]
+    End If
+    Else
+    If [ tagTLNodePrimary::orderOrLock = "" ]
     Go to Layout [ “learn4EDIT” (testlearn) ]
+    Else
+    Go to Layout [ “learn4EDITLocked” (testlearn) ]
+    End If
     End If
     #
     #Prevent add mode.
     Set Variable [ $$stopAdd; Value:1 ]
     Set Variable [ $$stoploadCitation ]
+    #
+    #
 
 Fields used in this script
 
+    testlearn::kcreference
     TEMP::InventoryLibraryYN
+    testlearn::note
+    testlearn::orderInventoryGroupNumber
+    testlearn::timestamp
+    tagTLNodePrimary::orderOrLock
 
 Scripts used in this script
+
+    CHUNK_findLearnRecordsReferences
 
 Layouts used in this script
 
     <Missing Layout>
     learn4EDITstuff
+    learn4EDITstuffLocked
     learn4EDIT
+    learn4EDITLocked
 
 Tables used in this script
 
     TEMP
+    tag
+    testlearn
 
 Table occurrences used by this script
 
     TEMP
+    tagTLNodePrimary
+    testlearn
 
 Custom Functions used by this script
 
@@ -3355,7 +5075,7 @@ Custom menu set used by this script
     HGT
 
 
-Previous Script: [haltShareScript]	Parent Folder: [learn]	Next Script: [learnOpenTextNewWindow]
+Previous Script: [haltShareScript]	Parent Folder: [learn]	Next Script: [learnInsertReferenceIntoNote]
 Script Name	holderCheckBox
 Run script with full access privileges	Off
 Include In Menu	No
@@ -3406,7 +5126,174 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [holderCheckBox]	Parent Folder: [learn]	Next Script: [newLearn]
+Previous Script: [holderCheckBox]	Parent Folder: [learn]	Next Script: [learnOpenTextNewWindow]
+Script Name	learnInsertReferenceIntoNote
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    LearnTextWindow
+    LearnTextWindow_iDevice
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #If the record has no references, then insert a
+    #generic reference template and let user know
+    #the benefits of tag references and then
+    #clicking the insertRef button.
+    If [ testlearn::kcreference = "" or ValueCount ( testlearn::kcreference ) - Length ( Filter ( testlearn::kcreference ; "L" ) ) = 0 ]
+    Show Custom Dialog [ Message: "If you add references to a record like this one, this button will give you a list of pre-formatted references to insert including the author's name and date of publication."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #Make sure the cursor is in active field and if
+    #not tell them to click in one.
+    If [ Get ( ActiveFieldName ) = "" or Get ( ActiveFieldName ) ≠ "note" ]
+    Show Custom Dialog [ Message: "Click into the text field, and then click exactly where you want — " & Trim ($tag) & " — inserted."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #Make sure the user has not selected any text.
+    If [ Get ( ActiveFieldName ) = "" or Get ( ActiveFieldName ) ≠ "note" ]
+    Show Custom Dialog [ Message: "Click into the text field, and then click exactly where you want — " & Trim ($tag) & " — inserted."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #Remind the user that the inserted reference
+    #is going to go where they have placed
+    #their cursor.
+    Show Custom Dialog [ Message: "Is your cursor where you want to insert a reference? WARNING: Selected text will be erased during insert." & "" & ¶ & "(You can also click 'yes' just to see this note's references.)"; Default Button: “yes”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 2 ]
+    Exit Script [ ]
+    End If
+    #
+    #Hide controls so user knows to close the
+    #Insert Reference window before they can
+    #continue editing their note.
+    Set Variable [ $$hideEditNoteControls; Value:1 ]
+    Refresh Window
+    #
+    #Capture the keys of the references load.
+    Set Variable [ $references; Value:testlearn::kcreference ]
+    #
+    #Determine how many references there are.
+    Set Variable [ $numberOfReferences; Value:ValueCount ( testlearn::kcreference ) ]
+    #
+    #Prevent loading up records.
+    Set Variable [ $$STOPloadReferenceForInsertIntoText; Value:1 ]
+    #
+    #In the test section, go the Reference window
+    #or open one up if neccessary.
+    If [ Get ( SystemPlatform ) = - 2 ]
+    New Window [ Name: "Insert Reference"; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Else
+    New Window [ Name: "Insert Reference"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    End If
+    #
+    #Go the insert references layout.
+    Go to Layout [ “learnMenu3CitePickAReference” (reference) ]
+    #
+    #Find the first reference. NOTE: It may be this
+    #first reference is a learn reference, and so no
+    #records will be found, but this is OK. This first
+    #find clears out any records that may have
+    #been found previously, and replaces them with
+    #the outcome of this first find, which if none is,
+    #again, OK. Then next find step expands on
+    #this find, so to speed things up, it will not look
+    #for learn references, BUT if this step did not
+    #look for learn records, the script would in
+    #effect skip this first find and so leave in place
+    #the records found previously. Very Bad!
+    #NOTE: I've had a lot of caffeine.
+    Enter Find Mode [ ]
+    Set Field [ reference::_Lreference; GetValue ( $references ; $numberOfReferences ) ]
+    Perform Find [ ]
+    #
+    #If there is more than one reference, then load
+    #find them one-at-time until all have been found.
+    Loop
+    Set Variable [ $numberOfReferences; Value:$numberOfReferences - 1 ]
+    #
+    #Exit find loop once all references have
+    #been found.
+    Exit Loop If [ $numberOfReferences = 0 ]
+    #
+    #Only find references from the Reference section.
+    If [ Right ( GetValue ( $references ; $numberOfReferences ) ; 1 ) ≠ "L" ]
+    Enter Find Mode [ ]
+    Set Field [ reference::_Lreference; GetValue ( $references ; $numberOfReferences ) ]
+    Extend Found Set [ ]
+    End If
+    #
+    End Loop
+    #
+    #Sort according the user's preference.
+    If [ TEMP::sortInsertRef = "cat" or TEMP::sortInsertRef = "" ]
+    Set Field [ TEMP::sortInsertRef; "abc" ]
+    Else If [ TEMP::sortInsertRef = "abc" ]
+    Set Field [ TEMP::sortInsertRef; "cat" ]
+    End If
+    Perform Script [ “sortTags” ]
+    Go to Record/Request/Page [ First ]
+    Scroll Window [ Home ]
+    #
+    #Resize the window.
+    Move/Resize Window [ Name: "Test"; Current file; Width: Get ( ScreenWidth ) / 3; Left: 0 ]
+    #
+    #Turn back on info record record's load script.
+    Set Variable [ $$STOPloadReferenceForInsertIntoText ]
+    Perform Script [ “loadReferenceForInsertIntoText” ]
+    #
+    #Pause the script so the user cannot do
+    #anything until they either insert a reference
+    #or close this window.
+    Pause/Resume Script [ Indefinitely ]
+    #
+    #
+
+Fields used in this script
+
+    testlearn::kcreference
+    reference::_Lreference
+    TEMP::sortInsertRef
+
+Scripts used in this script
+
+    sortTags
+    loadReferenceForInsertIntoText
+
+Layouts used in this script
+
+    learnMenu3CitePickAReference
+
+Tables used in this script
+
+    TEMP
+    reference
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    reference
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [learnInsertReferenceIntoNote]	Parent Folder: [learn]	Next Script: [newLearn]
 Script Name	learnOpenTextNewWindow
 Run script with full access privileges	Off
 Include In Menu	No
@@ -3425,7 +5312,9 @@ Layouts that use this script
     learn5
     learnStuff5
     learn4EDIT
+    learn4EDITLocked
     learn4EDITstuff
+    learn4EDITstuffLocked
 
 Scripts that use this script
 
@@ -3439,11 +5328,23 @@ Script Steps
     Go to Field [ testlearn::note ]
     Exit Script [ ]
     End If
+    #
+    #Stop script if user clicked in the note field to
+    #navigate to this record, not to open the text
+    #edit window.
     If [ $$stopOpenNewTextWindow = 1 ]
     Set Variable [ $$stopOpenNewTextWindow ]
     Exit Script [ ]
     End If
     Go to Field [ ]
+    #
+    #Set variable so when user closes this edit
+    #window a test can be performed to see if
+    #record was changed and so Learn window
+    #needs to be resorted for inventory tags only.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$copyNoteForSortCheck; Value:testlearn::note ]
+    End If
     #
     Set Variable [ $record; Value:testlearn::_Ltestlearn ]
     Set Variable [ $$stopLoadCitation; Value:1 ]
@@ -3493,13 +5394,15 @@ Script Steps
     Show Custom Dialog [ Message: "Use two-finger pinch-and-zoom gesture to make text easier to see and edit."; Default Button: “OK”, Commit: “Yes” ]
     End If
     Pause/Resume Script [ Indefinitely ]
+    #
+    #
 
 Fields used in this script
 
     testlearn::note
+    TEMP::InventoryLibraryYN
     testlearn::_Ltestlearn
     tagTLNodePrimary::orderOrLock
-    TEMP::InventoryLibraryYN
 
 Scripts used in this script
 
@@ -3560,11 +5463,19 @@ Script Steps
     #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Exit find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
     Set Variable [ $$stoploadCitation; Value:1 ]
+    #
+    #If in inventory mode, add the primary location
+    #tag of the group the user was in when they
+    #clicked the new button.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $locationTag; Value:Case ( refContainerLocation::_Lreference ≠ "" ; refContainerLocation::_Lreference ; refLearn 2::_Lreference ) ]
+    End If
+    #
     Go to Field [ ]
     Freeze Window
     New Record/Request
@@ -3574,6 +5485,12 @@ Script Steps
     Set Field [ testlearn::kNodeOther; TEMP::kdefaultNodeOther ]
     Set Field [ testlearn::NodeOthers; TEMP::DEFAULTNodeOtherNames ]
     Set Field [ testlearn::kcopyright; TEMP::kdefaultCopyright ]
+    #If in inventory mode, add the primary location
+    #tag of the group the user was in when they
+    #clicked the new button.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Field [ testlearn::kcreference; $locationTag ]
+    End If
     Set Field [ testlearn::incomplete; "incomplete" & ¶ ]
     Set Field [ testlearn::filterFind; "main" & ¶ ]
     If [ Right ( Get ( LayoutName ) ; 4 ) = "EDIT" ]
@@ -3634,6 +5551,9 @@ Script Steps
 
 Fields used in this script
 
+    TEMP::InventoryLibraryYN
+    refContainerLocation::_Lreference
+    refLearn 2::_Lreference
     TEMP::kdefaultNodePrimary
     testlearn::kNodePrimary
     testlearn::kRecordCreatorNode
@@ -3644,10 +5564,10 @@ Fields used in this script
     testlearn::NodeOthers
     TEMP::kdefaultCopyright
     testlearn::kcopyright
+    testlearn::kcreference
     testlearn::incomplete
     testlearn::filterFind
     testlearn::_Ltestlearn
-    testlearn::kcreference
     testlearn::kKeywordPrimary
     testlearn::kcKeywordOther
     testlearn::kctestSubsectionInfo
@@ -3664,11 +5584,14 @@ Layouts used in this script
 Tables used in this script
 
     TEMP
+    reference
     testlearn
 
 Table occurrences used by this script
 
     TEMP
+    refContainerLocation
+    refLearn 2
     testlearn
 
 Custom Functions used by this script
@@ -3694,8 +5617,6 @@ Layouts that use this script
     learnStuff4
     learn5
     learnStuff5
-    learn4EDIT
-    learn4EDITstuff
 
 Scripts that use this script
 
@@ -3703,36 +5624,76 @@ Script Definition
 Script Steps
 
     #
+    #
+    #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Exit find mode in the Tag Menus window, then click this button."; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
+    #
+    #
+    #
+    #BEGIN: SHARE DOCUMENT CREATION
+    # PART 1 >> Admin
+    # PART 2 >> Find Records
+    # PART 3 >> What about references?
+    # PART 4 >> Build shared document
+    # PART 5 >> Display share document
+    # PART 6 >> Report any issues
+    #
+    #
+    #
+    #
+    #
+    #PART 1 >> Admin ————————————
+    #
+    #
+    #
     #
     #
     #Admin tasks.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     #
+    #Close Share and Sbare windows, as they may
+    #be open from the last time the user clicked the
+    #share button.
     Close Window [ Name: "Share"; Current file ]
+    #Yup, the window is named "Sbare."
+    Close Window [ Name: "Sbare"; Current file ]
+    #See explenation below.
     #
     Set Variable [ $$stopLoadCitation; Value:1 ]
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $layoutName; Value:Get ( LayoutName ) ]
     #
     #
-    #BEGIN: SHARE Brainstorm/Inventory or Test Tagged Records
+    #Open a new window to find learn records in.
+    #(For testing, enable the window that is
+    #not out of sight.)
+    // New Window [ Name: "Share"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    New Window [ Name: "Share"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “learnPreviewLayout” (testlearn) ]
+    #
+    #
+    #
+    #
+    #
+    #PART 2 >> Find Records ——————————
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Find brainstorm or test tagged records
     #
     #If the Tag Menus window is showing the brainstorm
     #or inventory menu when the use clicked 'share'
     #then find the records tagged with the currently
     #selected brainstorm tag = $$brainstorm variable.
-    If [ $$citationMatch = "brainstorm" and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITstuff" or $$citationMatch = "test" and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITstuff" ]
+    If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
     #
-    // New Window [ Name: "Share"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    New Window [ Name: "Share"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “learnPreviewLayout” (testlearn) ]
-    #
+    #Find all brainstorm or inventory list records.
     Enter Find Mode [ ]
     #
     #This keychain contain the item's three-digit
@@ -3744,8 +5705,11 @@ Script Steps
     Set Field [ testlearn::kctestSubsectionInfo; "***" & $$tagTest ]
     End If
     Perform Find [ ]
+    If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::timestamp; descending ] [ Restore; No dialog ]
-    #
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
     #
     #Stop the script if no records are found and
     #tell the user why.
@@ -3755,9 +5719,9 @@ Script Steps
     Set Variable [ $tagName; Value:tagMenus::tag ]
     Select Window [ Name: "Learn"; Current file ]
     If [ TEMP::InventoryLibraryYN = "" ]
-    Show Custom Dialog [ Message: "When a brainstorm tag is active in the Tag Menus window, clicking the share button will show all records tagged with it. Zero records are tagged with " & $tagName & "."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "There are no Learn records tagged with — " & $tagName & " — in the Tag Menus window. Only brainstorm tagged records can be shared when the brainstorm tag menu is active."; Default Button: “OK”, Commit: “Yes” ]
     Else
-    Show Custom Dialog [ Message: "When an inventory list tag is active in the Tag Menus window, clicking the share button will show all records tagged with it. Zero records are tagged with " & $tagName & "."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "When an inventory list tag is active in the Tag Menus window, clicking the share button will show only records tagged with it. Zero records are tagged with " & $tagName & "."; Default Button: “OK”, Commit: “Yes” ]
     End If
     #
     Set Variable [ $$stopLoadCitation ]
@@ -3765,263 +5729,80 @@ Script Steps
     #
     Exit Script [ ]
     End If
-    #
-    #
-    #Now add references linked to all records.
-    Set Variable [ $point; Value:1 ]
-    Set Variable [ $evidence; Value:1 ]
-    Go to Record/Request/Page [ First ]
-    #
-    #Print order number, author, record date, text
-    #of learn record, and keywords.
-    Loop
-    If [ TEMP::InventoryLibraryYN = "" ]
-    #Set copyright.
-    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ & ¶) & //text Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //node TextColor ( " [" & tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) & //timestamp " (" & testlearn::timestamp & ")." & //copyright " Copyright " & learnCreatorsCopyright::tag & ".]" ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //grey remain text TextColor ( //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ & "keywords — " & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
-    Else
-    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ & ¶) & //number Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //node TextColor ( " [" & tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) & //timestamp " " & testlearn::timestamp & "]" ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //grey remain text TextColor ( //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ & "Attibutes = " & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
     End If
     #
-    #Increase evidence number if point is required.
-    If [ testlearn::brainstormCasePoint = "" ]
-    Set Variable [ $evidence; Value:$evidence + 1 ]
-    Else
-    Set Variable [ $evidence; Value:2 ]
-    End If
-    #
-    #Print references if a learn record has any.
-    If [ testlearn::kcreference ≠ "" ]
-    If [ refLearn::referenceForReferenceWindow ≠ "" or TEMP::InventoryLibraryYN ≠ "" and refContainerLocation::referenceForReferenceWindow ≠ "" ]
-    #
-    #Name reference or inventory location section.
-    If [ TEMP::InventoryLibraryYN = "" ]
-    Set Variable [ $copy; Value:$copy & ¶ & //grey text TextColor ( //references Case ( testlearn::kcreference ≠ "" ; ¶ & "References" ; "" ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
-    Else
-    Set Variable [ $copy; Value:$copy & ¶ & Case ( testlearn::kcreference ≠ "" ; ¶ & Case ( refTestLearn::concatenateSTUFF = "" ; TextColor ( "Location" ; RGB ( 119 ; 119 ; 119 ) ) ; TextColor ( "Location = " ; RGB ( 119 ; 119 ; 119 ) ) & refTestLearn::concatenateSTUFFcontainer // & TextColor ( ", located here:" ; RGB ( 119 ; 119 ; 119 ) ) ) ; "" ) ]
-    End If
-    #
-    #Start with the first reference. This needs to
-    #be set at the start of each loop.
-    Set Variable [ $portal; Value:1 ]
-    #
-    Loop
-    #
-    #Select portal showing either a scholarly
-    #reference or inventory items location.
-    If [ TEMP::InventoryLibraryYN = "" ]
-    Go to Object [ Object Name: "ref1" ]
-    Else
-    If [ refTestLearn::concatenateSTUFF = "" ]
-    Go to Object [ Object Name: "stuff location" ]
-    Else
-    Go to Object [ Object Name: "container location" ]
-    End If
-    End If
-    #
-    #If this is the first reference clear the
-    #$portal variable and select portal's first record.
-    If [ $portal = 1 ]
-    Set Variable [ $portal ]
-    Go to Portal Row [ Select; First ]
-    End If
-    #
-    #Print references.
-    If [ TEMP::InventoryLibraryYN = "" ]
-    Set Variable [ $copy; Value:Case ( Right ( $copy ; 10 ) = "References" ; $copy & ¶ & //grey text TextColor ( refLearn::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ; $copy & ¶ & ¶ & //grey text TextColor ( refLearn::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ) ]
-    Else
-    Set Variable [ $copy; Value:Case ( refTestLearn::concatenateSTUFF = "" ; $copy & ¶ & refLearn::referenceSTUFF ; $copy & ¶ & refContainerLocation::referenceSTUFF4learnOtherContainer ) ]
-    End If
-    #
-    #Go to the learn records next reference.
-    Go to Portal Row [ Select; Next; Exit after last ]
-    Exit Loop If [ Get (LastError) = 101 ]
-    End Loop
-    #
-    End If
-    End If
-    #
-    #Go to the next learn record tagged with this
-    #brainstorm or inventory list tag OR exit loop
-    #if this is the end of the list.
-    Go to Record/Request/Page [ Next; Exit after last ]
-    Set Variable [ $copy; Value:$copy & ¶ & //grey text TextColor ( "_______________________________________________" ; RGB ( 119 ; 119 ; 119 ) ) ]
-    #
-    #Increase point number if point is different.
-    If [ testlearn::brainstormCasePoint ≠ "" ]
-    Set Variable [ $point; Value:$point + 1 ]
-    End If
-    End Loop
+    #END Find brainstorm or test tagged records
     #
     #
-    #Get primary node's copyright for this share as
-    #it is the primary node that is sharing these records.
-    Go to Layout [ “TEMP” (TEMP) ]
-    Set Variable [ $copyright; Value:defaultCopyrightName::tag ]
-    Go to Layout [ “learnPreviewLayout” (testlearn) ]
     #
     #
-    #Get brainstorm or inventory list tag's title and
-    #use as the title for this shared list.
-    If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    If [ $$citationMatch = "brainstorm" ]
-    If [ TEMP::InventoryLibraryYN = "" ]
-    #Set copyright.
-    Set Variable [ $copyright; Value:tagsCopyright::tag ]
-    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & " Brainstorm — " & TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Brainstorm Copyright " & $copyright & "." ]
-    Else
-    #Set copyright.
-    Set Variable [ $copyright; Value:tagsCopyright::tag ]
-    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & " Inventory List — " & TextStyleAdd ( tagMenus::tag ; Titlecase ) & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Inventory List Copyright " & $copyright & "." ]
-    End If
-    Else If [ $$citationMatch = "test" ]
-    If [ TEMP::InventoryLibraryYN = "" ]
-    #Set copyright.
-    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & " Test Subsection — " & TextStyleAdd ( testSubsectionTemplate::name ; Titlecase ) & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
-    Else
-    #Set copyright.
-    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & " Test Subsection — " & TextStyleAdd ( testSubsectionTemplate::name ; Titlecase ) & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
-    End If
-    End If
-    Go to Field [ ]
-    Set Variable [ $copy; Value://Brainstorm Title and History $brainstorm & ¶ & ¶ & $copy ]
     #
-    #Select Learn window so when the Share
-    #window is closed it will be selected. Then
-    #select the Share window to continue
-    #this script.
+    #BEGIN Find and order non-brainstorm/test
+    #tagged records
+    #
+    #
+    #Select the Learn window as the background
+    #for the coming set of questions the user needs
+    #to answer. It is confusing if the user sees the
+    #title of learn window changed to 'share' when
+    #asked these questions.
     Select Window [ Name: "Learn"; Current file ]
-    Select Window [ Name: "Share"; Current file ]
-    Go to Layout [ “learnPreviewLayoutView” (testlearn) ]
-    End If
     #
-    Set Variable [ $$stopLoadCitation ]
-    Set Variable [ $$stopLoadTagRecord ]
+    #BEGIN Find out which records to share?
     #
-    #Set font size.
-    Set Field [ TEMP::paste; TextSize ( $copy ; 12 ) ]
-    Go to Field [ ]
+    If [ $$citationMatch ≠ "brainstorm" and $$citationMatch ≠ "test" ]
     #
-    #All records showing are identical,
-    #so remove all but one of them.
-    Go to Record/Request/Page [ First ]
-    Omit Multiple Records [ Get (FoundCount) - 1 ] [ No dialog ]
-    #
-    #Display list.
-    Scroll Window [ Home ]
-    Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-    Adjust Window [ Resize to Fit ]
-    #
-    Exit Script [ ]
-    #
-    #END: SHARE Brainstorm/Inventory or Test Tagged Records
-    #
-    #
-    #
-    #
-    #
-    Else
-    #
-    #
-    #
-    #
-    #
-    #
-    #BEGIN: SHARE Non-Brainstorm and Inventory Records
-    #
-    #BEGIN: Find out if the user wants to show the
-    #selected record, linked records too, or all
-    #records being viewed.
-    #
-    #Use for header message on printed list.
+    #Used for message below to let user know how
+    #many records are currently showing that they
+    #could share.
     Set Variable [ $numberOfRecordsBeingViewed; Value:Get (FoundCount) ]
     #
-    #Check if the current Learn record
-    #references other Learn records or is
-    #referenced by other Learn records.
-    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" or $$LinkedLearnRecords ≠ "" ]
+    #If the current Learn record is linked to other
+    #Learn note records, do this.
+    If [ TEMP::InventoryLibraryYN = "" and Filter ( testlearn::kcreference ; "L" ) ≠ "" or TEMP::InventoryLibraryYN = "" and $$LinkedLearnRecords ≠ "" ]
     #
-    #If it does reference other Learn records ask
-    #the user what they would like to see?
-    If [ $layoutName = "learn4EDIT" or $layoutName = "learn4EDITStuff" ]
-    #
-    #On QV layouts ask about viewing just the
-    #selected record or all linked records.
+    #Ask user if they want to share just the linked
+    #records or share all records being viewed.
     If [ TEMP::InventoryLibraryYN = "" ]
-    Show Custom Dialog [ Message: "This record is linked to other learn records (text areas highlighted purple). Share linked or just this one record?"; Default Button: “linked”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    Else
-    #
-    #Determine if inventory record is for a container.
-    If [ testlearn::brainstormCasePoint = "" ]
-    Show Custom Dialog [ Message: "This record is linked to other inventory records. Show them too or just this one record?"; Default Button: “linked”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    Else
-    Show Custom Dialog [ Message: "This holder (box, shelf, etc) is linked to other inventory records. Show them too or just this one record?"; Default Button: “linked”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Share only this note + " & Length ( Filter ( testlearn::kcreference ; "L" ) ) & Case ( Length ( Filter ( testlearn::kcreference ; "L" ) ) = 1 ; " note" ; " notes" ) & " linked to it?" & ¶ & "OR" & ¶ & "Share all notes being viewed? Now viewing " & Get (FoundCount) & ".", Default Button: "note+" & Length ( Filter ( testlearn::kcreference ; "L" ) ), Commit: “Yes”; Button 2: “all”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     End If
     #
-    End If
+    #Save the user's selection.
     If [ Get (LastMessageChoice) = 1 ]
-    Set Variable [ $show; Value:"self and referenced" ]
-    Else If [ Get (LastMessageChoice) = 2 ]
-    Set Variable [ $show; Value:"self" ]
-    End If
-    #
-    Else
-    #On main learn layouts ask about viewing
-    #selected or all records.
-    If [ TEMP::InventoryLibraryYN = "" ]
-    Show Custom Dialog [ Message: "Share only linked learn records (text areas highlighted purple)?" & ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Default Button: “linked”, Commit: “Yes”; Button 2: “all”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    Else
-    If [ testlearn::brainstormCasePoint = "" ]
-    Show Custom Dialog [ Message: "Share this inventory record and all records to which it's linked?" & ¶ & "OR" & ¶ & "Share all inventory records being viewed? Now viewing " & Get (FoundCount) & "."; Default Button: “linked”, Commit: “Yes”; Button 2: “all”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    Else
-    Show Custom Dialog [ Message: "Share this storage record and inventory records linked to it?" & ¶ & "OR" & ¶ & "Share all records being viewed? Now viewing " & Get (FoundCount) & "."; Default Button: “linked”, Commit: “Yes”; Button 2: “all”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    End If
-    End If
-    If [ Get (LastMessageChoice) = 1 ]
-    Set Variable [ $show; Value:"self and referenced" ]
-    #
+    Set Variable [ $show; Value:"self and linked" ]
     Else If [ Get (LastMessageChoice) = 2 ]
     Set Variable [ $show; Value:"all" ]
-    #
-    End If
     End If
     #
     #Exit script if user clicks cancel.
     If [ Get ( LastMessageChoice ) = 3 ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
+    Close Window [ Name: "Share"; Current file ]
     Exit Script [ ]
     End If
     #
     #
     Else
+    #If the current Learn record is NOT linked to
+    #other Learn records, or if this is an inventory
+    #record do this.
     #
     #
-    #If it has no references to other Learn records
-    #on QV layouts set to just show this one record.
-    If [ $layoutName = "learn4EDIT" or $layoutName = "learn4EDITStuff" ]
-    Set Variable [ $show; Value:"self" ]
-    End If
-    #
-    #If record is on main layout (not QV) and has no
-    #references, see if user wants view just the
-    #selected record or all records being viewed.
-    If [ Get (FoundCount) ≠ 1 and $layoutName ≠ "learn4EDIT" and $layoutName ≠ "learn4EDITStuff" ]
+    #Ask user if they want to share the selected
+    #record, or share all records being viewed.
+    If [ Get (FoundCount) ≠ 1 ]
     If [ TEMP::InventoryLibraryYN = "" ]
-    Show Custom Dialog [ Message: "Share all or just this one record? Now viewing " & Get (FoundCount) & "."; Default Button: “all”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    #Note record is for an idea.
+    Show Custom Dialog [ Message: "Share all notes or just this one? " & ¶ & "Now viewing " & Get (FoundCount) & "."; Default Button: “all”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     Else
-    #
-    #Determine if inventory record is for a container.
-    If [ testlearn::brainstormCasePoint = "" ]
-    Show Custom Dialog [ Message: "Share all inventory records being viewed or just this one record? Now viewing " & Get (FoundCount) & "."; Default Button: “all”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    Else
-    Show Custom Dialog [ Message: "Share all inventory records being viewed or just this one storage area, holder, etc. record? Now viewing " & Get (FoundCount) & "."; Default Button: “all”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    End If
+    #Inventory record is for an item.
+    Show Custom Dialog [ Message: "Share all inventory records being viewed or just this one? " & ¶ & "Now viewing " & Get (FoundCount) & "."; Default Button: “all”, Commit: “Yes”; Button 2: “one”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     End If
     #
+    #Save the user's selection.
     If [ Get (LastMessageChoice) = 1 ]
     Set Variable [ $show; Value:"all" ]
-    #
     Else If [ Get (LastMessageChoice) = 2 ]
     Set Variable [ $show; Value:"self" ]
     End If
@@ -4030,12 +5811,38 @@ Script Steps
     If [ Get ( LastMessageChoice ) = 3 ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
+    Close Window [ Name: "Share"; Current file ]
     Exit Script [ ]
     End If
     End If
     End If
+    #
+    #END Find out which records to share?
+    #
+    #
+    #
+    #BEGIN Ask how to order records being shared
+    #
+    If [ TEMP::InventoryLibraryYN = "" and $show ≠ "self" ]
+    Show Custom Dialog [ Message: "Order notes as seen in the Learn window (newest 1st), or order them in chronoligcal order (oldest 1st)?"; Default Button: “newest 1st”, Commit: “Yes”; Button 2: “oldest 1st”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     End If
     #
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Variable [ $chronologicalSortOrder; Value:1 ]
+    End If
+    #
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Set Variable [ $$stopLoadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Close Window [ Name: "Share"; Current file ]
+    Exit Script [ ]
+    End If
+    #
+    #END Ask how to order notes being shared
+    #
+    #
+    #
+    #BEGIN Help user stop share if it takes to long
     #
     #I commonly click the share button when I do not mean
     #click it, so these next two question help the user
@@ -4053,6 +5860,7 @@ Script Steps
     If [ Get ( LastMessageChoice ) = 2 ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
+    Close Window [ Name: "Share"; Current file ]
     Exit Script [ ]
     End If
     #
@@ -4060,82 +5868,34 @@ Script Steps
     Show Custom Dialog [ Message: "If you get tired of waiting, just click on the 'Help' menu above and select 'Stop Share' to stop the processing of your records."; Default Button: “OK”, Commit: “Yes” ]
     End If
     #
-    #
-    #END: Find out if the user wants to show the
-    #selected record, linked records too, or all
-    #records being viewed.
+    #END Help user stop share if it takes to long
     #
     #
-    #Begin process of showing user selected
-    #records.
-    // New Window [ Name: "Share"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    New Window [ Name: "Share"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “learnPreviewLayout” (testlearn) ]
-    Install Menu Set [ “HGT Stop Share” ]
+    #
+    #BEGIN Find records user wants to share
+    #
+    #Return to the share window.
+    Select Window [ Name: "Share"; Current file ]
     #
     #If user elected to show only selected record,
-    #then only this record.
+    #then only find this record.
     If [ $show = "self" ]
     Enter Find Mode [ ]
     Set Field [ testlearn::_Ltestlearn; $$main ]
     Perform Find [ ]
     End If
     #
-    #
     #If user elected to show the selected record
     #and linked records, then find just these
     #records and show them.
-    If [ $show = "self and referenced" ]
+    If [ $show = "self and linked" ]
     #
     #Find original record first.
     Enter Find Mode [ ]
     Set Field [ testlearn::_Ltestlearn; $$main ]
     Perform Find [ ]
     #
-    #Determine if record has references to show.
-    If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
-    #
-    #Set $showReferences variable.
-    Set Variable [ $showReferences; Value:1 ]
-    End If
-    #
-    #If there are records it has links to
-    #AND records with links to it ask user if they
-    #want to see the first type or both types.
-    If [ $showReferences ≠ "" and $$LinkedLearnRecords ≠ "" ]
-    #
-    Select Window [ Name: "Learn"; Current file ]
-    If [ TEMP::InventoryLibraryYN = "" ]
-    Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1 = Refs or 1 and 2 = Refs+?"; Default Button: “Refs +”, Commit: “Yes”; Button 2: “Refs”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    Else
-    If [ testlearn::brainstormCasePoint = "" ]
-    Show Custom Dialog [ Message: "This record 1) references and is 2) referenced by other Learn records. Show 1 = Refs or 1 and 2 = Refs+?"; Default Button: “Refs +”, Commit: “Yes”; Button 2: “Refs”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-    Else
-    Set Variable [ $showReferencesReferencingMe; Value:1 ]
-    End If
-    End If
-    If [ Get (LastMessageChoice) = 1 ]
-    Set Variable [ $showReferencesReferencingMe; Value:1 ]
-    End If
-    Select Window [ Name: "Share"; Current file ]
-    End If
-    #
-    #
-    #Exit script if user clicks cancel.
-    If [ Get ( LastMessageChoice ) = 3 ]
-    Set Variable [ $$stopLoadCitation ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Close Window [ Current Window ]
-    Exit Script [ ]
-    End If
-    End If
-    #
-    #
-    #BEGIN: Get all learn records the selected record
-    #has links to (it references these records).
-    If [ $showReferences ≠ "" ]
-    #
-    #First get the linked records' IDs.
+    #Get the selected record's linked record IDs.
     Set Variable [ $findLinkedLearnRecords; Value:testlearn::_Ltestlearn ]
     Loop
     Go to Object [ Object Name: "ref2" ]
@@ -4147,14 +5907,14 @@ Script Steps
     #Determine how many IDs there are.
     Set Variable [ $numberOfKeys; Value:ValueCount ($findLinkedLearnRecords ) ]
     #
-    #Find 1st record.
+    #Find the 1st ID'ed record.
     Enter Find Mode [ ]
     Set Field [ testlearn::_Ltestlearn; GetValue ( $findLinkedLearnRecords ; $numberOfKeys ) ]
     Extend Found Set [ ]
     Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
     #
-    #Loop set of IDs to expand found records until
-    #all linked records have been found.
+    #Loop thru set of IDs to until all linked records
+    #have been found.
     Loop
     #
     #Exit the loop when there are no more IDs.
@@ -4169,17 +5929,10 @@ Script Steps
     #of IDs.
     Set Variable [ $numberOfKeys; Value:$numberOfKeys - 1 ]
     End Loop
-    End If
-    #END: Get all learn records the selected record
-    #has links to (it references these records).
     #
-    #
-    #Find all records with links to selected record
-    #if the user wants to see them, I.E., the user
-    #clicked a 'linked' button.
-    If [ $show ≠ "self" ]
-    If [ $show ≠ "all" ]
-    If [ //There are only learn records referencing this record to show $showReferences = "" and $$LinkedLearnRecords ≠ "" or //There are learn records this record references and records referencing it that the user wants to show. $showReferences ≠ "" and $showReferencesReferencingMe ≠ "" ]
+    #Next find all records with links to the
+    #selected record.
+    If [ $$LinkedLearnRecords ≠ "" ]
     #
     Enter Find Mode [ ]
     Set Field [ testlearn::kcreference; $$main ]
@@ -4187,58 +5940,284 @@ Script Steps
     #
     End If
     End If
-    End If
+    #
+    #END Find records user wants to share
+    #
     #
     #Put all found records in order.
+    If [ $chronologicalSortOrder = "" ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    #Sort in reverse chronological order.
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    #Sort by location and alphabetically by item.
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
+    Else
+    #Sort in chronological order.
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; ascending testlearn::timestamp; ascending ] [ Restore; No dialog ]
+    End If
+    #
+    #
+    End If
+    #
+    #END Find and order non-brainstorm/test
+    #tagged records
+    #
+    #
+    #
+    #
+    #
+    #PART 3 >> What about references? —————
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Ask user what to do with references?
+    #
+    If [ TEMP::InventoryLibraryYN = "" and $show ≠ "self" ]
+    #
+    #Check if any of the records found have
+    #references that the user might want
+    #to display at the end of this share.
     Go to Record/Request/Page [ First ]
+    Loop
+    If [ ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) > 0 ]
+    Set Variable [ $thereAreReferences; Value:1 ]
+    End If
+    Exit Loop If [ ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) > 0 ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #If there are references, ask if the user would
+    #like to keep them with their notes or display
+    #them all at the end of the share.
+    If [ $thereAreReferences ≠ "" ]
+    Select Window [ Name: "Learn"; Current file ]
+    If [ $$citationMatch = "brainstorm" ]
+    Show Custom Dialog [ Message: "Keep brainstorm note references with each note, or put all references in a separate reference section?"; Default Button: “section”, Commit: “Yes”; Button 2: “note”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Keep note references with each note, or put all references in a separate reference section?"; Default Button: “section”, Commit: “Yes”; Button 2: “note”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
+    End If
+    #
+    #If the user decides to consolidate all notes'
+    #references to single reference section at
+    #the end, do the following:
+    If [ Get (LastMessageChoice) = 1 ]
+    #
+    #Note that the user wants an end
+    #reference section.
+    Set Variable [ $referencesInSectionAtEnd; Value:1 ]
+    #
+    #Ask them what else they might
+    #like removed from the note.
+    Show Custom Dialog [ Message: "Keep note numbering (#) and keywords, or just numbers, or remove all (essay format)?"; Default Button: “keepAll”, Commit: “Yes”; Button 2: “keep#”, Commit: “No”; Button 3: “removeAll”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    #
+    #Would the to keep just the timestamp or
+    #only the keywords?
+    Show Custom Dialog [ Message: "Finally, keep timestamp and keywords, or only timestamp, or only keywords?"; Default Button: “keepBoth”, Commit: “Yes”; Button 2: “KeepTime”, Commit: “No”; Button 3: “keepKey”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    Else If [ Get (LastMessageChoice) = 2 ]
+    Set Variable [ $keepTimestamp; Value:1 ]
+    Else If [ Get (LastMessageChoice) = 3 ]
+    Set Variable [ $keepKeywords; Value:1 ]
+    End If
+    Else If [ Get (LastMessageChoice) = 2 ]
+    Set Variable [ $numberOnlyFormat; Value:1 ]
+    Else If [ Get (LastMessageChoice) = 3 ]
+    Set Variable [ $essayFormat; Value:1 ]
+    End If
+    #
+    #If the user wants to display them at the end,
+    #open a new window to gather all learn
+    #records' references.
+    New Window [ Name: "Sbare"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “shareReferencesLast” (TEMP) ]
+    #
+    #Show all temp records and
+    #then delete them to prepare this window for
+    #the references that will pasted into it below.
+    Show All Records
+    Delete All Records [ No dialog ]
+    New Record/Request
+    Set Field [ TEMP::shareReferenceID; "firstRecord" ]
+    Commit Records/Requests
+    #
+    #If the user cancels the script then stop it, but
+    #do create 1 temporary record to display
+    #information that is in these fields, like
+    #the fields on the alldefaults layout.
+    Else If [ Get (LastMessageChoice) = 3 ]
+    Set Variable [ $$stopLoadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Close Window [ Name: "Share"; Current file ]
+    Close Window [ Name: "Sbare"; Current file ]
+    Select Window [ Name: "Learn"; Current file ]
+    Exit Script [ ]
+    End If
+    #
+    End If
+    #
+    #END Ask user what to do with references?
     #
     #
-    #Now add references for the found learn records.
+    #
+    #
+    #
+    #PART 4 >> Build shared document —————
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Build note and reference sections
+    #
+    #
+    #Now build a formatted share document,
+    #numbering each record.
+    Select Window [ Name: "Share"; Current file ]
     Set Variable [ $point; Value:1 ]
     Set Variable [ $evidence; Value:1 ]
     Go to Record/Request/Page [ First ]
     #
+    #BEGIN LOOP SECTION Build and format notes
+    #
     Loop
-    #Print order number, author, record date, text
-    #of learn record, and keywords.
+    #
     If [ TEMP::InventoryLibraryYN = "" ]
-    #Set copyright.
-    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ & ¶) & //text Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //node TextColor ( " [" & tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) & //timestamp " (" & testlearn::timestamp & ")." & //copyright " Copyright " & learnCreatorsCopyright::tag & ".]" ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //grey remain text TextColor ( //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ & "keywords — " & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ]
-    Else
-    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ & ¶) & //number Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //node TextColor ( " [" & tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) & //timestamp " " & testlearn::timestamp & "]" ; RGB ( 119 ; 119 ; 119 ) ) & ¶ & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //grey remain text TextColor ( //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ & "Attibutes = " & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ]
+    #
+    #BEGIN Build and format idea notes
+    #
+    #Assemble the note, order number, author, and
+    #copyright (if different from default primary
+    #node), timestamp, and keyword fields.
+    #
+    #Show each note found and ...
+    Set Variable [ $recordReferenceCount; Value:ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) ]
+    If [ $essayFormat = "" and $numberOnlyFormat = "" ]
+    If [ $keepKeywords = "" and $keepTimestamp = "" and $referencesInSectionAtEnd = "" ]
+    #number, timestamp, keywords, references with note.
+    # (Idenitical to next else if. Was going to
+    # remove the grey R## from this "with notes"
+    # option, but for now seems to be useful.)
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & //number TextSize ( Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //R# for number of references Case ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) > 0 and TEMP::InventoryLibraryYN = "" ; " " & TextColor ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) & "R" ; RGB ( 154 ; 154 ; 154 ) ) ; "" ) ; 11 ) & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //grey text TextColor ( "_______________" ; RGB ( 200 ; 200 ; 200 ) ) & ¶ & TextSize ( TextColor ( //node Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) ; "" ) & //copyright Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; ". Copyright " & learnCreatorsCopyright::tag & ¶ ; "" ) & //timestamp testlearn::timestamp & ¶ & //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; Case ( ValueCount ( testlearn::kcKeywordOther ) + ValueCount ( testlearn::kKeywordPrimary ) = 1 ; "keyword — " ; "keywords — " ) & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) & Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ ; "" ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ]
+    Else If [ $keepKeywords = "" and $keepTimestamp = "" and $referencesInSectionAtEnd ≠ "" ]
+    #number, timestamp, keywords, references at end.
+    # (Idenitical to above if. Was going to remove
+    # the grey R## from the above "with notes"
+    # option, but for now seems to be useful.)
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & //number TextSize ( Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //R# for number of references Case ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) > 0 and TEMP::InventoryLibraryYN = "" ; " " & TextColor ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) & "R" ; RGB ( 154 ; 154 ; 154 ) ) ; "" ) ; 11 ) & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //grey text TextColor ( "_______________" ; RGB ( 200 ; 200 ; 200 ) ) & ¶ & TextSize ( TextColor ( //node Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) ; "" ) & //copyright Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; ". Copyright " & learnCreatorsCopyright::tag & ¶ ; "" ) & //timestamp testlearn::timestamp & ¶ & //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; Case ( ValueCount ( testlearn::kcKeywordOther ) + ValueCount ( testlearn::kKeywordPrimary ) = 1 ; "keyword — " ; "keywords — " ) & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) & Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ ; "" ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ]
+    Else If [ $keepTimestamp ≠ "" ]
+    #number, timestamp.
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & //number TextSize ( Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //R# for number of references Case ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) > 0 and TEMP::InventoryLibraryYN = "" ; " " & TextColor ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) & "R" ; RGB ( 154 ; 154 ; 154 ) ) ; "" ) ; 11 ) & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //grey text TextColor ( "_______________" ; RGB ( 200 ; 200 ; 200 ) ) & ¶ & TextSize ( TextColor ( //node Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) ; "" ) & //copyright Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; ". Copyright " & learnCreatorsCopyright::tag & ¶ ; "" ) & //timestamp testlearn::timestamp & ¶ //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ]
+    Else If [ $keepKeywords ≠ "" ]
+    #number, keywords.
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & //number TextSize ( Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //R# for number of references Case ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) > 0 and TEMP::InventoryLibraryYN = "" ; " " & TextColor ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) & "R" ; RGB ( 154 ; 154 ; 154 ) ) ; "" ) ; 11 ) & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //grey text TextColor ( "_______________" ; RGB ( 200 ; 200 ; 200 ) ) & ¶ & TextSize ( TextColor ( //node Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) ; "" ) & //copyright Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; ". Copyright " & learnCreatorsCopyright::tag & ¶ ; "" ) & //keyword Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; Case ( ValueCount ( testlearn::kcKeywordOther ) + ValueCount ( testlearn::kKeywordPrimary ) = 1 ; "keyword — " ; "keywords — " ) & //primary keyword tagTLKeywordPrimary::tag & Case ( testlearn::OtherKeyWords = "" ; "" ; //other keyword Case ( testlearn::kKeywordPrimary ≠ "" ; ", " & testlearn::OtherKeyWords ; testlearn::OtherKeyWords ) ) ) & Case ( testlearn::OtherKeyWords ≠ "" or testlearn::kKeywordPrimary ≠ "" ; ¶ ; "" ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ]
+    End If
+    Else If [ $numberOnlyFormat ≠ "" ]
+    #number.
+    #BEGIN Number
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & //number TextSize ( Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) & //R# for number of references Case ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) > 0 and TEMP::InventoryLibraryYN = "" ; " " & TextColor ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) & "R" ; RGB ( 154 ; 154 ; 154 ) ) ; "" ) ; 11 ) & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //node other than the primary author Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; //grey text TextColor ( "_______________" ; RGB ( 200 ; 200 ; 200 ) ) & ¶ & TextSize ( TextColor ( //node Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) ; "" ) & //copyright Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; ". Copyright " & learnCreatorsCopyright::tag & ¶ ; "" ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ; "" ) ]
+    #
+    #Given that the user has elected to not show
+    #any information below the note (below the
+    #grey line), call attention to the user when a
+    #node's information is shown below a grey line
+    #because the note is by a node other than the
+    #one getting credit for the share.
+    If [ tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ]
+    Set Variable [ $nodeOtherThanPrimaryAuthor; Value:1 ]
+    If [ tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ]
+    Set Variable [ $nodeOtherThanPrimaryAuthor; Value:1 ]
+    End If
+    End If
+    #END Number
+    Else If [ $essayFormat ≠ "" ]
+    #Show just the note and nothing else.
+    #BEGIN Essay Format
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) & ¶ & //node other than the primary author Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; //grey text TextColor ( "_______________" ; RGB ( 200 ; 200 ; 200 ) ) & ¶ & TextSize ( TextColor ( //node Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; tagTLNodePrimary::tag & Case ( testlearn::NodeOthers = "" ; "" ; "; " & testlearn::NodeOthers ) ; "" ) & //copyright Case ( tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ; ". Copyright " & learnCreatorsCopyright::tag & ¶ ; "" ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ; "" ) ]
+    #
+    #Given that the user has elected to not show
+    #any information below the note (below the
+    #grey line), call attention to the user when a
+    #node's information is shown below a grey line
+    #because the note is by a node other than the
+    #one getting credit for the share.
+    If [ tagTLNodePrimary::_Ltag ≠ TEMP::kdefaultNodePrimary ]
+    Set Variable [ $nodeOtherThanPrimaryAuthor; Value:1 ]
+    End If
+    #END Essay Format
+    #
     End If
     #
-    If [ testlearn::kcreference ≠ "" ]
+    #END Build and format idea notes
     #
-    #Select portal showing either a scholarly
-    #reference or inventory items location.
+    Else If [ TEMP::InventoryLibraryYN ≠ "" ]
+    #
+    #BEGIN Build and format inventory note
+    #
+    #Assemble note, order number, timestamp,
+    #and location fields.
+    If [ $orderInventoryGroupNumber = "" and $unknownLocation = "" or $orderInventoryGroupNumber ≠ testlearn::orderInventoryGroupNumber ]
+    If [ $unknownLocation = "" ]
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & Case ( $orderInventoryGroupNumber ≠ testlearn::orderInventoryGroupNumber and $orderInventoryGroupNumber ≠ "" and testlearn::orderInventoryGroupName ≠ "" ; TextSize ( ¶ ; 6 ) & "____________________" & ¶ & TextSize ( ¶ ; 14 ) & TextSize ( Case ( testlearn::orderInventoryGroupName = "" ; "Unknown Location" ; testlearn::orderInventoryGroupName ) ; 17 ) ; TextSize ( Case ( testlearn::orderInventoryGroupName = "" ; "Unknown Location" ; testlearn::orderInventoryGroupName ) ; 17 ) ) & ¶ & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) ]
+    Else
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & Case ( $orderInventoryGroupNumber ≠ testlearn::orderInventoryGroupNumber and testlearn::orderInventoryGroupNumber ≠ "" and testlearn::orderInventoryGroupName ≠ "" ; TextSize ( ¶ ; 6 ) & "____________________" & ¶ & TextSize ( ¶ ; 14 ) & TextSize ( Case ( testlearn::orderInventoryGroupName = "" ; "Unknown Location" ; testlearn::orderInventoryGroupName ) ; 17 ) ; TextSize ( Case ( testlearn::orderInventoryGroupName = "" ; "Unknown Location" ; testlearn::orderInventoryGroupName ) ; 17 ) ) & ¶ & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) ]
+    End If
+    Set Variable [ $unknownLocation; Value:Case ( testlearn::orderInventoryGroupName = "" ; 1 ; "" ) ]
+    Set Variable [ $orderInventoryGroupNumber; Value:testlearn::orderInventoryGroupNumber ]
+    Else
+    Set Variable [ $copy; Value://previous records Case ( $copy = "" ; "" ; $copy & ¶ ) & //grey text TextColor ( "____________________" ; RGB ( 200 ; 200 ; 200 ) ) & ¶ & ¶ & //main text TextFont ( testlearn::note ; "Georgia" ) ]
+    End If
+    #
+    #END Inventory note
+    #
+    End If
+    #
+    #BEGIN Increase note number
+    #
+    #Get note's number before it is updated for
+    #the next note. This number will be used
+    #to identify references used by this note in the
+    #end section.
+    #
+    Set Variable [ $noteNumberForItsReferences; Value://number TextSize ( Case ( testlearn::brainstormCasePoint = "" ; $point & "." & $evidence ; $point & ".1" ) ; 11 ) ]
+    #
+    #Increase note number for next note.
+    If [ testlearn::brainstormCasePoint = "" ]
+    Set Variable [ $evidence; Value:$evidence + 1 ]
+    Else
+    Set Variable [ $evidence; Value:2 ]
+    End If
+    #
+    #END Increase note number
+    #
+    #END LOOP SECTION Build and format notes
+    #
+    #
+    #
+    #BEGIN LOOP SECTION Build reference
+    #sections for each note
+    #
+    #Print references if a learn record has any.
+    If [ ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) > 0 and TEMP::InventoryLibraryYN = "" ]
+    #
+    #Print title "Reference," "References,"
+    #or "Location."
     If [ TEMP::InventoryLibraryYN = "" ]
-    Go to Object [ Object Name: "ref1" ]
-    Else
-    If [ refTestLearn::concatenateSTUFF = "" ]
-    Go to Object [ Object Name: "stuff location" ]
-    Else
-    Go to Object [ Object Name: "container location" ]
+    If [ $referencesInSectionAtEnd = "" ]
+    Set Variable [ $copy; Value:$copy & TextSize ( ¶ ; 6 ) & //grey text TextSize ( TextColor ( //references Case ( ValueCount ( testlearn::kcreference ) - ( Length ( Filter ( testlearn::kcreference ; "L" ) ) ) = 1 ; "Reference" ; "References" ) //finish text color ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ]
     End If
-    End If
-    #
-    #Print references if this learn record has any.
-    If [ testlearn::kcreference ≠ "" ]
-    #
-    #Name reference or inventory location section.
-    #Apply only if references are found.
-    If [ TEMP::InventoryLibraryYN = "" and Get (LastError) ≠ 101 ]
-    Set Variable [ $copy; Value:$copy & ¶ & //Add a paragraph space between kewords and references if both exist. Case ( testlearn::kcreference ≠ "" and testlearn::kKeywordPrimary = "" and testlearn::OtherKeyWords = "" ; "" ; ¶ ) & //grey text TextColor ( //references Case ( testlearn::kcreference ≠ "" ; "References" ; "" ) //finsih text color ; RGB ( 119 ; 119 ; 119 ) ) ]
-    Else If [ Get (LastError) ≠ 101 ]
+    Else
     Set Variable [ $copy; Value:$copy & ¶ & Case ( testlearn::kcreference ≠ "" ; ¶ & Case ( refTestLearn::concatenateSTUFF = "" ; TextColor ( "Location" ; RGB ( 119 ; 119 ; 119 ) ) ; TextColor ( "Location = " ; RGB ( 119 ; 119 ; 119 ) ) & refTestLearn::concatenateSTUFFcontainer // & TextColor ( ", located here:" ; RGB ( 119 ; 119 ; 119 ) ) ) ; "" ) ]
     End If
     #
-    #Start with the first reference. This needs to
-    #be set at the start of each loop.
+    #Now get the references. The portal variable
+    #needs to be reset for each learn record.
     Set Variable [ $portal; Value:1 ]
-    #
-    Loop
     #
     #Select portal showing either a scholarly
     #reference or inventory items location.
@@ -4252,156 +6231,380 @@ Script Steps
     End If
     End If
     #
-    #Exit the loop if there are no records.
-    Exit Loop If [ Get (LastError) = 101 ]
-    #
+    #Now collect each reference's information.
+    Loop
     #If this is the first reference clear the
-    #$portal variable and select portal's first record.
+    #$portal variable and select portal's
+    #first record.
     If [ $portal = 1 ]
-    Set Variable [ $portal ]
     Go to Portal Row [ Select; First ]
     End If
     #
-    #Print references.
+    #Print references with the learn record if
+    #the user has not selected to print all the
+    #references at the end of this share (after
+    #all the notes have been printed).
     If [ TEMP::InventoryLibraryYN = "" ]
-    Set Variable [ $copy; Value:Case ( Right ( $copy ; 10 ) = "References" ; $copy & ¶ & //grey text TextColor ( refLearn::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ; $copy & ¶ & ¶ & //grey text TextColor ( refLearn::referenceForReferenceWindow ; RGB ( 119 ; 119 ; 119 ) ) ) ]
+    If [ $referencesInSectionAtEnd = "" ]
+    Set Variable [ $copy; Value:Case ( Right ( $copy ; 9 ) = "Reference" or Right ( $copy ; 10 ) = "References"; $copy & ¶ & //grey text TextSize ( TextColor ( refLearn::referenceForLearnShare ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ; $copy & ¶ & TextSize ( ¶ ; 6 ) & //grey text TextSize ( TextColor ( refLearn::referenceForLearnShare ; RGB ( 119 ; 119 ; 119 ) ) ; 11 ) ) ]
+    #
     Else
+    #
+    #If the user has elected to share the references
+    #at the end of the share, copy each one and
+    #store it in a temporary record.
+    Set Variable [ $shareReferenceID; Value:refLearn::_Lreference ]
+    Set Variable [ $shareReference; Value:refLearn::referenceForLearnShare ]
+    #
+    Go to Object [ Object Name: "shareID" ]
+    If [ TEMPforShare::shareReferenceID ≠ "firstRecord" ]
+    Go to Portal Row [ Select; Last ]
+    End If
+    #
+    Set Field [ TEMPforShare::shareReferenceID; $shareReferenceID ]
+    Set Field [ TEMPforShare::shareReference; $shareReference ]
+    Set Field [ TEMPforShare::shareReferenceNoteNumber; $noteNumberForItsReferences ]
+    End If
+    #
+    #
+    Else
+    #If this a location, not a reference, then do print
+    #it with it's learn record = inventory item.
     Set Variable [ $copy; Value:Case ( refTestLearn::concatenateSTUFF = "" ; $copy & ¶ & refLearn::referenceSTUFF ; $copy & ¶ & refContainerLocation::referenceSTUFF4learnOtherContainer ) ]
     End If
     #
-    #Go to the learn records next reference.
-    Go to Portal Row [ Select; Next; Exit after last ]
-    Exit Loop If [ Get (LastError) = 101 ]
-    End Loop
+    #Select the record's next reference.
+    #
+    #Select portal showing either a scholarly
+    #reference or inventory items location.
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Go to Object [ Object Name: "ref1" ]
+    Else
+    If [ refTestLearn::concatenateSTUFF = "" ]
+    Go to Object [ Object Name: "stuff location" ]
+    Else
+    Go to Object [ Object Name: "container location" ]
     End If
+    End If
+    #
+    Go to Portal Row [ $portal ] [ No dialog ]
+    Go to Portal Row [ Next ]
+    Exit Loop If [ Get (LastError) = 101 ]
+    Set Variable [ $portal; Value:$portal + 1 ]
+    End Loop
+    #
     End If
     #
     #Go to the next learn record tagged with this
     #brainstorm or inventory list tag OR exit loop
     #if this is the end of the list.
     Go to Record/Request/Page [ Next; Exit after last ]
-    Set Variable [ $copy; Value:$copy & ¶ & //grey text TextColor ( "_______________________________________________" ; RGB ( 119 ; 119 ; 119 ) ) ]
+    Set Variable [ $copy; Value:$copy & Case ( $recordReferenceCount > 0 and $referencesInSectionAtEnd = "" ; ¶ ; "" ) ]
     #
-    #Increase 'main point' number if required.
+    #Increase point number if point is different.
     If [ testlearn::brainstormCasePoint ≠ "" ]
     Set Variable [ $point; Value:$point + 1 ]
     End If
     #
-    #Increase secondary point if it is different.
-    If [ testlearn::brainstormCasePoint = "" ]
-    Set Variable [ $evidence; Value:$evidence + 1 ]
-    Else
-    Set Variable [ $evidence; Value:1 ]
-    End If
+    #
+    #END LOOP SECTION Build reference
+    #sections for each note
+    #
     End Loop
     #
     #
-    #Get default copyright for all lists below.
+    #END Build note and reference sections
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Build reference end section
+    #
+    #If the user has elected to share the references
+    #at the end of the share, go to the temporary
+    #window and identify any duplicate references,
+    #and collect and add the note numbers of the
+    #previous record to the duplicate record. This
+    #addition will result in the final duplicate record
+    #containing the numbers of all previous
+    #duplicates, so each reference will identify all
+    #the notes referencing it.
+    If [ $referencesInSectionAtEnd ≠ "" ]
+    #Exit field in Share window, otherwise the
+    #field's record will remain in use in this
+    #window and cause problems for actions
+    #in the Sbare window.
+    Go to Field [ ]
+    Select Window [ Name: "Sbare"; Current file ]
+    Show All Records
+    #NOTE: This go to field step is important.
+    #It keesp the script from failing when
+    #the sort is performed.
+    Go to Field [ ]
+    Sort Records [ Specified Sort Order: TEMP::shareReferenceID; ascending TEMP::shareReferenceNoteNumber; ascending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $referenceID; Value:TEMP::shareReferenceID ]
+    Set Variable [ $noteNumber; Value:TEMP::shareReferenceNoteNumber ]
+    Loop
+    Go to Record/Request/Page [ Next; Exit after last ]
+    If [ $referenceID = TEMP::shareReferenceID ]
+    Set Variable [ $noteNumber; Value:$noteNumber & ", " & TEMP::shareReferenceNoteNumber ]
+    Set Field [ TEMP::shareReferenceID; "duplicate" ]
+    Set Field [ TEMP::shareReferenceNoteNumber; $noteNumber ]
+    Else
+    Set Variable [ $referenceID; Value:TEMP::shareReferenceID ]
+    Set Variable [ $noteNumber; Value:TEMP::shareReferenceNoteNumber ]
+    Set Field [ TEMP::shareReferenceNoteNumber; $noteNumber ]
+    End If
+    End Loop
+    #
+    #Sort the references so the duplicates with all
+    #the reference note numbers are first. Now
+    #starting from the top, loop each record and
+    #select the first reference record for each
+    #possible duplicated reference record. Create
+    #a reference with the note numbers on a line
+    #above them in greyed text.
+    Go to Field [ ]
+    Sort Records [ Specified Sort Order: TEMP::shareReference; ascending TEMP::shareReferenceID; descending TEMP::shareReferenceNoteNumber; descending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $reference; Value:TEMP::shareReference ]
+    Set Variable [ $referenceSection; Value: TextSize ( Case ( Get ( FoundCount ) = 1 ; "Reference —————" ; "References —————" ) & ¶ ; 12 ) & Case ( $essayFormat = "" ; TextSize ( ¶ ; 4 ) ; TextSize ( ¶ ; 6 ) ) & Case ( $essayFormat = "" ; TextColor ( TextSize ( TEMP::shareReferenceNoteNumber & ¶ ; 11 ) ; RGB ( 139 ; 139 ; 139 ) ) ; "" ) & TextSize ( TEMP::shareReference ; 12 ) ]
+    Loop
+    Go to Record/Request/Page [ Next; Exit after last ]
+    If [ TEMP::shareReference ≠ $reference ]
+    Set Variable [ $referenceSection; Value:$referenceSection & ¶ & Case ( $essayFormat = "" ; TextSize ( ¶ ; 8 ) & TextColor ( TextSize ( TEMP::shareReferenceNoteNumber & ¶ ; 11 ) ; RGB ( 130 ; 130 ; 130 ) ) ; TextSize ( ¶ ; 8 ) ) & //text size TextSize ( TEMP::shareReference ; 12 ) ]
+    End If
+    Set Variable [ $reference; Value:TEMP::shareReference ]
+    End Loop
+    #
+    #Once the end reference section has been
+    #created erase the temporary records, and
+    #then create 1 temporary record to display
+    #information that is in these fields, like
+    #the fields on the alldefaults layout.
+    Select Window [ Name: "Sbare"; Current file ]
+    Delete All Records [ No dialog ]
+    New Record/Request
+    Close Window [ Name: "Sbare"; Current file ]
+    Select Window [ Name: "Share"; Current file ]
+    End If
+    #
+    #END Build reference end section
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Build title header for share document
+    #
+    #Get primary node's copyright for this share as
+    #it is the primary node that is sharing these records.
     Go to Layout [ “TEMP” (TEMP) ]
     Set Variable [ $copyright; Value:defaultCopyrightName::tag ]
-    Go to Layout [ “learnPreviewLayout” (testlearn) ]
     #
     #
-    #Attach user name, date and time and a note
-    #about how to create saved lists using
-    #brainstorm or inventory list tags if needed.
+    #
+    #
+    #Brainstorm or Inventory Header
+    If [ $$citationMatch = "brainstorm" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #
+    If [ TEMP::InventoryLibraryYN = "" ]
+    #Brainstorm header
+    #
+    #If tag and default copyright are different,
+    #note this so user can be informed.
+    If [ $copyright ≠ tagsCopyright::tag ]
+    Set Variable [ $informUserCopyrightNotEqualToDefault; Value:$copyright ]
+    End If
+    #
+    #Get tag's copyright in idea mode.
+    Set Variable [ $copyright; Value:tagsCopyright::tag ]
+    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & ": Brainstorm — " & //TextStyleAdd ( tagMenus::tag ; Titlecase ) tagMenus::tag & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
+    #
+    Else
+    #Inventory header
+    #
+    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & ": Inventory List — " & //TextStyleAdd ( tagMenus::tag ; Titlecase ) tagMenus::tag & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
+    End If
+    #
+    #
+    #
+    #
+    #Test Header
+    Else If [ $$citationMatch = "test" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & ": Test Subsection — " & //TextStyleAdd ( testSubsectionTemplate::name ; Titlecase ) testSubsectionTemplate::name & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
+    Else
+    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & ": Test Subsection — " & //TextStyleAdd ( testSubsectionTemplate::name ; Titlecase ) testSubsectionTemplate::name & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
+    End If
+    #
+    #
+    #
+    #
+    #General idea and inventory share header
+    Else If [ $$citationMatch ≠ "brainstorm" and $$citationMatch ≠ "test" ]
+    #
+    #
+    #General idea header
     If [ TEMP::InventoryLibraryYN = "" ]
     #
-    #Reference Title
-    #
-    #All records being viewed.
     If [ $show = "all" ]
-    #Set copyright.
-    Set Variable [ $brainstorm; Value://Title TextStyleAdd ( TEMP::userLibraryName ; "bold" ) & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." & ¶ & ¶ & "NOTE: This is an unsaved list of " & $numberOfRecordsBeingViewed & " records ordered by date and time of their creation. Use the Tag Menus' 'brainstorm' option to create custom-ordered, saved, lists of selected thoughts, ideas, etc." ]
-    Else
+    #Share all records
+    Set Variable [ $brainstorm; Value://Title TextStyleAdd ( TEMP::userLibraryName & " Library Notes" ; "bold" ) & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." & Case ( $chronologicalSortOrder = "" ; ¶ & TextStyleAdd ( "Shown in reverse chronological order." ; Italic ) ; "" ) & TextSize ( ¶ ; 6 ) & "_______________" & ¶ & TextSize ( ¶ ; 10 ) & "NOTE: This is an unsaved list of " & $numberOfRecordsBeingViewed & " records. Use the Tag Menus' 'brainstorm' option to create custom-ordered, saved, collections of thoughts, ideas, etc." & TextSize ( ¶ ; 6 ) & "_______________" ]
     #
-    #Selected and its linked records if any.
-    #Set copyright.
-    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
+    Else
+    #Share only linked records
+    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & " Library Notes" & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." & Case ( $chronologicalSortOrder = "" ; TextStyleAdd ( ¶ & "Shown in reverse chronological order." ; Italic ) ; "" ) ]
+    End If
     End If
     #
-    Else
     #
-    #Inventory Title
+    #General inventory header
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
     #
     If [ $show = "all" ]
+    #Share all records
+    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." & TextSize ( ¶ ; 6 ) & "_______________" & ¶ & TextSize ( ¶ ; 10 ) & "NOTE: This is an unsaved list of " & $numberOfRecordsBeingViewed & " records. Use the Tag Menus' 'inventory list' option to create custom-ordered, saved, lists." & TextSize ( ¶ ; 6 ) & "_______________" ]
     #
-    #All records being viewed.
-    #Set copyright.
-    Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." & ¶ & ¶ & "NOTE: This is an unsaved list of " & $numberOfRecordsBeingViewed & " records ordered by date and time of their creation. Use the Tag Menus' 'inventory list' option to create custom-ordered, saved, lists of selected inventory items." ]
     Else
-    #
-    #Selected and its linked records if any.
-    #Set copyright.
+    #Share only linked records
     Set Variable [ $brainstorm; Value://Title TEMP::userLibraryName & ¶ & //author and copyright date TEMP::DEFAULTNodePrimaryName & " (" & Month ( Get ( CurrentDate ) ) & "/" & Day ( Get ( CurrentDate ) ) & "/" & Year ( Get ( CurrentDate ) ) & "). Copyright " & $copyright & "." ]
     End If
     End If
+    End If
+    Go to Field [ ]
+    #
+    #END Build title header for share document
     #
     #
-    #Add title to list of records.
-    Set Variable [ $copy; Value://Brainstorm Title and History $brainstorm & ¶ & ¶ & $copy ]
     #
     #
-    #Show just one record so when user scrolls
-    #the window the header stays at the top.
-    Enter Find Mode [ ]
-    Set Field [ testlearn::_Ltestlearn; $$main ]
-    Perform Find [ ]
     #
-    #Show window with final list.
+    #PART 5 >> Display share document —————
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Assemble and display share document
+    #
+    #Compose the share document.
+    Set Variable [ $copy; Value://Brainstorm Title and Records and References $brainstorm & ¶ & ¶ & $copy & ¶ & ¶ & $referenceSection ]
+    #
+    #Select Learn window so when the Share
+    #window is closed it will be selected. Then
+    #select the Share window to continue
+    #this script.
+    Select Window [ Name: "Learn"; Current file ]
+    Select Window [ Name: "Share"; Current file ]
     Go to Layout [ “learnPreviewLayoutView” (testlearn) ]
-    Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-    Install Menu Set [ “HGT” ]
+    #
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
-    Set Field [ TEMP::paste; TextSize ( $copy ; 12 ) ]
+    #
+    #Paste the document into the share layout.
+    Set Field [ TEMP::paste; $copy ]
     Go to Field [ ]
+    #
+    #All records showing are identical,
+    #so remove all but one of them.
+    Go to Record/Request/Page [ First ]
+    Omit Multiple Records [ Get (FoundCount) - 1 ] [ No dialog ]
+    #
+    #Display list.
     Scroll Window [ Home ]
-    Select Window [ Name: "Share"; Current file ]
+    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
     Adjust Window [ Resize to Fit ]
     #
+    #END Assemble and display share document
     #
-    #END: SHARE Non-Brainstorm and Inventory Records
+    #
+    #
+    #
+    #
+    #PART 6 >> Report any issues ————————
+    #
+    #
+    #
+    #
+    #
+    #Inform user if one or more record's was
+    #created by another library node, IF the
+    #the user elected to not show timestamp
+    #and keywords.
+    If [ $nodeOtherThanPrimaryAuthor ≠ "" ]
+    Show Custom Dialog [ Message: "FYI: This share contains at least one contribution by another author (node). They have been given credit with their name and copyright under a line, under their contribution."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #Inform user if brainstorm tag's copyright
+    #is different from user's default copyright.
+    If [ $informUserCopyrightNotEqualToDefault ≠ "" ]
+    Show Custom Dialog [ Message: "FYI: This brainstorm's copyright — " & $copyright & " — is NOT the same as your default copyright = " & $informUserCopyrightNotEqualToDefault & "."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    Exit Script [ ]
+    #
+    #
+    #END: SHARE DOCUMENT CREATION
+    #
     #
 
 Fields used in this script
 
     testlearn::kcbrainstorm
     testlearn::kctestSubsectionInfo
+    TEMP::InventoryLibraryYN
     testlearn::orderTestInformation
     testlearn::timestamp
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     tagMenus::tag
-    TEMP::InventoryLibraryYN
+    testlearn::kcreference
+    testlearn::_Ltestlearn
+    refTestLearn::_Ltestlearn
+    testlearn::date
+    TEMP::shareReferenceID
     testlearn::brainstormCasePoint
+    tagTLNodePrimary::_Ltag
+    TEMP::kdefaultNodePrimary
     tagTLNodePrimary::tag
     testlearn::NodeOthers
     learnCreatorsCopyright::tag
-    testlearn::note
     testlearn::OtherKeyWords
     testlearn::kKeywordPrimary
+    testlearn::kcKeywordOther
     tagTLKeywordPrimary::tag
-    testlearn::kcreference
-    refLearn::referenceForReferenceWindow
-    refContainerLocation::referenceForReferenceWindow
+    testlearn::orderInventoryGroupName
     refTestLearn::concatenateSTUFF
     refTestLearn::concatenateSTUFFcontainer
+    refLearn::referenceForLearnShare
+    refLearn::_Lreference
+    TEMPforShare::shareReferenceID
+    TEMPforShare::shareReference
+    TEMPforShare::shareReferenceNoteNumber
     refLearn::referenceSTUFF
     refContainerLocation::referenceSTUFF4learnOtherContainer
+    TEMP::shareReferenceNoteNumber
+    TEMP::shareReference
     defaultCopyrightName::tag
     tagsCopyright::tag
     TEMP::userLibraryName
     TEMP::DEFAULTNodePrimaryName
     testSubsectionTemplate::name
     TEMP::paste
-    testlearn::_Ltestlearn
-    refTestLearn::_Ltestlearn
-    testlearn::date
 
 Scripts used in this script
 
 Layouts used in this script
 
     learnPreviewLayout
+    shareReferencesLast
     TEMP
     learnPreviewLayoutView
 
@@ -4409,14 +6612,16 @@ Tables used in this script
 
     TEMP
     reference
+    reference
+    tag
     tag
     testSubsectionTemplate
-    testlearn
     testlearn
 
 Table occurrences used by this script
 
     TEMP
+    TEMPforShare
     defaultCopyrightName
     learnCreatorsCopyright
     refContainerLocation
@@ -4434,11 +6639,9 @@ Custom Functions used by this script
 Custom menu set used by this script
 
     HGT Stop Share
-    HGT Stop Share
-    HGT
 
 
-Previous Script: [shareLearnRecords]	Parent Folder: [learn]	Next Script: [showReferencedFileFolderOrWebsite]
+Previous Script: [shareLearnRecords]	Parent Folder: [learn]	Next Script: [showReferencedFileFolder]
 Script Name	shareWindowCopyTextButton
 Run script with full access privileges	Off
 Include In Menu	No
@@ -4485,7 +6688,7 @@ Custom menu set used by this script
 
 
 Previous Script: [shareWindowCopyTextButton]	Parent Folder: [learn]
-Script Name	showReferencedFileFolderOrWebsite
+Script Name	showReferencedFileFolder
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -4496,7 +6699,6 @@ Layouts that use this script
     ReferenceMenu3Cite
     ReferenceMenu3CiteNoPicture
     ReferencePictureWindow_HDD
-    ReferencePictureWindow_HDDEDIT
     ReferenceAddToTag
     ReferenceAddToCopyright
     learn0
@@ -4506,12 +6708,14 @@ Layouts that use this script
     learn4
     learn5
     learn4EDIT
+    learn4EDITLocked
     LearnTextWindow
     LearnTextWindow_iDevice
     LearnTextWindowLocked
     LearnTextWindowLocked_iDevice
     learnMenu3Cite
     learnMenu3CiteS
+    learnMenu3CitePickAReference
     LearnRefExternalPictureWindow
     LearnRefExternalPictureWindowEDIT
     testInfo
@@ -4567,39 +6771,21 @@ Script Steps
     End If
     #
     #
+    #FILE BUTTON
+    #If the user clicked a file button
+    #the present them with
+    #file and folder buttons.
+    If [ $openReferencedWebsite = "" ]
+    #
     #If the file path tag's "real shelf, box, etc."
     #checkbox in the Reference's Tag Menu's
     #window is empty, then ask if the user wants to
     #open the digital-file's folder or open the file.
-    If [ $openReferencedWebsite = "" ]
     If [ tagRefFolderPath::kfileORkTestItemCreatorNode = "" and tagRefLearnFolderPath::kfileORkTestItemCreatorNode = "" and refTestFolderPath::kfileORkTestItemCreatorNode = "" and $$tagMenusRealCheckbox = "" ]
     #
-    #1) If user has clicked on a tagmenus
-    #table tag, present them with
-    #web, folder, file buttons.
-    If [ //If TagMenus has a URL ask this question. $$tagMenusURL ≠ "" or $$tagMenusISBN ≠ "" or $$tagMenusISSN ≠ "" or $$tagMenusDOI ≠ "" ]
-    #Only has a url...
-    If [ ( Get (LayoutTableName) = "tagMenus" and ( //All fields required to find file in the main or x folders. $$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and FilterValues ( $$tagMenusFileLocation ; "8162011225605315" ) ≠ "8162011225605315" & ¶ or //All fields required to a find file in a file path tag 'other' folder. $$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and $$tagMenusFilePath ≠ "" ) ) = 0 ]
-    #Since there is only a website to open, then
-    #note this for the calcs below and don't
-    #ask a question.
-    Set Variable [ $openReferencedWebsite; Value:1 ]
-    Else
-    #Has url and folder and file ...
-    Show Custom Dialog [ Message: "Open link to website OR" & ¶ & "file's folder OR" & ¶ & "file?"; Default Button: “file”, Commit: “Yes”; Button 2: “folder”, Commit: “No”; Button 3: “website”, Commit: “No” ]
-    If [ Get (LastMessageChoice) = 3 ]
-    Set Variable [ $openReferencedWebsite; Value:1 ]
-    End If
-    End If
-    #Only has a folder and file ...
-    Else If [ ( Get (LayoutTableName) = "tagMenus" and ( //All fields required to find file in the main or x folders. $$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and FilterValues ( $$tagMenusFileLocation ; "8162011225605315" ) ≠ "8162011225605315" & ¶ or //All fields required to a find file in a file path tag 'other' folder. $$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and $$tagMenusFilePath ≠ "" ) ) = 0 ]
-    Show Custom Dialog [ Message: "Open link to website OR" & ¶ & "file's folder OR" & ¶ & "file?"; Default Button: “file”, Commit: “Yes”; Button 2: “folder”, Commit: “No”; Button 3: “website”, Commit: “No” ]
-    #
-    #2) If the user clicked a file button
-    #the present them with
-    #file and folder buttons.
-    Else
-    Show Custom Dialog [ Message: "Open link to the folder the file is in" & ¶ & "OR" & ¶ & "the file?"; Default Button: “file”, Commit: “Yes”; Button 2: “folder”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Open the file's folder" & ¶ & "OR" & ¶ & "the file?"; Default Button: “file”, Commit: “Yes”; Button 2: “folder”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Exit Script [ ]
     End If
     #
     Else
@@ -5402,11 +7588,11 @@ Script Steps
     #Inform the user the import will both add new
     #records and overwrite existing records with
     #changes made in library being imported.
-    Show Custom Dialog [ Message: "IMPORTANT: Records changed — edited — in the import libary will change — update, overwrite, etc. — records in this library."; Default Button: “OK”, Commit: “No”; Button 2: “cancel”, Commit: “No” ]
+    Show Custom Dialog [ Message: "IMPORTANT: This import can change — update, overwrite, etc. — records in this library."; Default Button: “OK”, Commit: “No”; Button 2: “cancel”, Commit: “No” ]
     If [ Get ( LastMessageChoice ) = 2 ]
     Exit Script [ ]
     End If
-    Show Custom Dialog [ Message: "For example, if the key tag 'Apple' in the main library is changed to 'Orange' in a branch library, then 'Apple' in main library will be changed to 'Orange' when that branch record is imported."; Default Button: “OK”, Commit: “No”; Button 2: “cancel”, Commit: “No” ]
+    Show Custom Dialog [ Message: "For example, if a record's text in the library being imported was changed from 'Apple' to 'Orange,' then the record in this library will also be changed to 'Orange.'"; Default Button: “OK”, Commit: “No”; Button 2: “cancel”, Commit: “No” ]
     If [ Get ( LastMessageChoice ) = 2 ]
     Exit Script [ ]
     End If
@@ -6313,8 +8499,9 @@ Script Steps
     Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
     New Record/Request
     Set Field [ testSubsectionGroup::match; "node" ]
-    Set Field [ testSubsectionGroup::name; "Record Creator Nodes/Authors" ]
-    Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "Record Creator Nodes/Authors" ]
+    Set Field [ testSubsectionGroup::orderOrLibraryType; "001" ]
+    Set Field [ testSubsectionGroup::name; "record creators and test subjects" ]
+    Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "record creators and test subjects" ]
     Commit Records/Requests [ Skip data entry validation; No dialog ]
     Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
     Set Variable [ $groupName; Value:testSubsectionGroup::name ]
@@ -6388,10 +8575,10 @@ Script Steps
 Fields used in this script
 
     testSubsectionGroup::match
+    testSubsectionGroup::orderOrLibraryType
     testSubsectionGroup::name
     testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup
     testSubsectionGroup::_Lgroup
-    testSubsectionGroup::orderOrLibraryType
     testSubsectionGroup::nameSpellingFORTestItemGroup
     testSubsectionGroup::versionNumber
     tagTable::match
@@ -6702,18 +8889,14 @@ Custom menu set used by this script
 
 librarySetup
 	Parent Folder: [librarySetup]	Next Script: [changeLibraryName]
-Script Name	allSolutionsMenu
+Script Name	allAppsMenu
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    defaultSetup
-    defaultTest
-    defaultTestNewSection
-
 Scripts that use this script
 
-    gotoAllSolutsionMenuORTimeLogApp
+    gotoAllAppsMenuORActionLogApp
 
 Script Definition
 Script Steps
@@ -6726,9 +8909,9 @@ Script Steps
     Set Variable [ $$otherApps; Value:1 ]
     #
     #1 go to the edit/create layout and show all users.
-    Close Window [ Name: "All Solutions"; Current file ]
-    New Window [ Name: "All Solutions"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “allSolutions” (tempSetup) ]
+    Close Window [ Name: "All Apps"; Current file ]
+    New Window [ Name: "All Apps"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “allApps” (tempSetup) ]
     Show All Records
     #
     #Size window to 100%
@@ -6745,7 +8928,7 @@ Scripts used in this script
 
 Layouts used in this script
 
-    allSolutions
+    allApps
 
 Tables used in this script
 
@@ -6756,7 +8939,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [allSolutionsMenu]	Parent Folder: [librarySetup]	Next Script: [gotoBudgetPlanner]
+Previous Script: [allAppsMenu]	Parent Folder: [librarySetup]	Next Script: [gotoBudgetPlanner]
 Script Name	changeLibraryName
 Run script with full access privileges	Off
 Include In Menu	No
@@ -6844,7 +9027,7 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    allSolutions
+    allApps
 
 Scripts that use this script
 
@@ -6854,25 +9037,27 @@ Script Steps
     #
     #Open using this url on iPad/iPhone.
     If [ Get ( SystemPlatform ) = 3 ]
-    Open URL [ "fmp://%7e/Budget%20Planner" ]
-    Exit Script [ ]
+    Open URL [ "fmp://%7e/BudgetPlanner" ] [ No dialog ]
+    Close Window [ Name: "All Apps"; Current file ]
+    Halt Script
     End If
     #
     Select Window [ Name: "Budget Planner" ]
     If [ Get (LastError) = 112 ]
-    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file:/" ) & "Budget Planner." & Right ( Get ( FilePath ) ; 3 ) ; " " ; "%20" ) ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file://" ) & "Budget Planner." & Right ( Get ( FilePath ) ; 3 ) ; " " ; "%20" ) ) ] [ No dialog ]
-    If [ Get (LastError) = 5 ]
-    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file:/" ) & "Budget Research.HG2" ; " " ; "%20" ) ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file://" ) & "Budget Research.HG2" ; " " ; "%20" ) ) ] [ No dialog ]
-    End If
+    Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "budgetplanner" ) ] [ No dialog ]
+    Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "budgetplanner" ) ] [ No dialog ]
     End If
     #
     #Close all solutions window.
     If [ $$otherApps = 1 ]
     Set Variable [ $$otherApps ]
-    Close Window [ Name: "All Solutions"; Current file ]
+    Close Window [ Name: "All Apps"; Current file ]
+    Halt Script
     End If
 
 Fields used in this script
+
+    MemorySwitch::helpPath
 
 Scripts used in this script
 
@@ -6880,7 +9065,11 @@ Layouts used in this script
 
 Tables used in this script
 
+    MemorySwitch
+
 Table occurrences used by this script
+
+    MemorySwitch
 
 Custom Functions used by this script
 
@@ -6893,7 +9082,7 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    allSolutions
+    allApps
 
 Scripts that use this script
 
@@ -6903,8 +9092,9 @@ Script Steps
     #
     #Open using this url on iPad/iPhone.
     If [ Get ( SystemPlatform ) = 3 ]
-    Open URL [ "fmp://%7e/Heart%20Whisperer" ]
-    Exit Script [ ]
+    Open URL [ "fmp://%7e/HeartWhisperer" ] [ No dialog ]
+    Close Window [ Name: "All Apps"; Current file ]
+    Halt Script
     End If
     #
     Select Window [ Name: "Icons" ]
@@ -6933,21 +9123,21 @@ Script Steps
     End If
     Select Window [ Name: MemorySwitch::fatPath ]
     If [ Get (LastError) = 112 ]
-    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file:/" ) & "Heart Whisperer." & Right ( Get ( FilePath ) ; 3 ) ; " " ; "%20" ) ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file://" ) & "Heart Whisperer." & Right ( Get ( FilePath ) ; 3 ) ; " " ; "%20" ) ) ] [ No dialog ]
-    If [ Get (LastError) = 5 ]
-    Open URL [ Case ( Get ( SystemPlatform ) = - 2 ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file:/" ) & "Heart Whisperer.HG2" ; " " ; "%20" ) ; Substitute ( Substitute (Left (Get (FilePath) ; Length ( Get (FilePath) ) - ( Length ( Get (FileName) ) + 4 ) ) ; "file:/" ; "file://" ) & "Heart Whisperer.HG2" ; " " ; "%20" ) ) ] [ No dialog ]
-    End If
+    Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "heartwhisperer" ) ] [ No dialog ]
+    Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "heartwhisperer" ) ] [ No dialog ]
     End If
     #
-    #Close all solutions window.
+    #Close all apps window.
     If [ $$otherApps = 1 ]
     Set Variable [ $$otherApps ]
-    Close Window [ Name: "All Solutions"; Current file ]
+    Close Window [ Name: "All Apps"; Current file ]
+    Halt Script
     End If
 
 Fields used in this script
 
     MemorySwitch::fatPath
+    MemorySwitch::helpPath
 
 Scripts used in this script
 
@@ -6966,13 +9156,13 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoHeartWhisperer]	Parent Folder: [librarySetup]	Next Script: [gotoOtherLibrary]
+Previous Script: [gotoHeartWhisperer]	Parent Folder: [librarySetup]	Next Script: [gotoIQLogs]
 Script Name	gotoHelpGiveThanksWebsite
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    allSolutions
+    allApps
 
 Scripts that use this script
 
@@ -6983,8 +9173,9 @@ Script Steps
     #Close all solutions window after selecting website.
     If [ $$otherApps = 1 ]
     Set Variable [ $$otherApps ]
-    Close Window [ Name: "All Solutions"; Current file ]
+    Close Window [ Name: "All Apps"; Current file ]
     Open URL [ "https://helpgivethanks.github.io/" ] [ No dialog ]
+    Halt Script
     End If
 
 Fields used in this script
@@ -7002,13 +9193,52 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoHelpGiveThanksWebsite]	Parent Folder: [librarySetup]	Next Script: [libraryMainOrBranchRepition1]
+Previous Script: [gotoHelpGiveThanksWebsite]	Parent Folder: [librarySetup]	Next Script: [gotoOtherLibrary]
+Script Name	gotoIQLogs
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    allApps
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #This script needs to be kept identical to the
+    #same script in the ActionLog.
+    #
+    #
+    Show Custom Dialog [ Message: "Brain exercises result in measurable increases in cognitive abilities, like how fast we can read aloud, how far we can see, etc. The IQ Log app guides you thru several cognitive tests."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Use it to track increases in your brain's abilities, and determine when you need to increase the difficulty of your brain exercises. It will be released when time permits."; Default Button: “OK”, Commit: “Yes” ]
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoIQLogs]	Parent Folder: [librarySetup]	Next Script: [libraryMainOrBranchRepition1]
 Script Name	gotoOtherLibrary
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    allSolutions
+    allApps
 
 Scripts that use this script
 
@@ -7043,7 +9273,7 @@ Script Steps
     End If
     #
     #Close all solutions window if open after selecting a library.
-    Close Window [ Name: "All Solutions"; Current file ]
+    Close Window [ Name: "All Apps"; Current file ]
     Set Variable [ $$otherApps ]
     Halt Script
     #
@@ -7088,7 +9318,7 @@ Script Steps
     If [ MemorySwitch::currentLibraryPath = $path ]
     Select Window [ Name: GetValue ( WindowNames ( Case ( Get ( SystemPlatform ) = - 2 ; MemorySwitch::name ; MemorySwitch::name ) ) ; 1 ) ]
     Select Window [ Name: GetValue ( WindowNames ( Case ( Get ( SystemPlatform ) = - 2 ; MemorySwitch::name ; MemorySwitch::name ) ) ; 2 ) ]
-    Select Window [ Name: MemorySwitch::currentLibraryMainWIndow ]
+    Select Window [ Name: MemorySwitch::currentLibraryWIndows ]
     End If
     #
     #There is no harm in leaving multiple libraries
@@ -7154,9 +9384,14 @@ Script Steps
     Exit Script [ ]
     End If
     #
+    #Set selected path and name to current name
+    #and path.
+    Set Field [ MemorySwitch::currentLibraryPath; $path ]
+    Set Field [ MemorySwitch::currentLibraryName; $name ]
+    #
     #Close other solutions window if open after selecting a library.
     If [ $$otherApps = 1 ]
-    Close Window [ Name: "All Solutions"; Current file ]
+    Close Window [ Name: "All Apps"; Current file ]
     Set Variable [ $$otherApps ]
     Halt Script
     End If
@@ -7168,7 +9403,7 @@ Fields used in this script
     MemorySwitch::name
     MemorySwitch::currentLibraryName
     MemorySwitch::currentLibraryPath
-    MemorySwitch::currentLibraryMainWIndow
+    MemorySwitch::currentLibraryWIndows
 
 Scripts used in this script
 
@@ -7613,7 +9848,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [libraryTypeCheckBoxRepition2]	Parent Folder: [librarySetup]	Next Script: [setupReference_GoToPortalReferenceRevieworWebsite]
+Previous Script: [libraryTypeCheckBoxRepition2]	Parent Folder: [librarySetup]	Next Script: [setupReference_Delete]
 Script Name	moreInfo
 Run script with full access privileges	Off
 Include In Menu	Yes
@@ -7627,8 +9862,10 @@ Script Definition
 Script Steps
 
     New Window [ Name: "More Info"; Left: Get ( WindowDesktopWidth ) - (Get ( WindowDesktopWidth ) / 2 ); Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “moreInfo” (tempSetup) ]
+    Go to Layout [ “moreInfo” (TEMP) ]
     Adjust Window [ Resize to Fit ]
+    Delete All Records [ No dialog ]
+    New Record/Request
     Pause/Resume Script [ Indefinitely ]
 
 Fields used in this script
@@ -7648,7 +9885,95 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [moreInfo]	Parent Folder: [librarySetup]	Next Script: [setupReference_GoToReviewOrEditWindow]
+Previous Script: [moreInfo]	Parent Folder: [librarySetup]	Next Script: [setupReference_GoToPortalReferenceRevieworWebsite]
+Script Name	setupReference_Delete
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+    setupReferenceViewUnlocked
+    defaultSetupViewAndEdit
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Stop script if there are no records to lock.
+    If [ Get (FoundCount) = 0 ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If there is a password, the delete (x) button
+    #is invisible, but it can still be clicked, so its
+    #important to stop this script.
+    If [ librarySetupReferenceMain::password[2] ≠ "" ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If record's creator node is locked, tell the
+    #user it's locked, but the record can still be
+    #deleted or edited because it is not locked.
+    If [ librarySetupCreator::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "This library setup-reference's creator node — " & librarySetupCreator::tag & " — is locked. HOWEVER, the lock for these setup-reference records are separate from their creator's lock, so you can edit and delete it."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+    #Make sure the user wants to delete
+    #the record.
+    Show Custom Dialog [ Message: "Delete this library setup-reference?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
+    #
+    #
+    #If user cancels delete, exit script.
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Delete the record.
+    Delete Record/Request [ No dialog ]
+    #
+    #
+    #Close the Review Reference window if open.
+    If [ Get (WindowName) = "Review Reference" or Get (WindowName) = "Edit Reference" ]
+    Close Window [ Current Window ]
+    Halt Script
+    End If
+    #
+    #
+
+Fields used in this script
+
+    librarySetupReferenceMain::password
+    librarySetupCreator::orderOrLock
+    librarySetupCreator::tag
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    setupReference
+    tag
+
+Table occurrences used by this script
+
+    librarySetupCreator
+    librarySetupReferenceMain
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [setupReference_Delete]	Parent Folder: [librarySetup]	Next Script: [setupReference_GoToReviewOrEditWindow]
 Script Name	setupReference_GoToPortalReferenceRevieworWebsite
 Run script with full access privileges	Off
 Include In Menu	No
@@ -7663,6 +9988,14 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #
+    #If there are no user created references, then tell user
+    #how to download a fresh copy of the library app.
+    If [ Get (FoundCount) = 0 ]
+    Show Custom Dialog [ Message: "This library when downloaded was an empty, unmodified version of the applicaiton, without any user created notes (Learn records), references, or test templates in it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
     #
     #
     #Capture variables needed when user clicks
@@ -8164,6 +10497,7 @@ Script Steps
     End If
     #
     Set Field [ librarySetupReferenceMain::creatorName; "FirstName LastName" ]
+    Set Field [ librarySetupReferenceMain::version; "1" ]
     #
     #Go to edit setup reference window.
     Set Variable [ $$newSetupReference; Value:1 ]
@@ -8178,6 +10512,7 @@ Fields used in this script
     librarySetupReferenceMain::kcreatorNode
     librarySetupReferenceMain::name
     librarySetupReferenceMain::creatorName
+    librarySetupReferenceMain::version
 
 Scripts used in this script
 
@@ -8272,9 +10607,13 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    CopyrightEDIT
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2keywordOrNode2
@@ -8288,16 +10627,10 @@ Layouts that use this script
     ReferenceAddToTag
     ReferenceAddToCopyright
     ltagNK1
-    ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
-    ltagNKs3
     ltagNK4
-    ltagNKs4
     ltagNK5
-    ltagNKs5
-    learnMenuCopyrightEDIT
     testMenuTestItemEdit
     testMenuTestItemMORE
 
@@ -8309,6 +10642,15 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #For now, hide the the add button until a
+    #solution can be figured out to allow user to
+    #create references for pictures used by node
+    #tags in inventory mode.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Show Custom Dialog [ Message: "In inventory mode, pictures and links cannot be added to tags as of library version 4.0d. Plans are to add this feature back in a future version."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
     #
     #Admin tasks.
     Allow User Abort [ Off ]
@@ -8798,6 +11140,7 @@ Script Steps
 
 Fields used in this script
 
+    TEMP::InventoryLibraryYN
     tempSetup::kdefaultNodePrimary
     tagCreatorLock::orderOrLock
     tagCreatorLock::tag
@@ -8815,7 +11158,6 @@ Fields used in this script
     testlearn::date
     testlearn::timestamp
     TEMP::layoutRtagK
-    TEMP::InventoryLibraryYN
     reference::filterFind
     tagKeywordPrimary::tag
 
@@ -9312,10 +11654,21 @@ Script Steps
     #C) If the user cancels, then exit the script.
     If [ Get ( LastMessageChoice ) = 1 ]
     #
+    #If on a reference layout ...
+    If [ $referenceLayout = 1 ]
+    #
     #If media is required, insert a place holder.
     If [ $$ReplaceMeMediaRequired = 1 ]
     Set Field [ reference::picture; "Replace Me. Media Required" ]
     Set Variable [ $$ReplaceMeMediaRequired ]
+    End If
+    #
+    #If in inventory mode, turn back on variable that
+    #allows the user to edit this reference record.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    End If
+    #
     End If
     #
     Exit Script [ ]
@@ -9361,9 +11714,11 @@ Script Steps
     If [ Get ( WindowName ) ≠ "Media" ]
     Set Variable [ $$stoploadCitation; Value:1 ]
     Set Variable [ $$stoploadtestinfo; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
     Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
     New Window [ Name: "Media"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
     #
     #Go to correct media layout.
     If [ $referenceLayout = 1 ]
@@ -9388,6 +11743,7 @@ Script Steps
     #Restart record load scripts.
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$stoploadtestinfo ]
+    Set Variable [ $$stopLoadTagRecord ]
     Set Variable [ $$stopLoadTestRecord ]
     Set Variable [ $$stopLoadTestResultRecord ]
     End If
@@ -9417,6 +11773,12 @@ Script Steps
     If [ $$ReplaceMeMediaRequired = 1 ]
     Set Field [ reference::picture; "Replace Me. Media Required" ]
     Set Variable [ $$ReplaceMeMediaRequired ]
+    End If
+    #
+    #If in inventory mode, turn back on variable that
+    #allows the user to edit this reference record.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
     End If
     #
     #Close window and exit script.
@@ -9453,9 +11815,11 @@ Script Steps
     If [ Get ( WindowName ) ≠ "Media" ]
     Set Variable [ $$stoploadCitation; Value:1 ]
     Set Variable [ $$stoploadtestinfo; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
     Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
     New Window [ Name: "Media"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
     #
     #Go to correct media layout.
     If [ $referenceLayout = 1 ]
@@ -9480,6 +11844,7 @@ Script Steps
     #Restart record load scripts.
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$stoploadtestinfo ]
+    Set Variable [ $$stopLoadTagRecord ]
     Set Variable [ $$stopLoadTestRecord ]
     Set Variable [ $$stopLoadTestResultRecord ]
     End If
@@ -9509,6 +11874,12 @@ Script Steps
     If [ $$ReplaceMeMediaRequired = 1 ]
     Set Field [ reference::picture; "Replace Me. Media Required" ]
     Set Variable [ $$ReplaceMeMediaRequired ]
+    End If
+    #
+    #If in inventory mode, turn back on variable that
+    #allows the user to edit this reference record.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
     End If
     #
     #Close window and exit script.
@@ -9551,9 +11922,11 @@ Script Steps
     If [ Get ( WindowName ) ≠ "Media" ]
     Set Variable [ $$stoploadCitation; Value:1 ]
     Set Variable [ $$stoploadtestinfo; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
     Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
     New Window [ Name: "Media"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
     #
     #Go to correct media layout.
     If [ $referenceLayout = 1 ]
@@ -9578,6 +11951,7 @@ Script Steps
     #Restart record load scripts.
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$stoploadtestinfo ]
+    Set Variable [ $$stopLoadTagRecord ]
     Set Variable [ $$stopLoadTestRecord ]
     Set Variable [ $$stopLoadTestResultRecord ]
     End If
@@ -9606,6 +11980,12 @@ Script Steps
     If [ $$ReplaceMeMediaRequired = 1 ]
     Set Field [ reference::picture; "Replace Me. Media Required" ]
     Set Variable [ $$ReplaceMeMediaRequired ]
+    End If
+    #
+    #If in inventory mode, turn back on variable that
+    #allows the user to edit this reference record.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
     End If
     #
     #Close window and exit script.
@@ -9674,6 +12054,9 @@ Script Steps
     #script.
     If [ Get ( LastMessageChoice ) = 1 ]
     #
+    #If on a reference layout ...
+    If [ $referenceLayout = 1 ]
+    #
     #If media is required and there is no media,
     #then insert a place holder.
     If [ $$ReplaceMeMediaRequired = 1 and reference::showMedia[1] = "" and reference::showMedia[2] = "" ]
@@ -9681,6 +12064,13 @@ Script Steps
     Set Variable [ $$ReplaceMeMediaRequired ]
     End If
     #
+    #If in inventory mode, turn back on variable that
+    #allows the user to edit this reference record.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    End If
+    #
+    End If
     #
     Exit Script [ ]
     #
@@ -9699,9 +12089,11 @@ Script Steps
     If [ Get ( WindowName ) ≠ "Media" ]
     Set Variable [ $$stoploadCitation; Value:1 ]
     Set Variable [ $$stoploadtestinfo; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
     Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
     New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
     #
     #If user is on a reference layout...
     If [ Get (LayoutTableName) = "reference" ]
@@ -9734,6 +12126,7 @@ Script Steps
     #Restart record load scripts.
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$stoploadtestinfo ]
+    Set Variable [ $$stopLoadTagRecord ]
     Set Variable [ $$stopLoadTestRecord ]
     Set Variable [ $$stopLoadTestResultRecord ]
     End If
@@ -9781,6 +12174,12 @@ Script Steps
     Set Variable [ $$ReplaceMeMediaRequired ]
     End If
     #
+    #If in inventory mode, turn back on variable that
+    #allows the user to edit this reference record.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    End If
+    #
     Exit Script [ ]
     Else If [ testlearn::picture = "" and $learnLayout = 1 ]
     #
@@ -9820,9 +12219,11 @@ Script Steps
     If [ Get ( WindowName ) ≠ "Media" ]
     Set Variable [ $$stoploadCitation; Value:1 ]
     Set Variable [ $$stoploadtestinfo; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
     Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
     New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
     #
     #If user is on a reference layout...
     If [ Get (LayoutTableName) = "reference" ]
@@ -9857,6 +12258,7 @@ Script Steps
     #Restart record load scripts.
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$stoploadtestinfo ]
+    Set Variable [ $$stopLoadTagRecord ]
     Set Variable [ $$stopLoadTestRecord ]
     Set Variable [ $$stopLoadTestResultRecord ]
     End If
@@ -9899,6 +12301,12 @@ Script Steps
     Set Variable [ $$ReplaceMeMediaRequired ]
     End If
     #
+    #If in inventory mode, turn back on variable that
+    #allows the user to edit this reference record.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    End If
+    #
     Exit Script [ ]
     Else If [ testlearn::picture = "" and $learnLayout = 1 ]
     #
@@ -9938,10 +12346,11 @@ Script Steps
 Fields used in this script
 
     reference::picture
+    TEMP::InventoryLibraryYN
+    reference::_Lreference
     testlearn::_Ltestlearn
     testlearn::picture
     reference::showMedia
-    TEMP::InventoryLibraryYN
     testlearn::kshowReferencedMedia
 
 Scripts used in this script
@@ -10404,6 +12813,8 @@ Script Steps
     Export Field Contents [ testlearn::picture ]
     Else If [ testlearnReportTags::picture ≠ "" ]
     Export Field Contents [ testlearnReportTags::picture ]
+    Else If [ refLearnShowMedia::picture ≠ "" ]
+    Export Field Contents [ refLearnShowMedia::picture ]
     End If
 
 Fields used in this script
@@ -10411,6 +12822,7 @@ Fields used in this script
     reference::picture
     testlearn::picture
     testlearnReportTags::picture
+    refLearnShowMedia::picture
 
 Scripts used in this script
 
@@ -10423,6 +12835,7 @@ Tables used in this script
 
 Table occurrences used by this script
 
+    refLearnShowMedia
     reference
     testlearn
     testlearnReportTags
@@ -10703,12 +13116,19 @@ Script Steps
 
     #
     #
-    #Toggle between small and full screen picture window.
+    #Toggle between small and full screen picture
+    #window, unless on iDevice, in which case tell
+    #the user how to use two fingers to zoom
+    #in and out.
     Go to Field [ ]
+    If [ Get ( SystemPlatform ) = 3 ]
+    Show Custom Dialog [ Message: "Touch two fingers to the screen and pinch and spread apart to zoom in and out. NOTE: On desktop/laptop computers this button increases/decreases the media's size."; Default Button: “OK”, Commit: “Yes” ]
+    Else
     If [ TEMP::InventoryLibraryYN ≠ "" ]
     Move/Resize Window [ Current Window; Height: If ( 435 = Get (WindowHeight) ; Get (ScreenHeight) ; 435 ); Width: If ( 435 = Get (WindowHeight); Get (ScreenWidth) ; 400 ); Top: If ( 435 = Get (WindowHeight) ; 0 ; Get (ScreenHeight) / 4 ); Left: If ( 435 = Get (WindowHeight) ; 0 ; Get (ScreenWidth) / 4 ) ]
     Else
     Move/Resize Window [ Current Window; Height: If ( 395 = Get (WindowHeight) ; Get (ScreenHeight) ; 395 ); Width: If ( 395 = Get (WindowHeight); Get (ScreenWidth) ; 400 ); Top: If ( 395 = Get (WindowHeight) ; 0 ; Get (ScreenHeight) / 4 ); Left: If ( 395= Get (WindowHeight) ; 0 ; Get (ScreenWidth) / 4 ) ]
+    End If
     End If
     #
     #
@@ -10949,6 +13369,9 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learn4
+    learnStuff4
+    learnStuff5
     learn4EDIT
     learn4EDITstuff
 
@@ -10971,8 +13394,10 @@ Script Steps
     If [ testlearn::picture = "" ]
     If [ testlearn::kshowReferencedMedia = refLearn::_Lreference ]
     Set Field [ testlearn::kshowReferencedMedia; "" ]
+    Set Variable [ $$refMediaSelectedToShow; Value:Case ( testlearn::kshowReferencedMedia = "" ; "" ; testlearn::kshowReferencedMedia ) ]
     Else If [ //There is a picture to show if... refLearn::picture ≠ "" or refLearn::showMedia ≠ "" and refLearn::URL ≠ "" or refLearn::showMedia[2] ≠ "" and refLearn::kfileLocation ≠ "" and refLearn::fileName ≠ "" ]
     Set Field [ testlearn::kshowReferencedMedia; refLearn::_Lreference ]
+    Set Variable [ $$refMediaSelectedToShow; Value:Case ( testlearn::kshowReferencedMedia = "" ; "" ; testlearn::kshowReferencedMedia ) ]
     Else
     If [ TEMP::InventoryLibraryYN = "" ]
     Show Custom Dialog [ Message: "This reference has no media to show. Picture button will be a darker grey if there is media to show."; Default Button: “OK”, Commit: “Yes” ]
@@ -11046,6 +13471,8 @@ Layouts that use this script
 
     defaultsAll
     defaultCopyright
+    CopyrightVIEW
+    CopyrightEDIT
     defaultNode2
     defaultNode3
     defaultNode4
@@ -11067,8 +13494,10 @@ Layouts that use this script
     addMenuTestItem
     ReferenceAddToTag
     ReferenceAddToCopyright
+    learn0
     learn1
     learnStuff1
+    learn2
     learn3
     learnStuff3
     learn4
@@ -11076,21 +13505,20 @@ Layouts that use this script
     learn5
     learnStuff5
     learn4EDIT
+    learn4EDITLocked
     learn4EDITstuff
+    learn4EDITstuffLocked
     ltagNK3
     ltagNKs3
     ltagNK4
-    ltagNKs4
     ltagNK5
-    ltagNKs5
-    learnMenuCopyrightVIEW
-    learnMenuCopyrightEDIT
     learnMenu3Cite
     learnMenuRefStuff
     learnMenu4RefCite
     learnMenu4STUFFRefCite
     learnFindCite
     learnFindStuffCite
+    learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
     testResult0
     testResultLOCKED0
@@ -11100,7 +13528,6 @@ Layouts that use this script
     TestInfoReference
     testInfoText
     testInfoTextLocked
-    testMenuTestItemMORE
     reportTestResult
     reportTestResultLocked
     reportTagInfo
@@ -11113,6 +13540,10 @@ Scripts that use this script
     showRefHarddriveMedia
     showRefWebMedia
     showTestSubjectCopyrightPicture
+    addORremovePrimaryTag
+    addORremoveRefTagStep1
+    findPrimaryRef
+    findPrimaryTL
     showPicture1
     showPicture2
     showPicture3
@@ -11127,6 +13558,41 @@ Script Steps
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     #
+    #Stop script if user clicked in the media field to
+    #navigate to this record, not to open the media
+    #window.
+    If [ $$stopOpenNewTextWindow = 1 ]
+    Set Variable [ $$stopOpenNewTextWindow ]
+    Exit Script [ ]
+    End If
+    #
+    #If on the Tag Menus learn layout and there
+    #is no media to show, exit this script.
+    If [ Get ( WindowName ) = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" and testlearn::picture = "" and testlearn::kshowReferencedMedia = "" ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #In inventory mode, if the user is not in any
+    #hidden fields, and there is no media for this
+    #record, and the user just activated this script
+    #by clicking on the empty media field, then
+    #show the hidden fields including the hidden
+    #media field so the user can click on it and add
+    #a media if they want to.
+    If [ Get ( WindowName ) = "Tag Menus" and reference::picture = "" and $$editLocation = reference::_Lreference and TEMP::InventoryLibraryYN ≠ "" ]
+    If [ Get ( ActiveFieldName ) = "" ]
+    Go to Object [ Object Name: "tag 1" ]
+    Refresh Window
+    Halt Script
+    Else
+    Set Variable [ $$editLocation ]
+    Set Variable [ $openHIddenPicture; Value:1 ]
+    Refresh Window
+    End If
+    End If
+    Go to Field [ ]
+    #
     #
     #Make sure on layouts where long text field
     #extends over the picture field AND when this
@@ -11134,7 +13600,7 @@ Script Steps
     #cover up, that this script is stopped, and the
     #user is taken to this long text field instead of
     #the picture window opening up.
-    If [ reference::referenceShortLong ≠ "" and Get (LayoutTableName) = "reference" and Get (WindowName) = "Tag Menus" or reference::referenceShortLong ≠ "" and Get (LayoutName) = "TestInfoReference" ]
+    If [ reference::referenceHidePicture ≠ "" and Get (LayoutTableName) = "reference" and Get (WindowName) = "Tag Menus" and $openHIddenPicture = "" or reference::referenceHidePicture ≠ "" and Get (LayoutName) = "TestInfoReference" ]
     Go to Object [ Object Name: "tag 1" ]
     Set Variable [ $$stopGoToKeyTag; Value:1 ]
     Exit Script [ ]
@@ -11230,7 +13696,7 @@ Script Steps
     Else If [ Get (LayoutTableName) = "reference" ]
     #REFERENCE WINDOW
     Set Variable [ $picture; Value:reference::_Lreference ]
-    Set Variable [ $fileLocation; Value:Case ( reference::picture ≠ "" ; "database" ; reference::kfileLocation ≠ "" and reference::fileName ≠ "" and reference::showMedia[2] ≠ "" ; "harddrive" ; reference::URL ≠ "" and reference::showMedia ≠ "" ; "web" ; Case ( Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceSTUFF" ; "none" ; "tag=none" ) ) ]
+    Set Variable [ $fileLocation; Value:Case ( reference::picture ≠ "" ; "database" ; reference::kfileLocation ≠ "" and reference::fileName ≠ "" and reference::showMedia[2] ≠ "" ; "harddrive" ; reference::URL ≠ "" and reference::showMedia ≠ "" ; "web" ; Case ( Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceSTUFF" or Get (LayoutName) = "learnMenuRefStuff" ; "none" ; "tag=none" ) ) ]
     If [ Get (LayoutName) = "ReferenceEDIT" and tagTLNodePrimary::orderOrLock = "" ]
     Set Variable [ $referenceEDIT; Value:1 ]
     End If
@@ -11286,7 +13752,7 @@ Script Steps
     #
     #
     #If the user clicked on a picture field that is
-    #empty in the tag window exit this script.
+    #empty in the tag window exit this script, unless the user is in an inventory library.
     If [ $fileLocation = "tag=none" or $fileLocation = "none" and $lock = 1 ]
     #
     #Don't bother telling user how to add a picture
@@ -11366,6 +13832,7 @@ Script Steps
     Set Variable [ $$stopWhenLoadingInfoRecordReferences; Value:1 ]
     If [ Get ( WindowName ) ≠ "Media" ]
     New Window [ Name: "Media"; Height: 435; Width: 400; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
     End If
     #
     #
@@ -11507,7 +13974,9 @@ Script Steps
     Set Variable [ $$stoploadCitation; Value:1 ]
     Set Variable [ $$stoploadtestinfo; Value:1 ]
     Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $learnWindowName; Value:Get ( WindowName ) ]
     New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
     #
     #
     #Go to edit media layout only if on a
@@ -11519,12 +13988,19 @@ Script Steps
     #Display database file.
     If [ $fileLocation = "database" or $fileLocation = "TLpicture" ]
     If [ $fileLocation = "database" ]
+    #
+    #If looking at learn media in the tag menus
+    #window, go to the view layout.
+    If [ $learnWindowName = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" ]
+    Go to Layout [ “LearnRefPictureWindow” (testlearn) ]
+    Else
     Go to Layout [ “LearnRefPictureWindowEDIT” (testlearn) ]
+    End If
     Else If [ $fileLocation = "TLpicture" ]
     #
-    #If looking at learn media on an inventory
-    #library's Tag Menu, go to the view layout.
-    If [ Right ( Get (LayoutName) ; 4 ) = "Cite" ]
+    #If looking at learn media in the tag menus
+    #window, go to the view layout.
+    If [ $learnWindowName = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" ]
     Go to Layout [ “LearnPictureWindow” (testlearn) ]
     Else
     Go to Layout [ “LearnPictureWindowEDIT” (testlearn) ]
@@ -11533,11 +14009,25 @@ Script Steps
     #
     #Display harddrive file.
     Else If [ $fileLocation = "harddrive" ]
+    #
+    #If looking at learn media in the tag menus
+    #window, go to the view layout.
+    If [ $learnWindowName = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" ]
+    Go to Layout [ “LearnRefExternalPictureWindow” (testlearn) ]
+    Else
     Go to Layout [ “LearnRefExternalPictureWindowEDIT” (testlearn) ]
+    End If
     #
     #Display webpage.
     Else If [ $fileLocation = "web" ]
+    #
+    #If looking at learn media in the tag menus
+    #window, go to the view layout.
+    If [ $learnWindowName = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" ]
+    Go to Layout [ “LearnRefWebPictureWindow” (testlearn) ]
+    Else
     Go to Layout [ “LearnRefWebPictureWindowEDIT” (testlearn) ]
+    End If
     End If
     #
     #Not editable (view only) layouts.
@@ -11591,14 +14081,17 @@ Script Steps
 
 Fields used in this script
 
-    reference::referenceShortLong
-    tagMenus::tagTestTextItemOrLongTagField
+    testlearn::picture
+    testlearn::kshowReferencedMedia
+    reference::picture
+    reference::_Lreference
     TEMP::InventoryLibraryYN
+    reference::referenceHidePicture
+    tagMenus::tagTestTextItemOrLongTagField
     refCreatorNode::orderOrLock
     refCreatorNode::tag
     TEMP::primaryNodeIsLocked
     TEMP::DEFAULTNodePrimaryName
-    reference::picture
     TEMP::primaryNodesCreatorNodeIsLocked
     testSubsectionTestSubjectLock::orderOrLock
     ReportResultTestSubject::orderOrLock
@@ -11613,7 +14106,6 @@ Fields used in this script
     defaultNodeCopyrightsPicture::fileName
     defaultNodeCopyrightsPicture::showMedia
     defaultNodeCopyrightsPicture::URL
-    reference::_Lreference
     reference::kfileLocation
     reference::fileName
     reference::showMedia
@@ -11637,7 +14129,6 @@ Fields used in this script
     refPicture3::showMedia
     refPicture3::URL
     testlearn::_Ltestlearn
-    testlearn::picture
     refLearnShowMedia::picture
     refLearnShowMedia::kfileLocation
     refLearnShowMedia::fileName
@@ -11669,14 +14160,14 @@ Layouts used in this script
     ReferencePictureWindow
     ReferencePictureWindow_HDDEDIT
     ReferencePictureWindow_WebEDIT
+    LearnRefPictureWindow
     LearnRefPictureWindowEDIT
     LearnPictureWindow
     LearnPictureWindowEDIT
-    LearnRefExternalPictureWindowEDIT
-    LearnRefWebPictureWindowEDIT
-    LearnRefPictureWindow
     LearnRefExternalPictureWindow
+    LearnRefExternalPictureWindowEDIT
     LearnRefWebPictureWindow
+    LearnRefWebPictureWindowEDIT
 
 Tables used in this script
 
@@ -11728,7 +14219,6 @@ Layouts that use this script
     addMenu2
     addMenuTestItem
     ltagNK5
-    ltagNKs5
 
 Scripts that use this script
 
@@ -11768,13 +14258,11 @@ Include In Menu	No
 Layouts that use this script
 
     defaultNode4
-    ReferenceMenu2keywordOrNode5
     ReferenceMenu2SkeywordOrNode5
     addMenuNodeKeyword
     addMenu2
     addMenuTestItem
     ltagNK5
-    ltagNKs5
 
 Scripts that use this script
 
@@ -12901,7 +15389,7 @@ Script Steps
     #cancelled action" = 1 error is generated or the
     #508 = "invalid find request" variable is generated.
     If [ $$r4 ≠ "" ]
-    Set Field [ reference::referenceForReferenceWindow; $$r4 ]
+    Set Field [ reference::referenceForReferenceFINDWindow; $$r4 ]
     #
     #BUG: The 1 error is a bug because the script,
     #not the user, is generating the error. If the user
@@ -13146,7 +15634,6 @@ Script Steps
 
 Fields used in this script
 
-    reference::referenceForReferenceWindow
     reference::referenceForReferenceFINDWindow
     reference::createDate
     reference::modifyDate
@@ -13651,54 +16138,6 @@ Script Steps
     Set Variable [ $$r42 ]
     Set Variable [ $$r43 ]
     Set Variable [ $$r44 ]
-    Set Field [ reference::createDate; $$r0 ]
-    Set Field [ reference::modifyDate; $$r1 ]
-    Set Field [ reference::showInLearn; $$r2 ]
-    Set Field [ reference::incomplete; $$r3 ]
-    Set Field [ reference::referenceForReferenceFINDWindow; $$r4 ]
-    Set Field [ reference::kisON; $$r5 ]
-    Set Field [ reference::showMedia; $$r5b ]
-    Set Field [ reference::showMedia[2]; $$r5c ]
-    Set Field [ reference::kisWhat; $$r6 ]
-    Set Field [ reference::otherIsOn; $$r7 ]
-    Set Field [ reference::referenceNodes; $$r8 ]
-    Set Field [ reference::Title; $$r9 ]
-    Set Field [ reference::bookChapter; $$r10 ]
-    Set Field [ reference::governmentAuthor; $$r11 ]
-    Set Field [ reference::GovernmentDocInfo; $$r12 ]
-    Set Field [ reference::letterDate; $$r13 ]
-    Set Field [ reference::emailRecipient; $$r14 ]
-    Set Field [ reference::publicationTitle; $$r15 ]
-    Set Field [ reference::compilationEditors; $$r16 ]
-    Set Field [ reference::compilationAbbr; $$r17a ]
-    Set Field [ reference::compilationNumberOfEditors; $$r17b ]
-    Set Field [ reference::conferenceIntroWords; $$r18 ]
-    Set Field [ reference::conferenceTitle; $$r19 ]
-    Set Field [ reference::conferenceSubTitle; $$r20 ]
-    Set Field [ reference::conferenceLocation; $$r22 ]
-    Set Field [ reference::conferenceDate; $$r23 ]
-    Set Field [ reference::volumeNumber; $$r24 ]
-    Set Field [ reference::issueNumber; $$r25 ]
-    Set Field [ reference::pageNumberRange; $$r26 ]
-    Set Field [ reference::pageNumberOther; $$r26b ]
-    Set Field [ reference::TimeRange; $$r27 ]
-    Set Field [ reference::publisherTypeAlternative; $$r28 ]
-    Set Field [ reference::publisherLocation; $$r29 ]
-    Set Field [ reference::publicationYearOrStuffOrderNumber; $$r30 ]
-    Set Field [ reference::PubDate; $$r31 ]
-    Set Field [ reference::pubDateOther; $$r32 ]
-    Set Field [ reference::CopyrightYear; $$r33 ]
-    Set Field [ reference::copyrightOtherHolder; $$r34 ]
-    Set Field [ reference::URL; $$r35 ]
-    Set Field [ reference::URLdate; $$r36 ]
-    Set Field [ reference::publicLibraryLinks; $$r37 ]
-    Set Field [ reference::ISBN; $$r38 ]
-    Set Field [ reference::DOI; $$r39 ]
-    Set Field [ reference::ISSN; $$r40 ]
-    Set Field [ reference::fileName; $$r41 ]
-    Set Field [ reference::kfileLocation; $$r42 ]
-    Set Field [ reference::thoughtsNotesEtc; $$r43 ]
-    Set Field [ reference::referenceDump; $$r44 ]
     End If
     #
     #
@@ -13778,6 +16217,7 @@ Layouts that use this script
 
     Reference
     ReferenceStuff
+    learnMenuRefStuff
 
 Scripts that use this script
 
@@ -13812,7 +16252,7 @@ Script Steps
     #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
@@ -13820,9 +16260,12 @@ Script Steps
     #If user is in tag field and has changed spelling
     #exit this tag record, otherwise current reference record
     #will get deleted by the spelling check script.
+    If [ TEMP::InventoryLibraryYN = "" ]
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Field [ ]
     Select Window [ Name: "References"; Current file ]
+    End If
+    #
     If [ TEMP::InventoryLibraryYN = "" ]
     #
     #If reference is sorted by ...
@@ -13862,6 +16305,7 @@ Script Steps
     #Prevent all record load scripts (they slow down
     #this script and are uneccessary).
     Set Variable [ $$stoploadCitation; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
     #
     #
     #Set variables to conditionally format section to
@@ -14122,7 +16566,11 @@ Script Steps
     Set Variable [ $$addTagToCitation ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
+    If [ TEMP::InventoryLibraryYN = "" ]
     Perform Script [ “loadLearnOrRefMainRecord” ]
+    Else
+    Perform Script [ “loadTagRecord” ]
+    End If
     End If
     #
 
@@ -14156,6 +16604,7 @@ Fields used in this script
 Scripts used in this script
 
     loadLearnOrRefMainRecord
+    loadTagRecord
 
 Layouts used in this script
 
@@ -14207,7 +16656,7 @@ Script Steps
     #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
@@ -14580,7 +17029,7 @@ Script Steps
     #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
@@ -14679,7 +17128,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [editReference]	Parent Folder: [reference]	Next Script: [exitLockedStuffRef]
+Previous Script: [editReference]	Parent Folder: [reference]	Next Script: [exitAndStopClearCitationMatch]
 Script Name	enterShortOrLongTagField
 Run script with full access privileges	Off
 Include In Menu	No
@@ -14687,7 +17136,10 @@ Layouts that use this script
 
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu3Cite
     ReferenceMenu2keywordOrNode1
@@ -14712,6 +17164,7 @@ Layouts that use this script
     ltagNK5
     ltagNKs5
     learnMenu3Cite
+    learnMenuRefStuff
     learnFindCite
     TestInfoReference
 
@@ -14724,50 +17177,127 @@ Script Definition
 Script Steps
 
     #
+    #
     #Stops script when user is going to the Learn
-    #or Reference section.
+    #or Reference section, except for exit script
+    #when user has navigated to a key tag menu
+    #record by clicking on the order-number
+    #popup menu.
     If [ $$stopGoToKeyTag ≠ "" ]
     Set Variable [ $$stopGoToKeyTag ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    If [ $$keyOrderNumberPossibleChanged ≠ "" ]
+    #Disable this variable as the exit script needs
+    #to know if the order field triggered this script.
+    // Set Variable [ $$keyOrderNumberPossibleChanged ]
+    Perform Script [ “exit” ]
+    End If
     Exit Script [ ]
     End If
     #
-    #Allow empty picture fields to be hidden, and
-    #the tag's text box to appear longer, basically
-    #covering up the unused picture field on the
-    #Reference Cite Tag Menu.
-    If [ reference::referenceShortLong = "" and Get (LayoutTableName) = "reference" ]
-    Go to Object [ Object Name: "tag 2" ]
-    Else If [ reference::referenceShortLong ≠ "" and Get (LayoutTableName) = "reference" ]
-    Go to Object [ Object Name: "tag 1" ]
-    End If
     #
     #Allow empty picture fields to be hidden, and
     #the tag's text box to appear longer, basically
-    #covering up the unused picture field on the
-    #Learn Key, Node, and Reference Tag Menus.
+    #covering up the unused picture field on
+    #reference table Tag Menus.
+    If [ reference::referenceHidePicture = "" and Get (LayoutTableName) = "reference" ]
+    #
+    #If in inventory mode where the empty picture
+    #and title and description fields are hidden do
+    #the following to reveal these hidden fields, and
+    #if currently showing to go the field the user is
+    #currently not in, thus allowing the user to
+    #switch between these temporarily unhidden
+    #fields.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    Refresh Window
+    If [ Get ( ActiveFieldName ) ≠ "Title" ]
+    Set Variable [ $$editLocation ]
+    Go to Object [ Object Name: "tag 1" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    Refresh Window
+    Else
+    Set Variable [ $$editLocation ]
+    Go to Object [ Object Name: "tag 2" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    Refresh Window
+    End If
+    #
+    Else
+    #
+    #If in idea mode, then just go the short field.
+    Go to Object [ Object Name: "tag 2" ]
+    End If
+    #
+    #
+    Else If [ reference::referenceHidePicture ≠ "" and Get (LayoutTableName) = "reference" ]
+    #
+    #If in inventory mode where the empty picture
+    #and title and description fields are hidden do
+    #the following to reveal these hidden fields and
+    #if currently showing to go the field the user is
+    #currently not in, thus allowing the user to
+    #switch between these temporarily unhidden
+    #fields.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    Refresh Window
+    If [ Get ( ActiveFieldName ) ≠ "Title" ]
+    Set Variable [ $$editLocation ]
+    Go to Object [ Object Name: "tag 1" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    Refresh Window
+    Else
+    Set Variable [ $$editLocation ]
+    Go to Object [ Object Name: "tag 2" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    Refresh Window
+    End If
+    Exit Script [ ]
+    #
+    Else
+    #
+    #If in idea mode, then just go the short field.
+    Go to Object [ Object Name: "tag 1" ]
+    End If
+    End If
+    #
+    #
+    #Allow empty picture fields to be hidden, and
+    #the tag's text box to appear longer, basically
+    #covering up the unused picture field on tag
+    #table Tag Menus layouts.
     If [ Get (LayoutTableName) = "tagMenus" and tagMenus::tagTestTextItemOrLongTagField ≠ "" ]
     Go to Object [ Object Name: "tag 1" ]
     Else If [ Get (LayoutTableName) = "tagMenus" and tagMenus::tagTestTextItemOrLongTagField = "" ]
     Go to Object [ Object Name: "tag 2" ]
     End If
     #
+    #
 
 Fields used in this script
 
-    reference::referenceShortLong
+    reference::_Lreference
+    reference::referenceHidePicture
+    TEMP::InventoryLibraryYN
     tagMenus::tagTestTextItemOrLongTagField
 
 Scripts used in this script
+
+    exit
 
 Layouts used in this script
 
 Tables used in this script
 
+    TEMP
     reference
     tag
 
 Table occurrences used by this script
 
+    TEMP
     reference
     tagMenus
 
@@ -14776,7 +17306,49 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [enterShortOrLongTagField]	Parent Folder: [reference]	Next Script: [extractCreateDateFromReferenceRecords]
+Previous Script: [enterShortOrLongTagField]	Parent Folder: [reference]	Next Script: [exitLockedStuffRef]
+Script Name	exitAndStopClearCitationMatch
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Not sure what this does, and need to test
+    #to document, when time permits.
+    If [ $$turnOffThisScript = 1 ]
+    Set Variable [ $$turnOffThisScript; Value:2 ]
+    End If
+    #
+    #After a user selects a popup calendar date,
+    #the variable below is set. FileMaker leaves the
+    #date field and enters the help field, which
+    #thanks to this variable will not run, giving the
+    #user a pleasant experience of selecting a
+    #calendar date and watching the calendar go
+    #away without anything else happening.
+    Set Variable [ $$pleaseExitUserJustLeftCalendarField; Value:1 ]
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [exitAndStopClearCitationMatch]	Parent Folder: [reference]	Next Script: [extractCreateDateFromReferenceRecords]
 Script Name	exitLockedStuffRef
 Run script with full access privileges	Off
 Include In Menu	No
@@ -14997,7 +17569,7 @@ Script Steps
     If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     Else
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
     End If
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
@@ -15071,6 +17643,7 @@ Fields used in this script
     TEMP::InventoryLibraryYN
     testlearn::date
     testlearn::timestamp
+    testlearn::orderInventoryGroupNumber
     testlearn::note
     reference::lock
     tagKeywordPrimary::orderOrLock
@@ -15329,6 +17902,7 @@ Script Steps
     Sort Records [ ] [ No dialog ]
     Scroll Window [ Home ]
     Go to Record/Request/Page [ First ]
+    #
     #
     #Clear user find request variables.
     Set Variable [ $$clearUserFindRequests; Value:1 ]
@@ -15599,7 +18173,6 @@ Layouts that use this script
     defaultTestNewSection
     learnMenu3Cite
     learnMenu3CiteS
-    learnMenuRefStuff
 
 Scripts that use this script
 
@@ -15842,6 +18415,20 @@ Script Steps
     #the reference layout. By leaving it blank, no
     #text appears in this field.
     #
+    #After a user selects a popup calendar date,
+    #the exitAndStopClearCitationMatch sets the
+    #variable below and then FileMaker leaves the
+    #date field and enters the help field, which
+    #thanks to this variable will not run, giving the
+    #user a pleasant experience of selecting a
+    #calendar date and watching the calendar go
+    #away without anything else happening.
+    If [ $$pleaseExitUserJustLeftCalendarField ≠ "" ]
+    Set Variable [ $$pleaseExitUserJustLeftCalendarField ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
     #
     #Get help message number from the object
     #names: r33 = 33, and so on.
@@ -16052,7 +18639,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [isWHATpulldownMenu]	Parent Folder: [reference]	Next Script: [menuLearn]
+Previous Script: [isWHATpulldownMenu]	Parent Folder: [reference]	Next Script: [LocationEditFieldsHIDE]
 Script Name	loadLearnOrRefMainRecord
 Run script with full access privileges	Off
 Include In Menu	No
@@ -16162,6 +18749,7 @@ Script Steps
     Set Variable [ $$primaryNode; Value:testlearn::kNodePrimary ]
     Set Variable [ $$copyright; Value:testlearn::kcopyright ]
     Set Variable [ $$ref; Value:testlearn::kcreference ]
+    Set Variable [ $$refMediaSelectedToShow; Value:Case ( testlearn::kshowReferencedMedia = "" ; "" ; testlearn::kshowReferencedMedia ) ]
     Set Variable [ $$PrimaryKey; Value:testlearn::kKeywordPrimary ]
     Set Variable [ $$Key; Value:testlearn::kcKeywordOther ]
     Set Variable [ $$OtherKey; Value:testlearn::kcKeywordOther ]
@@ -16185,17 +18773,27 @@ Script Steps
     #done to prevent flashing and slowing down script.
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #Turn off the reveal hidden field's variable so
+    #they don't get revealed in the location Tag
+    #Menus window by navigating to a different
+    #learn record, which would be odd.
+    Set Variable [ $$editLocation ]
+    #
     If [ Get (LastError) = 112 ]
     Perform Script [ “TgotoCitationMenu” ]
     End If
     Refresh Window
     Go to Field [ ]
+    #
+    #Turn back on the reveal hidden field's variable
+    #so if the user now selects the current location
+    #record in the Tag Menus window, the hidden
+    #fields they need to edit it will show up.
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    #
     End If
     Set Variable [ $$DuplicateDontGoToTagMenuWindow ]
-    #
-    #
-    #
-    #
     #
     Else If [ Get (LastError) ≠ 112 ]
     #
@@ -16297,12 +18895,12 @@ Script Steps
     Refresh Window
     #
     #
-    #Purplefy Learn layout Find Button!
+    #Purple highlight the find button for idea notes.
     #If user is loading a learn record, then check
     #if any learn records reference it and if so
     #set a variable to conditionally format the learn
     #window's 'find' button purple to indicate this.
-    If [ Get ( WindowName ) = "Learn" ]
+    If [ Get ( WindowName ) = "Learn" and TEMP::InventoryLibraryYN = "" ]
     Set Variable [ $$stoploadCitation; Value:1 ]
     New Window [ Name: "LinkedLearnRecords"; Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
     // New Window [ Name: "LinkedLearnRecords"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
@@ -16332,6 +18930,7 @@ Script Steps
     #
     Set Variable [ $$stopTgotoCitationMenu ]
     #
+    #
 
 Fields used in this script
 
@@ -16343,12 +18942,13 @@ Fields used in this script
     testlearn::kcbrainstorm
     testlearn::kNodeOther
     testlearn::kcopyright
+    testlearn::kshowReferencedMedia
     testlearn::kcKeywordOther
     tagTLNodePrimary::orderOrLock
     tagTLNodePrimary::tag
+    reference::_Lreference
     tagKeywordPrimary::orderOrLock
     reference::publicationYearOrStuffOrderNumber
-    reference::_Lreference
     reference::kfileLocation
     TEMP::ReferenceFolder
     reference::knodePrimary
@@ -16365,6 +18965,7 @@ Fields used in this script
     reference::kkeywordOther
     refCreatorNode::orderOrLock
     refCreatorNode::tag
+    TEMP::InventoryLibraryYN
 
 Scripts used in this script
 
@@ -16393,37 +18994,87 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [loadLearnOrRefMainRecord]	Parent Folder: [reference]	Next Script: [newReference]
+Previous Script: [loadLearnOrRefMainRecord]	Parent Folder: [reference]	Next Script: [menuLearn]
+Script Name	LocationEditFieldsHIDE
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Stop this script when first navigating to a
+    #record. User most likely just wanted to
+    #go this record; not edit it.
+    If [ $$editLocation = "" ]
+    Exit Script [ ]
+    End If
+    #
+    #If the user decided not continue editing this
+    #Hide the edit fields (which are hidden once
+    #this variable is blank and the window
+    #is refreshed).
+    Set Variable [ $$editLocation ]
+    Refresh Window
+    #
+    #Once the field is hidden, re-load this variable
+    #so the next time the user clicks on the picture
+    #field (if there is no picture) they will be taken
+    #to the edit fields. If this variable remains
+    #blank, then the next time they click on an
+    #empty picture field, nothing will happen, which
+    #can be frustrating if you're trying to edit.
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    #
+    #
+
+Fields used in this script
+
+    reference::_Lreference
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    reference
+
+Table occurrences used by this script
+
+    reference
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [LocationEditFieldsHIDE]	Parent Folder: [reference]	Next Script: [newLocationRecord]
 Script Name	menuLearn
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     ltagNK1
-    ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
-    ltagNKs3
     ltagNK4
-    ltagNKs4
     ltagNK5
-    ltagNKs5
     learnMenu3Cite
     learnMenu3CiteS
-    learnMenuRefStuff
     learnMenu4RefCite
     learnMenu4noPicRefCite
-    learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuBrainstorm
-    learnMenuStuffBrainstorm
     learnTest
-    learnSTest
 
 Scripts that use this script
 
     findMode
+    TgotoCitationMenu
 
 Script Definition
 Script Steps
@@ -16439,7 +19090,24 @@ Script Steps
     Set Variable [ $$tagtest ]
     Set Variable [ $$tagRecordID ]
     Set Variable [ $$tagEdit ]
+    #
+    #Sort the records by date field, if current sort is
+    #by order number.
+    If [ TEMP::TLTestSort = 1 or TEMP::TLBrainstormSort = 1 ]
+    If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
+    #
+    #Set the sort preference field to date.
+    If [ $$citationMatch = "brainstorm" ]
+    Set Field [ TEMP::TLBrainstormSort; "" ]
+    Else If [ $$citationMatch = "test" ]
+    Set Field [ TEMP::TLTestSort; "" ]
+    End If
+    End If
+    #
     End If
     Select Window [ Name: "Tag Menus"; Current file ]
     #
@@ -16469,26 +19137,26 @@ Script Steps
     End If
     Set Field [ testlearn::filterFind; "main" ]
     Perform Find [ ]
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
-    Else
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
-    End If
     #
     #If the user has yet to create any Learn or internal records
     #let them know, and return user to outside reference records.
-    If [ Get (LastError) = 401 ]
+    If [ Get (FoundCount) = 0 ]
+    #
+    Show Custom Dialog [ Message: "No Learn records have been created."; Default Button: “OK”, Commit: “Yes” ]
     #
     #Turn back on essential variable.
     Set Variable [ $$stoploadCitation ]
-    #
-    Perform Script [ “<unknown>” ]
-    Show Custom Dialog [ Message: "No inside (Learn) records have been created."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     #
     End If
     #
     #Continue with show all internal reference possibilities...
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
+    #
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
     #
@@ -16510,7 +19178,12 @@ Script Steps
     #
     #Goto correct layout.
     If [ TEMP::InventoryLibraryYN = "" ]
+    #Idea Mode
+    #
     If [ TEMP::layoutLtagL = "" ]
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
     If [ Get (SystemPlatform) = 3 ]
     Go to Layout [ “learnMenu4noPicRefCite” (testlearn) ]
     Set Field [ TEMP::layoutLtagL; "more" & Get (LayoutName) ]
@@ -16519,13 +19192,21 @@ Script Steps
     Set Field [ TEMP::layoutLtagL; "less" & Get (LayoutName) ]
     End If
     Else
+    #
+    #Go the layout the user has selected.
     Go to Layout [ Middle ( TEMP::layoutLtagL ; 5 ; 42 ) ]
     End If
+    #
     Else
+    #
+    #Inventory Mode
     If [ Left (Get (LayoutName) ; 1) = "l" ]
     Go to Layout [ “learnMenu4STUFFRefCite” (testlearn) ]
+    // Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
     Else If [ Left (Get (LayoutName) ; 1) = "r" ]
     End If
+    #
+    #
     End If
     #
     #Update conditional formatting in main window.
@@ -16545,18 +19226,19 @@ Script Steps
 
 Fields used in this script
 
+    TEMP::TLTestSort
+    TEMP::TLBrainstormSort
+    TEMP::InventoryLibraryYN
     testlearn::date
     testlearn::timestamp
-    TEMP::InventoryLibraryYN
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     testlearn::brainstormCasePoint
     testlearn::filterFind
-    testlearn::note
     testlearn::_Ltestlearn
     TEMP::layoutLtagL
 
 Scripts used in this script
-
-    <unknown>
 
 Layouts used in this script
 
@@ -16579,7 +19261,90 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuLearn]	Parent Folder: [reference]	Next Script: [openReferenceWebsite]
+Previous Script: [menuLearn]	Parent Folder: [reference]	Next Script: [newReference]
+Script Name	newLocationRecord
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnMenuRefStuff
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #Copy primary key word/subject of current
+    #record so it can be given to then new record.
+    #The user will expect that clicking the new
+    #button will result in new record in the current
+    #subject area.
+    If [ reference::kkeywordPrimary = "" ]
+    Set Variable [ $P; Value:31120182009273386 ]
+    Else
+    Set Variable [ $P; Value:reference::kkeywordPrimary ]
+    End If
+    #Copy the current order number.
+    Set Variable [ $pubYear; Value:reference::publicationYearOrStuffOrderNumber ]
+    #
+    #Now create a new record and give it the
+    #copied information.
+    Go to Field [ ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    New Record/Request
+    Set Field [ reference::kkeywordPrimary; $P ]
+    Set Field [ reference::publicationYearOrStuffOrderNumber; $pubYear ]
+    #
+    #Load new record as the record being
+    #focused on.
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+    Perform Script [ “loadTagRecord” ]
+    #
+    #Now go the new record's title field.
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    Refresh Window
+    Set Variable [ $$editLocation ]
+    Go to Object [ Object Name: "tag 1" ]
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
+    Refresh Window
+    Set Variable [ $$doNotHaltOtherScripts ]
+    #
+    #
+
+Fields used in this script
+
+    reference::kkeywordPrimary
+    reference::publicationYearOrStuffOrderNumber
+    reference::_Lreference
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    loadTagRecord
+
+Layouts used in this script
+
+Tables used in this script
+
+    reference
+
+Table occurrences used by this script
+
+    reference
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newLocationRecord]	Parent Folder: [reference]	Next Script: [openReferenceWebsite]
 Script Name	newReference
 Run script with full access privileges	Off
 Include In Menu	No
@@ -16600,7 +19365,7 @@ Script Steps
     #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
-    Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
@@ -16743,9 +19508,7 @@ Layouts that use this script
     ReferenceFilePathEDIT
     ReferenceMenu3Cite
     ReferenceMenu3CiteNoPicture
-    ReferencePictureWindow
     ReferencePictureWindow_Web
-    ReferencePictureWindow_WebEDIT
     ReferenceAddToTag
     ReferenceAddToCopyright
     learn0
@@ -16755,12 +19518,14 @@ Layouts that use this script
     learn4
     learn5
     learn4EDIT
+    learn4EDITLocked
     LearnTextWindow
     LearnTextWindow_iDevice
     LearnTextWindowLocked
     LearnTextWindowLocked_iDevice
     learnMenu3Cite
     learnMenu3CiteS
+    learnMenu3CitePickAReference
     LearnRefWebPictureWindow
     LearnRefWebPictureWindowEDIT
     testInfo
@@ -16783,7 +19548,7 @@ Script Steps
     #Perform the showFileWebsite script to see if
     #there is a website to show, and if there is
     #open it.
-    Perform Script [ “showReferencedFileFolderOrWebsite” ]
+    Perform Script [ “showReferencedFileFolder” ]
     #
     #
 
@@ -16791,7 +19556,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    showReferencedFileFolderOrWebsite
+    showReferencedFileFolder
 
 Layouts used in this script
 
@@ -17371,6 +20136,8 @@ Include In Menu	No
 Layouts that use this script
 
     defaultCopyright
+    CopyrightVIEW
+    CopyrightEDIT
     defaultNode3
     defaultNode4
     ReferenceMenuCopyright
@@ -17383,11 +20150,7 @@ Layouts that use this script
     addMenu2
     addMenuTestItem
     ltagNK4
-    ltagNKs4
     ltagNK5
-    ltagNKs5
-    learnMenuCopyrightVIEW
-    learnMenuCopyrightEDIT
     testMenuTestItemMORE
 
 Scripts that use this script
@@ -17407,7 +20170,7 @@ Script Steps
     Set Variable [ $$tagMenusDOI; Value:refTitle1::DOI ]
     #
     #Open link for user.
-    Perform Script [ “showReferencedFileFolderOrWebsite” ]
+    Perform Script [ “showReferencedFileFolder” ]
     #
     #Clear link variables.
     Set Variable [ $$tagMenusRealCheckbox ]
@@ -17433,7 +20196,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    showReferencedFileFolderOrWebsite
+    showReferencedFileFolder
 
 Layouts used in this script
 
@@ -17468,9 +20231,7 @@ Layouts that use this script
     addMenu2
     addMenuTestItem
     ltagNK4
-    ltagNKs4
     ltagNK5
-    ltagNKs5
     testMenuTestItemMORE
 
 Scripts that use this script
@@ -17490,7 +20251,7 @@ Script Steps
     Set Variable [ $$tagMenusDOI; Value:refTitle2::DOI ]
     #
     #Open link for user.
-    Perform Script [ “showReferencedFileFolderOrWebsite” ]
+    Perform Script [ “showReferencedFileFolder” ]
     #
     #Clear link variables.
     Set Variable [ $$tagMenusRealCheckbox ]
@@ -17516,7 +20277,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    showReferencedFileFolderOrWebsite
+    showReferencedFileFolder
 
 Layouts used in this script
 
@@ -17551,9 +20312,7 @@ Layouts that use this script
     addMenu2
     addMenuTestItem
     ltagNK4
-    ltagNKs4
     ltagNK5
-    ltagNKs5
     testMenuTestItemMORE
 
 Scripts that use this script
@@ -17573,7 +20332,7 @@ Script Steps
     Set Variable [ $$tagMenusDOI; Value:refTitle3::DOI ]
     #
     #Open link for user.
-    Perform Script [ “showReferencedFileFolderOrWebsite” ]
+    Perform Script [ “showReferencedFileFolder” ]
     #
     #Clear link variables.
     Set Variable [ $$tagMenusRealCheckbox ]
@@ -17599,7 +20358,7 @@ Fields used in this script
 
 Scripts used in this script
 
-    showReferencedFileFolderOrWebsite
+    showReferencedFileFolder
 
 Layouts used in this script
 
@@ -18163,7 +20922,7 @@ Layouts that use this script
 
 Scripts that use this script
 
-    CHUNK_testInfoReferences
+    CHUNK_findLearnRecordsReferences
 
 Script Definition
 Script Steps
@@ -18626,7 +21385,7 @@ Script Steps
     If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     Else
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
     End If
     Go to Record/Request/Page [ First ]
     Loop
@@ -18643,7 +21402,11 @@ Script Steps
     End If
     Set Field [ TEMP::layoutLmain; "more" & Get (LayoutName) ]
     Else If [ tempSetup::layoutLmain ≠ "" ]
-    Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Go to Layout [ "Learn" & Right ( tempSetup::layoutLmain ; 1 ) ]
+    Else
+    Go to Layout [ "LearnStuff" & Right ( tempSetup::layoutLmain ; 1 ) ]
+    End If
     End If
     #
     Set Variable [ $$stoploadCitation ]
@@ -18674,7 +21437,7 @@ Script Steps
     Set Variable [ $$stopLoadTagRecord ]
     If [ $$module = "ref" ]
     Perform Script [ “menuReference” ]
-    Else If [ $$module = "learnTest" ]
+    Else If [ $$module = "learnTest" or $$module = "learnSTest" ]
     Perform Script [ “menuTest” ]
     End If
     #
@@ -18708,6 +21471,7 @@ Fields used in this script
     testlearn::filterFind
     testlearn::date
     testlearn::timestamp
+    testlearn::orderInventoryGroupNumber
     testlearn::note
     testlearn::_Ltestlearn
     tempSetup::layoutLmain
@@ -18785,12 +21549,14 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [backtoSetup]	Parent Folder: [sharedLayoutScripts]	Next Script: [closeWindowHaltScript]
+Previous Script: [backtoSetup]	Parent Folder: [sharedLayoutScripts]	Next Script: [closeWindowResumePause]
 Script Name	closeWindow
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    CopyrightVIEW
+    CopyrightEDIT
     ReferencePictureWindow
     ReferenceSPictureWindow
     ReferencePictureWindowEDIT
@@ -18806,8 +21572,6 @@ Layouts that use this script
     LearnTextWindowStuff_iDevice
     LearnTextWindowLocked
     LearnTextWindowLocked_iDevice
-    learnMenuCopyrightVIEW
-    learnMenuCopyrightEDIT
     LearnPictureWindow
     LearnPictureWindowEDIT
     LearnRefPictureWindow
@@ -18836,6 +21600,7 @@ Script Steps
     #
     #Close window and clear unneeded variables.
     Show/Hide Text Ruler [ Hide ]
+    Set Variable [ $mediaWindowName; Value:Case ( Get ( WindowName ) = "Media" ; 1 ; "" ) ]
     Close Window [ Current Window ]
     Set Variable [ $$PictureOnReportLayout ]
     Set Variable [ $$userInCopyrightWindow ]
@@ -18844,17 +21609,24 @@ Script Steps
     #Scroll window to selected record if
     #it has been changed in a stuff/inventory
     #library.
-    If [ TEMP::InventoryLibraryYN ≠ "" and Get (WindowName) = "Tag Menus" ]
+    If [ $$copyNoteForSortCheck ≠ testlearn::note ]
+    If [ TEMP::InventoryLibraryYN ≠ "" and Get (WindowName) = "Tag Menus" or TEMP::InventoryLibraryYN ≠ "" and Get (WindowName) = "Learn" ]
     If [ reference::Title[1] ≠ reference::Title[2] or reference::thoughtsNotesEtc[1] ≠ reference::thoughtsNotesEtc[2] or reference::publicationYearOrStuffOrderNumber[1] ≠ reference::publicationYearOrStuffOrderNumber[2] or reference::kkeywordPrimary ≠ $$locationKeyword ]
-    Scroll Window [ End ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order Pulldown List” tagKeywordPrimary::tag; ascending reference::publicationYearOrStuffOrderNumber; based on value list: “order Pulldown List” reference::Title; ascending ] [ Restore; No dialog ]
     Set Variable [ $$locationKeyword ]
     End If
+    If [ Get (WindowName) = "Learn" and $mediaWindowName ≠ 1 and Get ( LayoutName ) ≠ "learn4EDITstuff" ]
+    Scroll Window [ End ]
+    Sort Records [ ] [ No dialog ]
+    End If
+    End If
+    Set Variable [ $$copyNoteForSortCheck ]
     End If
     #
 
 Fields used in this script
 
+    testlearn::note
     TEMP::InventoryLibraryYN
     reference::Title
     reference::thoughtsNotesEtc
@@ -18874,26 +21646,91 @@ Tables used in this script
     TEMP
     reference
     tag
+    testlearn
 
 Table occurrences used by this script
 
     TEMP
     reference
     tagKeywordPrimary
+    testlearn
 
 Custom Functions used by this script
 
 Custom menu set used by this script
 
 
-Previous Script: [closeWindow]	Parent Folder: [sharedLayoutScripts]	Next Script: [copyAndpastTags]
+Previous Script: [closeWindow]	Parent Folder: [sharedLayoutScripts]	Next Script: [closeWindowHaltScript]
+Script Name	closeWindowResumePause
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnMenu3CitePickAReference
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Clear this variable to reveal the edit note controls.
+    Set Variable [ $$hideEditNoteControls ]
+    #
+    #Determine if punctuation for reference.
+    If [ TEMP::referenceInsertBeforeOrAfterPeriod = 1 or TEMP::referenceInsertBeforeOrAfterPeriod = "" ]
+    Set Variable [ $$referenceToInsert; Value:"(" & $$referenceToInsert & ")" ]
+    Else
+    Set Variable [ $$referenceToInsert; Value:"[" & $$referenceToInsert & "]" ]
+    End If
+    #
+    #Close window and restart the pause, so the
+    #user cannot leave the selected window until
+    #they are finished using it.
+    Close Window [ Current Window ]
+    #
+    #Insert the text block.
+    If [ Length ( $$referenceToInsert ) ≠ 2 ]
+    Insert Calculated Result [ $$referenceToInsert ]
+    Show Custom Dialog [ Message: "Your reference was inserted >> " & $$referenceToInsert; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    Set Variable [ $$referenceToInsert ]
+    Refresh Window
+    #
+    Pause/Resume Script [ Indefinitely ]
+    #
+    #
+
+Fields used in this script
+
+    TEMP::referenceInsertBeforeOrAfterPeriod
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [closeWindowResumePause]	Parent Folder: [sharedLayoutScripts]	Next Script: [copyAndpastTags]
 Script Name	closeWindowHaltScript
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
     moreInfo
-    allSolutions
+    allApps
     setupReferenceViewLocked
     setupReferenceViewUnlocked
     defaultSetupViewAndEdit
@@ -18926,7 +21763,7 @@ Custom menu set used by this script
 
 Previous Script: [closeWindowHaltScript]	Parent Folder: [sharedLayoutScripts]	Next Script: [exit]
 Script Name	copyAndpastTags
-Run script with full access privileges	Off
+Run script with full access privileges	On
 Include In Menu	No
 Layouts that use this script
 
@@ -18937,6 +21774,8 @@ Layouts that use this script
     learn3
     learn4
     learn5
+    learn4EDIT
+    learn4EDITLocked
 
 Scripts that use this script
 
@@ -18944,6 +21783,12 @@ Script Definition
 Script Steps
 
     #
+    #
+    #If in find mode, exit script.
+    If [ $$findMode ≠ "" ]
+    Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
     #
     #If node is currenlty locked then stop script, inform user.
     If [ tagTLNodePrimary::orderOrLock ≠ "" ]
@@ -18957,7 +21802,7 @@ Script Steps
     #If there are no tags exit script and
     #inform user why.
     If [ testlearn::kcKeywordOther = "" and testlearn::kKeywordPrimary = "" and $$copyAndpastTagsRECORD = "" and Get ( LayoutTableName ) = "testlearn" or reference::kkeywordOther = "" and reference::kkeywordPrimary = "" and $$copyAndpastTagsRECORD = "" and Get ( LayoutTableName ) = "Reference" ]
-    Show Custom Dialog [ Message: "There are no keywords to copy. You can add some by copying them from a note that has them, or by adding some keywords from the Tag Menus' key menu."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "There are no keywords to copy. You can add some by copying them from a note that has them, or by adding some keywords from the key tag menu."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
@@ -18979,9 +21824,12 @@ Script Steps
     If [ $$copyAndpastTagsOtherID = "" and $$copyAndpastTagsPrimaryID = "" ]
     Show Custom Dialog [ Message: "Paste blanks? FYI: You copied blanks, and pasting them will delete/blank this record's keywords."; Default Button: “yes”, Commit: “Yes”; Button 2: “Cancel”, Commit: “No” ]
     Else
+    If [ testlearn::kcKeywordOther = "" and testlearn::kKeywordPrimary = "" and Get ( LayoutTableName ) = "testlearn" or reference::kkeywordOther = "" and reference::kkeywordPrimary = "" and Get ( LayoutTableName ) = "Reference" ]
+    Else
     Show Custom Dialog [ Message: "Replace this record's keywords with the copied ones?"; Default Button: “yes”, Commit: “Yes”; Button 2: “Cancel”, Commit: “No” ]
     End If
-    If [ Get (LastMessageChoice) = 1 ]
+    End If
+    If [ Get (LastMessageChoice) ≠ 2 ]
     If [ Get (LayoutTableName) = "reference" ]
     #
     #Because keyword primary in the Reference
@@ -19086,6 +21934,7 @@ Layouts that use this script
 
 Scripts that use this script
 
+    enterShortOrLongTagField
     loadSetupTestSubsection
 
 Script Definition
@@ -19098,6 +21947,15 @@ Script Steps
     // Scroll Window [ Home ]
     // Sort Records [ ] [ No dialog ]
     // End If
+    #
+    #Get active field name for see if key tag menu
+    #order number has been changed below.
+    If [ $$keyOrderNumberPossibleChanged ≠ "" ]
+    Set Variable [ $$keyOrderNumberPossibleChanged ]
+    Set Variable [ $activeFieldName; Value:"orderOrLock" ]
+    Else
+    Set Variable [ $activeFieldName; Value:Get ( ActiveFieldName ) ]
+    End If
     #
     #If there are no editors on the referenceEDIT
     #layout than delete any abbreviations.
@@ -19192,7 +22050,7 @@ Script Steps
     #
     #Delete tag order number if user selects
     #delete order number option.
-    If [ $$citationMatch = "key" and tagMenus::orderOrLock = "delete number" or $$citationMatch = "testItem" and tagMenus::orderOrLock = "delete number" or Get (LayoutTableName) and tagKeywordPrimary::orderOrLock = "delete number" ]
+    If [ $$citationMatch = "brainstorm" and tagMenus::orderOrLock = "delete number" or $$citationMatch = "key" and tagMenus::orderOrLock = "delete number" or $$citationMatch = "testItem" and tagMenus::orderOrLock = "delete number" or Get (LayoutTableName) and tagKeywordPrimary::orderOrLock = "delete number" ]
     If [ Get (LayoutTableName) and tagKeywordPrimary::orderOrLock = "delete number" ]
     Set Field [ tagKeywordPrimary::orderOrLock; "" ]
     Else
@@ -19223,7 +22081,7 @@ Script Steps
     #If node doesn't have a password delete any
     #order number, but if the node does have
     #password then put in a zero.
-    If [ $$citationMatch = "node" and tagMenus::orderOrLock[2] = "" and Get (LayoutName) ≠ "defaultSections" and Get (LayoutName) ≠ "defaultTestNewSection" ]
+    If [ $$citationMatch = "node" and tagMenus::orderOrLock[2] = "" and Get (LayoutName) ≠ "defaultSections" and Get (LayoutName) ≠ "defaultTestNewSection" and Get (WindowName) = "Tag Menus" ]
     Set Field [ tagMenus::orderOrLock; "" ]
     Set Field [ tagMenus::orderOrLock[2]; "" ]
     Else If [ $$citationMatch = "node" and tagMenus::orderOrLock[2] ≠ "" and Get (LayoutName) ≠ "defaultSections" ]
@@ -19289,11 +22147,19 @@ Script Steps
     Sort Records [ ] [ No dialog ]
     End If
     #
-    #If this is the reference section and user is
+    #The next sections of code require doing finds
+    #that could result in nothing found error
+    #messages, so prevent these from showing up.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #If this is the keyword tag menu and user is
     #looking at either author/node or keyword/
     #subject ordered records, check to see if this
-    #order has changed as a result of re-ordering
-    #the author/node or keyword/subject tags.
+    #has changed the reference group order as a
+    #result of re-ordering the author/node or
+    #keyword/subject tags.
+    If [ $activeFieldName = "orderOrLock" ]
     If [ $$citationMatch = "key" and $$referenceSort = "" and Get ( WindowName ) = "Tag Menus" or $$citationMatch = "node" and $$referenceSort = "author" and Get ( WindowName ) = "Tag Menus" ]
     Select Window [ Name: "References"; Current file ]
     If [ Get (LastError) ≠ 112 ]
@@ -19335,11 +22201,94 @@ Script Steps
     End If
     Go to Record/Request/Page [ $recordMoved ] [ No dialog ]
     End If
-    End If
     #
     #Return to the Tag Menus window.
     Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #Check keyword sort order.
+    Else
+    Set Variable [ $checkReferenceKeywordHeaderOrder; Value:1 ]
     End If
+    #
+    #Check keyword sort order.
+    Else
+    Set Variable [ $checkReferenceKeywordHeaderOrder; Value:1 ]
+    End If
+    #
+    #If keyword order number is being changed,
+    #and the Reference Main window is not
+    #showing (because user in the Learn section),
+    #or it is showing but not currently sorted by
+    #keyword, then inform user with a dialogue box
+    #that changes to the order number affect the
+    #keyword headers for references.
+    If [ $checkReferenceKeywordHeaderOrder ≠ "" ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $keyTag; Value:tagMenus::_Ltag ]
+    New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “ReferenceScriptLoops” (reference) ]
+    Enter Find Mode [ ]
+    Set Field [ tagKeywordPrimary::_Ltag; $keyTag ]
+    Perform Find [ ]
+    #
+    #If the edited record moved then note this.
+    If [ Get ( FoundCount ) ≠ 0 ]
+    Set Variable [ $keyHeaderMoved; Value:1 ]
+    End If
+    #
+    #Return to the Tag Menus window.
+    Close Window [ Current Window ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Go to Field [ ]
+    #
+    #Tell user if this changed a reference header.
+    If [ $keyHeaderMoved ≠ "" ]
+    If [ tagMenus::orderOrLock = "" ]
+    Show Custom Dialog [ Message: "FYI: This key (keyword) tag is in use as a reference group header, which will now, like this keyword, be sorted alphabetically."; Default Button: “OK”, Commit: “Yes” ]
+    Else
+    Show Custom Dialog [ Message: "FYI: This key (keyword) tag is in use as a reference group header, and like the keyword, the header will no longer be sorted alphabetically."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
+    End If
+    #
+    #Sort records to follow changed order number.
+    Sort Records [ ] [ No dialog ]
+    End If
+    #
+    #
+    #
+    #If this is the location tag menu and user is
+    #changing an order number or deleting one,
+    #re-sort the learn window records in case
+    #they are affected.
+    If [ $activeFieldName = "publicationYearOrStuffOrderNumber" ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $refTag; Value:reference::_Lreference ]
+    New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “learnSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::kcreference; $refTag ]
+    Perform Find [ ]
+    #
+    #If the edited record moved then note this.
+    If [ Get ( FoundCount ) ≠ 0 ]
+    Set Variable [ $refHeaderMoved; Value:1 ]
+    End If
+    #
+    #Return to the Tag Menus window.
+    Close Window [ Current Window ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Go to Field [ ]
+    #
+    #Return to the Tag Menus window.
+    If [ $refHeaderMoved ≠ "" ]
+    Select Window [ Name: "Learn"; Current file ]
+    Sort Records [ ] [ No dialog ]
+    End If
+    Select Window [ Name: "Tag Menus"; Current file ]
+    End If
+    #
     #
     #
     #This prevents the system trademark tag (not
@@ -19389,12 +22338,18 @@ Fields used in this script
     reference::thoughtsNotesEtc
     reference::referenceForReferenceWindow
     reference::sortByAuthor
+    tagKeywordPrimary::_Ltag
+    reference::_Lreference
+    testlearn::kcreference
     tagsCopyrightGroup::_Lgroup
     TEMP::kdefaultCopyright
 
 Scripts used in this script
 
 Layouts used in this script
+
+    ReferenceScriptLoops
+    learnSCRIPTloops
 
 Tables used in this script
 
@@ -19440,6 +22395,11 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    learn2
+    learn3
+    learn4
+    learn4EDITLocked
+
 Scripts that use this script
 
 Script Definition
@@ -19466,7 +22426,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [exitOnly]	Parent Folder: [sharedLayoutScripts]	Next Script: [gotoAllSolutsionMenuORTimeLogApp]
+Previous Script: [exitOnly]	Parent Folder: [sharedLayoutScripts]	Next Script: [gotoAllAppsMenuORActionLogApp]
 Script Name	findInactiveButtonMessage
 Run script with full access privileges	Off
 Include In Menu	No
@@ -19488,7 +22448,7 @@ Script Steps
 
     #
     #
-    Show Custom Dialog [ Message: "Only the illuminated tag's tags can searched (exception: test tags). To search another tag's tags, 1) Click 'cancel', 2) click that tag's button to view its tags, 3) click find to search thru them."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "To search another tag's tags, 1) click 'cancel', then 2) click that tag's button to view its tags, and finally 3) click 'find' again to search thru them."; Default Button: “OK”, Commit: “Yes” ]
     #
     #
 
@@ -19508,7 +22468,7 @@ Custom menu set used by this script
 
 
 Previous Script: [findInactiveButtonMessage]	Parent Folder: [sharedLayoutScripts]	Next Script: [gotoTimeLogLogWindow]
-Script Name	gotoAllSolutsionMenuORTimeLogApp
+Script Name	gotoAllAppsMenuORActionLogApp
 Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
@@ -19535,11 +22495,9 @@ Layouts that use this script
     learn5
     learnStuff5
     learn4EDIT
+    learn4EDITLocked
     learn4EDITstuff
-    LearnTextWindowStuff
-    LearnTextWindowStuff_iDevice
-    LearnTextWindowLocked
-    LearnTextWindowLocked_iDevice
+    learn4EDITstuffLocked
     setupTestSection
     setupTestSubsection
     setupTestItem
@@ -19569,35 +22527,170 @@ Script Steps
     #
     #Ask user if they want to go the timer or
     #the all apps menu.
-    Show Custom Dialog [ Message: "Open the Action Log (timer) or the All Apps menu?"; Default Button: “timer”, Commit: “Yes”; Button 2: “All”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Open the Action Log (timer) or the all apps menu?"; Default Button: “timer”, Commit: “Yes”; Button 2: “all apps”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     If [ Get ( LastMessageChoice ) = 2 ]
-    Perform Script [ “allSolutionsMenu” ]
+    Perform Script [ “allAppsMenu” ]
     Exit Script [ ]
     End If
+    #
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #
+    #BEGIN Find and record all open windows
+    #
+    #
+    #Get the name of the window that the user
+    #clicked the app button on.
+    Set Variable [ $windowAppWasClickedOn; Value:Get (WindowName) ]
+    #
+    #
+    #Now figure out what other windows are open.
+    #There can be up to three windows open.
+    #LEARN
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Learn"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #REFERENCE (NOTE: Change this window
+    #name to references when time permits.)
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Reference"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #REFERENCES
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "References"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #REPORT
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Report"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #SETUP
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Setup"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #SHARE
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Share"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #TAG MENUS
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #TEST
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Test"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #TEST TEMPLATES
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Test Templates"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #
+    Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
+    Set Field [ MemorySwitch::currentLibraryWIndows; $windowAppWasClickedOn ]
+    Set Field [ MemorySwitch::currentLibraryWIndows[2]; $windowAlsoOpen2 ]
+    Set Field [ MemorySwitch::currentLibraryWIndows[3]; $windowAlsoOpen3 ]
+    #
+    #
+    #END Find and record all open windows
+    #
     #
     #
     #Open using this url on iPad/iPhone.
     If [ Get ( SystemPlatform ) = 3 ]
     Open URL [ "fmp://%7e/ActionLog" ] [ No dialog ]
     Exit Script [ ]
-    End If
-    #
-    Set Field [ MemorySwitch::currentLibraryMainWIndow; Get ( WindowName ) ]
-    Set Field [ MemorySwitch::currentLibraryPath; Get ( FilePath ) ]
+    Else
     Select Window [ Name: "Tag" ]
+    If [ Get (LastError) = 112 ]
+    Set Variable [ $notOpen; Value:1 ]
+    End If
     Select Window [ Name: "Day" ]
-    Select Window [ Name: "Specific Action" ]
+    If [ Get (LastError) = 112 ]
+    Set Variable [ $notOpen; Value:1 + $notOpen ]
+    End If
     Select Window [ Name: "Timer" ]
     If [ Get (LastError) = 112 ]
-    Set Variable [ $timer; Value:Get (LastError) ]
+    Set Variable [ $notOpen; Value:1 + $notOpen ]
     End If
-    Select Window [ Name: "HelpGiveThanks Solutions" ]
+    Select Window [ Name: "Specific Action" ]
     If [ Get (LastError) = 112 ]
-    Set Variable [ $app; Value:Get (LastError) ]
+    Set Variable [ $notOpen; Value:1 + $notOpen ]
     End If
-    If [ $timer + $app = 224 ]
-    Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog82" ) ] [ No dialog ]
-    Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog" ) ] [ No dialog ]
+    Select Window [ Name: "HelpGiveThanks Apps" ]
+    If [ Get (LastError) = 112 ]
+    Set Variable [ $notOpen; Value:1 + $notOpen ]
+    End If
+    End If
+    #
+    #If ActionLog is not open on the desktop
+    #computer, then open it.
+    If [ $notOpen = 5 ]
+    Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionlog" ) ] [ No dialog ]
     Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog" ) ] [ No dialog ]
     End If
     #
@@ -19606,16 +22699,17 @@ Script Steps
     Show Custom Dialog [ Message: "This library file needs to be put into the HGT folder. "; Default Button: “OK”, Commit: “Yes” ]
     End If
     #
+    #
 
 Fields used in this script
 
-    MemorySwitch::currentLibraryMainWIndow
     MemorySwitch::currentLibraryPath
+    MemorySwitch::currentLibraryWIndows
     MemorySwitch::helpPath
 
 Scripts used in this script
 
-    allSolutionsMenu
+    allAppsMenu
 
 Layouts used in this script
 
@@ -19632,7 +22726,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoAllSolutsionMenuORTimeLogApp]	Parent Folder: [sharedLayoutScripts]	Next Script: [returnToAddRecordPUTONHOLD!!!!]
+Previous Script: [gotoAllAppsMenuORActionLogApp]	Parent Folder: [sharedLayoutScripts]	Next Script: [returnToAddRecordPUTONHOLD!!!!]
 Script Name	gotoTimeLogLogWindow
 Run script with full access privileges	Off
 Include In Menu	No
@@ -20137,11 +23231,13 @@ Scripts that use this script
     newLearn
     setupReference_New
     duplicateReferenceRecord
+    newLocationRecord
     newReference
     duplicateBrainstorm
     newTagMenuTag
     newTagMenuTagGroup
     newTag
+    newRowOfPhotos
     duplicateSectionFromTemplate
     newSection
     newSectionFromTemplate
@@ -20153,7 +23249,6 @@ Scripts that use this script
     newTestResult
     reportNewTestResult
     testSubsectionNA
-    newRowOfPhotos
 
 Script Definition
 Script Steps
@@ -20244,7 +23339,7 @@ Script Steps
     #ALL scripts, and inform the user.
     #(By ALL scripts, I mean the script that used this
     #one to see if running it was OK.)
-    Else If [ testSubsectionTestSubjectLock::orderOrLock = "0" or ReportResultTestSubject::orderOrLock ≠ "" or reportTestSubjectLock::orderOrLock = "0" or TEMP::testSubjectNodeIsLocked ≠ "" and Left ( Get ( LayoutName ) ; 7 ) = "default" and Get ( LayoutName ) ≠ "defaultTest" and Get ( LayoutName ) ≠ "defaultSetup" ]
+    Else If [ testSubsectionTestSubjectLock::orderOrLock = "0" or ReportResultTestSubject::orderOrLock ≠ "" or reportTestSubjectLock::orderOrLock = "0" or TEMP::testSubjectNodeIsLocked ≠ "" and Get ( LayoutName ) = "defaultTestNewSection" ]
     #
     #Get the current test subject's name.
     Set Variable [ $testSubjectName; Value:Case ( testSubsectionTestSubjectLock::orderOrLock = "0" ; testSubsectionTestSubjectLock::tag ; ReportResultTestSubject::orderOrLock ≠ "" ; ReportResultTestSubject::tag ; reportTestSubjectLock::orderOrLock = "0" ; reportTestSubjectLock::tag ; TEMP::testSubjectNodeIsLocked ≠ "" ; TEMP::DEFAULTNodeTestSubjectName ) ]
@@ -20259,7 +23354,11 @@ Script Steps
     Select Window [ Name: "Tag Menus"; Current file ]
     Set Variable [ $$checkORaddTestItem ]
     End If
+    Set Variable [ $$highlightTestSubject; Value:1 ]
+    Refresh Window
     Show Custom Dialog [ Message: "The test subject — " & $testSubjectName & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “Yes” ]
+    Set Variable [ $$highlightTestSubject ]
+    Refresh Window
     #
     Halt Script
     #
@@ -20683,7 +23782,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [CHUNK_checkCreatorNodeAndPrimaryNode]	Parent Folder: [startclose]	Next Script: [closeLibrary]
+Previous Script: [CHUNK_checkCreatorNodeAndPrimaryNode]	Parent Folder: [startclose]	Next Script: [New Script]
 Script Name	CHUNK_CopyrightLockedFields
 Run script with full access privileges	Off
 Include In Menu	No
@@ -20849,8 +23948,9 @@ Script Steps
     #
     #
     #
-    #Refresh locked tag records (filelocation and
-    #copyright records) by deleting them and then
+    #Refresh locked tag records (filelocation,
+    #inventory location headers, and copyright
+    #records) by deleting them and then
     #recreating them.
     Go to Layout [ “tableTag” (tagTable) ]
     Perform Find [ Specified Find Requests: Find Records; Criteria: tagTable::orderOrLock: “"lock"” ] [ Restore ]
@@ -20895,8 +23995,43 @@ Script Steps
     #
     #
     #
-    #Refresh copyright records.
     #
+    #Refresh inventory library's 3 location groups.
+    New Record/Request
+    Set Field [ tagTable::tag; "primary location" ]
+    Set Field [ tagTable::_Number; 3386 ]
+    Set Field [ tagTable::tagSpelling; "primary location" ]
+    Set Field [ tagTable::orderOrLock; "lock" ]
+    Set Field [ tagTable::match; "location" ]
+    Set Field [ tagTable::_Ltag; "31120182009273386" ]
+    Set Field [ tagTable::kRecordCreatorNode; "defaultLocation" ]
+    #
+    New Record/Request
+    Set Field [ tagTable::tag; "secondary location" ]
+    Set Field [ tagTable::_Number; 3387 ]
+    Set Field [ tagTable::tagSpelling; "secondary location" ]
+    Set Field [ tagTable::orderOrLock; "lock" ]
+    Set Field [ tagTable::match; "location" ]
+    Set Field [ tagTable::_Ltag; "31120182009473387" ]
+    Set Field [ tagTable::kRecordCreatorNode; "defaultLocation" ]
+    #
+    New Record/Request
+    Set Field [ tagTable::tag; "tertiary location" ]
+    Set Field [ tagTable::_Number; 3388 ]
+    Set Field [ tagTable::tagSpelling; "tertiary location" ]
+    Set Field [ tagTable::orderOrLock; "lock" ]
+    Set Field [ tagTable::match; "location" ]
+    Set Field [ tagTable::_Ltag; 31120182009593388 ]
+    Set Field [ tagTable::kRecordCreatorNode; "defaultLocation" ]
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #Refresh copyright records.
     #
     #0 Share - all copyrights given up by creator
     New Record/Request
@@ -21327,7 +24462,33 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [CHUNK_CopyrightLockedFields]	Parent Folder: [startclose]	Next Script: [startDatabase]
+Previous Script: [CHUNK_CopyrightLockedFields]	Parent Folder: [startclose]	Next Script: [closeLibrary]
+Script Name	New Script
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [New Script]	Parent Folder: [startclose]	Next Script: [startDatabase]
 Script Name	closeLibrary
 Run script with full access privileges	Off
 Include In Menu	No
@@ -21384,7 +24545,6 @@ Script Steps
     #
     #PURPOSE: Manage the 4 script newLibrary
     #creation process, OR open the library.
-    #
     #
     #BEGIN: Manage new library creation process.
     #
@@ -21608,12 +24768,12 @@ Script Steps
     End If
     Go to Field [ ]
     #
-    #Open Setup's Tag-Menus window.
-    If [ Get ( SystemPlatform ) = - 2 ]
-    New Window [ Name: "Tag Menus"; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Else
-    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    End If
+    #Show all library setup references and sort
+    #them by date so focus is on most current
+    #setup reference.
+    Show All Records
+    Sort Records [ Keep records in sorted order; Specified Sort Order: librarySetupReferenceMain::publicationDate; descending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
     #
     #Make sure library's creator node and
     #its tag node group exists.
@@ -21630,6 +24790,13 @@ Script Steps
     Show All Records
     Set Variable [ $$stopLoadTagRecord ]
     Perform Script [ “CHUNK_checkForDraggedPasteChanges” ]
+    #
+    #Open Setup's Tag-Menus window.
+    If [ Get ( SystemPlatform ) = - 2 ]
+    New Window [ Name: "Tag Menus"; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Else
+    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    End If
     #
     #Show regular menus if Admin logs in only.
     If [ Get ( AccountName ) = "Admin" ]
@@ -21667,6 +24834,9 @@ Script Steps
     #Tell other databases to go to this library
     #when user clicks the 'library' button in
     #another Help Give Thanks database.
+    Set Field [ MemorySwitch::currentLibraryWIndows; "Setup" ]
+    Set Field [ MemorySwitch::currentLibraryWIndows[2]; "Tag Menus" ]
+    Set Field [ MemorySwitch::currentLibraryWIndows[3]; "" ]
     Go to Layout [ “startMemorySwitch” (MemorySwitch) ]
     Show All Records
     #
@@ -21707,14 +24877,20 @@ Script Steps
     #Go to the main layout.
     Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
     #
-    #Show regular menus if Admin logs in only.
+    #Show regular menus if Admin logs and set the
+    #print page size for one long page so when
+    #generating PDFs for GitHub a scripts title will
+    #be shown only once (it shows multiple times if
+    #the script takes several letter size pages).
     Show/Hide Text Ruler [ Hide ]
     If [ Get ( AccountName ) = "Admin" ]
     Show/Hide Toolbars [ Hide ]
     Install Menu Set [ “[Standard FileMaker Menus]” ]
+    Print Setup [ Orientation: Portrait; Paper size: 8.5" x 1000" ] [ Restore; No dialog ]
     Else
     Show/Hide Toolbars [ Lock; Hide ]
     Install Menu Set [ “HGT” ]
+    Print Setup [ Orientation: Portrait; Paper size: 8.5" x 11" ] [ Restore; No dialog ]
     End If
     #
     #Warn user if the library files are on the
@@ -21779,15 +24955,7 @@ Script Steps
     Set Variable [ $$libraryNameForNameChangeCheck ]
     Set Variable [ $$testSubjectNodeNameChangeCheck ]
     #
-    #
     End If
-    #
-    #Show all library setup references and sort
-    #them by date so focus is on most current
-    #setup reference.
-    Show All Records
-    Sort Records [ Keep records in sorted order; Specified Sort Order: librarySetupReferenceMain::publicationDate; descending ] [ Restore; No dialog ]
-    Go to Record/Request/Page [ First ]
     #
     #END: Open library.
     #
@@ -21814,6 +24982,7 @@ Fields used in this script
     testSubsectionGroup::name
     testSubsectionGroup::versionNumber
     TEMP::userLibraryVersionNumber
+    librarySetupReferenceMain::publicationDate
     tempSetup::layoutLtagK
     tempSetup::layoutRtagK
     tempSetup::layoutLtagN
@@ -21821,6 +24990,7 @@ Fields used in this script
     libraryNameAndInfo::orderOrLibraryType
     TEMP::InventoryLibraryYN
     TEMP::testHideFormTextItemsFTs
+    MemorySwitch::currentLibraryWIndows
     MemorySwitch::name
     MemorySwitch::path
     TEMP::filePath
@@ -21829,7 +24999,6 @@ Fields used in this script
     MemorySwitch::currentLibraryName
     MemorySwitch::versionLibrary
     TEMP::DEFAULTNodePrimaryName
-    librarySetupReferenceMain::publicationDate
 
 Scripts used in this script
 
@@ -21997,7 +25166,7 @@ Script Steps
     #Make sure the cursor is in active field and if
     #not tell them to click in one.
     If [ Get ( ActiveFieldName ) = "" ]
-    Show Custom Dialog [ Message: "Enter a field and place the cursor where you want the text to go. "; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "To insert this text — " & Trim ($tag) & " — 1) click into a field, and then 2) click exactly where you want it inserted in the field."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     #
     #Insert the text block.
@@ -22048,7 +25217,10 @@ Layouts that use this script
 
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2keywordOrNode2
@@ -23255,7 +26427,10 @@ Layouts that use this script
     defaultCopyright
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu1
     ReferenceMenuCopyright
@@ -23300,6 +26475,27 @@ Script Steps
     #Admin tasks.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
+    #
+    #
+    #If this tag has a picture that is hidden, ask if
+    #the user wants to see the picture or find
+    #record's with this tag.
+    If [ //There is a picture to show if... Get (LayoutName) = "ReferenceMenu3CiteNoPicture" and ( reference::picture ≠ "" or reference::showMedia ≠ "" and reference::URL ≠ "" or reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ "" ) ]
+    If [ reference::_Lreference = $$citationItem and $$citationMatch = "cite" ]
+    Show Custom Dialog [ Message: "Show this tag's picture or remove tag from the selected learn record?"; Default Button: “remove”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Show this tag's picture or add this tag to the selected learn record?"; Default Button: “add”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
+    If [ Get (LastMessageChoice) = 2 ]
+    Set Variable [ $$stopOpenNewTextWindow ]
+    Perform Script [ “showCitationPicture1inNewWindow” ]
+    Exit Script [ ]
+    End If
+    If [ Get (LastMessageChoice) = 3 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
     #
     #This prevents the system trademark tag (not
     #user created) being used improperly.
@@ -23354,7 +26550,7 @@ Script Steps
     #to add or change the tag of the first record instead of
     #finding records with selected tag.
     If [ Left (Get (LayoutName) ; 3 ) = "ref" and $$stopAdd ≠ 1 ]
-    If [ //Primary node and key match tagMenus::_Ltag = $$citationitem and $$citationMatch = "node" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "key" or //Other tags match tagMenus::_Ltag = $$citationitem and $$citationMatch = "copyright" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "publication" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "path" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "publisher" ]
+    If [ //Primary node and key match tagMenus::_Ltag = $$citationitem and $$citationMatch = "node" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "key" or //Other tags match tagMenus::_Ltag = $$citationitem and $$citationMatch = "copyright" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "publication" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "path" or tagMenus::_Ltag = $$citationitem and $$citationMatch = "publisher" or reference::_Lreference = $$citationItem and $$citationMatch = "cite" ]
     Show Custom Dialog [ Message: "Remove Tag?" & ¶ & "OR " & ¶ & "Find references tagged with it?"; Default Button: “remove”, Commit: “Yes”; Button 2: “find”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     Else
     Show Custom Dialog [ Message: "Add Tag?" & ¶ & "OR " & ¶ & "Find references tagged with it?"; Default Button: “add”, Commit: “Yes”; Button 2: “find”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
@@ -23423,8 +26619,9 @@ Script Steps
     If [ Right ( Get (LayoutName) ; 4 ) = "test" ]
     Set Variable [ $tag; Value:testSubsectionTemplate::_LtestSubsection ]
     Set Variable [ $tagName; Value:testSubsectionTemplate::name ]
-    Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" ]
+    Else If [ Middle ( Get ( LayoutName ) ; 14 ; 5 ) = "3cite" ]
     Set Variable [ $tag; Value:reference::_Lreference ]
+    Set Variable [ $citeBug; Value:1 ]
     Else If [ Right ( Get (LayoutName) ; 7 ) = "refcite" ]
     Set Variable [ $tag; Value:testlearn::_Ltestlearn ]
     Else If [ Right ( Get (LayoutName) ; 8 ) = "sections" ]
@@ -23481,7 +26678,7 @@ Script Steps
     #Conditionally format selected tag.
     If [ Right ( Get (LayoutName) ; 4 ) ≠ "cite" ]
     Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]
-    Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" ]
+    Else If [ $citeBug = 1 ]
     Set Variable [ $$citationItem; Value:reference::_Lreference ]
     Set Variable [ $citeCopyright; Value:reference::kCopyright ]
     Set Variable [ $citeCopyrightDate; Value:reference::CopyrightYear ]
@@ -23501,6 +26698,22 @@ Script Steps
     Set Variable [ $citekeywordOther; Value:testlearn::kcKeywordOther ]
     Set Variable [ $citekeywordOtherWords; Value:testlearn::OtherKeyWords ]
     Set Variable [ $citekeywordPrimary; Value:testlearn::kKeywordPrimary ]
+    End If
+    #
+    If [ $citeBug = 1 ]
+    Set Variable [ $$citationItem; Value:reference::_Lreference ]
+    Set Variable [ $citeCopyright; Value:reference::kCopyright ]
+    Set Variable [ $citeCopyrightDate; Value:reference::CopyrightYear ]
+    Set Variable [ $citekeywordOther; Value:reference::kkeywordOther ]
+    Set Variable [ $citekeywordOtherWords; Value:reference::OtherKeyWords ]
+    Set Variable [ $citekeywordPrimary; Value:reference::kkeywordPrimary ]
+    #
+    Set Variable [ $filename; Value:reference::fileName ]
+    Set Variable [ $fileLocation; Value:reference::kfileLocation ]
+    Set Variable [ $folderpath; Value:reference::kfolderpath ]
+    Set Variable [ $medium; Value:reference::kmedium ]
+    Set Variable [ $URL; Value:reference::URL ]
+    Set Variable [ $URLdate; Value:reference::URLdate ]
     End If
     #
     // New Window [ Name: "Add Tag"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
@@ -24191,6 +27404,12 @@ Script Steps
 
 Fields used in this script
 
+    reference::picture
+    reference::showMedia
+    reference::URL
+    reference::kfileLocation
+    reference::fileName
+    reference::_Lreference
     tagMenuGroup::_Lgroup
     testSectionCreatorLock::orderOrLock
     testSectionCreatorLock::tag
@@ -24203,7 +27422,6 @@ Fields used in this script
     reference::filterFind
     testSubsectionTemplate::_LtestSubsection
     testSubsectionTemplate::name
-    reference::_Lreference
     testlearn::_Ltestlearn
     testSubsectionLibraryName::_Lgroup
     testSubsectionLibraryName::name
@@ -24216,11 +27434,8 @@ Fields used in this script
     reference::kkeywordOther
     reference::OtherKeyWords
     reference::kkeywordPrimary
-    reference::fileName
-    reference::kfileLocation
     reference::kfolderpath
     reference::kmedium
-    reference::URL
     reference::URLdate
     testlearn::kcopyright
     testlearn::kcKeywordOther
@@ -24269,6 +27484,7 @@ Fields used in this script
 
 Scripts used in this script
 
+    showCitationPicture1inNewWindow
     findMode
     addORremoveOtherTagStep2_node
     addORremoveOtherTagStep2_keyword
@@ -24340,6 +27556,29 @@ Script Steps
 
     #
     #
+    #
+    #If this tag has a picture that is hidden, ask if
+    #the user wants to see the picture or find
+    #record's with this tag.
+    If [ //There is a picture to show if... Get (LayoutName) = "learnMenu4noPicRefCite" and ( testlearn::picture ≠ "" or testlearn::kshowReferencedMedia ≠ "" ) or Get (LayoutName) = "learnMenu3CiteS" and ( reference::picture ≠ "" or reference::showMedia ≠ "" and reference::URL ≠ "" or reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ "" ) ]
+    If [ testlearn::_Ltestlearn & "L" & ¶ = FilterValues ( $$ref & ¶ ; testlearn::_Ltestlearn & "L" & ¶ ) and $$citationMatch = "learn" or reference::_Lreference & "¶" = FilterValues ( $$ref ; reference::_Lreference & "¶" ) and $$citationMatch = "ref" ]
+    Show Custom Dialog [ Message: "Show this tag's picture or remove tag from the selected learn record?"; Default Button: “remove”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Show this tag's picture or add this tag to the selected learn record?"; Default Button: “add”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
+    If [ Get (LastMessageChoice) = 2 ]
+    Set Variable [ $$stopOpenNewTextWindow ]
+    Perform Script [ “showCitationPicture1inNewWindow” ]
+    Exit Script [ ]
+    End If
+    If [ Get (LastMessageChoice) = 3 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #
+    #
+    #
     #If main record node is currenlty locked then
     #stop script and inform the user, unless the
     #user altering the path tag, which is unique to
@@ -24383,10 +27622,19 @@ Script Steps
 
 Fields used in this script
 
+    testlearn::picture
+    testlearn::kshowReferencedMedia
+    reference::picture
+    reference::showMedia
+    reference::URL
+    reference::kfileLocation
+    reference::fileName
     testlearn::_Ltestlearn
+    reference::_Lreference
 
 Scripts used in this script
 
+    showCitationPicture1inNewWindow
     addORremoveRefTagStep2_forLearnRecord
     addORremoveRefTagStep2_forRefRecord
 
@@ -24394,10 +27642,12 @@ Layouts used in this script
 
 Tables used in this script
 
+    reference
     testlearn
 
 Table occurrences used by this script
 
+    reference
     testlearn
 
 Custom Functions used by this script
@@ -24425,19 +27675,34 @@ Script Steps
     If [ Get (LastError) = 112 ]
     Select Window [ Name: "Learn"; Current file ]
     #
-    #Only allow user to have location tags for the
-    #item or for the container the item is in.
-    If [ TEMP::InventoryLibraryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Show Custom Dialog [ Message: "This item is tagged with a holder tag. Remove this holder tag before tagging it with a location tag. In the Tag Menus window 1) click 'holder' then 2) deslect the highlighted tag. Items can be either in a holder or in a location."; Default Button: “OK”, Commit: “Yes” ]
-    Halt Script
+    #Capture tagged location. If this is
+    #changed while on the Qv layout it will effect
+    #the record's sort location and require a resort
+    #for the user to see the record in the Learn window.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$QvLocation; Value:testlearn::orderInventoryGroupNumber ]
     End If
+    #
+    #Decided to not show learn tags, so this
+    #next block of script makes no sense and
+    #is disabled.
+    // #Only allow user to have location tags for the
+    // #item or for the container the item is in.
+    // If [ TEMP::InventoryLibraryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
+    // Select Window [ Name: "Tag Menus"; Current file ]
+    // Show Custom Dialog [ Message: "This item is tagged with an in/on tag. Remove it before applying a location tag. 1) Click in/on. 2) Deslect the highlighted tag. 3) Click location. 4) Apply the tag."; Default Button: “OK”, Commit: “Yes” ]
+    // Halt Script
+    // End If
     #
     Set Variable [ $$ref; Value:testlearn::kcreference ]
     Else If [ Get (LastError) ≠ 112 ]
     Set Variable [ $$ref; Value:reference::lock ]
     End If
     Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #
+    #
+    #
     #
     #If tag user clicked has not yet been selected, then add it.
     If [ reference::_Lreference & "¶" ≠ FilterValues ( $$ref ; reference::_Lreference & "¶" ) ]
@@ -24460,6 +27725,14 @@ Script Steps
     Set Variable [ $$ref; Value:testlearn::kcreference ]
     Go to Field [ ]
     #
+    #
+    #
+    #
+    If [ $$QvLocation ≠ testlearn::orderInventoryGroupNumber ]
+    Set Variable [ $$QvLocation ]
+    Sort Records [ ] [ No dialog ]
+    End If
+    #
     #Ask user if they would like to show the
     #reference's media if there is any to show.
     If [ $media = 1 and testlearn::picture = "" ]
@@ -24470,6 +27743,7 @@ Script Steps
     End If
     If [ Get (LastMessageChoice) = 2 ]
     Set Field [ testlearn::kshowReferencedMedia; $newRef ]
+    Set Variable [ $$refMediaSelectedToShow; Value:$newRef ]
     End If
     End If
     #
@@ -24498,8 +27772,13 @@ Script Steps
     Exit Script [ ]
     End If
     #
+    #
+    #
+    #
+    #
     #If tag has been selected, then remove it.
     Set Variable [ $removeRef; Value:reference::_Lreference ]
+    Set Variable [ $$refMediaSelectedToShow ]
     #
     #Set record number so can return user to it when done.
     Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
@@ -24517,6 +27796,16 @@ Script Steps
     End If
     #
     Go to Field [ ]
+    #
+    #
+    #
+    #
+    If [ $$QvLocation ≠ testlearn::orderInventoryGroupNumber ]
+    Set Variable [ $$QvLocation ]
+    Sort Records [ ] [ No dialog ]
+    End If
+    #
+    #
     Else If [ Get (LastError) ≠ 112 ]
     Set Field [ reference::lock; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( $$ref ) ≠ ValueCount ( Substitute ( $$ref ; $removeRef& "¶" ; "" ) ) ; Substitute ( $$ref ; $removeRef & "¶" ; "" ) ; Substitute ( $$ref ; $removeRef ; "" ) ) ]
     Set Variable [ $$ref; Value:reference::lock ]
@@ -24547,6 +27836,7 @@ Script Steps
 Fields used in this script
 
     TEMP::InventoryLibraryYN
+    testlearn::orderInventoryGroupNumber
     testlearn::kcreference
     reference::lock
     reference::_Lreference
@@ -24621,6 +27911,14 @@ Script Steps
     If [ Get (LastError) = 112 ]
     Select Window [ Name: "Learn"; Current file ]
     Set Variable [ $$ref; Value:testlearn::kcreference ]
+    #
+    #Capture tagged location. If this is
+    #changed while on the Qv layout it will effect
+    #the record's sort location and require a resort
+    #for the user to see the record in the Learn window.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$QvLocation; Value:testlearn::orderInventoryGroupNumber ]
+    End If
     Else If [ Get (LastError) ≠ 112 ]
     Set Variable [ $$ref; Value:reference::lock ]
     End If
@@ -24646,7 +27944,7 @@ Script Steps
     Select Window [ Name: "Learn"; Current file ]
     If [ TEMP::InventoryLibraryYN ≠ "" and testlearn::brainstormCasePoint ≠ "" ]
     Select Window [ Name: "Tag Menus"; Current file ]
-    Show Custom Dialog [ Message: "This item is a holder (box, shelf, etc.). To create a holder-within-a-holder relationship 1) create a location record for the pimary holder, and 2) tag the secondary holder as being in that location."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "This record is an in/onTag and cannot be tagged by another in/onTag. Example: To create a box on a shelf relationship make the shelf a location tag and the box an in/onTag."; Default Button: “OK”, Commit: “Yes” ]
     Halt Script
     End If
     Select Window [ Name: "Tag Menus"; Current file ]
@@ -24673,7 +27971,7 @@ Script Steps
     #container the item is in.
     If [ $$ref ≠ "" ]
     Select Window [ Name: "Tag Menus"; Current file ]
-    Show Custom Dialog [ Message: "Inventory can be in locations (shed, bedroom, etc.) or in/on an inventory holder (box, shelf, etc.). To add this holder tag, the location tag will be removed when you click OK."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Remove the location tag currently applied to this item and replace it with this in/on tag? Items can be in locations (shed, kitchen, etc.) or in/on a box, shelf, etc. that is in a location."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
     If [ Get ( LastMessageChoice ) = 2 ]
     Set Variable [ $$stopLoadTagRecord ]
     Halt Script
@@ -24689,6 +27987,22 @@ Script Steps
     Set Variable [ $$ref; Value:testlearn::kcreference ]
     Go to Field [ ]
     #
+    #
+    #
+    #
+    If [ $$QvLocation ≠ testlearn::orderInventoryGroupNumber ]
+    Sort Records [ ] [ No dialog ]
+    #
+    #Capture tagged location. If this is
+    #changed while on the Qv layout it will effect
+    #the record's sort location and require a resort
+    #for the user to see the record in the Learn window.
+    If [ Get ( LayoutName ) ≠ "learn4EDITstuff" ]
+    Set Variable [ $$QvLocation ]
+    End If
+    #
+    End If
+    #
     Else If [ Get (LastError) ≠ 112 ]
     #If in the reference section, do this...
     Set Field [ reference::lock; $newRef & "¶" & $$ref ]
@@ -24701,7 +28015,7 @@ Script Steps
     #
     #Sort records according to users wishes.
     If [ TEMP::InventoryLibraryYN ≠ "" ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
     Else
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     End If
@@ -24712,6 +28026,12 @@ Script Steps
     Go to Record/Request/Page [ $recordNumber ] [ No dialog ]
     Exit Script [ ]
     End If
+    #
+    #
+    #
+    #
+    #
+    #
     #
     #If tag has been selected, then remove it.
     Set Variable [ $removeRef; Value:testlearn::_Ltestlearn & "L" ]
@@ -24724,6 +28044,16 @@ Script Steps
     Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( $$ref) ≠ ValueCount ( Substitute ( $$ref ; $removeRef & "¶" ; "" ) ) ; Substitute ( $$ref ; $removeRef & "¶" ; "" ) ; Substitute ( $$ref ; $removeRef; "" ) ) ]
     Set Variable [ $$ref; Value:testlearn::kcreference ]
     Go to Field [ ]
+    #
+    #
+    #
+    #
+    If [ $$QvLocation ≠ testlearn::orderInventoryGroupNumber ]
+    If [ Get ( LayoutName ) ≠ "learn4EDITstuff" ]
+    Set Variable [ $$QvLocation ]
+    End If
+    Sort Records [ ] [ No dialog ]
+    End If
     Else If [ Get (LastError) ≠ 112 ]
     Set Field [ reference::lock; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( $$ref ) ≠ ValueCount ( Substitute ( $$ref ; $removeRef& "¶" ; "" ) ) ; Substitute ( $$ref ; $removeRef & "¶" ; "" ) ; Substitute ( $$ref ; $removeRef ; "" ) ) ]
     Set Variable [ $$ref; Value:reference::lock ]
@@ -24735,7 +28065,7 @@ Script Steps
     #
     #Sort records according to users wishes.
     If [ TEMP::InventoryLibraryYN ≠ "" ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
     Else
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     End If
@@ -24746,14 +28076,16 @@ Script Steps
     Go to Record/Request/Page [ $recordNumber ] [ No dialog ]
     Set Variable [ $$skipFirstPartOfScript ]
     #
+    #
 
 Fields used in this script
 
     testlearn::filterFind
     testlearn::kcreference
+    TEMP::InventoryLibraryYN
+    testlearn::orderInventoryGroupNumber
     reference::lock
     testlearn::_Ltestlearn
-    TEMP::InventoryLibraryYN
     testlearn::brainstormCasePoint
     testlearn::kshowReferencedMedia
     testlearn::note
@@ -24781,7 +28113,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addORremoveRefTagStep2_forLearnRecord]	Parent Folder: [tagMenu]	Next Script: [backFromTagMenus]
+Previous Script: [addORremoveRefTagStep2_forLearnRecord]	Parent Folder: [tagMenu]	Next Script: [archiveChecklist]
 Script Name	addRefsKeywordsToMainRecord
 Run script with full access privileges	Off
 Include In Menu	No
@@ -24847,7 +28179,373 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [addRefsKeywordsToMainRecord]	Parent Folder: [tagMenu]	Next Script: [brainstormExit]
+Previous Script: [addRefsKeywordsToMainRecord]	Parent Folder: [tagMenu]	Next Script: [backFromTagMenus]
+Script Name	archiveChecklist
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testMenuTestItem
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Exit any fields before beginnning just in
+    #case the user changed the spelling of
+    #anything that would require the spellcheck
+    #script to run.
+    Go to Field [ ]
+    #
+    #
+    #BEGIN Stop this script checks.
+    #
+    #Test subject is locked.
+    If [ $$testSubjectIsLocked ≠ "" and Get ( LayoutName ) ≠ "defaultTest" and Get ( LayoutName ) ≠ "learnTest" ]
+    Show Custom Dialog [ Message: "The test subject — " & $$testSubjectIsLocked & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “No” ]
+    Set Variable [ $exit; Value:1 ]
+    End If
+    #
+    #Primary node is locked.
+    If [ TEMP::primaryNodeIsLocked ≠ "" ]
+    If [ $exit = "" ]
+    Show Custom Dialog [ Message: "The default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked. Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C) create a new primary node."; Default Button: “OK”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "ALSO, the default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked. Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C) create a new primary node."; Default Button: “OK”, Commit: “No” ]
+    End If
+    Set Variable [ $exit; Value:1 ]
+    End If
+    #
+    #If any of the above are true, then
+    #exit this script.
+    If [ $exit = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #END Stop this script checks.
+    #
+    #
+    #
+    #If there are for items, tell the user they will not
+    #be archived using this script, and how to
+    #archive them.
+    If [ $$noFT_ItemsFound = "" ]
+    Show Custom Dialog [ Message: "Now archiving check and text items, not form items. Click the +form button to add form items."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+    #
+    #BEGIN See where to insert form.
+    #
+    #
+    #If the user clicks the V button on the setup
+    #test-item layout, skip this bit, otherwise see
+    #where the user wants to put the form this
+    #script will create on a Test or Report field.
+    If [ Left (Get (LayoutName) ; 5 ) ≠ "setup" ]
+    #
+    #Select the test window and copy the contents
+    #of the note field and see if it is active.
+    Select Window [ Name: "Test"; Current file ]
+    #
+    #If library is in the report section ...
+    If [ Get ( LastError )= 112 ]
+    Select Window [ Name: "Report"; Current file ]
+    Set Variable [ $report; Value:1 ]
+    #
+    #If the user has not clicked into a field, into
+    #which to insert the form let them know they
+    #need to do this before the form can be inserted.
+    If [ Get ( ActiveFieldName ) = "" ]
+    Show Custom Dialog [ Message: "Enter the field where you want the form to go. It will be placed below any text currently in that field."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    #
+    #
+    Else
+    #If a field has been selected then capture
+    #its contents if any.
+    Set Variable [ $note; Value:Get ( ActiveFieldContents ) ]
+    End If
+    #
+    #
+    #If library is in the learn section ...
+    Else
+    #
+    #Capture the contents of the active field.
+    Set Variable [ $note; Value:testlearn::note ]
+    End If
+    #
+    #Return to the Tag Menus window.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #If the note field is not blank ...
+    If [ $note ≠ "" ]
+    #
+    #Tell the user that a form will be added below
+    #the current text in the note text box, AND if
+    #the user hiding the test FT items that make up
+    #a form, tell the user how to reveal them.
+    If [ TEMP::testHideFormTextItemsFTs = 1 ]
+    Show Custom Dialog [ Message: "The archive will be added below the current text. You may need to scroll down to see it."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "The archive will be added below the current text. You may need to scroll down to see it."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    End If
+    End If
+    #
+    #
+    #If the user is on the setup layout, note this.
+    Else If [ Left (Get (LayoutName) ; 5 ) = "setup" ]
+    Set Variable [ $insertFormInPreviewWindow; Value:1 ]
+    End If
+    #
+    #
+    #END See where to insert form.
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Create form.
+    #
+    #
+    #Create the form, unless the user
+    #clicked cancel in a new window.
+    If [ Get (LastMessageChoice) ≠ 2 or $$addFormToNewTestResult ≠ "" ]
+    Set Variable [ $$userClickedVButton; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    #
+    New Window [ Name: "Form Preview"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
+    Adjust Window [ Resize to Fit ]
+    #
+    Set Variable [ $$userClickedVButton ]
+    Set Variable [ $$stopLoadTagRecord ]
+    #
+    #Find all test items for this subsection.
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ tagMenuTestItemGroup::match; TEMP::ktestItemSubsection & ¶ ]
+    Perform Find [ ]
+    #
+    #To insure the 'sort' button will next sort
+    #alphabetically, note that the current sort is
+    #by category/group.
+    Set Field [ TEMP::sortTestItem; "cat" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::name; ascending tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Scroll Window [ Home ]
+    Go to Record/Request/Page [ First ]
+    #
+    #Set the group variable to 1 so this first group
+    #will be captured by the loop below.
+    Set Variable [ $groupName; Value:1 ]
+    #
+    Loop
+    #
+    #Stop any find error messages as there may be
+    #no test items.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    Go to Field [ ]
+    #
+    #If the item is an FT item then add it to the
+    #form.
+    If [ tagMenus::notesOrCopyright ≠ "FT" ]
+    #
+    #If the style of the FT item is main header style ...
+    If [ tagMenus::textStyleOrCreatorNodeFlag = "" or tagMenus::textStyleOrCreatorNodeFlag = "1" or tagMenus::textStyleOrCreatorNodeFlag = "2" ]
+    Set Variable [ $tag; Value:tagMenus::tag ]
+    Else
+    #
+    #and it is not the first form item ...
+    If [ $tag = "" ]
+    Set Variable [ $tag; Value:tagMenus::tag ]
+    #
+    #then include a paragraph between it and
+    #the last FT item added.
+    Else
+    Set Variable [ $tag; Value:¶ & tagMenus::tag ]
+    End If
+    End If
+    #
+    #Include the checkmark symbol for checklist
+    #items, and color it grey if unchecked and black
+    #if checked.
+    If [ tagMenus::notesOrCopyright = "✓" ]
+    If [ tagMenus::_Ltag & "¶" = FilterValues ( $$checkedTestItem ; tagMenus::_Ltag & "¶" ) ]
+    Set Variable [ $tag; Value://TextStyleAdd ( "✓ " ; Bold ) & tagMenus::tag "✓ " & tagMenus::tag ]
+    Else
+    Set Variable [ $tag; Value:TextColor ( "✓ " ; RGB ( 150 ; 150 ; 150 ) ) & tagMenus::tag ]
+    End If
+    End If
+    #
+    #If the items group name does not match the
+    #last captured group ID, then we know this
+    #item belongs to a new group, and its group
+    #name needs to be captured and added to
+    #the archive.
+    If [ tagMenus::kGroupOrTest ≠ $groupName ]
+    Set Variable [ $tag; Value:¶ & TextColor ( TextSize ( TextFont ( tagMenuTestItemGroup::name ; "Arial" ) ; 18 ) ; RGB ( 125 ; 125 ; 125 ) ) & ¶ & $tag ]
+    End If
+    #
+    #Now set the group ID, so when the loop
+    #restarts on the next item its group name will
+    #be added to the archive only if it is different
+    #from the last items group.
+    Set Variable [ $groupName; Value:tagMenus::kGroupOrTest ]
+    #
+    #If this the first item on this form,
+    #then just added it.
+    If [ $form = "" ]
+    Set Variable [ $form; Value:TextColor ( TextSize ( "Checklist Archived " & Get ( CurrentTimeStamp ) ; 16 ) ; RGB ( 125 ; 125 ; 125 ) ) & ¶ & $tag ]
+    #
+    #BUT, if the form already has items in it, then
+    #add this next item a paragraph below the last
+    #item in the form.
+    Else
+    Set Variable [ $form; Value:$form & ¶ & $tag ]
+    End If
+    End If
+    #
+    Go to Record/Request/Page [ Next; Exit after last ]
+    #
+    End Loop
+    End If
+    #
+    #
+    #END Create form.
+    #
+    #
+    #
+    #
+    #
+    #
+    #BEGIN Insert form in designated field.
+    #
+    #
+    #If it turns out there are no FT items, then tell
+    #the user this and exit the script.
+    If [ $form = "" ]
+    Close Window [ Current Window ]
+    Show Custom Dialog [ Message: "There are no form test (FT) items."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Create a clear formatting variable to insure
+    #anything typed after the newly inserted form
+    #will be in the default format.
+    Set Variable [ $clearFormatting; Value:TextFont ( " " ; "Georgia" ) ]
+    Set Variable [ $clearFormatting; Value:TextColor ( $clearFormatting ; RGB ( 34 ; 34 ; 34 ) ) ]
+    Set Variable [ $clearFormatting; Value:TextSize ( $clearFormatting ; 16 ) ]
+    Set Variable [ $clearFormatting; Value:TextStyleAdd ( $clearFormatting ; Plain ) ]
+    #
+    #
+    #If the user is in the Test Template section,
+    #then go to the preview form layout and
+    #insert the form.
+    If [ $insertFormInPreviewWindow ≠ "" ]
+    Go to Layout [ “testItemFormPreview” (TEMP) ]
+    Set Field [ TEMP::Message; $form ]
+    Adjust Window [ Resize to Fit ]
+    Move/Resize Window [ Current Window; Height: Get (ScreenHeight) ]
+    Pause/Resume Script [ Indefinitely ]
+    Exit Script [ ]
+    End If
+    #
+    #If the user is NOT in the Test Template
+    #section, then close the window used to
+    #create the form and proceed to insert it
+    #where the user wants it to go.
+    If [ $insertFormInPreviewWindow = "" ]
+    Close Window [ Current Window ]
+    End If
+    #
+    #If the user is in the test section, then go the
+    #Test window to add the form to the current
+    #result.
+    If [ Left (Get (LayoutName) ; 5 ) ≠ "setup" ]
+    If [ $report = 1 ]
+    Select Window [ Name: "Report"; Current file ]
+    Else
+    Select Window [ Name: "Test"; Current file ]
+    End If
+    End If
+    #
+    #If the note field is blank, then add the form to it.
+    If [ $note = "" ]
+    If [ $report = 1 ]
+    Set Field [ $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
+    Else
+    Set Field [ testlearn::note; $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
+    End If
+    #
+    #If it is not blank, then add the form below
+    #the curren text.
+    Else
+    If [ $report = 1 ]
+    Set Field [ $note & ¶ & $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
+    Else
+    Set Field [ testlearn::note; $note & ¶ & $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
+    End If
+    End If
+    #
+    #
+    #END Insert form in designated field.
+    #
+    #
+
+Fields used in this script
+
+    TEMP::primaryNodeIsLocked
+    TEMP::DEFAULTNodePrimaryName
+    testlearn::note
+    TEMP::testHideFormTextItemsFTs
+    TEMP::ktestItemSubsection
+    tagMenuTestItemGroup::match
+    TEMP::sortTestItem
+    tagMenuTestItemGroup::orderOrLibraryType
+    tagMenuTestItemGroup::name
+    tagMenuTestItemGroup::_Lgroup
+    tagMenus::orderOrLock
+    tagMenus::tag
+    tagMenus::notesOrCopyright
+    tagMenus::textStyleOrCreatorNodeFlag
+    tagMenus::_Ltag
+    tagMenus::kGroupOrTest
+    TEMP::Message
+
+Scripts used in this script
+
+Layouts used in this script
+
+    ltagSCRIPTloops
+    testItemFormPreview
+
+Tables used in this script
+
+    TEMP
+    tag
+    tagGroup
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    tagMenuTestItemGroup
+    tagMenus
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [archiveChecklist]	Parent Folder: [tagMenu]	Next Script: [brainstormExit]
 Script Name	backFromTagMenus
 Run script with full access privileges	Off
 Include In Menu	No
@@ -25385,6 +29083,10 @@ Script Steps
     #If the spellling of the tag has changed or if tag
     #is new do the following.
     If [ tagMenus::tag ≠ tagMenus::tagSpelling and tagMenus::tagSpelling ≠ "" ]
+    #
+    #(See disabled code not below.)
+    // Set Variable [ $$key; Value:tagMenus::_Ltag ]
+    #
     #Commit records so user can change spelling.
     #Without commit records the system will not find
     #a newly added tag during the find part script.
@@ -25396,10 +29098,37 @@ Script Steps
     Commit Records/Requests
     Else If [ Get (LastError) ≠ 112 ]
     Commit Records/Requests
+    #
+    #
+    #This block of code is the unfinished start of
+    #informing the user when they change the
+    #spelling of a keyword that is in use as a
+    #reference header that its alphabetical position
+    #might be altered. I thought this is important
+    #information for keyword order number
+    #changes, which can actually un-alphabetize
+    #the order the reference group headers.
+    #However, I thought such information would be
+    #pointing-out-the-obvious when it comes to
+    #spelling changes changing the alphabetical
+    #position, and, so, stopped work on this code
+    #and disabled it.
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    // New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // Go to Layout [ “ReferenceScriptLoops” (reference) ]
+    // Enter Find Mode [ ]
+    // Set Field [ tagKeywordPrimary::_Ltag; $$key ]
+    // Perform Find [ ]
+    // #
+    // #If the edited record moved then note this.
+    // If [ Get ( FoundCount ) ≠ 0 ]
+    // Show Custom Dialog [ Message: "lkjlk"; Default Button: “OK”, Commit: “Yes” ]
+    // End If
+    // Close Window [ Current Window ]
+    #
     End If
     Else If [ Get (LastError) ≠ 112 ]
     Commit Records/Requests
-    #
     #
     #
     #See if the edited record changed position in
@@ -25421,8 +29150,39 @@ Script Steps
     #If the edited record move then note this.
     If [ $currentrecord ≠ Get (RecordNumber) ]
     Set Variable [ $recordMoved; Value:Get (RecordNumber) ]
+    #
+    #
+    Else
+    #This block of code is the unfinished start of
+    #informing the user when they change the
+    #spelling of a keyword that is in use as a
+    #reference header that its alphabetical position
+    #might be altered. I thought this is important
+    #information for keyword order number
+    #changes, which can actually un-alphabetize
+    #the order the reference group headers.
+    #However, I thought such information would be
+    #pointing-out-the-obvious when it comes to
+    #spelling changes changing the alphabetical
+    #position, and, so, stopped work on this code
+    #and disabled it.
+    // Set Variable [ $$stoploadCitation; Value:1 ]
+    // New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // Go to Layout [ “ReferenceScriptLoops” (reference) ]
+    // Enter Find Mode [ ]
+    // Set Field [ tagKeywordPrimary::_Ltag; $$key ]
+    // Perform Find [ ]
+    // #
+    // #If the edited record moved then note this.
+    // If [ Get ( FoundCount ) ≠ 0 ]
+    // Show Custom Dialog [ Message: "lkjlk"; Default Button: “OK”, Commit: “Yes” ]
+    // Set Variable [ ]
+    // End If
+    // Close Window [ Current Window ]
     End If
+    #
     Close Window [ Name: "CheckDuplicateRecordPosition"; Current file ]
+    #
     #
     #Re-sort and return to edited record if it
     #was moved.
@@ -25859,6 +29619,7 @@ Fields used in this script
     TEMP::userLibraryName
     tagMenus::match
     <Missing Field>
+    tagKeywordPrimary::_Ltag
     TEMP::InventoryLibraryYN
     tagKeywordPrimary::orderOrLock
     tagKeywordPrimary::tag
@@ -25889,6 +29650,7 @@ Scripts used in this script
 
 Layouts used in this script
 
+    ReferenceScriptLoops
     Reference
     TEMPnodeList
     learn4
@@ -25897,7 +29659,6 @@ Tables used in this script
 
     TEMP
     reference
-    tag
     tag
     tagGroup
     testlearn
@@ -27348,6 +31109,13 @@ Script Steps
     #
     #
     #
+    #If it turns out there are no FT items, then tell
+    #the user this and exit the script.
+    If [ $$noFT_ItemsFound = 1 ]
+    Show Custom Dialog [ Message: "There are no form (FT) items for this subsection."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
     #
     #
     #BEGIN Stop this script checks.
@@ -27435,11 +31203,17 @@ Script Steps
     Else
     Show Custom Dialog [ Message: "A form will be added below the current text. You may need to scroll down to see it."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
     End If
+    #Stop the script if the user clicks cancel.
+    If [ Get (LastMessageChoice) = 2 ]
+    Exit Script [ ]
+    End If
+    #
+    End If
     End If
     #
     #
     #If the user is on the setup layout, note this.
-    Else If [ Left (Get (LayoutName) ; 5 ) = "setup" ]
+    If [ Left (Get (LayoutName) ; 5 ) = "setup" ]
     Set Variable [ $insertFormInPreviewWindow; Value:1 ]
     End If
     #
@@ -27455,7 +31229,7 @@ Script Steps
     #
     #Create the form, unless the user
     #clicked cancel in a new window.
-    If [ Get (LastMessageChoice) ≠ 2 ]
+    If [ Get (LastMessageChoice) ≠ 2 or $$addFormToNewTestResult ≠ "" ]
     Set Variable [ $$userClickedVButton; Value:1 ]
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     #
@@ -27542,15 +31316,6 @@ Script Steps
     #BEGIN Insert form in designated field.
     #
     #
-    #If it turns out there are no FT items, then tell
-    #the user this and exit the script.
-    If [ $form = "" ]
-    Close Window [ Current Window ]
-    Show Custom Dialog [ Message: "There are no form test (FT) items."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #
     #Create a clear formatting variable to insure
     #anything typed after the newly inserted form
     #will be in the default format.
@@ -27594,18 +31359,18 @@ Script Steps
     #If the note field is blank, then add the form to it.
     If [ $note = "" ]
     If [ $report = 1 ]
-    Set Field [ $form & $clearFormatting & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & $clearFormatting ]
+    Set Field [ $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
     Else
-    Set Field [ testlearn::note; $form & $clearFormatting & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & $clearFormatting ]
+    Set Field [ testlearn::note; $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
     End If
     #
     #If it is not blank, then add the form below
     #the curren text.
     Else
     If [ $report = 1 ]
-    Set Field [ $note & ¶ & $form & $clearFormatting & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & $clearFormatting ]
+    Set Field [ $note & ¶ & $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
     Else
-    Set Field [ testlearn::note; $note & ¶ & $form & $clearFormatting & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & $clearFormatting ]
+    Set Field [ testlearn::note; $note & ¶ & $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
     End If
     End If
     #
@@ -27669,7 +31434,10 @@ Layouts that use this script
     defaultCopyright
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
 
 Scripts that use this script
@@ -27848,7 +31616,10 @@ Layouts that use this script
     defaultCopyright
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
 
 Scripts that use this script
@@ -28014,14 +31785,17 @@ Layouts that use this script
     defaultCopyright
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
 
 Scripts that use this script
 
     backToLearnOrDefaultSetup
-    returnToTestSetup
     gotoDefaultsOrReport
+    returnToTestSetup
 
 Script Definition
 Script Steps
@@ -28390,7 +32164,10 @@ Layouts that use this script
 
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu2keywordOrNode1
     ReferenceMenu2SkeywordOrNode1
@@ -28495,7 +32272,8 @@ Script Steps
     Set Field [ testlearn::filterFind; "main" & ¶ ]
     Extend Found Set [ ]
     If [ Get (FoundCount) ≠ 0 ]
-    Set Variable [ $inUse; Value:Get (FoundCount) & " learn" ]
+    Set Variable [ $inUse; Value:"Learn " & Get (FoundCount) ]
+    Set Variable [ $learn; Value:1 ]
     End If
     #
     #See if keyword is used by any discovery records.
@@ -28525,10 +32303,11 @@ Script Steps
     If [ Get (FoundCount) ≠ 0 ]
     If [ $inUse ≠ "" ]
     Set Variable [ $addToInUse; Value:$inUse ]
-    Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " reference" ]
+    Set Variable [ $inUse; Value:$addToInUse & ", " & "Reference " & Get (FoundCount) ]
     Else If [ $inUse = "" ]
-    Set Variable [ $inUse; Value:Get (FoundCount) & " reference" ]
+    Set Variable [ $inUse; Value:"Reference " & Get (FoundCount) ]
     End If
+    Set Variable [ $reference; Value:1 ]
     End If
     #
     #Close window used to find records using tag.
@@ -28638,7 +32417,7 @@ Script Steps
     Set Variable [ $delete ]
     Set Variable [ $group ]
     Refresh Window
-    Show Custom Dialog [ Message: "This keyword cannot be deleted as it in use x number of times in the following modules' main windows: " & $inUse & "."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: Case ( $learn ≠ "" and $reference ≠ "" ; "This keyword is in use in 2 library sections: " & $inUse & ". It cannot be deleted. Use the Tag Menus find feature in each section to find the records using it." ; "This keyword is in use in 1 library section: " & $inUse & ". It cannot be deleted. Use the Tag Menus find feature in this section to find the records using it." ); Default Button: “OK”, Commit: “Yes” ]
     Set Variable [ $$addTagToCitation ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
@@ -28808,7 +32587,12 @@ Script Steps
     Set Field [ testlearn::filterFind; "main" & ¶ ]
     Extend Found Set [ ]
     If [ Get (FoundCount) ≠ 0 ]
+    If [ $inUse ≠ "" ]
+    Set Variable [ $addToInUse; Value:$inUse ]
+    Set Variable [ $inUse; Value:$addToInUse & "; Learn " & Get (FoundCount) ]
+    Else If [ $inUse = "" ]
     Set Variable [ $inUse; Value:"Learn " & Get (FoundCount) ]
+    End If
     End If
     #
     #
@@ -28832,192 +32616,6 @@ Script Steps
     Set Variable [ $inUse; Value:$addToInUse & "; Reference " & Get (FoundCount) ]
     Else If [ $inUse = "" ]
     Set Variable [ $inUse; Value:"Reference " & Get (FoundCount) ]
-    End If
-    End If
-    #
-    #
-    #
-    #
-    #
-    #TAG BRAINSTORM
-    #See if node is used by any test result records.
-    #Check in primary...
-    Go to Layout [ “tableTag” (tagTable) ]
-    Enter Find Mode [ ]
-    Set Field [ tagTable::kRecordCreatorNode; $check ]
-    Set Field [ tagTable::match; "brainstorm" ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) ≠ 0 ]
-    If [ $inUse ≠ "" ]
-    Set Variable [ $addToInUse; Value:$inUse ]
-    Set Variable [ $inUse; Value:$addToInUse & "; Tags — brainstorm " & Get (FoundCount) ]
-    Else If [ $inUse = "" ]
-    Set Variable [ $inUse; Value:"Tags — brainstorm " & Get (FoundCount) ]
-    End If
-    Set Variable [ $TagsHeader; Value:1 ]
-    End If
-    #
-    #
-    #
-    #
-    #
-    #TAG COPYRIGHT
-    #See if node is used by any test result records.
-    #Check in primary...
-    Go to Layout [ “tableTag” (tagTable) ]
-    Enter Find Mode [ ]
-    Set Field [ tagTable::kRecordCreatorNode; $check ]
-    Set Field [ tagTable::match; "copyright" ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) ≠ 0 ]
-    If [ $inUse ≠ "" ]
-    Set Variable [ $addToInUse; Value:$inUse ]
-    If [ $TagsHeader ≠ "" ]
-    Set Variable [ $inUse; Value:$addToInUse & ", copyright " & Get (FoundCount) ]
-    Else
-    Set Variable [ $inUse; Value:$addToInUse & "; Tags — copyright " & Get (FoundCount) ]
-    End If
-    Else If [ $inUse = "" ]
-    Set Variable [ $inUse; Value:"Tags — copyright " & Get (FoundCount) ]
-    End If
-    Set Variable [ $TagsHeader; Value:1 ]
-    End If
-    #
-    #
-    #
-    #
-    #
-    #TAG KEYWORD
-    #See if node is used by any test result records.
-    #Check in primary...
-    Go to Layout [ “tableTag” (tagTable) ]
-    Enter Find Mode [ ]
-    Set Field [ tagTable::kRecordCreatorNode; $check ]
-    Set Field [ tagTable::match; "key" ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) ≠ 0 ]
-    If [ $inUse ≠ "" ]
-    Set Variable [ $addToInUse; Value:$inUse ]
-    If [ $TagsHeader ≠ "" ]
-    Set Variable [ $inUse; Value:$addToInUse & ", key " & Get (FoundCount) ]
-    Else
-    Set Variable [ $inUse; Value:$addToInUse & "Tags — key " & Get (FoundCount) ]
-    End If
-    Else If [ $inUse = "" ]
-    Set Variable [ $inUse; Value:"Tags — key " & Get (FoundCount) ]
-    End If
-    Set Variable [ $TagsHeader; Value:1 ]
-    End If
-    #
-    #
-    #
-    #
-    #
-    #TAG NODE
-    #See if node is used by any test result records.
-    #Check in primary...
-    Go to Layout [ “tableTag” (tagTable) ]
-    Enter Find Mode [ ]
-    Set Field [ tagTable::kRecordCreatorNode; $check ]
-    Set Field [ tagTable::match; "node" ]
-    #Omit creator nodes.
-    Set Field [ tagTable::textStyleOrCreatorNodeFlag; "=" ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) ≠ 0 ]
-    If [ $inUse ≠ "" ]
-    Set Variable [ $addToInUse; Value:$inUse ]
-    If [ $TagsHeader ≠ "" ]
-    Set Variable [ $inUse; Value:$addToInUse & ", node " & Get (FoundCount) ]
-    Else
-    Set Variable [ $inUse; Value:$addToInUse & ": Tags — node " & Get (FoundCount) ]
-    End If
-    Else If [ $inUse = "" ]
-    Set Variable [ $inUse; Value:"Tags — node " & Get (FoundCount) ]
-    End If
-    Set Variable [ $TagsHeader; Value:1 ]
-    End If
-    #
-    #
-    #
-    #
-    #
-    #TAG PATH
-    #See if node is used by any test result records.
-    #Check in primary...
-    Go to Layout [ “tableTag” (tagTable) ]
-    Enter Find Mode [ ]
-    Set Field [ tagTable::kRecordCreatorNode; $check ]
-    Set Field [ tagTable::match; "path" ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) ≠ 0 ]
-    If [ $inUse ≠ "" ]
-    Set Variable [ $addToInUse; Value:$inUse ]
-    If [ $TagsHeader ≠ "" ]
-    Set Variable [ $inUse; Value:$addToInUse & ", path " & Get (FoundCount) ]
-    Else
-    Set Variable [ $inUse; Value:$addToInUse & "; Tags — path " & Get (FoundCount) ]
-    End If
-    Else If [ $inUse = "" ]
-    Set Variable [ $inUse; Value:"Tags — path " & Get (FoundCount) ]
-    End If
-    Set Variable [ $TagsHeader; Value:1 ]
-    End If
-    #
-    #
-    #
-    #
-    #
-    #TAG PUBLICATION
-    #See if node is used by any test result records.
-    #Check in primary...
-    Go to Layout [ “tableTag” (tagTable) ]
-    Enter Find Mode [ ]
-    Set Field [ tagTable::kRecordCreatorNode; $check ]
-    Set Field [ tagTable::match; "publication" ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) ≠ 0 ]
-    If [ $inUse ≠ "" ]
-    Set Variable [ $addToInUse; Value:$inUse ]
-    If [ $TagsHeader ≠ "" ]
-    Set Variable [ $inUse; Value:$addToInUse & ", publication " & Get (FoundCount) ]
-    Else
-    Set Variable [ $inUse; Value:$addToInUse & "; Tags — publication " & Get (FoundCount) ]
-    End If
-    Else If [ $inUse = "" ]
-    Set Variable [ $inUse; Value:"Tags — publication " & Get (FoundCount) ]
-    End If
-    Set Variable [ $TagsHeader; Value:1 ]
-    End If
-    #
-    #
-    #
-    #
-    #
-    #TAG PUBLISHER
-    #See if node is used by any test result records.
-    #Check in primary...
-    Go to Layout [ “tableTag” (tagTable) ]
-    Enter Find Mode [ ]
-    Set Field [ tagTable::kRecordCreatorNode; $check ]
-    Set Field [ tagTable::match; "publisher" ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) ≠ 0 ]
-    If [ $inUse ≠ "" ]
-    Set Variable [ $addToInUse; Value:$inUse ]
-    If [ $TagsHeader ≠ "" ]
-    Set Variable [ $inUse; Value:$addToInUse & ", publisher " & Get (FoundCount) ]
-    Else
-    Set Variable [ $inUse; Value:$addToInUse & "; Tags — publisher " & Get (FoundCount) ]
-    End If
-    Else If [ $inUse = "" ]
-    Set Variable [ $inUse; Value:"Tags — publisher " & Get (FoundCount) ]
     End If
     End If
     #
@@ -29148,6 +32746,199 @@ Script Steps
     #
     #
     #
+    #
+    #TAG BRAINSTORM
+    #See if node is used by any test result records.
+    #Check in primary...
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kRecordCreatorNode; $check ]
+    Set Field [ tagTable::match; "brainstorm" ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) ≠ 0 ]
+    If [ $inUse ≠ "" ]
+    Set Variable [ $addToInUse; Value:$inUse ]
+    Set Variable [ $inUse; Value:$addToInUse & "; Tags — brainstorm " & Get (FoundCount) ]
+    Else If [ $inUse = "" ]
+    Set Variable [ $inUse; Value:"Tags — brainstorm " & Get (FoundCount) ]
+    End If
+    Set Variable [ $TagsHeader; Value:1 ]
+    Set Variable [ $inuseTags; Value:1 ]
+    End If
+    #
+    #
+    #
+    #
+    #
+    #TAG COPYRIGHT
+    #See if node is used by any test result records.
+    #Check in primary...
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kRecordCreatorNode; $check ]
+    Set Field [ tagTable::match; "copyright" ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) ≠ 0 ]
+    If [ $inUse ≠ "" ]
+    Set Variable [ $addToInUse; Value:$inUse ]
+    If [ $TagsHeader ≠ "" ]
+    Set Variable [ $inUse; Value:$addToInUse & ", copyright " & Get (FoundCount) ]
+    Else
+    Set Variable [ $inUse; Value:$addToInUse & "; Tags — copyright " & Get (FoundCount) ]
+    End If
+    Else If [ $inUse = "" ]
+    Set Variable [ $inUse; Value:"Tags — copyright " & Get (FoundCount) ]
+    End If
+    Set Variable [ $TagsHeader; Value:1 ]
+    Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+    End If
+    #
+    #
+    #
+    #
+    #
+    #TAG KEYWORD
+    #See if node is used by any test result records.
+    #Check in primary...
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kRecordCreatorNode; $check ]
+    Set Field [ tagTable::match; "key" ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) ≠ 0 ]
+    If [ $inUse ≠ "" ]
+    Set Variable [ $addToInUse; Value:$inUse ]
+    If [ $TagsHeader ≠ "" ]
+    Set Variable [ $inUse; Value:$addToInUse & ", key " & Get (FoundCount) ]
+    Else
+    Set Variable [ $inUse; Value:$addToInUse & "; Tags — key " & Get (FoundCount) ]
+    End If
+    Else If [ $inUse = "" ]
+    Set Variable [ $inUse; Value:"Tags — key " & Get (FoundCount) ]
+    End If
+    Set Variable [ $TagsHeader; Value:1 ]
+    Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+    End If
+    #
+    #
+    #
+    #
+    #
+    #TAG NODE
+    #See if node is used by any test result records.
+    #Check in primary...
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kRecordCreatorNode; $check ]
+    Set Field [ tagTable::match; "node" ]
+    #Omit creator nodes.
+    Set Field [ tagTable::textStyleOrCreatorNodeFlag; "=" ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) ≠ 0 ]
+    If [ $inUse ≠ "" ]
+    Set Variable [ $addToInUse; Value:$inUse ]
+    If [ $TagsHeader ≠ "" ]
+    Set Variable [ $inUse; Value:$addToInUse & ", node " & Get (FoundCount) ]
+    Else
+    Set Variable [ $inUse; Value:$addToInUse & "; Tags — node " & Get (FoundCount) ]
+    End If
+    Else If [ $inUse = "" ]
+    Set Variable [ $inUse; Value:"Tags — node " & Get (FoundCount) ]
+    End If
+    Set Variable [ $TagsHeader; Value:1 ]
+    Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+    End If
+    #
+    #
+    #
+    #
+    #
+    #TAG PATH
+    #See if node is used by any test result records.
+    #Check in primary...
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kRecordCreatorNode; $check ]
+    Set Field [ tagTable::match; "path" ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) ≠ 0 ]
+    If [ $inUse ≠ "" ]
+    Set Variable [ $addToInUse; Value:$inUse ]
+    If [ $TagsHeader ≠ "" ]
+    Set Variable [ $inUse; Value:$addToInUse & ", path " & Get (FoundCount) ]
+    Else
+    Set Variable [ $inUse; Value:$addToInUse & "; Tags — path " & Get (FoundCount) ]
+    End If
+    Else If [ $inUse = "" ]
+    Set Variable [ $inUse; Value:"Tags — path " & Get (FoundCount) ]
+    End If
+    Set Variable [ $TagsHeader; Value:1 ]
+    Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+    End If
+    #
+    #
+    #
+    #
+    #
+    #TAG PUBLICATION
+    #See if node is used by any test result records.
+    #Check in primary...
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kRecordCreatorNode; $check ]
+    Set Field [ tagTable::match; "publication" ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) ≠ 0 ]
+    If [ $inUse ≠ "" ]
+    Set Variable [ $addToInUse; Value:$inUse ]
+    If [ $TagsHeader ≠ "" ]
+    Set Variable [ $inUse; Value:$addToInUse & ", publication " & Get (FoundCount) ]
+    Else
+    Set Variable [ $inUse; Value:$addToInUse & "; Tags — publication " & Get (FoundCount) ]
+    End If
+    Else If [ $inUse = "" ]
+    Set Variable [ $inUse; Value:"Tags — publication " & Get (FoundCount) ]
+    End If
+    Set Variable [ $TagsHeader; Value:1 ]
+    Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+    End If
+    #
+    #
+    #
+    #
+    #
+    #TAG PUBLISHER
+    #See if node is used by any test result records.
+    #Check in primary...
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kRecordCreatorNode; $check ]
+    Set Field [ tagTable::match; "publisher" ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) ≠ 0 ]
+    If [ $inUse ≠ "" ]
+    Set Variable [ $addToInUse; Value:$inUse ]
+    If [ $TagsHeader ≠ "" ]
+    Set Variable [ $inUse; Value:$addToInUse & ", publisher " & Get (FoundCount) ]
+    Else
+    Set Variable [ $inUse; Value:$addToInUse & "; Tags — publisher " & Get (FoundCount) ]
+    End If
+    Else If [ $inUse = "" ]
+    Set Variable [ $inUse; Value:"Tags — publisher " & Get (FoundCount) ]
+    End If
+    Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+    End If
+    #
+    #
+    #
+    #
     #TEST SUBJECT — SECTION
     #See if node is the test subject for any
     #test section records created to test it.
@@ -29158,6 +32949,7 @@ Script Steps
     If [ Get (FoundCount) ≠ 0 ]
     Set Variable [ $inUseTestSubject; Value:"Setup Test " & Get (FoundCount) ]
     End If
+    #
     #
     #
     #
@@ -29294,7 +33086,7 @@ Script Steps
     #
     #Node created library records.
     If [ $inUse ≠ "" ]
-    Show Custom Dialog [ Message: "The records created by this node must be deteted before it can be deleted: " & $inUse & "."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: Case ( $inuseTags = "" ; "This node tag is in use in " & Case ( Length ( Filter ( $inUse ; ";" ) ) = 0 ; "1 library section: " & $inUse & ". It cannot be deleted." ; Length ( Filter ( $inUse ; ";" ) ) & " library sections: " & $inUse & ". It cannot be deleted." ) ; "This node tag is in use in " & Case ( Length ( Filter ( $inUse ; ";" ) ) = 1 ; "1 library section and " & Case ( $inuseTags = 1 ; "1 tag menu: " & $inUse & "." ; $inuseTags & " tag menus:" & $inUse & ". It cannot be deleted." ) ; Length ( Filter ( $inUse ; ";" ) ) & " library sections and " & Case ( $inuseTags = 1 ; "1 tag menu: " & $inUse & "." ; $inuseTags & " tag menus: " & $inUse & ". It cannot be deleted." ) ) ); Default Button: “OK”, Commit: “Yes” ]
     #
     #AND test subject records where created
     #for this node.
@@ -29326,7 +33118,7 @@ Script Steps
     #
     #Node created library records.
     If [ $inUse ≠ "" ]
-    Show Custom Dialog [ Message: "Also, the records created by this node must be deteted before it can be deleted: " & $inUse & "."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: Case ( $inuseTags = "" ; "Also, this node tag is in use in " & Case ( Length ( Filter ( $inUse ; ";" ) ) = 0 ; "1 library section: " & $inUse & "." ; Length ( Filter ( $inUse ; ";" ) ) & " library sections: " & $inUse & "." ) ; "Also, this node tag is in use in " & Case ( Length ( Filter ( $inUse ; ";" ) ) = 1 ; "1 library section and " & Case ( $inuseTags = 1 ; "1 tag menu: " & $inUse & "." ; $inuseTags & " tag menus:" & $inUse & "." ) ; Length ( Filter ( $inUse ; ";" ) ) & " library sections and " & Case ( $inuseTags = 1 ; "1 tag menu: " & $inUse & "." ; $inuseTags & " tag menus: " & $inUse & "." ) ) ); Default Button: “OK”, Commit: “Yes” ]
     #
     #AND test subject records where created
     #for this node.
@@ -29596,12 +33388,12 @@ Fields used in this script
     testlearn::kNodeOther
     reference::knodePrimary
     reference::knodeOther
-    tagTable::kRecordCreatorNode
-    tagTable::match
-    tagTable::textStyleOrCreatorNodeFlag
     testSectionCreatedFromATemplate::kcreatorNode
     testlearn::kRecordCreatorNode
+    tagTable::kRecordCreatorNode
+    tagTable::match
     testSubsectionTemplate::kcreatorNode
+    tagTable::textStyleOrCreatorNodeFlag
     testSectionCreatedFromATemplate::ktestSubjectNode
     testlearn::ktestSubject
     report::ktestSubject
@@ -29629,8 +33421,8 @@ Layouts used in this script
     tableSetupReference
     tableTestLearn
     Reference
-    tableTag
     tableTestSectionFromTemplate
+    tableTag
     tableTestSubsectionTemplates
     tableReport
 
@@ -30535,6 +34327,7 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode5
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
     ReferenceMenu2SkeywordOrNodeFind
     referenceMenuFINDref
@@ -30569,7 +34362,9 @@ Layouts that use this script
     learnFindBrainstorm
     learnFindStuffBrainstorm
     learnFindCite
+    learnFindCiteS
     learnFindStuffCite
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
     learnMenuFINDref
@@ -30641,7 +34436,18 @@ Script Steps
     Perform Script [ “loadTagRecord” ]
     Halt Script
     Else
+    #
+    If [ $$citationMatch = "learn" ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
+    #
+    Else
     Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuGroup::name; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    End If
+    #
     Set Variable [ $$stopLoadTagRecord ]
     Perform Script [ “loadTagRecord” ]
     Halt Script
@@ -30707,9 +34513,9 @@ Script Steps
     #Select the field where the user needs to enter the
     #find information.
     If [ TEMP::InventoryLibraryYN ≠ "" ]
-    Go to Field [ reference::referenceSTUFF ]
+    // Go to Field [ reference::referenceSTUFF ]
     Else
-    Go to Field [ reference::referenceForReferenceWindow ]
+    // Go to Field [ reference::referenceForReferenceWindow ]
     End If
     #
     #Pause and wait until user is ready to perform find.
@@ -30771,9 +34577,9 @@ Script Steps
     #Select the field where the user needs to enter the
     #find information.
     If [ Left (Get (LayoutName) ; 5 ) = "learn" ]
-    Go to Field [ testlearn::note ]
+    // Go to Field [ testlearn::note ]
     Else
-    Go to Field [ tagMenus::tag ]
+    // Go to Field [ tagMenus::tag ]
     End If
     #
     #Pause and wait until user is ready to perform find.
@@ -30788,7 +34594,18 @@ Script Steps
     #
     Go to Layout [ $$findLayout ]
     Set Variable [ $$findLayout ]
+    #
+    If [ $$citationMatch = "learn" ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
+    #
+    Else
     Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuGroup::name; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    End If
+    #
     Set Variable [ $$stopLoadTagRecord ]
     Perform Script [ “loadTagRecord” ]
     Exit Script [ ]
@@ -30819,11 +34636,35 @@ Script Steps
     #FIND FOR LEARN MODULE
     #
     If [ Right ( Get (LayoutName) ; 7 ) = "refcite" and Left ( Get (LayoutName) ; 1 ) = "l" ]
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
-    Go to Layout [ “learnMenu4RefStuffCiteFindTL” (testlearn) ]
+    #
+    If [ TEMP::InventoryLibraryYN = "" ]
+    #Idea Mode
+    #
+    If [ TEMP::layoutLtagLFIND = "" ]
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “learnMenu4NoPicRefCiteFindTL” (testlearn) ]
+    Set Field [ TEMP::layoutLtagLFIND; "more" & Get (LayoutName) ]
     Else
     Go to Layout [ “learnMenu4RefCiteFindTL” (testlearn) ]
+    Set Field [ TEMP::layoutLtagLFIND; "less" & Get (LayoutName) ]
     End If
+    #
+    Else
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ Middle ( TEMP::layoutLtagLFIND ; 5 ; 42 ) ]
+    End If
+    #
+    Else
+    #Inventory Mode
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ “learnMenu4RefStuffCiteFindTL” (testlearn) ]
+    End If
+    #
     Else If [ Right ( Get (LayoutName) ; 9 ) = "Copyright" and Left ( Get (LayoutName) ; 1 ) = "l" ]
     If [ TEMP::InventoryLibraryYN ≠ "" ]
     Go to Layout [ “learnSFind” (tagMenus) ]
@@ -30850,10 +34691,33 @@ Script Steps
     Else
     Go to Layout [ “learnFindTest” (testSubsectionTemplate) ]
     End If
+    #
+    #
+    #
+    #
     Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" and Left ( Get (LayoutName) ; 1 ) = "l" or Right ( Get (LayoutName) ; 6 ) = "3citeS" and Left ( Get (LayoutName) ; 1 ) = "l" ]
+    #
+    #
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
+    If [ TEMP::layoutLtagRFIND = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “learnFindCiteS” (reference) ]
+    Set Field [ TEMP::layoutLtagRFIND; "more" & Get (LayoutName) ]
+    Else
     Go to Layout [ “learnFindCite” (reference) ]
+    Set Field [ TEMP::layoutLtagRFIND; "less" & Get (LayoutName) ]
+    End If
+    Else
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ Middle ( TEMP::layoutLtagRFIND ; 5 ; 42 ) ]
+    End If
+    #
     Else If [ Right ( Get (LayoutName) ; 8 ) = "RefStuff" and Left ( Get (LayoutName) ; 1 ) = "l" ]
     Go to Layout [ “learnFindStuffCite” (reference) ]
+    #
     #
     #FIND FOR REFERENCE MODULE
     #
@@ -30877,8 +34741,27 @@ Script Steps
     Else
     Go to Layout [ “ReferenceMenu2keywordOrNodeFind” (tagMenus) ]
     End If
-    Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" and Left ( Get (LayoutName) ; 1 ) = "r" ]
+    Else If [ Middle ( Get ( LayoutName ) ; 14 ; 5 ) = "3cite" and Left ( Get (LayoutName) ; 1 ) = "r" ]
+    #
+    #
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
+    If [ TEMP::layoutRtagCiteFIND = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “ReferenceMenu3CiteFindS” (reference) ]
+    Set Field [ TEMP::layoutRtagCiteFIND; "more" & Get (LayoutName) ]
+    Else
     Go to Layout [ “ReferenceMenu3CiteFind” (reference) ]
+    Set Field [ TEMP::layoutRtagCiteFIND; "less" & Get (LayoutName) ]
+    End If
+    Else
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ Middle ( TEMP::layoutRtagCiteFIND ; 5 ; 42 ) ]
+    End If
+    #
+    #
     Else If [ Right ( Get (LayoutName) ; 9 ) = "Copyright" and Left ( Get (LayoutName) ; 1 ) = "r" ]
     Go to Layout [ “ReferenceMenuFind” (tagMenus) ]
     End If
@@ -30904,7 +34787,7 @@ Script Steps
     Refresh Window
     Select Window [ Name: "Tag Menus"; Current file ]
     If [ Get ( LayoutTableName ) = "testlearn" and TEMP::InventoryLibraryYN ≠ "" ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::concatenateSTUFFcontainer; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
     End If
     If [ Get ( LayoutTableName ) = "testlearn" and TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
@@ -30955,18 +34838,21 @@ Fields used in this script
     tagKeywordPrimary::tag
     reference::referenceShort
     reference::lock
+    TEMP::InventoryLibraryYN
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     tagMenuGroup::orderOrLibraryType
     tagMenuGroup::name
     tagMenus::orderOrLock
     tagMenus::tag
-    TEMP::InventoryLibraryYN
     reference::showInLearn
     reference::referenceSTUFF
     reference::referenceForReferenceWindow
     tagMenus::match
     testlearn::brainstormCasePoint
-    testlearn::note
-    testlearn::concatenateSTUFFcontainer
+    TEMP::layoutLtagLFIND
+    TEMP::layoutLtagRFIND
+    TEMP::layoutRtagCiteFIND
 
 Scripts used in this script
 
@@ -30997,8 +34883,9 @@ Layouts used in this script
     referenceSFINDNK
     referenceFINDNK
     ReferenceMenu2keywordOrNode2
-    learnMenu4RefStuffCiteFindTL
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
+    learnMenu4RefStuffCiteFindTL
     learnSFind
     learnFind
     learnFindStuffBrainstorm
@@ -31007,11 +34894,13 @@ Layouts used in this script
     learnKeywordOrNodeFind
     learnFindSTest
     learnFindTest
+    learnFindCiteS
     learnFindCite
     learnFindStuffCite
     ReferenceMenuFind
     ReferenceMenu2SkeywordOrNodeFind
     ReferenceMenu2keywordOrNodeFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu3CiteFind
     Reference
     learn4
@@ -31081,6 +34970,7 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
     ReferenceMenu2SkeywordOrNodeFind
 
@@ -31089,6 +34979,27 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #
+    #If this tag has a picture that is hidden, ask if
+    #the user wants to see the picture or find
+    #record's with this tag.
+    If [ //There is a picture to show if... Get (LayoutName) = "ReferenceMenu3CiteNoPicture" and ( reference::picture ≠ "" or reference::showMedia ≠ "" and reference::URL ≠ "" or reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ "" ) or Get (LayoutName) = "ReferenceMenu3CiteFindS" and ( reference::picture ≠ "" or reference::showMedia ≠ "" and reference::URL ≠ "" or reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ "" ) ]
+    If [ reference::_Lreference = $$citationItem and $$citationMatch = "cite" ]
+    Show Custom Dialog [ Message: "Show this tag's picture or hide reference records tagged only with it?"; Default Button: “hide”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Show this tag's picture or find references tagged with it?"; Default Button: “find”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
+    If [ Get (LastMessageChoice) = 2 ]
+    Set Variable [ $$stopOpenNewTextWindow ]
+    Perform Script [ “showCitationPicture1inNewWindow” ]
+    Exit Script [ ]
+    End If
+    If [ Get (LastMessageChoice) = 3 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
     #
     #Select tag to be found.
     Set Variable [ $tag; Value:tagMenus::_Ltag ]
@@ -31433,8 +35344,13 @@ Script Steps
 
 Fields used in this script
 
-    tagMenus::_Ltag
+    reference::picture
+    reference::showMedia
+    reference::URL
+    reference::kfileLocation
+    reference::fileName
     reference::_Lreference
+    tagMenus::_Ltag
     tagMenus::tag
     reference::Title
     reference::filterFind
@@ -31451,6 +35367,7 @@ Fields used in this script
 
 Scripts used in this script
 
+    showCitationPicture1inNewWindow
     loadLearnOrRefMainRecord
 
 Layouts used in this script
@@ -31485,7 +35402,9 @@ Layouts that use this script
     learnFindBrainstorm
     learnFindStuffBrainstorm
     learnFindCite
+    learnFindCiteS
     learnFindStuffCite
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
 
@@ -31495,8 +35414,29 @@ Script Definition
 Script Steps
 
     #
+    #
+    #If this tag has a picture that is hidden, ask if
+    #the user wants to see the picture or find
+    #record's with this tag.
+    If [ //There is a picture to show if... Get (LayoutName) = "learnMenu4NoPicRefCiteFindTL" and ( testlearn::picture ≠ "" or testlearn::kshowReferencedMedia ≠ "" ) or Get (LayoutName) = "learnFindCiteS" and ( reference::picture ≠ "" or reference::showMedia ≠ "" and reference::URL ≠ "" or reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ "" ) ]
+    If [ "L"& testlearn::_Ltestlearn & ¶ = FilterValues ( $$Found ; "L" & testlearn::_Ltestlearn ) or "r" & reference::_Lreference & ¶ = FilterValues ( $$Found ; "r" & reference::_Lreference ) ]
+    Show Custom Dialog [ Message: "Show this tag's picture or hide learn records tagged only this tag?"; Default Button: “hide”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Show this tag's picture or find learn records tagged with it?"; Default Button: “find”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
+    If [ Get (LastMessageChoice) = 2 ]
+    Set Variable [ $$stopOpenNewTextWindow ]
+    Perform Script [ “showCitationPicture1inNewWindow” ]
+    Exit Script [ ]
+    End If
+    If [ Get (LastMessageChoice) = 3 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #
     #Select tag to be found.
-    If [ Right ( Get (LayoutName) ; 4 ) = "cite" ]
+    If [ Right ( Get (LayoutName) ; 4 ) = "cite" or Right ( Get (LayoutName) ; 5 ) = "citeS" ]
     Set Variable [ $tag; Value:reference::_Lreference ]
     Else If [ Right ( Get (LayoutName) ; 4 ) = "find" or Get (LayoutTableName) = "tagMenus" ]
     Set Variable [ $tag; Value:tagMenus::_Ltag ]
@@ -31874,10 +35814,17 @@ Script Steps
 
 Fields used in this script
 
+    testlearn::picture
+    testlearn::kshowReferencedMedia
+    reference::picture
+    reference::showMedia
+    reference::URL
+    reference::kfileLocation
+    reference::fileName
+    testlearn::_Ltestlearn
     reference::_Lreference
     tagMenus::_Ltag
     testSubsectionTemplate::_LtestSubsection
-    testlearn::_Ltestlearn
     reference::referenceShort
     tagMenus::tag
     testSubsectionTemplate::name
@@ -31895,6 +35842,7 @@ Fields used in this script
 
 Scripts used in this script
 
+    showCitationPicture1inNewWindow
     loadLearnOrRefMainRecord
 
 Layouts used in this script
@@ -32252,7 +36200,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [gotoSetupReport]	Parent Folder: [tagMenu]	Next Script: [loadBrainstormTags]
+Previous Script: [gotoSetupReport]	Parent Folder: [tagMenu]	Next Script: [insertGenericNumberOrTimeReference]
 Script Name	hideFormTextTestItemsFTs
 Run script with full access privileges	Off
 Include In Menu	No
@@ -32368,7 +36316,300 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [hideFormTextTestItemsFTs]	Parent Folder: [tagMenu]	Next Script: [loadRefCiteTag]
+Previous Script: [hideFormTextTestItemsFTs]	Parent Folder: [tagMenu]	Next Script: [insertGenericTimeReference]
+Script Name	insertGenericNumberOrTimeReference
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    LearnTextWindow
+    LearnTextWindow_iDevice
+
+Scripts that use this script
+
+    insertGenericTimeReference
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #Figure out which template the user wants
+    #to insert.
+    If [ $$andTime ≠ "" ]
+    Set Variable [ $template; Value:"00:00:00" ]
+    Set Variable [ $$andTime ]
+    Else
+    Set Variable [ $template; Value:"pdf #, pp#" ]
+    End If
+    #
+    #Figure out if they are using it in their
+    #own words or in a quote.
+    Show Custom Dialog [ Message: "In your own words (" & $template & ") ?" & ¶ & " OR" & ¶ & " In a quote [" & $template & "] ?"; Default Button: “(own)”, Commit: “Yes”; Button 2: “[quote]”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 3 ]
+    Exit Script [ ]
+    End If
+    If [ Get (LastMessageChoice) = 2 ]
+    Set Variable [ $template; Value:"[" & $template & "]" ]
+    End If
+    If [ Get (LastMessageChoice) = 1 ]
+    Set Variable [ $template; Value:"(" & $template & ")" ]
+    End If
+    #
+    #Select the Edit window.
+    Select Window [ Name: "Edit"; Current file ]
+    #
+    #Make sure the cursor is in active field and if
+    #not tell them to click in one.
+    If [ Get ( ActiveFieldName ) = "" ]
+    Show Custom Dialog [ Message: "Click into the text field, and then click exactly where you want — " & Trim ($template) & " — inserted."; Default Button: “OK”, Commit: “Yes” ]
+    #
+    #
+    Else
+    #Insert template.
+    Insert Calculated Result [ $template ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertGenericNumberOrTimeReference]	Parent Folder: [tagMenu]	Next Script: [insertRefenceToRefenceAndPageNumber]
+Script Name	insertGenericTimeReference
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    LearnTextWindow
+    LearnTextWindow_iDevice
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Note that user clicked the time template
+    #button, and pass that on to the next script
+    #to peform this insert.
+    Set Variable [ $$andTime; Value:1 ]
+    Perform Script [ “insertGenericNumberOrTimeReference” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    insertGenericNumberOrTimeReference
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertGenericTimeReference]	Parent Folder: [tagMenu]	Next Script: [insertRefenceToRefenceAndTime]
+Script Name	insertRefenceToRefenceAndPageNumber
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnMenu3CitePickAReference
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Note that user clicked the page # template
+    #button, and pass that on to the next script
+    #to peform this insert.
+    Set Variable [ $$andPageNumber; Value:1 ]
+    Perform Script [ “insertReferenceToReference” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    insertReferenceToReference
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertRefenceToRefenceAndPageNumber]	Parent Folder: [tagMenu]	Next Script: [insertReferenceToReference]
+Script Name	insertRefenceToRefenceAndTime
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnMenu3CitePickAReference
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Note that user clicked the time template
+    #button, and pass that on to the next script
+    #to peform this insert.
+    Set Variable [ $$andTime; Value:1 ]
+    Perform Script [ “insertReferenceToReference” ]
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    insertReferenceToReference
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertRefenceToRefenceAndTime]	Parent Folder: [tagMenu]	Next Script: [loadBrainstormTags]
+Script Name	insertReferenceToReference
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learnMenu3CitePickAReference
+
+Scripts that use this script
+
+    insertRefenceToRefenceAndPageNumber
+    insertRefenceToRefenceAndTime
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    Go to Field [ ]
+    #
+    #Figure out which template the user wants
+    #to insert.
+    If [ $$referenceToInsert = "" ]
+    Set Variable [ $$referenceToInsert; Value:Case ( $$andPageNumber ≠ "" ; TEMP::referenceInsertAndPage ; Case ( $$andTime ≠ "" ; TEMP::referenceInsertAndTime ; TEMP::referenceInsert ) ) ]
+    Else
+    Set Variable [ $referenceToAddToInsert; Value:Case ( $$andPageNumber ≠ "" ; TEMP::referenceInsertAndPage ; Case ( $$andTime ≠ "" ; TEMP::referenceInsertAndTime ; TEMP::referenceInsert ) ) ]
+    Set Variable [ $$referenceToInsert; Value:$$referenceToInsert & "; " & $referenceToAddToInsert ]
+    End If
+    Set Variable [ $$andPageNumber ]
+    Set Variable [ $$andTime ]
+    #
+    #Ask user if they would like to continue adding
+    #refernces or close the window to continue
+    #working on their note if there is more than one
+    #record.
+    If [ Get (FoundCount) ≠ 1 ]
+    Show Custom Dialog [ Message: "Your reference so far >> " & Case ( TEMP::referenceInsertBeforeOrAfterPeriod = 1 or TEMP::referenceInsertBeforeOrAfterPeriod = "" ; "(" & $$referenceToInsert & ")" ; "[" & $$referenceToInsert & "]" ); Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Close this window and insert it?" & ¶ & " or" & ¶ & "Add more references to it?"; Default Button: “close”, Commit: “Yes”; Button 2: “more”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 2 or Get (LastMessageChoice) = 3 ]
+    Pause/Resume Script [ Indefinitely ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #Clear this variable to reveal the edit note controls.
+    Set Variable [ $$hideEditNoteControls ]
+    #
+    #Determine if punctuation for reference.
+    If [ TEMP::referenceInsertBeforeOrAfterPeriod = 1 or TEMP::referenceInsertBeforeOrAfterPeriod = "" ]
+    Set Variable [ $$referenceToInsert; Value:"(" & $$referenceToInsert & ")" ]
+    Else
+    Set Variable [ $$referenceToInsert; Value:"[" & $$referenceToInsert & "]" ]
+    End If
+    #
+    #Close window and restart the pause, so the
+    #user cannot leave the selected window until
+    #they are finished using it.
+    Close Window [ Name: "Insert Reference"; Current file ]
+    #
+    #Insert the text block.
+    If [ Length ( $$referenceToInsert ) ≠ 2 ]
+    Insert Calculated Result [ $$referenceToInsert ]
+    End If
+    Set Variable [ $$referenceToInsert ]
+    Refresh Window
+    #
+    Pause/Resume Script [ Indefinitely ]
+    #
+    #
+
+Fields used in this script
+
+    TEMP::referenceInsertAndPage
+    TEMP::referenceInsertAndTime
+    TEMP::referenceInsert
+    TEMP::referenceInsertBeforeOrAfterPeriod
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [insertReferenceToReference]	Parent Folder: [tagMenu]	Next Script: [loadLearnTagRecord]
 Script Name	loadBrainstormTags
 Run script with full access privileges	Off
 Include In Menu	No
@@ -32452,7 +36693,11 @@ Script Steps
     #
     Select Window [ Name: "Learn"; Current file ]
     Refresh Window
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    Else
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    End If
     Set Field [ TEMP::TLBrainstormSort; "" ]
     Select Window [ Name: "Tag Menus"; Current file ]
     Refresh Window
@@ -32485,7 +36730,7 @@ Script Steps
     #Just in case user was in nonTag field on this
     #window when user clicked a menu button on
     #the other window, exit all fields.
-    Set Field [ TEMP::TLBrainstormSort; "order" ]
+    Set Field [ TEMP::TLBrainstormSort; 1 ]
     Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
     Select Window [ Name: "Learn"; Current file ]
     #
@@ -32563,6 +36808,9 @@ Fields used in this script
     tagMenus::_Ltag
     TEMP::kcbrainstorm
     testlearn::kcbrainstorm
+    TEMP::InventoryLibraryYN
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     testlearn::date
     testlearn::timestamp
     TEMP::TLBrainstormSort
@@ -32594,7 +36842,74 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [loadBrainstormTags]	Parent Folder: [tagMenu]	Next Script: [loadReportTestResultRecord]
+Previous Script: [loadBrainstormTags]	Parent Folder: [tagMenu]	Next Script: [loadRefCiteTag]
+Script Name	loadLearnTagRecord
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #NOTE: this script is used on the Tag Menus window
+    #for Learn records to exit field when a record is
+    #is first entered, which is a real problem on the
+    #iPhone as the text edit box opens when the user
+    #may have clicked only to select the record rather
+    #than edit it.
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #Clear these variables and then load them.
+    Set Variable [ $$refIDForMainLearnRecord ]
+    Set Variable [ $$learnIDForMainLearnRecord; Value:reference::_Lreference ]
+    Set Variable [ $$learnIDForMainLearnRecord; Value:testlearn::_Ltestlearn ]
+    #
+    If [ TEMP::layoutLmain = "lesslearn4" or TEMP::layoutLmain = "morelearn4" or $$testLearnLayoutName ≠ "" ]
+    Select Window [ Name: "Learn"; Current file ]
+    Refresh Window
+    Select Window [ Name: "Tag Menus"; Current file ]
+    End If
+    #
+    #
+    Go to Field [ ]
+    Go to Field [ ]
+    #
+    #
+
+Fields used in this script
+
+    reference::_Lreference
+    testlearn::_Ltestlearn
+    TEMP::layoutLmain
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    reference
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    reference
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [loadLearnTagRecord]	Parent Folder: [tagMenu]	Next Script: [loadReferenceForInsertIntoText]
 Script Name	loadRefCiteTag
 Run script with full access privileges	Off
 Include In Menu	No
@@ -32644,7 +36959,61 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [loadRefCiteTag]	Parent Folder: [tagMenu]	Next Script: [loadTagRecord]
+Previous Script: [loadRefCiteTag]	Parent Folder: [tagMenu]	Next Script: [loadReportTestResultRecord]
+Script Name	loadReferenceForInsertIntoText
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+    learnInsertReferenceIntoNote
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Stop the script if the user is just loading up
+    #the references.
+    If [ $$STOPloadReferenceForInsertIntoText = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #Set the reference template selections shown
+    #in the top menu section.
+    Set Field [ TEMP::referenceInsertText; reference::referenceUsedInTextToRefReference ]
+    #
+    #Exit the field the user just clicked into.
+    Go to Field [ ]
+    #
+    #
+
+Fields used in this script
+
+    reference::referenceUsedInTextToRefReference
+    TEMP::referenceInsertText
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    reference
+
+Table occurrences used by this script
+
+    TEMP
+    reference
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [loadReferenceForInsertIntoText]	Parent Folder: [tagMenu]	Next Script: [loadTagRecord]
 Script Name	loadReportTestResultRecord
 Run script with full access privileges	Off
 Include In Menu	No
@@ -32748,6 +37117,8 @@ Layouts that use this script
 
 Scripts that use this script
 
+    deleteReference
+    newLocationRecord
     returnToAddRecordPUTONHOLD!!!!
     defaultCopyrightMenu
     defaultNodeMenu
@@ -32759,9 +37130,11 @@ Scripts that use this script
     menuNode
     menuPublication
     menuPublisher
+    menuReference
     menuTestItem
     linkOrUnlinkTestItemGroupToTestItemList
     newTestItemGroup
+    CHUNK_findLearnRecordsReferences
 
 Script Definition
 Script Steps
@@ -32791,6 +37164,14 @@ Script Steps
     #Admin tasks.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
+    #
+    #When user has navigated to a key tag menu
+    #record by clicking on the order-number
+    #popup menu, set this variable to insure the
+    #order number selection process is completed.
+    If [ Get ( ActiveFieldName ) = "orderOrLock" and $$citationMatch = "key" ]
+    Set Variable [ $$keyOrderNumberPossibleChanged; Value:1 ]
+    End If
     #
     #On the test-item layout, set this stop check
     #or text variable to allow the user to click into
@@ -32827,7 +37208,9 @@ Script Steps
     #Capture recordID to conditionally format current record.
     Set Variable [ $$tagRecordID; Value:Get (RecordID) ]
     #
-    Refresh Window
+    #Clear the old record's ID so its hidden edit
+    #fields do not get revealed during navigation.
+    Set Variable [ $$editLocation ]
     #
     #Get tag's group key for 'move' button script.
     Set Variable [ $$groupOLD; Value:tagMenus::kGroupOrTest ]
@@ -32853,6 +37236,24 @@ Script Steps
     #number in case user changes it.
     Set Variable [ $$refGroupOrderNumber; Value:tagKeywordPrimary::orderOrLock ]
     Set Variable [ $$refOrderNumber; Value:reference::publicationYearOrStuffOrderNumber ]
+    Set Variable [ $$refOrderNumber; Value:reference::publicationYearOrStuffOrderNumber ]
+    Set Variable [ $$refIDForMainLearnRecord; Value:reference::_Lreference ]
+    #
+    #Refresh the window so hidden fields that must
+    #match the ID variable just updated will now
+    #show up.
+    Refresh Window
+    #
+    #
+    #Clear these variables and then load them.
+    Set Variable [ $$refIDForMainLearnRecord ]
+    Set Variable [ $$learnIDForMainLearnRecord; Value:reference::_Lreference ]
+    Set Variable [ $$refIDForMainLearnRecord; Value:reference::_Lreference ]
+    If [ TEMP::layoutLmain = "lesslearn4" or TEMP::layoutLmain = "morelearn4" or $$testLearnLayoutName ≠ "" ]
+    Select Window [ Name: "Learn"; Current file ]
+    Refresh Window
+    Select Window [ Name: "Tag Menus"; Current file ]
+    End If
     #
     #Get tag's copyright key for 'select' button
     #in case this node is locked, and the copyright
@@ -32897,6 +37298,9 @@ Script Steps
     #
     End If
     #
+    #Clear the order number check variable.
+    Set Variable [ $$keyOrderNumberPossibleChanged ]
+    #
     #
 
 Fields used in this script
@@ -32907,6 +37311,8 @@ Fields used in this script
     tagMenus::orderOrLock
     tagKeywordPrimary::orderOrLock
     reference::publicationYearOrStuffOrderNumber
+    reference::_Lreference
+    TEMP::layoutLmain
     tagMenus::notesOrCopyright
 
 Scripts used in this script
@@ -32917,12 +37323,14 @@ Layouts used in this script
 
 Tables used in this script
 
+    TEMP
     reference
     tag
     tagGroup
 
 Table occurrences used by this script
 
+    TEMP
     reference
     tagKeywordPrimary
     tagMenuGroup
@@ -33057,7 +37465,11 @@ Script Steps
     Set Variable [ $$tagtest; Value:testSubsectionTemplate::_LtestSubsection ]
     #
     Select Window [ Name: "Learn"; Current file ]
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    Else
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    End If
     Scroll Window [ Home ]
     Set Field [ TEMP::TLTestSort; "" ]
     Set Variable [ $$stopLoadCitation ]
@@ -33094,7 +37506,7 @@ Script Steps
     #window when user clicked a menu button on
     #the other window, exit all fields.
     // If [ TEMP::TLTestSort = "" ]
-    Set Field [ TEMP::TLTestSort; "order" ]
+    Set Field [ TEMP::TLTestSort; 1 ]
     Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
     Select Window [ Name: "Learn"; Current file ]
     Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
@@ -33155,6 +37567,9 @@ Fields used in this script
     TEMP::kctagTest
     testlearn::filterFind
     testlearn::kctestSubsectionInfo
+    TEMP::InventoryLibraryYN
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     testlearn::date
     testlearn::timestamp
     TEMP::TLTestSort
@@ -33232,7 +37647,10 @@ Layouts that use this script
 
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
 
 Scripts that use this script
@@ -33337,7 +37755,7 @@ Script Steps
     #If there is no password, ask user to create one.
     Else If [ tagMenus::orderOrLock[2] = "" ]
     Set Field [ TEMP::passwordCheck; "" ]
-    Show Custom Dialog [ Message: "Enter a password to lock " & tagMenus::tag & "'s records. WARNING: If you can't remember this password, your records will remain locked."; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: tagMenus::orderOrLock, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
+    Show Custom Dialog [ Message: "Lock " & tagMenus::tag & "'s Primary Node [learn, reference, all tag, and test template] records, and Test Subject Node [test and report] records. Reference setup records locked separately. WARNING: Password lost = Forever locked, sort of... (Click ?)"; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: tagMenus::orderOrLock, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
     If [ Get ( LastMessageChoice ) = 2 ]
     Set Field [ tagMenus::orderOrLock; "" ]
     Exit Script [ ]
@@ -33776,12 +38194,24 @@ Script Steps
     Refresh Window
     End If
     #
-    #Goto correct layout.
-    If [ Left (Get (LayoutName) ; 1) = "l" ]
-    Go to Layout [ “learnMenu3Cite” (reference) ]
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+    #
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
+    If [ TEMP::layoutRtagCite = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “ReferenceMenu3CiteNoPicture” (reference) ]
+    Set Field [ TEMP::layoutRtagCite; "more" & Get (LayoutName) ]
+    Else
     Go to Layout [ “ReferenceMenu3Cite” (reference) ]
+    Set Field [ TEMP::layoutRtagCite; "less" & Get (LayoutName) ]
     End If
+    Else
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ Middle ( TEMP::layoutRtagCite ; 5 ; 42 ) ]
+    End If
+    #
     #
     #Now that looping thru records is comlete,
     #turn back on record load scripts.
@@ -33813,6 +38243,7 @@ Fields used in this script
     tagKeywordPrimary::tag
     reference::referenceShort
     reference::_Lreference
+    TEMP::layoutRtagCite
 
 Scripts used in this script
 
@@ -33822,7 +38253,6 @@ Layouts used in this script
 
     learnMenu3CiteS
     ReferenceMenu3CiteNoPicture
-    learnMenu3Cite
     ReferenceMenu3Cite
 
 Tables used in this script
@@ -34119,14 +38549,33 @@ Script Steps
     #
     #Clear brainstorm and test tags so there conditional
     #formatting in the Learn window is removed.
-    If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
     Select Window [ Name: "Learn"; Current file ]
     Go to Field [ ]
     Set Variable [ $$tagBrainstorm ]
     Set Variable [ $$tagtest ]
     Set Variable [ $$tagRecordID ]
     Set Variable [ $$tagEdit ]
+    If [ $$primaryKey = "" ]
+    Set Variable [ $firstOtherKeyword; Value:Case ( Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 1 ) ) + 1 ; 1 ) = "," ; LeftWords ( testlearn::OtherKeyWords ; 1 ) ; Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 2 ) ) + 1 ; 1 ) = "," ; LeftWords ( testlearn::OtherKeyWords ; 2 ) ; Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 3 ) ) + 1 ; 1 ) = "," ; LeftWords ( testlearn::OtherKeyWords ; 3 ) ; Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 4 ) ) + 1 ; 1 ) = "," ; LeftWords ( testlearn::OtherKeyWords ; 4 ) ; LeftWords ( testlearn::OtherKeyWords ; 5 ) ) ]
+    End If
+    #
+    #Sort the records by date field, if current sort is
+    #by brainstorm or test order numbers.
+    If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
+    If [ TEMP::TLTestSort = 1 or TEMP::TLBrainstormSort = 1 ]
+    If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
+    #
+    #Set the sort preference field to date.
+    If [ $$citationMatch = "brainstorm" ]
+    Set Field [ TEMP::TLBrainstormSort; "" ]
+    Else If [ $$citationMatch = "test" ]
+    Set Field [ TEMP::TLTestSort; "" ]
+    End If
+    End If
     End If
     #
     #Exit fields in current tag menu to run
@@ -34219,13 +38668,16 @@ Script Steps
     #that record.
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
+    If [ $$primaryKey ≠ "" ]
     Loop
     Exit Loop If [ $$primaryKey = tagMenus::_Ltag ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
-    If [ $$primaryKey ≠ tagMenus::_Ltag ]
-    Go to Record/Request/Page [ First ]
-    Scroll Window [ Home ]
+    Else If [ $firstOtherKeyword ≠ "" ]
+    Loop
+    Exit Loop If [ $firstOtherKeyword = LeftWords ( tagMenus::tag ; 5 ) ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
     End If
     #
     #Goto correct layout.
@@ -34309,10 +38761,14 @@ Script Steps
 
 Fields used in this script
 
+    testlearn::OtherKeyWords
+    TEMP::TLTestSort
+    TEMP::TLBrainstormSort
+    TEMP::InventoryLibraryYN
     testlearn::date
     testlearn::timestamp
+    testlearn::note
     TEMP::mTag
-    TEMP::InventoryLibraryYN
     tagMenus::match
     TEMP::sortKey
     tagMenuGroup::orderOrLibraryType
@@ -34620,8 +39076,12 @@ Script Steps
     #
     #Sort the records by date field, if current sort is
     #by order number.
-    If [ TEMP::TLTestSort = "order" or TEMP::TLBrainstormSort = "order" ]
+    If [ TEMP::TLTestSort = 1 or TEMP::TLBrainstormSort = 1 ]
+    If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
     #
     #Set the sort preference field to date.
     If [ $$citationMatch = "brainstorm" ]
@@ -34807,12 +39267,14 @@ Script Steps
     Refresh Window
     #
     #Show creator node explanation
-    #once per session.
+    #once per session in idea mode only.
+    If [ TEMP::InventoryLibraryYN = "" ]
     If [ $$showCreatorNodemessageOnlyOnce = "" ]
     Show Custom Dialog [ Message: "Library setup and learn sections require creator nodes to create and edit records in this library and to be the subjects of tests. Author nodes are used in the reference section to tag referenced works as their authors."; Default Button: “OK”, Commit: “Yes” ]
     Show Custom Dialog [ Message: "NOTE: Creator nodes are listed in the reference section, where they can be used to tag a reference as an author. Author nodes are never listed in the setup or learn sections."; Default Button: “OK”, Commit: “Yes” ]
     Show Custom Dialog [ Message: "These messages appear only per session. Restart this library to see them again."; Default Button: “OK”, Commit: “Yes” ]
     Set Variable [ $$showCreatorNodemessageOnlyOnce; Value:1 ]
+    End If
     End If
     #
 
@@ -34821,10 +39283,12 @@ Fields used in this script
     testlearn::kNodePrimary
     TEMP::TLTestSort
     TEMP::TLBrainstormSort
+    TEMP::InventoryLibraryYN
     testlearn::date
     testlearn::timestamp
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     TEMP::mTag
-    TEMP::InventoryLibraryYN
     tagMenus::match
     tagMenus::textStyleOrCreatorNodeFlag
     TEMP::sortNode
@@ -35484,12 +39948,29 @@ Script Steps
     Set Variable [ $$tagtest ]
     Set Variable [ $$tagRecordID ]
     Set Variable [ $$tagEdit ]
+    #
+    #Sort the records by date field, if current sort is
+    #by order number.
+    If [ TEMP::TLTestSort = 1 or TEMP::TLBrainstormSort = 1 ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
+    #
+    #Set the sort preference field to date.
+    If [ $$citationMatch = "brainstorm" ]
+    Set Field [ TEMP::TLBrainstormSort; "" ]
+    Else If [ $$citationMatch = "test" ]
+    Set Field [ TEMP::TLTestSort; "" ]
+    End If
+    End If
+    #
     End If
     #
     #Admin tasks.
     Set Error Capture [ On ]
     Allow User Abort [ Off ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     #
     Select Window [ Name: "Tag Menus"; Current file ]
     #
@@ -35534,11 +40015,10 @@ Script Steps
     #
     #If in inventory mode then show all references
     #(except the locked references).
-    Show All Records
+    Enter Find Mode [ ]
+    Set Field [ tagInventoryLocation::match; "location" ]
+    Perform Find [ ]
     #
-    #Omit locked records, which are the copyright
-    #images used by default copyright tags.
-    Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::lock: “lock” ] [ Restore ]
     End If
     #
     #Sort records.
@@ -35552,7 +40032,7 @@ Script Steps
     Go to Record/Request/Page [ First ]
     #
     #If current learn record is tagged with a
-    #references, find it.
+    #reference, find it.
     If [ Length ( Filter ( $$ref ; "L" ) ) ≠ ValueCount ( $$ref ) ]
     Loop
     Exit Loop If [ FilterValues ( $$ref ; reference::_Lreference ) = reference::_Lreference & ¶ ]
@@ -35560,8 +40040,18 @@ Script Steps
     End Loop
     End If
     #
+    #Clear these variables and then load them.
+    Set Variable [ $$refIDForMainLearnRecord ]
+    Set Variable [ $$learnIDForMainLearnRecord; Value:reference::_Lreference ]
+    Set Variable [ $$refIDForMainLearnRecord; Value:reference::_Lreference ]
+    #
     #Goto correct layout.
     If [ TEMP::InventoryLibraryYN = "" ]
+    #Idea Mode
+    #
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
     If [ TEMP::layoutLtagR = "" ]
     If [ Get (SystemPlatform) = 3 ]
     Go to Layout [ “learnMenu3CiteS” (reference) ]
@@ -35571,13 +40061,17 @@ Script Steps
     Set Field [ TEMP::layoutLtagR; "less" & Get (LayoutName) ]
     End If
     Else
+    #
+    #Go the layout the user has selected.
     Go to Layout [ Middle ( TEMP::layoutLtagR ; 5 ; 42 ) ]
     End If
+    #
     Else
-    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    #Inventory Mode
+    #
+    #Go the location tag layout.
     Go to Layout [ “learnMenuRefStuff” (reference) ]
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    End If
+    Set Variable [ $$editLocation; Value:reference::_Lreference ]
     End If
     #
     If [ FilterValues ( $$ref ; reference::_Lreference ) ≠ reference::_Lreference & ¶ ]
@@ -35592,6 +40086,15 @@ Script Steps
     Go to Record/Request/Page [ First ]
     Set Variable [ $$stoploadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
+    #
+    #
+    #In inventory mode prevent the showing of
+    #hidden edit fields.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Perform Script [ “loadTagRecord” ]
+    Exit Script [ ]
+    End If
+    #
     Select Window [ Name: "References"; Current file ]
     If [ Get (LastError) = 112 ]
     Select Window [ Name: "Learn"; Current file ]
@@ -35605,8 +40108,17 @@ Script Steps
     Exit Script [ ]
     End If
     #
+    #
+    #
+    #
+    #
     #Decided below was too much help. User can look
     #on main screen to see where cite or reference is located.
+    #
+    #
+    #
+    #
+    #
     // #Turn on reference location variable that conditionally
     // #formatts buttons to tell user where reference is located.
     // Set Variable [ $$refIsRefRecord; Value:1 ]
@@ -35632,19 +40144,26 @@ Script Steps
 
 Fields used in this script
 
+    TEMP::TLTestSort
+    TEMP::TLBrainstormSort
+    TEMP::InventoryLibraryYN
     testlearn::date
     testlearn::timestamp
-    TEMP::InventoryLibraryYN
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     reference::showInLearn
-    reference::lock
+    tagInventoryLocation::match
     tagKeywordPrimary::orderOrLock
     tagKeywordPrimary::tag
     reference::referenceShort
     reference::publicationYearOrStuffOrderNumber
     reference::_Lreference
     TEMP::layoutLtagR
+    TEMP::layoutLtagRFIND
 
 Scripts used in this script
+
+    loadTagRecord
 
 Layouts used in this script
 
@@ -35659,12 +40178,14 @@ Tables used in this script
     TEMP
     reference
     tag
+    tag
     testlearn
 
 Table occurrences used by this script
 
     TEMP
     reference
+    tagInventoryLocation
     tagKeywordPrimary
     testlearn
 
@@ -35680,24 +40201,17 @@ Include In Menu	No
 Layouts that use this script
 
     ltagNK1
-    ltagNKs1
     ltagNK2
-    ltagNKs2
     ltagNK3
-    ltagNKs3
     ltagNK4
-    ltagNKs4
     ltagNK5
-    ltagNKs5
     learnMenu3Cite
     learnMenu3CiteS
-    learnMenuRefStuff
     learnMenu4RefCite
     learnMenu4noPicRefCite
     learnMenu4STUFFRefCite
     learnTagWindowNoTags
     learnMenuBrainstorm
-    learnMenuStuffBrainstorm
     learnTest
     learnSTest
 
@@ -36500,7 +41014,10 @@ Layouts that use this script
     defaultCopyright
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu1
     ReferenceMenuCopyright
@@ -36604,8 +41121,8 @@ Script Steps
     #Setup as the new primary node.
     If [ tempSetup::kdefaultNodePrimary = "self" or $$createNewPrimary = 1 ]
     Set Field [ TEMP::kdefaultNodePrimary; tagMenus::_Ltag ]
-    Set Field [ tagMenus::tag; "MyLastName, MyFirstName" ]
-    Set Field [ tagMenus::tagSpelling; "MyLastName, MyFirstName" ]
+    Set Field [ tagMenus::tag; "LastName, FirstName" ]
+    Set Field [ tagMenus::tagSpelling; "LastName, FirstName" ]
     Set Variable [ $$createNewPrimary; Value:1 ]
     Set Field [ tempSetup::kdefaultNodePrimary; "" ]
     Set Field [ tempSetup::DEFAULTNodePrimaryName; "" ]
@@ -36700,7 +41217,7 @@ Script Steps
     If [ $$citationMatch = "copyright" ]
     Set Field [ tagMenus::tag; "Copyright Abbreviation — Full copyright name or brief description" ]
     Set Field [ tagMenus::tagSpelling; "Copyright Abbreviation — Full copyright name or brief description" ]
-    Set Field [ tagMenus::notesOrCopyright; TextFont ( "[NOTE: Click the 'web' button above to view the most current and complete source of the text excerpts below, copied on " & MonthName ( Get ( CurrentDate ) ) & " " & Day ( Get ( CurrentDate ) ) & ", " & Year ( Get ( CurrentDate ) ) & " from https://website.org for your convenience.]" ; "Arial" ) & ¶ & ¶ & "Description of copyright from the webpage you copied it from (copy and paste it here)." & ¶ & ¶ & "Create a reference record for this copyright that includes the web address." & ¶ & ¶ & "Use the add button to add the reference with the website link to this copyright record and a copyright image, which you may pick from those included in this library." ]
+    Set Field [ tagMenus::notesOrCopyright; TextSize ( TextFont ( "[NOTE: Click the 'web' button above to view the most current and complete source of the text below, copied on " & MonthName ( Get ( CurrentDate ) ) & " " & Day ( Get ( CurrentDate ) ) & ", " & Year ( Get ( CurrentDate ) ) & " from https://website.org for your convenience.]" ; "Arial" ) & ¶ ; 16 ) & TextSize ( ¶ & "Description of copyright from the webpage you copied it from (copy and paste it here)." & ¶ & ¶ & "Create a reference record for this copyright that includes the web address." & ¶ & ¶ & "Use the add button to add the reference with the website link to this copyright record and a copyright image, which you may pick from those included in this library." ; 18 ) ]
     Commit Records/Requests [ Skip data entry validation; No dialog ]
     Perform Script [ “reviewCopyright” ]
     Go to Field [ tagMenus::tag ]
@@ -36772,7 +41289,10 @@ Layouts that use this script
 
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu1
     ReferenceMenu2keywordOrNode1
@@ -36831,6 +41351,16 @@ Script Steps
     #records. All records must be created by the
     #primary node.
     If [ tempSetup::kdefaultNodePrimary = "" and $$stopAddBack ≠ 1 ]
+    #Make sure all creator nodes are showing
+    #before asking the user to select one or
+    #create one.
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ tagMenus::match; $$citationMatch ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; 123456789 ]
+    Perform Find [ ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuGroup::name; ascending tagMenus::tag; ascending ] [ Restore; No dialog ]
     Show Custom Dialog [ Message: "Select yourself (the node responsible for creating and editing records) from the nodes listed below, OR create a new node record for yourself."; Default Button: “select”, Commit: “Yes”; Button 2: “create”, Commit: “No” ]
     If [ Get ( LastMessageChoice ) = 1 ]
     Halt Script
@@ -36855,6 +41385,12 @@ Script Steps
     Set Field [ testSubsectionGroup::name; "group" & testSubsectionGroup::_Lgroup ]
     Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "group" & testSubsectionGroup::_Lgroup ]
     Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
+    #(Further testing required. This group is
+    #created by the new library script, so it does
+    #not need to be created here.)
+    // If [ tempSetup::kdefaultNodePrimary = "self" ]
+    // Set Field [ testSubsectionGroup::orderOrLibraryType; "001" ]
+    // End If
     #
     #
     #Create new tag for this group so it will show up.
@@ -36888,8 +41424,8 @@ Script Steps
     #Setup as the new primary node.
     If [ tempSetup::kdefaultNodePrimary = "self" ]
     Set Field [ TEMP::kdefaultNodePrimary; tagMenus::_Ltag ]
-    Set Field [ tagMenus::tag; "MyLastName, MyFirstName" ]
-    Set Field [ tagMenus::tagSpelling; "MyLastName, MyFirstName" ]
+    Set Field [ tagMenus::tag; "LastName, FirstName" ]
+    Set Field [ tagMenus::tagSpelling; "LastName, FirstName" ]
     Set Variable [ $$createNewPrimary; Value:1 ]
     Set Field [ tempSetup::kdefaultNodePrimary; "" ]
     Set Field [ tempSetup::DEFAULTNodePrimaryName; "" ]
@@ -36975,27 +41511,28 @@ Script Steps
 Fields used in this script
 
     tempSetup::kdefaultNodePrimary
+    tagMenus::match
+    tagMenus::textStyleOrCreatorNodeFlag
+    tagMenuGroup::orderOrLibraryType
+    tagMenuGroup::name
+    tagMenus::tag
     TEMP::kdefaultNodePrimary
     testSubsectionGroup::kRecordCreatorNode
     testSubsectionGroup::match
     testSubsectionGroup::_Lgroup
     testSubsectionGroup::name
     testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup
+    testSubsectionGroup::orderOrLibraryType
     tagMenus::_Ltag
     tagMenus::kRecordCreatorNode
-    tagMenus::textStyleOrCreatorNodeFlag
     tagMenus::kGroupOrTest
-    tagMenus::tag
     tagMenus::tagSpelling
     tempSetup::DEFAULTNodePrimaryName
     tempSetup::kdefaultNodePrimaryCreator
     tempSetup::primaryNodesCreatorNodeIsLocked
-    tagMenus::match
     TEMP::kdefaultCopyright
     tagMenus::notesOrCopyright
     tagMenus::kfileORkTestItemCreatorNode
-    tagMenuGroup::orderOrLibraryType
-    tagMenuGroup::name
 
 Scripts used in this script
 
@@ -37222,7 +41759,10 @@ Layouts that use this script
     defaultCopyright
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenuCopyright
     learn0
@@ -37238,7 +41778,9 @@ Layouts that use this script
     learn5
     learnStuff5
     learn4EDIT
+    learn4EDITLocked
     learn4EDITstuff
+    learn4EDITstuffLocked
     LearnTextWindow
     LearnTextWindow_iDevice
     LearnTextWindowStuff
@@ -37246,7 +41788,6 @@ Layouts that use this script
     LearnTextWindowLocked
     LearnTextWindowLocked_iDevice
     learnMenuBrainstorm
-    learnMenuStuffBrainstorm
     setupTestSection
     setupTestSubsection
     setupTestItem
@@ -37680,9 +42221,9 @@ Script Steps
     #Show just the copyright of interest in the
     #locked or unlocked window.
     If [ $unlocked = "" ]
-    Go to Layout [ “learnMenuCopyrightVIEW” (tagMenus) ]
+    Go to Layout [ “CopyrightVIEW” (tagMenus) ]
     Else
-    Go to Layout [ “learnMenuCopyrightEDIT” (tagMenus) ]
+    Go to Layout [ “CopyrightEDIT” (tagMenus) ]
     End If
     Enter Find Mode [ ]
     Set Field [ tagMenus::_Ltag; $copyright ]
@@ -37758,8 +42299,8 @@ Scripts used in this script
 
 Layouts used in this script
 
-    learnMenuCopyrightVIEW
-    learnMenuCopyrightEDIT
+    CopyrightVIEW
+    CopyrightEDIT
 
 Tables used in this script
 
@@ -37934,7 +42475,10 @@ Layouts that use this script
 
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
 
 Scripts that use this script
@@ -38144,10 +42688,10 @@ Script Steps
     #order number.
     If [ TEMP::TLTestSort = "" and $$citationMatch = "test" or TEMP::TLTestSort = "" and $$citationMatch = "testResult" or TEMP::TLTestSort = "" and Right ( Get (LayoutName) ; 4 ) = "Info" ]
     #
-    #Sort button script uses the "order" text to tell
+    #Sort button script uses 1 to tell
     #it to perform the next sort by date instead of
     #by order number which is the default sort.
-    Set Field [ TEMP::TLTestSort; "order" ]
+    Set Field [ TEMP::TLTestSort; 1 ]
     If [ Right ( Get (LayoutName) ; 4 ) = "info" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearnReportTags::timestamp; descending ] [ Restore; No dialog ]
     Exit Script [ ]
@@ -38158,7 +42702,7 @@ Script Steps
     Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
     Exit Script [ ]
     Else If [ TEMP::TLBrainstormSort = "" and $$citationMatch = "brainstorm" ]
-    Set Field [ TEMP::TLBrainstormSort; "order" ]
+    Set Field [ TEMP::TLBrainstormSort; 1 ]
     Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
     Exit Script [ ]
     End If
@@ -38172,7 +42716,11 @@ Script Steps
     If [ Get (LayoutTableName ) = "testLearnReportTags" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::date; descending testlearnReportTags::timestamp; descending ] [ Restore; No dialog ]
     Else
+    If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; based on value list: “testPulldownListANDsortOrderList” testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
     End If
     End If
     #
@@ -38193,8 +42741,11 @@ Fields used in this script
     testlearnReportTags::orderTestResult
     TEMP::TLBrainstormSort
     testlearnReportTags::date
+    TEMP::InventoryLibraryYN
     testlearn::date
     testlearn::timestamp
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
 
 Scripts used in this script
 
@@ -38244,6 +42795,14 @@ Script Steps
     Set Variable [ $$orderNumbersNotAllowed ]
     Exit Script [ ]
     End If
+    #
+    #Decided to allow user to sort by numbers, but
+    #because a number header adds too much
+    #distraction, the inventory views do not show it.
+    // If [ TEMP::InventoryLibraryYN ≠ "" ]
+    // Show Custom Dialog [ Message: "Inventory records are organized by location, and then alphabetically."; Default Button: “OK”, Commit: “Yes” ]
+    // Exit Script [ ]
+    // End If
     #
     #Get order number user has selected.
     If [ Right ( Get (LayoutName) ; 4 ) = "info" ]
@@ -38396,7 +42955,20 @@ Script Steps
     If [ Right ( Get (LayoutName) ; 4 ) = "info" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearnReportTags::timestamp; descending ] [ Restore; No dialog ]
     Else
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::timestamp; descending ] [ Restore; No dialog ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list: “testPulldownListANDsortOrderList” testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::timestamp; descending ] [ Restore; No dialog ]
+    #
+    #User might have been looking at records
+    #sorted by date. Now that they are being
+    #sorted by number, inform the library that this
+    #is the new view so that when the user clicks
+    #the sort button again it will switch to the date
+    #sort view, instead of remaining on the number
+    #sort view (which is already on).
+    Set Field [ TEMP::TLBrainstormSort; 1 ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list: “testPulldownListANDsortOrderList” testlearn::orderInventoryGroupNumber; ascending testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
     End If
     #
     #
@@ -38406,14 +42978,18 @@ Script Steps
 
 Fields used in this script
 
+    TEMP::InventoryLibraryYN
     testlearnReportTags::orderTestInformation
     testlearn::orderTestInformation
     testlearn::kcbrainstorm
-    TEMP::InventoryLibraryYN
     testlearn::kctestSubsectionInfo
     testlearnReportTags::kctestSubsectionInfo
     testlearnReportTags::timestamp
+    testlearn::orderInventoryList
     testlearn::timestamp
+    TEMP::TLBrainstormSort
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
 
 Scripts used in this script
 
@@ -38443,7 +43019,10 @@ Layouts that use this script
 
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu1
     ReferenceMenuCopyright
@@ -38461,10 +43040,9 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode5
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
     ReferenceMenu2SkeywordOrNodeFind
-    referenceMenuFINDref
-    referenceFINDNK
     referenceSFINDNK
     ltagNK1
     ltagNKs1
@@ -38478,6 +43056,7 @@ Layouts that use this script
     ltagNKs5
     learnMenu3Cite
     learnMenu3CiteS
+    learnMenu3CitePickAReference
     learnMenuRefStuff
     learnMenuBrainstorm
     learnMenuStuffBrainstorm
@@ -38492,6 +43071,7 @@ Layouts that use this script
     learnFindBrainstorm
     learnFindStuffBrainstorm
     learnFindCite
+    learnFindCiteS
     learnFindStuffCite
     setupTestItem
     setupTestItemLOCKED
@@ -38501,9 +43081,23 @@ Layouts that use this script
 
 Scripts that use this script
 
+    learnInsertReferenceIntoNote
+
 Script Definition
 Script Steps
 
+    #
+    #Sort Insert Reference window references.
+    If [ Get (WindowName) = "Insert Reference" ]
+    If [ TEMP::sortInsertRef = "cat" or TEMP::sortInsertRef = "" ]
+    Set Field [ TEMP::sortInsertRef; "abc" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: reference::referenceShort; ascending ] [ Restore; No dialog ]
+    Else If [ TEMP::sortInsertRef = "abc" ]
+    Set Field [ TEMP::sortInsertRef; "cat" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order Pulldown List” tagKeywordPrimary::tag; ascending reference::referenceShort; ascending ] [ Restore; No dialog ]
+    End If
+    Exit Script [ ]
+    End If
     #
     #Sort records and save sort state for future visits.
     If [ $$citationMatch = "key" and TEMP::sortKey = "abc" ]
@@ -38572,7 +43166,11 @@ Script Steps
     #
     Else If [ $$citationMatch = "ref" and TEMP::sortRef = "abc" ]
     Set Field [ TEMP::sortRef; "cat" ]
+    If [ TEMP::InventoryLibraryYN = "" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order Pulldown List” tagKeywordPrimary::tag; ascending reference::referenceShort; ascending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order Pulldown List” tagKeywordPrimary::tag; ascending reference::publicationYearOrStuffOrderNumber; based on value list: “order Pulldown List” reference::Title; ascending ] [ Restore; No dialog ]
+    End If
     Exit Script [ ]
     #
     Else If [ $$citationMatch = "testItem" and TEMP::sortTestItem = "abc" ]
@@ -38640,6 +43238,10 @@ Script Steps
 
 Fields used in this script
 
+    TEMP::sortInsertRef
+    reference::referenceShort
+    tagKeywordPrimary::orderOrLock
+    tagKeywordPrimary::tag
     TEMP::sortKey
     tagMenuGroup::orderOrLibraryType
     tagMenuGroup::name
@@ -38660,10 +43262,10 @@ Fields used in this script
     testSubsectionTemplate::order
     testSubsectionTemplate::name
     TEMP::sortCite
-    tagKeywordPrimary::orderOrLock
-    tagKeywordPrimary::tag
-    reference::referenceShort
     TEMP::sortRef
+    TEMP::InventoryLibraryYN
+    reference::publicationYearOrStuffOrderNumber
+    reference::Title
     TEMP::sortTestItem
     tagMenuTestItemGroup::orderOrLibraryType
     tagMenuTestItemGroup::name
@@ -38738,7 +43340,7 @@ Script Steps
     #test learn table records sorted by order number.
     #If they do (the tlbrainstormsort is blank) then sort
     #by order number.
-    If [ TEMP::TLBrainstormSort = "order" and $$citationMatch = "brainstorm" ]
+    If [ TEMP::TLBrainstormSort =1 and $$citationMatch = "brainstorm" ]
     #
     #Set the TLBrainstormSort field with a 1. Now if user
     #clicks the sort button it will be because they
@@ -38819,7 +43421,11 @@ Script Steps
     End If
     #
     #Sort the records by order field.
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::timestamp; descending ] [ Restore; No dialog ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list: “testPulldownListANDsortOrderList” testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list: “testPulldownListANDsortOrderList” testlearn::orderInventoryGroupNumber; ascending testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
     #
     #Return to record user was on at
     #the start of this script.
@@ -38842,7 +43448,7 @@ Script Steps
     #learn records sorted by order number.
     #If they do (the TLTestSort is blank) then sort
     #by order number.
-    If [ TEMP::TLTestSort = "order" and $$citationMatch = "test" ]
+    If [ TEMP::TLTestSort = 1 and $$citationMatch = "test" ]
     #
     #To speed up the process, sort to the top the records
     #that have kbrainstorm numbers. Do not loop thru
@@ -38918,7 +43524,11 @@ Script Steps
     If [ Right ( Get (LayoutName) ; 4 ) = "info" ]
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearnReportTags::timestamp; descending ] [ Restore; No dialog ]
     Else
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::timestamp; descending ] [ Restore; No dialog ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list: “testPulldownListANDsortOrderList” testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::timestamp; descending ] [ Restore; No dialog ]
+    Else
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list: “testPulldownListANDsortOrderList” testlearn::orderInventoryGroupNumber; ascending testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList” testlearn::note; ascending ] [ Restore; No dialog ]
+    End If
     End If
     #
     #Return to record user was on at
@@ -38965,7 +43575,11 @@ Fields used in this script
     TEMP::TLBrainstormSort
     testlearn::kcbrainstorm
     testlearn::orderTestInformation
+    TEMP::InventoryLibraryYN
+    testlearn::orderInventoryList
     testlearn::timestamp
+    testlearn::orderInventoryGroupNumber
+    testlearn::note
     TEMP::TLTestSort
     testlearn::kctestSubsectionInfo
     testlearnReportTags::orderTestInformation
@@ -39385,11 +43999,21 @@ Script Steps
     If [ Filter ( Get ( ActiveFieldTableName ) ; "refLearn" ) = "refLearn" ]
     Set Variable [ $$citationMatch; Value:"ref" ]
     Set Variable [ $learnRef; Value:refLearn::_Lreference ]
+    Set Variable [ $$refIDForMainLearnRecord; Value:refLearn::_Lreference ]
+    End If
+    #
+    If [ Filter ( Get ( ActiveFieldTableName ) ; "refTestLearn" ) = "refTestLearn" ]
+    Set Variable [ $$citationMatch; Value:"learn" ]
+    Set Variable [ $learnRef; Value:refTestLearn::_Ltestlearn ]
+    Set Variable [ $$learnIDForMainLearnRecord; Value:refTestLearn::_Ltestlearn ]
     End If
     #
     If [ Left (Get (ActiveFieldName); 4) = "kkey" or Left (Get (ActiveFieldName); 5) = "kckey" or Get (ActiveFieldName) = "" ]
     Set Variable [ $$citationMatch; Value:"key" ]
     Set Variable [ $$citationItem; Value:tagTLKeywordPrimary::_Ltag ]
+    If [ $$primaryKey = "" ]
+    Set Variable [ $firstOtherKeyword; Value:Case ( Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 1 ) ) + 1 ; 1 ) = "," ; LeftWords ( testlearn::OtherKeyWords ; 1 ) ; Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 2 ) ) + 1 ; 1 ) = "," ; LeftWords ( testlearn::OtherKeyWords ; 2 ) ; Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 3 ) ) + 1 ; 1 ) = "," ; LeftWords ( testlearn::OtherKeyWords ; 3 ) ; Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 4 ) ) + 1 ; 1 ) = "," ; LeftWords ( testlearn::OtherKeyWords ; 4 ) ; LeftWords ( testlearn::OtherKeyWords ; 5 ) ) ]
+    End If
     End If
     #
     If [ Left ( Get ( ActiveFieldName ) ; 5 ) = "knode" or Filter ( Get (ActiveFieldTableName) ; "Node" ) = "Node" ]
@@ -39477,10 +44101,17 @@ Script Steps
     #Loop thru records to find user's selection.
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
+    If [ $$primaryKey ≠ "" ]
     Loop
     Exit Loop If [ $$primaryKey = tagMenus::_Ltag ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
+    Else If [ $firstOtherKeyword ≠ "" ]
+    Loop
+    Exit Loop If [ $firstOtherKeyword = LeftWords ( tagMenus::tag ; 5 ) ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    End If
     #
     #Finish.
     Go to Layout [ $reflayoutname ]
@@ -39533,10 +44164,12 @@ Script Steps
     #Loop thru records to find user's selection.
     Go to Record/Request/Page [ First ]
     Scroll Window [ Home ]
+    If [ $$primaryNode ≠ "" ]
     Loop
     Exit Loop If [ $$primaryNode = tagMenus::_Ltag ]
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
+    End If
     #
     #Finish.
     Go to Layout [ $reflayoutname ]
@@ -39554,6 +44187,15 @@ Script Steps
     #
     #Menu NOT selected.
     Perform Script [ “menuReference” ]
+    #
+    #Reset this variable which is changed
+    #by the menuReference script.
+    Set Variable [ $$refIDForMainLearnRecord; Value:$learnRef ]
+    If [ TEMP::layoutLmain = "lesslearn4" or TEMP::layoutLmain = "morelearn4" or $$testLearnLayoutName ≠ "" ]
+    Select Window [ Name: "Learn"; Current file ]
+    Refresh Window
+    Select Window [ Name: "Tag Menus"; Current file ]
+    End If
     End If
     #
     #Menu IS selected.
@@ -39584,6 +44226,44 @@ Script Steps
     Set Variable [ $$stopLoadTagRecord ]
     End If
     #
+    #
+    #
+    Else If [ $$citationMatch = "learn" ]
+    #LEARN MENU
+    #
+    #See if user has selected requested menu.
+    If [ Get (LayoutTableName) ≠ "testlearn" ]
+    #
+    #Menu NOT selected.
+    Perform Script [ “menuLearn” ]
+    End If
+    #
+    #Menu IS selected.
+    #
+    #Record not selected, do this:
+    If [ $learnRef ≠ testlearn::_Ltestlearn ]
+    #
+    #Go to a layout with no pictures
+    Set Variable [ $reflayoutname; Value:Get (LayoutName) ]
+    Go to Layout [ “learnSCRIPTloops” (testlearn) ]
+    #
+    #Make sure record is showing.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::_Ltestlearn; $learnRef ]
+    Extend Found Set [ ]
+    #
+    #Loop thru records to find user's selection.
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ $learnRef = testlearn::_Ltestlearn ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Finish.
+    Go to Layout [ $reflayoutname ]
+    Set Variable [ $$stoploadCitation ]
+    Set Variable [ $$stopLoadTagRecord ]
+    End If
     #
     #
     #
@@ -39656,14 +44336,19 @@ Script Steps
 Fields used in this script
 
     refLearn::_Lreference
+    refTestLearn::_Ltestlearn
     tagTLKeywordPrimary::_Ltag
+    testlearn::OtherKeyWords
     tagTLNodePrimary::_Ltag
     reference::knodePrimary
     reference::kmedium
     tagMenus::match
     tagMenus::_Ltag
     TEMP::InventoryLibraryYN
+    tagMenus::tag
+    TEMP::layoutLmain
     reference::_Lreference
+    testlearn::_Ltestlearn
 
 Scripts used in this script
 
@@ -39673,6 +44358,7 @@ Scripts used in this script
     menuKey
     menuNode
     menuReference
+    menuLearn
     menuPublication
     menuPublisher
     menuCitation
@@ -39685,6 +44371,7 @@ Layouts used in this script
     ltagNKs1
     <Missing Layout>
     learnMenu3CiteS
+    learnSCRIPTloops
 
 Tables used in this script
 
@@ -39693,15 +44380,19 @@ Tables used in this script
     reference
     tag
     tag
+    testlearn
+    testlearn
 
 Table occurrences used by this script
 
     TEMP
     refLearn
+    refTestLearn
     reference
     tagMenus
     tagTLKeywordPrimary
     tagTLNodePrimary
+    testlearn
 
 Custom Functions used by this script
 
@@ -39716,7 +44407,10 @@ Layouts that use this script
 
     defaultNode1
     defaultNode2
+    defaultNodeS2
     defaultNode3
+    defaultNodeS3
+    defaultNodeS4
     defaultNode4
     ReferenceMenu3Cite
     ReferenceMenu3CiteNoPicture
@@ -39730,6 +44424,8 @@ Layouts that use this script
     ReferenceMenu2SkeywordOrNode4
     ReferenceMenu2keywordOrNode5
     ReferenceMenu2SkeywordOrNode5
+    ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ltagNK1
     ltagNKs1
     ltagNK2
@@ -39744,6 +44440,10 @@ Layouts that use this script
     learnMenu3CiteS
     learnMenu4RefCite
     learnMenu4noPicRefCite
+    learnFindCite
+    learnFindCiteS
+    learnMenu4NoPicRefCiteFindTL
+    learnMenu4RefCiteFindTL
 
 Scripts that use this script
 
@@ -39765,6 +44465,7 @@ Script Steps
     #from 2 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutLtagK ; 4 ) = "more" ]
     Go to Layout [ “ltagNK3” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view shows media (if there is any to show), and can slow down scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     #from 3 to 4
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagK ; 4 ) = "more" ]
     Go to Layout [ “ltagNK4” (tagMenus) ]
@@ -39780,6 +44481,7 @@ Script Steps
     #from 3 to 2
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagK ; 4 ) = "less" ]
     Go to Layout [ “ltagNK2” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view hides any media (if there is any to hide), speeding up scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     #from 2 to 1
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutLtagK ; 4 ) = "less" ]
     Go to Layout [ “ltagNK1” (tagMenus) ]
@@ -39797,8 +44499,10 @@ Script Steps
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutLtagN ; 4 ) = "more" ]
     If [ TEMP::InventoryLibraryYN ≠ "" ]
     Go to Layout [ “ltagNKs3” (tagMenus) ]
+    // Show Custom Dialog [ Message: "This view shows media (if there is any to show), and can slow down scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     Else
     Go to Layout [ “ltagNK3” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view shows media (if there is any to show), and can slow down scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     End If
     #from 4 to 5
     Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutLtagN ; 4 ) = "more" ]
@@ -39832,8 +44536,10 @@ Script Steps
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutLtagN ; 4 ) = "less" ]
     If [ TEMP::InventoryLibraryYN ≠ "" ]
     Go to Layout [ “ltagNKs2” (tagMenus) ]
+    // Show Custom Dialog [ Message: "This view hides any media (if there is any to hide), speeding up scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     Else
     Go to Layout [ “ltagNK2” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view hides any media (if there is any to hide), speeding up scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     End If
     #from 2 to 1
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutLtagN ; 4 ) = "less" ]
@@ -39845,28 +44551,58 @@ Script Steps
     End If
     #
     Else If [ Left (Get (LayoutName) ; 1) = "l" and $$citationMatch = "learn" and Get (LayoutTableName) = "testLearn" ]
+    #
+    #If not in find mode, so on regular tag layout...
+    If [ $$findMode = "" ]
     #from 1 to 2
     If [ Left ( TEMP::layoutLtagL ; 4 ) = "more" ]
     Go to Layout [ “learnMenu4RefCite” (testlearn) ]
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
-    End If
+    Show Custom Dialog [ Message: "This view shows learn media (if there is any to show), and can slow down scrolling and other learn menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     #from 2 to 1
     Else
     Go to Layout [ “learnMenu4noPicRefCite” (testlearn) ]
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Show Custom Dialog [ Message: "This view hides any media (if there is any to hide), speeding up scrolling and other learn menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
+    #
+    #If in find mode, so on a find layout...
+    If [ $$findMode ≠ "" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagLFIND ; 4 ) = "more" ]
+    Go to Layout [ “learnMenu4RefCiteFindTL” (testlearn) ]
+    Show Custom Dialog [ Message: "This view shows learn media (if there is any to show), and can slow down scrolling and other learn menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    #from 2 to 1
+    Else
+    Go to Layout [ “learnMenu4NoPicRefCiteFindTL” (testlearn) ]
+    Show Custom Dialog [ Message: "This view hides any media (if there is any to hide), speeding up scrolling and other learn menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     End If
     End If
     #
     Else If [ Left (Get (LayoutName) ; 1) = "l" and $$citationMatch = "ref" ]
+    #
+    #If not in find mode, so on regular tag layout...
+    If [ $$findMode = "" ]
     #from 1 to 2
     If [ Left ( TEMP::layoutLtagR ; 4 ) = "more" ]
     Go to Layout [ “learnMenu3Cite” (reference) ]
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
-    End If
+    Show Custom Dialog [ Message: "This view shows reference media (if there is any to show), and can slow down scrolling and other reference menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     #from 2 to 1
     Else
     Go to Layout [ “learnMenu3CiteS” (reference) ]
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Show Custom Dialog [ Message: "This view hides any media (if there is any to hide), speeding up scrolling and other reference menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
+    #
+    #If in find mode, so on a find layout...
+    If [ $$findMode ≠ "" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagRFIND ; 4 ) = "more" ]
+    Go to Layout [ “learnFindCite” (reference) ]
+    Show Custom Dialog [ Message: "This view shows reference media (if there is any to show), and can slow down scrolling and other reference menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    #from 2 to 1
+    Else
+    Go to Layout [ “learnFindCiteS” (reference) ]
+    Show Custom Dialog [ Message: "This view hides any media (if there is any to hide), speeding up scrolling and other reference menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     End If
     End If
     #
@@ -39882,8 +44618,10 @@ Script Steps
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutRtagK ; 4 ) = "more" ]
     If [ TEMP::InventoryLibraryYN ≠ "" ]
     Go to Layout [ “ReferenceMenu2SkeywordOrNode3” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view shows media (if there is any to show), and can slow down scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     Else
     Go to Layout [ “ReferenceMenu2keywordOrNode3” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view shows media (if there is any to show), and can slow down scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     End If
     #from 3 to 4
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagK ; 4 ) = "more" ]
@@ -39917,8 +44655,10 @@ Script Steps
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagK ; 4 ) = "less" ]
     If [ TEMP::InventoryLibraryYN ≠ "" ]
     Go to Layout [ “ReferenceMenu2SkeywordOrNode2” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view hides media (if there is any to hide), and can speed up scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     Else
     Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view hides media (if there is any to hide), and can speed up scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     End If
     #from 2 to 1
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutRtagK ; 4 ) = "less" ]
@@ -39936,6 +44676,7 @@ Script Steps
     #from 2 to 3
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutRtagN ; 4 ) = "more" ]
     Go to Layout [ “ReferenceMenu2keywordOrNode3” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view shows media (if there is any to show), and can slow down scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     #from 3 to 4
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagN ; 4 ) = "more" ]
     Go to Layout [ “ReferenceMenu2keywordOrNode4” (tagMenus) ]
@@ -39951,6 +44692,7 @@ Script Steps
     #from 3 to 2
     Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutRtagN ; 4 ) = "less" ]
     Go to Layout [ “ReferenceMenu2keywordOrNode2” (tagMenus) ]
+    Show Custom Dialog [ Message: "This view hides media (if there is any to hide), and can speed up scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     #from 2 to 1
     Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutRtagN ; 4 ) = "less" ]
     Go to Layout [ “ReferenceMenu2keywordOrNode1” (tagMenus) ]
@@ -39959,33 +44701,78 @@ Script Steps
     Else If [ Left (Get (LayoutName) ; 1) = "d" ]
     #from 1 to 2
     If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::DefaultmoreORLessLayoutNode ; 4 ) = "more" ]
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Go to Layout [ “defaultNodeS2” (tagMenus) ]
+    Else
     Go to Layout [ “defaultNode2” (tagMenus) ]
+    End If
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Show Custom Dialog [ Message: "This view shows media (if there is any to show), and can slow down scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    End If
     #from 2 to 3
     Else If [ Left (Get (LayoutName) ; 1) = "d" and Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::DefaultmoreORLessLayoutNode ; 4 ) = "more" ]
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Go to Layout [ “defaultNodeS3” (tagMenus) ]
+    Else
     Go to Layout [ “defaultNode3” (tagMenus) ]
+    End If
     #from 3 to 4
     Else If [ Left (Get (LayoutName) ; 1) = "d" and Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::DefaultmoreORLessLayoutNode ; 4 ) = "more" ]
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Go to Layout [ “defaultNodeS4” (tagMenus) ]
+    Else
     Go to Layout [ “defaultNode4” (tagMenus) ]
+    End If
     #from 4 to 3
     Else If [ Left (Get (LayoutName) ; 1) = "d" and Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::DefaultmoreORLessLayoutNode ; 4 ) = "less" ]
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Go to Layout [ “defaultNodeS3” (tagMenus) ]
+    Else
     Go to Layout [ “defaultNode3” (tagMenus) ]
+    End If
     #from 3 to 2
     Else If [ Left (Get (LayoutName) ; 1) = "d" and Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::DefaultmoreORLessLayoutNode ; 4 ) = "less" ]
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Go to Layout [ “defaultNodeS2” (tagMenus) ]
+    Else
     Go to Layout [ “defaultNode2” (tagMenus) ]
+    End If
     #from 2 to 1
     Else If [ Left (Get (LayoutName) ; 1) = "d" and Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::DefaultmoreORLessLayoutNode ; 4 ) = "less" ]
     Go to Layout [ “defaultNode1” (tagMenus) ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    Show Custom Dialog [ Message: "This view hides media (if there is any to hide), and can speed up scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    End If
     End If
     #
     #
     Else If [ $$citationMatch = "cite" and Get (LayoutTableName) = "reference" ]
+    #
+    #If not in find mode, so on regular tag layout...
+    If [ $$findMode = "" ]
     #from 1 to 2
     If [ Get (LayoutName) = "ReferenceMenu3CiteNoPicture" ]
     Go to Layout [ “ReferenceMenu3Cite” (reference) ]
+    Show Custom Dialog [ Message: "This view shows media (if there is any to show), and can slow down scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
     #from 2 to 1
     Else
     Set Field [ TEMP::layoutLtagL; Get (LayoutName) = "ReferenceMenu3CiteNoPicture" ]
     Go to Layout [ “ReferenceMenu3CiteNoPicture” (reference) ]
+    Show Custom Dialog [ Message: "This view hides media (if there is any to hide), and can speed up scrolling and other menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
+    #
+    #If in find mode, so on a find layout...
+    If [ $$findMode ≠ "" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutRtagCiteFIND ; 4 ) = "more" ]
+    Go to Layout [ “ReferenceMenu3CiteFind” (reference) ]
+    Show Custom Dialog [ Message: "This view shows reference media (if there is any to show), and can slow down scrolling and other reference menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    #from 2 to 1
+    Else
+    Go to Layout [ “ReferenceMenu3CiteFindS” (reference) ]
+    Show Custom Dialog [ Message: "This view hides any media (if there is any to hide), speeding up scrolling and other reference menu processes on slower computers and mobile devices."; Default Button: “OK”, Commit: “Yes” ]
+    End If
     End If
     End If
     #
@@ -40137,12 +44924,27 @@ Script Steps
     Else If [ $$citationMatch = "learn" and Get (LayoutTableName) = "testLearn" ]
     If [ Left (Get (LayoutName) ; 1) = "l" ]
     #
+    #If not in find mode, so on regular tag layout...
+    If [ $$findMode = "" ]
     #from 1 to 2
     If [ Left ( TEMP::layoutLtagL ; 4 ) = "more" ]
     Set Field [ TEMP::layoutLtagL; "less" & Get (LayoutName) ]
     #from 2 to 1
     Else
     Set Field [ TEMP::layoutLtagL; "more" & Get (LayoutName) ]
+    End If
+    End If
+    #
+    #
+    #If in find mode, so on a find layout...
+    If [ $$findMode ≠ "" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagLFIND ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutLtagLFIND; "less" & Get (LayoutName) ]
+    #from 2 to 1
+    Else
+    Set Field [ TEMP::layoutLtagLFIND; "more" & Get (LayoutName) ]
+    End If
     End If
     #
     End If
@@ -40151,12 +44953,54 @@ Script Steps
     Else If [ $$citationMatch = "ref" ]
     If [ Left (Get (LayoutName) ; 1) = "l" ]
     #
+    #If not in find mode, so on regular tag layout...
+    If [ $$findMode = "" ]
     #from 1 to 2
     If [ Left ( TEMP::layoutLtagR ; 4 ) = "more" ]
     Set Field [ TEMP::layoutLtagR; "less" & Get (LayoutName) ]
     #from 2 to 1
     Else
     Set Field [ TEMP::layoutLtagR; "more" & Get (LayoutName) ]
+    End If
+    End If
+    #
+    #If in find mode, so on a find layout...
+    If [ $$findMode ≠ "" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagRFIND ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutLtagRFIND; "less" & Get (LayoutName) ]
+    #from 2 to 1
+    Else
+    Set Field [ TEMP::layoutLtagRFIND; "more" & Get (LayoutName) ]
+    End If
+    End If
+    #
+    End If
+    #
+    #
+    Else If [ $$citationMatch = "cite" ]
+    If [ Left (Get (LayoutName) ; 1) = "r" ]
+    #
+    #If not in find mode, so on regular tag layout...
+    If [ $$findMode = "" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutLtagR ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutRtagCite; "less" & Get (LayoutName) ]
+    #from 2 to 1
+    Else
+    Set Field [ TEMP::layoutRtagCite; "more" & Get (LayoutName) ]
+    End If
+    End If
+    #
+    #If in find mode, so on a find layout...
+    If [ $$findMode ≠ "" ]
+    #from 1 to 2
+    If [ Left ( TEMP::layoutRtagCiteFIND ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutRtagCiteFIND; "less" & Get (LayoutName) ]
+    #from 2 to 1
+    Else
+    Set Field [ TEMP::layoutRtagCiteFIND; "more" & Get (LayoutName) ]
+    End If
     End If
     #
     End If
@@ -40179,10 +45023,14 @@ Fields used in this script
     TEMP::layoutLtagN
     TEMP::InventoryLibraryYN
     TEMP::layoutLtagL
+    TEMP::layoutLtagLFIND
     TEMP::layoutLtagR
+    TEMP::layoutLtagRFIND
     TEMP::layoutRtagK
     TEMP::layoutRtagN
     TEMP::DefaultmoreORLessLayoutNode
+    TEMP::layoutRtagCiteFIND
+    TEMP::layoutRtagCite
 
 Scripts used in this script
 
@@ -40200,8 +45048,12 @@ Layouts used in this script
     ltagNKs1
     learnMenu4RefCite
     learnMenu4noPicRefCite
+    learnMenu4RefCiteFindTL
+    learnMenu4NoPicRefCiteFindTL
     learnMenu3Cite
     learnMenu3CiteS
+    learnFindCite
+    learnFindCiteS
     ReferenceMenu2SkeywordOrNode2
     ReferenceMenu2keywordOrNode2
     ReferenceMenu2SkeywordOrNode3
@@ -40212,12 +45064,17 @@ Layouts used in this script
     ReferenceMenu2keywordOrNode5
     ReferenceMenu2SkeywordOrNode1
     ReferenceMenu2keywordOrNode1
+    defaultNodeS2
     defaultNode2
+    defaultNodeS3
     defaultNode3
+    defaultNodeS4
     defaultNode4
     defaultNode1
     ReferenceMenu3Cite
     ReferenceMenu3CiteNoPicture
+    ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
 
 Tables used in this script
 
@@ -40330,7 +45187,9 @@ Layouts that use this script
     learnFindBrainstorm
     learnFindStuffBrainstorm
     learnFindCite
+    learnFindCiteS
     learnFindStuffCite
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
 
@@ -40407,6 +45266,7 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
 
 Scripts that use this script
@@ -40425,8 +45285,24 @@ Script Steps
     #formatting to transparent.
     Set Variable [ $$internal ]
     #
-    #Goto correct layout.
+    #
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
+    If [ TEMP::layoutRtagCiteFIND = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “ReferenceMenu3CiteFindS” (reference) ]
+    Set Field [ TEMP::layoutRtagCiteFIND; "more" & Get (LayoutName) ]
+    Else
     Go to Layout [ “ReferenceMenu3CiteFind” (reference) ]
+    Set Field [ TEMP::layoutRtagCiteFIND; "less" & Get (LayoutName) ]
+    End If
+    Else
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ Middle ( TEMP::layoutRtagCiteFIND ; 5 ; 42 ) ]
+    End If
+    #
     #
     #Find references for reference module.
     Show All Records
@@ -40459,6 +45335,7 @@ Script Steps
 
 Fields used in this script
 
+    TEMP::layoutRtagCiteFIND
     reference::lock
     testlearn::date
     testlearn::timestamp
@@ -40471,6 +45348,7 @@ Scripts used in this script
 
 Layouts used in this script
 
+    ReferenceMenu3CiteFindS
     ReferenceMenu3CiteFind
 
 Tables used in this script
@@ -40500,6 +45378,7 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
 
 Scripts that use this script
@@ -40583,6 +45462,7 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
     ReferenceMenu2SkeywordOrNodeFind
     learnFind
@@ -40590,6 +45470,8 @@ Layouts that use this script
     learnFindTest
     learnFindBrainstorm
     learnFindCite
+    learnFindCiteS
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
 
 Scripts that use this script
@@ -40678,13 +45560,12 @@ Layouts that use this script
     learnFind
     learnSFind
     learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
     learnFindTest
     learnFindSTest
     learnFindBrainstorm
-    learnFindStuffBrainstorm
     learnFindCite
-    learnFindStuffCite
+    learnFindCiteS
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
 
@@ -40702,12 +45583,8 @@ Script Steps
     Set Variable [ $$internal ]
     #
     #
-    #Go to correct layout.
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
-    Go to Layout [ “learnMenu4RefStuffCiteFindTL” (testlearn) ]
-    Else
-    Go to Layout [ “learnMenu4RefCiteFindTL” (testlearn) ]
-    End If
+    #Go to layout with no pictures.
+    Go to Layout [ “learnMenu4NoPicRefCiteFindTL” (testlearn) ]
     #
     #
     #Find learn records that can be referenced.
@@ -40721,10 +45598,37 @@ Script Steps
     End If
     Perform Find [ ]
     #
+    #Go to correct layout.
+    If [ TEMP::InventoryLibraryYN = "" ]
+    #Idea Mode
+    #
+    If [ TEMP::layoutLtagLFIND = "" ]
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “learnMenu4NoPicRefCiteFindTL” (testlearn) ]
+    Set Field [ TEMP::layoutLtagLFIND; "more" & Get (LayoutName) ]
+    Else
+    Go to Layout [ “learnMenu4RefCiteFindTL” (testlearn) ]
+    Set Field [ TEMP::layoutLtagLFIND; "less" & Get (LayoutName) ]
+    End If
+    Else
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ Middle ( TEMP::layoutLtagLFIND ; 5 ; 42 ) ]
+    End If
+    #
+    Else
+    #Inventory Mode
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ “learnMenu4RefStuffCiteFindTL” (testlearn) ]
+    End If
     #
     #Sort records.
     If [ TEMP::InventoryLibraryYN = "" ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order Pulldown List” tagKeywordPrimary::tag; ascending reference::referenceShort; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending testlearn::timestamp; descending ] [ Restore; No dialog ]
     Else
     Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::concatenateSTUFFcontainer; ascending ] [ Restore; No dialog ]
     End If
@@ -40739,28 +45643,28 @@ Fields used in this script
     TEMP::InventoryLibraryYN
     testlearn::brainstormCasePoint
     testlearn::filterFind
-    tagKeywordPrimary::orderOrLock
-    tagKeywordPrimary::tag
-    reference::referenceShort
+    TEMP::layoutLtagLFIND
+    testlearn::date
+    testlearn::timestamp
     testlearn::concatenateSTUFFcontainer
 
 Scripts used in this script
 
 Layouts used in this script
 
-    learnMenu4RefStuffCiteFindTL
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
+    <Missing Layout>
+    learnMenu4RefStuffCiteFindTL
 
 Tables used in this script
 
     TEMP
-    tag
     testlearn
 
 Table occurrences used by this script
 
     TEMP
-    tagKeywordPrimary
     testlearn
 
 Custom Functions used by this script
@@ -40854,6 +45758,7 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
     learnFind
     learnSFind
@@ -40864,7 +45769,9 @@ Layouts that use this script
     learnFindBrainstorm
     learnFindStuffBrainstorm
     learnFindCite
+    learnFindCiteS
     learnFindStuffCite
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
 
@@ -40897,6 +45804,14 @@ Script Steps
     Allow User Abort [ Off ]
     Enter Find Mode [ ]
     Set Field [ tagMenus::match; $$citationMatch ]
+    #
+    #In Learn section only show creator nodes,
+    #as these are the only nodes that can create
+    #or edit learn records.
+    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; 123456789 ]
+    End If
+    #
     Perform Find [ ]
     #
     #Sort according to current users wishes.
@@ -40914,6 +45829,7 @@ Fields used in this script
 
     TEMP::InventoryLibraryYN
     tagMenus::match
+    tagMenus::textStyleOrCreatorNodeFlag
     TEMP::sortNode
     tagMenuGroup::orderOrLibraryType
     tagMenuGroup::name
@@ -40953,6 +45869,7 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
 
 Scripts that use this script
@@ -41030,6 +45947,7 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
 
 Scripts that use this script
@@ -41103,6 +46021,7 @@ Layouts that use this script
 
     ReferenceMenuFind
     ReferenceMenu3CiteFind
+    ReferenceMenu3CiteFindS
     ReferenceMenu2keywordOrNodeFind
 
 Scripts that use this script
@@ -41182,7 +46101,9 @@ Layouts that use this script
     learnFindBrainstorm
     learnFindStuffBrainstorm
     learnFindCite
+    learnFindCiteS
     learnFindStuffCite
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
 
@@ -41199,14 +46120,33 @@ Script Steps
     #formatting to transparent.
     Set Variable [ $$internal ]
     #
+    #
     #Goto correct layout.
-    If [ Left (Get (LayoutName) ; 1) = "l" ]
+    If [ TEMP::InventoryLibraryYN = "" ]
+    #Idea Mode
+    #
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
+    If [ TEMP::layoutLtagRFIND = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “learnFindCiteS” (reference) ]
+    Set Field [ TEMP::layoutLtagRFIND; "more" & Get (LayoutName) ]
+    Else
     Go to Layout [ “learnFindCite” (reference) ]
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
-    Go to Layout [ “learnFindStuffCite” (reference) ]
+    Set Field [ TEMP::layoutLtagRFIND; "less" & Get (LayoutName) ]
     End If
-    Else If [ Left (Get (LayoutName) ; 1) = "r" ]
-    Go to Layout [ “learnFindCite” (reference) ]
+    Else
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ Middle ( TEMP::layoutLtagRFIND ; 5 ; 42 ) ]
+    End If
+    #
+    Else
+    #Inventory Mode
+    #
+    #Go the location tag layout.
+    Go to Layout [ “learnFindStuffCite” (reference) ]
     End If
     #
     #
@@ -41223,11 +46163,10 @@ Script Steps
     #
     #If in inventory mode then show all references
     #(except the locked references).
-    Show All Records
+    Enter Find Mode [ ]
+    Set Field [ tagInventoryLocation::match; "location" ]
+    Perform Find [ ]
     #
-    #Omit locked records, which are the copyright
-    #images used by default copyright tags.
-    Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::lock: “lock” ] [ Restore ]
     End If
     #
     #
@@ -41245,8 +46184,9 @@ Script Steps
 Fields used in this script
 
     TEMP::InventoryLibraryYN
+    TEMP::layoutLtagRFIND
     reference::showInLearn
-    reference::lock
+    tagInventoryLocation::match
     tagKeywordPrimary::orderOrLock
     tagKeywordPrimary::tag
     reference::referenceShort
@@ -41256,6 +46196,7 @@ Scripts used in this script
 
 Layouts used in this script
 
+    learnFindCiteS
     learnFindCite
     learnFindStuffCite
 
@@ -41264,11 +46205,13 @@ Tables used in this script
     TEMP
     reference
     tag
+    tag
 
 Table occurrences used by this script
 
     TEMP
     reference
+    tagInventoryLocation
     tagKeywordPrimary
 
 Custom Functions used by this script
@@ -41276,7 +46219,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [menuReferenceFind]	Parent Folder: [menuFind]
+Previous Script: [menuReferenceFind]	Parent Folder: [menuFind]	Next Script: [cancelFind]
 Script Name	menuTestFind
 Run script with full access privileges	Off
 Include In Menu	No
@@ -41285,13 +46228,12 @@ Layouts that use this script
     learnFind
     learnSFind
     learnKeywordOrNodeFind
-    learnKeywordOrNodeSFind
     learnFindTest
     learnFindSTest
     learnFindBrainstorm
-    learnFindStuffBrainstorm
     learnFindCite
-    learnFindStuffCite
+    learnFindCiteS
+    learnMenu4NoPicRefCiteFindTL
     learnMenu4RefCiteFindTL
     learnMenu4RefStuffCiteFindTL
 
@@ -41359,6 +46301,43 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
+Previous Script: [menuTestFind]	Parent Folder: [menuFind]
+Script Name	cancelFind
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    referenceMenuFINDref
+    referenceFINDNK
+    referenceSFINDNK
+    learnMenuFINDref
+    learnMenuFINDrefLearn
+    learnMenuFINDstuffRef
+    ltagFINDNK
+    ltagFINDstuffNK
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Enter Browse Mode
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
 probablyNotInUse
 	Parent Folder: [probablyNotInUse]
 Script Name	newTag
@@ -41413,7378 +46392,6 @@ Custom menu set used by this script
 
 test
 
-setup
-	Parent Folder: [setup]	Next Script: [deleteSubsectionFromUserTest]
-Script Name	deleteSubsection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestSubsection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #This script is for deleting a test
-    #subsection template.
-    #
-    #
-    If [ testSectionCreatorLock::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "This record is locked. Go the node that created it — " & testSectionCreatorLock::tag & " — in the setup tag window and enter the password to unlock it so that you can delete it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #Set variables to conditionally format record to
-    #to be deleted and to supply name for warning
-    #messages, and to speed up script.
-    Set Variable [ $delete; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-    Set Variable [ $$tagTest; Value:testSubsectionTemplate::_LtestSubsection ]
-    Set Variable [ $$ID; Value:"ignore" ]
-    If [ testSubsectionTemplate::name = "" ]
-    Set Field [ testSubsectionTemplate::name; testSubsectionTemplate::_LtestSubsection ]
-    End If
-    Go to Field [ ]
-    Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $$stopDeleteTest; Value:1 ]
-    Set Variable [ $$stopTest; Value:1 ]
-    #
-    #Check if item is in use as test tag on any Report
-    #records, and if so stop the script.
-    #
-    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    // New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    Show All Records
-    Delete All Records [ No dialog ]
-    #
-    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearnReportTags::ktestSubsection; $delete ]
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Perform Find [ ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: ReportResultTestSubject::tag; ascending ] [ Restore; No dialog ]
-    Go to Record/Request/Page [ First ]
-    #
-    #If records are found using test, then tell the
-    #user on which reports they where found.
-    If [ Get (FoundCount) ≠ 0 ]
-    Loop
-    Set Variable [ $useList; Value: TextColor( ReportResultTestSubject::tag & " | test " & testlearnReportTags::kreportNumber ; RGB(102;102;102)) & ¶ & testlearnReportTags::countOfONESubsectionsTestResults & " in section " & TextColor( tagReportTestSubjectSectionNAME::name ; RGB(0;0;0)) ]
-    Set Variable [ $subSection; Value:testlearnReportTags::subsectionCustomName ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    New Record/Request
-    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
-    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    Go to Layout [ “TEMP” (TEMP) ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
-    View As [ View as List ]
-    #
-    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
-    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
-    Set Field [ TEMP::Message; "Test results have been made using the sub-section template " & $subSection & ". To delete it, first delete the test results made in the test-subject's test-sections below, which use this template." ]
-    Pause/Resume Script [ Indefinitely ]
-    Close Window [ Current Window ]
-    Set Variable [ $delete ]
-    Set Variable [ $$stopLoadTestResultRecord ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$tagTest ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-    Exit Script [ ]
-    Else
-    Set Variable [ $$stopLoadTestResultRecord ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    End If
-    #
-    #
-    #Check if item is in use as test tag on any Learn
-    #records, and if so stop the script.
-    Set Variable [ $$stopLoadCitation; Value:1 ]
-    Go to Layout [ “learn2” (testlearn) ]
-    #
-    Set Window Title [ Current Window; New Title: "Learn" ]
-    #
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::filterFind; "main" ]
-    Set Field [ testlearn::kctestSubsectionInfo; "###" & $$tagTest ]
-    Perform Find [ ]
-    Set Variable [ $$stopLoadCitation ]
-    #
-    #If records are found using test, then stop script.
-    If [ Get (FoundCount) ≠ 0 ]
-    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
-    Show Custom Dialog [ Message: "This general inquiry is linked to at least one learn record. To delete it 1) go to the learn module, 2) click 'test' in its tag-menus window, 3) select it, 4) untag it from all learn records, 5) return to test setup, 6) and delete it."; Default Button: “OK”, Commit: “Yes” ]
-    #
-    Close Window [ Current Window ]
-    Set Variable [ $delete ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$tagTest ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-    #
-    Exit Script [ ]
-    End If
-    #
-    Close Window [ Current Window ]
-    #
-    #If no records were found using this test, then
-    #user may delete it. First the record is highlighted
-    #in red and the user is asked if they really intend
-    #to delete this record.
-    Set Variable [ $delete; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-    Scroll Window [ To Selection ]
-    Go to Field [ ]
-    Show Custom Dialog [ Message: "Delete " & testSubsectionTemplate::name & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    #
-    #If the user cancels the delete, then everything
-    #goes back to the way it was before the delete
-    #was started.
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Set Variable [ $delete ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$tagTest ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-    Exit Script [ ]
-    End If
-    #
-    #If the user presses 'delete' the system will now
-    #check if this test is the last test in its test group.
-    If [ Get ( LastMessageChoice ) = 2 ]
-    #
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $$stopDeleteTest; Value:1 ]
-    Set Variable [ $$stopTest; Value:1 ]
-    #
-    New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    // New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #
-    #Set variables to find and remove all tests in
-    #a group and its key from all test items.
-    Set Variable [ $group; Value:testSubsectionTemplate::ksubsectionGroup ]
-    Set Variable [ $testSubsection; Value:testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Find all tests in this test group.
-    Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionTemplate::ksubsectionGroup; $group ]
-    Perform Find [ ]
-    #
-    #If the test is the last test, the user is informed
-    #of this and asked if knowing this they want to
-    #delete both the test and the test group, since
-    #a test group cannot exist without at least one test
-    #in it.
-    If [ Get (FoundCount) = 1 ]
-    #
-    Close Window [ Current Window ]
-    #
-    Set Variable [ $deleteGroup; Value:$delete ]
-    Refresh Window
-    Show Custom Dialog [ Title: "!"; Message: "If you delete this group's last test, it will also be deleted."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    #
-    #If the user cancels the delete, then everything
-    #goes back to the way it was before the delete
-    #was started.
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Set Variable [ $delete ]
-    Set Variable [ $deleteGroup ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$tagTest ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-    Exit Script [ ]
-    End If
-    #
-    #If the user pressed delete then first the
-    #test group is deleted.
-    #
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #
-    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionGroup::_Lgroup; $group ]
-    Perform Find [ ]
-    Delete Record/Request [ No dialog ]
-    End If
-    #
-    End If
-    #
-    #Remove test's key from test-items that
-    #have more than one test's key.
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Go to Layout [ “setupTestItem” (tagMenus) ]
-    Enter Find Mode [ ]
-    Set Field [ tagMenuTestItemGroup::match; $testSubsection & ¶ ]
-    Perform Find [ ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    #If an item has only one test key, do not
-    #remove it. In the next step these test items
-    # will be found and deleted along with the
-    #test-item groups to which they belong.
-    If [ ValueCount (tagMenuTestItemGroup::match) > 1 ]
-    Set Variable [ $match; Value:tagMenuTestItemGroup::match ]
-    Set Field [ tagMenuTestItemGroup::match; Substitute ( $match ; $testSubsection & "¶" ; "" ) ]
-    End If
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Delete the test items that are only linked
-    #to this test.
-    Enter Find Mode [ ]
-    Set Field [ tagMenuTestItemGroup::match; $testSubsection & ¶ ]
-    Perform Find [ ]
-    Delete All Records [ No dialog ]
-    #
-    #Delete the test-item groups that now have no
-    #test items in them, and are no longer linked
-    #to any tests.
-    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionGroup::match; $testSubsection & ¶ ]
-    Perform Find [ ]
-    Delete All Records [ No dialog ]
-    Set Variable [ $$stopLoadTagRecord ]
-    #
-    #Finally, delete the test itself.
-    Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionTemplate::_LtestSubsection; $testSubsection ]
-    Perform Find [ ]
-    Delete Record/Request [ No dialog ]
-    Close Window [ Current Window ]
-    #
-    #Load current test's information.
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$tagTest ]
-    Set Variable [ $$ID ]
-    Perform Script [ “loadSetupTestSubsection” ]
-    #
-
-Fields used in this script
-
-    testSectionCreatorLock::orderOrLock
-    testSectionCreatorLock::tag
-    testSubsectionTemplate::_LtestSubsection
-    testSubsectionTemplate::name
-    testlearnReportTags::ktestSubsection
-    ReportResultTestSubject::tag
-    testlearnReportTags::kreportNumber
-    testlearnReportTags::countOfONESubsectionsTestResults
-    tagReportTestSubjectSectionNAME::name
-    testlearnReportTags::subsectionCustomName
-    TEMP::DeleteMessageInTempWindow1
-    TEMP::Message
-    testlearn::filterFind
-    testlearn::kctestSubsectionInfo
-    testSubsectionTemplate::ksubsectionGroup
-    testSubsectionGroup::_Lgroup
-    tagMenuTestItemGroup::match
-    testSubsectionGroup::match
-
-Scripts used in this script
-
-    loadSetupTestSubsection
-
-Layouts used in this script
-
-    TEMP
-    reportTestResult
-    learn2
-    tableTestSubsectionTemplates
-    tableTagGroup
-    setupTestItem
-
-Tables used in this script
-
-    TEMP
-    tag
-    tagGroup
-    tagGroup
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-    testlearn
-
-Table occurrences used by this script
-
-    ReportResultTestSubject
-    TEMP
-    tagMenuTestItemGroup
-    tagReportTestSubjectSectionNAME
-    testSectionCreatorLock
-    testSubsectionGroup
-    testSubsectionTemplate
-    testlearn
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [deleteSubsection]	Parent Folder: [setup]	Next Script: [deleteTestItem]
-Script Name	deleteSubsectionFromUserTest
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultTestNewSection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #If there are no records, halt this script.
-    If [ testSectionCreatedFromATemplate::_LtestSection = "" ]
-    Halt Script
-    End If
-    #
-    #If the sub-section has test results, halt the
-    #script and explain to the user why.
-    If [ testSectionCreatedFromATemplate::inUse ≠ "" ]
-    Show Custom Dialog [ Message: "Delete all test results made in this section before deleting it. To do this, 1) click its green test button. 2) Click on each sub-section with test results. 3) Delete all results you find."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #Test subject is locked.
-    If [ testSubjectName::orderOrLock ≠ "" ]
-    Set Variable [ $$highlightTestSection; Value:1 ]
-    Refresh Window
-    #
-    #Get the current test subject's name.
-    Show Custom Dialog [ Message: "The test subject — " & testSubjectName::tag & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “Yes” ]
-    Halt Script
-    End If
-    #
-    #
-    #Highlight sub-section and ask user if they
-    #really want to delete it.
-    Set Variable [ $testSubject; Value:testSectionCreatedFromATemplate::ktestSubjectNode ]
-    Set Variable [ $reportNumber; Value:testSectionCreatedFromATemplate::reportNumber ]
-    Set Variable [ $delete; Value:testSectionCreatedFromATemplate::_LtestSection ]
-    Go to Field [ ]
-    Refresh Window
-    Show Custom Dialog [ Message: "Delete test section " & Quote ( testSectionCreatedFromATemplate::name ) & " for " & testSubjectName::tag & "'s test #" & testSectionCreatedFromATemplate::reportNumber & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    #
-    #If the user cancels the delete, then everything
-    #goes back to the way it was before the delete
-    #was started.
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Set Variable [ $delete ]
-    Set Variable [ $deleteGroup ]
-    Refresh Window
-    Exit Script [ ]
-    End If
-    #
-    #If the user presses 'delete' the system will now
-    #check if it is the last sub-section in for
-    #this test.
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    // New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Set Variable [ $$stopLoadTestRecord ]
-    #
-    #Find all sub-sections for this test.
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $testSubject ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $reportNumber ]
-    Perform Find [ ]
-    Set Variable [ $foundCount; Value:Get (FoundCount) ]
-    Close Window [ Current Window ]
-    #
-    #If this is the last subjection, let the user know
-    #that if deleted this test will also be deleted.
-    If [ $foundCount = 1 ]
-    Set Variable [ $deleteGroup; Value:$delete ]
-    Refresh Window
-    Show Custom Dialog [ Message: "If you delete test# " & $reportNumber & "'s last section, it will also be deleted."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    #
-    #If the user cancels the delete, then everything
-    #goes back to the way it was before the delete
-    #was started.
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Set Variable [ $delete ]
-    Set Variable [ $deleteGroup ]
-    Refresh Window
-    Exit Script [ ]
-    End If
-    End If
-    End If
-    #
-    #If the user approves of the delete, then delete
-    #this sub-section. NOTE: There really is no
-    #test that any sub-section belongs to. The
-    #sort is simply grouping all sub-sections by
-    #their report number, so it looks like they are
-    #under a group. Thus, deleting the last sub-
-    #section with particular test number will also
-    #cause the appearance of its test number to
-    #disappear.
-    Delete Record/Request [ No dialog ]
-    #
-
-Fields used in this script
-
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::inUse
-    testSubjectName::orderOrLock
-    testSubjectName::tag
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    testSectionCreatedFromATemplate::reportNumber
-    testSectionCreatedFromATemplate::name
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    tag
-    testSectionCreatedFromATemplate
-
-Table occurrences used by this script
-
-    testSectionCreatedFromATemplate
-    testSubjectName
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [deleteSubsectionFromUserTest]	Parent Folder: [setup]	Next Script: [duplicateSectionFromTemplate]
-Script Name	deleteTestItem
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestItem
-    testMenuTestItemEdit
-    testMenuTestItemMORE
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If there are no tests, then stop this script as there
-    #are no test to create things for.
-    If [ TEMP::ktestSubsection = "" ]
-    Show Custom Dialog [ Message: "There are no tests."; Default Button: “OK”, Commit: “No” ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #I shifted record lock-logic from individual
-    #records to groups of records, which is why
-    #this code is disabled.
-    // If [ tagCreatorLock::orderOrLock ≠ "" ]
-    // Show Custom Dialog [ Message: "This record is locked. Go the node that created it — " & tagCreatorLock::tag & " — in the setup tag window and enter the password to unlock it so that you can delete it."; Default Button: “OK”, Commit: “Yes” ]
-    // Exit Script [ ]
-    // End If
-    #
-    #If the node that created this group is locked
-    #the group even if items in it where not created
-    #by this node.
-    If [ nodeLockTestTagItemGroup::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "All items in this group are locked. Go the node that created this group — " & nodeLockTestTagItemGroup::tag & " — in the setup tag window and enter the password to unlock it so that you can delete items in it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #If there are no items to delete, exit this script.
-    If [ Get (FoundCount) = 0 ]
-    Exit Script [ ]
-    End If
-    #
-    #Get variables needed for delete and delete messages.
-    Set Variable [ $delete; Value:tagMenus::_Ltag ]
-    Set Variable [ $group; Value:tagMenuTestItemGroup::_Lgroup ]
-    Set Variable [ $groupName; Value:If ( Char ( tagMenuTestItemGroup::name ) ≤ 20 ; tagMenuTestItemGroup::name ; Left ( tagMenuTestItemGroup::name ; 20 ) & "..." ) ]
-    Set Variable [ $testItemName; Value:If ( Char ( tagMenus::tag ) ≤ 20 ; tagMenus::tag ; Left ( tagMenus::tag ; 20 ) & "..." ) ]
-    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
-    End If
-    Refresh Window
-    #
-    #BEGIN: LEGACY STRATEGY for finding test results
-    #in use that did not provide enough information.
-    // #find and show all test records that might be using
-    // #this item.
-    // New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    // Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    // Go to Layout [ “testResult0” (testlearn) ]
-    // Set Error Capture [ On ]
-    // Allow User Abort [ Off ]
-    // Enter Find Mode [ ]
-    // Set Field [ testlearn::kctestResultCheckedItems; $delete ]
-    // Perform Find [ ]
-    // #
-    // Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::kreportNumber; ascending ] [ Restore; No dialog ]
-    // Go to Record/Request/Page [ First ]
-    // #
-    // #Check if test item is in use by any test result records.
-    // #Also capture how many results there are using
-    // #item, and what general inquiries use this specifc inquiry.
-    // Loop
-    // Set Variable [ $number; Value:1 ]
-    // Loop
-    // If [ FilterValues ( GetValue ( testlearn::kctestResultCheckedItems ; $number ) ; $delete & "¶" ) = $delete & ¶ ]
-    // Set Variable [ $addToInUse; Value:$inUse ]
-    // Set Variable [ $inUse; Value:1 + $addToInUse ]
-    // Set Variable [ $number; Value:"exit" ]
-    // Set Variable [ $setNumberOfReports; Value:Case ( $report = "" ; 1 ; $report = testlearn::kreportNumber ; 1 ; $report ≠ testlearn::kreportNumber and Filter ($report ; testlearn::kreportNumber ) ≠ testlearn::kreportNumber ; $numberOfReports + 1 ; Filter ($report ; testlearn::kreportNumber ) = testlearn::kreportNumber ; $numberOfReports ; "error" ) ]
-    // Set Variable [ $numberOfReports; Value:$setNumberOfReports ]
-    // Set Variable [ $setReportNumber; Value:Case ( $report = "" ; testlearn::kreportNumber ; $report = testlearn::kreportNumber ; testlearn::kreportNumber ; $report ≠ testlearn::kreportNumber and Filter ($report ; testlearn::kreportNumber ) ≠ testlearn::kreportNumber ; $report & ", " & testlearn::kreportNumber ; testlearn::kreportNumber = Filter ($report ; testlearn::kreportNumber ) ; $report ; "error" ) ]
-    // Set Variable [ $report; Value:$setReportNumber ]
-    // End If
-    // #
-    // #If number was set to exit or if no keys exist, then
-    // #exit loop.
-    // Exit Loop If [ GetValue ( testlearn::kctestResultCheckedItems ; $number ) = "" ]
-    // #
-    // #If variable looked at did not match then raise the number
-    // #to view the next variable.
-    // Set Variable [ $add; Value:$number ]
-    // Set Variable [ $number; Value:$add + 1 ]
-    // End Loop
-    // Go to Record/Request/Page [ Next; Exit after last ]
-    // End Loop
-    // Set Variable [ $report; Value:Case ( Filter ( Right ( $report ; 3 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 2 ; 1 ; " and" ) ; Filter ( Right ( $report ; 4 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 3 ; 1 ; " and" ) ; Filter ( Right ( $report ; 5 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 4 ; 1 ; " and" ) ; $report ) ]
-    // Set Variable [ $$stopLoadTestRecord ]
-    // Close Window [ Current Window ]
-    // #
-    // #If in use the stop script.
-    // If [ $inUse ≠ "" ]
-    // Set Variable [ $cannotDelete; Value:$delete ]
-    // Refresh Window
-    // Show Custom Dialog [ Message: If ( $inUse = 1 ; "This specific inquiry is used as a check-off-the-list item for 1 test result in test " & $report & " in the test module. Uncheck it from this test result to delete it." ; "This specific inquiry is used as a check-off-the-list item for " & $inUse & " test results" & If ( $numberOfReports = 1 ; " in test " ; " between tests " ) & $report & " in the test module. Uncheck it from all " & $inUse & " results to delete it." ); Default Button: “OK”, Commit: “Yes” ]
-    // Set Variable [ $cannotDelete ]
-    // Set Variable [ $delete ]
-    // Refresh Window
-    // Exit Script [ ]
-    // End If
-    #END: LEGACY STRATEGY for finding test results
-    #in use that did not provide enough information.
-    #
-    #
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $$stopDeleteTest; Value:1 ]
-    Set Variable [ $$stopTest; Value:1 ]
-    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    Show All Records
-    Delete All Records [ No dialog ]
-    #
-    #Go to the table layout, which has no load
-    #record script triggers, and then find out if
-    #this item is in use.
-    Go to Layout [ “tableTestLearn” (testlearn) ]
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::kctestResultCheckedItems; $delete ]
-    Perform Find [ ]
-    #
-    #If this item is found to be in use, then inform
-    #user of where and prevent its deletion.
-    If [ Get (LastError) ≠ 401 ]
-    Loop
-    Set Variable [ $useList; Value:TextColor( tagTLTestSubject::tag & " | test " & testlearn::kreportNumber & ¶ & "section " ;RGB(102;102;102)) & testSectionTemplateName::name & ¶ & TextColor( "sub-section " ;RGB(102;102;102)) & testlearn::subsectionCustomName ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    New Record/Request
-    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
-    Go to Layout [ “testResult0” (testlearn) ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    Go to Layout [ “TEMP” (TEMP) ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
-    View As [ View as List ]
-    #
-    Show/Hide Toolbars [ Lock; Hide ]
-    Show/Hide Text Ruler [ Hide ]
-    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
-    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
-    Set Field [ TEMP::Message; "Before the highlighted test item can be deleted, it must unchecked " & ¶ & "(in the test module) from test results in the test sub-sections below." ]
-    Pause/Resume Script [ Indefinitely ]
-    Close Window [ Current Window ]
-    Set Variable [ $delete ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
-    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    End If
-    Refresh Window
-    If [ tagMenus::notesOrCopyright = "T" or tagMenus::notesOrCopyright = "FT" ]
-    Show Custom Dialog [ Message: "Before you can uncheck it, you will need to turn it back into a check item. Click the " & tagMenus::copyrightTextLockedORtextTitem & " button to the left."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    Exit Script [ ]
-    Else
-    Close Window [ Current Window ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    End If
-    #
-    #
-    #
-    #Exit any fields and then contionally format field
-    #to be deleted by this script.
-    Go to Field [ ]
-    Refresh Window
-    Show Custom Dialog [ Message: "Delete " & $testItemName & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    Refresh Window
-    #
-    #If the user says yes, first make sure the record
-    #is not the last record in its group. If it is and
-    #the system deleted the record without deleting
-    #the group too, this group would become
-    #an orphan as only groups that have records
-    #attached to them show up for the user to add
-    #more records to them. So the group
-    #record must also be deleted if this is the last
-    #test item under it.
-    If [ Get ( LastMessageChoice ) = 2 ]
-    New Window [ Name: "delete tag"; Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “tableTag” (tagTable) ]
-    Enter Find Mode [ ]
-    Set Field [ tagTable::kGroupOrTest; $group ]
-    Perform Find [ ]
-    #
-    #If there are more records under this cateogry
-    #then the system deletes the current record without
-    #any more user input.
-    If [ Get (FoundCount) ≠ 1 ]
-    Close Window [ Name: "Delete Tag"; Current file ]
-    Delete Record/Request [ No dialog ]
-    Set Variable [ $delete ]
-    Set Variable [ $group ]
-    Refresh Window
-    Exit Script [ ]
-    #
-    #BUT if only one record is found user is asked
-    #if they want to delete the category too.
-    Else If [ Get (FoundCount) = 1 ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Set Variable [ $deleteGroup; Value:$group ]
-    Refresh Window
-    #
-    #The records are sorted by category to show
-    #the user which category is going to be deleted.
-    // If [ TEMP::sortTestItem ≠ "cat" ]
-    // Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuGroup::name; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
-    // End If
-    #
-    #Show user warning message dependening on
-    #whether or not this group is part of other test's
-    #test-item lists.
-    If [ ValueCount ( tagMenuTestItemGroup::match ) > 1 ]
-    Show Custom Dialog [ Message: "Deleting " & $testItemName & " will also delete its group ' " & $groupName & "' as it is the last item in this group."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Show Custom Dialog [ Message: "This group — " & $groupName & " — is used by " & ValueCount ( tagMenuTestItemGroup::match ) - 1 & " other subsection's. OPTION 1: Delete it from ALL subsections. OPTION 2: Cancel delete and UNLINK it from just this subsection — " & TEMP::testSubsectionName & "."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    End If
-    Else If [ ValueCount ( tagMenuTestItemGroup::match ) = 1 ]
-    Show Custom Dialog [ Message: "Deleting " & $testItemName & " will also delete its group ' " & $groupName & "' as it is the last item in this group."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    End If
-    #
-    #If the user says yes, then delete both the tag and
-    #the category record.
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Delete Record/Request [ No dialog ]
-    Select Window [ Name: "delete tag"; Current file ]
-    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionGroup::_Lgroup; $group ]
-    Perform Find [ ]
-    Delete Record/Request [ No dialog ]
-    Close Window [ Name: "Delete Tag"; Current file ]
-    End If
-    End If
-    End If
-    Set Variable [ $delete ]
-    Set Variable [ $deleteGroup ]
-    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
-    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    End If
-    Refresh Window
-
-Fields used in this script
-
-    TEMP::ktestSubsection
-    tagCreatorLock::orderOrLock
-    tagCreatorLock::tag
-    nodeLockTestTagItemGroup::orderOrLock
-    nodeLockTestTagItemGroup::tag
-    tagMenus::_Ltag
-    tagMenuTestItemGroup::_Lgroup
-    tagMenuTestItemGroup::name
-    tagMenus::tag
-    tagMenus::textStyleOrCreatorNodeFlag
-    testlearn::kctestResultCheckedItems
-    testlearn::kreportNumber
-    tagTLTestSubject::tag
-    testSectionTemplateName::name
-    testlearn::subsectionCustomName
-    TEMP::DeleteMessageInTempWindow1
-    TEMP::Message
-    tagMenus::notesOrCopyright
-    tagMenus::copyrightTextLockedORtextTitem
-    tagTable::kGroupOrTest
-    TEMP::sortTestItem
-    tagMenuGroup::orderOrLibraryType
-    tagMenuGroup::name
-    tagMenus::orderOrLock
-    tagMenuTestItemGroup::orderOrLibraryType
-    tagMenuTestItemGroup::match
-    TEMP::testSubsectionName
-    testSubsectionGroup::_Lgroup
-
-Scripts used in this script
-
-Layouts used in this script
-
-    testResult0
-    TEMP
-    tableTestLearn
-    tableTag
-    tableTagGroup
-
-Tables used in this script
-
-    TEMP
-    tag
-    tag
-    tag
-    tagGroup
-    tagGroup
-    testSectionCreatedFromATemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    nodeLockTestTagItemGroup
-    tagCreatorLock
-    tagMenuGroup
-    tagMenuTestItemGroup
-    tagMenus
-    tagTLTestSubject
-    tagTable
-    testSectionTemplateName
-    testSubsectionGroup
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [deleteTestItem]	Parent Folder: [setup]	Next Script: [gotoSetupTest_Template]
-Script Name	duplicateSectionFromTemplate
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultTestNewSection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If there are no record's to duplicate,
-    #halt script.
-    If [ Get (FoundCount) = 0 ]
-    Halt Script
-    End If
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #If the primary default node is unselected,
-    #inform user and stop script.
-    If [ tempSetup::kdefaultNodePrimary = "" ]
-    Set Variable [ $$highlightTestSection; Value:1 ]
-    Refresh Window
-    Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Default Button: “OK”, Commit: “No” ]
-    Halt Script
-    End If
-    #
-    #If the defautl test-subject node is unselected,
-    #inform user and stop script.
-    If [ TEMP::kdefaultNodeTestSubject = "" ]
-    Set Variable [ $$highlightTestSection; Value:1 ]
-    Refresh Window
-    Show Custom Dialog [ Message: "All tests must have a test subject. 1) Click 'tag' above and then in the tags-menu window 2) click 'node'. 3) Select a node to be your test subject, or create a new node, and then 4) click the 'TS' button next to it."; Default Button: “OK”, Commit: “No” ]
-    Halt Script
-    End If
-    #
-    #If the defautl test-subject node doesn't
-    #match the selected test's test subject,
-    #inform the user.
-    If [ testSectionCreatedFromATemplate::ktestSubjectNode ≠ TEMP::kdefaultNodeTestSubject ]
-    Show Custom Dialog [ Message: testSubjectName::tag & "'s — test " & testSectionCreatedFromATemplate::reportNumber & " — will be duplicated for — " & TEMP::DEFAULTNodeTestSubjectName & "."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
-    Else
-    #
-    #So instead of asking the user if they really
-    #want to duplicate a tag, which makes a user
-    #seem stupid, this question performs the
-    #same function (are you sure) by informing
-    #them how long it will take, giving them
-    #opportunity to cancel this script.
-    Show Custom Dialog [ Message: "Duplicating test " & testSectionCreatedFromATemplate::reportNumber & " for — " & TEMP::DEFAULTNodeTestSubjectName & " — will take just a few seconds."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
-    End If
-    #
-    #Exit script if user clicks cancel.
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Exit Script [ ]
-    End If
-    #
-    #Get this test's identifying keys: test subject,
-    #and number.
-    Set Variable [ $testSubjectOld; Value:testSectionCreatedFromATemplate::ktestSubjectNode ]
-    Set Variable [ $testNumberOld; Value:testSectionCreatedFromATemplate::reportNumber ]
-    #
-    #Get selected test subject's highest
-    #test number.
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    New Window [ Name: "Duplicate Test"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    // New Window [ Name: "Duplicate Test"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
-    Perform Find [ ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSectionCreatedFromATemplate::reportNumber; descending ] [ Restore; No dialog ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $newTestNumber; Value:testSectionCreatedFromATemplate::reportNumber + 1 ]
-    #
-    #Now get the test records to be duplicated.
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $testSubjectOld ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $testNumberOld ]
-    Perform Find [ ]
-    #
-    #Create duplicate test records for the default
-    #test subject.
-    Go to Record/Request/Page [ First ]
-    #
-    Loop
-    Set Variable [ $testSectionID; Value:testSectionCreatedFromATemplate::ksectionTemplate ]
-    Set Variable [ $testSectionName; Value:testSectionCreatedFromATemplate::name ]
-    #
-    Select Window [ Name: "Setup"; Current file ]
-    New Record/Request
-    #
-    Set Field [ testSectionCreatedFromATemplate::ksectionTemplate; $testSectionID ]
-    Set Field [ testSectionCreatedFromATemplate::name; $testSectionName ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $newTestNumber ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
-    Set Field [ testSectionCreatedFromATemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
-    #
-    Select Window [ Name: "Duplicate Test"; Current file ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Go to the duplicated test's first record.
-    Close Window [ Name: "Duplicate Test"; Current file ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubjectName::tag; ascending testSectionCreatedFromATemplate::reportNumber; descending testSectionCreatedFromATemplate::order; based on value list: “order Pulldown List” testSectionCreatedFromATemplate::name; ascending ] [ Restore; No dialog ]
-    Scroll Window [ Home ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ testSectionCreatedFromATemplate::ktestSubjectNode = TEMP::kdefaultNodeTestSubject ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Load it up.
-    Set Variable [ $$stopLoadTestRecord ]
-    Perform Script [ “loadTestSubjectTestSection” ]
-    #
-
-Fields used in this script
-
-    tempSetup::kdefaultNodePrimary
-    TEMP::kdefaultNodeTestSubject
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    testSubjectName::tag
-    testSectionCreatedFromATemplate::reportNumber
-    TEMP::DEFAULTNodeTestSubjectName
-    testSectionCreatedFromATemplate::ksectionTemplate
-    testSectionCreatedFromATemplate::name
-    TEMP::kdefaultNodePrimary
-    testSectionCreatedFromATemplate::kcreatorNode
-    testSectionCreatedFromATemplate::order
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    loadTestSubjectTestSection
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    TEMP
-    tag
-    testSectionCreatedFromATemplate
-
-Table occurrences used by this script
-
-    TEMP
-    tempSetup
-    testSectionCreatedFromATemplate
-    testSubjectName
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [duplicateSectionFromTemplate]	Parent Folder: [setup]	Next Script: [gotoSetupTest_TestSubjectTest]
-Script Name	gotoSetupTest_Template
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultTest
-    learnTest
-    learnSTest
-    testMenuTestItem
-    reportTagItem
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #Prevent user from going to the edit test
-    #template section, when user has come here
-    #from a Test or Report window. The scripts do
-    #work to allow this, but it gives the user too
-    #many options, and they can lose focus on
-    #editing the current subsection's info, which is
-    #why they have come here when the come from
-    #the Report or Test windows.
-    # Taking away this option here is just an
-    #inconvenience, as the user can return to the
-    #Setup Section and edit test templates.
-    # The user is still allowed to go edit
-    #templates from the Learn Section, when their
-    #work is focused in the Learn Section versus
-    #focused in the Test Section, and they have
-    #just briefly come to the Learn Section to make
-    #some quick edits, before returning the
-    #Test Section.
-    If [ ( $$testTagRecord = "" and $$learnRecord = "" ) = 0 ]
-    // Show Custom Dialog [ Message: "Going to the test-template edit-section of the library is not allowed when coming here from Test or Report sections. Click the back buttons until you return to Library Setup. Then from Setup, go to the Test Template edit section."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #
-    #
-    #
-    #BEGIN: Stop this script if any of the following are true:
-    #
-    #If there are no test sections to go to from
-    #the learn layout.
-    If [ Left (Get (LayoutName) ; 5 ) = "learn" and Get (FoundCount) = 0 ]
-    Exit Script [ ]
-    End If
-    #
-    #Test subject is locked.
-    #
-    #NOTE: Although changing associated learn
-    #and test item records cannot affect a test
-    #subjects test result or report records, further
-    #testing and so time is required to insure no
-    #problems occur as a result of allowing users to
-    #edit learn and test subsection records when
-    #navigating from locked Test Section item and
-    #info Tag Menus layouts.
-    If [ $$testSubjectIsLocked ≠ "" and Get ( LayoutName ) ≠ "defaultTest" and Get ( LayoutName ) ≠ "learnTest" ]
-    Show Custom Dialog [ Message: "The test subject — " & $$testSubjectIsLocked & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “No” ]
-    Set Variable [ $exit; Value:1 ]
-    End If
-    #
-    #Primary node is locked.
-    If [ TEMP::primaryNodeIsLocked ≠ "" ]
-    If [ $exit = "" ]
-    Show Custom Dialog [ Message: "The default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked. Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C) create a new primary node."; Default Button: “OK”, Commit: “No” ]
-    Else
-    Show Custom Dialog [ Message: "ALSO, the default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked. Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C) create a new primary node."; Default Button: “OK”, Commit: “No” ]
-    End If
-    Set Variable [ $exit; Value:1 ]
-    End If
-    #
-    #Subsection is locked by its creator node.
-    If [ $$testSubsectionIsLocked ≠ "" and Get ( LayoutName ) ≠ "defaultTest" or testSectionCreatorLock::orderOrLock ≠ "" and Get ( LayoutName ) ≠ "defaultTest" ]
-    #
-    If [ $exit = "" ]
-    If [ Left (Get (LayoutName) ; 5 ) = "learn" ]
-    Show Custom Dialog [ Message: "This test subsection's creator node — " & testSectionCreatorLock::tag & " — is locked. Go to the Default Node Tag Menu and click 'lock' to unlock it."; Default Button: “OK”, Commit: “Yes” ]
-    Else
-    Show Custom Dialog [ Message: "You can use all of this subsection's test items, but not edit them as this subsection is locked by its creator — " & $$testSubsectionIsLocked & ". If you know this node's password, you can unlock it on the Setup section's node menu."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    Set Variable [ $exit; Value:1 ]
-    End If
-    #
-    End If
-    #
-    #If any of the above are true, then
-    #exit this script.
-    If [ $exit = 1 ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #END: Stop this script if any of the following are true:
-    #
-    #
-    #
-    #
-    #
-    #Make sure script is starting in the
-    #Tag Menus window.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    #
-    #Clear citation match variable as effects the
-    #exit field scripts in the test section.
-    Set Variable [ $$citationMatch ]
-    #
-    #Stop the spell checking script to
-    #speed things up.
-    Set Variable [ $$stopTest; Value:1 ]
-    #
-    #Capture record ID so system can return user
-    #after editing is complete.
-    Set Variable [ $$recordNumber; Value:Get (RecordNumber) ]
-    #
-    #Capture test and test item IDs so system can
-    #reset them. During edit user may go to a
-    #different test record, thus changing these temp IDs.
-    If [ Get (LayoutName) = "learnTest" ]
-    Set Variable [ $$itemID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Else
-    Set Variable [ $$itemID; Value:TEMP::ktestSubsection ]
-    End If
-    Set Variable [ $$detailID; Value:TEMP::ktestItemSubsection ]
-    #
-    #Capture layoutname so system can return user
-    #after editing is complete.
-    Set Variable [ $$module; Value:Get (LayoutName) ]
-    #
-    #Go to section tag menu so section script
-    #steps below will work properly.
-    Go to Layout [ “setupTestSection” (testSection) ]
-    #
-    #If coming from the library's Test Setup layout,
-    #show user the library's test sections.
-    If [ Left ( $$module ; 7 ) = "default" ]
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    View As [ View as List ]
-    Enter Find Mode [ ]
-    Set Field [ testSection::match; "testSection" ]
-    Perform Find [ ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSection::tag; ascending ] [ Restore; No dialog ]
-    Go to Record/Request/Page [ First ]
-    End If
-    #
-    #
-    #
-    #Capture record ID so system can return user
-    #after editing is complete.
-    Select Window [ Name: "Learn"; Current file ]
-    If [ Get (LastError) = 112 ]
-    Select Window [ Name: "Setup"; Current file ]
-    If [ Get (LastError) = 112 ]
-    Select Window [ Name: "Test"; Current file ]
-    If [ Get (LastError) = 112 ]
-    Select Window [ Name: "Report"; Current file ]
-    End If
-    End If
-    Else If [ Get (LastError) ≠ 112 ]
-    Set Variable [ $$LearnEdit; Value:testlearn::_Ltestlearn ]
-    End If
-    #
-    #
-    If [ Get (WindowName) ≠ "Setup" ]
-    Set Variable [ $editingOneSubsection; Value:1 ]
-    End If
-    #
-    #Take user to test setup layout and find all
-    #test subsection templates. If coming from
-    #Library Setup window, if coming from a Test
-    #Tag Menus window or Report Tag Menus
-    #window, then only find the one subsection
-    #showing in that Tag Menus window.
-    Set Variable [ $$ID; Value:"ignore" ]
-    Go to Layout [ “setupTestSubsection” (testSubsectionTemplate) ]
-    Set Window Title [ Current Window; New Title: "Test Templates" ]
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    If [ $editingOneSubsection ≠ 1 ]
-    Show All Records
-    Else
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionTemplate::_LtestSubsection; $$itemID ]
-    Perform Find [ ]
-    End If
-    #
-    #If no test exist, then make sure Tag Menus
-    #also shows no section templates.
-    If [ Get (LastError) = 401 ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Perform Find [ Specified Find Requests: Find Records; Criteria: tagMenus::_Ltag: “"findNOrecords"” ] [ Restore ]
-    Select Window [ Name: "Setup"; Current file ]
-    #
-    #Turn back on spell check script.
-    Set Variable [ $$stopTest ]
-    #
-    Exit Script [ ]
-    End If
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroup::name; ascending testSubsectionTemplate::order; based on value list: “order Pulldown List” testSubsectionTemplate::name; ascending ] [ Restore; No dialog ]
-    Scroll Window [ Home ]
-    Go to Record/Request/Page [ First ]
-    #
-    #Conditionally format item and its tags.
-    Set Variable [ $$ID ]
-    If [ $editingOneSubsection = 1 ]
-    Show Custom Dialog [ Message: "Test items can ONLY be added and removed from the subsection being edited. To edit ALL subsections' test items, 1) click the back buttons until you return to Library Setup. 2) Click Test, and 3) click 2-3-4 templates."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    Perform Script [ “loadSetupTestSubsection” ]
-    #
-    #If coming from the test or report module show
-    #user the Tag Menus window as they probably
-    #want to edit a tag or add a new tag.
-    If [ $$module = "testMenuTestItem" or $$module = "reportTagItem" ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Perform Script [ “menuTestItem” ]
-    End If
-    #
-    #Turn back on spell check script.
-    Set Variable [ $$stopTest ]
-    #
-    #
-
-Fields used in this script
-
-    TEMP::primaryNodeIsLocked
-    TEMP::DEFAULTNodePrimaryName
-    testSectionCreatorLock::orderOrLock
-    testSectionCreatorLock::tag
-    testSubsectionTemplate::_LtestSubsection
-    TEMP::ktestSubsection
-    TEMP::ktestItemSubsection
-    testSection::match
-    testSection::tag
-    testlearn::_Ltestlearn
-    tagMenus::_Ltag
-    testSubsectionGroup::orderOrLibraryType
-    testSubsectionGroup::name
-    testSubsectionTemplate::order
-    testSubsectionTemplate::name
-
-Scripts used in this script
-
-    loadSetupTestSubsection
-    menuTestItem
-
-Layouts used in this script
-
-    setupTestSection
-    setupTestSubsection
-
-Tables used in this script
-
-    TEMP
-    tag
-    tag
-    tag
-    tagGroup
-    testSubsectionTemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    tagMenus
-    testSection
-    testSectionCreatorLock
-    testSubsectionGroup
-    testSubsectionTemplate
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [gotoSetupTest_Template]	Parent Folder: [setup]	Next Script: [gotoTechView]
-Script Name	gotoSetupTest_TestSubjectTest
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultTest
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If the PRIMARY node is currenlty locked then
-    #stop this script, and inform the user.
-    If [ TEMP::primaryNodeIsLocked ≠ "" ]
-    Show Custom Dialog [ Message: "The default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked. Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C) create a new primary node."; Default Button: “OK”, Commit: “No” ]
-    Exit Script [ ]
-    End If
-    #
-    Go to Layout [ “defaultTestNewSection” (testSectionCreatedFromATemplate) ]
-    #
-
-Fields used in this script
-
-    TEMP::primaryNodeIsLocked
-    TEMP::DEFAULTNodePrimaryName
-
-Scripts used in this script
-
-Layouts used in this script
-
-    defaultTestNewSection
-
-Tables used in this script
-
-    TEMP
-
-Table occurrences used by this script
-
-    TEMP
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [gotoSetupTest_TestSubjectTest]	Parent Folder: [setup]	Next Script: [gotoTestSubject_CreationDateField]
-Script Name	gotoTechView
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testSetupTechView
-    setupTestItemTechView
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    If [ $$techView = 1 ]
-    Select Window [ Name: "Setup"; Current file ]
-    Go to Layout [ “setupTestSubsection” (testSubsectionTemplate) ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Go to Layout [ “setupTestItem” (tagMenus) ]
-    Set Variable [ $$techView ]
-    Else
-    Select Window [ Name: "Setup"; Current file ]
-    Go to Layout [ “testSetupTechView” (testSubsectionTemplate) ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Go to Layout [ “setupTestItemTechView” (tagMenus) ]
-    Set Variable [ $$techView; Value:1 ]
-    End If
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-    setupTestSubsection
-    setupTestItem
-    testSetupTechView
-    setupTestItemTechView
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [gotoTechView]	Parent Folder: [setup]	Next Script: [gotoTestSubject_SectionField]
-Script Name	gotoTestSubject_CreationDateField
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultTestNewSection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #Test subject is not locked.
-    If [ testSubjectName::orderOrLock = "" ]
-    Go to Field [ testSectionCreatedFromATemplate::creationDate ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    testSubjectName::orderOrLock
-    testSectionCreatedFromATemplate::creationDate
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    tag
-    testSectionCreatedFromATemplate
-
-Table occurrences used by this script
-
-    testSectionCreatedFromATemplate
-    testSubjectName
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [gotoTestSubject_CreationDateField]	Parent Folder: [setup]	Next Script: [linkOrUnlinkTestItemGroupToTestItemList]
-Script Name	gotoTestSubject_SectionField
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultTestNewSection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #Test subject is locked.
-    If [ testSubjectName::orderOrLock ≠ "" ]
-    Go to Field [ testSectionCreatedFromATemplate::nameOnTestResult ]
-    #Test subject is not locked.
-    Else
-    Go to Field [ testSectionCreatedFromATemplate::name ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    testSubjectName::orderOrLock
-    testSectionCreatedFromATemplate::nameOnTestResult
-    testSectionCreatedFromATemplate::name
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    tag
-    testSectionCreatedFromATemplate
-
-Table occurrences used by this script
-
-    testSectionCreatedFromATemplate
-    testSubjectName
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [gotoTestSubject_SectionField]	Parent Folder: [setup]	Next Script: [loadSetupTestSection]
-Script Name	linkOrUnlinkTestItemGroupToTestItemList
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Go to Field [ ]
-    #
-    #If subsection is locked stop its test item list
-    #from being changed, other than added to.
-    If [ $$lockedMainSubsectionRecord ≠ "" ]
-    Show Custom Dialog [ Message: "This subsection is locked. Go to the Setup node menu and enter the password for the node — " & tagCreatorLock::tag & " — to unlock it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #Exit script if any of the current groups test items
-    #are in use. ( At a later date, improve this script
-    # so it finds the specific records in use and informs
-    # user of them specficially so user can find
-    # them and know how many their are. )
-    #
-    #find and show all test records that might be using
-    #any item in this group.
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $$stopDeleteTest; Value:1 ]
-    Set Variable [ $$stopTest; Value:1 ]
-    #
-    #Capture group key to be linked to or unlinked
-    #from the link pulldown selection the user just made.
-    Set Variable [ $group; Value:addTestItemGroup::addTestItemGroup ]
-    Set Variable [ $groupHighlight; Value:addTestItemGroup::addTestItemGroup ]
-    Set Field [ addTestItemGroup::addTestItemGroup; "" ]
-    New Window [ Name: "Test Results"; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    // New Window [ Name: "Test Results"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Enter Find Mode [ ]
-    Set Field [ tagMenuTestItemGroup::_Lgroup; $group ]
-    Perform Find [ ]
-    #
-    #Create a variable keychain of all test items that could
-    #be used.
-    Go to Record/Request/Page [ First ]
-    Loop
-    Set Variable [ $addToCheck; Value:$check ]
-    Set Variable [ $check; Value:tagMenus::_Ltag & ¶ & $addToCheck ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Check each specific inquiry in its group to
-    #see if any are being used as check-of-the-
-    #list items for the selected general inquiry in
-    #the Setup window.
-    Go to Layout [ “testResult0” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; TEMP::ktestSubsection ]
-    Perform Find [ ]
-    #
-    #Go the first record.
-    Go to Record/Request/Page [ First ]
-    #
-    #Prepare the message window, by clearing all
-    #records from the last time it was used.
-    Go to Layout [ “TEMP” (TEMP) ]
-    Show All Records
-    Delete All Records [ No dialog ]
-    Go to Layout [ “testResult0” (testlearn) ]
-    #
-    #The first loop checks for each test item.
-    Set Variable [ $groupNumber; Value:1 ]
-    #
-    #The first loop checks link of test-item group
-    #to the selected subsection currently using it.
-    Loop
-    Set Variable [ $item; Value:GetValue ( $check ; $groupNumber ) ]
-    #
-    #Second loop checks if any of the test items in
-    #the group are used (checked off) for any test
-    #result records.
-    Loop
-    Set Variable [ $number; Value:1 ]
-    Loop
-    If [ FilterValues ( GetValue ( testlearn::kctestResultCheckedItems ; $number ) ; $item & ¶ ) = $item & ¶ ]
-    #
-    Set Variable [ $addToInUse; Value:$inUse ]
-    Set Variable [ $inUse; Value:$addToInUse & $item & ¶ ]
-    #
-    Set Variable [ $useList; Value:tagTLTestSubject::tag & " | test/report " & TextColor( TextStyleAdd ( testlearn::kreportNumber; "" ) ;RGB(0;0;0)) & ¶ & "section " & TextColor( TextStyleAdd ( testSectionTemplateName::name; "" ) ;RGB(0;0;0)) & ¶ & "title " & TextColor( TextStyleAdd ( testlearn::subsectionCustomName; "" ) ;RGB(0;0;0)) ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    New Record/Request
-    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
-    Go to Layout [ “testResult0” (testlearn) ]
-    End If
-    #
-    #If number was set to exit or if no keys exist, then
-    #exit loop.
-    Exit Loop If [ GetValue ( testlearn::kctestResultCheckedItems ; $number ) = "" ]
-    #
-    #If variable looked at did not match then raise the number
-    #to view the next variable.
-    Set Variable [ $add; Value:$number ]
-    Set Variable [ $number; Value:$add + 1 ]
-    End Loop
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #If no more items in group then exit loop.
-    Exit Loop If [ GetValue ( $check ; $groupNumber ) = "" ]
-    #
-    #If variable looked at did not match then raise the number
-    #to view the next variable.
-    Set Variable [ $addToGroup; Value:$groupNumber ]
-    Set Variable [ $groupNumber; Value:$addToGroup + 1 ]
-    Go to Record/Request/Page [ First ]
-    End Loop
-    #
-    #
-    If [ $inUse ≠ "" ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Refresh Window
-    Select Window [ Name: "Test Results"; Current file ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
-    View As [ View as List ]
-    #
-    Show/Hide Toolbars [ Lock; Hide ]
-    Show/Hide Text Ruler [ Hide ]
-    #
-    #Due to a bug in FM13, window must first be
-    #moved back into the screen area before the
-    #calculation of the current screen's
-    #dimensions can be taken.
-    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
-    Move/Resize Window [ Name: "Test Results"; Current file; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
-    Set Field [ TEMP::Message; "To unlink this specific-inquiry group, uncheck the highlighted specific inquires (in the test module) from the test results below." ]
-    Pause/Resume Script [ Indefinitely ]
-    Close Window [ Current Window ]
-    Set Variable [ $delete ]
-    Set Variable [ $cannotDelete ]
-    Set Variable [ $groupHighlight ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Refresh Window
-    Exit Script [ ]
-    #
-    Else
-    Close Window [ Current Window ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    #
-    End If
-    #
-    #
-    #Open a new window and find this test item group.
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionGroup::_Lgroup; $group ]
-    Perform Find [ ]
-    #
-    #Capture current list of testList keys.
-    Set Variable [ $match; Value:testSubsectionGroup::match ]
-    #
-    #Remove the key from the list of test-item
-    #group keys, unless it only belongs to this list,
-    #in which case tell user that rather than
-    #unlinking it, the list needs to be deleted
-    #or linked to another test before unlinking it
-    #from the current test's list.
-    If [ TEMP::ktestItemSubsection & "¶" = FilterValues ( $match ; TEMP::ktestItemSubsection & "¶" ) ]
-    #
-    #Determine if test-item group belongs to more
-    #than one test.
-    If [ ValueCount ( testSubsectionGroup::match ) = 1 ]
-    Close Window [ Current Window ]
-    Go to Field [ ]
-    Show Custom Dialog [ Message: "This group cannot be unlinked because it is only linked to this test-item list and unlinking it would orphan it. Option 1: delete all items in group to remove it. Option 2: link it to another test and then unlink it from this test."; Default Button: “OK”, Commit: “No” ]
-    Set Variable [ $groupHighlight ]
-    Refresh Window
-    Exit Script [ ]
-    Else If [ ValueCount ( testSubsectionGroup::match ) ≠ 1 ]
-    Set Field [ testSubsectionGroup::match; Substitute ( $match ; TEMP::ktestItemSubsection & "¶" ; "" ) ]
-    Close Window [ Current Window ]
-    End If
-    #
-    #Add the key to list of test keys, if it is not currently
-    #part of this list.
-    Else If [ TEMP::ktestItemSubsection & "¶" ≠ FilterValues ( $match ; TEMP::ktestItemSubsection & "¶" ) ]
-    Set Field [ testSubsectionGroup::match; TEMP::ktestItemSubsection & ¶ & $match ]
-    Set Variable [ $newGrouphasBeenAdded; Value:1 ]
-    Close Window [ Current Window ]
-    End If
-    #
-    #Show newly added group and its test items.
-    Perform Script [ “menuTestItem” ]
-    #
-    #Take user to group added.
-    If [ $newGrouphasBeenAdded ]
-    If [ $group = tagMenuTestItemGroup::_Lgroup ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Exit Script [ ]
-    End If
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ $group = tagMenuTestItemGroup::_Lgroup ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    Set Variable [ $$stopLoadTagRecord ]
-    Perform Script [ “loadTagRecord” ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    tagCreatorLock::tag
-    addTestItemGroup::addTestItemGroup
-    tagMenuTestItemGroup::_Lgroup
-    tagMenus::_Ltag
-    TEMP::ktestSubsection
-    testlearn::ktestSubsection
-    testlearn::kctestResultCheckedItems
-    tagTLTestSubject::tag
-    testlearn::kreportNumber
-    testSectionTemplateName::name
-    testlearn::subsectionCustomName
-    TEMP::DeleteMessageInTempWindow1
-    TEMP::Message
-    testSubsectionGroup::_Lgroup
-    testSubsectionGroup::match
-    TEMP::ktestItemSubsection
-
-Scripts used in this script
-
-    menuTestItem
-    loadTagRecord
-
-Layouts used in this script
-
-    testResult0
-    TEMP
-    tableTagGroup
-
-Tables used in this script
-
-    TEMP
-    TEMP
-    tag
-    tag
-    tagGroup
-    testSectionCreatedFromATemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    addTestItemGroup
-    tagCreatorLock
-    tagMenuTestItemGroup
-    tagMenus
-    tagTLTestSubject
-    testSectionTemplateName
-    testSubsectionGroup
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [linkOrUnlinkTestItemGroupToTestItemList]	Parent Folder: [setup]	Next Script: [loadSetupTestSubsection]
-Script Name	loadSetupTestSection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    If [ $$stopTest = 1 ]
-    Exit Script [ ]
-    End If
-    #
-    #Set all variables needed for performing various
-    #scripts while in test setup mode.
-    Set Variable [ $$setupTestSection ]
-    Refresh Window
-    Select Window [ Name: "Test Templates"; Current file ]
-    Refresh Window
-    Select Window [ Name: "Tag Menus"; Current file ]
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [loadSetupTestSection]	Parent Folder: [setup]	Next Script: [loadTestSubjectTestSection]
-Script Name	loadSetupTestSubsection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-    checkTestSectionSubsectionAndItemRecordSpellings
-    deleteSubsection
-    gotoSetupTest_Template
-    nextPage
-    pagePulldown
-    previousPage
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #Stop script if needed to speed up other scripts.
-    If [ $$ID = testSubsectionTemplate::_LtestSubsection or $$ID = "ignore" or $$stopDeleteTest = 1 or $$goBackToSetup = 1 ]
-    Exit Script [ ]
-    End If
-    #
-    #Set all variables needed for performing various
-    #scripts while in test setup mode.
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Set Variable [ $$stopTest; Value:1 ]
-    Go to Field [ ]
-    Set Variable [ $$stopTest ]
-    #
-    // #Remove section hightlight if turned on.
-    // Set Variable [ $$setupTestSection ]
-    #
-    #Note if record is locked to protect its tags.
-    If [ testSectionCreatorLock::orderOrLock ≠ "" ]
-    Set Variable [ $$lockedMainSubsectionRecord; Value:testSectionCreatorLock::tag ]
-    Else
-    Set Variable [ $$lockedMainSubsectionRecord ]
-    End If
-    #
-    #Get subsection's group key for the 'move'
-    #button script.
-    Set Variable [ $$subsectionGroupOLD; Value:testSubsectionTemplate::ksubsectionGroup ]
-    #
-    #The test item list temp fields allow users to switch
-    #from their current list to another list.
-    Set Field [ TEMP::ktestItemSubsection; testSubsectionTemplate::ktestItemGroup ]
-    Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionTemplate::ktestItemGroup ]
-    #
-    Set Field [ TEMP::ktestSubsection; testSubsectionTemplate::_LtestSubsection ]
-    Set Field [ TEMP::mTag; TEMP::ktestSubsection ]
-    #
-    #Used on Tag Menus window item layout for switch.
-    Set Field [ TEMP::testSubsectionName; testSubsectionTemplate::name ]
-    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
-    #
-    #
-    #
-    #Get the name of the test for the test item list
-    #name temp field.
-    #
-    #The reason for this whole section of the script
-    #(getting a test name) is that there is no relationship
-    #that can be made that would match the key of
-    #of the named test to this test and thus unlock
-    #and so allow the layout to show this test's name.
-    #This is because the key to unlock the display of
-    #a test's name is in a keychain field where many
-    #keys may exist in a list. Filemaker cannot match
-    #a lock in one table to list of keys in another table.
-    #There must be only one key in a field in order
-    #for Filemaker to know which key to use in a lock.
-    #The database does not have the intellegence or
-    #programming to search through a list of keys
-    #to make a match to a lock field in another table.
-    #Thus, in order to display the name of the test in use
-    #we must have the system put that name in a temp
-    #field with global storage, which then allows it
-    #to be displayed on any layout where that temp
-    #field is displayed. No relationship between the
-    #the temp table and the layout's table is required
-    #as long as the temp field is a global field, meaning
-    #all data in the field is the same for every record
-    #in the temp table.
-    #
-    #If the test list belongs (has the key that fits the
-    #test's lock) then set the temp field with this test's name.
-    If [ testSubsectionTemplate::_LtestSubsection = testSubsectionTemplate::ktestItemGroup ]
-    #
-    #Set a temp field with this test's name. This name
-    #field will then be used to show this test's name on
-    #the Tag Menus layout for setupTestItems.
-    Set Field [ TEMP::ktestSubsectionName; testSubsectionTemplate::name ]
-    #
-    #If the test list does not belong to this test
-    #(has the key that fits A DIFFERENT test's lock)
-    #then set the temp field with this other test's name.
-    Else If [ testSubsectionTemplate::_LtestSubsection ≠ testSubsectionTemplate::ktestItemGroup ]
-    #
-    #Get the ID of the current record so it can be
-    #looped back to.
-    Set Variable [ $currentTest; Value:testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Turn of the record load triggered scripts
-    #to speed up this loop search.
-    Set Variable [ $$ID; Value:"ignore" ]
-    Set Variable [ $$stopTest; Value:1 ]
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #
-    #Go to the first record and then test it and every
-    #other record until the test in question is found.
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ testSubsectionTemplate::_LtestSubsection = TEMP::ktestItemSubsection ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Set a temp field with this test's name. This name
-    #field will then be used to show this test's name on
-    #the Tag Menus layout for setupTestItems.
-    Set Field [ TEMP::ktestSubsectionName; testSubsectionTemplate::name ]
-    #
-    #Update key used for the move pulldown.
-    Set Field [ TEMP::mTag; TEMP::ktestItemSubsection ]
-    #
-    #go back to current test.
-    Close Window [ Current Window ]
-    Set Variable [ $$ID; Value:$currentTest ]
-    Set Variable [ $$stopTest ]
-    Refresh Window
-    End If
-    #
-    #If the user has come to this screen from the test item
-    #window, then the itemName variable needs to be updated.
-    If [ $$itemName ≠ "" ]
-    Set Variable [ $$itemName; Value:TEMP::ktestSubsectionName ]
-    End If
-    #
-    Select Window [ Name: "Tag Menus"; Current file ]
-    If [ Get (LastError) = 112 ]
-    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “setupTestSection” (testSection) ]
-    End If
-    #
-    #Find test items for test if user is currently looking
-    #at test items on the Tag Menus window.
-    If [ Get (LayoutName) = "setupTestItem" or Get (LayoutName) = "setupTestItemLOCKED" ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    #
-    #If subsection is locked go the locked
-    #versus unlocked layout.
-    If [ $$lockedMainSubsectionRecord ≠ "" ]
-    Go to Layout [ “setupTestItemLOCKED” (tagMenus) ]
-    Else
-    Go to Layout [ “setupTestItem” (tagMenus) ]
-    End If
-    #
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    Set Field [ tagMenuTestItemGroup::match; TEMP::ktestItemSubsection & ¶ ]
-    Perform Find [ ]
-    Set Variable [ $$stopLoadTagRecord ]
-    #
-    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::name; ascending tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
-    Scroll Window [ Home ]
-    Go to Record/Request/Page [ First ]
-    #
-    #
-    #Ask the user if they would like to see the
-    #whole test item when they click on one or not
-    #(they just want to go to that tag record).
-    If [ $$rememberTestItemChoice ≠ 1 and Get(FoundCount) ≠ 0 ]
-    Show Custom Dialog [ Message: "Show all a test-item's text when you first click directly on the text, or just go to the record?"; Default Button: “JustGo”, Commit: “No”; Button 2: “ShowAll”, Commit: “No” ]
-    #
-    If [ Get (LastMessageChoice) = 1 ]
-    Set Variable [ $$showAll ]
-    #
-    Else If [ Get (LastMessageChoice) = 2 ]
-    Set Variable [ $$showAll; Value:1 ]
-    End If
-    #
-    #Ask if user would like their choice to be
-    #remembered for this session (until the library
-    #is restarted).
-    Show Custom Dialog [ Message: "Remember this decision for this session (if yes, you will not be asked again until you restart the library)?"; Default Button: “Remember”, Commit: “Yes”; Button 2: “Forget”, Commit: “No” ]
-    #
-    If [ Get (LastMessageChoice) = 1 ]
-    Set Variable [ $$rememberTestItemChoice; Value:1 ]
-    End If
-    End If
-    #
-    #
-    End If
-    #
-    #Refresh window in case user was on section layout.
-    Refresh Window
-    #
-    #Return to setup window and refresh it to highlight
-    #current record.
-    Select Window [ Name: "Test Templates"; Current file ]
-    Refresh Window
-    #
-    #
-    Perform Script [ “exit” ]
-    #
-    #Stop dragged spelling changes check. It's too
-    #annoying. It is run when user leaves the
-    #template section.
-    If [ $$module ≠ "testMenuTestItem" and $$module ≠ "reportTagItem" ]
-    Halt Script
-    End If
-    #
-
-Fields used in this script
-
-    testSubsectionTemplate::_LtestSubsection
-    testSectionCreatorLock::orderOrLock
-    testSectionCreatorLock::tag
-    testSubsectionTemplate::ksubsectionGroup
-    testSubsectionTemplate::ktestItemGroup
-    TEMP::ktestItemSubsection
-    TEMP::ktestItemSubsectionOLD
-    TEMP::ktestSubsection
-    TEMP::mTag
-    testSubsectionTemplate::name
-    TEMP::testSubsectionName
-    testSubsectionTemplate::kcsections
-    TEMP::ktestSubsectionName
-    tagMenuTestItemGroup::match
-    tagMenuTestItemGroup::orderOrLibraryType
-    tagMenuTestItemGroup::name
-    tagMenuTestItemGroup::_Lgroup
-    tagMenus::orderOrLock
-    tagMenus::tag
-
-Scripts used in this script
-
-    exit
-
-Layouts used in this script
-
-    setupTestSection
-    setupTestItemLOCKED
-    setupTestItem
-
-Tables used in this script
-
-    TEMP
-    tag
-    tagGroup
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    TEMP
-    tagMenuTestItemGroup
-    tagMenus
-    testSectionCreatorLock
-    testSubsectionTemplate
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [loadSetupTestSubsection]	Parent Folder: [setup]	Next Script: [moveSubsectionToOtherGroup]
-Script Name	loadTestSubjectTestSection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-    duplicateSectionFromTemplate
-    newSectionFromTemplate
-
-Script Definition
-Script Steps
-
-    #
-    #Stop script if running a delete check.
-    If [ $$stopLoadTestRecord = 1 ]
-    Exit Script [ ]
-    End If
-    #
-    #Admin tasks.
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    #
-    #Turn off highlights when leaving editsection
-    #layout (called defaultTestNewSection).
-    Set Variable [ $$highlightTestSection ]
-    Refresh Window
-    #
-    #If no section-templates exist then clear the
-    #section-template key and name fields.
-    If [ ValueListItems ( Get ( FileName ) ; "defaultSectionTemplates" ) = "" ]
-    Set Field [ TEMP::DEFAULTSectionName; "" ]
-    Set Field [ TEMP::kdefaultSectionTemplate; "" ]
-    End If
-    #
-    #If no records exist then stop the script.
-    If [ Get (FoundCount) = 0 and $$stopFocusLoad = "" or Get (FoundCount) ≠ 0 and $$stopFocusLoad = 1 or $$stopSetReportNumber = 1 ]
-    Exit Script [ ]
-    End If
-    #
-    #Set default test number so any new sections
-    #will be add to the selected test.
-    Set Field [ TEMP::reportNumber; testSectionCreatedFromATemplate::reportNumber ]
-    Go to Field [ ]
-    #
-    #Set test subject variable for conditionally
-    #formatting the selected test.
-    Set Variable [ $$testSubject; Value:testSectionCreatedFromATemplate::ktestSubjectNode ]
-    Refresh Window
-    #
-    // #Pause prevents accidental click of
-    // #section pulldown button after 'edit/newtest'
-    // #button is clicked.
-    // Set Variable [ $$pause; Value:1 ]
-    // Pause/Resume Script [ Duration (seconds): .5 ]
-    // Set Variable [ $$pause ]
-    #
-
-Fields used in this script
-
-    TEMP::DEFAULTSectionName
-    TEMP::kdefaultSectionTemplate
-    testSectionCreatedFromATemplate::reportNumber
-    TEMP::reportNumber
-    testSectionCreatedFromATemplate::ktestSubjectNode
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-
-Table occurrences used by this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [loadTestSubjectTestSection]	Parent Folder: [setup]	Next Script: [moveTestItemToNewTestGroupStep1]
-Script Name	moveSubsectionToOtherGroup
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #This script is for moving a test subsection
-    #to a different group.
-    #
-    #
-    #Admin tasks.
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    #
-    #If there is only one group, exit script.
-    If [ ValueCount ( ValueListItems ( Get ( FileName ) ; "templateSubsectionGroups" ) ) = 1 ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #If node is currenlty locked then stop script, inform user.
-    If [ testSectionCreatorLock::orderOrLock ≠ "" ]
-    Set Field [ testSubsectionTemplate::ksubsectionGroup; $$subsectionGroupOLD ]
-    Go to Field [ ]
-    Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & testSectionCreatorLock::tag & " -- in the setup tag window and enter the password to unlock it so that you can move it."; Default Button: “OK”, Commit: “No” ]
-    Exit Script [ ]
-    End If
-    #
-    Set Variable [ $$moveItem; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-    #
-    #Stop test record load script to speed up script.
-    Set Variable [ $$ID; Value:"ignore" ]
-    Set Variable [ $$stopTest; Value:1 ]
-    #
-    #Get the newly selected group's ID number.
-    Set Variable [ $newSubSectionGroup; Value:testSubsectionTemplate::ksubsectionGroup ]
-    #
-    #Reset the test's group ID with its old group ID
-    #number grabbed by the system in part 1 of
-    #this script, just in case the user decides to cancel
-    #move and the test needs to stay put.
-    Set Field [ testSubsectionTemplate::ksubsectionGroup; $$subsectionGroupOLD ]
-    Go to Field [ ]
-    #
-    #Check if this is the last test in the test group.
-    New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionTemplate::ksubsectionGroup; $$subsectionGroupOLD ]
-    Perform Find [ ]
-    If [ Get (FoundCount) = 1 ]
-    Close Window [ Current Window ]
-    Set Variable [ $deleteGroup; Value:TEMP::ktestSubsection ]
-    Refresh Window
-    #
-    #If it is the last item inform user that after the move
-    #the old group will be deleted unless the user
-    #creates a new item for this group before moving
-    #the old item.
-    Show Custom Dialog [ Title: "!"; Message: "The group — " & testSubsectionGroup::name & " — will be deleted if you complete this move. If you want to keep it: 1) click cancel, 2) create a new general inquiry for this group, then 3) perform the move."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “move”, Commit: “No” ]
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$moveItem ]
-    Set Variable [ $deleteGroup ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #If the user decides to go ahead with the move,
-    #first delete the old group.
-    New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #
-    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionGroup::_Lgroup; $$subsectionGroupOLD ]
-    Perform Find [ ]
-    Delete Record/Request [ No dialog ]
-    #
-    End If
-    #
-    #Close window opened to perform find, and then
-    #set group ID of test with the new groups ID number.
-    Close Window [ Current Window ]
-    Set Field [ testSubsectionTemplate::ksubsectionGroup; $newSubSectionGroup ]
-    Set Variable [ $$subsectionGroupOLD; Value:testSubsectionTemplate::ksubsectionGroup ]
-    Go to Field [ ]
-    #
-    #Section window on selected record.
-    Scroll Window [ Home ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroup::name; ascending testSubsectionTemplate::order; based on value list: “order Pulldown List” testSubsectionTemplate::name; ascending ] [ Restore; No dialog ]
-    #
-    #Turn back on the loadrecord script. The current
-    #record's info does not need to be reloaded of course
-    #because it is still the current record.
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Go to Field [ ]
-    #
-    #Turn off the move highlight.
-    Set Variable [ $$moveItem ]
-    Refresh Window
-    #
-
-Fields used in this script
-
-    testSectionCreatorLock::orderOrLock
-    testSubsectionTemplate::ksubsectionGroup
-    testSectionCreatorLock::tag
-    testSubsectionTemplate::_LtestSubsection
-    TEMP::ktestSubsection
-    testSubsectionGroup::name
-    testSubsectionGroup::_Lgroup
-    testSubsectionGroup::orderOrLibraryType
-    testSubsectionTemplate::order
-    testSubsectionTemplate::name
-
-Scripts used in this script
-
-Layouts used in this script
-
-    tableTestSubsectionTemplates
-    tableTagGroup
-
-Tables used in this script
-
-    TEMP
-    tag
-    tagGroup
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    TEMP
-    testSectionCreatorLock
-    testSubsectionGroup
-    testSubsectionTemplate
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [moveSubsectionToOtherGroup]	Parent Folder: [setup]	Next Script: [newSection]
-Script Name	moveTestItemToNewTestGroupStep1
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #This script is for moving a test item
-    #to different item group.
-    #
-    #
-    #If there is only one group, exit script.
-    If [ ValueCount ( ValueListItems ( Get ( FileName ) ; "templateSubsectionGroups" ) ) = 1 ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #If node is currenlty locked then stop script, inform user.
-    If [ testSectionCreatorLock::orderOrLock ≠ "" ]
-    Go to Field [ ]
-    Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & testSectionCreatorLock::tag & " -- in the setup tag window and enter the password to unlock it so that you can move it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    Set Variable [ $$groupOLD; Value:testSubsectionTemplate::ksubsectionGroup ]
-    Set Variable [ $$moveItem; Value:testSubsectionTemplate::_LtestSubsection ]
-    Refresh Window
-
-Fields used in this script
-
-    testSectionCreatorLock::orderOrLock
-    testSectionCreatorLock::tag
-    testSubsectionTemplate::ksubsectionGroup
-    testSubsectionTemplate::_LtestSubsection
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    tag
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    testSectionCreatorLock
-    testSubsectionTemplate
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [moveTestItemToNewTestGroupStep1]	Parent Folder: [setup]	Next Script: [newSectionFromTemplate]
-Script Name	newSection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestSection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #Create new section that can be added to
-    #any subject's test.
-    New Record/Request
-    Set Field [ testSection::match; "testSection" ]
-    Set Field [ testSection::tag; "section_template" ]
-    Set Field [ testSection::tagSpelling; "section_template" ]
-    Set Field [ testSection::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-    Go to Field [ testSection::tag ]
-    #
-
-Fields used in this script
-
-    testSection::match
-    testSection::tag
-    testSection::tagSpelling
-    TEMP::kdefaultNodePrimary
-    testSection::kRecordCreatorNode
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    tag
-
-Table occurrences used by this script
-
-    TEMP
-    testSection
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [newSection]	Parent Folder: [setup]	Next Script: [newSubsection]
-Script Name	newSectionFromTemplate
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultTestNewSection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #Pause prevents accidental click of
-    #section pulldown button after 'edit/newtest'
-    #button is clicked on main test layout.
-    If [ $$pause = 1 ]
-    Exit Script [ ]
-    End If
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #Do not allow user to create a new section if...
-    #
-    #...section is not selected.
-    If [ TEMP::kdefaultSectionTemplate= "" or TEMP::DEFAULTSectionName = "" ]
-    Set Variable [ $$highlightTestSection; Value:1 ]
-    Refresh Window
-    If [ ValueListItems ( Get ( FileName ) ; "defaultSectionTemplates" ) = "" ]
-    Show Custom Dialog [ Message: "There are no test-section templates available for creating new test sections. To create some 1) click 'back', then 2) click 'section-templatesetup' and finally 3) click 'new' to create your first test-section template. 4) Customize it to meet your needs."; Default Button: “OK”, Commit: “Yes” ]
-    Halt Script
-    End If
-    If [ TEMP::DEFAULTSectionName = "" ]
-    Show Custom Dialog [ Message: "Click 'select test section' now highlighted for you, and then select a test-section template from the pulldown menu that will appear. Your selected template will be used to create sections that you can add to any test."; Default Button: “OK”, Commit: “Yes” ]
-    Else
-    Show Custom Dialog [ Message: "Click '" & TEMP::DEFAULTSectionName & "', and then re-select a test-section template from the pulldown menu that will appear."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    Halt Script
-    #
-    #...report number is not selected.
-    Else If [ TEMP::reportNumber = "" ]
-    Set Variable [ $$highlightTestSection; Value:1 ]
-    Refresh Window
-    Show Custom Dialog [ Message: "Click '#' now highlighted for you, and then select the test's number that you want to add a new test-section to from the pulldown menu that will appear."; Default Button: “OK”, Commit: “Yes” ]
-    Halt Script
-    #
-    #...test subject is not selected.
-    Else If [ TEMP::kdefaultNodeTestSubject = "" ]
-    Set Variable [ $$highlightTestSection; Value:1 ]
-    Refresh Window
-    Show Custom Dialog [ Message: "All tests must have a test subject. 1) Click 'tag' above and then in the tags-menu window 2) click 'node'. 3) Select a node to be your test subject, or create a new node, and then 4) click the 'TS' button next to it."; Default Button: “OK”, Commit: “Yes” ]
-    Halt Script
-    #
-    #...test subject is selected, but is locked.
-    Else If [ testSubjectName::orderOrLock ≠ "" ]
-    Set Variable [ $$highlightTestSection; Value:1 ]
-    Refresh Window
-    #
-    #Get the current test subject's name.
-    Show Custom Dialog [ Message: "The test subject — " & testSubjectName::tag & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “Yes” ]
-    Halt Script
-    End If
-    #
-    #If the defautl test-subject node doesn't
-    #match the current users selected test
-    #section's test-subject, inform the user.
-    If [ testSectionCreatedFromATemplate::ktestSubjectNode ≠ TEMP::kdefaultNodeTestSubject ]
-    Show Custom Dialog [ Message: "This new test section will be created for " & TEMP::DEFAULTNodeTestSubjectName & "."; Default Button: “OK”, Commit: “No”; Button 2: “cancel”, Commit: “No” ]
-    If [ Get (LastMessageChoice) = 2 ]
-    Halt Script
-    End If
-    End If
-    #
-    #Had to capture report number as variable or
-    #stop record load script which would replace
-    #the default number selection with nothing
-    #upon new record creation.
-    Set Variable [ $reportNumber; Value:TEMP::reportNumber ]
-    #
-    #Load up new record after it is fully created.
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    #
-    #Create new record.
-    New Record/Request
-    Set Field [ testSectionCreatedFromATemplate::ksectionTemplate; TEMP::kdefaultSectionTemplate ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $reportNumber ]
-    Set Field [ testSectionCreatedFromATemplate::name; TEMP::DEFAULTSectionName ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
-    Set Field [ testSectionCreatedFromATemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
-    #
-    #Sort records so if user had selected a record
-    #under a different test subject than the one
-    #the record was just created for, this new
-    #record will re-sort under its test subject.
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubjectName::tag; ascending testSectionCreatedFromATemplate::reportNumber; descending testSectionCreatedFromATemplate::order; based on value list: “order Pulldown List” testSectionCreatedFromATemplate::name; ascending ] [ Restore; No dialog ]
-    #
-    #Load up this new test section.
-    Set Variable [ $$stopLoadTestRecord ]
-    Perform Script [ “loadTestSubjectTestSection” ]
-    #
-    #Allow the user the change
-    #this section's name.
-    Go to Field [ testSectionCreatedFromATemplate::name ]
-    #
-
-Fields used in this script
-
-    TEMP::kdefaultSectionTemplate
-    TEMP::DEFAULTSectionName
-    TEMP::reportNumber
-    TEMP::kdefaultNodeTestSubject
-    testSubjectName::orderOrLock
-    testSubjectName::tag
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    TEMP::DEFAULTNodeTestSubjectName
-    testSectionCreatedFromATemplate::ksectionTemplate
-    testSectionCreatedFromATemplate::reportNumber
-    testSectionCreatedFromATemplate::name
-    TEMP::kdefaultNodePrimary
-    testSectionCreatedFromATemplate::kcreatorNode
-    testSectionCreatedFromATemplate::order
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    loadTestSubjectTestSection
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    tag
-    testSectionCreatedFromATemplate
-
-Table occurrences used by this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-    testSubjectName
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [newSectionFromTemplate]	Parent Folder: [setup]	Next Script: [newSubsectionGroup]
-Script Name	newSubsection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestSubsection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #Stop spell check script.
-    Set Variable [ $$stopTest; Value:1 ]
-    #
-    #If there are no subsections, then create a new
-    #subsection group first and then a test for that
-    #group. All subsections belong to a group.
-    If [ Get (FoundCount) = 0 ]
-    Perform Script [ “newSubsectionGroup” ]
-    Exit Script [ ]
-    End If
-    #
-    #Set variables needed to create new subsection.
-    Set Variable [ $$ID; Value:"ignore" ]
-    Set Variable [ $group; Value:testSubsectionTemplate::ksubsectionGroup ]
-    #
-    #Copy current item's order number.
-    Set Variable [ $orderNumber; Value:testSubsectionTemplate::order ]
-    #
-    #
-    #Create new subsection.
-    New Record/Request
-    #( a test subsection group field is neccessary because a section
-    # may have more than one test subsection group, and so trying
-    # to find a test subsection group using the section key and
-    # the testSubsection match field would find all groups
-    # when we need the system to find one group. )
-    Set Field [ testSubsectionTemplate::ksubsectionGroup; $group ]
-    #
-    #Set order number if any.
-    Set Field [ testSubsectionTemplate::order; $orderNumber ]
-    #
-    #This new subsections key is placed in its test
-    #item key field to create future test items
-    #belonging in this subsection.
-    Set Field [ testSubsectionTemplate::ktestItemGroup; testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Subsections do not need unique names. Unlike other
-    #names, the names of subsections if named the same
-    #will not confuse the system. I don't think it will
-    #confuse the user either, but I am including steps to
-    #require a unique name so when locked by creator
-    #the name can be revereted back to orignal name.
-    Set Field [ testSubsectionTemplate::name; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
-    Set Field [ testSubsectionTemplate::nameSpelling; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
-    Set Field [ testSubsectionTemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
-    #
-    #
-    #
-    #Set temp variables for next part of script.
-    #
-    #The subsection's item list temp fields allow
-    #users to switch from their current list to
-    #another list.
-    Set Field [ TEMP::ktestItemSubsection; testSubsectionTemplate::ktestItemGroup ]
-    Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionTemplate::ktestItemGroup ]
-    #
-    #Used on tag menus to unlock buttons and link
-    #new records to test.
-    Set Field [ TEMP::ktestSubsection; testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Used on Tag Menus window item layout for switch.
-    Set Field [ TEMP::testSubsectionName; testSubsectionTemplate::name ]
-    #
-    #Used on Tag Menus window section layout for conditional
-    #formatting.
-    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
-    #
-    #
-    #Go to the tag menus window.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    If [ Get (LastError) = 112 ]
-    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “setupTestSection” (testSection) ]
-    End If
-    #
-    #Remember layout user is currently seeing in
-    #the tag menu window, so user can be returned
-    #to it at the end of the script.
-    Set Variable [ $layout; Value:Get (LayoutName) ]
-    #
-    #Assign section to subsection as each
-    #subsection must be in at least one section.
-    Perform Script [ “menuTestSection” ]
-    If [ Get (FoundCount) = 0 ]
-    Set Variable [ $layout ]
-    Go to Layout [ “setupTestSection” (testSection) ]
-    New Record/Request
-    Set Field [ testSection::match; "testSection" ]
-    Set Field [ testSection::tag; "section_template" ]
-    Set Field [ testSection::tagSpelling; "section_template" ]
-    Perform Script [ “menuTestSection” ]
-    End If
-    Go to Record/Request/Page [ First ]
-    Perform Script [ “linkOrUnlinkTestSection” ]
-    #
-    #Go to selected tag menu window layout.
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Go to Layout [ $layout ]
-    #
-    #Set variables for new record.
-    Select Window [ Name: "Test Templates"; Current file ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Sort records.
-    Scroll Window [ Home ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroup::name; ascending testSubsectionTemplate::order; based on value list: “order Pulldown List” testSubsectionTemplate::name; ascending ] [ Restore; No dialog ]
-    Go to Field [ testSubsectionTemplate::name ] [ Select/perform ]
-    #
-    #Start spell check script.
-    Set Variable [ $$stopTest ]
-    #
-
-Fields used in this script
-
-    testSubsectionTemplate::ksubsectionGroup
-    testSubsectionTemplate::order
-    testSubsectionTemplate::_LtestSubsection
-    testSubsectionTemplate::ktestItemGroup
-    testSubsectionTemplate::name
-    testSubsectionTemplate::nameSpelling
-    TEMP::kdefaultNodePrimary
-    testSubsectionTemplate::kcreatorNode
-    TEMP::ktestItemSubsection
-    TEMP::ktestItemSubsectionOLD
-    TEMP::ktestSubsection
-    TEMP::testSubsectionName
-    testSubsectionTemplate::kcsections
-    testSection::match
-    testSection::tag
-    testSection::tagSpelling
-    testSubsectionGroup::orderOrLibraryType
-    testSubsectionGroup::name
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    newSubsectionGroup
-    menuTestSection
-    linkOrUnlinkTestSection
-
-Layouts used in this script
-
-    setupTestSection
-    <Missing Layout>
-
-Tables used in this script
-
-    TEMP
-    tag
-    tagGroup
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    TEMP
-    testSection
-    testSubsectionGroup
-    testSubsectionTemplate
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [newSubsection]	Parent Folder: [setup]	Next Script: [newTestItem]
-Script Name	newSubsectionGroup
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestSubsection
-
-Scripts that use this script
-
-    newSubsection
-
-Script Definition
-Script Steps
-
-    #
-    #This script is creates test subsection groups.
-    #
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #Stop spell check script.
-    Set Variable [ $$stopTest; Value:1 ]
-    #
-    #Copy current group's order number.
-    Set Variable [ $orderNumber; Value:testSubsectionGroup::orderOrLibraryType ]
-    #
-    #Create new general inquiry group.
-    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
-    New Record/Request
-    Set Field [ testSubsectionGroup::orderOrLibraryType; $orderNumber ]
-    Set Field [ testSubsectionGroup::match; "testSubsection" ]
-    Set Field [ testSubsectionGroup::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-    #
-    #Each group must have a unique name and
-    #the nameSpelling field is used when the user
-    #changes the name to a name already in use at
-    #which point the nameSpelling name can revert
-    #the user back to the former name (as the name
-    #field contains the duplicate name which is not
-    #allowed).
-    Set Field [ testSubsectionGroup::name; "subsection_group" & testSubsectionGroup::_Lgroup ]
-    Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "subsection_group" & testSubsectionGroup::_Lgroup ]
-    Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
-    #
-    #Create new general inquiry for this group.
-    Set Variable [ $$ID; Value:"ignore" ]
-    Go to Layout [ “setupTestSubsection” (testSubsectionTemplate) ]
-    New Record/Request
-    Set Variable [ $loopToNewRecord; Value:testSubsectionTemplate::_LtestSubsection ]
-    Set Field [ testSubsectionTemplate::ksubsectionGroup; $group ]
-    #
-    #A new test-item list is created with each new test.
-    #This key field can be changed so that the test-item
-    #list for another test can be used.
-    Set Field [ testSubsectionTemplate::ktestItemGroup; testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Tests do not need unique names. Unlike other
-    #names, the names of tests if named the same
-    #will not confuse the system. I don't think it will
-    #confuse the user either, but I am including steps to
-    #require a unique name so when locked name can
-    #be revereted back to orignal name.
-    Set Field [ testSubsectionTemplate::name; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
-    Set Field [ testSubsectionTemplate::nameSpelling; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
-    Set Field [ testSubsectionTemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
-    #
-    #
-    #
-    #Set temp variables for next part of script.
-    #
-    #The test item list temp fields allow users to switch
-    #from their current list to another list.
-    Set Field [ TEMP::ktestItemSubsection; testSubsectionTemplate::ktestItemGroup ]
-    Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionTemplate::ktestItemGroup ]
-    #
-    #Used on tag menus to unlock buttons and link
-    #new records to test.
-    Set Field [ TEMP::ktestSubsection; testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Used on Tag Menus window item layout for switch.
-    Set Field [ TEMP::testSubsectionName; testSubsectionTemplate::name ]
-    #
-    #Used on Tag Menus window section layout for conditional
-    #formatting.
-    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
-    #
-    #
-    #Go to the tag menus window.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    If [ Get (LastError) = 112 ]
-    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “setupTestSection” (testSection) ]
-    End If
-    #
-    #Remember layout user is currently seeing in
-    #the tag menu window, so user can be returned
-    #to it at the end of the script.
-    Set Variable [ $layout; Value:Get (LayoutName) ]
-    #
-    #Assign section to test item as each test must have
-    #at least one section.
-    Perform Script [ “menuTestSection” ]
-    If [ Get (FoundCount) = 0 ]
-    Set Variable [ $layout ]
-    Go to Layout [ “setupTestSection” (testSection) ]
-    New Record/Request
-    Set Field [ testSection::match; "testSection" ]
-    Set Field [ testSection::tag; "test-section_template" ]
-    Set Field [ testSection::tagSpelling; "test-section_template" ]
-    Perform Script [ “menuTestSection” ]
-    End If
-    Go to Record/Request/Page [ First ]
-    Perform Script [ “linkOrUnlinkTestSection” ]
-    #
-    #Go to selected tag menu window layout.
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Go to Layout [ $layout ]
-    #
-    #Set variables for new record.
-    Select Window [ Name: "Test Templates"; Current file ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Sort records.
-    Scroll Window [ Home ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroup::name; ascending testSubsectionTemplate::order; based on value list: “order Pulldown List” testSubsectionTemplate::name; ascending ] [ Restore; No dialog ]
-    Go to Field [ testSubsectionTemplate::name ] [ Select/perform ]
-    #
-    #Start spell check script.
-    Set Variable [ $$stopTest ]
-    #
-
-Fields used in this script
-
-    testSubsectionGroup::orderOrLibraryType
-    testSubsectionGroup::match
-    TEMP::kdefaultNodePrimary
-    testSubsectionGroup::kRecordCreatorNode
-    testSubsectionGroup::_Lgroup
-    testSubsectionGroup::name
-    testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup
-    testSubsectionTemplate::_LtestSubsection
-    testSubsectionTemplate::ksubsectionGroup
-    testSubsectionTemplate::ktestItemGroup
-    testSubsectionTemplate::name
-    testSubsectionTemplate::nameSpelling
-    testSubsectionTemplate::kcreatorNode
-    TEMP::ktestItemSubsection
-    TEMP::ktestItemSubsectionOLD
-    TEMP::ktestSubsection
-    TEMP::testSubsectionName
-    testSubsectionTemplate::kcsections
-    testSection::match
-    testSection::tag
-    testSection::tagSpelling
-    testSubsectionTemplate::order
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    menuTestSection
-    linkOrUnlinkTestSection
-
-Layouts used in this script
-
-    tableTagGroup
-    setupTestSubsection
-    setupTestSection
-    <Missing Layout>
-
-Tables used in this script
-
-    TEMP
-    tag
-    tagGroup
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    TEMP
-    testSection
-    testSubsectionGroup
-    testSubsectionTemplate
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [newSubsectionGroup]	Parent Folder: [setup]	Next Script: [newTestItemGroup]
-Script Name	newTestItem
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestItem
-    testMenuTestItemEdit
-    testMenuTestItemMORE
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #This script is for creating a test item.
-    #
-    #If the node that created this group is locked
-    #prevent new items be created for it even by a
-    #node that is not locked.
-    If [ nodeLockTestTagItemGroup::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "This group is locked. Go the node that created this group — " & nodeLockTestTagItemGroup::tag & " — in the setup tag window and enter the password to unlock it so that you can create items for it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #Stop this script if there are no subsections
-    #for which to create test items.
-    If [ TEMP::ktestSubsection = "" ]
-    Show Custom Dialog [ Message: "All test items must belong to (be linked to) at least one test subsection. Create one now, and then you can create new test items and test-item groups for it."; Default Button: “OK”, Commit: “No” ]
-    Exit Script [ ]
-    End If
-    #
-    #If there are no test items, then create a new test
-    #item group first and then a test for that group.
-    #All test items belong to test item groups, not
-    #tests. This allows test item groups to be added
-    #to other test's test-item lists.
-    If [ Get (FoundCount) = 0 ]
-    Perform Script [ “newTestItemGroup” ]
-    Exit Script [ ]
-    End If
-    #
-    #Capturet he current item's type and style
-    #to apply to the new item.
-    Set Variable [ $checkORtextORform; Value:Case ( tagMenus::notesOrCopyright ≠ "" ; tagMenus::notesOrCopyright ; "✓" ) ]
-    Set Variable [ $style; Value:tagMenus::textStyleOrCreatorNodeFlag ]
-    #
-    #Copy current item's style setting.
-    Set Variable [ $style; Value:tagMenus::textStyleOrCreatorNodeFlag ]
-    #
-    #Copy current item's order number.
-    Set Variable [ $orderNumber; Value:tagMenus::orderOrLock ]
-    #
-    #Create an item for this goup of test items.
-    New Record/Request
-    Set Field [ tagMenus::match; "testItem" ]
-    Set Field [ tagMenus::orderOrLock; $orderNumber ]
-    Set Field [ tagMenus::orderOrLock[2]; $orderNumber ]
-    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; $style ]
-    Set Field [ tagMenus::notesOrCopyright; $checkORtextORform ]
-    Set Field [ tagMenus::kGroupOrTest; GetNthRecord ( tagMenus::kGroupOrTest ; Get (RecordNumber) - 1 ) ]
-    Set Field [ tagMenus::tag; "test-item" & tagMenus::_Ltag ]
-    Set Field [ tagMenus::tagSpelling; "test-item" & tagMenus::_Ltag ]
-    Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-    Go to Field [ ]
-    #
-    #Apply tag style.
-    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Georgia" ) ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
-    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextSize ( tagMenus::tag ; 20 ) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
-    Set Field [ tagMenus::tag; TextStyleAdd ( tagMenus::tag ; Bold ) ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    End If
-    Go to Field [ tagMenus::tag ] [ Select/perform ]
-    #
-
-Fields used in this script
-
-    nodeLockTestTagItemGroup::orderOrLock
-    nodeLockTestTagItemGroup::tag
-    TEMP::ktestSubsection
-    tagMenus::notesOrCopyright
-    tagMenus::textStyleOrCreatorNodeFlag
-    tagMenus::orderOrLock
-    tagMenus::match
-    tagMenus::kGroupOrTest
-    tagMenus::_Ltag
-    tagMenus::tag
-    tagMenus::tagSpelling
-    TEMP::kdefaultNodePrimary
-    tagMenus::kRecordCreatorNode
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    newTestItemGroup
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    tag
-    tag
-
-Table occurrences used by this script
-
-    TEMP
-    nodeLockTestTagItemGroup
-    tagMenus
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [newTestItem]	Parent Folder: [setup]	Next Script: [newTestSectionTemplatePulldownCheck]
-Script Name	newTestItemGroup
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestItem
-    testMenuTestItemEdit
-    testMenuTestItemMORE
-
-Scripts that use this script
-
-    newTestItem
-
-Script Definition
-Script Steps
-
-    #
-    #This script creates test item groups.
-    #
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #If there are no general test inquires, then
-    #stop this script as there are no general inquires
-    # to create specific inquires for.
-    If [ TEMP::ktestSubsection = "" ]
-    Show Custom Dialog [ Message: "All test items must belong to (be linked to) at least one test subsection. Create one now, and then you can create new test items and test-item groups for it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #Capturet he current item's type and style
-    #to apply to the new item.
-    Set Variable [ $checkORtextORform; Value:Case ( tagMenus::notesOrCopyright ≠ "" ; tagMenus::notesOrCopyright ; "✓" ) ]
-    Set Variable [ $style; Value:tagMenus::textStyleOrCreatorNodeFlag ]
-    #
-    #Copy current group's order number.
-    Set Variable [ $orderNumber; Value:tagMenuTestItemGroup::orderOrLibraryType ]
-    #
-    #Create new test item group record.
-    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
-    New Record/Request
-    #
-    #
-    #BEGIN !!!!!!!!!!!!!!!!!!!!!!!!!!!
-    #READ CAREFULLY!!! nameSpelling field used differently!!!
-    #Each test-item group must have a unique name and
-    #the nameSpellingTestItemGroup field is used when the user
-    #changes the name to a name already in use at
-    #which point the nameSpellingTestItemGroup name can revert
-    #the user back to the former name (as the name
-    #field contains the duplicate name which is not
-    #allowed).
-    Set Field [ testSubsectionGroup::orderOrLibraryType; $orderNumber ]
-    Set Field [ testSubsectionGroup::orderOrLibraryType[2]; $orderNumber ]
-    Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
-    Set Field [ testSubsectionGroup::name; "test-item_group" & testSubsectionGroup::_Lgroup ]
-    Set Field [ testSubsectionGroup::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-    Set Field [ testSubsectionGroup::nameSpellingFORTestItemGroup; "test-item_group" & testSubsectionGroup::_Lgroup ]
-    #
-    #
-    Set Field [ testSubsectionGroup::match; TEMP::ktestSubsection & ¶ ]
-    #
-    #NEVER CHANGE!!! This is the key field for the
-    #link pulldown menu. If you decide to change
-    #it, you'll have to create a script to change it in
-    #in older library's group records which will have
-    #the spelling of the old key and thus not show
-    #up any longer once the key is changed.
-    Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "testItemGroup" ]
-    #END !!!!!!!!!!!!!!!!!!!!!!!!!!!
-    #
-    #Create a test item for this goup as all groups must
-    #have at least one item. Item layout is sorted by
-    #by group and then item and groups are only
-    #shown as subheaders. So without an item
-    #even if a group it existed it would not show up.
-    Go to Layout [ original layout ]
-    New Record/Request
-    Set Field [ tagMenus::match; "testItem" ]
-    Set Field [ tagMenus::notesOrCopyright; $checkORtextORform ]
-    Set Field [ tagMenus::kGroupOrTest; $group ]
-    Set Field [ tagMenus::tag; "test-item" & tagMenus::_Ltag ]
-    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; $style ]
-    Set Field [ tagMenus::tagSpelling; "test-item" & tagMenus::_Ltag ]
-    Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-    #
-    #Apply tag style.
-    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Georgia" ) ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
-    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextSize ( tagMenus::tag ; 20 ) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
-    Set Field [ tagMenus::tag; TextStyleAdd ( tagMenus::tag ; Bold ) ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    End If
-    #
-    #Must be sorted to show the group
-    #for this first test item and when it's
-    #out of sight.
-    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
-    Scroll Window [ Home ]
-    #
-    #Load up all tag variables.
-    Perform Script [ “loadTagRecord” ]
-    Go to Field [ tagMenus::tag ] [ Select/perform ]
-    #
-
-Fields used in this script
-
-    TEMP::ktestSubsection
-    tagMenus::notesOrCopyright
-    tagMenus::textStyleOrCreatorNodeFlag
-    tagMenuTestItemGroup::orderOrLibraryType
-    testSubsectionGroup::orderOrLibraryType
-    testSubsectionGroup::_Lgroup
-    testSubsectionGroup::name
-    TEMP::kdefaultNodePrimary
-    testSubsectionGroup::kRecordCreatorNode
-    testSubsectionGroup::nameSpellingFORTestItemGroup
-    testSubsectionGroup::match
-    testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup
-    tagMenus::match
-    tagMenus::kGroupOrTest
-    tagMenus::_Ltag
-    tagMenus::tag
-    tagMenus::tagSpelling
-    tagMenus::kRecordCreatorNode
-    tagMenuTestItemGroup::_Lgroup
-    tagMenus::orderOrLock
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    loadTagRecord
-
-Layouts used in this script
-
-    tableTagGroup
-
-Tables used in this script
-
-    TEMP
-    tag
-    tagGroup
-
-Table occurrences used by this script
-
-    TEMP
-    tagMenuTestItemGroup
-    tagMenus
-    testSubsectionGroup
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [newTestItemGroup]	Parent Folder: [setup]	Next Script: [showSubsectionsInThisSection]
-Script Name	newTestSectionTemplatePulldownCheck
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If there are no test sections created,
-    #tell the user this, and how to create some.
-    If [ ValueListItems ( Get ( FileName ) ; "defaultSectionTemplates" ) = "" ]
-    Show Custom Dialog [ Message: "There are no test-section templates available for creating new test sections. To create some 1) click 'back', then 2) click 'section-templatesetup' and finally 3) click 'new' to create your first test-section template. 4) Customize it to meet your needs."; Default Button: “OK”, Commit: “Yes” ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [newTestSectionTemplatePulldownCheck]	Parent Folder: [setup]
-Script Name	showSubsectionsInThisSection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestSection
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    Go to Field [ ]
-    #Set all variables needed for performing various
-    #scripts while in test setup mode.
-    If [ $$setupTestSection = "" ]
-    Set Variable [ $$setupTestSection; Value:testSection::_Ltag ]
-    Set Variable [ $setupTestSectionName; Value:testSection::tag ]
-    Go to Field [ ]
-    #
-    #
-    Set Variable [ $$stopTest; Value:1 ]
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Set Variable [ $$stopTest ]
-    Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionTemplate::kcsections; $$setupTestSection ]
-    Perform Find [ ]
-    Set Variable [ $numberInThisSection; Value:Get (FoundCount) ]
-    Close Window [ Current Window ]
-    #
-    Refresh Window
-    #
-    #
-    #
-    If [ $numberInThisSection = 0 ]
-    #
-    Set Variable [ $$setupTestSection ]
-    Show Custom Dialog [ Message: "There are no subsections in this test section — " & $setupTestSectionName & "."; Default Button: “OK”, Commit: “Yes” ]
-    Refresh Window
-    #
-    Else
-    Select Window [ Name: "Test Templates"; Current file ]
-    Refresh Window
-    If [ $numberInThisSection = 1 ]
-    Show Custom Dialog [ Message: "The " & $numberInThisSection & " subsection in this test section — " & $setupTestSectionName & " — is now highlighed."; Default Button: “OK”, Commit: “Yes” ]
-    Else
-    Show Custom Dialog [ Message: "All " & $numberInThisSection & " subsections in this test section — " & $setupTestSectionName & " — are now highlighed."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    End If
-    Else
-    Set Variable [ $$setupTestSection ]
-    Select Window [ Name: "Test Templates"; Current file ]
-    Refresh Window
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Refresh Window
-    End If
-
-Fields used in this script
-
-    testSection::_Ltag
-    testSection::tag
-    testSubsectionTemplate::kcsections
-
-Scripts used in this script
-
-Layouts used in this script
-
-    tableTestSubsectionTemplates
-
-Tables used in this script
-
-    tag
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    testSection
-    testSubsectionTemplate
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-test
-	Parent Folder: [test]	Next Script: [CHUNK_testInfoReferences]
-Script Name	CHUNK_countTestResults
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #Add 1 to test results count.
-    Set Variable [ $count; Value:testlearn::countOfALLSubsectionsTestResults ]
-    Set Field [ testlearn::countOfALLSubsectionsTestResults; $count + 1 ]
-
-Fields used in this script
-
-    testlearn::countOfALLSubsectionsTestResults
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    testlearn
-
-Table occurrences used by this script
-
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [CHUNK_countTestResults]	Parent Folder: [test]	Next Script: [deleteReportTestResult]
-Script Name	CHUNK_testInfoReferences
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-    loadTestInfo
-
-Script Definition
-Script Steps
-
-    #
-    #If the info record has references then make sure
-    #the Reference window is open, and then load up
-    #its reference records, otherwise exit the script.
-    If [ testlearnReportTags::kcreference = "" ]
-    Exit Script [ ]
-    End If
-    #
-    #Prevent halting to loadTagRecord script.
-    Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
-    Set Variable [ $$stopWhenLoadingInfoRecordReferences; Value:1 ]
-    #
-    #Capture the keys of the references load.
-    Set Variable [ $references; Value:testlearnReportTags::kcreference ]
-    #
-    #Determine how many references there are.
-    Set Variable [ $numberOfReferences; Value:ValueCount ( testlearnReportTags::kcreference ) ]
-    #
-    #Prevent loading up records.
-    Set Variable [ $$stoploadtestinfo; Value:1 ]
-    #
-    #Now go the Reference window or open one up
-    #if neccessary.
-    Select Window [ Name: "Reference"; Current file ]
-    If [ Get ( LastError ) = 112 ]
-    If [ $$pictureWindowColor = "test" ]
-    New Window [ Name: "Reference"; Width: Get ( ScreenWidth ) / 3; Left: ( Get ( ScreenWidth ) / 3 ) * 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Else
-    New Window [ Name: "Reference"; Width: 290; Left: Get ( ScreenWidth ) - 290; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    End If
-    End If
-    #
-    #Go the layout for info references.
-    Go to Layout [ “TestInfoReference” (reference) ]
-    #
-    #Turn back on record load script.
-    Set Variable [ $$stoploadtestinfo ]
-    #
-    #Find the first reference.
-    Enter Find Mode [ ]
-    Set Field [ reference::_Lreference; GetValue ( $references ; $numberOfReferences ) ]
-    Perform Find [ ]
-    #
-    #If there is more than one reference, then load
-    #find them one-at-time until all have been found.
-    Loop
-    Set Variable [ $numberOfReferences; Value:$numberOfReferences - 1 ]
-    #
-    Exit Loop If [ $numberOfReferences = 0 ]
-    #
-    Enter Find Mode [ ]
-    Set Field [ reference::_Lreference; GetValue ( $references ; $numberOfReferences ) ]
-    Extend Found Set [ ]
-    #
-    End Loop
-    #
-    #Sor the references by keyword (subject).
-    Perform Script [ “sortRefBySubject” ]
-    #
-    #Resize the Reference window along with the
-    #other windows. The Test and Report sections
-    #have different window size requirements.
-    If [ $$pictureWindowColor = "test" ]
-    Move/Resize Window [ Name: "Test"; Current file; Width: Get ( ScreenWidth ) / 3; Left: 0 ]
-    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get ( ScreenWidth ) / 3; Left: Get ( ScreenWidth ) / 3 ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Else
-    Select Window [ Name: "Tag Menus"; Current file ]
-    If [ Get ( ScreenWidth ) - 884 < 334 ]
-    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: 334; Left: 594 ]
-    Else
-    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get ( ScreenWidth ) - 884; Left: 594 ]
-    End If
-    End If
-    #
-    #Turn back on info record record's load script.
-    Set Variable [ $$stopWhenLoadingInfoRecordReferences ]
-    #
-    #
-
-Fields used in this script
-
-    testlearnReportTags::kcreference
-    reference::_Lreference
-
-Scripts used in this script
-
-    sortRefBySubject
-
-Layouts used in this script
-
-    TestInfoReference
-
-Tables used in this script
-
-    reference
-    testlearn
-
-Table occurrences used by this script
-
-    reference
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [CHUNK_testInfoReferences]	Parent Folder: [test]	Next Script: [deleteTestResult]
-Script Name	deleteReportTestResult
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    reportTestResult
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #basic administration tasks
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    #
-    If [ testlearnReportTags::_Ltestlearn = "" ]
-    Halt Script
-    End If
-    #
-    #If node is currenlty locked then stop script, inform user.
-    If [ ReportResultTestSubject::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "The test subject — " & ReportResultTestSubject::tag & " — is locked, so all this node's test results are locked too. Go back to Setup to unlock it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    If [ testlearnReportTags::kcInUseOnReportSubsection ≠ "" ]
-    Show Custom Dialog [ Title: "!"; Message: testlearnReportTags::_Number & " is in use on " & testlearnReportTags::inUseNumberOfTimes & If ( testlearnReportTags::inUseNumberOfTimes = 1 ; " report and must be removed before it can be deleted." ; " reports and must be removed from all of them before it can be deleted." ); Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #make to be deleted record red and capture info for delete
-    Set Variable [ $delete; Value:testlearnReportTags::_Ltestlearn ]
-    Set Variable [ $record; Value:Get (RecordNumber) ]
-    Set Variable [ $TempTestSection; Value:testlearnReportTags::ktestSection ]
-    Set Variable [ $TempReportNumber; Value:testlearnReportTags::kreportNumber ]
-    Set Variable [ $TempTestSubject; Value:testlearnReportTags::ktestSubject ]
-    Go to Field [ ]
-    Refresh Window
-    #
-    #
-    If [ testlearnReportTags::ktestSubject + testlearnReportTags::kreportNumber = $$testSubject + $$reportNumber ]
-    Show Custom Dialog [ Message: "Delete evidence number " & testlearnReportTags::_Number & " ?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    End If
-    #
-    #
-    If [ Get ( LastMessageChoice ) = 2 ]
-    #
-    #
-    #
-    If [ Get ( FoundCount ) = 1 ]
-    Show Custom Dialog [ Title: "!"; Message: "Deleting this last piece of evidence will delete this page of the report too, do you wish to proceed? If you wish to keep this report page then add new evidence before deleting this evidence."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Delete Record/Request [ No dialog ]
-    Else If [ Get ( LastMessageChoice ) = 1 ]
-    Set Variable [ $delete ]
-    Refresh Window
-    Exit Script [ ]
-    End If
-    #If there is only one test result then delete the
-    #report page to which it belongs.
-    Go to Layout [ “PrintReportEdit” (report) ]
-    Enter Find Mode [ ]
-    Set Field [ report::ktestSubject; $TempTestSubject ]
-    Set Field [ report::ktestSubsection; $$testSubsection ]
-    Set Field [ report::kreportNumber; $TempReportNumber ]
-    Perform Find [ ]
-    Delete All Records [ No dialog ]
-    Set Variable [ $delete ]
-    #See if this was the only test result.
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSection; $TempTestSection ]
-    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
-    Perform Find [ ]
-    #Unlock test IF this deleted result was
-    #the only test result in this test section.
-    If [ Get ( LastError ) = 401 ]
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $TempTestSection ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $TempReportNumber ]
-    Perform Find [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
-    #refind all test section records for current library report number
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $TempTestSubject ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $$reportNumber ]
-    Perform Find [ ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    #Set this test as pending testing.
-    If [ testSubsectionForSubject::kgtestSection = $TempTestSection ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
-    End If
-    End If
-    #See if there are any other tests in this
-    #report with results.
-    Select Window [ Name: "Report"; Current file ]
-    If [ ValueListItems ( Get ( FileName ) ; "reportTestSubsections" ) = "" ]
-    #If none, then return to main test layout.
-    Perform Script [ “returnToTestSetup” ]
-    Exit Script [ ]
-    Else
-    #If there are results in other sections then go
-    #to the first one of those sections.
-    Set Variable [ $$goToFirstReportPage; Value:GetValue ( ValueListItems ( Get ( FileName ) ; "reportTestSubsections" ) ; 1 ) ]
-    Perform Script [ “CHUNK_gotoTestSubsectionViaPulldown” ]
-    Exit Script [ ]
-    End If
-    End If
-    #
-    #
-    #
-    #switch back to this layout so don't have reassign
-    #fields for inspection layout. (script was written for
-    #findings layout)
-    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
-    Go to Record/Request/Page [ $record ] [ No dialog ]
-    Delete Record/Request [ No dialog ]
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    #GET ID INFO as is from different location
-    #Unlock Item Location
-    #zero out findings for item for this contact's location
-    #
-    #decrease number of findings for item for this contact's location
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSection; $TempTestSection ]
-    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
-    Perform Find [ ]
-    #Unlock Item Location
-    If [ Get ( LastError ) = 401 ]
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $TempTestSection ]
-    Perform Find [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
-    Else If [ Get (LastError) ≠ 401 ]
-    Go to Layout [ “testResult0” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSection; $TempTestSection ]
-    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
-    Perform Find [ ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    Loop
-    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    End If
-    Go to Layout [ “testResult0” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
-    Set Field [ testlearn::ktestSubject; $TempTestSubject ]
-    Perform Find [ ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    End If
-    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
-    Set Variable [ $delete ]
-    Refresh Window
-
-Fields used in this script
-
-    testlearnReportTags::_Ltestlearn
-    ReportResultTestSubject::orderOrLock
-    ReportResultTestSubject::tag
-    testlearnReportTags::kcInUseOnReportSubsection
-    testlearnReportTags::_Number
-    testlearnReportTags::inUseNumberOfTimes
-    testlearnReportTags::ktestSection
-    testlearnReportTags::kreportNumber
-    testlearnReportTags::ktestSubject
-    report::ktestSubject
-    report::ktestSubsection
-    report::kreportNumber
-    testlearn::ktestSection
-    testlearn::kreportNumber
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::reportNumber
-    testSectionCreatedFromATemplate::inUse
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    testSubsectionForSubject::kgtestSection
-    testSubsectionForSubject::gprogressGlobal
-    testlearn::ktestSubsection
-    testlearn::countOfONESubsectionsTestResults
-    testlearn::ktestSubject
-    testlearn::countOfALLSubsectionsTestResults
-
-Scripts used in this script
-
-    returnToTestSetup
-    CHUNK_gotoTestSubsectionViaPulldown
-
-Layouts used in this script
-
-    PrintReportEdit
-    testSCRIPTloops
-    tableTestSectionFromTemplate
-    testingSubsectionMenu
-    reportTestResult
-    testResult0
-
-Tables used in this script
-
-    report
-    tag
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-
-Table occurrences used by this script
-
-    ReportResultTestSubject
-    report
-    testSectionCreatedFromATemplate
-    testSubsectionForSubject
-    testlearn
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [deleteReportTestResult]	Parent Folder: [test]	Next Script: [done]
-Script Name	deleteTestResult
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testResult0
-    testResult1
-    testResult2
-    testResult3
-    testResult4
-    testResult5
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    If [ testlearn::_Ltestlearn = "" ]
-    Halt Script
-    End If
-    #
-    #If node is currenlty locked then stop script, inform user.
-    If [ tagTLTestSubject::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "The test subject — " & tagTLTestSubject::tag & " — is locked, so all this node's test results are locked too. Go back to Setup to unlock it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #Prevent test results in use on report from
-    #being deleted. Tell users how to remove
-    #them from the report.
-    If [ testlearn::kcInUseOnReportSubsection ≠ "" ]
-    Show Custom Dialog [ Message: "Remove from report " & testlearn::kreportNumber & " to delete. 1) Go back to the main test window. 2) Click the 'report' button. In the Report window, 3) click the 'switchtest' button. 4) Select this section. 5) Scroll down to find and click the 'x' button next to result " & testlearn::_Number & "."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    Set Variable [ $delete; Value:testlearn::_Ltestlearn ]
-    Set Variable [ $record; Value:Get (RecordNumber) ]
-    Set Variable [ $TempTestSection; Value:testlearn::ktestSection ]
-    Set Variable [ $TempReportNumber; Value:testlearn::kreportNumber ]
-    Set Variable [ $TempTestSubject; Value:testlearn::ktestSubject ]
-    Go to Field [ ]
-    Refresh Window
-    #
-    #Tell user what section they are about to delete
-    #result from, and give them the opportunity to
-    #cancel the delete.
-    If [ testlearn::ktestSection = $$testSection ]
-    Show Custom Dialog [ Message: "Delete this section's number " & testlearn::recordnumberglobal & " test result?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    Else
-    Show Custom Dialog [ Message: "Delete another section's (" & testSectionTemplateName::name & ") number " & testlearn::recordnumberglobal & " test result?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    End If
-    #
-    #If users cancels the delete then reset the window.
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Set Variable [ $delete ]
-    Refresh Window
-    Exit Script [ ]
-    End If
-    #
-    #If the result has test items checked off its list,
-    #then inform the user of this and see if they
-    #really want to delete it.
-    If [ ValueCount ( testlearn::kctestResultCheckedItems ) ≠ 0 ]
-    Set Variable [ $testItemsCheckedOffTheList; Value:ValueCount ( testlearn::kctestResultCheckedItems ) ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    If [ $testItemsCheckedOffTheList = 1 ]
-    Show Custom Dialog [ Message: "Just to be sure, so far " & $testItemsCheckedOffTheList & " checklist item has been checked off this test result's list. Continue deleting it?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    Else
-    Show Custom Dialog [ Message: "Just to be sure, so far " & $testItemsCheckedOffTheList & " checklist items have been checked off this test result's list. Continue deleting it?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
-    End If
-    Select Window [ Name: "Test"; Current file ]
-    End If
-    #
-    #Delete record if user clicks 'delete'.
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    Go to Record/Request/Page [ Last ]
-    #
-    #If last test result, then delete report page for it.
-    If [ Get (RecordNumber) = 1 ]
-    Delete Record/Request [ No dialog ]
-    Go to Layout [ “PrintReportEdit” (report) ]
-    #
-    Enter Find Mode [ ]
-    Set Field [ report::ktestSubject; $TempTestSubject ]
-    Set Field [ report::ktestSubsection; $$testSubsection ]
-    Set Field [ report::kreportNumber; $TempReportNumber ]
-    Perform Find [ ]
-    Delete All Records [ No dialog ]
-    Set Variable [ $delete ]
-    #
-    #Mark the template as no longer in use.
-    #First, see if there are any N/A, or OK records.
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSection; $TempTestSection ]
-    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
-    Perform Find [ ]
-    #
-    #If there are no records at all mark in use "".
-    If [ Get ( LastError ) = 401 ]
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $TempTestSection ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $TempReportNumber ]
-    Perform Find [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
-    #
-    #Refind all template records with this report number.
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $TempTestSubject ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $$reportNumber ]
-    Perform Find [ ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    #
-    #Because no test results where found mark the
-    #status as pending.
-    If [ testSubsectionForSubject::kgtestSection = $TempTestSection ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
-    End If
-    End If
-    #
-    #
-    #
-    #
-    #Decrease number of results for this test on
-    #ALL test templates for subject's test number x.
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Set Error Capture [ On ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    #
-    #This find range will insure only records with numbers
-    #will be found (no NA or OK records).
-    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
-    Perform Find [ ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    #
-    #Now find all the subject's report section records
-    #including NA and OK records and update total
-    #results amount.
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Go to Record/Request/Page [ First ]
-    Perform Find [ ]
-    Loop
-    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    Go to Layout [ “testResult0” (testlearn) ]
-    #
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gtestSectionNameGlobal; $$testSectionName ]
-    #
-    #Change the Tag Menus window to the
-    #blank layout and return to Test window.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Go to Layout [ “testMenuNoTag” (TEMP) ]
-    Select Window [ Name: "Test"; Current file ]
-    Exit Script [ ]
-    End If
-    #
-    #If there is more than one record then just
-    #delete this one.
-    Go to Record/Request/Page [ $record ] [ No dialog ]
-    Delete Record/Request [ No dialog ]
-    #
-    #Decrease number of test results shown.
-    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
-    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
-    #
-    #Decrease number of results for this test on this
-    #ONE test template for this test subject.
-    Set Error Capture [ On ]
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Perform Find [ ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    Loop
-    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #
-    #Decrease number of results for this test on
-    #ALL test templates for subject's test number x.
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Set Error Capture [ On ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    #
-    #This find range will insure only records with numbers
-    #will be found (no NA or OK records).
-    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
-    Perform Find [ ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    #
-    #Now find all the subject's report records
-    #including NA and OK records and update total
-    #results amount.
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Go to Record/Request/Page [ First ]
-    Perform Find [ ]
-    Loop
-    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
-    #
-    #Go to the record showing after delete and load
-    #its set of variables.
-    Go to Record/Request/Page [ testlearn::recordnumberglobal ] [ No dialog ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Perform Script [ “loadTestResultRecord” ]
-    #
-    Exit Script [ ]
-    End If
-    #
-    #If users cancels the delete then reset the window.
-    Set Variable [ $delete ]
-    Refresh Window
-    #
-
-Fields used in this script
-
-    testlearn::_Ltestlearn
-    tagTLTestSubject::orderOrLock
-    tagTLTestSubject::tag
-    testlearn::kcInUseOnReportSubsection
-    testlearn::kreportNumber
-    testlearn::_Number
-    testlearn::ktestSection
-    testlearn::ktestSubject
-    testlearn::recordnumberglobal
-    testSectionTemplateName::name
-    testlearn::kctestResultCheckedItems
-    report::ktestSubject
-    report::ktestSubsection
-    report::kreportNumber
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::reportNumber
-    testSectionCreatedFromATemplate::inUse
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    testSubsectionForSubject::kgtestSection
-    testSubsectionForSubject::gprogressGlobal
-    testlearn::ktestSubsection
-    testlearn::countOfONESubsectionsTestResults
-    testlearn::countOfALLSubsectionsTestResults
-    testSubsectionForSubject::gtestSectionNameGlobal
-    testlearn::recordcountglobal
-    TEMP::layoutTmain
-
-Scripts used in this script
-
-    loadTestResultRecord
-
-Layouts used in this script
-
-    PrintReportEdit
-    testSCRIPTloops
-    tableTestSectionFromTemplate
-    testingSubsectionMenu
-    testResult0
-    testMenuNoTag
-    <Missing Layout>
-
-Tables used in this script
-
-    TEMP
-    report
-    tag
-    testSectionCreatedFromATemplate
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    report
-    tagTLTestSubject
-    testSectionCreatedFromATemplate
-    testSectionTemplateName
-    testSubsectionForSubject
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [deleteTestResult]	Parent Folder: [test]	Next Script: [exitAndOrderTestResults]
-Script Name	done
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testingSubsectionMenu
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #basic administration tasks
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Freeze Window
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Set Field [ testSubsectionForSubject::kcsections; $$testSectionTemplate ]
-    Perform Find [ ]
-    If [ Get ( LastError ) = 401 ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Exit Script [ ]
-    End If
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
-    Perform Find [ ]
-    If [ testSectionCreatedFromATemplate::inUse = "t" ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "d" ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: done" ]
-    Exit Script [ ]
-    End If
-    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
-
-Fields used in this script
-
-    testlearn::ktestSubject
-    testlearn::ktestSection
-    testSubsectionForSubject::kcsections
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::inUse
-    testSubsectionForSubject::gprogressGlobal
-
-Scripts used in this script
-
-Layouts used in this script
-
-    testSCRIPTloops
-    testingSubsectionMenu
-    tableTestSectionFromTemplate
-
-Tables used in this script
-
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-
-Table occurrences used by this script
-
-    testSectionCreatedFromATemplate
-    testSubsectionForSubject
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [done]	Parent Folder: [test]	Next Script: [exitAndStopClearCitationMatch]
-Script Name	exitAndOrderTestResults
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    Go to Field [ ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::orderTestResult; based on value list: “order Pulldown List” testlearnReportTags::subsectionCustomName; ascending testlearnReportTags::timestamp; ascending testlearnReportTags::_Ltestlearn; ascending ] [ Restore; No dialog ]
-
-Fields used in this script
-
-    testlearnReportTags::orderTestResult
-    testlearnReportTags::subsectionCustomName
-    testlearnReportTags::timestamp
-    testlearnReportTags::_Ltestlearn
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    testlearn
-
-Table occurrences used by this script
-
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [exitAndOrderTestResults]	Parent Folder: [test]	Next Script: [gotoTestResults]
-Script Name	exitAndStopClearCitationMatch
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    If [ $$turnOffThisScript = 1 ]
-    Set Variable [ $$turnOffThisScript; Value:2 ]
-    End If
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [exitAndStopClearCitationMatch]	Parent Folder: [test]	Next Script: [gotoTestSubsections]
-Script Name	gotoTestResults
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testingSubsectionMenu
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    If [ $$stopLoadingTestSubSection = 1 ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    End If
-    #
-    #Do not allow a test that has no results to be
-    #started if its test subject is locked.
-    If [ testSubsectionTestSubjectLock::orderOrLock = "0" and testResultsReportSection::countOfALLSubsectionsTestResults = "" ]
-    Show Custom Dialog [ Message: "The test subject — " & $$testSubjectIsLocked & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #Set both a variable and temp field with item ID
-    #or Lock number. Eventually need to pick one
-    #or the other, but due to current deadline that
-    #cleanup will have to come later.
-    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
-    Set Field [ TEMP::ktestSubsection; testSubsectionForSubject::_LtestSubsection ]
-    #
-    #Set initial test item list to check so when user clicks
-    #on the button next to an item it turns green instead
-    #inserting its text into the test discovery's text box.
-    Set Field [ TEMP::textORcheck; "check" ]
-    #
-    #Set detail temp fields for use on Tag Menus window.
-    Set Field [ TEMP::ktestItemSubsection; testSubsectionForSubject::ktestItemGroup ]
-    Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionForSubject::ktestItemGroup ]
-    #
-    #Set subsection lock variable to prevent user
-    #from going to edit subsection template
-    #section, and set hide test edit/new button field
-    #which results in hiding that button, since it
-    #cannot be used when locked.
-    If [ testSubsectionGroupNodeLock2::orderOrLock ≠ "" ]
-    Set Variable [ $$testSubsectionIsLocked; Value:testSubsectionGroupNodeLock2::tag ]
-    Set Field [ TEMP::testItemMenuShowTheWordLock; "Lock" ]
-    Else If [ testSubsectionGroupNodeLock2::orderOrLock = "" ]
-    Set Variable [ $$testSubsectionIsLocked ]
-    Set Field [ TEMP::testItemMenuShowTheWordLock; "" ]
-    End If
-    #
-    #Prevent test records from loading to speed up
-    #this script.
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    #
-    #This field does show up elsewhere but I am not
-    #sure after what it does. My bad for not making
-    #thorough comments during earlier developement.
-    Set Field [ testSubsectionForSubject::gtestSectionNameGlobal; TextStyleAdd ( TEMP::testSubsectionNameForSubject ; Lowercase ) ]
-    #
-    #Find and show all test records.
-    If [ TEMP::layoutTmain = "" ]
-    Set Field [ TEMP::layoutTmain; "moretestResult0" ]
-    End If
-    #
-    #If the test subject or the primary node is
-    #locked go the locked layout.
-    If [ testSubsectionTestSubjectLock::orderOrLock = "0" or TEMP::primaryNodeIsLocked ≠ "" // or //TEMP::primaryNodesCreatorNodeIsLocked ≠ "" ]
-    Go to Layout [ "testResultLOCKED" & Right ( TEMP::layoutTmain ; 1) ]
-    Else
-    Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
-    End If
-    #
-    #Prevent error messages when no records
-    #are found.
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    #
-    #See if there are any informational
-    #(Learn module) records tagged
-    #to this test subsection.
-    Set Field [ testlearn::kctestSubsectionInfo; "###" & $$testSubsection ]
-    Perform Find [ ]
-    #
-    #If there are information records, then set this
-    #variable below to inform the user of this fact
-    #by highlighting the info button on the
-    #Test Menus layout.
-    If [ Get (FoundCount) ≠ 0 ]
-    Set Variable [ $$thereIsInfoForThisSubsection; Value:1 ]
-    Else
-    Set Variable [ $$thereIsInfoForThisSubsection ]
-    End If
-    #
-    #Now find all test results for this test in all
-    #subsections using this subsection template.
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    #
-    #This find range will insure only records with numbers
-    #will be found (no NA or OK records).
-    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
-    Perform Find [ ]
-    #
-    #Create new test record if there are none.
-    If [ Get (FoundCount) = 0 ]
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    Perform Script [ “newTestResult” ]
-    #
-    #Find all test items for this test result.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Perform Script [ “menuTestItem” ]
-    #
-    #Return to Test window.
-    Select Window [ Name: "Test"; Current file ]
-    Exit Script [ ]
-    End If
-    #
-    #Group records by test subject location.
-    Go to Record/Request/Page [ Last ]
-    Loop
-    If [ testlearn::countOfONESubsectionsTestResults = "N/A" or testlearn::countOfONESubsectionsTestResults = "OK" or testlearn::countOfONESubsectionsTestResults = "★" ]
-    Omit Record
-    End If
-    Go to Record/Request/Page [ Previous; Exit after last ]
-    End Loop
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::subsectionCustomName; ascending testlearn::_Number; ascending ] [ Restore; No dialog ]
-    #
-    #Now go the last test record for this test location
-    #if any. It will be conditionally formatted green,
-    #while other location records will be yellow and
-    #records from other tests for this item will be blue.
-    #Blue records indicate a favorite record.
-    Go to Record/Request/Page [ Last ]
-    Loop
-    Exit Loop If [ testlearn::ktestSection = $$testSection ]
-    Go to Record/Request/Page [ Previous; Exit after last ]
-    End Loop
-    #
-    #Set the numbers for the navigation arrows
-    #at the top of the screen: record # / total #.
-    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
-    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
-    #
-    #Conditionally format current test record and tags.
-    Set Variable [ $$stopLoadTestRecord ]
-    Perform Script [ “loadTestResultRecord” ]
-    Set Variable [ $$loadTestItemRecord; Value:testlearn::kctestResultCheckedItems ]
-    #
-    #Find all test items for this test result.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Perform Script [ “menuTestItem” ]
-    #
-    #Return to Test window.
-    Select Window [ Name: "Test"; Current file ]
-    #
-
-Fields used in this script
-
-    testSubsectionTestSubjectLock::orderOrLock
-    testResultsReportSection::countOfALLSubsectionsTestResults
-    testSubsectionForSubject::_LtestSubsection
-    TEMP::ktestSubsection
-    TEMP::textORcheck
-    testSubsectionForSubject::ktestItemGroup
-    TEMP::ktestItemSubsection
-    TEMP::ktestItemSubsectionOLD
-    testSubsectionGroupNodeLock2::orderOrLock
-    testSubsectionGroupNodeLock2::tag
-    TEMP::testItemMenuShowTheWordLock
-    TEMP::testSubsectionNameForSubject
-    testSubsectionForSubject::gtestSectionNameGlobal
-    TEMP::layoutTmain
-    TEMP::primaryNodeIsLocked
-    testlearn::kctestSubsectionInfo
-    testlearn::ktestSubject
-    testlearn::ktestSubsection
-    testlearn::kreportNumber
-    testlearn::countOfONESubsectionsTestResults
-    testlearn::subsectionCustomName
-    testlearn::_Number
-    testlearn::ktestSection
-    testlearn::recordnumberglobal
-    testlearn::recordcountglobal
-    testlearn::kctestResultCheckedItems
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    newTestResult
-    menuTestItem
-    loadTestResultRecord
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    tag
-    testSubsectionTemplate
-    testlearn
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    testResultsReportSection
-    testSubsectionForSubject
-    testSubsectionGroupNodeLock2
-    testSubsectionTestSubjectLock
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [gotoTestResults]	Parent Folder: [test]	Next Script: [identifyTestsThatHaveResults]
-Script Name	gotoTestSubsections
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultTest
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #If there is no report number or test subject
-    #name, halt the script.
-    If [ TEMP::reportNumber = "" ]
-    Go to Field [ TEMP::reportNumber ] [ Select/perform ]
-    Halt Script
-    Else If [ testSectionCreatedFromATemplate::name = "" ]
-    Halt Script
-    End If
-    #
-    #basic administration tasks
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Set Variable [ $$TSRecordNumber; Value:Get (RecordNumber) ]
-    Go to Field [ ]
-    #
-    #This variable stops the info button's script in
-    #the Test and Report sections from opening a
-    #Reference window, which is useful in idea
-    #libraries to show references of ideas. In a
-    #things library, reference records are used as
-    #location records and each learn record can
-    #have only one location, so showing a Reference
-    #window in an inventory library would not be useful.
-    If [ TEMP::InventoryLibraryYN ≠ "" ]
-    Set Variable [ $$doNotOpenReferenceWindow; Value:1 ]
-    Else
-    Set Variable [ $$doNotOpenReferenceWindow ]
-    End If
-    #
-    #If test subject is locked, note this by getting
-    #the name for display in warning messages.
-    If [ testSubjectName::orderOrLock ≠ "" ]
-    Set Variable [ $$testSubjectIsLocked; Value:testSubjectName::tag ]
-    Set Field [ tempSetup::testSubjectNodeIsLocked; 1 ]
-    Else
-    Set Variable [ $$testSubjectIsLocked ]
-    Set Field [ tempSetup::testSubjectNodeIsLocked; "" ]
-    End If
-    #
-    #Change the default to the selected subject.
-    Set Field [ TEMP::kdefaultNodeTestSubject; testSectionCreatedFromATemplate::ktestSubjectNode ]
-    Set Field [ TEMP::DEFAULTNodeTestSubjectName; testSubjectName::tag ]
-    Set Variable [ $status; Value:testSectionCreatedFromATemplate::inUse ]
-    Set Variable [ $$timeRecord; Value:Get ( RecordNumber ) ]
-    Set Variable [ $$pictureWIndowColor; Value:"test" ]
-    #
-    #!!!need to go through database and remove all variables like $$reportnumber that are used in mulitple scripts and make it a temp field.
-    Set Variable [ $$reportnumber; Value:testSectionCreatedFromATemplate::reportNumber ]
-    Set Field [ TEMP::reportNumber; testSectionCreatedFromATemplate::reportNumber ]
-    Set Variable [ $$testSubject; Value:TEMP::kdefaultNodeTestSubject ]
-    #
-    #note general or canned location user identified
-    Set Variable [ $$testSectionName; Value: TextStyleAdd ( testSectionCreatedFromATemplate::name ; Titlecase ) ]
-    Set Field [ TEMP::testSubsectionNameForSubject; TextStyleAdd ( $$testSectionName ; Titlecase ) ]
-    #
-    #note new location ID number and name user created for this specific location in the contact's building
-    Set Variable [ $$testSection; Value:testSectionCreatedFromATemplate::_LtestSection ]
-    Set Variable [ $$testSectionTemplate; Value:testSectionCreatedFromATemplate::ksectionTemplate ]
-    #
-    #Goto no tag layout in Tag Menus as the test
-    #selection screen does not show any records
-    #that the user might want to tag.
-    #
-    #I thought about closing the Tag Menus
-    #window, but in testing it was odd, and so better
-    #just to keep the window open and show no tags
-    #but do change its layout to the look and feel
-    #of the layouts the user will see in test mode
-    #in the Tag Menus window.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Go to Layout [ “testMenuNoTag” (TEMP) ]
-    Set Variable [ $$stopLoadTagRecord ]
-    #
-    #Return to main window to complete script.
-    Select Window [ Name: "Setup"; Current file ]
-    Set Field [ TEMP::testAndReportMainWindowHeader; tempSetup::userLibraryName & " | " & TEMP::DEFAULTNodeTestSubjectName ]
-    Set Window Title [ Current Window; New Title: "Test" ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Enter Find Mode [ ]
-    #
-    #Now find and show all canned inspection
-    #test-subsections that are part of this test section.
-    Set Field [ testSubsectionForSubject::kcsections; $$testSectionTemplate ]
-    Perform Find [ ]
-    If [ Get ( FoundCount ) = 0 ]
-    Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
-    Perform Script [ “returnToTestSetup” ]
-    Show Custom Dialog [ Message: "This test section has no subsections to test. To add some, 1) click 'edit/newtemplate'. 2) Select a subsection. 3) In the Tag Menus window, click the button next to this test section to add it. Repeat 2 and 3 to add additional subsections."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroupForSubject::name; ascending testSubsectionForSubject::order; based on value list: “order Pulldown List” ] [ Restore; No dialog ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Set Field [ testSubsectionForSubject::gtestSectionNameGlobal; $$testSectionName ]
-    Set Field [ testSubsectionForSubject::kgtestSection; $$testSection ]
-    Set Field [ testSubsectionForSubject::gtestSubjectNameGlobal; $$testsubjectName ]
-    Set Field [ testSubsectionForSubject::kgreportNumber; $$reportNumber ]
-    Set Field [ testSubsectionForSubject::kgtestSubject; TEMP::kdefaultNodeTestSubject ]
-    If [ $status = "" ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
-    Scroll Window [ Home ]
-    Exit Script [ ]
-    Else If [ $status = "t" ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
-    Scroll Window [ Home ]
-    Exit Script [ ]
-    End If
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: done" ]
-    Scroll Window [ Home ]
-
-Fields used in this script
-
-    TEMP::reportNumber
-    testSectionCreatedFromATemplate::name
-    TEMP::InventoryLibraryYN
-    testSubjectName::orderOrLock
-    testSubjectName::tag
-    tempSetup::testSubjectNodeIsLocked
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    TEMP::kdefaultNodeTestSubject
-    TEMP::DEFAULTNodeTestSubjectName
-    testSectionCreatedFromATemplate::inUse
-    testSectionCreatedFromATemplate::reportNumber
-    TEMP::testSubsectionNameForSubject
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::ksectionTemplate
-    tempSetup::userLibraryName
-    TEMP::testAndReportMainWindowHeader
-    testSubsectionForSubject::kcsections
-    testSubsectionGroupForSubject::name
-    testSubsectionForSubject::order
-    testSubsectionForSubject::gtestSectionNameGlobal
-    testSubsectionForSubject::kgtestSection
-    testSubsectionForSubject::gtestSubjectNameGlobal
-    testSubsectionForSubject::kgreportNumber
-    testSubsectionForSubject::kgtestSubject
-    testSubsectionForSubject::gprogressGlobal
-
-Scripts used in this script
-
-    returnToTestSetup
-
-Layouts used in this script
-
-    testMenuNoTag
-    testingSubsectionMenu
-    defaultTest
-
-Tables used in this script
-
-    TEMP
-    TEMP
-    tag
-    tagGroup
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    TEMP
-    tempSetup
-    testSectionCreatedFromATemplate
-    testSubjectName
-    testSubsectionForSubject
-    testSubsectionGroupForSubject
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [gotoTestSubsections]	Parent Folder: [test]	Next Script: [informUserHowToEditLockedLayoutText]
-Script Name	identifyTestsThatHaveResults
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testingSubsectionMenu
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #Stop script if user just navigated/clicked
-    #to this record.
-    If [ $$stopLoadingTestSubSection = 1 ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    End If
-    #
-    #If there are no test results, exit this script.
-    If [ testResultsReportSection::countOfALLSubsectionsTestResults = "" ]
-    Exit Script [ ]
-    End If
-    #
-    #Set variables to conditionally format record to
-    #to be deleted and to supply name for warning
-    #messages, and to speed up script.
-    Set Variable [ $delete; Value:testSubsectionForSubject::_LtestSubsection ]
-    Refresh Window
-    Set Variable [ $$tagTest; Value:testSubsectionForSubject::_LtestSubsection ]
-    Set Variable [ $$ID; Value:"ignore" ]
-    Set Variable [ $subSection; Value:testSubsectionForSubject::name ]
-    Go to Field [ ]
-    Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $$stopDeleteTest; Value:1 ]
-    Set Variable [ $$stopTest; Value:1 ]
-    #
-    #Find all test results for every instance of this
-    #subsection used by this test.
-    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    // New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #
-    #Insure current test subsection has correct
-    #number of results.
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Perform Find [ ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    Loop
-    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Prepare test result summary layout by deleting
-    #the last result summaries.
-    Go to Layout [ “TestResultSections” (TEMP) ]
-    Show All Records
-    Delete All Records [ No dialog ]
-    #
-    #Find all current test results in all subsections
-    #for this subject's test section.
-    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearnReportTags::ktestSubsection; $delete ]
-    Set Field [ testlearnReportTags::ktestSubject; $$testSubject ]
-    Set Field [ testlearnReportTags::kreportNumber; $$reportNumber ]
-    #
-    #This find range will insure only records with numbers
-    #will be found (no NA or OK records).
-    Set Field [ testlearnReportTags::countOfONESubsectionsTestResults; "0...99999999999999" ]
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Perform Find [ ]
-    #
-    #Capture found count to update total upon
-    #returning to the testing subsection menu.
-    Set Variable [ $updateTotalTestResults; Value:Get (FoundCount) ]
-    #
-    #If test results are found, then tell the
-    #user on which reports they where found.
-    If [ Get (FoundCount) ≠ 0 ]
-    #
-    Loop
-    Set Variable [ $useList; Value:testlearnReportTags::countOfONESubsectionsTestResults & " in " & TextColor( TextStyleAdd ( tagReportTestSubjectSectionNAME::name; "" ) ;RGB(0;0;0)) ]
-    Set Variable [ $sortBySectionName; Value:tagReportTestSubjectSectionNAME::name ]
-    Set Variable [ $keepIdenticallySpelledSectionsSeparate; Value:testlearnReportTags::ktestSection ]
-    Go to Layout [ “TestResultSections” (TEMP) ]
-    New Record/Request
-    Set Field [ TEMP::DeleteMessageInTempWindow2[2]; $useList ]
-    Set Field [ TEMP::DeleteMessageInTempWindow2; $sortBySectionName ]
-    Set Field [ TEMP::DeleteMessageInTempWindow1; $keepIdenticallySpelledSectionsSeparate ]
-    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    Go to Layout [ “TestResultSections” (TEMP) ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow2; ascending TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
-    View As [ View as List ]
-    #
-    #Due to a bug in FM13, window must first be
-    #moved back into the screen area before the
-    #calculation of the current screen's
-    #dimensions can be taken.
-    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
-    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
-    Set Field [ TEMP::Message; "Sub-section " & $subSection & " has test results in the following sections of test " & testSubsectionForSubject::kgreportNumber & "." ]
-    Pause/Resume Script [ Indefinitely ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Set Variable [ $$stopLoadTestResultRecord ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$tagTest ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    Else
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Set Variable [ $$stopLoadTestResultRecord ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
-    End If
-    #
-    #Close the summary report window, return user
-    #to the testing sections menu and update the
-    #total of test results for all subsections in this
-    #users current test.
-    Close Window [ Current Window ]
-    Select Window [ Name: "Test"; Current file ]
-    Set Field [ testResultsReportSection::countOfALLSubsectionsTestResults; $updateTotalTestResults ]
-    #
-    #
-
-Fields used in this script
-
-    testResultsReportSection::countOfALLSubsectionsTestResults
-    testSubsectionForSubject::_LtestSubsection
-    testSubsectionForSubject::name
-    testlearn::ktestSubsection
-    testlearn::ktestSubject
-    testlearn::ktestSection
-    testlearn::countOfONESubsectionsTestResults
-    testlearnReportTags::ktestSubsection
-    testlearnReportTags::ktestSubject
-    testlearnReportTags::kreportNumber
-    testlearnReportTags::countOfONESubsectionsTestResults
-    tagReportTestSubjectSectionNAME::name
-    testlearnReportTags::ktestSection
-    TEMP::DeleteMessageInTempWindow2
-    TEMP::DeleteMessageInTempWindow1
-    testSubsectionForSubject::kgreportNumber
-    TEMP::Message
-    testSubsectionTemplate::_LtestSubsection
-
-Scripts used in this script
-
-Layouts used in this script
-
-    testSCRIPTloops
-    TestResultSections
-    reportTestResult
-
-Tables used in this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    tagReportTestSubjectSectionNAME
-    testResultsReportSection
-    testSubsectionForSubject
-    testSubsectionTemplate
-    testlearn
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [identifyTestsThatHaveResults]	Parent Folder: [test]	Next Script: [inspectAddProblemToFinding]
-Script Name	informUserHowToEditLockedLayoutText
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #Inform user how to edit a test item if the try
-    #to edit one while in the testing or report
-    #section. This is not allowed, so when the
-    #user does edit an item they see the copyright
-    #for the item, which is only displayed in the
-    #edit section.
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    If [ Get ( LayoutTableName ) = "tagMenus" and $$citationMatch ≠ "copyright" and $$showCopyrightLockMessage = "" ]
-    Show Custom Dialog [ Message: "To edit a test item, click the 'edit/new' button. Selecting and copying item text is allowed."; Default Button: “OK”, Commit: “Yes” ]
-    Else If [ $$citationMatch = "copyright" and tagCreatorLock::orderOrLock ≠ "" or $$showCopyrightLockMessage = 1 and tagCreatorLock::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "This copyright was copy, pasted, and locked by " & tagCreatorLock::tag & ". Selecting and copying its text is allowed. Click the 'web' button to see the original. To unlock it, go the default node menu and enter the password for " & tagCreatorLock::tag & "."; Default Button: “OK”, Commit: “Yes” ]
-    Else If [ $$citationMatch = "copyright" and tagMenus::orderOrLock = "lock" or $$showCopyrightLockMessage = 1 and tagMenus::orderOrLock = "lock" ]
-    Show Custom Dialog [ Message: "This is a Library " & TEMP::versionNumber & " copy of a copyright and cannot be changed. Selecting and copying its text is allowed. Click the 'web' button to see the original."; Default Button: “OK”, Commit: “Yes” ]
-    Else
-    Show Custom Dialog [ Message: "To edit test information, click 'back' and then click" & ¶ & "the 'edit/new' button. Selecting and copying text is allowed."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    #
-    #The halt script step stops FileMaker from
-    #displaying its own error message.
-    Halt Script
-    #
-
-Fields used in this script
-
-    tagCreatorLock::orderOrLock
-    tagCreatorLock::tag
-    tagMenus::orderOrLock
-    TEMP::versionNumber
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    tag
-
-Table occurrences used by this script
-
-    TEMP
-    tagCreatorLock
-    tagMenus
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [informUserHowToEditLockedLayoutText]	Parent Folder: [test]	Next Script: [inspectNextRecord]
-Script Name	inspectAddProblemToFinding
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    Set Field [ testlearn::note; testlearn::note & ¶ & tagDetails::tag ]
-
-Fields used in this script
-
-    testlearn::note
-    tagDetails::tag
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    tag
-    testlearn
-
-Table occurrences used by this script
-
-    tagDetails
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [inspectAddProblemToFinding]	Parent Folder: [test]	Next Script: [inspectPreviousRecord]
-Script Name	inspectNextRecord
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testResult0
-    testResultLOCKED0
-    testResult1
-    testResultLOCKED1
-    testResult2
-    testResultLOCKED2
-    testResult3
-    testResultLOCKED3
-    testResult4
-    testResultLOCKED4
-    testResult5
-    testResultLOCKED5
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    Go to Field [ ]
-    Go to Record/Request/Page [ Next ]
-    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
-    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
-
-Fields used in this script
-
-    testlearn::recordnumberglobal
-    testlearn::recordcountglobal
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    testlearn
-
-Table occurrences used by this script
-
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [inspectNextRecord]	Parent Folder: [test]	Next Script: [linkOrUnlinkTestSection]
-Script Name	inspectPreviousRecord
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testResult0
-    testResultLOCKED0
-    testResult1
-    testResultLOCKED1
-    testResult2
-    testResultLOCKED2
-    testResult3
-    testResultLOCKED3
-    testResult4
-    testResultLOCKED4
-    testResult5
-    testResultLOCKED5
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    Go to Field [ ]
-    Go to Record/Request/Page [ Previous ]
-    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
-    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
-
-Fields used in this script
-
-    testlearn::recordnumberglobal
-    testlearn::recordcountglobal
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    testlearn
-
-Table occurrences used by this script
-
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [inspectPreviousRecord]	Parent Folder: [test]	Next Script: [loadSubsection]
-Script Name	linkOrUnlinkTestSection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestSection
-
-Scripts that use this script
-
-    newSubsection
-    newSubsectionGroup
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #Prevent locked subsection's section links
-    #from being changed.
-    If [ $$lockedMainSubsectionRecord ≠ "" ]
-    Show Custom Dialog [ Message: "Locked subsections cannot have their section links changed. Select its creator node — " & $$lockedMainSubsectionRecord & " — in setup, and enter the password to unlock it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #If tag has not yet been selected, then link it.
-    Set Variable [ $sectionTemplate; Value:testSection::_Ltag ]
-    Go to Field [ ]
-    Select Window [ Name: "Test Templates"; Current file ]
-    Set Variable [ $testTemplate; Value:testSubsectionTemplate::_LtestSubsection ]
-    If [ $sectionTemplate & ¶ ≠ FilterValues ( testSubsectionTemplate::kcsections ; $sectionTemplate & "¶" ) ]
-    #
-    Set Variable [ $currentSectionTemplates; Value:testSubsectionTemplate::kcsections ]
-    Set Field [ testSubsectionTemplate::kcsections; $sectionTemplate & "¶" & $currentSectionTemplates ]
-    #
-    #Reset conditional formatting variable for sections.
-    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
-    Go to Field [ ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Refresh Window
-    Exit Script [ ]
-    End If
-    #
-    #
-    #
-    #Find all sections that use this section template.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    #
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
-    #
-    #Highlight section user is trying to delete.
-    Set Variable [ $delete; Value:testSection::_Ltag ]
-    #
-    #
-    Set Variable [ $$stopTest; Value:1 ]
-    Set Variable [ $$ID; Value:"ignore" ]
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    New Window [ Name: " "; Width: 360; Left: Get ( WindowWidth ) - 360; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    Show All Records
-    Delete All Records [ No dialog ]
-    #
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
-    Set Field [ testSectionCreatedFromATemplate::ksectionTemplate; $sectionTemplate ]
-    Perform Find [ ]
-    #
-    #For each section found, find its test records, and
-    #see if any of their test records use the test template
-    #that you wish to remove this section template.
-    If [ Get (LastError) ≠ 401 ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    Set Variable [ $testSection; Value:testSectionCreatedFromATemplate::_LtestSection ]
-    Set Variable [ $sectionName; Value:testSectionCreatedFromATemplate::name ]
-    Go to Layout [ “testResult0” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSection; $testSection ]
-    Set Field [ testlearn::ktestSubsection; $testTemplate ]
-    Perform Find [ ]
-    If [ Get (LastError) ≠ 401 ]
-    Set Variable [ $useList; Value:"test subject " & tagTLTestSubject::tag & ¶ & "test " & TextColor( TextStyleAdd ( testlearn::kreportNumber; "" ) ;RGB(0;0;0)) & " | section " & TextColor( TextStyleAdd ( $sectionName; "" ) ;RGB(0;0;0)) ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    New Record/Request
-    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
-    End If
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    If [ $useList ≠ "" ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    View As [ View as List ]
-    #
-    #eliminate duplicate location records
-    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    Set Variable [ $sectionTemplate; Value:TEMP::DeleteMessageInTempWindow1 ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    If [ TEMP::DeleteMessageInTempWindow1 = $sectionTemplate ]
-    Omit Record
-    #
-    #Omit by default moves to the next record
-    #in order to test actual next record the database
-    #must move up one record.
-    #
-    Go to Record/Request/Page [ Previous ]
-    #then the script can move down to test this record when it repeats
-    End If
-    End Loop
-    #
-    Show/Hide Toolbars [ Lock; Hide ]
-    Show/Hide Text Ruler [ Hide ]
-    Set Field [ TEMP::Message; "Before the highlighted test section-template can be unlinked, the test records in the test sections created using it (listed below) must be deleted from the testing window." ]
-    Pause/Resume Script [ Indefinitely ]
-    Close Window [ Current Window ]
-    Set Variable [ $delete ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$ID; Value:$testTemplate ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Refresh Window
-    Exit Script [ ]
-    End If
-    Close Window [ Current Window ]
-    Else
-    Close Window [ Current Window ]
-    End If
-    Set Variable [ $delete ]
-    Set Variable [ $$stopTest ]
-    Set Variable [ $$ID; Value:$testTemplate ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Refresh Window
-    #
-    #
-    #
-    Select Window [ Name: "Test Templates"; Current file ]
-    #
-    #If tag has been selected, then unlink it.
-    Set Variable [ $currentSectionTemplates; Value:testSubsectionTemplate::kcsections ]
-    Set Field [ testSubsectionTemplate::kcsections; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( $currentSectionTemplates ) ≠ ValueCount ( Substitute ( $currentSectionTemplates ; $sectionTemplate & "¶" ; "" ) ) ; Substitute ( $currentSectionTemplates ; $sectionTemplate & "¶" ; "" ) ; "" ) ]
-    #
-    #Reset conditional formatting variable for sections.
-    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
-    Go to Field [ ]
-    #
-    #Return to Tag Menus window.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Refresh Window
-    #
-
-Fields used in this script
-
-    testSection::_Ltag
-    testSubsectionTemplate::_LtestSubsection
-    testSubsectionTemplate::kcsections
-    testSectionCreatedFromATemplate::inUse
-    testSectionCreatedFromATemplate::ksectionTemplate
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::name
-    testlearn::ktestSection
-    testlearn::ktestSubsection
-    tagTLTestSubject::tag
-    testlearn::kreportNumber
-    TEMP::DeleteMessageInTempWindow1
-    TEMP::Message
-
-Scripts used in this script
-
-Layouts used in this script
-
-    TEMP
-    tableTestSectionFromTemplate
-    testResult0
-
-Tables used in this script
-
-    TEMP
-    tag
-    tag
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    tagTLTestSubject
-    testSection
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [linkOrUnlinkTestSection]	Parent Folder: [test]	Next Script: [loadTestInfo]
-Script Name	loadSubsection
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #Used on testing subjection selection layout,
-    #which the library goes to after the user clicks
-    #a 'test' button on the setup test layout.
-    #
-    #Prevents user activating any buttons, until the
-    #record is loaded.
-    Set Variable [ $$stopLoadingTestSubSection; Value:1 ]
-    #
-    #Prepare to enter in subsection if user clicks
-    #this subsection's button.
-    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
-    Set Variable [ $$testSubsectionName; Value:testSubsectionForSubject::name ]
-    Set Field [ TEMP::testSubsectionName; testSubsectionForSubject::name ]
-    Set Field [ TEMP::ktestSubsection; testSubsectionForSubject::_LtestSubsection ]
-    #
-    Go to Field [ ]
-    #
-
-Fields used in this script
-
-    testSubsectionForSubject::_LtestSubsection
-    testSubsectionForSubject::name
-    TEMP::testSubsectionName
-    TEMP::ktestSubsection
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    TEMP
-    testSubsectionForSubject
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [loadSubsection]	Parent Folder: [test]	Next Script: [loadTestResultRecord]
-Script Name	loadTestInfo
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-    gotoDefaultsOrReport
-    removeTestResultOrInfoRecordFromReport
-    reportCopyPastPart3
-    reportTagInfo
-
-Script Definition
-Script Steps
-
-    #
-    #This first section is key to stopping this script
-    #when another script for example loops thru
-    #many records each of which would trigger this
-    #script and really slow down the program and
-    #create strobe effect that is really irritating to
-    #look at.
-    If [ $$stoploadtestinfo = 1 or $$stopPart3InProgress = 1 ]
-    Exit Script [ ]
-    End If
-    #
-    #Admin tasks.
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    #
-    #Reset conditional formatting variables.
-    Set Variable [ $$RecordID; Value:Get (RecordID) ]
-    Set Variable [ $$infoPictureUsedOnThisTestSubSection ]
-    Set Variable [ $$main; Value:testlearnReportTags::_Ltestlearn ]
-    Go to Field [ ]
-    #
-    #Get this record's test tag keys, used by sort
-    #order number script.
-    Set Variable [ $$test; Value:testlearnReportTags::kctestSubsectionInfo ]
-    #
-    #Look thru the report picture fields to see if
-    #any of them are using this info record's
-    #picture or text.
-    If [ testlearnReportTags::inUseNumberOfTimes > 0 ]
-    Set Variable [ $$stoploadtestinfo; Value:1 ]
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “tableReport” (report) ]
-    #
-    #See if any picture 1 slots use this info.
-    Enter Find Mode [ ]
-    Set Field [ report::ktestSubject; $$testSubject ]
-    Set Field [ report::ktestSubsection; $$testSubsection ]
-    Set Field [ report::kreportNumber; $$reportNumber ]
-    Set Field [ report::kTag1; $$main ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) > 0 ]
-    Set Variable [ $$infoPictureUsedOnThisTestSubSection; Value:1 ]
-    Set Variable [ $$stoploadtestinfo ]
-    Close Window [ Current Window ]
-    End If
-    #
-    #See if any picture 2 slots use this info.
-    If [ $$infoPictureUsedOnThisTestSubSection = "" ]
-    Enter Find Mode [ ]
-    Set Field [ report::ktestSubject; $$testSubject ]
-    Set Field [ report::ktestSubsection; $$testSubsection ]
-    Set Field [ report::kreportNumber; $$reportNumber ]
-    Set Field [ report::kTag2; $$main ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) > 0 ]
-    Set Variable [ $$infoPictureUsedOnThisTestSubSection; Value:1 ]
-    Set Variable [ $$stoploadtestinfo ]
-    Close Window [ Current Window ]
-    End If
-    End If
-    #
-    #See if any picture 3 slots use this info.
-    If [ $$infoPictureUsedOnThisTestSubSection = "" ]
-    Enter Find Mode [ ]
-    Set Field [ report::ktestSubject; $$testSubject ]
-    Set Field [ report::ktestSubsection; $$testSubsection ]
-    Set Field [ report::kreportNumber; $$reportNumber ]
-    Set Field [ report::kTag3; $$main ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) > 0 ]
-    Set Variable [ $$infoPictureUsedOnThisTestSubSection; Value:1 ]
-    Set Variable [ $$stoploadtestinfo ]
-    Close Window [ Current Window ]
-    End If
-    End If
-    #
-    #See if any picture 4 slots use this info.
-    If [ $$infoPictureUsedOnThisTestSubSection = "" ]
-    Enter Find Mode [ ]
-    Set Field [ report::ktestSubject; $$testSubject ]
-    Set Field [ report::ktestSubsection; $$testSubsection ]
-    Set Field [ report::kreportNumber; $$reportNumber ]
-    Set Field [ report::kTag4; $$main ]
-    Perform Find [ ]
-    #
-    If [ Get (FoundCount) > 0 ]
-    Set Variable [ $$infoPictureUsedOnThisTestSubSection; Value:1 ]
-    End If
-    #
-    #Close this search window whether pictures
-    #are found in the number 4 slot or no pictures
-    #are found.
-    Set Variable [ $$stoploadtestinfo ]
-    Close Window [ Current Window ]
-    End If
-    End If
-    #
-    #Refresh conditional formatting in both
-    #windows and return to Tag Menus window.
-    Select Window [ Name: "Report"; Current file ]
-    If [ Get ( LastError ) = 0 ]
-    Set Variable [ $$userReportColorsInTextWindow; Value:1 ]
-    Else
-    Set Variable [ $$userReportColorsInTextWindow ]
-    End If
-    Refresh Window
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Refresh Window
-    #
-    #Allow user to click into selected record's
-    #text window.
-    Set Variable [ $$stopOpenNewTextWindow ]
-    #
-    #Prevent the opening of the record's text
-    #window when user goes to the record.
-    Set Variable [ $$stopOpenNewTextWindow; Value:1 ]
-    #
-    #Only open a Reference window if the selected
-    #info record has references, and if the user is
-    #not in the process of going to the Learn
-    #module to edit info records attached to
-    #this subsection.
-    If [ $$doNotOpenReferenceWindow ≠ 1 and ValueCount ( testlearnReportTags::kcreference ) - Length ( Filter ( testlearnReportTags::kcreference ; "L" ) ) > 0 ]
-    Perform Script [ “CHUNK_testInfoReferences” ]
-    #
-    #
-    #If there are no reference records for this info
-    #record, then make sure to close the Reference
-    #window (if opened for the last info record
-    #selected) and resize the two remaining windows.
-    Else
-    Close Window [ Name: "Reference"; Current file ]
-    If [ $$pictureWindowColor = "test" ]
-    Move/Resize Window [ Name: "Test"; Current file; Width: Get ( ScreenWidth ) / 2; Left: 0 ]
-    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get ( ScreenWidth ) / 2; Left: Get ( ScreenWidth ) / 2 ]
-    #
-    #The size of the Tag Menus window in the Report
-    #section can be larger than half the window width.
-    Else
-    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get (ScreenWidth) - 594; Left: 594 ]
-    End If
-    Select Window [ Name: "Tag Menus"; Current file ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    testlearnReportTags::_Ltestlearn
-    testlearnReportTags::kctestSubsectionInfo
-    testlearnReportTags::inUseNumberOfTimes
-    report::ktestSubject
-    report::ktestSubsection
-    report::kreportNumber
-    report::kTag1
-    report::kTag2
-    report::kTag3
-    report::kTag4
-    testlearnReportTags::kcreference
-
-Scripts used in this script
-
-    CHUNK_testInfoReferences
-
-Layouts used in this script
-
-    tableReport
-
-Tables used in this script
-
-    report
-    testlearn
-
-Table occurrences used by this script
-
-    report
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [loadTestInfo]	Parent Folder: [test]	Next Script: [newTestResult]
-Script Name	loadTestResultRecord
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-    deleteTestResult
-    gotoTestResults
-    newTestResult
-    gotoDefaultsOrReport
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #Admin tasks.
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    #
-    #Prevents script from running to speed up other
-    #scripts that keep calling it up by looping thru
-    #multiple records.
-    If [ $$stopLoadTestRecord = 1 ]
-    Exit Script [ ]
-    End If
-    #
-    #Set record's variables.
-    Set Variable [ $$evidenceToBeTagged; Value:testlearn::_Ltestlearn ]
-    Set Variable [ $$taggedEvidence; Value:testlearn::kcKeywordOther ]
-    #Clear before loading any item keys.
-    Set Variable [ $$checkedTestItem ]
-    Set Variable [ $$checkedTestItem; Value:testlearn::kctestResultCheckedItems ]
-    #
-    #Get return window name, and the refresh
-    #conditonal formatting in the Tag Menus
-    #window, and return this test record window.
-    Set Variable [ $windowName; Value:Get (WindowName) ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Refresh Window
-    #
-    #When a user creates a new test result, this
-    #variable becomes active, so when this script
-    #runs, it will perform the create form script.
-    #This is done by this load script to reduce the
-    #flashing back-and-forth between windows.
-    #Since the load script is on the Tag Menus
-    #window where this create form script starts, it
-    #is most efficient if it is started here.
-    If [ $$addFormToNewTestResult ≠ "" ]
-    Perform Script [ “createFormOutOf_FT_TestItems” ]
-    Set Variable [ $$addFormToNewTestResult ]
-    End If
-    #
-    #Return to the test or report window.
-    Select Window [ Name: $windowName; Current file ]
-    Refresh Window
-    #
-    #
-
-Fields used in this script
-
-    testlearn::_Ltestlearn
-    testlearn::kcKeywordOther
-    testlearn::kctestResultCheckedItems
-
-Scripts used in this script
-
-    createFormOutOf_FT_TestItems
-
-Layouts used in this script
-
-Tables used in this script
-
-    testlearn
-
-Table occurrences used by this script
-
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [loadTestResultRecord]	Parent Folder: [test]	Next Script: [reportNewTestResult]
-Script Name	newTestResult
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testResult0
-    testResult1
-    testResult2
-    testResult3
-    testResult4
-    testResult5
-
-Scripts that use this script
-
-    gotoTestResults
-    gotoDefaultsOrReport
-
-Script Definition
-Script Steps
-
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #basic administration tasks
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    #
-    #If there is a possible form in the current
-    #record's text field that the user may want
-    #to insert into the new record copy it.
-    Set Variable [ $noteForPossibleUseInNewRecord; Value:testlearn::note ]
-    #
-    #Find the NA record for this test subsection if
-    #there is one.
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Set Field [ testlearn::countOfONESubsectionsTestResults; "N/A" ]
-    Perform Find [ ]
-    #
-    #Find the OK record for this test subsection if
-    #there is one.
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Set Field [ testlearn::countOfONESubsectionsTestResults; "OK" ]
-    Extend Found Set [ ]
-    #
-    #Delete the OK or NA record if found. This
-    #action removes what is now a useless record.
-    #
-    If [ testlearn::ktestSection = $$testSection and testlearn::countOfONESubsectionsTestResults = "N/A" and testlearn::kreportNumber = $$reportNumber or testlearn::ktestSection = $$testSection and testlearn::countOfONESubsectionsTestResults = "OK" and testlearn::kreportNumber = $$reportNumber or testlearn::ktestSection = $$testSection and testlearn::countOfONESubsectionsTestResults = "★" and testlearn::kreportNumber = $$reportNumber ]
-    Delete Record/Request [ No dialog ]
-    End If
-    #
-    #Create a new test result for this subsection.
-    New Record/Request
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Set Field [ testlearn::subsectionCustomName; $$testSubsectionName ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-    Set Field [ testlearn::dateModify; Get ( CurrentTimeStamp ) ]
-    Set Field [ testlearn::kcopyright; TEMP::kdefaultCopyright ]
-    #
-    #Get this new records ID number.
-    Set Variable [ $newRecordID; Value:testlearn::_Ltestlearn ]
-    #
-    #Increase number of results for this subsection.
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Perform Find [ ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    Loop
-    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Increase number of results for ALL subsections
-    #in this test.
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Set Error Capture [ On ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    #
-    #This find range will insure only test result
-    #records will be found (no NA or OK records).
-    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
-    Perform Find [ ]
-    #
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    #
-    #Now find all the subject's report section records
-    #including NA and OK records update total
-    #results amount. NOTE: This done because in
-    #some test sections there may only be an NA or
-    #OK record in which to display test result totals
-    #that inlcude other sections.
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Go to Record/Request/Page [ First ]
-    Perform Find [ ]
-    #
-    #Update the total results number for all subsections.
-    Loop
-    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Now refind just the test results records for this
-    #test subsection for the user to view.
-    Set Error Capture [ On ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    #
-    #This find range will insure only records with numbers
-    #will be found (no NA or OK records).
-    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
-    Perform Find [ ]
-    #
-    #Set conditional formatting on main test layout
-    #informing user that this subsection has results.
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
-    Perform Find [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
-    #
-    #Now refind all subsections user has created on
-    #the main test layout.
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $$testSubject ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $$ReportNumber ]
-    Perform Find [ ]
-    #
-    #See if a report record exists for this subsection.
-    Set Variable [ $$stopLoadReportRecord; Value:1 ]
-    Go to Layout [ “PrintReportEdit” (report) ]
-    Enter Find Mode [ ]
-    Set Field [ report::ktestSubject; $$testSubject ]
-    Set Field [ report::ktestSubsection; $$testSubsection ]
-    Set Field [ report::kreportNumber; $$reportNumber ]
-    Perform Find [ ]
-    #
-    #Create new report record if none exists.
-    If [ Get (LastError) = 401 ]
-    New Record/Request
-    Set Field [ report::ktestSubject; $$testSubject ]
-    Set Field [ report::ktestSubsection; $$testSubsection ]
-    Set Field [ report::kreportNumber; $$reportNumber ]
-    End If
-    #
-    #Make test status is changed from pending to
-    #in progress.
-    Set Variable [ $$stopLoadReportRecord ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
-    #Return to the test results layout and go to
-    #new record.
-    Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::timestamp; ascending testlearn::subsectionCustomName; ascending testlearn::_Number; ascending ] [ Restore; No dialog ]
-    Go to Record/Request/Page [ Last ]
-    #
-    #Make sure it is the new record.
-    If [ $newRecordID ≠ testlearn::_Ltestlearn ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ $newRecordID = testlearn::_Ltestlearn ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    End If
-    #
-    #Load new record's variables.
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
-    #
-    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
-    #
-    #If this subsection has test items for a form
-    #then put the form into this new test items
-    #note field, unless there was copy of the form
-    #in the previous record, in which case ask the
-    #user if they want to use this previous copy
-    #or load a fresh form.
-    If [ $$noFT_ItemsFound = "" ]
-    If [ $noteForPossibleUseInNewRecord ≠ "" ]
-    Show Custom Dialog [ Message: "Paste the filled out form used in the previous record OR create a fresh (blank) copy of the form for this record?"; Default Button: “fresh”, Commit: “Yes”; Button 2: “paste”, Commit: “No” ]
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Set Field [ testlearn::note; $noteForPossibleUseInNewRecord ]
-    Else
-    Set Variable [ $$addFormToNewTestResult; Value:1 ]
-    End If
-    Else
-    Set Variable [ $$addFormToNewTestResult; Value:1 ]
-    End If
-    End If
-    #
-    #Load up the variables for this new test result.
-    Perform Script [ “loadTestResultRecord” ]
-    #
-    #
-
-Fields used in this script
-
-    testlearn::note
-    testlearn::ktestSubject
-    testlearn::ktestSubsection
-    testlearn::kreportNumber
-    testlearn::countOfONESubsectionsTestResults
-    testlearn::ktestSection
-    testlearn::subsectionCustomName
-    TEMP::kdefaultNodePrimary
-    testlearn::kRecordCreatorNode
-    testlearn::dateModify
-    TEMP::kdefaultCopyright
-    testlearn::kcopyright
-    testlearn::_Ltestlearn
-    testlearn::countOfALLSubsectionsTestResults
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::inUse
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    testSectionCreatedFromATemplate::reportNumber
-    report::ktestSubject
-    report::ktestSubsection
-    report::kreportNumber
-    testSubsectionForSubject::gprogressGlobal
-    TEMP::layoutTmain
-    testlearn::timestamp
-    testlearn::_Number
-    testlearn::recordcountglobal
-    testlearn::recordnumberglobal
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    loadTestResultRecord
-
-Layouts used in this script
-
-    testSCRIPTloops
-    tableTestSectionFromTemplate
-    PrintReportEdit
-    testingSubsectionMenu
-    <Missing Layout>
-
-Tables used in this script
-
-    TEMP
-    report
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    report
-    testSectionCreatedFromATemplate
-    testSubsectionForSubject
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [newTestResult]	Parent Folder: [test]	Next Script: [returnToInspectionItems]
-Script Name	reportNewTestResult
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    reportTestResult
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #basic administration tasks
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    If [ testlearnReportTags::kgtestSection = "" ]
-    Show Custom Dialog [ Title: "!"; Message: "Select a test section by 1) clicking on the USE button under a picture or by 2) clicking the test section button (next to new button)."; Default Button: “OK”, Commit: “Yes” ]
-    Halt Script
-    End If
-    #
-    #
-    Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
-    #
-    New Record/Request
-    Set Field [ testlearnReportTags::ktestSubject; $$testSubject ]
-    Set Field [ testlearnReportTags::ktestSection; TEMP::ktestSection ]
-    Set Field [ testlearnReportTags::kreportNumber; TEMP::reportNumber ]
-    Set Field [ testlearnReportTags::subsectionCustomName; $$subsectionCustomName ]
-    Set Field [ testlearnReportTags::ktestSubsection; TEMP::ktestSubsection ]
-    Set Field [ testlearnReportTags::timestamp; TEMP::TimeStamp ]
-    Set Field [ testlearnReportTags::kNodePrimary; TEMP::kdefaultNodePrimary ]
-    Set Field [ testlearnReportTags::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-    Set Field [ testlearnReportTags::dateModify; Get ( CurrentTimeStamp ) ]
-    Set Field [ testlearnReportTags::kcopyright; TEMP::kdefaultCopyright ]
-    #
-    #Note the new record ID so after sort the
-    #the database will be able to select it.
-    Set Variable [ $kpn; Value:testlearnReportTags::_Ltestlearn ]
-    #
-    #Increase number of findings for item for
-    #this subject's location.
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Perform Find [ ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    Loop
-    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Increase number of test results.
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; $$testSubject ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Perform Find [ ]
-    Go to Record/Request/Page [ First ]
-    Set Variable [ $number; Value:Get (FoundCount) ]
-    Loop
-    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Lock item's section so it cannot be deleted
-    #unless all findings for it are deleted.
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
-    Perform Find [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
-    #
-    #Refind all section records for this session.
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $$testSubject ]
-    Set Field [ testSectionCreatedFromATemplate::reportNumber; $$ReportNumber ]
-    Perform Find [ ]
-    Go to Layout [ original layout ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::subsectionCustomName; ascending testlearnReportTags::timestamp; ascending testlearnReportTags::_Ltestlearn; ascending ] [ Restore; No dialog ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ testlearnReportTags::_Ltestlearn = $kpn ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Set conditional formatting variables, turn on
-    #the load script, and then go to the result's
-    #note field.
-    Set Variable [ $$RecordID; Value:Get (RecordID) ]
-    Set Variable [ $$main; Value:testlearnReportTags::_Ltestlearn ]
-    Set Variable [ $$stopLoadTestResultRecord ]
-    Go to Field [ testlearnReportTags::note ]
-    #
-
-Fields used in this script
-
-    testlearnReportTags::kgtestSection
-    testlearnReportTags::ktestSubject
-    TEMP::ktestSection
-    testlearnReportTags::ktestSection
-    TEMP::reportNumber
-    testlearnReportTags::kreportNumber
-    testlearnReportTags::subsectionCustomName
-    TEMP::ktestSubsection
-    testlearnReportTags::ktestSubsection
-    TEMP::TimeStamp
-    testlearnReportTags::timestamp
-    TEMP::kdefaultNodePrimary
-    testlearnReportTags::kNodePrimary
-    testlearnReportTags::kRecordCreatorNode
-    testlearnReportTags::dateModify
-    TEMP::kdefaultCopyright
-    testlearnReportTags::kcopyright
-    testlearnReportTags::_Ltestlearn
-    testlearn::ktestSubject
-    testlearn::ktestSection
-    testlearn::ktestSubsection
-    testlearn::countOfONESubsectionsTestResults
-    testlearn::kreportNumber
-    testlearn::countOfALLSubsectionsTestResults
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::inUse
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    testSectionCreatedFromATemplate::reportNumber
-    testlearnReportTags::note
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-
-Layouts used in this script
-
-    testSCRIPTloops
-    tableTestSectionFromTemplate
-
-Tables used in this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-    testlearn
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [reportNewTestResult]	Parent Folder: [test]	Next Script: [returnToSubsections]
-Script Name	returnToInspectionItems
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Enter Find Mode [ ]
-    Set Field [ testSubsectionForSubject::kcsections; $$genlocation ]
-    Perform Find [ ]
-    Sort Records [ ] [ No dialog ]
-
-Fields used in this script
-
-    testSubsectionForSubject::kcsections
-
-Scripts used in this script
-
-Layouts used in this script
-
-    testingSubsectionMenu
-
-Tables used in this script
-
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    testSubsectionForSubject
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [returnToInspectionItems]	Parent Folder: [test]	Next Script: [returnToTestSetup]
-Script Name	returnToSubsections
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testResult0
-    testResultLOCKED0
-    testResult1
-    testResultLOCKED1
-    testResult2
-    testResultLOCKED2
-    testResult3
-    testResultLOCKED3
-    testResult4
-    testResultLOCKED4
-    testResult5
-    testResultLOCKED5
-
-Scripts that use this script
-
-    stopLockedNodesRecordsBeingDeleted
-    stopNewRecordsBeingCreatedByLockedNode
-
-Script Definition
-Script Steps
-
-    #
-    #Close any open test item reference windows
-    #and resize the two remaining windows.
-    Close Window [ Name: "Reference"; Current file ]
-    Move/Resize Window [ Name: "Test"; Current file; Width: Get ( ScreenWidth ) / 2; Left: 0 ]
-    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get ( ScreenWidth ) / 2; Left: Get ( ScreenWidth ) / 2 ]
-    Select Window [ Name: "Tag Menus"; Current file ]
-    #
-    #Return to this test's subsection menu, setting
-    #the Tag Menus window to show no tags,
-    #because there are no tags to show.
-    Go to Layout [ “testMenuNoTag” (TEMP) ]
-    Select Window [ Name: "Test"; Current file ]
-    Set Field [ TEMP::showFavorites; "" ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-
-Fields used in this script
-
-    TEMP::showFavorites
-
-Scripts used in this script
-
-Layouts used in this script
-
-    testMenuNoTag
-    testingSubsectionMenu
-
-Tables used in this script
-
-    TEMP
-
-Table occurrences used by this script
-
-    TEMP
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [returnToSubsections]	Parent Folder: [test]	Next Script: [testInfoOpenTextNewWindow]
-Script Name	returnToTestSetup
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testingSubsectionMenu
-    PrintReportEdit
-    PrintReportLock
-
-Scripts that use this script
-
-    deleteReportTestResult
-    gotoTestSubsections
-    gotoReport
-
-Script Definition
-Script Steps
-
-    #
-    #If on test screen, see if any sections have results.
-    If [ Get (LayoutName) = "testingSubsectionMenu" ]
-    Set Variable [ $testInUseCheck; Value:1 ]
-    Go to Record/Request/Page [ First ]
-    Loop
-    If [ testResultsTestSection::countOfONESubsectionsTestResults ≠ "" ]
-    Set Variable [ $InUse; Value:1 ]
-    End If
-    Exit Loop If [ testResultsTestSection::countOfONESubsectionsTestResults ≠ "" ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    End If
-    #
-    #Close any open test item reference windows.
-    #NOTE: This is next loop is a work around to
-    #deal with the Reference window issue.
-    #Basically, there are several scripts that may
-    #open Reference windows for Info records that
-    #have references. Rather than try to figure out all
-    #the ways this occurs (easy with time), this loop
-    #just closes as many Reference windows as are
-    #currently open. Not the best solution, but it
-    #works and I really want to close out work on this
-    #4.0beta version and move on.
-    Loop
-    If [ ValueCount ( FilterValues ( WindowNames ( Get ( FileName ) ) ; "Reference" ) ) > 0 ]
-    Close Window [ Name: "Reference"; Current file ]
-    Set Variable [ $resizeTagMenusWindow; Value:1 ]
-    End If
-    Exit Loop If [ ValueCount ( FilterValues ( WindowNames ( Get ( FileName ) ) ; "Reference" ) ) = 0 ]
-    End Loop
-    #
-    #Turn off this subsection menu variable.
-    #Prevents user activating any buttons, until a
-    #subsection record is loaded.
-    Set Variable [ $$stopLoadingTestSubSection ]
-    #
-    #Turn of the test subject lock variable.
-    Set Variable [ $$testSubjectIsLocked ]
-    #
-    #Go to the Setup Test layout.
-    Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
-    Set Window Title [ Current Window; New Title: "Setup" ]
-    #
-    #Make sure window fills half of the screen.
-    Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-    #
-    #Go to Tag Menus window.
-    Select Window [ Name: "Tag Menus"; Current file ]
-    If [ Get (LastError) = 112 ]
-    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    End If
-    #
-    #Make sure window to fills half of the screen.
-    Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
-    #
-    Go to Layout [ “defaultsAll” (tempSetup) ]
-    Perform Script [ “defaultsAll” ]
-    #
-    #Find all created test section records.
-    Select Window [ Name: "Setup"; Current file ]
-    Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    Show All Records
-    #
-    #Sort
-    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubjectName::tag; ascending testSectionCreatedFromATemplate::reportNumber; descending testSectionCreatedFromATemplate::order; based on value list: “order Pulldown List” testSectionCreatedFromATemplate::name; ascending ] [ Restore; No dialog ]
-    #
-    #Go to selected test subsection record.
-    Go to Record/Request/Page [ $$TSRecordNumber ] [ No dialog ]
-    Set Variable [ $$tagtest ]
-    Set Variable [ $$testSubsection ]
-    Set Variable [ $$TSRecordNumber ]
-    Set Variable [ $$pictureWIndowColor ]
-    #
-    #Conditionally format records.
-    If [ $InUse = "" and $testInUseCheck = 1 ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
-    Else If [ $InUse = 1 and $testInUseCheck = 1 and testSectionCreatedFromATemplate::inUse ≠ "d" ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
-    End If
-    #
-
-Fields used in this script
-
-    testResultsTestSection::countOfONESubsectionsTestResults
-    testSubjectName::tag
-    testSectionCreatedFromATemplate::reportNumber
-    testSectionCreatedFromATemplate::order
-    testSectionCreatedFromATemplate::name
-    testSectionCreatedFromATemplate::inUse
-
-Scripts used in this script
-
-    defaultsAll
-
-Layouts used in this script
-
-    defaultTest
-    defaultsAll
-
-Tables used in this script
-
-    tag
-    testSectionCreatedFromATemplate
-    testlearn
-
-Table occurrences used by this script
-
-    testResultsTestSection
-    testSectionCreatedFromATemplate
-    testSubjectName
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [returnToTestSetup]	Parent Folder: [test]	Next Script: [testItemCheckOrTextOrForm]
-Script Name	testInfoOpenTextNewWindow
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testInfo
-    reportTagInfo
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #Prevent the opening of the record's text
-    #window when user goes to the record.
-    If [ $$stopOpenNewTextWindow = 1 ]
-    Set Variable [ $$stopOpenNewTextWindow ]
-    Exit Script [ ]
-    End If
-    #
-    #Stop record load script while new window
-    #is opened.
-    Go to Field [ ]
-    Set Variable [ $$stoploadtestinfo; Value:1 ]
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #
-    #If record is locked go to locked layout.
-    If [ $$lockedMainLearnRecord = "" ]
-    Scroll Window [ Home ]
-    Go to Layout [ “testInfoText” (testlearnReportTags) ]
-    #
-    Else If [ $$lockedMainLearnRecord ≠ "" ]
-    Go to Layout [ “testInfoTextLocked” (testlearnReportTags) ]
-    End If
-    #
-    #Turn back on record load script and pause
-    #while user looks at text.
-    Set Variable [ $$stopLoadTestInfo ]
-    Pause/Resume Script [ Indefinitely ]
-    #
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-    testInfoText
-    testInfoTextLocked
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [testInfoOpenTextNewWindow]	Parent Folder: [test]	Next Script: [testItemCheckTemplateButton]
-Script Name	testItemCheckOrTextOrForm
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-    testItemCheckTemplateButton
-    testItemTextOrFormTemplateButton
-
-Script Definition
-Script Steps
-
-    #
-    #On the test-item layout, set this stop check
-    #or text variable to allows the user to click into
-    #this field for the purpose of navigating to a
-    #new record without changing the check or
-    #text mark status.
-    If [ $$stopCheckOrTest = 1 ]
-    Set Variable [ $$stopCheckOrTest ]
-    Exit Script [ ]
-    End If
-    #
-    #Prevent user from changing check/text
-    #status of locked records.
-    If [ tagCreatorLock::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "This record is locked. Go the node that created it — " & tagCreatorLock::tag & " — in the setup tag window and enter the password to unlock it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #Prevent the test check items from being
-    #turned into T or FT items if they are
-    #in use as check items.
-    If [ tagMenus::notesOrCopyright = "✓" ]
-    #Get variables needed for delete and delete messages.
-    Set Variable [ $delete; Value:tagMenus::_Ltag ]
-    Set Variable [ $group; Value:tagMenuTestItemGroup::_Lgroup ]
-    Set Variable [ $groupName; Value:If ( Char ( tagMenuTestItemGroup::name ) ≤ 20 ; tagMenuTestItemGroup::name ; Left ( tagMenuTestItemGroup::name ; 20 ) & "..." ) ]
-    Set Variable [ $testItemName; Value:If ( Char ( tagMenus::tag ) ≤ 20 ; tagMenus::tag ; Left ( tagMenus::tag ; 20 ) & "..." ) ]
-    #
-    #
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Set Variable [ $$stopDeleteTest; Value:1 ]
-    Set Variable [ $$stopTest; Value:1 ]
-    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    Show All Records
-    Delete All Records [ No dialog ]
-    #
-    Go to Layout [ “tableTestLearn” (testlearn) ]
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::kctestResultCheckedItems; $delete ]
-    Perform Find [ ]
-    #
-    #If this section is found to be in use, then inform
-    #user of where and prevent its deletion.
-    If [ Get (LastError) ≠ 401 ]
-    Loop
-    Set Variable [ $useList; Value:TextColor( tagTLTestSubject::tag & " | test " & testlearn::kreportNumber & ¶ & "section " ;RGB(102;102;102)) & testSectionTemplateName::name & ¶ & TextColor( "sub-section " ;RGB(102;102;102)) & testlearn::subsectionCustomName ]
-    Go to Layout [ “TEMP” (TEMP) ]
-    New Record/Request
-    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
-    Go to Layout [ “testResult0” (testlearn) ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    Go to Layout [ “TEMP” (TEMP) ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
-    View As [ View as List ]
-    #
-    Show/Hide Toolbars [ Lock; Hide ]
-    Show/Hide Text Ruler [ Hide ]
-    #
-    #Due to a bug in FM13, window must first be
-    #moved back into the screen area before the
-    #calculation of the current screen's
-    #dimensions can be taken.
-    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
-    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
-    Set Field [ TEMP::Message; "Before the highlighted test item can be turned into a T or FT item, it must unchecked " & "(in the test module) from test results in the test sub-sections below." ]
-    Pause/Resume Script [ Indefinitely ]
-    Close Window [ Current Window ]
-    Set Variable [ $delete ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Refresh Window
-    Exit Script [ ]
-    Else
-    Close Window [ Current Window ]
-    Set Variable [ $delete ]
-    Set Variable [ $$stopLoadTestRecord ]
-    Set Variable [ $$stopLoadTagRecord ]
-    Set Variable [ $$stopDeleteTest ]
-    Set Variable [ $$stopTest ]
-    Refresh Window
-    End If
-    End If
-    #
-    #
-    #Change this test item's check or text mark
-    #status. This status determines if and when
-    #the test item's button is clicked a check is put
-    #next to it or its text is copied and pasted into
-    #a test results text field.
-    Set Field [ tagMenus::notesOrCopyright; Case ( tagMenus::match = "testItem" ; Case ( tagMenus::notesOrCopyright = "" ; "✓" ; Case ( tagMenus::notesOrCopyright = "✓" ; "T" ; Case ( tagMenus::notesOrCopyright = "T" ; "FT" ; Case ( tagMenus::notesOrCopyright = "FT" ; "✓" ) ) ) ) ) ]
-    Commit Records/Requests
-    If [ tagMenus::notesOrCopyright = "✓" ]
-    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextFontRemove ( tagMenus::tag ) ]
-    Set Field [ tagMenus::tag; TextSizeRemove ( tagMenus::tag ; 20 ) ]
-    Set Field [ tagMenus::tag; TextStyleRemove ( tagMenus::tag ; Bold ) ]
-    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    #
-    #Now force FileMaker to update formatting in
-    #the tagSpelling field, which is what shows the
-    #tag when the checkmark symbol is used.
-    Set Field [ tagMenus::tagSpelling; tagMenus::tag ]
-    End If
-    Refresh Window
-    #
-    #
-
-Fields used in this script
-
-    tagCreatorLock::orderOrLock
-    tagCreatorLock::tag
-    tagMenus::notesOrCopyright
-    tagMenus::_Ltag
-    tagMenuTestItemGroup::_Lgroup
-    tagMenuTestItemGroup::name
-    tagMenus::tag
-    testlearn::kctestResultCheckedItems
-    tagTLTestSubject::tag
-    testlearn::kreportNumber
-    testSectionTemplateName::name
-    testlearn::subsectionCustomName
-    TEMP::DeleteMessageInTempWindow1
-    TEMP::Message
-    tagMenus::match
-    tagMenus::textStyleOrCreatorNodeFlag
-    tagMenus::tagSpelling
-
-Scripts used in this script
-
-Layouts used in this script
-
-    TEMP
-    tableTestLearn
-    testResult0
-
-Tables used in this script
-
-    TEMP
-    tag
-    tag
-    tagGroup
-    testSectionCreatedFromATemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    tagCreatorLock
-    tagMenuTestItemGroup
-    tagMenus
-    tagTLTestSubject
-    testSectionTemplateName
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [testItemCheckOrTextOrForm]	Parent Folder: [test]	Next Script: [testItemStyles]
-Script Name	testItemCheckTemplateButton
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestItem
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If a check is showing change the item into text
-    #or form item.
-    If [ tagMenus::notesOrCopyright = "✓" ]
-    Perform Script [ “testItemCheckOrTextOrForm” ]
-    #
-    #
-    #If no check (no button) is showing then
-    #go to the text field, which is what the user is
-    #seeing when then click here.
-    Else
-    Go to Field [ tagMenus::tag ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    tagMenus::notesOrCopyright
-    tagMenus::tag
-
-Scripts used in this script
-
-    testItemCheckOrTextOrForm
-
-Layouts used in this script
-
-Tables used in this script
-
-    tag
-
-Table occurrences used by this script
-
-    tagMenus
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [testItemCheckTemplateButton]	Parent Folder: [test]	Next Script: [testItemTextOrFormTemplateButton]
-Script Name	testItemStyles
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestItem
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If the node that created this group is locked
-    #prevent new items be created for it even by a
-    #node that is not locked.
-    If [ nodeLockTestTagItemGroup::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "This group is locked. To format items, go the node that created this group — " & nodeLockTestTagItemGroup::tag & " — in the setup tag window and enter the password."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #Apply style to text and note/flag style number.
-    If [ tagMenus::notesOrCopyright = "T" or tagMenus::notesOrCopyright = "FT" ]
-    If [ tagMenus::textStyleOrCreatorNodeFlag = "" ]
-    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "1" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Georgia" ) ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
-    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "2" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
-    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
-    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "3" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextSize ( tagMenus::tag ; 20 ) ]
-    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
-    Set Field [ tagMenus::tag; TextStyleAdd ( tagMenus::tag ; Bold ) ]
-    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
-    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "" ]
-    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
-    Set Field [ tagMenus::tag; TextFontRemove ( tagMenus::tag ) ]
-    Set Field [ tagMenus::tag; TextSizeRemove ( tagMenus::tag ; 20 ) ]
-    Set Field [ tagMenus::tag; TextStyleRemove ( tagMenus::tag ; Bold ) ]
-    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
-    Else
-    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "" ]
-    End If
-    Else
-    Show Custom Dialog [ Message: "Only text (T) and form (FT) items can be formatted as headers. To turn this item into a text item, click on the check mark. (You may have to click it twice.)"; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    #
-
-Fields used in this script
-
-    nodeLockTestTagItemGroup::orderOrLock
-    nodeLockTestTagItemGroup::tag
-    tagMenus::notesOrCopyright
-    tagMenus::textStyleOrCreatorNodeFlag
-    tagMenus::tag
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    tag
-    tag
-
-Table occurrences used by this script
-
-    nodeLockTestTagItemGroup
-    tagMenus
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [testItemStyles]	Parent Folder: [test]	Next Script: [testSubsectionNA]
-Script Name	testItemTextOrFormTemplateButton
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupTestItem
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If a T is showing change the item into an FT
-    #item, and if an FT is showing change the item
-    #into a check item.
-    If [ tagMenus::notesOrCopyright = "FT" or tagMenus::notesOrCopyright = "T" ]
-    Perform Script [ “testItemCheckOrTextOrForm” ]
-    #
-    #
-    #If neither a T or FT (no button) is showing then
-    #go to the text field, which is what the user is
-    #seeing when then click here.
-    Else
-    Go to Field [ tagMenus::tag ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    tagMenus::notesOrCopyright
-    tagMenus::tag
-
-Scripts used in this script
-
-    testItemCheckOrTextOrForm
-
-Layouts used in this script
-
-Tables used in this script
-
-    tag
-
-Table occurrences used by this script
-
-    tagMenus
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [testItemTextOrFormTemplateButton]	Parent Folder: [test]	Next Script: [toggleTestWindowView]
-Script Name	testSubsectionNA
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testingSubsectionMenu
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    If [ $$stopLoadingTestSubSection = 1 ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    End If
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #This script creates test a result that is not
-    #shown as a test result.
-    # Instead, this record is used to show an
-    #N/A or OK next to a test subsection to indicate
-    #that this subsection does not apply or doesn't
-    #require evidence of results to indicate that it is
-    #OK. If the user decides to not show the OK or
-    #N/A, then this script deletes this test result
-    #record, which enables the display of the N/A
-    #or OK on the test subsection menu layout.
-    #
-    #
-    #basic administration tasks
-    Set Error Capture [ On ]
-    Allow User Abort [ Off ]
-    If [ testResultsTestSection::_Ltestlearn = "" ]
-    Freeze Window
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #note item's ID number and name
-    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
-    Set Variable [ $$testSubsectionName; Value:testSubsectionForSubject::name ]
-    Set Field [ TEMP::testSubsectionName ]
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    New Record/Request
-    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Set Field [ testlearn::kreportNumber; $$reportNumber ]
-    Set Field [ testlearn::subsectionCustomName; $$testSectionName ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    #lock item location so it cannot be deleted unless all findings for it are deleted
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
-    Perform Find [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
-    #refind all location records for this session
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
-    Perform Find [ ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "N/A" ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
-    Go to Field [ ]
-    Close Window [ Current Window ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    Else If [ testResultsTestSection::countOfONESubsectionsTestResults = "" and testResultsTestSection::_Ltestlearn ≠ "" ]
-    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "N/A" ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
-    Set Field [ TEMP::testSubsectionName ]
-    Go to Field [ ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    Else If [ testResultsTestSection::countOfONESubsectionsTestResults = "N/A" ]
-    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "OK" ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
-    Set Field [ TEMP::testSubsectionName ]
-    Go to Field [ ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    Else If [ testResultsTestSection::countOfONESubsectionsTestResults = "N/A" or testResultsTestSection::countOfONESubsectionsTestResults = "OK" ]
-    #
-    #
-    #Disable star symbol.
-    // If [ testResultsReportSection::countOfALLSubsectionsTestResults = "" ]
-    If [ testResultsReportSection::countOfALLSubsectionsTestResults = "" or testResultsReportSection::countOfALLSubsectionsTestResults ≠ "" ]
-    Set Field [ TEMP::testSubsectionName ]
-    // Show Custom Dialog [ Title: "FYI"; Message: "Use the star symbol to referr to other assessment findings. You currently do not have any for this item."; Default Button: “OK”, Commit: “No” ]
-    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "" ]
-    Go to Field [ ]
-    Freeze Window
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #note item's ID number and name
-    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
-    #
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Perform Find [ ]
-    #
-    Delete Record/Request [ No dialog ]
-    #Unlock Item Location
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Perform Find [ ]
-    #
-    If [ Get ( LastError ) = 401 ]
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
-    Perform Find [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
-    #refind all location records for this session
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
-    Perform Find [ ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    #
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
-    End If
-    Close Window [ Current Window ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    End If
-    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "★" ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
-    Go to Field [ ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    Else If [ testResultsTestSection::countOfONESubsectionsTestResults ≠ "N/A" and testResultsTestSection::countOfONESubsectionsTestResults ≠ "OK" and testResultsTestSection::countOfONESubsectionsTestResults ≠ "★" ]
-    Set Field [ TEMP::testSubsectionName ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
-    Go to Field [ ]
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Exit Script [ ]
-    End If
-    Freeze Window
-    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #note item's ID number and name
-    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
-    Set Field [ TEMP::testSubsectionName ]
-    Go to Layout [ “testSCRIPTloops” (testlearn) ]
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
-    Perform Find [ ]
-    Delete Record/Request [ No dialog ]
-    #Unlock Item Location
-    Enter Find Mode [ ]
-    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
-    Set Field [ testlearn::ktestSection; $$testSection ]
-    Perform Find [ ]
-    If [ Get ( LastError ) = 401 ]
-    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
-    Perform Find [ ]
-    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
-    #refind all location records for this session
-    Enter Find Mode [ ]
-    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
-    Perform Find [ ]
-    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
-    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
-    End If
-    Set Variable [ $$stopLoadingTestSubSection ]
-    Close Window [ Current Window ]
-
-Fields used in this script
-
-    testResultsTestSection::_Ltestlearn
-    testSubsectionForSubject::_LtestSubsection
-    testSubsectionForSubject::name
-    TEMP::testSubsectionName
-    TEMP::kdefaultNodeTestSubject
-    testlearn::ktestSubject
-    testlearn::ktestSection
-    testlearn::kreportNumber
-    testlearn::subsectionCustomName
-    testlearn::ktestSubsection
-    testSectionCreatedFromATemplate::_LtestSection
-    testSectionCreatedFromATemplate::inUse
-    testSectionCreatedFromATemplate::ktestSubjectNode
-    testResultsTestSection::countOfONESubsectionsTestResults
-    testSubsectionForSubject::gprogressGlobal
-    testResultsReportSection::countOfALLSubsectionsTestResults
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-
-Layouts used in this script
-
-    testSCRIPTloops
-    tableTestSectionFromTemplate
-    testingSubsectionMenu
-
-Tables used in this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-    testSubsectionTemplate
-    testlearn
-    testlearn
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    testResultsReportSection
-    testResultsTestSection
-    testSectionCreatedFromATemplate
-    testSubsectionForSubject
-    testlearn
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [testSubsectionNA]	Parent Folder: [test]	Next Script: [testResultInformationPulldown]
-Script Name	toggleTestWindowView
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    testResult0
-    testResultLOCKED0
-    testResult1
-    testResultLOCKED1
-    testResult2
-    testResultLOCKED2
-    testResult3
-    testResultLOCKED3
-    testResult4
-    testResultLOCKED4
-    testResult5
-    testResultLOCKED5
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #Reveal more or fewer pictures and links for tag.
-    #First toggle from current view to next view.
-    #Turn off loadRecord script to speed up process.
-    Set Variable [ $$stopLoadTestRecord; Value:1 ]
-    #
-    #from 0 to 1
-    If [ Right ( Get (LayoutName) ; 1) = 0 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult1” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED1” (testlearn) ]
-    End If
-    #
-    #from 1 to 2
-    Else If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult2” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED2” (testlearn) ]
-    End If
-    #
-    #from 2 to 3
-    Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult3” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED3” (testlearn) ]
-    End If
-    #
-    #from 3 to 4
-    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult4” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED4” (testlearn) ]
-    End If
-    #
-    #from 4 to 5
-    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult5” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED5” (testlearn) ]
-    End If
-    #
-    #from 5 to 4
-    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult4” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED4” (testlearn) ]
-    End If
-    #
-    #from 4 to 3
-    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult3” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED3” (testlearn) ]
-    End If
-    #
-    #from 3 to 2
-    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult2” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED2” (testlearn) ]
-    End If
-    #
-    #from 2 to 1
-    Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult1” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED1” (testlearn) ]
-    End If
-    #
-    #from 1 to 0
-    Else If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
-    Go to Layout [ “testResult0” (testlearn) ]
-    Else
-    Go to Layout [ “testResultLOCKED0” (testlearn) ]
-    End If
-    End If
-    #
-    #Remember layout user is on so they can be
-    #returned to correct view.
-    #
-    #Turn on loadRecord script needed for other scripts.
-    Set Variable [ $$stopLoadTestRecord ]
-    #
-    #from 0 to 1
-    If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
-    #from 1 to 2
-    Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
-    #from 2 to 3
-    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
-    #from 3 to 4
-    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
-    #from 4 to 5
-    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
-    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
-    #from 5 to 4
-    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
-    #from 4 to 3
-    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
-    #from 3 to 2
-    Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
-    #from 2 to 1
-    Else If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
-    #from 1 to 0
-    Else If [ Right ( Get (LayoutName) ; 1) = 0 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
-    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    TEMP::layoutTmain
-    TEMP::testSubjectNodeIsLocked
-    TEMP::primaryNodeIsLocked
-
-Scripts used in this script
-
-Layouts used in this script
-
-    testResult1
-    testResultLOCKED1
-    testResult2
-    testResultLOCKED2
-    testResult3
-    testResultLOCKED3
-    testResult4
-    testResultLOCKED4
-    testResult5
-    testResultLOCKED5
-    testResult0
-    testResultLOCKED0
-
-Tables used in this script
-
-    TEMP
-
-Table occurrences used by this script
-
-    TEMP
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [toggleTestWindowView]	Parent Folder: [test]	Next Script: [useSubsectionAndCurrentTimeStamp]
-Script Name	testResultInformationPulldown
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #Set up new test result fields with the selected
-    #section's name and key.
-    Set Field [ TEMP::testSubsectionNameForSubject; PulldownTestSectionName::name ]
-    Set Field [ TEMP::ktestSection; PulldownTestSectionName::_LtestSection ]
-    Set Variable [ $$subsectionCustomName; Value:TEMP::testSubsectionName ]
-    Set Field [ testlearnReportTags::kgtestSection; PulldownTestSectionName::_LtestSection ]
-    Go to Field [ ]
-    #
-
-Fields used in this script
-
-    PulldownTestSectionName::name
-    TEMP::testSubsectionNameForSubject
-    PulldownTestSectionName::_LtestSection
-    TEMP::ktestSection
-    TEMP::testSubsectionName
-    testlearnReportTags::kgtestSection
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-    testlearn
-
-Table occurrences used by this script
-
-    PulldownTestSectionName
-    TEMP
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [testResultInformationPulldown]	Parent Folder: [test]
-Script Name	useSubsectionAndCurrentTimeStamp
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    reportTestResult
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #Set up new test result information with this
-    #result's information.
-    Set Field [ TEMP::testSubsectionNameForSubject; tagReportTestSubjectSectionNAME::name ]
-    Set Field [ TEMP::ktestSection; testlearnReportTags::ktestSection ]
-    Set Variable [ $$subsectionCustomName; Value:testlearnReportTags::subsectionCustomName ]
-    Set Field [ testlearnReportTags::kgtestSection; testlearnReportTags::ktestSection ]
-    Set Field [ TEMP::TimeStamp; testlearnReportTags::timestamp ]
-
-Fields used in this script
-
-    tagReportTestSubjectSectionNAME::name
-    TEMP::testSubsectionNameForSubject
-    testlearnReportTags::ktestSection
-    TEMP::ktestSection
-    testlearnReportTags::subsectionCustomName
-    testlearnReportTags::kgtestSection
-    testlearnReportTags::timestamp
-    TEMP::TimeStamp
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    testSectionCreatedFromATemplate
-    testlearn
-
-Table occurrences used by this script
-
-    TEMP
-    tagReportTestSubjectSectionNAME
-    testlearnReportTags
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-probablyNotInUse
-	Parent Folder: [probablyNotInUse]
-Script Name	switchTestList
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #If the user selected the list currently showing then
-    #stop the script.
-    If [ TEMP::ktestItemSubsection = TEMP::ktestItemSubsectionOLD ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #switch to the selected test, which may or may
-    #not have a test-item list.
-    Allow User Abort [ Off ]
-    Set Error Capture [ On ]
-    Set Variable [ $$stopLoadTagRecord; Value:1 ]
-    Enter Find Mode [ ]
-    Set Field [ tagMenuTestItemGroup::match; TEMP::ktestItemSubsection ]
-    Perform Find [ ]
-    #
-    #If there is no list, then inform the user of this fact
-    #at the end of the script, after the name of the list
-    #is updated. To do that capture the 401 error message.
-    If [ Get (LastError) = 401 ]
-    Set Variable [ $emptyList; Value:1 ]
-    End If
-    Set Variable [ $$stopLoadTagRecord ]
-    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
-    #
-    #assign newly selected test item list to test
-    Select Window [ Name: "Setup"; Current file ]
-    Set Field [ testSubsectionTemplate::ktestItemGroup; TEMP::ktestItemSubsection ]
-    #
-    #get the switched-to-test's name.
-    #
-    #The reason for this whole section of the script
-    #(getting a test name) is that there is no relationship
-    #that can be made that would match the key of
-    #of the named test to this test and thus unlock
-    #and so allow the layout to show this test name.
-    #This is because the key to unlock the display of
-    #a test's name is in a keychain field where many
-    #keys may exist in list. Filemaker cannot match
-    #a lock in one table to list of keys in another table.
-    #There must be only one key in a field in order
-    #for Filemaker to know which key to use in a lock.
-    #The database does not have the intellegence or
-    #programming to search through a list of keys
-    #to make a match to a lock field in another table.
-    #Thus, in order to display the name of the test in use
-    #we must have the system put that name in a temp
-    #field with global storage, which then allows it
-    #to be displayed on any layout where that temp
-    #field is displayed. No relationship between the
-    #the temp table and the layout's table is required
-    #as long as the temp field is a global field, meaning
-    #all data in the field is the same for every record
-    #in the temp table.
-    #
-    #Get the ID of the current record so it can be
-    #looped back to.
-    Set Variable [ $currentTest; Value:testSubsectionTemplate::_LtestSubsection ]
-    #
-    #Turn of the record load triggered script to speed
-    #up this loop search.
-    Set Variable [ $$ID; Value:"ignore" ]
-    #
-    #Go to the first record and then test it and every
-    #other record until the test in question is found.
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ testSubsectionTemplate::_LtestSubsection = TEMP::ktestItemSubsection ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    #
-    #Set a temp field with this test's name. This name
-    #field will then be used to show this test's name on
-    #the Tag Menus layout for setupTestItems.
-    Set Field [ TEMP::ktestSubsectionName; testSubsectionTemplate::name ]
-    #
-    #go back to current test.
-    Go to Record/Request/Page [ First ]
-    Loop
-    Exit Loop If [ testSubsectionTemplate::_LtestSubsection = $currentTest ]
-    Go to Record/Request/Page [ Next; Exit after last ]
-    End Loop
-    Set Variable [ $$ID; Value:$currentTest ]
-    Refresh Window
-    #
-    #make new and old tag keys identical, so when
-    #a switch is made this copy can be used as the old key
-    #in the first part of this script. Switching automatically
-    #replaces the current key with whatever is selected,
-    #thus the need to preserve a copy now, before a switch is made.
-    Set Field [ TEMP::ktestItemSubsectionOLD; TEMP::ktestItemSubsection ]
-    #
-    #Update key used for the move pulldown to the new test.
-    Set Field [ TEMP::mTag; TEMP::ktestItemSubsection ]
-    #
-    #return to tag layout and show all selected items
-    Select Window [ Name: "Tag Menus"; Current file ]
-    Go to Layout [ “setupTestItem” (tagMenus) ]
-    Scroll Window [ Home ]
-    Go to Field [ ]
-    #
-    #If list is empty, now tell the user this so they don't
-    #think the system failed because nothing was found.
-    If [ $emptyList = 1 ]
-    Show Custom Dialog [ Message: "This test-item list contains no test items. You are welcome to create new ones."; Default Button: “OK”, Commit: “No” ]
-    End If
-
-Fields used in this script
-
-    TEMP::ktestItemSubsection
-    TEMP::ktestItemSubsectionOLD
-    tagMenuTestItemGroup::match
-    tagMenuTestItemGroup::orderOrLibraryType
-    tagMenuTestItemGroup::_Lgroup
-    tagMenus::orderOrLock
-    tagMenus::tag
-    testSubsectionTemplate::ktestItemGroup
-    testSubsectionTemplate::_LtestSubsection
-    testSubsectionTemplate::name
-    TEMP::ktestSubsectionName
-    TEMP::mTag
-
-Scripts used in this script
-
-Layouts used in this script
-
-    setupTestItem
-
-Tables used in this script
-
-    TEMP
-    tag
-    tagGroup
-    testSubsectionTemplate
-
-Table occurrences used by this script
-
-    TEMP
-    tagMenuTestItemGroup
-    tagMenus
-    testSubsectionTemplate
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
 report
 	Parent Folder: [report]	Next Script: [deleteRowOfPhotosFromReport]
 Script Name	CHUNK_gotoTestSubsectionViaPulldown
@@ -48794,8 +46401,8 @@ Layouts that use this script
 
 Scripts that use this script
 
-    deleteReportTestResult
     gotoReport
+    deleteReportTestResult
 
 Script Definition
 Script Steps
@@ -52418,6 +50025,7468 @@ Layouts used in this script
 Tables used in this script
 
 Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+setup
+	Parent Folder: [setup]	Next Script: [deleteSubsectionFromUserTest]
+Script Name	deleteSubsection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestSubsection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #This script is for deleting a test
+    #subsection template.
+    #
+    #
+    If [ testSectionCreatorLock::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "This record is locked. Go the node that created it — " & testSectionCreatorLock::tag & " — in the setup tag window and enter the password to unlock it so that you can delete it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #Set variables to conditionally format record to
+    #to be deleted and to supply name for warning
+    #messages, and to speed up script.
+    Set Variable [ $delete; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+    Set Variable [ $$tagTest; Value:testSubsectionTemplate::_LtestSubsection ]
+    Set Variable [ $$ID; Value:"ignore" ]
+    If [ testSubsectionTemplate::name = "" ]
+    Set Field [ testSubsectionTemplate::name; testSubsectionTemplate::_LtestSubsection ]
+    End If
+    Go to Field [ ]
+    Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #Check if item is in use as test tag on any Report
+    #records, and if so stop the script.
+    #
+    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    #
+    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearnReportTags::ktestSubsection; $delete ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Perform Find [ ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: ReportResultTestSubject::tag; ascending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    #
+    #If records are found using test, then tell the
+    #user on which reports they where found.
+    If [ Get (FoundCount) ≠ 0 ]
+    Loop
+    Set Variable [ $useList; Value: TextColor( ReportResultTestSubject::tag & " | test " & testlearnReportTags::kreportNumber ; RGB(102;102;102)) & ¶ & testlearnReportTags::countOfONESubsectionsTestResults & " in section " & TextColor( tagReportTestSubjectSectionNAME::name ; RGB(0;0;0)) ]
+    Set Variable [ $subSection; Value:testlearnReportTags::subsectionCustomName ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
+    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    Go to Layout [ “TEMP” (TEMP) ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
+    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "Test results have been made using the sub-section template " & $subSection & ". To delete it, first delete the test results made in the test-subject's test-sections below, which use this template." ]
+    Pause/Resume Script [ Indefinitely ]
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopLoadTestResultRecord ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$tagTest ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+    Exit Script [ ]
+    Else
+    Set Variable [ $$stopLoadTestResultRecord ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    End If
+    #
+    #
+    #Check if item is in use as test tag on any Learn
+    #records, and if so stop the script.
+    Set Variable [ $$stopLoadCitation; Value:1 ]
+    Go to Layout [ “learn2” (testlearn) ]
+    #
+    Set Window Title [ Current Window; New Title: "Learn" ]
+    #
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::filterFind; "main" ]
+    Set Field [ testlearn::kctestSubsectionInfo; "###" & $$tagTest ]
+    Perform Find [ ]
+    Set Variable [ $$stopLoadCitation ]
+    #
+    #If records are found using test, then stop script.
+    If [ Get (FoundCount) ≠ 0 ]
+    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Show Custom Dialog [ Message: "This general inquiry is linked to at least one learn record. To delete it 1) go to the learn module, 2) click 'test' in its tag-menus window, 3) select it, 4) untag it from all learn records, 5) return to test setup, 6) and delete it."; Default Button: “OK”, Commit: “Yes” ]
+    #
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$tagTest ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+    #
+    Exit Script [ ]
+    End If
+    #
+    Close Window [ Current Window ]
+    #
+    #If no records were found using this test, then
+    #user may delete it. First the record is highlighted
+    #in red and the user is asked if they really intend
+    #to delete this record.
+    Set Variable [ $delete; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+    Scroll Window [ To Selection ]
+    Go to Field [ ]
+    Show Custom Dialog [ Message: "Delete " & testSubsectionTemplate::name & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    #
+    #If the user cancels the delete, then everything
+    #goes back to the way it was before the delete
+    #was started.
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$tagTest ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+    Exit Script [ ]
+    End If
+    #
+    #If the user presses 'delete' the system will now
+    #check if this test is the last test in its test group.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    #
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #
+    #Set variables to find and remove all tests in
+    #a group and its key from all test items.
+    Set Variable [ $group; Value:testSubsectionTemplate::ksubsectionGroup ]
+    Set Variable [ $testSubsection; Value:testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Find all tests in this test group.
+    Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionTemplate::ksubsectionGroup; $group ]
+    Perform Find [ ]
+    #
+    #If the test is the last test, the user is informed
+    #of this and asked if knowing this they want to
+    #delete both the test and the test group, since
+    #a test group cannot exist without at least one test
+    #in it.
+    If [ Get (FoundCount) = 1 ]
+    #
+    Close Window [ Current Window ]
+    #
+    Set Variable [ $deleteGroup; Value:$delete ]
+    Refresh Window
+    Show Custom Dialog [ Title: "!"; Message: "If you delete this group's last test, it will also be deleted."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    #
+    #If the user cancels the delete, then everything
+    #goes back to the way it was before the delete
+    #was started.
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $delete ]
+    Set Variable [ $deleteGroup ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$tagTest ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+    Exit Script [ ]
+    End If
+    #
+    #If the user pressed delete then first the
+    #test group is deleted.
+    #
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #
+    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionGroup::_Lgroup; $group ]
+    Perform Find [ ]
+    Delete Record/Request [ No dialog ]
+    End If
+    #
+    End If
+    #
+    #Remove test's key from test-items that
+    #have more than one test's key.
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Go to Layout [ “setupTestItem” (tagMenus) ]
+    Enter Find Mode [ ]
+    Set Field [ tagMenuTestItemGroup::match; $testSubsection & ¶ ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    #If an item has only one test key, do not
+    #remove it. In the next step these test items
+    # will be found and deleted along with the
+    #test-item groups to which they belong.
+    If [ ValueCount (tagMenuTestItemGroup::match) > 1 ]
+    Set Variable [ $match; Value:tagMenuTestItemGroup::match ]
+    Set Field [ tagMenuTestItemGroup::match; Substitute ( $match ; $testSubsection & "¶" ; "" ) ]
+    End If
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Delete the test items that are only linked
+    #to this test.
+    Enter Find Mode [ ]
+    Set Field [ tagMenuTestItemGroup::match; $testSubsection & ¶ ]
+    Perform Find [ ]
+    Delete All Records [ No dialog ]
+    #
+    #Delete the test-item groups that now have no
+    #test items in them, and are no longer linked
+    #to any tests.
+    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionGroup::match; $testSubsection & ¶ ]
+    Perform Find [ ]
+    Delete All Records [ No dialog ]
+    Set Variable [ $$stopLoadTagRecord ]
+    #
+    #Finally, delete the test itself.
+    Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionTemplate::_LtestSubsection; $testSubsection ]
+    Perform Find [ ]
+    Delete Record/Request [ No dialog ]
+    Close Window [ Current Window ]
+    #
+    #Load current test's information.
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$tagTest ]
+    Set Variable [ $$ID ]
+    Perform Script [ “loadSetupTestSubsection” ]
+    #
+
+Fields used in this script
+
+    testSectionCreatorLock::orderOrLock
+    testSectionCreatorLock::tag
+    testSubsectionTemplate::_LtestSubsection
+    testSubsectionTemplate::name
+    testlearnReportTags::ktestSubsection
+    ReportResultTestSubject::tag
+    testlearnReportTags::kreportNumber
+    testlearnReportTags::countOfONESubsectionsTestResults
+    tagReportTestSubjectSectionNAME::name
+    testlearnReportTags::subsectionCustomName
+    TEMP::DeleteMessageInTempWindow1
+    TEMP::Message
+    testlearn::filterFind
+    testlearn::kctestSubsectionInfo
+    testSubsectionTemplate::ksubsectionGroup
+    testSubsectionGroup::_Lgroup
+    tagMenuTestItemGroup::match
+    testSubsectionGroup::match
+
+Scripts used in this script
+
+    loadSetupTestSubsection
+
+Layouts used in this script
+
+    TEMP
+    reportTestResult
+    learn2
+    tableTestSubsectionTemplates
+    tableTagGroup
+    setupTestItem
+
+Tables used in this script
+
+    TEMP
+    tag
+    tagGroup
+    tagGroup
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+    testlearn
+
+Table occurrences used by this script
+
+    ReportResultTestSubject
+    TEMP
+    tagMenuTestItemGroup
+    tagReportTestSubjectSectionNAME
+    testSectionCreatorLock
+    testSubsectionGroup
+    testSubsectionTemplate
+    testlearn
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [deleteSubsection]	Parent Folder: [setup]	Next Script: [deleteTestItem]
+Script Name	deleteSubsectionFromUserTest
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTestNewSection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #If there are no records, halt this script.
+    If [ testSectionCreatedFromATemplate::_LtestSection = "" ]
+    Halt Script
+    End If
+    #
+    #If the sub-section has test results, halt the
+    #script and explain to the user why.
+    If [ testSectionCreatedFromATemplate::inUse ≠ "" ]
+    Show Custom Dialog [ Message: "Delete all test results made in this section before deleting it. To do this, 1) click its green test button. 2) Click on each sub-section with test results. 3) Delete all results you find."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Test subject is locked.
+    If [ testSubjectName::orderOrLock ≠ "" ]
+    Set Variable [ $$highlightTestSubject; Value:1 ]
+    Refresh Window
+    #
+    #Get the current test subject's name.
+    Show Custom Dialog [ Message: "The test subject — " & testSubjectName::tag & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “Yes” ]
+    Set Variable [ $$highlightTestSubject ]
+    Refresh Window
+    Halt Script
+    End If
+    #
+    #
+    #Highlight sub-section and ask user if they
+    #really want to delete it.
+    Set Variable [ $testSubject; Value:testSectionCreatedFromATemplate::ktestSubjectNode ]
+    Set Variable [ $reportNumber; Value:testSectionCreatedFromATemplate::reportNumber ]
+    Set Variable [ $delete; Value:testSectionCreatedFromATemplate::_LtestSection ]
+    Go to Field [ ]
+    Refresh Window
+    Show Custom Dialog [ Message: "Delete test section " & Quote ( testSectionCreatedFromATemplate::name ) & " for " & testSubjectName::tag & "'s test #" & testSectionCreatedFromATemplate::reportNumber & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    #
+    #If the user cancels the delete, then everything
+    #goes back to the way it was before the delete
+    #was started.
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $delete ]
+    Set Variable [ $deleteGroup ]
+    Refresh Window
+    Exit Script [ ]
+    End If
+    #
+    #If the user presses 'delete' the system will now
+    #check if it is the last sub-section in for
+    #this test.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Variable [ $$stopLoadTestRecord ]
+    #
+    #Find all sub-sections for this test.
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $testSubject ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $reportNumber ]
+    Perform Find [ ]
+    Set Variable [ $foundCount; Value:Get (FoundCount) ]
+    Close Window [ Current Window ]
+    #
+    #If this is the last subjection, let the user know
+    #that if deleted this test will also be deleted.
+    If [ $foundCount = 1 ]
+    Set Variable [ $deleteGroup; Value:$delete ]
+    Refresh Window
+    Show Custom Dialog [ Message: "If you delete test# " & $reportNumber & "'s last section, it will also be deleted."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    #
+    #If the user cancels the delete, then everything
+    #goes back to the way it was before the delete
+    #was started.
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $delete ]
+    Set Variable [ $deleteGroup ]
+    Refresh Window
+    Exit Script [ ]
+    End If
+    End If
+    End If
+    #
+    #If the user approves of the delete, then delete
+    #this sub-section. NOTE: There really is no
+    #test that any sub-section belongs to. The
+    #sort is simply grouping all sub-sections by
+    #their report number, so it looks like they are
+    #under a group. Thus, deleting the last sub-
+    #section with particular test number will also
+    #cause the appearance of its test number to
+    #disappear.
+    Delete Record/Request [ No dialog ]
+    #
+
+Fields used in this script
+
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::inUse
+    testSubjectName::orderOrLock
+    testSubjectName::tag
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    testSectionCreatedFromATemplate::reportNumber
+    testSectionCreatedFromATemplate::name
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    tag
+    testSectionCreatedFromATemplate
+
+Table occurrences used by this script
+
+    testSectionCreatedFromATemplate
+    testSubjectName
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [deleteSubsectionFromUserTest]	Parent Folder: [setup]	Next Script: [duplicateSectionFromTemplate]
+Script Name	deleteTestItem
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestItem
+    testMenuTestItemEdit
+    testMenuTestItemMORE
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If there are no tests, then stop this script as there
+    #are no test to create things for.
+    If [ TEMP::ktestSubsection = "" ]
+    Show Custom Dialog [ Message: "There are no tests."; Default Button: “OK”, Commit: “No” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #I shifted record lock-logic from individual
+    #records to groups of records, which is why
+    #this code is disabled.
+    // If [ tagCreatorLock::orderOrLock ≠ "" ]
+    // Show Custom Dialog [ Message: "This record is locked. Go the node that created it — " & tagCreatorLock::tag & " — in the setup tag window and enter the password to unlock it so that you can delete it."; Default Button: “OK”, Commit: “Yes” ]
+    // Exit Script [ ]
+    // End If
+    #
+    #If the node that created this group is locked
+    #the group even if items in it where not created
+    #by this node.
+    If [ nodeLockTestTagItemGroup::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "All items in this group are locked. Go the node that created this group — " & nodeLockTestTagItemGroup::tag & " — in the setup tag window and enter the password to unlock it so that you can delete items in it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #If there are no items to delete, exit this script.
+    If [ Get (FoundCount) = 0 ]
+    Exit Script [ ]
+    End If
+    #
+    #Get variables needed for delete and delete messages.
+    Set Variable [ $delete; Value:tagMenus::_Ltag ]
+    Set Variable [ $group; Value:tagMenuTestItemGroup::_Lgroup ]
+    Set Variable [ $groupName; Value:If ( Char ( tagMenuTestItemGroup::name ) ≤ 20 ; tagMenuTestItemGroup::name ; Left ( tagMenuTestItemGroup::name ; 20 ) & "..." ) ]
+    Set Variable [ $testItemName; Value:If ( Char ( tagMenus::tag ) ≤ 20 ; tagMenus::tag ; Left ( tagMenus::tag ; 20 ) & "..." ) ]
+    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
+    End If
+    Refresh Window
+    #
+    #BEGIN: LEGACY STRATEGY for finding test results
+    #in use that did not provide enough information.
+    // #find and show all test records that might be using
+    // #this item.
+    // New Window [ Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    // Go to Layout [ “testResult0” (testlearn) ]
+    // Set Error Capture [ On ]
+    // Allow User Abort [ Off ]
+    // Enter Find Mode [ ]
+    // Set Field [ testlearn::kctestResultCheckedItems; $delete ]
+    // Perform Find [ ]
+    // #
+    // Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::kreportNumber; ascending ] [ Restore; No dialog ]
+    // Go to Record/Request/Page [ First ]
+    // #
+    // #Check if test item is in use by any test result records.
+    // #Also capture how many results there are using
+    // #item, and what general inquiries use this specifc inquiry.
+    // Loop
+    // Set Variable [ $number; Value:1 ]
+    // Loop
+    // If [ FilterValues ( GetValue ( testlearn::kctestResultCheckedItems ; $number ) ; $delete & "¶" ) = $delete & ¶ ]
+    // Set Variable [ $addToInUse; Value:$inUse ]
+    // Set Variable [ $inUse; Value:1 + $addToInUse ]
+    // Set Variable [ $number; Value:"exit" ]
+    // Set Variable [ $setNumberOfReports; Value:Case ( $report = "" ; 1 ; $report = testlearn::kreportNumber ; 1 ; $report ≠ testlearn::kreportNumber and Filter ($report ; testlearn::kreportNumber ) ≠ testlearn::kreportNumber ; $numberOfReports + 1 ; Filter ($report ; testlearn::kreportNumber ) = testlearn::kreportNumber ; $numberOfReports ; "error" ) ]
+    // Set Variable [ $numberOfReports; Value:$setNumberOfReports ]
+    // Set Variable [ $setReportNumber; Value:Case ( $report = "" ; testlearn::kreportNumber ; $report = testlearn::kreportNumber ; testlearn::kreportNumber ; $report ≠ testlearn::kreportNumber and Filter ($report ; testlearn::kreportNumber ) ≠ testlearn::kreportNumber ; $report & ", " & testlearn::kreportNumber ; testlearn::kreportNumber = Filter ($report ; testlearn::kreportNumber ) ; $report ; "error" ) ]
+    // Set Variable [ $report; Value:$setReportNumber ]
+    // End If
+    // #
+    // #If number was set to exit or if no keys exist, then
+    // #exit loop.
+    // Exit Loop If [ GetValue ( testlearn::kctestResultCheckedItems ; $number ) = "" ]
+    // #
+    // #If variable looked at did not match then raise the number
+    // #to view the next variable.
+    // Set Variable [ $add; Value:$number ]
+    // Set Variable [ $number; Value:$add + 1 ]
+    // End Loop
+    // Go to Record/Request/Page [ Next; Exit after last ]
+    // End Loop
+    // Set Variable [ $report; Value:Case ( Filter ( Right ( $report ; 3 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 2 ; 1 ; " and" ) ; Filter ( Right ( $report ; 4 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 3 ; 1 ; " and" ) ; Filter ( Right ( $report ; 5 ) ; "," ) = "," ; Replace ( $report; Length ( $report ) - 4 ; 1 ; " and" ) ; $report ) ]
+    // Set Variable [ $$stopLoadTestRecord ]
+    // Close Window [ Current Window ]
+    // #
+    // #If in use the stop script.
+    // If [ $inUse ≠ "" ]
+    // Set Variable [ $cannotDelete; Value:$delete ]
+    // Refresh Window
+    // Show Custom Dialog [ Message: If ( $inUse = 1 ; "This specific inquiry is used as a check-off-the-list item for 1 test result in test " & $report & " in the test module. Uncheck it from this test result to delete it." ; "This specific inquiry is used as a check-off-the-list item for " & $inUse & " test results" & If ( $numberOfReports = 1 ; " in test " ; " between tests " ) & $report & " in the test module. Uncheck it from all " & $inUse & " results to delete it." ); Default Button: “OK”, Commit: “Yes” ]
+    // Set Variable [ $cannotDelete ]
+    // Set Variable [ $delete ]
+    // Refresh Window
+    // Exit Script [ ]
+    // End If
+    #END: LEGACY STRATEGY for finding test results
+    #in use that did not provide enough information.
+    #
+    #
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    #
+    #Go to the table layout, which has no load
+    #record script triggers, and then find out if
+    #this item is in use.
+    Go to Layout [ “tableTestLearn” (testlearn) ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::kctestResultCheckedItems; $delete ]
+    Perform Find [ ]
+    #
+    #If this item is found to be in use, then inform
+    #user of where and prevent its deletion.
+    If [ Get (LastError) ≠ 401 ]
+    Loop
+    Set Variable [ $useList; Value:TextColor( tagTLTestSubject::tag & " | test " & testlearn::kreportNumber & ¶ & "section " ;RGB(102;102;102)) & testSectionTemplateName::name & ¶ & TextColor( "sub-section " ;RGB(102;102;102)) & testlearn::subsectionCustomName ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
+    Go to Layout [ “testResult0” (testlearn) ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    Go to Layout [ “TEMP” (TEMP) ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    Show/Hide Toolbars [ Lock; Hide ]
+    Show/Hide Text Ruler [ Hide ]
+    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
+    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "Before the highlighted test item can be deleted, it must unchecked " & ¶ & "(in the test module) from test results in the test sub-sections below." ]
+    Pause/Resume Script [ Indefinitely ]
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
+    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    End If
+    Refresh Window
+    If [ tagMenus::notesOrCopyright = "T" or tagMenus::notesOrCopyright = "FT" ]
+    Show Custom Dialog [ Message: "Before you can uncheck it, you will need to turn it back into a check item. Click the " & tagMenus::copyrightTextLockedORtextTitem & " button to the left."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    Exit Script [ ]
+    Else
+    Close Window [ Current Window ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    End If
+    #
+    #
+    #
+    #Exit any fields and then contionally format field
+    #to be deleted by this script.
+    Go to Field [ ]
+    Refresh Window
+    Show Custom Dialog [ Message: "Delete " & $testItemName & "?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    Refresh Window
+    #
+    #If the user says yes, first make sure the record
+    #is not the last record in its group. If it is and
+    #the system deleted the record without deleting
+    #the group too, this group would become
+    #an orphan as only groups that have records
+    #attached to them show up for the user to add
+    #more records to them. So the group
+    #record must also be deleted if this is the last
+    #test item under it.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    New Window [ Name: "delete tag"; Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “tableTag” (tagTable) ]
+    Enter Find Mode [ ]
+    Set Field [ tagTable::kGroupOrTest; $group ]
+    Perform Find [ ]
+    #
+    #If there are more records under this cateogry
+    #then the system deletes the current record without
+    #any more user input.
+    If [ Get (FoundCount) ≠ 1 ]
+    Close Window [ Name: "Delete Tag"; Current file ]
+    Delete Record/Request [ No dialog ]
+    Set Variable [ $delete ]
+    Set Variable [ $group ]
+    Refresh Window
+    Exit Script [ ]
+    #
+    #BUT if only one record is found user is asked
+    #if they want to delete the category too.
+    Else If [ Get (FoundCount) = 1 ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Set Variable [ $deleteGroup; Value:$group ]
+    Refresh Window
+    #
+    #The records are sorted by category to show
+    #the user which category is going to be deleted.
+    // If [ TEMP::sortTestItem ≠ "cat" ]
+    // Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuGroup::name; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    // End If
+    #
+    #Show user warning message dependening on
+    #whether or not this group is part of other test's
+    #test-item lists.
+    If [ ValueCount ( tagMenuTestItemGroup::match ) > 1 ]
+    Show Custom Dialog [ Message: "Deleting " & $testItemName & " will also delete its group ' " & $groupName & "' as it is the last item in this group."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Show Custom Dialog [ Message: "This group — " & $groupName & " — is used by " & ValueCount ( tagMenuTestItemGroup::match ) - 1 & " other subsection's. OPTION 1: Delete it from ALL subsections. OPTION 2: Cancel delete and UNLINK it from just this subsection — " & TEMP::testSubsectionName & "."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    End If
+    Else If [ ValueCount ( tagMenuTestItemGroup::match ) = 1 ]
+    Show Custom Dialog [ Message: "Deleting " & $testItemName & " will also delete its group ' " & $groupName & "' as it is the last item in this group."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    End If
+    #
+    #If the user says yes, then delete both the tag and
+    #the category record.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Delete Record/Request [ No dialog ]
+    Select Window [ Name: "delete tag"; Current file ]
+    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionGroup::_Lgroup; $group ]
+    Perform Find [ ]
+    Delete Record/Request [ No dialog ]
+    Close Window [ Name: "Delete Tag"; Current file ]
+    End If
+    End If
+    End If
+    Set Variable [ $delete ]
+    Set Variable [ $deleteGroup ]
+    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
+    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 255 ; 255 ; 255 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    End If
+    Refresh Window
+
+Fields used in this script
+
+    TEMP::ktestSubsection
+    tagCreatorLock::orderOrLock
+    tagCreatorLock::tag
+    nodeLockTestTagItemGroup::orderOrLock
+    nodeLockTestTagItemGroup::tag
+    tagMenus::_Ltag
+    tagMenuTestItemGroup::_Lgroup
+    tagMenuTestItemGroup::name
+    tagMenus::tag
+    tagMenus::textStyleOrCreatorNodeFlag
+    testlearn::kctestResultCheckedItems
+    testlearn::kreportNumber
+    tagTLTestSubject::tag
+    testSectionTemplateName::name
+    testlearn::subsectionCustomName
+    TEMP::DeleteMessageInTempWindow1
+    TEMP::Message
+    tagMenus::notesOrCopyright
+    tagMenus::copyrightTextLockedORtextTitem
+    tagTable::kGroupOrTest
+    TEMP::sortTestItem
+    tagMenuGroup::orderOrLibraryType
+    tagMenuGroup::name
+    tagMenus::orderOrLock
+    tagMenuTestItemGroup::orderOrLibraryType
+    tagMenuTestItemGroup::match
+    TEMP::testSubsectionName
+    testSubsectionGroup::_Lgroup
+
+Scripts used in this script
+
+Layouts used in this script
+
+    testResult0
+    TEMP
+    tableTestLearn
+    tableTag
+    tableTagGroup
+
+Tables used in this script
+
+    TEMP
+    tag
+    tag
+    tag
+    tagGroup
+    tagGroup
+    testSectionCreatedFromATemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    nodeLockTestTagItemGroup
+    tagCreatorLock
+    tagMenuGroup
+    tagMenuTestItemGroup
+    tagMenus
+    tagTLTestSubject
+    tagTable
+    testSectionTemplateName
+    testSubsectionGroup
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [deleteTestItem]	Parent Folder: [setup]	Next Script: [gotoSetupTest_Template]
+Script Name	duplicateSectionFromTemplate
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTestNewSection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If there are no record's to duplicate,
+    #halt script.
+    If [ Get (FoundCount) = 0 ]
+    Halt Script
+    End If
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #If the primary default node is unselected,
+    #inform user and stop script.
+    If [ tempSetup::kdefaultNodePrimary = "" ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    Show Custom Dialog [ Message: "Select yourself (the node responsible) from Tag Menus window."; Default Button: “OK”, Commit: “No” ]
+    Halt Script
+    End If
+    #
+    #If the defautl test-subject node is unselected,
+    #inform user and stop script.
+    If [ TEMP::kdefaultNodeTestSubject = "" ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    Show Custom Dialog [ Message: "All tests must have a test subject. 1) Click 'tag' above and then in the tags-menu window 2) click 'node'. 3) Select a node to be your test subject, or create a new node, and then 4) click the 'TS' button next to it."; Default Button: “OK”, Commit: “No” ]
+    Halt Script
+    End If
+    #
+    #If the defautl test-subject node doesn't
+    #match the selected test's test subject,
+    #inform the user.
+    If [ testSectionCreatedFromATemplate::ktestSubjectNode ≠ TEMP::kdefaultNodeTestSubject ]
+    Show Custom Dialog [ Message: testSubjectName::tag & "'s — test " & testSectionCreatedFromATemplate::reportNumber & " — will be duplicated for — " & TEMP::DEFAULTNodeTestSubjectName & "."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    Else
+    #
+    #So instead of asking the user if they really
+    #want to duplicate a tag, which makes a user
+    #seem stupid, this question performs the
+    #same function (are you sure) by informing
+    #them how long it will take, giving them
+    #opportunity to cancel this script.
+    Show Custom Dialog [ Message: "Duplicating test " & testSectionCreatedFromATemplate::reportNumber & " for — " & TEMP::DEFAULTNodeTestSubjectName & " — will take just a few seconds."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    End If
+    #
+    #Exit script if user clicks cancel.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Exit Script [ ]
+    End If
+    #
+    #Get this test's identifying keys: test subject,
+    #and number.
+    Set Variable [ $testSubjectOld; Value:testSectionCreatedFromATemplate::ktestSubjectNode ]
+    Set Variable [ $testNumberOld; Value:testSectionCreatedFromATemplate::reportNumber ]
+    #
+    #Get selected test subject's highest
+    #test number.
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    New Window [ Name: "Duplicate Test"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // New Window [ Name: "Duplicate Test"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
+    Perform Find [ ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSectionCreatedFromATemplate::reportNumber; descending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $newTestNumber; Value:testSectionCreatedFromATemplate::reportNumber + 1 ]
+    #
+    #Now get the test records to be duplicated.
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $testSubjectOld ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $testNumberOld ]
+    Perform Find [ ]
+    #
+    #Create duplicate test records for the default
+    #test subject.
+    Go to Record/Request/Page [ First ]
+    #
+    Loop
+    Set Variable [ $testSectionID; Value:testSectionCreatedFromATemplate::ksectionTemplate ]
+    Set Variable [ $testSectionName; Value:testSectionCreatedFromATemplate::name ]
+    #
+    Select Window [ Name: "Setup"; Current file ]
+    New Record/Request
+    #
+    Set Field [ testSectionCreatedFromATemplate::ksectionTemplate; $testSectionID ]
+    Set Field [ testSectionCreatedFromATemplate::name; $testSectionName ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $newTestNumber ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
+    Set Field [ testSectionCreatedFromATemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
+    #
+    Select Window [ Name: "Duplicate Test"; Current file ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Go to the duplicated test's first record.
+    Close Window [ Name: "Duplicate Test"; Current file ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubjectName::tag; ascending testSectionCreatedFromATemplate::reportNumber; descending testSectionCreatedFromATemplate::order; based on value list: “order Pulldown List” testSectionCreatedFromATemplate::name; ascending ] [ Restore; No dialog ]
+    Scroll Window [ Home ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ testSectionCreatedFromATemplate::ktestSubjectNode = TEMP::kdefaultNodeTestSubject ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Load it up.
+    Set Variable [ $$stopLoadTestRecord ]
+    Perform Script [ “loadTestSubjectTestSection” ]
+    #
+
+Fields used in this script
+
+    tempSetup::kdefaultNodePrimary
+    TEMP::kdefaultNodeTestSubject
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    testSubjectName::tag
+    testSectionCreatedFromATemplate::reportNumber
+    TEMP::DEFAULTNodeTestSubjectName
+    testSectionCreatedFromATemplate::ksectionTemplate
+    testSectionCreatedFromATemplate::name
+    TEMP::kdefaultNodePrimary
+    testSectionCreatedFromATemplate::kcreatorNode
+    testSectionCreatedFromATemplate::order
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    loadTestSubjectTestSection
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    TEMP
+    tag
+    testSectionCreatedFromATemplate
+
+Table occurrences used by this script
+
+    TEMP
+    tempSetup
+    testSectionCreatedFromATemplate
+    testSubjectName
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [duplicateSectionFromTemplate]	Parent Folder: [setup]	Next Script: [gotoSetupTest_TestSubjectTest]
+Script Name	gotoSetupTest_Template
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTest
+    learnTest
+    learnSTest
+    testMenuTestItem
+    reportTagItem
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Prevent user from going to the edit test
+    #template section, when user has come here
+    #from a Test or Report window. The scripts do
+    #work to allow this, but it gives the user too
+    #many options, and they can lose focus on
+    #editing the current subsection's info, which is
+    #why they have come here when the come from
+    #the Report or Test windows.
+    # Taking away this option here is just an
+    #inconvenience, as the user can return to the
+    #Setup Section and edit test templates.
+    # The user is still allowed to go edit
+    #templates from the Learn Section, when their
+    #work is focused in the Learn Section versus
+    #focused in the Test Section, and they have
+    #just briefly come to the Learn Section to make
+    #some quick edits, before returning the
+    #Test Section.
+    If [ ( $$testTagRecord = "" and $$learnRecord = "" ) = 0 ]
+    // Show Custom Dialog [ Message: "Going to the test-template edit-section of the library is not allowed when coming here from Test or Report sections. Click the back buttons until you return to Library Setup. Then from Setup, go to the Test Template edit section."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #
+    #
+    #
+    #BEGIN: Stop this script if any of the following are true:
+    #
+    #If there are no test sections to go to from
+    #the learn layout.
+    If [ Left (Get (LayoutName) ; 5 ) = "learn" and Get (FoundCount) = 0 ]
+    Exit Script [ ]
+    End If
+    #
+    #Test subject is locked.
+    #
+    #NOTE: Although changing associated learn
+    #and test item records cannot affect a test
+    #subjects test result or report records, further
+    #testing and so time is required to insure no
+    #problems occur as a result of allowing users to
+    #edit learn and test subsection records when
+    #navigating from locked Test Section item and
+    #info Tag Menus layouts.
+    If [ $$testSubjectIsLocked ≠ "" and Get ( LayoutName ) ≠ "defaultTest" and Get ( LayoutName ) ≠ "learnTest" ]
+    Show Custom Dialog [ Message: "The test subject — " & $$testSubjectIsLocked & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “No” ]
+    Set Variable [ $exit; Value:1 ]
+    End If
+    #
+    #Primary node is locked.
+    If [ TEMP::primaryNodeIsLocked ≠ "" ]
+    If [ $exit = "" ]
+    Show Custom Dialog [ Message: "The default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked. Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C) create a new primary node."; Default Button: “OK”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "ALSO, the default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked. Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C) create a new primary node."; Default Button: “OK”, Commit: “No” ]
+    End If
+    Set Variable [ $exit; Value:1 ]
+    End If
+    #
+    #Subsection is locked by its creator node.
+    If [ $$testSubsectionIsLocked ≠ "" and Get ( LayoutName ) ≠ "defaultTest" or testSectionCreatorLock::orderOrLock ≠ "" and Get ( LayoutName ) ≠ "defaultTest" ]
+    #
+    If [ $exit = "" ]
+    If [ Left (Get (LayoutName) ; 5 ) = "learn" ]
+    Show Custom Dialog [ Message: "This test subsection's creator node — " & testSectionCreatorLock::tag & " — is locked. Go to the Default Node Tag Menu and click 'lock' to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+    Else
+    Show Custom Dialog [ Message: "You can use all of this subsection's test items, but not edit them as this subsection is locked by its creator — " & $$testSubsectionIsLocked & ". If you know this node's password, you can unlock it on the Setup section's node menu."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    Set Variable [ $exit; Value:1 ]
+    End If
+    #
+    End If
+    #
+    #If any of the above are true, then
+    #exit this script.
+    If [ $exit = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #END: Stop this script if any of the following are true:
+    #
+    #
+    #
+    #
+    #
+    #Make sure script is starting in the
+    #Tag Menus window.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #Clear citation match variable as effects the
+    #exit field scripts in the test section.
+    Set Variable [ $$citationMatch ]
+    #
+    #Stop the spell checking script to
+    #speed things up.
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #Capture record ID so system can return user
+    #after editing is complete.
+    Set Variable [ $$recordNumber; Value:Get (RecordNumber) ]
+    #
+    #Capture test and test item IDs so system can
+    #reset them. During edit user may go to a
+    #different test record, thus changing these temp IDs.
+    If [ Get (LayoutName) = "learnTest" ]
+    Set Variable [ $$itemID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Else
+    Set Variable [ $$itemID; Value:TEMP::ktestSubsection ]
+    End If
+    Set Variable [ $$detailID; Value:TEMP::ktestItemSubsection ]
+    #
+    #Capture layoutname so system can return user
+    #after editing is complete.
+    Set Variable [ $$module; Value:Get (LayoutName) ]
+    #
+    #Go to section tag menu so section script
+    #steps below will work properly.
+    Go to Layout [ “setupTestSection” (testSection) ]
+    #
+    #If coming from the library's Test Setup layout,
+    #show user the library's test sections.
+    If [ Left ( $$module ; 7 ) = "default" ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    View As [ View as List ]
+    Enter Find Mode [ ]
+    Set Field [ testSection::match; "testSection" ]
+    Perform Find [ ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSection::tag; ascending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    End If
+    #
+    #
+    #
+    #Capture record ID so system can return user
+    #after editing is complete.
+    Select Window [ Name: "Learn"; Current file ]
+    If [ Get (LastError) = 112 ]
+    Select Window [ Name: "Setup"; Current file ]
+    If [ Get (LastError) = 112 ]
+    Select Window [ Name: "Test"; Current file ]
+    If [ Get (LastError) = 112 ]
+    Select Window [ Name: "Report"; Current file ]
+    End If
+    End If
+    Else If [ Get (LastError) ≠ 112 ]
+    Set Variable [ $$LearnEdit; Value:testlearn::_Ltestlearn ]
+    End If
+    #
+    #
+    If [ Get (WindowName) ≠ "Setup" ]
+    Set Variable [ $editingOneSubsection; Value:1 ]
+    End If
+    #
+    #Take user to test setup layout and find all
+    #test subsection templates. If coming from
+    #Library Setup window, if coming from a Test
+    #Tag Menus window or Report Tag Menus
+    #window, then only find the one subsection
+    #showing in that Tag Menus window.
+    Set Variable [ $$ID; Value:"ignore" ]
+    Go to Layout [ “setupTestSubsection” (testSubsectionTemplate) ]
+    Set Window Title [ Current Window; New Title: "Test Templates" ]
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    If [ $editingOneSubsection ≠ 1 ]
+    Show All Records
+    Else
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionTemplate::_LtestSubsection; $$itemID ]
+    Perform Find [ ]
+    End If
+    #
+    #If no test exist, then make sure Tag Menus
+    #also shows no section templates.
+    If [ Get (LastError) = 401 ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Perform Find [ Specified Find Requests: Find Records; Criteria: tagMenus::_Ltag: “"findNOrecords"” ] [ Restore ]
+    Select Window [ Name: "Setup"; Current file ]
+    #
+    #Turn back on spell check script.
+    Set Variable [ $$stopTest ]
+    #
+    Exit Script [ ]
+    End If
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroup::name; ascending testSubsectionTemplate::order; based on value list: “order Pulldown List” testSubsectionTemplate::name; ascending ] [ Restore; No dialog ]
+    Scroll Window [ Home ]
+    Go to Record/Request/Page [ First ]
+    #
+    #Conditionally format item and its tags.
+    Set Variable [ $$ID ]
+    If [ $editingOneSubsection = 1 ]
+    Show Custom Dialog [ Message: "Test items can ONLY be added and removed from the subsection being edited. To edit ALL subsections' test items, 1) click the back buttons until you return to Library Setup. 2) Click Test, and 3) click 2-3-4 templates."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    Perform Script [ “loadSetupTestSubsection” ]
+    #
+    #If coming from the test or report module show
+    #user the Tag Menus window as they probably
+    #want to edit a tag or add a new tag.
+    If [ $$module = "testMenuTestItem" or $$module = "reportTagItem" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Perform Script [ “menuTestItem” ]
+    End If
+    #
+    #Turn back on spell check script.
+    Set Variable [ $$stopTest ]
+    #
+    #
+
+Fields used in this script
+
+    TEMP::primaryNodeIsLocked
+    TEMP::DEFAULTNodePrimaryName
+    testSectionCreatorLock::orderOrLock
+    testSectionCreatorLock::tag
+    testSubsectionTemplate::_LtestSubsection
+    TEMP::ktestSubsection
+    TEMP::ktestItemSubsection
+    testSection::match
+    testSection::tag
+    testlearn::_Ltestlearn
+    tagMenus::_Ltag
+    testSubsectionGroup::orderOrLibraryType
+    testSubsectionGroup::name
+    testSubsectionTemplate::order
+    testSubsectionTemplate::name
+
+Scripts used in this script
+
+    loadSetupTestSubsection
+    menuTestItem
+
+Layouts used in this script
+
+    setupTestSection
+    setupTestSubsection
+
+Tables used in this script
+
+    TEMP
+    tag
+    tag
+    tag
+    tagGroup
+    testSubsectionTemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    tagMenus
+    testSection
+    testSectionCreatorLock
+    testSubsectionGroup
+    testSubsectionTemplate
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoSetupTest_Template]	Parent Folder: [setup]	Next Script: [gotoTechView]
+Script Name	gotoSetupTest_TestSubjectTest
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTest
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If the PRIMARY node is currenlty locked then
+    #stop this script, and inform the user.
+    If [ TEMP::primaryNodeIsLocked ≠ "" ]
+    Show Custom Dialog [ Message: "The default primary node — " & TEMP::DEFAULTNodePrimaryName & " — is locked. Go to the Default Node Tag Menu and A) click 'lock' to unlock it, B) select an unlocked node for the primary node, or C) create a new primary node."; Default Button: “OK”, Commit: “No” ]
+    Exit Script [ ]
+    End If
+    #
+    Go to Layout [ “defaultTestNewSection” (testSectionCreatedFromATemplate) ]
+    #
+
+Fields used in this script
+
+    TEMP::primaryNodeIsLocked
+    TEMP::DEFAULTNodePrimaryName
+
+Scripts used in this script
+
+Layouts used in this script
+
+    defaultTestNewSection
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoSetupTest_TestSubjectTest]	Parent Folder: [setup]	Next Script: [gotoTestSubject_CreationDateField]
+Script Name	gotoTechView
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testSetupTechView
+    setupTestItemTechView
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    If [ $$techView = 1 ]
+    Select Window [ Name: "Setup"; Current file ]
+    Go to Layout [ “setupTestSubsection” (testSubsectionTemplate) ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Go to Layout [ “setupTestItem” (tagMenus) ]
+    Set Variable [ $$techView ]
+    Else
+    Select Window [ Name: "Setup"; Current file ]
+    Go to Layout [ “testSetupTechView” (testSubsectionTemplate) ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Go to Layout [ “setupTestItemTechView” (tagMenus) ]
+    Set Variable [ $$techView; Value:1 ]
+    End If
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+    setupTestSubsection
+    setupTestItem
+    testSetupTechView
+    setupTestItemTechView
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoTechView]	Parent Folder: [setup]	Next Script: [gotoTestSubject_SectionField]
+Script Name	gotoTestSubject_CreationDateField
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTestNewSection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Test subject is not locked.
+    If [ testSubjectName::orderOrLock = "" ]
+    Go to Field [ testSectionCreatedFromATemplate::creationDate ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    testSubjectName::orderOrLock
+    testSectionCreatedFromATemplate::creationDate
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    tag
+    testSectionCreatedFromATemplate
+
+Table occurrences used by this script
+
+    testSectionCreatedFromATemplate
+    testSubjectName
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoTestSubject_CreationDateField]	Parent Folder: [setup]	Next Script: [linkOrUnlinkTestItemGroupToTestItemList]
+Script Name	gotoTestSubject_SectionField
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTestNewSection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Test subject is locked.
+    If [ testSubjectName::orderOrLock ≠ "" ]
+    Go to Field [ testSectionCreatedFromATemplate::nameOnTestResult ]
+    #Test subject is not locked.
+    Else
+    Go to Field [ testSectionCreatedFromATemplate::name ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    testSubjectName::orderOrLock
+    testSectionCreatedFromATemplate::nameOnTestResult
+    testSectionCreatedFromATemplate::name
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    tag
+    testSectionCreatedFromATemplate
+
+Table occurrences used by this script
+
+    testSectionCreatedFromATemplate
+    testSubjectName
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoTestSubject_SectionField]	Parent Folder: [setup]	Next Script: [loadSetupTestSection]
+Script Name	linkOrUnlinkTestItemGroupToTestItemList
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Go to Field [ ]
+    #
+    #If subsection is locked stop its test item list
+    #from being changed, other than added to.
+    If [ $$lockedMainSubsectionRecord ≠ "" ]
+    Show Custom Dialog [ Message: "This subsection is locked. Go to the Setup node menu and enter the password for the node — " & tagCreatorLock::tag & " — to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #Exit script if any of the current groups test items
+    #are in use. ( At a later date, improve this script
+    # so it finds the specific records in use and informs
+    # user of them specficially so user can find
+    # them and know how many their are. )
+    #
+    #find and show all test records that might be using
+    #any item in this group.
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #Capture group key to be linked to or unlinked
+    #from the link pulldown selection the user just made.
+    Set Variable [ $group; Value:addTestItemGroup::addTestItemGroup ]
+    Set Variable [ $groupHighlight; Value:addTestItemGroup::addTestItemGroup ]
+    Set Field [ addTestItemGroup::addTestItemGroup; "" ]
+    New Window [ Name: "Test Results"; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // New Window [ Name: "Test Results"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Enter Find Mode [ ]
+    Set Field [ tagMenuTestItemGroup::_Lgroup; $group ]
+    Perform Find [ ]
+    #
+    #Create a variable keychain of all test items that could
+    #be used.
+    Go to Record/Request/Page [ First ]
+    Loop
+    Set Variable [ $addToCheck; Value:$check ]
+    Set Variable [ $check; Value:tagMenus::_Ltag & ¶ & $addToCheck ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Check each specific inquiry in its group to
+    #see if any are being used as check-of-the-
+    #list items for the selected general inquiry in
+    #the Setup window.
+    Go to Layout [ “testResult0” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; TEMP::ktestSubsection ]
+    Perform Find [ ]
+    #
+    #Go the first record.
+    Go to Record/Request/Page [ First ]
+    #
+    #Prepare the message window, by clearing all
+    #records from the last time it was used.
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    Go to Layout [ “testResult0” (testlearn) ]
+    #
+    #The first loop checks for each test item.
+    Set Variable [ $groupNumber; Value:1 ]
+    #
+    #The first loop checks link of test-item group
+    #to the selected subsection currently using it.
+    Loop
+    Set Variable [ $item; Value:GetValue ( $check ; $groupNumber ) ]
+    #
+    #Second loop checks if any of the test items in
+    #the group are used (checked off) for any test
+    #result records.
+    Loop
+    Set Variable [ $number; Value:1 ]
+    Loop
+    If [ FilterValues ( GetValue ( testlearn::kctestResultCheckedItems ; $number ) ; $item & ¶ ) = $item & ¶ ]
+    #
+    Set Variable [ $addToInUse; Value:$inUse ]
+    Set Variable [ $inUse; Value:$addToInUse & $item & ¶ ]
+    #
+    Set Variable [ $useList; Value:tagTLTestSubject::tag & " | test/report " & TextColor( TextStyleAdd ( testlearn::kreportNumber; "" ) ;RGB(0;0;0)) & ¶ & "section " & TextColor( TextStyleAdd ( testSectionTemplateName::name; "" ) ;RGB(0;0;0)) & ¶ & "title " & TextColor( TextStyleAdd ( testlearn::subsectionCustomName; "" ) ;RGB(0;0;0)) ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
+    Go to Layout [ “testResult0” (testlearn) ]
+    End If
+    #
+    #If number was set to exit or if no keys exist, then
+    #exit loop.
+    Exit Loop If [ GetValue ( testlearn::kctestResultCheckedItems ; $number ) = "" ]
+    #
+    #If variable looked at did not match then raise the number
+    #to view the next variable.
+    Set Variable [ $add; Value:$number ]
+    Set Variable [ $number; Value:$add + 1 ]
+    End Loop
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #If no more items in group then exit loop.
+    Exit Loop If [ GetValue ( $check ; $groupNumber ) = "" ]
+    #
+    #If variable looked at did not match then raise the number
+    #to view the next variable.
+    Set Variable [ $addToGroup; Value:$groupNumber ]
+    Set Variable [ $groupNumber; Value:$addToGroup + 1 ]
+    Go to Record/Request/Page [ First ]
+    End Loop
+    #
+    #
+    If [ $inUse ≠ "" ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    Select Window [ Name: "Test Results"; Current file ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    Show/Hide Toolbars [ Lock; Hide ]
+    Show/Hide Text Ruler [ Hide ]
+    #
+    #Due to a bug in FM13, window must first be
+    #moved back into the screen area before the
+    #calculation of the current screen's
+    #dimensions can be taken.
+    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
+    Move/Resize Window [ Name: "Test Results"; Current file; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "To unlink this specific-inquiry group, uncheck the highlighted specific inquires (in the test module) from the test results below." ]
+    Pause/Resume Script [ Indefinitely ]
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $cannotDelete ]
+    Set Variable [ $groupHighlight ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Refresh Window
+    Exit Script [ ]
+    #
+    Else
+    Close Window [ Current Window ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    #
+    End If
+    #
+    #
+    #Open a new window and find this test item group.
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionGroup::_Lgroup; $group ]
+    Perform Find [ ]
+    #
+    #Capture current list of testList keys.
+    Set Variable [ $match; Value:testSubsectionGroup::match ]
+    #
+    #Remove the key from the list of test-item
+    #group keys, unless it only belongs to this list,
+    #in which case tell user that rather than
+    #unlinking it, the list needs to be deleted
+    #or linked to another test before unlinking it
+    #from the current test's list.
+    If [ TEMP::ktestItemSubsection & "¶" = FilterValues ( $match ; TEMP::ktestItemSubsection & "¶" ) ]
+    #
+    #Determine if test-item group belongs to more
+    #than one test.
+    If [ ValueCount ( testSubsectionGroup::match ) = 1 ]
+    Close Window [ Current Window ]
+    Go to Field [ ]
+    Show Custom Dialog [ Message: "This group cannot be unlinked because it is only linked to this test-item list and unlinking it would orphan it. Option 1: delete all items in group to remove it. Option 2: link it to another test and then unlink it from this test."; Default Button: “OK”, Commit: “No” ]
+    Set Variable [ $groupHighlight ]
+    Refresh Window
+    Exit Script [ ]
+    Else If [ ValueCount ( testSubsectionGroup::match ) ≠ 1 ]
+    Set Field [ testSubsectionGroup::match; Substitute ( $match ; TEMP::ktestItemSubsection & "¶" ; "" ) ]
+    Close Window [ Current Window ]
+    End If
+    #
+    #Add the key to list of test keys, if it is not currently
+    #part of this list.
+    Else If [ TEMP::ktestItemSubsection & "¶" ≠ FilterValues ( $match ; TEMP::ktestItemSubsection & "¶" ) ]
+    Set Field [ testSubsectionGroup::match; TEMP::ktestItemSubsection & ¶ & $match ]
+    Set Variable [ $newGrouphasBeenAdded; Value:1 ]
+    Close Window [ Current Window ]
+    End If
+    #
+    #Show newly added group and its test items.
+    Perform Script [ “menuTestItem” ]
+    #
+    #Take user to group added.
+    If [ $newGrouphasBeenAdded ]
+    If [ $group = tagMenuTestItemGroup::_Lgroup ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Exit Script [ ]
+    End If
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ $group = tagMenuTestItemGroup::_Lgroup ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    Set Variable [ $$stopLoadTagRecord ]
+    Perform Script [ “loadTagRecord” ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    tagCreatorLock::tag
+    addTestItemGroup::addTestItemGroup
+    tagMenuTestItemGroup::_Lgroup
+    tagMenus::_Ltag
+    TEMP::ktestSubsection
+    testlearn::ktestSubsection
+    testlearn::kctestResultCheckedItems
+    tagTLTestSubject::tag
+    testlearn::kreportNumber
+    testSectionTemplateName::name
+    testlearn::subsectionCustomName
+    TEMP::DeleteMessageInTempWindow1
+    TEMP::Message
+    testSubsectionGroup::_Lgroup
+    testSubsectionGroup::match
+    TEMP::ktestItemSubsection
+
+Scripts used in this script
+
+    menuTestItem
+    loadTagRecord
+
+Layouts used in this script
+
+    testResult0
+    TEMP
+    tableTagGroup
+
+Tables used in this script
+
+    TEMP
+    TEMP
+    tag
+    tag
+    tagGroup
+    testSectionCreatedFromATemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    addTestItemGroup
+    tagCreatorLock
+    tagMenuTestItemGroup
+    tagMenus
+    tagTLTestSubject
+    testSectionTemplateName
+    testSubsectionGroup
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [linkOrUnlinkTestItemGroupToTestItemList]	Parent Folder: [setup]	Next Script: [loadSetupTestSubsection]
+Script Name	loadSetupTestSection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    If [ $$stopTest = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #Set all variables needed for performing various
+    #scripts while in test setup mode.
+    Set Variable [ $$setupTestSection ]
+    Refresh Window
+    Select Window [ Name: "Test Templates"; Current file ]
+    Refresh Window
+    Select Window [ Name: "Tag Menus"; Current file ]
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [loadSetupTestSection]	Parent Folder: [setup]	Next Script: [loadTestSubjectTestSection]
+Script Name	loadSetupTestSubsection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+    checkTestSectionSubsectionAndItemRecordSpellings
+    nextPage
+    pagePulldown
+    previousPage
+    deleteSubsection
+    gotoSetupTest_Template
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Stop script if needed to speed up other scripts.
+    If [ $$ID = testSubsectionTemplate::_LtestSubsection or $$ID = "ignore" or $$stopDeleteTest = 1 or $$goBackToSetup = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #Set all variables needed for performing various
+    #scripts while in test setup mode.
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Set Variable [ $$stopTest; Value:1 ]
+    Go to Field [ ]
+    Set Variable [ $$stopTest ]
+    #
+    // #Remove section hightlight if turned on.
+    // Set Variable [ $$setupTestSection ]
+    #
+    #Note if record is locked to protect its tags.
+    If [ testSectionCreatorLock::orderOrLock ≠ "" ]
+    Set Variable [ $$lockedMainSubsectionRecord; Value:testSectionCreatorLock::tag ]
+    Else
+    Set Variable [ $$lockedMainSubsectionRecord ]
+    End If
+    #
+    #Get subsection's group key for the 'move'
+    #button script.
+    Set Variable [ $$subsectionGroupOLD; Value:testSubsectionTemplate::ksubsectionGroup ]
+    #
+    #The test item list temp fields allow users to switch
+    #from their current list to another list.
+    Set Field [ TEMP::ktestItemSubsection; testSubsectionTemplate::ktestItemGroup ]
+    Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionTemplate::ktestItemGroup ]
+    #
+    Set Field [ TEMP::ktestSubsection; testSubsectionTemplate::_LtestSubsection ]
+    Set Field [ TEMP::mTag; TEMP::ktestSubsection ]
+    #
+    #Used on Tag Menus window item layout for switch.
+    Set Field [ TEMP::testSubsectionName; testSubsectionTemplate::name ]
+    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
+    #
+    #
+    #
+    #Get the name of the test for the test item list
+    #name temp field.
+    #
+    #The reason for this whole section of the script
+    #(getting a test name) is that there is no relationship
+    #that can be made that would match the key of
+    #of the named test to this test and thus unlock
+    #and so allow the layout to show this test's name.
+    #This is because the key to unlock the display of
+    #a test's name is in a keychain field where many
+    #keys may exist in a list. Filemaker cannot match
+    #a lock in one table to list of keys in another table.
+    #There must be only one key in a field in order
+    #for Filemaker to know which key to use in a lock.
+    #The database does not have the intellegence or
+    #programming to search through a list of keys
+    #to make a match to a lock field in another table.
+    #Thus, in order to display the name of the test in use
+    #we must have the system put that name in a temp
+    #field with global storage, which then allows it
+    #to be displayed on any layout where that temp
+    #field is displayed. No relationship between the
+    #the temp table and the layout's table is required
+    #as long as the temp field is a global field, meaning
+    #all data in the field is the same for every record
+    #in the temp table.
+    #
+    #If the test list belongs (has the key that fits the
+    #test's lock) then set the temp field with this test's name.
+    If [ testSubsectionTemplate::_LtestSubsection = testSubsectionTemplate::ktestItemGroup ]
+    #
+    #Set a temp field with this test's name. This name
+    #field will then be used to show this test's name on
+    #the Tag Menus layout for setupTestItems.
+    Set Field [ TEMP::ktestSubsectionName; testSubsectionTemplate::name ]
+    #
+    #If the test list does not belong to this test
+    #(has the key that fits A DIFFERENT test's lock)
+    #then set the temp field with this other test's name.
+    Else If [ testSubsectionTemplate::_LtestSubsection ≠ testSubsectionTemplate::ktestItemGroup ]
+    #
+    #Get the ID of the current record so it can be
+    #looped back to.
+    Set Variable [ $currentTest; Value:testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Turn of the record load triggered scripts
+    #to speed up this loop search.
+    Set Variable [ $$ID; Value:"ignore" ]
+    Set Variable [ $$stopTest; Value:1 ]
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #
+    #Go to the first record and then test it and every
+    #other record until the test in question is found.
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ testSubsectionTemplate::_LtestSubsection = TEMP::ktestItemSubsection ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Set a temp field with this test's name. This name
+    #field will then be used to show this test's name on
+    #the Tag Menus layout for setupTestItems.
+    Set Field [ TEMP::ktestSubsectionName; testSubsectionTemplate::name ]
+    #
+    #Update key used for the move pulldown.
+    Set Field [ TEMP::mTag; TEMP::ktestItemSubsection ]
+    #
+    #go back to current test.
+    Close Window [ Current Window ]
+    Set Variable [ $$ID; Value:$currentTest ]
+    Set Variable [ $$stopTest ]
+    Refresh Window
+    End If
+    #
+    #If the user has come to this screen from the test item
+    #window, then the itemName variable needs to be updated.
+    If [ $$itemName ≠ "" ]
+    Set Variable [ $$itemName; Value:TEMP::ktestSubsectionName ]
+    End If
+    #
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get (LastError) = 112 ]
+    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “setupTestSection” (testSection) ]
+    End If
+    #
+    #Find test items for test if user is currently looking
+    #at test items on the Tag Menus window.
+    If [ Get (LayoutName) = "setupTestItem" or Get (LayoutName) = "setupTestItemLOCKED" ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    #
+    #If subsection is locked go the locked
+    #versus unlocked layout.
+    If [ $$lockedMainSubsectionRecord ≠ "" ]
+    Go to Layout [ “setupTestItemLOCKED” (tagMenus) ]
+    Else
+    Go to Layout [ “setupTestItem” (tagMenus) ]
+    End If
+    #
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ tagMenuTestItemGroup::match; TEMP::ktestItemSubsection & ¶ ]
+    Perform Find [ ]
+    Set Variable [ $$stopLoadTagRecord ]
+    #
+    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::name; ascending tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Scroll Window [ Home ]
+    Go to Record/Request/Page [ First ]
+    #
+    #
+    #Ask the user if they would like to see the
+    #whole test item when they click on one or not
+    #(they just want to go to that tag record).
+    If [ $$rememberTestItemChoice ≠ 1 and Get(FoundCount) ≠ 0 ]
+    Show Custom Dialog [ Message: "Show all a test-item's text when you first click directly on the text, or just go to the record?"; Default Button: “JustGo”, Commit: “No”; Button 2: “ShowAll”, Commit: “No” ]
+    #
+    If [ Get (LastMessageChoice) = 1 ]
+    Set Variable [ $$showAll ]
+    #
+    Else If [ Get (LastMessageChoice) = 2 ]
+    Set Variable [ $$showAll; Value:1 ]
+    End If
+    #
+    #Ask if user would like their choice to be
+    #remembered for this session (until the library
+    #is restarted).
+    Show Custom Dialog [ Message: "Remember this decision for this session (if yes, you will not be asked again until you restart the library)?"; Default Button: “Remember”, Commit: “Yes”; Button 2: “Forget”, Commit: “No” ]
+    #
+    If [ Get (LastMessageChoice) = 1 ]
+    Set Variable [ $$rememberTestItemChoice; Value:1 ]
+    End If
+    End If
+    #
+    #
+    End If
+    #
+    #Refresh window in case user was on section layout.
+    Refresh Window
+    #
+    #Return to setup window and refresh it to highlight
+    #current record.
+    Select Window [ Name: "Test Templates"; Current file ]
+    Refresh Window
+    #
+    #
+    Perform Script [ “exit” ]
+    #
+    #Stop dragged spelling changes check. It's too
+    #annoying. It is run when user leaves the
+    #template section.
+    If [ $$module ≠ "testMenuTestItem" and $$module ≠ "reportTagItem" ]
+    Halt Script
+    End If
+    #
+
+Fields used in this script
+
+    testSubsectionTemplate::_LtestSubsection
+    testSectionCreatorLock::orderOrLock
+    testSectionCreatorLock::tag
+    testSubsectionTemplate::ksubsectionGroup
+    testSubsectionTemplate::ktestItemGroup
+    TEMP::ktestItemSubsection
+    TEMP::ktestItemSubsectionOLD
+    TEMP::ktestSubsection
+    TEMP::mTag
+    testSubsectionTemplate::name
+    TEMP::testSubsectionName
+    testSubsectionTemplate::kcsections
+    TEMP::ktestSubsectionName
+    tagMenuTestItemGroup::match
+    tagMenuTestItemGroup::orderOrLibraryType
+    tagMenuTestItemGroup::name
+    tagMenuTestItemGroup::_Lgroup
+    tagMenus::orderOrLock
+    tagMenus::tag
+
+Scripts used in this script
+
+    exit
+
+Layouts used in this script
+
+    setupTestSection
+    setupTestItemLOCKED
+    setupTestItem
+
+Tables used in this script
+
+    TEMP
+    tag
+    tagGroup
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    TEMP
+    tagMenuTestItemGroup
+    tagMenus
+    testSectionCreatorLock
+    testSubsectionTemplate
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [loadSetupTestSubsection]	Parent Folder: [setup]	Next Script: [moveSubsectionToOtherGroup]
+Script Name	loadTestSubjectTestSection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+    duplicateSectionFromTemplate
+    newSectionFromTemplate
+
+Script Definition
+Script Steps
+
+    #
+    #Stop script if running a delete check.
+    If [ $$stopLoadTestRecord = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #Turn off highlights when leaving editsection
+    #layout (called defaultTestNewSection).
+    Set Variable [ $$highlightTestSection ]
+    Refresh Window
+    #
+    #If no section-templates exist then clear the
+    #section-template key and name fields.
+    If [ ValueListItems ( Get ( FileName ) ; "defaultSectionTemplates" ) = "" ]
+    Set Field [ TEMP::DEFAULTSectionName; "" ]
+    Set Field [ TEMP::kdefaultSectionTemplate; "" ]
+    End If
+    #
+    #If no records exist then stop the script.
+    If [ Get (FoundCount) = 0 and $$stopFocusLoad = "" or Get (FoundCount) ≠ 0 and $$stopFocusLoad = 1 or $$stopSetReportNumber = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #Set default test number so any new sections
+    #will be add to the selected test.
+    Set Field [ TEMP::reportNumber; testSectionCreatedFromATemplate::reportNumber ]
+    Go to Field [ ]
+    #
+    #Set test subject variable for conditionally
+    #formatting the selected test.
+    Set Variable [ $$testSubject; Value:testSectionCreatedFromATemplate::ktestSubjectNode ]
+    Refresh Window
+    #
+    // #Pause prevents accidental click of
+    // #section pulldown button after 'edit/newtest'
+    // #button is clicked.
+    // Set Variable [ $$pause; Value:1 ]
+    // Pause/Resume Script [ Duration (seconds): .5 ]
+    // Set Variable [ $$pause ]
+    #
+
+Fields used in this script
+
+    TEMP::DEFAULTSectionName
+    TEMP::kdefaultSectionTemplate
+    testSectionCreatedFromATemplate::reportNumber
+    TEMP::reportNumber
+    testSectionCreatedFromATemplate::ktestSubjectNode
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+
+Table occurrences used by this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [loadTestSubjectTestSection]	Parent Folder: [setup]	Next Script: [newSection]
+Script Name	moveSubsectionToOtherGroup
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #This script is for moving a test subsection
+    #to a different group.
+    #
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #If there is only one group, exit script.
+    If [ ValueCount ( ValueListItems ( Get ( FileName ) ; "templateSubsectionGroups" ) ) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #If node is currenlty locked then stop script, inform user.
+    If [ testSectionCreatorLock::orderOrLock ≠ "" ]
+    Set Field [ testSubsectionTemplate::ksubsectionGroup; $$subsectionGroupOLD ]
+    Go to Field [ ]
+    Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & testSectionCreatorLock::tag & " -- in the setup tag window and enter the password to unlock it so that you can move it."; Default Button: “OK”, Commit: “No” ]
+    Exit Script [ ]
+    End If
+    #
+    Set Variable [ $$moveItem; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+    #
+    #Stop test record load script to speed up script.
+    Set Variable [ $$ID; Value:"ignore" ]
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #Get the newly selected group's ID number.
+    Set Variable [ $newSubSectionGroup; Value:testSubsectionTemplate::ksubsectionGroup ]
+    #
+    #Reset the test's group ID with its old group ID
+    #number grabbed by the system in part 1 of
+    #this script, just in case the user decides to cancel
+    #move and the test needs to stay put.
+    Set Field [ testSubsectionTemplate::ksubsectionGroup; $$subsectionGroupOLD ]
+    Go to Field [ ]
+    #
+    #Check if this is the last test in the test group.
+    New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionTemplate::ksubsectionGroup; $$subsectionGroupOLD ]
+    Perform Find [ ]
+    If [ Get (FoundCount) = 1 ]
+    Close Window [ Current Window ]
+    Set Variable [ $deleteGroup; Value:TEMP::ktestSubsection ]
+    Refresh Window
+    #
+    #If it is the last item inform user that after the move
+    #the old group will be deleted unless the user
+    #creates a new item for this group before moving
+    #the old item.
+    Show Custom Dialog [ Title: "!"; Message: "The group — " & testSubsectionGroup::name & " — will be deleted if you complete this move. If you want to keep it: 1) click cancel, 2) create a new general inquiry for this group, then 3) perform the move."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “move”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$moveItem ]
+    Set Variable [ $deleteGroup ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #If the user decides to go ahead with the move,
+    #first delete the old group.
+    New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #
+    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionGroup::_Lgroup; $$subsectionGroupOLD ]
+    Perform Find [ ]
+    Delete Record/Request [ No dialog ]
+    #
+    End If
+    #
+    #Close window opened to perform find, and then
+    #set group ID of test with the new groups ID number.
+    Close Window [ Current Window ]
+    Set Field [ testSubsectionTemplate::ksubsectionGroup; $newSubSectionGroup ]
+    Set Variable [ $$subsectionGroupOLD; Value:testSubsectionTemplate::ksubsectionGroup ]
+    Go to Field [ ]
+    #
+    #Section window on selected record.
+    Scroll Window [ Home ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroup::name; ascending testSubsectionTemplate::order; based on value list: “order Pulldown List” testSubsectionTemplate::name; ascending ] [ Restore; No dialog ]
+    #
+    #Turn back on the loadrecord script. The current
+    #record's info does not need to be reloaded of course
+    #because it is still the current record.
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Go to Field [ ]
+    #
+    #Turn off the move highlight.
+    Set Variable [ $$moveItem ]
+    Refresh Window
+    #
+
+Fields used in this script
+
+    testSectionCreatorLock::orderOrLock
+    testSubsectionTemplate::ksubsectionGroup
+    testSectionCreatorLock::tag
+    testSubsectionTemplate::_LtestSubsection
+    TEMP::ktestSubsection
+    testSubsectionGroup::name
+    testSubsectionGroup::_Lgroup
+    testSubsectionGroup::orderOrLibraryType
+    testSubsectionTemplate::order
+    testSubsectionTemplate::name
+
+Scripts used in this script
+
+Layouts used in this script
+
+    tableTestSubsectionTemplates
+    tableTagGroup
+
+Tables used in this script
+
+    TEMP
+    tag
+    tagGroup
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    TEMP
+    testSectionCreatorLock
+    testSubsectionGroup
+    testSubsectionTemplate
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [moveSubsectionToOtherGroup]	Parent Folder: [setup]	Next Script: [newSectionFromTemplate]
+Script Name	newSection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestSection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #Create new section that can be added to
+    #any subject's test.
+    New Record/Request
+    Set Field [ testSection::match; "testSection" ]
+    Set Field [ testSection::tag; "section_template" ]
+    Set Field [ testSection::tagSpelling; "section_template" ]
+    Set Field [ testSection::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    Go to Field [ testSection::tag ]
+    #
+
+Fields used in this script
+
+    testSection::match
+    testSection::tag
+    testSection::tagSpelling
+    TEMP::kdefaultNodePrimary
+    testSection::kRecordCreatorNode
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    tag
+
+Table occurrences used by this script
+
+    TEMP
+    testSection
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newSection]	Parent Folder: [setup]	Next Script: [newSubsection]
+Script Name	newSectionFromTemplate
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTestNewSection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Pause prevents accidental click of
+    #section pulldown button after 'edit/newtest'
+    #button is clicked on main test layout.
+    If [ $$pause = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #Do not allow user to create a new section if...
+    #
+    #...section is not selected.
+    If [ TEMP::kdefaultSectionTemplate= "" or TEMP::DEFAULTSectionName = "" ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    If [ ValueListItems ( Get ( FileName ) ; "defaultSectionTemplates" ) = "" ]
+    Show Custom Dialog [ Message: "There are no test-section templates available for creating new test sections. To create some 1) click 'back', then 2) click 'section-templatesetup' and finally 3) click 'new' to create your first test-section template. 4) Customize it to meet your needs."; Default Button: “OK”, Commit: “Yes” ]
+    Halt Script
+    End If
+    If [ TEMP::DEFAULTSectionName = "" ]
+    Show Custom Dialog [ Message: "Click 'select test section' now highlighted for you, and then select a test-section template from the pulldown menu that will appear. Your selected template will be used to create sections that you can add to any test."; Default Button: “OK”, Commit: “Yes” ]
+    Else
+    Show Custom Dialog [ Message: "Click '" & TEMP::DEFAULTSectionName & "', and then re-select a test-section template from the pulldown menu that will appear."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    Halt Script
+    #
+    #...report number is not selected.
+    Else If [ TEMP::reportNumber = "" ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    Show Custom Dialog [ Message: "Click '#' now highlighted for you, and then select the test's number that you want to add a new test-section to from the pulldown menu that will appear."; Default Button: “OK”, Commit: “Yes” ]
+    Halt Script
+    #
+    #...test subject is not selected.
+    Else If [ TEMP::kdefaultNodeTestSubject = "" ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    Show Custom Dialog [ Message: "All tests must have a test subject. 1) Click 'tag' above and then in the tags-menu window 2) click 'node'. 3) Select a node to be your test subject, or create a new node, and then 4) click the 'TS' button next to it."; Default Button: “OK”, Commit: “Yes” ]
+    Halt Script
+    #
+    #...test subject is selected, but is locked.
+    Else If [ testSubjectName::orderOrLock ≠ "" ]
+    Set Variable [ $$highlightTestSection; Value:1 ]
+    Refresh Window
+    #
+    #Get the current test subject's name.
+    Show Custom Dialog [ Message: "The test subject — " & testSubjectName::tag & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “Yes” ]
+    Halt Script
+    End If
+    #
+    #If the defautl test-subject node doesn't
+    #match the current users selected test
+    #section's test-subject, inform the user.
+    If [ testSectionCreatedFromATemplate::ktestSubjectNode ≠ TEMP::kdefaultNodeTestSubject ]
+    Show Custom Dialog [ Message: "This new test section will be created for " & TEMP::DEFAULTNodeTestSubjectName & "."; Default Button: “OK”, Commit: “No”; Button 2: “cancel”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 2 ]
+    Halt Script
+    End If
+    End If
+    #
+    #Had to capture report number as variable or
+    #stop record load script which would replace
+    #the default number selection with nothing
+    #upon new record creation.
+    Set Variable [ $reportNumber; Value:TEMP::reportNumber ]
+    #
+    #Load up new record after it is fully created.
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    #
+    #Create new record.
+    New Record/Request
+    Set Field [ testSectionCreatedFromATemplate::ksectionTemplate; TEMP::kdefaultSectionTemplate ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $reportNumber ]
+    Set Field [ testSectionCreatedFromATemplate::name; TEMP::DEFAULTSectionName ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
+    Set Field [ testSectionCreatedFromATemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
+    #
+    #Sort records so if user had selected a record
+    #under a different test subject than the one
+    #the record was just created for, this new
+    #record will re-sort under its test subject.
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubjectName::tag; ascending testSectionCreatedFromATemplate::reportNumber; descending testSectionCreatedFromATemplate::order; based on value list: “order Pulldown List” testSectionCreatedFromATemplate::name; ascending ] [ Restore; No dialog ]
+    #
+    #Load up this new test section.
+    Set Variable [ $$stopLoadTestRecord ]
+    Perform Script [ “loadTestSubjectTestSection” ]
+    #
+    #Allow the user the change
+    #this section's name.
+    Go to Field [ testSectionCreatedFromATemplate::name ]
+    #
+
+Fields used in this script
+
+    TEMP::kdefaultSectionTemplate
+    TEMP::DEFAULTSectionName
+    TEMP::reportNumber
+    TEMP::kdefaultNodeTestSubject
+    testSubjectName::orderOrLock
+    testSubjectName::tag
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    TEMP::DEFAULTNodeTestSubjectName
+    testSectionCreatedFromATemplate::ksectionTemplate
+    testSectionCreatedFromATemplate::reportNumber
+    testSectionCreatedFromATemplate::name
+    TEMP::kdefaultNodePrimary
+    testSectionCreatedFromATemplate::kcreatorNode
+    testSectionCreatedFromATemplate::order
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    loadTestSubjectTestSection
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    tag
+    testSectionCreatedFromATemplate
+
+Table occurrences used by this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+    testSubjectName
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newSectionFromTemplate]	Parent Folder: [setup]	Next Script: [newSubsectionGroup]
+Script Name	newSubsection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestSubsection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #Stop spell check script.
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #If there are no subsections, then create a new
+    #subsection group first and then a test for that
+    #group. All subsections belong to a group.
+    If [ Get (FoundCount) = 0 ]
+    Perform Script [ “newSubsectionGroup” ]
+    Exit Script [ ]
+    End If
+    #
+    #Set variables needed to create new subsection.
+    Set Variable [ $$ID; Value:"ignore" ]
+    Set Variable [ $group; Value:testSubsectionTemplate::ksubsectionGroup ]
+    #
+    #Copy current item's order number.
+    Set Variable [ $orderNumber; Value:testSubsectionTemplate::order ]
+    #
+    #
+    #Create new subsection.
+    New Record/Request
+    #( a test subsection group field is neccessary because a section
+    # may have more than one test subsection group, and so trying
+    # to find a test subsection group using the section key and
+    # the testSubsection match field would find all groups
+    # when we need the system to find one group. )
+    Set Field [ testSubsectionTemplate::ksubsectionGroup; $group ]
+    #
+    #Set order number if any.
+    Set Field [ testSubsectionTemplate::order; $orderNumber ]
+    #
+    #This new subsections key is placed in its test
+    #item key field to create future test items
+    #belonging in this subsection.
+    Set Field [ testSubsectionTemplate::ktestItemGroup; testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Subsections do not need unique names. Unlike other
+    #names, the names of subsections if named the same
+    #will not confuse the system. I don't think it will
+    #confuse the user either, but I am including steps to
+    #require a unique name so when locked by creator
+    #the name can be revereted back to orignal name.
+    Set Field [ testSubsectionTemplate::name; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
+    Set Field [ testSubsectionTemplate::nameSpelling; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
+    Set Field [ testSubsectionTemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
+    #
+    #
+    #
+    #Set temp variables for next part of script.
+    #
+    #The subsection's item list temp fields allow
+    #users to switch from their current list to
+    #another list.
+    Set Field [ TEMP::ktestItemSubsection; testSubsectionTemplate::ktestItemGroup ]
+    Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionTemplate::ktestItemGroup ]
+    #
+    #Used on tag menus to unlock buttons and link
+    #new records to test.
+    Set Field [ TEMP::ktestSubsection; testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Used on Tag Menus window item layout for switch.
+    Set Field [ TEMP::testSubsectionName; testSubsectionTemplate::name ]
+    #
+    #Used on Tag Menus window section layout for conditional
+    #formatting.
+    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
+    #
+    #
+    #Go to the tag menus window.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get (LastError) = 112 ]
+    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “setupTestSection” (testSection) ]
+    End If
+    #
+    #Remember layout user is currently seeing in
+    #the tag menu window, so user can be returned
+    #to it at the end of the script.
+    Set Variable [ $layout; Value:Get (LayoutName) ]
+    #
+    #Assign section to subsection as each
+    #subsection must be in at least one section.
+    Perform Script [ “menuTestSection” ]
+    If [ Get (FoundCount) = 0 ]
+    Set Variable [ $layout ]
+    Go to Layout [ “setupTestSection” (testSection) ]
+    New Record/Request
+    Set Field [ testSection::match; "testSection" ]
+    Set Field [ testSection::tag; "section_template" ]
+    Set Field [ testSection::tagSpelling; "section_template" ]
+    Perform Script [ “menuTestSection” ]
+    End If
+    Go to Record/Request/Page [ First ]
+    Perform Script [ “linkOrUnlinkTestSection” ]
+    #
+    #Go to selected tag menu window layout.
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Go to Layout [ $layout ]
+    #
+    #Set variables for new record.
+    Select Window [ Name: "Test Templates"; Current file ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Sort records.
+    Scroll Window [ Home ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroup::name; ascending testSubsectionTemplate::order; based on value list: “order Pulldown List” testSubsectionTemplate::name; ascending ] [ Restore; No dialog ]
+    Go to Field [ testSubsectionTemplate::name ] [ Select/perform ]
+    #
+    #Start spell check script.
+    Set Variable [ $$stopTest ]
+    #
+
+Fields used in this script
+
+    testSubsectionTemplate::ksubsectionGroup
+    testSubsectionTemplate::order
+    testSubsectionTemplate::_LtestSubsection
+    testSubsectionTemplate::ktestItemGroup
+    testSubsectionTemplate::name
+    testSubsectionTemplate::nameSpelling
+    TEMP::kdefaultNodePrimary
+    testSubsectionTemplate::kcreatorNode
+    TEMP::ktestItemSubsection
+    TEMP::ktestItemSubsectionOLD
+    TEMP::ktestSubsection
+    TEMP::testSubsectionName
+    testSubsectionTemplate::kcsections
+    testSection::match
+    testSection::tag
+    testSection::tagSpelling
+    testSubsectionGroup::orderOrLibraryType
+    testSubsectionGroup::name
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    newSubsectionGroup
+    menuTestSection
+    linkOrUnlinkTestSection
+
+Layouts used in this script
+
+    setupTestSection
+    <Missing Layout>
+
+Tables used in this script
+
+    TEMP
+    tag
+    tagGroup
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    TEMP
+    testSection
+    testSubsectionGroup
+    testSubsectionTemplate
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newSubsection]	Parent Folder: [setup]	Next Script: [newTestItem]
+Script Name	newSubsectionGroup
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestSubsection
+
+Scripts that use this script
+
+    newSubsection
+
+Script Definition
+Script Steps
+
+    #
+    #This script is creates test subsection groups.
+    #
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #Stop spell check script.
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #Copy current group's order number.
+    Set Variable [ $orderNumber; Value:testSubsectionGroup::orderOrLibraryType ]
+    #
+    #Create new general inquiry group.
+    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
+    New Record/Request
+    Set Field [ testSubsectionGroup::orderOrLibraryType; $orderNumber ]
+    Set Field [ testSubsectionGroup::match; "testSubsection" ]
+    Set Field [ testSubsectionGroup::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    #
+    #Each group must have a unique name and
+    #the nameSpelling field is used when the user
+    #changes the name to a name already in use at
+    #which point the nameSpelling name can revert
+    #the user back to the former name (as the name
+    #field contains the duplicate name which is not
+    #allowed).
+    Set Field [ testSubsectionGroup::name; "subsection_group" & testSubsectionGroup::_Lgroup ]
+    Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "subsection_group" & testSubsectionGroup::_Lgroup ]
+    Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
+    #
+    #Create new general inquiry for this group.
+    Set Variable [ $$ID; Value:"ignore" ]
+    Go to Layout [ “setupTestSubsection” (testSubsectionTemplate) ]
+    New Record/Request
+    Set Variable [ $loopToNewRecord; Value:testSubsectionTemplate::_LtestSubsection ]
+    Set Field [ testSubsectionTemplate::ksubsectionGroup; $group ]
+    #
+    #A new test-item list is created with each new test.
+    #This key field can be changed so that the test-item
+    #list for another test can be used.
+    Set Field [ testSubsectionTemplate::ktestItemGroup; testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Tests do not need unique names. Unlike other
+    #names, the names of tests if named the same
+    #will not confuse the system. I don't think it will
+    #confuse the user either, but I am including steps to
+    #require a unique name so when locked name can
+    #be revereted back to orignal name.
+    Set Field [ testSubsectionTemplate::name; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
+    Set Field [ testSubsectionTemplate::nameSpelling; "subsection_template" & testSubsectionTemplate::_LtestSubsection ]
+    Set Field [ testSubsectionTemplate::kcreatorNode; TEMP::kdefaultNodePrimary ]
+    #
+    #
+    #
+    #Set temp variables for next part of script.
+    #
+    #The test item list temp fields allow users to switch
+    #from their current list to another list.
+    Set Field [ TEMP::ktestItemSubsection; testSubsectionTemplate::ktestItemGroup ]
+    Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionTemplate::ktestItemGroup ]
+    #
+    #Used on tag menus to unlock buttons and link
+    #new records to test.
+    Set Field [ TEMP::ktestSubsection; testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Used on Tag Menus window item layout for switch.
+    Set Field [ TEMP::testSubsectionName; testSubsectionTemplate::name ]
+    #
+    #Used on Tag Menus window section layout for conditional
+    #formatting.
+    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
+    #
+    #
+    #Go to the tag menus window.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get (LastError) = 112 ]
+    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “setupTestSection” (testSection) ]
+    End If
+    #
+    #Remember layout user is currently seeing in
+    #the tag menu window, so user can be returned
+    #to it at the end of the script.
+    Set Variable [ $layout; Value:Get (LayoutName) ]
+    #
+    #Assign section to test item as each test must have
+    #at least one section.
+    Perform Script [ “menuTestSection” ]
+    If [ Get (FoundCount) = 0 ]
+    Set Variable [ $layout ]
+    Go to Layout [ “setupTestSection” (testSection) ]
+    New Record/Request
+    Set Field [ testSection::match; "testSection" ]
+    Set Field [ testSection::tag; "test-section_template" ]
+    Set Field [ testSection::tagSpelling; "test-section_template" ]
+    Perform Script [ “menuTestSection” ]
+    End If
+    Go to Record/Request/Page [ First ]
+    Perform Script [ “linkOrUnlinkTestSection” ]
+    #
+    #Go to selected tag menu window layout.
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Go to Layout [ $layout ]
+    #
+    #Set variables for new record.
+    Select Window [ Name: "Test Templates"; Current file ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Sort records.
+    Scroll Window [ Home ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroup::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroup::name; ascending testSubsectionTemplate::order; based on value list: “order Pulldown List” testSubsectionTemplate::name; ascending ] [ Restore; No dialog ]
+    Go to Field [ testSubsectionTemplate::name ] [ Select/perform ]
+    #
+    #Start spell check script.
+    Set Variable [ $$stopTest ]
+    #
+
+Fields used in this script
+
+    testSubsectionGroup::orderOrLibraryType
+    testSubsectionGroup::match
+    TEMP::kdefaultNodePrimary
+    testSubsectionGroup::kRecordCreatorNode
+    testSubsectionGroup::_Lgroup
+    testSubsectionGroup::name
+    testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup
+    testSubsectionTemplate::_LtestSubsection
+    testSubsectionTemplate::ksubsectionGroup
+    testSubsectionTemplate::ktestItemGroup
+    testSubsectionTemplate::name
+    testSubsectionTemplate::nameSpelling
+    testSubsectionTemplate::kcreatorNode
+    TEMP::ktestItemSubsection
+    TEMP::ktestItemSubsectionOLD
+    TEMP::ktestSubsection
+    TEMP::testSubsectionName
+    testSubsectionTemplate::kcsections
+    testSection::match
+    testSection::tag
+    testSection::tagSpelling
+    testSubsectionTemplate::order
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    menuTestSection
+    linkOrUnlinkTestSection
+
+Layouts used in this script
+
+    tableTagGroup
+    setupTestSubsection
+    setupTestSection
+    <Missing Layout>
+
+Tables used in this script
+
+    TEMP
+    tag
+    tagGroup
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    TEMP
+    testSection
+    testSubsectionGroup
+    testSubsectionTemplate
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newSubsectionGroup]	Parent Folder: [setup]	Next Script: [newTestItemGroup]
+Script Name	newTestItem
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestItem
+    testMenuTestItemEdit
+    testMenuTestItemMORE
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #This script is for creating a test item.
+    #
+    #If the node that created this group is locked
+    #prevent new items be created for it even by a
+    #node that is not locked.
+    If [ nodeLockTestTagItemGroup::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "This group is locked. Go the node that created this group — " & nodeLockTestTagItemGroup::tag & " — in the setup tag window and enter the password to unlock it so that you can create items for it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #Stop this script if there are no subsections
+    #for which to create test items.
+    If [ TEMP::ktestSubsection = "" ]
+    Show Custom Dialog [ Message: "All test items must belong to (be linked to) at least one test subsection. Create one now, and then you can create new test items and test-item groups for it."; Default Button: “OK”, Commit: “No” ]
+    Exit Script [ ]
+    End If
+    #
+    #If there are no test items, then create a new test
+    #item group first and then a test for that group.
+    #All test items belong to test item groups, not
+    #tests. This allows test item groups to be added
+    #to other test's test-item lists.
+    If [ Get (FoundCount) = 0 ]
+    Perform Script [ “newTestItemGroup” ]
+    Exit Script [ ]
+    End If
+    #
+    #Capturet he current item's type and style
+    #to apply to the new item.
+    Set Variable [ $checkORtextORform; Value:Case ( tagMenus::notesOrCopyright ≠ "" ; tagMenus::notesOrCopyright ; "✓" ) ]
+    Set Variable [ $style; Value:tagMenus::textStyleOrCreatorNodeFlag ]
+    #
+    #Copy current item's style setting.
+    Set Variable [ $style; Value:tagMenus::textStyleOrCreatorNodeFlag ]
+    #
+    #Copy current item's order number.
+    Set Variable [ $orderNumber; Value:tagMenus::orderOrLock ]
+    #
+    #Create an item for this goup of test items.
+    New Record/Request
+    Set Field [ tagMenus::match; "testItem" ]
+    Set Field [ tagMenus::orderOrLock; $orderNumber ]
+    Set Field [ tagMenus::orderOrLock[2]; $orderNumber ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; $style ]
+    Set Field [ tagMenus::notesOrCopyright; $checkORtextORform ]
+    Set Field [ tagMenus::kGroupOrTest; GetNthRecord ( tagMenus::kGroupOrTest ; Get (RecordNumber) - 1 ) ]
+    Set Field [ tagMenus::tag; "test-item" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::tagSpelling; "test-item" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    Go to Field [ ]
+    #
+    #Apply tag style.
+    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Georgia" ) ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
+    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextSize ( tagMenus::tag ; 20 ) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
+    Set Field [ tagMenus::tag; TextStyleAdd ( tagMenus::tag ; Bold ) ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    End If
+    Go to Field [ tagMenus::tag ] [ Select/perform ]
+    #
+
+Fields used in this script
+
+    nodeLockTestTagItemGroup::orderOrLock
+    nodeLockTestTagItemGroup::tag
+    TEMP::ktestSubsection
+    tagMenus::notesOrCopyright
+    tagMenus::textStyleOrCreatorNodeFlag
+    tagMenus::orderOrLock
+    tagMenus::match
+    tagMenus::kGroupOrTest
+    tagMenus::_Ltag
+    tagMenus::tag
+    tagMenus::tagSpelling
+    TEMP::kdefaultNodePrimary
+    tagMenus::kRecordCreatorNode
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    newTestItemGroup
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    tag
+    tag
+
+Table occurrences used by this script
+
+    TEMP
+    nodeLockTestTagItemGroup
+    tagMenus
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newTestItem]	Parent Folder: [setup]	Next Script: [newTestSectionTemplatePulldownCheck]
+Script Name	newTestItemGroup
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestItem
+    testMenuTestItemEdit
+    testMenuTestItemMORE
+
+Scripts that use this script
+
+    newTestItem
+
+Script Definition
+Script Steps
+
+    #
+    #This script creates test item groups.
+    #
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #If there are no general test inquires, then
+    #stop this script as there are no general inquires
+    # to create specific inquires for.
+    If [ TEMP::ktestSubsection = "" ]
+    Show Custom Dialog [ Message: "All test items must belong to (be linked to) at least one test subsection. Create one now, and then you can create new test items and test-item groups for it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #Capturet he current item's type and style
+    #to apply to the new item.
+    Set Variable [ $checkORtextORform; Value:Case ( tagMenus::notesOrCopyright ≠ "" ; tagMenus::notesOrCopyright ; "✓" ) ]
+    Set Variable [ $style; Value:tagMenus::textStyleOrCreatorNodeFlag ]
+    #
+    #Copy current group's order number.
+    Set Variable [ $orderNumber; Value:tagMenuTestItemGroup::orderOrLibraryType ]
+    #
+    #Create new test item group record.
+    Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
+    New Record/Request
+    #
+    #
+    #BEGIN !!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #READ CAREFULLY!!! nameSpelling field used differently!!!
+    #Each test-item group must have a unique name and
+    #the nameSpellingTestItemGroup field is used when the user
+    #changes the name to a name already in use at
+    #which point the nameSpellingTestItemGroup name can revert
+    #the user back to the former name (as the name
+    #field contains the duplicate name which is not
+    #allowed).
+    Set Field [ testSubsectionGroup::orderOrLibraryType; $orderNumber ]
+    Set Field [ testSubsectionGroup::orderOrLibraryType[2]; $orderNumber ]
+    Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
+    Set Field [ testSubsectionGroup::name; "test-item_group" & testSubsectionGroup::_Lgroup ]
+    Set Field [ testSubsectionGroup::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    Set Field [ testSubsectionGroup::nameSpellingFORTestItemGroup; "test-item_group" & testSubsectionGroup::_Lgroup ]
+    #
+    #
+    Set Field [ testSubsectionGroup::match; TEMP::ktestSubsection & ¶ ]
+    #
+    #NEVER CHANGE!!! This is the key field for the
+    #link pulldown menu. If you decide to change
+    #it, you'll have to create a script to change it in
+    #in older library's group records which will have
+    #the spelling of the old key and thus not show
+    #up any longer once the key is changed.
+    Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "testItemGroup" ]
+    #END !!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #
+    #Create a test item for this goup as all groups must
+    #have at least one item. Item layout is sorted by
+    #by group and then item and groups are only
+    #shown as subheaders. So without an item
+    #even if a group it existed it would not show up.
+    Go to Layout [ original layout ]
+    New Record/Request
+    Set Field [ tagMenus::match; "testItem" ]
+    Set Field [ tagMenus::notesOrCopyright; $checkORtextORform ]
+    Set Field [ tagMenus::kGroupOrTest; $group ]
+    Set Field [ tagMenus::tag; "test-item" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; $style ]
+    Set Field [ tagMenus::tagSpelling; "test-item" & tagMenus::_Ltag ]
+    Set Field [ tagMenus::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    #
+    #Apply tag style.
+    If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Georgia" ) ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
+    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextSize ( tagMenus::tag ; 20 ) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
+    Set Field [ tagMenus::tag; TextStyleAdd ( tagMenus::tag ; Bold ) ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    End If
+    #
+    #Must be sorted to show the group
+    #for this first test item and when it's
+    #out of sight.
+    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    Scroll Window [ Home ]
+    #
+    #Load up all tag variables.
+    Perform Script [ “loadTagRecord” ]
+    Go to Field [ tagMenus::tag ] [ Select/perform ]
+    #
+
+Fields used in this script
+
+    TEMP::ktestSubsection
+    tagMenus::notesOrCopyright
+    tagMenus::textStyleOrCreatorNodeFlag
+    tagMenuTestItemGroup::orderOrLibraryType
+    testSubsectionGroup::orderOrLibraryType
+    testSubsectionGroup::_Lgroup
+    testSubsectionGroup::name
+    TEMP::kdefaultNodePrimary
+    testSubsectionGroup::kRecordCreatorNode
+    testSubsectionGroup::nameSpellingFORTestItemGroup
+    testSubsectionGroup::match
+    testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup
+    tagMenus::match
+    tagMenus::kGroupOrTest
+    tagMenus::_Ltag
+    tagMenus::tag
+    tagMenus::tagSpelling
+    tagMenus::kRecordCreatorNode
+    tagMenuTestItemGroup::_Lgroup
+    tagMenus::orderOrLock
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    loadTagRecord
+
+Layouts used in this script
+
+    tableTagGroup
+
+Tables used in this script
+
+    TEMP
+    tag
+    tagGroup
+
+Table occurrences used by this script
+
+    TEMP
+    tagMenuTestItemGroup
+    tagMenus
+    testSubsectionGroup
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newTestItemGroup]	Parent Folder: [setup]	Next Script: [showSubsectionsInThisSection]
+Script Name	newTestSectionTemplatePulldownCheck
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If there are no test sections created,
+    #tell the user this, and how to create some.
+    If [ ValueListItems ( Get ( FileName ) ; "defaultSectionTemplates" ) = "" ]
+    Show Custom Dialog [ Message: "There are no test-section templates available for creating new test sections. To create some 1) click 'back', then 2) click 'section-templatesetup' and finally 3) click 'new' to create your first test-section template. 4) Customize it to meet your needs."; Default Button: “OK”, Commit: “Yes” ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newTestSectionTemplatePulldownCheck]	Parent Folder: [setup]
+Script Name	showSubsectionsInThisSection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestSection
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    Go to Field [ ]
+    #Set all variables needed for performing various
+    #scripts while in test setup mode.
+    If [ $$setupTestSection = "" ]
+    Set Variable [ $$setupTestSection; Value:testSection::_Ltag ]
+    Set Variable [ $setupTestSectionName; Value:testSection::tag ]
+    Go to Field [ ]
+    #
+    #
+    Set Variable [ $$stopTest; Value:1 ]
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Set Variable [ $$stopTest ]
+    Go to Layout [ “tableTestSubsectionTemplates” (testSubsectionTemplate) ]
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionTemplate::kcsections; $$setupTestSection ]
+    Perform Find [ ]
+    Set Variable [ $numberInThisSection; Value:Get (FoundCount) ]
+    Close Window [ Current Window ]
+    #
+    Refresh Window
+    #
+    #
+    #
+    If [ $numberInThisSection = 0 ]
+    #
+    Set Variable [ $$setupTestSection ]
+    Show Custom Dialog [ Message: "There are no subsections in this test section — " & $setupTestSectionName & "."; Default Button: “OK”, Commit: “Yes” ]
+    Refresh Window
+    #
+    Else
+    Select Window [ Name: "Test Templates"; Current file ]
+    Refresh Window
+    If [ $numberInThisSection = 1 ]
+    Show Custom Dialog [ Message: "The " & $numberInThisSection & " subsection in this test section — " & $setupTestSectionName & " — is now highlighed."; Default Button: “OK”, Commit: “Yes” ]
+    Else
+    Show Custom Dialog [ Message: "All " & $numberInThisSection & " subsections in this test section — " & $setupTestSectionName & " — are now highlighed."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
+    Else
+    Set Variable [ $$setupTestSection ]
+    Select Window [ Name: "Test Templates"; Current file ]
+    Refresh Window
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    End If
+
+Fields used in this script
+
+    testSection::_Ltag
+    testSection::tag
+    testSubsectionTemplate::kcsections
+
+Scripts used in this script
+
+Layouts used in this script
+
+    tableTestSubsectionTemplates
+
+Tables used in this script
+
+    tag
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    testSection
+    testSubsectionTemplate
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+probablyNotInUse
+	Parent Folder: [probablyNotInUse]
+Script Name	moveTestItemToNewTestGroupStep1
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #This script is for moving a test item
+    #to different item group.
+    #
+    #
+    #If there is only one group, exit script.
+    If [ ValueCount ( ValueListItems ( Get ( FileName ) ; "templateSubsectionGroups" ) ) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #If node is currenlty locked then stop script, inform user.
+    If [ testSectionCreatorLock::orderOrLock ≠ "" ]
+    Go to Field [ ]
+    Show Custom Dialog [ Message: "This record is locked. Go the node that created it -- " & testSectionCreatorLock::tag & " -- in the setup tag window and enter the password to unlock it so that you can move it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    Set Variable [ $$groupOLD; Value:testSubsectionTemplate::ksubsectionGroup ]
+    Set Variable [ $$moveItem; Value:testSubsectionTemplate::_LtestSubsection ]
+    Refresh Window
+
+Fields used in this script
+
+    testSectionCreatorLock::orderOrLock
+    testSectionCreatorLock::tag
+    testSubsectionTemplate::ksubsectionGroup
+    testSubsectionTemplate::_LtestSubsection
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    tag
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    testSectionCreatorLock
+    testSubsectionTemplate
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+test
+	Parent Folder: [test]	Next Script: [CHUNK_findLearnRecordsReferences]
+Script Name	CHUNK_countTestResults
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #Add 1 to test results count.
+    Set Variable [ $count; Value:testlearn::countOfALLSubsectionsTestResults ]
+    Set Field [ testlearn::countOfALLSubsectionsTestResults; $count + 1 ]
+
+Fields used in this script
+
+    testlearn::countOfALLSubsectionsTestResults
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    testlearn
+
+Table occurrences used by this script
+
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [CHUNK_countTestResults]	Parent Folder: [test]	Next Script: [deleteReportTestResult]
+Script Name	CHUNK_findLearnRecordsReferences
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    learn4
+    learn4EDIT
+    learn4EDITLocked
+
+Scripts that use this script
+
+    gotoLearnQV
+    loadTestInfo
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #If the learn record has references then make sure
+    #the Reference window is open, and then load up
+    #its reference records, otherwise exit the script.
+    If [ Get (LayoutTableName) = "testlearnReportTags" ]
+    If [ testlearnReportTags::kcreference = "" or ValueCount ( testlearnReportTags::kcreference ) - Length ( Filter ( testlearnReportTags::kcreference ; "L" ) ) = 0 ]
+    Exit Script [ ]
+    End If
+    Else
+    If [ testlearn::kcreference = "" or ValueCount ( testlearn::kcreference ) - Length ( Filter ( testlearn::kcreference ; "L" ) ) = 0 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #Prevent halting to loadTagRecord script.
+    Go to Field [ ]
+    Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
+    Set Variable [ $$stopWhenLoadingInfoRecordReferences; Value:1 ]
+    #
+    #Capture the keys of the references load.
+    If [ Get (LayoutTableName) = "testlearnReportTags" ]
+    Set Variable [ $references; Value:testlearnReportTags::kcreference ]
+    Else
+    Set Variable [ $references; Value:testlearn::kcreference ]
+    End If
+    #
+    #Determine how many references there are.
+    If [ Get (LayoutTableName) = "testlearnReportTags" ]
+    Set Variable [ $numberOfReferences; Value:ValueCount ( testlearnReportTags::kcreference ) ]
+    Else
+    Set Variable [ $numberOfReferences; Value:ValueCount ( testlearn::kcreference ) ]
+    End If
+    #
+    #Prevent loading up records.
+    Set Variable [ $$stoploadtestinfo; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    #
+    #In the test section, go the Reference window
+    #or open one up if neccessary.
+    If [ Get (LayoutTableName) = "testlearnReportTags" ]
+    Select Window [ Name: "Reference"; Current file ]
+    If [ Get ( LastError ) = 112 ]
+    If [ $$pictureWindowColor = "test" ]
+    New Window [ Name: "Reference"; Width: Get ( ScreenWidth ) / 3; Left: ( Get ( ScreenWidth ) / 3 ) * 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Else
+    New Window [ Name: "Reference"; Width: 290; Left: Get ( ScreenWidth ) - 290; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    End If
+    End If
+    #
+    #Go the layout for info references.
+    Go to Layout [ “TestInfoReference” (reference) ]
+    #
+    #
+    Else
+    #In the learn section, go to the Tag Menus
+    #window and the reference layout.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #See if user has selected requested menu.
+    If [ Get (LayoutTableName) ≠ "reference" ]
+    #
+    #Menu NOT selected.
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    End If
+    End If
+    #
+    #Turn back on record load script.
+    Set Variable [ $$stoploadtestinfo ]
+    #
+    #Find the first reference. NOTE: It may be this
+    #first reference is a learn reference, and so no
+    #records will be found, but this is OK. This first
+    #find clears out any records that may have
+    #been found previously, and replaces them with
+    #the outcome of this first find, which if none is,
+    #again, OK. Then next find step expands on
+    #this find, so to speed things up, it will not look
+    #for learn references, BUT if this step did not
+    #look for learn records, the script would in
+    #effect skip this first find and so leave in place
+    #the records found previously. Very Bad!
+    #NOTE: I've had a lot of caffeine.
+    Enter Find Mode [ ]
+    Set Field [ reference::_Lreference; GetValue ( $references ; $numberOfReferences ) ]
+    Perform Find [ ]
+    #
+    #If there is more than one reference, then load
+    #find them one-at-time until all have been found.
+    Loop
+    Set Variable [ $numberOfReferences; Value:$numberOfReferences - 1 ]
+    #
+    Exit Loop If [ $numberOfReferences = 0 ]
+    #
+    #Only find references from the Reference section.
+    If [ Right ( GetValue ( $references ; $numberOfReferences ) ; 1 ) ≠ "L" ]
+    Enter Find Mode [ ]
+    Set Field [ reference::_Lreference; GetValue ( $references ; $numberOfReferences ) ]
+    Extend Found Set [ ]
+    End If
+    #
+    End Loop
+    #
+    #Sort the references by keyword (subject).
+    Perform Script [ “sortRefBySubject” ]
+    #
+    #In the test section ...
+    #Resize the Reference window along with the
+    #other windows. The Test and Report sections
+    #have different window size requirements.
+    If [ Get (WindowName) = "Reference" ]
+    If [ $$pictureWindowColor = "test" ]
+    Move/Resize Window [ Name: "Test"; Current file; Width: Get ( ScreenWidth ) / 3; Left: 0 ]
+    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get ( ScreenWidth ) / 3; Left: Get ( ScreenWidth ) / 3 ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Else
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get ( ScreenWidth ) - 884 < 334 ]
+    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: 334; Left: 594 ]
+    Else
+    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get ( ScreenWidth ) - 884; Left: 594 ]
+    End If
+    End If
+    #
+    #Turn back on info record record's load script.
+    Set Variable [ $$stopWhenLoadingInfoRecordReferences ]
+    #
+    #
+    Else
+    #In the learn section ...
+    #Clear brainstorm and test tags so there conditional
+    #formatting in the Learn window is removed.
+    Go to Field [ ]
+    Set Variable [ $$tagBrainstorm ]
+    Set Variable [ $$tagtest ]
+    Set Variable [ $$tagRecordID ]
+    Set Variable [ $$tagEdit ]
+    Set Field [ TEMP::TLBrainstormSort; "" ]
+    Set Field [ TEMP::TLTestSort; "" ]
+    #
+    #Set citationMatch to color menu button with inUse color.
+    Set Variable [ $$citationMatch; Value:"ref" ]
+    #Goto correct layout.
+    #
+    #If no layout preference is set, then on iDevices
+    #go the layout with no pictures, and to the
+    #layout with pictures on desktop computers.
+    If [ TEMP::layoutLtagR = "" ]
+    If [ Get (SystemPlatform) = 3 ]
+    Go to Layout [ “learnMenu3CiteS” (reference) ]
+    Set Field [ TEMP::layoutLtagR; "more" & Get (LayoutName) ]
+    Else
+    Go to Layout [ “learnMenu3Cite” (reference) ]
+    Set Field [ TEMP::layoutLtagR; "less" & Get (LayoutName) ]
+    End If
+    Else
+    #
+    #Go the layout the user has selected.
+    Go to Layout [ Middle ( TEMP::layoutLtagR ; 5 ; 42 ) ]
+    End If
+    Set Variable [ $$stopLoadTagRecord ]
+    Perform Script [ “loadTagRecord” ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    testlearnReportTags::kcreference
+    testlearn::kcreference
+    reference::_Lreference
+    TEMP::TLBrainstormSort
+    TEMP::TLTestSort
+    TEMP::layoutLtagR
+
+Scripts used in this script
+
+    sortRefBySubject
+    loadTagRecord
+
+Layouts used in this script
+
+    TestInfoReference
+    learnMenu3CiteS
+    learnMenu3Cite
+    <Missing Layout>
+
+Tables used in this script
+
+    TEMP
+    reference
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    reference
+    testlearn
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [CHUNK_findLearnRecordsReferences]	Parent Folder: [test]	Next Script: [deleteTestResult]
+Script Name	deleteReportTestResult
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    reportTestResult
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #basic administration tasks
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    #
+    If [ testlearnReportTags::_Ltestlearn = "" ]
+    Halt Script
+    End If
+    #
+    #If node is currenlty locked then stop script, inform user.
+    If [ ReportResultTestSubject::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "The test subject — " & ReportResultTestSubject::tag & " — is locked, so all this node's test results are locked too. Go back to Setup to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    If [ testlearnReportTags::kcInUseOnReportSubsection ≠ "" ]
+    Show Custom Dialog [ Title: "!"; Message: testlearnReportTags::_Number & " is in use on " & testlearnReportTags::inUseNumberOfTimes & If ( testlearnReportTags::inUseNumberOfTimes = 1 ; " report and must be removed before it can be deleted." ; " reports and must be removed from all of them before it can be deleted." ); Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #make to be deleted record red and capture info for delete
+    Set Variable [ $delete; Value:testlearnReportTags::_Ltestlearn ]
+    Set Variable [ $record; Value:Get (RecordNumber) ]
+    Set Variable [ $TempTestSection; Value:testlearnReportTags::ktestSection ]
+    Set Variable [ $TempReportNumber; Value:testlearnReportTags::kreportNumber ]
+    Set Variable [ $TempTestSubject; Value:testlearnReportTags::ktestSubject ]
+    Go to Field [ ]
+    Refresh Window
+    #
+    #
+    If [ testlearnReportTags::ktestSubject + testlearnReportTags::kreportNumber = $$testSubject + $$reportNumber ]
+    Show Custom Dialog [ Message: "Delete evidence number " & testlearnReportTags::_Number & " ?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    End If
+    #
+    #
+    If [ Get ( LastMessageChoice ) = 2 ]
+    #
+    #
+    #
+    If [ Get ( FoundCount ) = 1 ]
+    Show Custom Dialog [ Title: "!"; Message: "Deleting this last piece of evidence will delete this page of the report too, do you wish to proceed? If you wish to keep this report page then add new evidence before deleting this evidence."; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Delete Record/Request [ No dialog ]
+    Else If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $delete ]
+    Refresh Window
+    Exit Script [ ]
+    End If
+    #If there is only one test result then delete the
+    #report page to which it belongs.
+    Go to Layout [ “PrintReportEdit” (report) ]
+    Enter Find Mode [ ]
+    Set Field [ report::ktestSubject; $TempTestSubject ]
+    Set Field [ report::ktestSubsection; $$testSubsection ]
+    Set Field [ report::kreportNumber; $TempReportNumber ]
+    Perform Find [ ]
+    Delete All Records [ No dialog ]
+    Set Variable [ $delete ]
+    #See if this was the only test result.
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSection; $TempTestSection ]
+    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
+    Perform Find [ ]
+    #Unlock test IF this deleted result was
+    #the only test result in this test section.
+    If [ Get ( LastError ) = 401 ]
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $TempTestSection ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $TempReportNumber ]
+    Perform Find [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
+    #refind all test section records for current library report number
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $TempTestSubject ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $$reportNumber ]
+    Perform Find [ ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    #Set this test as pending testing.
+    If [ testSubsectionForSubject::kgtestSection = $TempTestSection ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
+    End If
+    End If
+    #See if there are any other tests in this
+    #report with results.
+    Select Window [ Name: "Report"; Current file ]
+    If [ ValueListItems ( Get ( FileName ) ; "reportTestSubsections" ) = "" ]
+    #If none, then return to main test layout.
+    Perform Script [ “returnToTestSetup” ]
+    Exit Script [ ]
+    Else
+    #If there are results in other sections then go
+    #to the first one of those sections.
+    Set Variable [ $$goToFirstReportPage; Value:GetValue ( ValueListItems ( Get ( FileName ) ; "reportTestSubsections" ) ; 1 ) ]
+    Perform Script [ “CHUNK_gotoTestSubsectionViaPulldown” ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #
+    #
+    #switch back to this layout so don't have reassign
+    #fields for inspection layout. (script was written for
+    #findings layout)
+    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
+    Go to Record/Request/Page [ $record ] [ No dialog ]
+    Delete Record/Request [ No dialog ]
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    #GET ID INFO as is from different location
+    #Unlock Item Location
+    #zero out findings for item for this contact's location
+    #
+    #decrease number of findings for item for this contact's location
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSection; $TempTestSection ]
+    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
+    Perform Find [ ]
+    #Unlock Item Location
+    If [ Get ( LastError ) = 401 ]
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $TempTestSection ]
+    Perform Find [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
+    Else If [ Get (LastError) ≠ 401 ]
+    Go to Layout [ “testResult0” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSection; $TempTestSection ]
+    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Loop
+    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    End If
+    Go to Layout [ “testResult0” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
+    Set Field [ testlearn::ktestSubject; $TempTestSubject ]
+    Perform Find [ ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    End If
+    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
+    Set Variable [ $delete ]
+    Refresh Window
+
+Fields used in this script
+
+    testlearnReportTags::_Ltestlearn
+    ReportResultTestSubject::orderOrLock
+    ReportResultTestSubject::tag
+    testlearnReportTags::kcInUseOnReportSubsection
+    testlearnReportTags::_Number
+    testlearnReportTags::inUseNumberOfTimes
+    testlearnReportTags::ktestSection
+    testlearnReportTags::kreportNumber
+    testlearnReportTags::ktestSubject
+    report::ktestSubject
+    report::ktestSubsection
+    report::kreportNumber
+    testlearn::ktestSection
+    testlearn::kreportNumber
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::reportNumber
+    testSectionCreatedFromATemplate::inUse
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    testSubsectionForSubject::kgtestSection
+    testSubsectionForSubject::gprogressGlobal
+    testlearn::ktestSubsection
+    testlearn::countOfONESubsectionsTestResults
+    testlearn::ktestSubject
+    testlearn::countOfALLSubsectionsTestResults
+
+Scripts used in this script
+
+    returnToTestSetup
+    CHUNK_gotoTestSubsectionViaPulldown
+
+Layouts used in this script
+
+    PrintReportEdit
+    testSCRIPTloops
+    tableTestSectionFromTemplate
+    testingSubsectionMenu
+    reportTestResult
+    testResult0
+
+Tables used in this script
+
+    report
+    tag
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+
+Table occurrences used by this script
+
+    ReportResultTestSubject
+    report
+    testSectionCreatedFromATemplate
+    testSubsectionForSubject
+    testlearn
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [deleteReportTestResult]	Parent Folder: [test]	Next Script: [done]
+Script Name	deleteTestResult
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testResult0
+    testResult1
+    testResult2
+    testResult3
+    testResult4
+    testResult5
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    If [ testlearn::_Ltestlearn = "" ]
+    Halt Script
+    End If
+    #
+    #If node is currenlty locked then stop script, inform user.
+    If [ tagTLTestSubject::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "The test subject — " & tagTLTestSubject::tag & " — is locked, so all this node's test results are locked too. Go back to Setup to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #Prevent test results in use on report from
+    #being deleted. Tell users how to remove
+    #them from the report.
+    If [ testlearn::kcInUseOnReportSubsection ≠ "" ]
+    Show Custom Dialog [ Message: "Remove from report " & testlearn::kreportNumber & " to delete. 1) Go back to the main test window. 2) Click the 'report' button. In the Report window, 3) click the 'switchtest' button. 4) Select this section. 5) Scroll down to find and click the 'x' button next to result " & testlearn::_Number & "."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    Set Variable [ $delete; Value:testlearn::_Ltestlearn ]
+    Set Variable [ $record; Value:Get (RecordNumber) ]
+    Set Variable [ $TempTestSection; Value:testlearn::ktestSection ]
+    Set Variable [ $TempReportNumber; Value:testlearn::kreportNumber ]
+    Set Variable [ $TempTestSubject; Value:testlearn::ktestSubject ]
+    Go to Field [ ]
+    Refresh Window
+    #
+    #Tell user what section they are about to delete
+    #result from, and give them the opportunity to
+    #cancel the delete.
+    If [ testlearn::ktestSection = $$testSection ]
+    Show Custom Dialog [ Message: "Delete this section's number " & testlearn::recordnumberglobal & " test result?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Delete another section's (" & testSectionTemplateName::name & ") number " & testlearn::recordnumberglobal & " test result?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    End If
+    #
+    #If users cancels the delete then reset the window.
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $delete ]
+    Refresh Window
+    Exit Script [ ]
+    End If
+    #
+    #If the result has test items checked off its list,
+    #then inform the user of this and see if they
+    #really want to delete it.
+    If [ ValueCount ( testlearn::kctestResultCheckedItems ) ≠ 0 ]
+    Set Variable [ $testItemsCheckedOffTheList; Value:ValueCount ( testlearn::kctestResultCheckedItems ) ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ $testItemsCheckedOffTheList = 1 ]
+    Show Custom Dialog [ Message: "Just to be sure, so far " & $testItemsCheckedOffTheList & " checklist item has been checked off this test result's list. Continue deleting it?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    Else
+    Show Custom Dialog [ Message: "Just to be sure, so far " & $testItemsCheckedOffTheList & " checklist items have been checked off this test result's list. Continue deleting it?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “Delete”, Commit: “No” ]
+    End If
+    Select Window [ Name: "Test"; Current file ]
+    End If
+    #
+    #Delete record if user clicks 'delete'.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Go to Record/Request/Page [ Last ]
+    #
+    #If last test result, then delete report page for it.
+    If [ Get (RecordNumber) = 1 ]
+    Delete Record/Request [ No dialog ]
+    Go to Layout [ “PrintReportEdit” (report) ]
+    #
+    Enter Find Mode [ ]
+    Set Field [ report::ktestSubject; $TempTestSubject ]
+    Set Field [ report::ktestSubsection; $$testSubsection ]
+    Set Field [ report::kreportNumber; $TempReportNumber ]
+    Perform Find [ ]
+    Delete All Records [ No dialog ]
+    Set Variable [ $delete ]
+    #
+    #Mark the template as no longer in use.
+    #First, see if there are any N/A, or OK records.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSection; $TempTestSection ]
+    Set Field [ testlearn::kreportNumber; $TempReportNumber ]
+    Perform Find [ ]
+    #
+    #If there are no records at all mark in use "".
+    If [ Get ( LastError ) = 401 ]
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $TempTestSection ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $TempReportNumber ]
+    Perform Find [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
+    #
+    #Refind all template records with this report number.
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $TempTestSubject ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $$reportNumber ]
+    Perform Find [ ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    #
+    #Because no test results where found mark the
+    #status as pending.
+    If [ testSubsectionForSubject::kgtestSection = $TempTestSection ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
+    End If
+    End If
+    #
+    #
+    #
+    #
+    #Decrease number of results for this test on
+    #ALL test templates for subject's test number x.
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Set Error Capture [ On ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    #
+    #This find range will insure only records with numbers
+    #will be found (no NA or OK records).
+    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
+    Perform Find [ ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    #
+    #Now find all the subject's report section records
+    #including NA and OK records and update total
+    #results amount.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Go to Record/Request/Page [ First ]
+    Perform Find [ ]
+    Loop
+    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    Go to Layout [ “testResult0” (testlearn) ]
+    #
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gtestSectionNameGlobal; $$testSectionName ]
+    #
+    #Change the Tag Menus window to the
+    #blank layout and return to Test window.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Go to Layout [ “testMenuNoTag” (TEMP) ]
+    Select Window [ Name: "Test"; Current file ]
+    Exit Script [ ]
+    End If
+    #
+    #If there is more than one record then just
+    #delete this one.
+    Go to Record/Request/Page [ $record ] [ No dialog ]
+    Delete Record/Request [ No dialog ]
+    #
+    #Decrease number of test results shown.
+    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
+    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
+    #
+    #Decrease number of results for this test on this
+    #ONE test template for this test subject.
+    Set Error Capture [ On ]
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Loop
+    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #
+    #Decrease number of results for this test on
+    #ALL test templates for subject's test number x.
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Set Error Capture [ On ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    #
+    #This find range will insure only records with numbers
+    #will be found (no NA or OK records).
+    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
+    Perform Find [ ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    #
+    #Now find all the subject's report records
+    #including NA and OK records and update total
+    #results amount.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Go to Record/Request/Page [ First ]
+    Perform Find [ ]
+    Loop
+    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
+    #
+    #Go to the record showing after delete and load
+    #its set of variables.
+    Go to Record/Request/Page [ testlearn::recordnumberglobal ] [ No dialog ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Perform Script [ “loadTestResultRecord” ]
+    #
+    Exit Script [ ]
+    End If
+    #
+    #If users cancels the delete then reset the window.
+    Set Variable [ $delete ]
+    Refresh Window
+    #
+
+Fields used in this script
+
+    testlearn::_Ltestlearn
+    tagTLTestSubject::orderOrLock
+    tagTLTestSubject::tag
+    testlearn::kcInUseOnReportSubsection
+    testlearn::kreportNumber
+    testlearn::_Number
+    testlearn::ktestSection
+    testlearn::ktestSubject
+    testlearn::recordnumberglobal
+    testSectionTemplateName::name
+    testlearn::kctestResultCheckedItems
+    report::ktestSubject
+    report::ktestSubsection
+    report::kreportNumber
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::reportNumber
+    testSectionCreatedFromATemplate::inUse
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    testSubsectionForSubject::kgtestSection
+    testSubsectionForSubject::gprogressGlobal
+    testlearn::ktestSubsection
+    testlearn::countOfONESubsectionsTestResults
+    testlearn::countOfALLSubsectionsTestResults
+    testSubsectionForSubject::gtestSectionNameGlobal
+    testlearn::recordcountglobal
+    TEMP::layoutTmain
+
+Scripts used in this script
+
+    loadTestResultRecord
+
+Layouts used in this script
+
+    PrintReportEdit
+    testSCRIPTloops
+    tableTestSectionFromTemplate
+    testingSubsectionMenu
+    testResult0
+    testMenuNoTag
+    <Missing Layout>
+
+Tables used in this script
+
+    TEMP
+    report
+    tag
+    testSectionCreatedFromATemplate
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    report
+    tagTLTestSubject
+    testSectionCreatedFromATemplate
+    testSectionTemplateName
+    testSubsectionForSubject
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [deleteTestResult]	Parent Folder: [test]	Next Script: [exitAndOrderTestResults]
+Script Name	done
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testingSubsectionMenu
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #basic administration tasks
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Freeze Window
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Set Field [ testSubsectionForSubject::kcsections; $$testSectionTemplate ]
+    Perform Find [ ]
+    If [ Get ( LastError ) = 401 ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Exit Script [ ]
+    End If
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
+    Perform Find [ ]
+    If [ testSectionCreatedFromATemplate::inUse = "t" ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "d" ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: done" ]
+    Exit Script [ ]
+    End If
+    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
+
+Fields used in this script
+
+    testlearn::ktestSubject
+    testlearn::ktestSection
+    testSubsectionForSubject::kcsections
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::inUse
+    testSubsectionForSubject::gprogressGlobal
+
+Scripts used in this script
+
+Layouts used in this script
+
+    testSCRIPTloops
+    testingSubsectionMenu
+    tableTestSectionFromTemplate
+
+Tables used in this script
+
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+
+Table occurrences used by this script
+
+    testSectionCreatedFromATemplate
+    testSubsectionForSubject
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [done]	Parent Folder: [test]	Next Script: [gotoTestResults]
+Script Name	exitAndOrderTestResults
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Go to Field [ ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::orderTestResult; based on value list: “order Pulldown List” testlearnReportTags::subsectionCustomName; ascending testlearnReportTags::timestamp; ascending testlearnReportTags::_Ltestlearn; ascending ] [ Restore; No dialog ]
+
+Fields used in this script
+
+    testlearnReportTags::orderTestResult
+    testlearnReportTags::subsectionCustomName
+    testlearnReportTags::timestamp
+    testlearnReportTags::_Ltestlearn
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    testlearn
+
+Table occurrences used by this script
+
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [exitAndOrderTestResults]	Parent Folder: [test]	Next Script: [gotoTestSubsections]
+Script Name	gotoTestResults
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testingSubsectionMenu
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    If [ $$stopLoadingTestSubSection = 1 ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    End If
+    #
+    #Do not allow a test that has no results to be
+    #started if its test subject is locked.
+    If [ testSubsectionTestSubjectLock::orderOrLock = "0" and testResultsReportSection::countOfALLSubsectionsTestResults = "" ]
+    Show Custom Dialog [ Message: "The test subject — " & $$testSubjectIsLocked & " — is locked. To unlock, A) go back to the setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Set both a variable and temp field with item ID
+    #or Lock number. Eventually need to pick one
+    #or the other, but due to current deadline that
+    #cleanup will have to come later.
+    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
+    Set Field [ TEMP::ktestSubsection; testSubsectionForSubject::_LtestSubsection ]
+    #
+    #Set initial test item list to check so when user clicks
+    #on the button next to an item it turns green instead
+    #inserting its text into the test discovery's text box.
+    Set Field [ TEMP::textORcheck; "check" ]
+    #
+    #Set detail temp fields for use on Tag Menus window.
+    Set Field [ TEMP::ktestItemSubsection; testSubsectionForSubject::ktestItemGroup ]
+    Set Field [ TEMP::ktestItemSubsectionOLD; testSubsectionForSubject::ktestItemGroup ]
+    #
+    #Set subsection lock variable to prevent user
+    #from going to edit subsection template
+    #section, and set hide test edit/new button field
+    #which results in hiding that button, since it
+    #cannot be used when locked.
+    If [ testSubsectionGroupNodeLock2::orderOrLock ≠ "" ]
+    Set Variable [ $$testSubsectionIsLocked; Value:testSubsectionGroupNodeLock2::tag ]
+    Set Field [ TEMP::testItemMenuShowTheWordLock; "Lock" ]
+    Else If [ testSubsectionGroupNodeLock2::orderOrLock = "" ]
+    Set Variable [ $$testSubsectionIsLocked ]
+    Set Field [ TEMP::testItemMenuShowTheWordLock; "" ]
+    End If
+    #
+    #Prevent test records from loading to speed up
+    #this script.
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    #
+    #This field does show up elsewhere but I am not
+    #sure after what it does. My bad for not making
+    #thorough comments during earlier developement.
+    Set Field [ testSubsectionForSubject::gtestSectionNameGlobal; TextStyleAdd ( TEMP::testSubsectionNameForSubject ; Lowercase ) ]
+    #
+    #Find and show all test records.
+    If [ TEMP::layoutTmain = "" ]
+    Set Field [ TEMP::layoutTmain; "moretestResult0" ]
+    End If
+    #
+    #If the test subject or the primary node is
+    #locked go the locked layout.
+    If [ testSubsectionTestSubjectLock::orderOrLock = "0" or TEMP::primaryNodeIsLocked ≠ "" // or //TEMP::primaryNodesCreatorNodeIsLocked ≠ "" ]
+    Go to Layout [ "testResultLOCKED" & Right ( TEMP::layoutTmain ; 1) ]
+    Else
+    Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
+    End If
+    #
+    #Prevent error messages when no records
+    #are found.
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    #
+    #See if there are any informational
+    #(Learn module) records tagged
+    #to this test subsection.
+    Set Field [ testlearn::kctestSubsectionInfo; "###" & $$testSubsection ]
+    Perform Find [ ]
+    #
+    #If there are information records, then set this
+    #variable below to inform the user of this fact
+    #by highlighting the info button on the
+    #Test Menus layout.
+    If [ Get (FoundCount) ≠ 0 ]
+    Set Variable [ $$thereIsInfoForThisSubsection; Value:1 ]
+    Else
+    Set Variable [ $$thereIsInfoForThisSubsection ]
+    End If
+    #
+    #Now find all test results for this test in all
+    #subsections using this subsection template.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    #
+    #This find range will insure only records with numbers
+    #will be found (no NA or OK records).
+    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
+    Perform Find [ ]
+    #
+    #Create new test record if there are none.
+    If [ Get (FoundCount) = 0 ]
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    Perform Script [ “newTestResult” ]
+    #
+    #Find all test items for this test result.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Perform Script [ “menuTestItem” ]
+    #
+    #Return to Test window.
+    Select Window [ Name: "Test"; Current file ]
+    Exit Script [ ]
+    End If
+    #
+    #Group records by test subject location.
+    Go to Record/Request/Page [ Last ]
+    Loop
+    If [ testlearn::countOfONESubsectionsTestResults = "N/A" or testlearn::countOfONESubsectionsTestResults = "OK" or testlearn::countOfONESubsectionsTestResults = "★" ]
+    Omit Record
+    End If
+    Go to Record/Request/Page [ Previous; Exit after last ]
+    End Loop
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::subsectionCustomName; ascending testlearn::_Number; ascending ] [ Restore; No dialog ]
+    #
+    #Now go the last test record for this test location
+    #if any. It will be conditionally formatted green,
+    #while other location records will be yellow and
+    #records from other tests for this item will be blue.
+    #Blue records indicate a favorite record.
+    Go to Record/Request/Page [ Last ]
+    Loop
+    Exit Loop If [ testlearn::ktestSection = $$testSection ]
+    Go to Record/Request/Page [ Previous; Exit after last ]
+    End Loop
+    #
+    #Set the numbers for the navigation arrows
+    #at the top of the screen: record # / total #.
+    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
+    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
+    #
+    #Conditionally format current test record and tags.
+    Set Variable [ $$stopLoadTestRecord ]
+    Perform Script [ “loadTestResultRecord” ]
+    Set Variable [ $$loadTestItemRecord; Value:testlearn::kctestResultCheckedItems ]
+    #
+    #Find all test items for this test result.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Perform Script [ “menuTestItem” ]
+    #
+    #Return to Test window.
+    Select Window [ Name: "Test"; Current file ]
+    #
+
+Fields used in this script
+
+    testSubsectionTestSubjectLock::orderOrLock
+    testResultsReportSection::countOfALLSubsectionsTestResults
+    testSubsectionForSubject::_LtestSubsection
+    TEMP::ktestSubsection
+    TEMP::textORcheck
+    testSubsectionForSubject::ktestItemGroup
+    TEMP::ktestItemSubsection
+    TEMP::ktestItemSubsectionOLD
+    testSubsectionGroupNodeLock2::orderOrLock
+    testSubsectionGroupNodeLock2::tag
+    TEMP::testItemMenuShowTheWordLock
+    TEMP::testSubsectionNameForSubject
+    testSubsectionForSubject::gtestSectionNameGlobal
+    TEMP::layoutTmain
+    TEMP::primaryNodeIsLocked
+    testlearn::kctestSubsectionInfo
+    testlearn::ktestSubject
+    testlearn::ktestSubsection
+    testlearn::kreportNumber
+    testlearn::countOfONESubsectionsTestResults
+    testlearn::subsectionCustomName
+    testlearn::_Number
+    testlearn::ktestSection
+    testlearn::recordnumberglobal
+    testlearn::recordcountglobal
+    testlearn::kctestResultCheckedItems
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    newTestResult
+    menuTestItem
+    loadTestResultRecord
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    tag
+    testSubsectionTemplate
+    testlearn
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    testResultsReportSection
+    testSubsectionForSubject
+    testSubsectionGroupNodeLock2
+    testSubsectionTestSubjectLock
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoTestResults]	Parent Folder: [test]	Next Script: [identifyTestsThatHaveResults]
+Script Name	gotoTestSubsections
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultTest
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #If there is no report number or test subject
+    #name, halt the script.
+    If [ TEMP::reportNumber = "" ]
+    Go to Field [ TEMP::reportNumber ] [ Select/perform ]
+    Halt Script
+    Else If [ testSectionCreatedFromATemplate::name = "" ]
+    Halt Script
+    End If
+    #
+    #basic administration tasks
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Set Variable [ $$TSRecordNumber; Value:Get (RecordNumber) ]
+    Go to Field [ ]
+    #
+    #This variable stops the info button's script in
+    #the Test and Report sections from opening a
+    #Reference window, which is useful in idea
+    #libraries to show references of ideas. In a
+    #things library, reference records are used as
+    #location records and each learn record can
+    #have only one location, so showing a Reference
+    #window in an inventory library would not be useful.
+    If [ TEMP::InventoryLibraryYN ≠ "" ]
+    Set Variable [ $$doNotOpenReferenceWindow; Value:1 ]
+    Else
+    Set Variable [ $$doNotOpenReferenceWindow ]
+    End If
+    #
+    #If test subject is locked, note this by getting
+    #the name for display in warning messages.
+    If [ testSubjectName::orderOrLock ≠ "" ]
+    Set Variable [ $$testSubjectIsLocked; Value:testSubjectName::tag ]
+    Set Field [ tempSetup::testSubjectNodeIsLocked; 1 ]
+    Else
+    Set Variable [ $$testSubjectIsLocked ]
+    Set Field [ tempSetup::testSubjectNodeIsLocked; "" ]
+    End If
+    #
+    #Change the default to the selected subject.
+    Set Field [ TEMP::kdefaultNodeTestSubject; testSectionCreatedFromATemplate::ktestSubjectNode ]
+    Set Field [ TEMP::DEFAULTNodeTestSubjectName; testSubjectName::tag ]
+    Set Variable [ $status; Value:testSectionCreatedFromATemplate::inUse ]
+    Set Variable [ $$timeRecord; Value:Get ( RecordNumber ) ]
+    Set Variable [ $$pictureWIndowColor; Value:"test" ]
+    #
+    #!!!need to go through database and remove all variables like $$reportnumber that are used in mulitple scripts and make it a temp field.
+    Set Variable [ $$reportnumber; Value:testSectionCreatedFromATemplate::reportNumber ]
+    Set Field [ TEMP::reportNumber; testSectionCreatedFromATemplate::reportNumber ]
+    Set Variable [ $$testSubject; Value:TEMP::kdefaultNodeTestSubject ]
+    #
+    #note general or canned location user identified
+    Set Variable [ $$testSectionName; Value: TextStyleAdd ( testSectionCreatedFromATemplate::name ; Titlecase ) ]
+    Set Field [ TEMP::testSubsectionNameForSubject; TextStyleAdd ( $$testSectionName ; Titlecase ) ]
+    #
+    #note new location ID number and name user created for this specific location in the contact's building
+    Set Variable [ $$testSection; Value:testSectionCreatedFromATemplate::_LtestSection ]
+    Set Variable [ $$testSectionTemplate; Value:testSectionCreatedFromATemplate::ksectionTemplate ]
+    #
+    #Goto no tag layout in Tag Menus as the test
+    #selection screen does not show any records
+    #that the user might want to tag.
+    #
+    #I thought about closing the Tag Menus
+    #window, but in testing it was odd, and so better
+    #just to keep the window open and show no tags
+    #but do change its layout to the look and feel
+    #of the layouts the user will see in test mode
+    #in the Tag Menus window.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Go to Layout [ “testMenuNoTag” (TEMP) ]
+    Set Variable [ $$stopLoadTagRecord ]
+    #
+    #Return to main window to complete script.
+    Select Window [ Name: "Setup"; Current file ]
+    Set Field [ TEMP::testAndReportMainWindowHeader; tempSetup::userLibraryName & " | " & TEMP::DEFAULTNodeTestSubjectName ]
+    Set Window Title [ Current Window; New Title: "Test" ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Enter Find Mode [ ]
+    #
+    #Now find and show all canned inspection
+    #test-subsections that are part of this test section.
+    Set Field [ testSubsectionForSubject::kcsections; $$testSectionTemplate ]
+    Perform Find [ ]
+    If [ Get ( FoundCount ) = 0 ]
+    Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
+    Perform Script [ “returnToTestSetup” ]
+    Show Custom Dialog [ Message: "This test section has no subsections to test. To add some, 1) click 'edit/newtemplate'. 2) Select a subsection. 3) In the Tag Menus window, click the button next to this test section to add it. Repeat 2 and 3 to add additional subsections."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubsectionGroupForSubject::orderOrLibraryType; based on value list: “order Pulldown List” testSubsectionGroupForSubject::name; ascending testSubsectionForSubject::order; based on value list: “order Pulldown List” testSubsectionForSubject::name; ascending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Set Field [ testSubsectionForSubject::gtestSectionNameGlobal; $$testSectionName ]
+    Set Field [ testSubsectionForSubject::kgtestSection; $$testSection ]
+    Set Field [ testSubsectionForSubject::gtestSubjectNameGlobal; $$testsubjectName ]
+    Set Field [ testSubsectionForSubject::kgreportNumber; $$reportNumber ]
+    Set Field [ testSubsectionForSubject::kgtestSubject; TEMP::kdefaultNodeTestSubject ]
+    If [ $status = "" ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
+    Scroll Window [ Home ]
+    Exit Script [ ]
+    Else If [ $status = "t" ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
+    Scroll Window [ Home ]
+    Exit Script [ ]
+    End If
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: done" ]
+    Scroll Window [ Home ]
+
+Fields used in this script
+
+    TEMP::reportNumber
+    testSectionCreatedFromATemplate::name
+    TEMP::InventoryLibraryYN
+    testSubjectName::orderOrLock
+    testSubjectName::tag
+    tempSetup::testSubjectNodeIsLocked
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    TEMP::kdefaultNodeTestSubject
+    TEMP::DEFAULTNodeTestSubjectName
+    testSectionCreatedFromATemplate::inUse
+    testSectionCreatedFromATemplate::reportNumber
+    TEMP::testSubsectionNameForSubject
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::ksectionTemplate
+    tempSetup::userLibraryName
+    TEMP::testAndReportMainWindowHeader
+    testSubsectionForSubject::kcsections
+    testSubsectionGroupForSubject::orderOrLibraryType
+    testSubsectionGroupForSubject::name
+    testSubsectionForSubject::order
+    testSubsectionForSubject::name
+    testSubsectionForSubject::gtestSectionNameGlobal
+    testSubsectionForSubject::kgtestSection
+    testSubsectionForSubject::gtestSubjectNameGlobal
+    testSubsectionForSubject::kgreportNumber
+    testSubsectionForSubject::kgtestSubject
+    testSubsectionForSubject::gprogressGlobal
+
+Scripts used in this script
+
+    returnToTestSetup
+
+Layouts used in this script
+
+    testMenuNoTag
+    testingSubsectionMenu
+    defaultTest
+
+Tables used in this script
+
+    TEMP
+    TEMP
+    tag
+    tagGroup
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    TEMP
+    tempSetup
+    testSectionCreatedFromATemplate
+    testSubjectName
+    testSubsectionForSubject
+    testSubsectionGroupForSubject
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [gotoTestSubsections]	Parent Folder: [test]	Next Script: [informUserHowToEditLockedLayoutText]
+Script Name	identifyTestsThatHaveResults
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testingSubsectionMenu
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Stop script if user just navigated/clicked
+    #to this record.
+    If [ $$stopLoadingTestSubSection = 1 ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    End If
+    #
+    #If there are no test results, exit this script.
+    If [ testResultsReportSection::countOfALLSubsectionsTestResults = "" ]
+    Exit Script [ ]
+    End If
+    #
+    #Set variables to conditionally format record to
+    #to be deleted and to supply name for warning
+    #messages, and to speed up script.
+    Set Variable [ $delete; Value:testSubsectionForSubject::_LtestSubsection ]
+    Refresh Window
+    Set Variable [ $$tagTest; Value:testSubsectionForSubject::_LtestSubsection ]
+    Set Variable [ $$ID; Value:"ignore" ]
+    Set Variable [ $subSection; Value:testSubsectionForSubject::name ]
+    Go to Field [ ]
+    Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    #
+    #Find all test results for every instance of this
+    #subsection used by this test.
+    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    // New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #
+    #Insure current test subsection has correct
+    #number of results.
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Loop
+    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Prepare test result summary layout by deleting
+    #the last result summaries.
+    Go to Layout [ “TestResultSections” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    #
+    #Find all current test results in all subsections
+    #for this subject's test section.
+    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearnReportTags::ktestSubsection; $delete ]
+    Set Field [ testlearnReportTags::ktestSubject; $$testSubject ]
+    Set Field [ testlearnReportTags::kreportNumber; $$reportNumber ]
+    #
+    #This find range will insure only records with numbers
+    #will be found (no NA or OK records).
+    Set Field [ testlearnReportTags::countOfONESubsectionsTestResults; "0...99999999999999" ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Perform Find [ ]
+    #
+    #Capture found count to update total upon
+    #returning to the testing subsection menu.
+    Set Variable [ $updateTotalTestResults; Value:Get (FoundCount) ]
+    #
+    #If test results are found, then tell the
+    #user on which reports they where found.
+    If [ Get (FoundCount) ≠ 0 ]
+    #
+    Loop
+    Set Variable [ $useList; Value:testlearnReportTags::countOfONESubsectionsTestResults & " in " & TextColor( TextStyleAdd ( tagReportTestSubjectSectionNAME::name; "" ) ;RGB(0;0;0)) ]
+    Set Variable [ $sortBySectionName; Value:tagReportTestSubjectSectionNAME::name ]
+    Set Variable [ $keepIdenticallySpelledSectionsSeparate; Value:testlearnReportTags::ktestSection ]
+    Go to Layout [ “TestResultSections” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::DeleteMessageInTempWindow2[2]; $useList ]
+    Set Field [ TEMP::DeleteMessageInTempWindow2; $sortBySectionName ]
+    Set Field [ TEMP::DeleteMessageInTempWindow1; $keepIdenticallySpelledSectionsSeparate ]
+    Go to Layout [ “reportTestResult” (testlearnReportTags) ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    Go to Layout [ “TestResultSections” (TEMP) ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow2; ascending TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    #Due to a bug in FM13, window must first be
+    #moved back into the screen area before the
+    #calculation of the current screen's
+    #dimensions can be taken.
+    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
+    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "Sub-section " & $subSection & " has test results in the following sections of test " & testSubsectionForSubject::kgreportNumber & "." ]
+    Pause/Resume Script [ Indefinitely ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Set Variable [ $$stopLoadTestResultRecord ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$tagTest ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    Else
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Set Variable [ $$stopLoadTestResultRecord ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$ID; Value:testSubsectionTemplate::_LtestSubsection ]
+    End If
+    #
+    #Close the summary report window, return user
+    #to the testing sections menu and update the
+    #total of test results for all subsections in this
+    #users current test.
+    Close Window [ Current Window ]
+    Select Window [ Name: "Test"; Current file ]
+    Set Field [ testResultsReportSection::countOfALLSubsectionsTestResults; $updateTotalTestResults ]
+    #
+    #
+
+Fields used in this script
+
+    testResultsReportSection::countOfALLSubsectionsTestResults
+    testSubsectionForSubject::_LtestSubsection
+    testSubsectionForSubject::name
+    testlearn::ktestSubsection
+    testlearn::ktestSubject
+    testlearn::ktestSection
+    testlearn::countOfONESubsectionsTestResults
+    testlearnReportTags::ktestSubsection
+    testlearnReportTags::ktestSubject
+    testlearnReportTags::kreportNumber
+    testlearnReportTags::countOfONESubsectionsTestResults
+    tagReportTestSubjectSectionNAME::name
+    testlearnReportTags::ktestSection
+    TEMP::DeleteMessageInTempWindow2
+    TEMP::DeleteMessageInTempWindow1
+    testSubsectionForSubject::kgreportNumber
+    TEMP::Message
+    testSubsectionTemplate::_LtestSubsection
+
+Scripts used in this script
+
+Layouts used in this script
+
+    testSCRIPTloops
+    TestResultSections
+    reportTestResult
+
+Tables used in this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    tagReportTestSubjectSectionNAME
+    testResultsReportSection
+    testSubsectionForSubject
+    testSubsectionTemplate
+    testlearn
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [identifyTestsThatHaveResults]	Parent Folder: [test]	Next Script: [inspectAddProblemToFinding]
+Script Name	informUserHowToEditLockedLayoutText
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Inform user how to edit a test item if the try
+    #to edit one while in the testing or report
+    #section. This is not allowed, so when the
+    #user does edit an item they see the copyright
+    #for the item, which is only displayed in the
+    #edit section.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    If [ Get ( LayoutTableName ) = "tagMenus" and $$citationMatch ≠ "copyright" and $$showCopyrightLockMessage = "" ]
+    Show Custom Dialog [ Message: "To edit a test item, click the 'edit/new' button. Selecting and copying item text is allowed."; Default Button: “OK”, Commit: “Yes” ]
+    Else If [ $$citationMatch = "copyright" and tagCreatorLock::orderOrLock ≠ "" or $$showCopyrightLockMessage = 1 and tagCreatorLock::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "This copyright was copy, pasted, and locked by " & tagCreatorLock::tag & ". Selecting and copying its text is allowed. Click the 'web' button to see the original. To unlock it, go the default node menu and enter the password for " & tagCreatorLock::tag & "."; Default Button: “OK”, Commit: “Yes” ]
+    Else If [ $$citationMatch = "copyright" and tagMenus::orderOrLock = "lock" or $$showCopyrightLockMessage = 1 and tagMenus::orderOrLock = "lock" ]
+    Show Custom Dialog [ Message: "This is a Library " & TEMP::versionNumber & " copy of a copyright and cannot be changed. Selecting and copying its text is allowed. Click the 'web' button to see the original."; Default Button: “OK”, Commit: “Yes” ]
+    Else
+    Show Custom Dialog [ Message: "To edit test information, click 'back' and then click" & ¶ & "the 'edit/new' button. Selecting and copying text is allowed."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #The halt script step stops FileMaker from
+    #displaying its own error message.
+    Halt Script
+    #
+
+Fields used in this script
+
+    tagCreatorLock::orderOrLock
+    tagCreatorLock::tag
+    tagMenus::orderOrLock
+    TEMP::versionNumber
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    tag
+
+Table occurrences used by this script
+
+    TEMP
+    tagCreatorLock
+    tagMenus
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [informUserHowToEditLockedLayoutText]	Parent Folder: [test]	Next Script: [inspectNextRecord]
+Script Name	inspectAddProblemToFinding
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Set Field [ testlearn::note; testlearn::note & ¶ & tagDetails::tag ]
+
+Fields used in this script
+
+    testlearn::note
+    tagDetails::tag
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    tag
+    testlearn
+
+Table occurrences used by this script
+
+    tagDetails
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [inspectAddProblemToFinding]	Parent Folder: [test]	Next Script: [inspectPreviousRecord]
+Script Name	inspectNextRecord
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testResult0
+    testResultLOCKED0
+    testResult1
+    testResultLOCKED1
+    testResult2
+    testResultLOCKED2
+    testResult3
+    testResultLOCKED3
+    testResult4
+    testResultLOCKED4
+    testResult5
+    testResultLOCKED5
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Go to Field [ ]
+    Go to Record/Request/Page [ Next ]
+    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
+    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
+
+Fields used in this script
+
+    testlearn::recordnumberglobal
+    testlearn::recordcountglobal
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    testlearn
+
+Table occurrences used by this script
+
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [inspectNextRecord]	Parent Folder: [test]	Next Script: [linkOrUnlinkTestSection]
+Script Name	inspectPreviousRecord
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testResult0
+    testResultLOCKED0
+    testResult1
+    testResultLOCKED1
+    testResult2
+    testResultLOCKED2
+    testResult3
+    testResultLOCKED3
+    testResult4
+    testResultLOCKED4
+    testResult5
+    testResultLOCKED5
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Go to Field [ ]
+    Go to Record/Request/Page [ Previous ]
+    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
+    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
+
+Fields used in this script
+
+    testlearn::recordnumberglobal
+    testlearn::recordcountglobal
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    testlearn
+
+Table occurrences used by this script
+
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [inspectPreviousRecord]	Parent Folder: [test]	Next Script: [loadSubsection]
+Script Name	linkOrUnlinkTestSection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestSection
+
+Scripts that use this script
+
+    newSubsection
+    newSubsectionGroup
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Prevent locked subsection's section links
+    #from being changed.
+    If [ $$lockedMainSubsectionRecord ≠ "" ]
+    Show Custom Dialog [ Message: "Locked subsections cannot have their section links changed. Select its creator node — " & $$lockedMainSubsectionRecord & " — in setup, and enter the password to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If tag has not yet been selected, then link it.
+    Set Variable [ $sectionTemplate; Value:testSection::_Ltag ]
+    Go to Field [ ]
+    Select Window [ Name: "Test Templates"; Current file ]
+    Set Variable [ $testTemplate; Value:testSubsectionTemplate::_LtestSubsection ]
+    If [ $sectionTemplate & ¶ ≠ FilterValues ( testSubsectionTemplate::kcsections ; $sectionTemplate & "¶" ) ]
+    #
+    Set Variable [ $currentSectionTemplates; Value:testSubsectionTemplate::kcsections ]
+    Set Field [ testSubsectionTemplate::kcsections; $sectionTemplate & "¶" & $currentSectionTemplates ]
+    #
+    #Reset conditional formatting variable for sections.
+    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
+    Go to Field [ ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    Exit Script [ ]
+    End If
+    #
+    #
+    #
+    #Find all sections that use this section template.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
+    #
+    #Highlight section user is trying to delete.
+    Set Variable [ $delete; Value:testSection::_Ltag ]
+    #
+    #
+    Set Variable [ $$stopTest; Value:1 ]
+    Set Variable [ $$ID; Value:"ignore" ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    New Window [ Name: " "; Width: 360; Left: Get ( WindowWidth ) - 360; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    #
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
+    Set Field [ testSectionCreatedFromATemplate::ksectionTemplate; $sectionTemplate ]
+    Perform Find [ ]
+    #
+    #For each section found, find its test records, and
+    #see if any of their test records use the test template
+    #that you wish to remove this section template.
+    If [ Get (LastError) ≠ 401 ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    Set Variable [ $testSection; Value:testSectionCreatedFromATemplate::_LtestSection ]
+    Set Variable [ $sectionName; Value:testSectionCreatedFromATemplate::name ]
+    Go to Layout [ “testResult0” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSection; $testSection ]
+    Set Field [ testlearn::ktestSubsection; $testTemplate ]
+    Perform Find [ ]
+    If [ Get (LastError) ≠ 401 ]
+    Set Variable [ $useList; Value:"test subject " & tagTLTestSubject::tag & ¶ & "test " & TextColor( TextStyleAdd ( testlearn::kreportNumber; "" ) ;RGB(0;0;0)) & " | section " & TextColor( TextStyleAdd ( $sectionName; "" ) ;RGB(0;0;0)) ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
+    End If
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    If [ $useList ≠ "" ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    View As [ View as List ]
+    #
+    #eliminate duplicate location records
+    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    Set Variable [ $sectionTemplate; Value:TEMP::DeleteMessageInTempWindow1 ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    If [ TEMP::DeleteMessageInTempWindow1 = $sectionTemplate ]
+    Omit Record
+    #
+    #Omit by default moves to the next record
+    #in order to test actual next record the database
+    #must move up one record.
+    #
+    Go to Record/Request/Page [ Previous ]
+    #then the script can move down to test this record when it repeats
+    End If
+    End Loop
+    #
+    Show/Hide Toolbars [ Lock; Hide ]
+    Show/Hide Text Ruler [ Hide ]
+    Set Field [ TEMP::Message; "Before the highlighted test section-template can be unlinked, the test records in the test sections created using it (listed below) must be deleted from the testing window." ]
+    Pause/Resume Script [ Indefinitely ]
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$ID; Value:$testTemplate ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Refresh Window
+    Exit Script [ ]
+    End If
+    Close Window [ Current Window ]
+    Else
+    Close Window [ Current Window ]
+    End If
+    Set Variable [ $delete ]
+    Set Variable [ $$stopTest ]
+    Set Variable [ $$ID; Value:$testTemplate ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Refresh Window
+    #
+    #
+    #
+    Select Window [ Name: "Test Templates"; Current file ]
+    #
+    #If tag has been selected, then unlink it.
+    Set Variable [ $currentSectionTemplates; Value:testSubsectionTemplate::kcsections ]
+    Set Field [ testSubsectionTemplate::kcsections; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( $currentSectionTemplates ) ≠ ValueCount ( Substitute ( $currentSectionTemplates ; $sectionTemplate & "¶" ; "" ) ) ; Substitute ( $currentSectionTemplates ; $sectionTemplate & "¶" ; "" ) ; "" ) ]
+    #
+    #Reset conditional formatting variable for sections.
+    Set Variable [ $$subsectionSections; Value:testSubsectionTemplate::kcsections ]
+    Go to Field [ ]
+    #
+    #Return to Tag Menus window.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    #
+
+Fields used in this script
+
+    testSection::_Ltag
+    testSubsectionTemplate::_LtestSubsection
+    testSubsectionTemplate::kcsections
+    testSectionCreatedFromATemplate::inUse
+    testSectionCreatedFromATemplate::ksectionTemplate
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::name
+    testlearn::ktestSection
+    testlearn::ktestSubsection
+    tagTLTestSubject::tag
+    testlearn::kreportNumber
+    TEMP::DeleteMessageInTempWindow1
+    TEMP::Message
+
+Scripts used in this script
+
+Layouts used in this script
+
+    TEMP
+    tableTestSectionFromTemplate
+    testResult0
+
+Tables used in this script
+
+    TEMP
+    tag
+    tag
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    tagTLTestSubject
+    testSection
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [linkOrUnlinkTestSection]	Parent Folder: [test]	Next Script: [loadTestInfo]
+Script Name	loadSubsection
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Used on testing subjection selection layout,
+    #which the library goes to after the user clicks
+    #a 'test' button on the setup test layout.
+    #
+    #Prevents user activating any buttons, until the
+    #record is loaded.
+    Set Variable [ $$stopLoadingTestSubSection; Value:1 ]
+    #
+    #Prepare to enter in subsection if user clicks
+    #this subsection's button.
+    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
+    Set Variable [ $$testSubsectionName; Value:testSubsectionForSubject::name ]
+    Set Field [ TEMP::testSubsectionName; testSubsectionForSubject::name ]
+    Set Field [ TEMP::ktestSubsection; testSubsectionForSubject::_LtestSubsection ]
+    #
+    Go to Field [ ]
+    #
+
+Fields used in this script
+
+    testSubsectionForSubject::_LtestSubsection
+    testSubsectionForSubject::name
+    TEMP::testSubsectionName
+    TEMP::ktestSubsection
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    TEMP
+    testSubsectionForSubject
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [loadSubsection]	Parent Folder: [test]	Next Script: [loadTestResultRecord]
+Script Name	loadTestInfo
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+    gotoDefaultsOrReport
+    removeTestResultOrInfoRecordFromReport
+    reportCopyPastPart3
+    reportTagInfo
+
+Script Definition
+Script Steps
+
+    #
+    #This first section is key to stopping this script
+    #when another script for example loops thru
+    #many records each of which would trigger this
+    #script and really slow down the program and
+    #create strobe effect that is really irritating to
+    #look at.
+    If [ $$stoploadtestinfo = 1 or $$stopPart3InProgress = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #Reset conditional formatting variables.
+    Set Variable [ $$RecordID; Value:Get (RecordID) ]
+    Set Variable [ $$infoPictureUsedOnThisTestSubSection ]
+    Set Variable [ $$main; Value:testlearnReportTags::_Ltestlearn ]
+    Go to Field [ ]
+    #
+    #Get this record's test tag keys, used by sort
+    #order number script.
+    Set Variable [ $$test; Value:testlearnReportTags::kctestSubsectionInfo ]
+    #
+    #Look thru the report picture fields to see if
+    #any of them are using this info record's
+    #picture or text.
+    If [ testlearnReportTags::inUseNumberOfTimes > 0 ]
+    Set Variable [ $$stoploadtestinfo; Value:1 ]
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “tableReport” (report) ]
+    #
+    #See if any picture 1 slots use this info.
+    Enter Find Mode [ ]
+    Set Field [ report::ktestSubject; $$testSubject ]
+    Set Field [ report::ktestSubsection; $$testSubsection ]
+    Set Field [ report::kreportNumber; $$reportNumber ]
+    Set Field [ report::kTag1; $$main ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) > 0 ]
+    Set Variable [ $$infoPictureUsedOnThisTestSubSection; Value:1 ]
+    Set Variable [ $$stoploadtestinfo ]
+    Close Window [ Current Window ]
+    End If
+    #
+    #See if any picture 2 slots use this info.
+    If [ $$infoPictureUsedOnThisTestSubSection = "" ]
+    Enter Find Mode [ ]
+    Set Field [ report::ktestSubject; $$testSubject ]
+    Set Field [ report::ktestSubsection; $$testSubsection ]
+    Set Field [ report::kreportNumber; $$reportNumber ]
+    Set Field [ report::kTag2; $$main ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) > 0 ]
+    Set Variable [ $$infoPictureUsedOnThisTestSubSection; Value:1 ]
+    Set Variable [ $$stoploadtestinfo ]
+    Close Window [ Current Window ]
+    End If
+    End If
+    #
+    #See if any picture 3 slots use this info.
+    If [ $$infoPictureUsedOnThisTestSubSection = "" ]
+    Enter Find Mode [ ]
+    Set Field [ report::ktestSubject; $$testSubject ]
+    Set Field [ report::ktestSubsection; $$testSubsection ]
+    Set Field [ report::kreportNumber; $$reportNumber ]
+    Set Field [ report::kTag3; $$main ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) > 0 ]
+    Set Variable [ $$infoPictureUsedOnThisTestSubSection; Value:1 ]
+    Set Variable [ $$stoploadtestinfo ]
+    Close Window [ Current Window ]
+    End If
+    End If
+    #
+    #See if any picture 4 slots use this info.
+    If [ $$infoPictureUsedOnThisTestSubSection = "" ]
+    Enter Find Mode [ ]
+    Set Field [ report::ktestSubject; $$testSubject ]
+    Set Field [ report::ktestSubsection; $$testSubsection ]
+    Set Field [ report::kreportNumber; $$reportNumber ]
+    Set Field [ report::kTag4; $$main ]
+    Perform Find [ ]
+    #
+    If [ Get (FoundCount) > 0 ]
+    Set Variable [ $$infoPictureUsedOnThisTestSubSection; Value:1 ]
+    End If
+    #
+    #Close this search window whether pictures
+    #are found in the number 4 slot or no pictures
+    #are found.
+    Set Variable [ $$stoploadtestinfo ]
+    Close Window [ Current Window ]
+    End If
+    End If
+    #
+    #Refresh conditional formatting in both
+    #windows and return to Tag Menus window.
+    Select Window [ Name: "Report"; Current file ]
+    If [ Get ( LastError ) = 0 ]
+    Set Variable [ $$userReportColorsInTextWindow; Value:1 ]
+    Else
+    Set Variable [ $$userReportColorsInTextWindow ]
+    End If
+    Refresh Window
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    #
+    #Allow user to click into selected record's
+    #text window.
+    Set Variable [ $$stopOpenNewTextWindow ]
+    #
+    #Prevent the opening of the record's text
+    #window when user goes to the record.
+    Set Variable [ $$stopOpenNewTextWindow; Value:1 ]
+    #
+    #Only open a Reference window if the selected
+    #info record has references, and if the user is
+    #not in the process of going to the Learn
+    #module to edit info records attached to
+    #this subsection.
+    If [ $$doNotOpenReferenceWindow ≠ 1 and ValueCount ( testlearnReportTags::kcreference ) - Length ( Filter ( testlearnReportTags::kcreference ; "L" ) ) > 0 ]
+    Perform Script [ “CHUNK_findLearnRecordsReferences” ]
+    #
+    #
+    #If there are no reference records for this info
+    #record, then make sure to close the Reference
+    #window (if opened for the last info record
+    #selected) and resize the two remaining windows.
+    Else
+    Close Window [ Name: "Reference"; Current file ]
+    If [ $$pictureWindowColor = "test" ]
+    Move/Resize Window [ Name: "Test"; Current file; Width: Get ( ScreenWidth ) / 2; Left: 0 ]
+    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get ( ScreenWidth ) / 2; Left: Get ( ScreenWidth ) / 2 ]
+    #
+    #The size of the Tag Menus window in the Report
+    #section can be larger than half the window width.
+    Else
+    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get (ScreenWidth) - 594; Left: 594 ]
+    End If
+    Select Window [ Name: "Tag Menus"; Current file ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    testlearnReportTags::_Ltestlearn
+    testlearnReportTags::kctestSubsectionInfo
+    testlearnReportTags::inUseNumberOfTimes
+    report::ktestSubject
+    report::ktestSubsection
+    report::kreportNumber
+    report::kTag1
+    report::kTag2
+    report::kTag3
+    report::kTag4
+    testlearnReportTags::kcreference
+
+Scripts used in this script
+
+    CHUNK_findLearnRecordsReferences
+
+Layouts used in this script
+
+    tableReport
+
+Tables used in this script
+
+    report
+    testlearn
+
+Table occurrences used by this script
+
+    report
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [loadTestInfo]	Parent Folder: [test]	Next Script: [newTestResult]
+Script Name	loadTestResultRecord
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+    gotoDefaultsOrReport
+    deleteTestResult
+    gotoTestResults
+    newTestResult
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Admin tasks.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    #
+    #Prevents script from running to speed up other
+    #scripts that keep calling it up by looping thru
+    #multiple records.
+    If [ $$stopLoadTestRecord = 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #Set record's variables.
+    Set Variable [ $$evidenceToBeTagged; Value:testlearn::_Ltestlearn ]
+    Set Variable [ $$taggedEvidence; Value:testlearn::kcKeywordOther ]
+    #Clear before loading any item keys.
+    Set Variable [ $$checkedTestItem ]
+    Set Variable [ $$checkedTestItem; Value:testlearn::kctestResultCheckedItems ]
+    #
+    #Get return window name, and the refresh
+    #conditonal formatting in the Tag Menus
+    #window, and return this test record window.
+    Set Variable [ $windowName; Value:Get (WindowName) ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Refresh Window
+    #
+    #When a user creates a new test result, this
+    #variable becomes active, so when this script
+    #runs, it will perform the create form script.
+    #This is done by this load script to reduce the
+    #flashing back-and-forth between windows.
+    #Since the load script is on the Tag Menus
+    #window where this create form script starts, it
+    #is most efficient if it is started here.
+    If [ $$addFormToNewTestResult ≠ "" ]
+    Perform Script [ “createFormOutOf_FT_TestItems” ]
+    Set Variable [ $$addFormToNewTestResult ]
+    End If
+    #
+    #Return to the test or report window.
+    Select Window [ Name: $windowName; Current file ]
+    Refresh Window
+    #
+    #
+
+Fields used in this script
+
+    testlearn::_Ltestlearn
+    testlearn::kcKeywordOther
+    testlearn::kctestResultCheckedItems
+
+Scripts used in this script
+
+    createFormOutOf_FT_TestItems
+
+Layouts used in this script
+
+Tables used in this script
+
+    testlearn
+
+Table occurrences used by this script
+
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [loadTestResultRecord]	Parent Folder: [test]	Next Script: [reportNewTestResult]
+Script Name	newTestResult
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testResult0
+    testResult1
+    testResult2
+    testResult3
+    testResult4
+    testResult5
+
+Scripts that use this script
+
+    gotoDefaultsOrReport
+    gotoTestResults
+
+Script Definition
+Script Steps
+
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #basic administration tasks
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    #
+    #If there is a possible form in the current
+    #record's text field that the user may want
+    #to insert into the new record copy it.
+    Set Variable [ $noteForPossibleUseInNewRecord; Value:testlearn::note ]
+    #
+    #Find the NA record for this test subsection if
+    #there is one.
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Set Field [ testlearn::countOfONESubsectionsTestResults; "N/A" ]
+    Perform Find [ ]
+    #
+    #Find the OK record for this test subsection if
+    #there is one.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Set Field [ testlearn::countOfONESubsectionsTestResults; "OK" ]
+    Extend Found Set [ ]
+    #
+    #Delete the OK or NA record if found. This
+    #action removes what is now a useless record.
+    #
+    If [ testlearn::ktestSection = $$testSection and testlearn::countOfONESubsectionsTestResults = "N/A" and testlearn::kreportNumber = $$reportNumber or testlearn::ktestSection = $$testSection and testlearn::countOfONESubsectionsTestResults = "OK" and testlearn::kreportNumber = $$reportNumber or testlearn::ktestSection = $$testSection and testlearn::countOfONESubsectionsTestResults = "★" and testlearn::kreportNumber = $$reportNumber ]
+    Delete Record/Request [ No dialog ]
+    End If
+    #
+    #Create a new test result for this subsection.
+    New Record/Request
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Set Field [ testlearn::subsectionCustomName; $$testSubsectionName ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    Set Field [ testlearn::dateModify; Get ( CurrentTimeStamp ) ]
+    Set Field [ testlearn::kcopyright; TEMP::kdefaultCopyright ]
+    #
+    #Get this new records ID number.
+    Set Variable [ $newRecordID; Value:testlearn::_Ltestlearn ]
+    #
+    #Increase number of results for this subsection.
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Loop
+    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Increase number of results for ALL subsections
+    #in this test.
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Set Error Capture [ On ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    #
+    #This find range will insure only test result
+    #records will be found (no NA or OK records).
+    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
+    Perform Find [ ]
+    #
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    #
+    #Now find all the subject's report section records
+    #including NA and OK records update total
+    #results amount. NOTE: This done because in
+    #some test sections there may only be an NA or
+    #OK record in which to display test result totals
+    #that inlcude other sections.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Go to Record/Request/Page [ First ]
+    Perform Find [ ]
+    #
+    #Update the total results number for all subsections.
+    Loop
+    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Now refind just the test results records for this
+    #test subsection for the user to view.
+    Set Error Capture [ On ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    #
+    #This find range will insure only records with numbers
+    #will be found (no NA or OK records).
+    Set Field [ testlearn::countOfONESubsectionsTestResults; "0...99999999999999" ]
+    Perform Find [ ]
+    #
+    #Set conditional formatting on main test layout
+    #informing user that this subsection has results.
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
+    Perform Find [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
+    #
+    #Now refind all subsections user has created on
+    #the main test layout.
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $$testSubject ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $$ReportNumber ]
+    Perform Find [ ]
+    #
+    #See if a report record exists for this subsection.
+    Set Variable [ $$stopLoadReportRecord; Value:1 ]
+    Go to Layout [ “PrintReportEdit” (report) ]
+    Enter Find Mode [ ]
+    Set Field [ report::ktestSubject; $$testSubject ]
+    Set Field [ report::ktestSubsection; $$testSubsection ]
+    Set Field [ report::kreportNumber; $$reportNumber ]
+    Perform Find [ ]
+    #
+    #Create new report record if none exists.
+    If [ Get (LastError) = 401 ]
+    New Record/Request
+    Set Field [ report::ktestSubject; $$testSubject ]
+    Set Field [ report::ktestSubsection; $$testSubsection ]
+    Set Field [ report::kreportNumber; $$reportNumber ]
+    End If
+    #
+    #Make test status is changed from pending to
+    #in progress.
+    Set Variable [ $$stopLoadReportRecord ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
+    #Return to the test results layout and go to
+    #new record.
+    Go to Layout [ "testResult" & Right ( TEMP::layoutTmain ; 1) ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::timestamp; ascending testlearn::subsectionCustomName; ascending testlearn::_Number; ascending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ Last ]
+    #
+    #Make sure it is the new record.
+    If [ $newRecordID ≠ testlearn::_Ltestlearn ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ $newRecordID = testlearn::_Ltestlearn ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    End If
+    #
+    #Load new record's variables.
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Field [ testlearn::recordcountglobal; Get (FoundCount) ]
+    #
+    Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
+    #
+    #If this subsection has test items for a form
+    #then put the form into this new test items
+    #note field, unless there was copy of the form
+    #in the previous record, in which case ask the
+    #user if they want to use this previous copy
+    #or load a fresh form.
+    If [ $$noFT_ItemsFound = "" ]
+    If [ $noteForPossibleUseInNewRecord ≠ "" ]
+    Set Field [ testlearn::note; $noteForPossibleUseInNewRecord ]
+    Show Custom Dialog [ Message: "Use a copy the form you where just viewing (now shown), OR create a new form for this record?"; Default Button: “copy”, Commit: “Yes”; Button 2: “new”, Commit: “No” ]
+    #Use Copy
+    If [ Get ( LastMessageChoice ) = 1 ]
+    If [ Filter ( $noteForPossibleUseInNewRecord ; "!" ) ≠ "" ]
+    Show Custom Dialog [ Message: "Remove exclamation points — ! — from the copied form? (Remove them if you use them to indicated you completed an item on the form)"; Default Button: “remove”, Commit: “Yes”; Button 2: “keep”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Field [ testlearn::note; Substitute ( $noteForPossibleUseInNewRecord ; "!" ; "" ) ]
+    End If
+    End If
+    #Create New
+    Else
+    Set Field [ testlearn::note; "" ]
+    Set Variable [ $$addFormToNewTestResult; Value:1 ]
+    End If
+    Else
+    Set Variable [ $$addFormToNewTestResult; Value:1 ]
+    End If
+    End If
+    #
+    #Load up the variables for this new test result.
+    Perform Script [ “loadTestResultRecord” ]
+    #
+    #
+
+Fields used in this script
+
+    testlearn::note
+    testlearn::ktestSubject
+    testlearn::ktestSubsection
+    testlearn::kreportNumber
+    testlearn::countOfONESubsectionsTestResults
+    testlearn::ktestSection
+    testlearn::subsectionCustomName
+    TEMP::kdefaultNodePrimary
+    testlearn::kRecordCreatorNode
+    testlearn::dateModify
+    TEMP::kdefaultCopyright
+    testlearn::kcopyright
+    testlearn::_Ltestlearn
+    testlearn::countOfALLSubsectionsTestResults
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::inUse
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    testSectionCreatedFromATemplate::reportNumber
+    report::ktestSubject
+    report::ktestSubsection
+    report::kreportNumber
+    testSubsectionForSubject::gprogressGlobal
+    TEMP::layoutTmain
+    testlearn::timestamp
+    testlearn::_Number
+    testlearn::recordcountglobal
+    testlearn::recordnumberglobal
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    loadTestResultRecord
+
+Layouts used in this script
+
+    testSCRIPTloops
+    tableTestSectionFromTemplate
+    PrintReportEdit
+    testingSubsectionMenu
+    <Missing Layout>
+
+Tables used in this script
+
+    TEMP
+    report
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    report
+    testSectionCreatedFromATemplate
+    testSubsectionForSubject
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [newTestResult]	Parent Folder: [test]	Next Script: [returnToInspectionItems]
+Script Name	reportNewTestResult
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    reportTestResult
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #basic administration tasks
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    If [ testlearnReportTags::kgtestSection = "" ]
+    Show Custom Dialog [ Title: "!"; Message: "Select a test section by 1) clicking on the USE button under a picture or by 2) clicking the test section button (next to new button)."; Default Button: “OK”, Commit: “Yes” ]
+    Halt Script
+    End If
+    #
+    #
+    Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
+    #
+    New Record/Request
+    Set Field [ testlearnReportTags::ktestSubject; $$testSubject ]
+    Set Field [ testlearnReportTags::ktestSection; TEMP::ktestSection ]
+    Set Field [ testlearnReportTags::kreportNumber; TEMP::reportNumber ]
+    Set Field [ testlearnReportTags::subsectionCustomName; $$subsectionCustomName ]
+    Set Field [ testlearnReportTags::ktestSubsection; TEMP::ktestSubsection ]
+    Set Field [ testlearnReportTags::timestamp; TEMP::TimeStamp ]
+    Set Field [ testlearnReportTags::kNodePrimary; TEMP::kdefaultNodePrimary ]
+    Set Field [ testlearnReportTags::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
+    Set Field [ testlearnReportTags::dateModify; Get ( CurrentTimeStamp ) ]
+    Set Field [ testlearnReportTags::kcopyright; TEMP::kdefaultCopyright ]
+    #
+    #Note the new record ID so after sort the
+    #the database will be able to select it.
+    Set Variable [ $kpn; Value:testlearnReportTags::_Ltestlearn ]
+    #
+    #Increase number of findings for item for
+    #this subject's location.
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Loop
+    Set Field [ testlearn::countOfONESubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Increase number of test results.
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; $$testSubject ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Perform Find [ ]
+    Go to Record/Request/Page [ First ]
+    Set Variable [ $number; Value:Get (FoundCount) ]
+    Loop
+    Set Field [ testlearn::countOfALLSubsectionsTestResults; $number ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Lock item's section so it cannot be deleted
+    #unless all findings for it are deleted.
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
+    Perform Find [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
+    #
+    #Refind all section records for this session.
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; $$testSubject ]
+    Set Field [ testSectionCreatedFromATemplate::reportNumber; $$ReportNumber ]
+    Perform Find [ ]
+    Go to Layout [ original layout ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testlearnReportTags::subsectionCustomName; ascending testlearnReportTags::timestamp; ascending testlearnReportTags::_Ltestlearn; ascending ] [ Restore; No dialog ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ testlearnReportTags::_Ltestlearn = $kpn ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Set conditional formatting variables, turn on
+    #the load script, and then go to the result's
+    #note field.
+    Set Variable [ $$RecordID; Value:Get (RecordID) ]
+    Set Variable [ $$main; Value:testlearnReportTags::_Ltestlearn ]
+    Set Variable [ $$stopLoadTestResultRecord ]
+    Go to Field [ testlearnReportTags::note ]
+    #
+
+Fields used in this script
+
+    testlearnReportTags::kgtestSection
+    testlearnReportTags::ktestSubject
+    TEMP::ktestSection
+    testlearnReportTags::ktestSection
+    TEMP::reportNumber
+    testlearnReportTags::kreportNumber
+    testlearnReportTags::subsectionCustomName
+    TEMP::ktestSubsection
+    testlearnReportTags::ktestSubsection
+    TEMP::TimeStamp
+    testlearnReportTags::timestamp
+    TEMP::kdefaultNodePrimary
+    testlearnReportTags::kNodePrimary
+    testlearnReportTags::kRecordCreatorNode
+    testlearnReportTags::dateModify
+    TEMP::kdefaultCopyright
+    testlearnReportTags::kcopyright
+    testlearnReportTags::_Ltestlearn
+    testlearn::ktestSubject
+    testlearn::ktestSection
+    testlearn::ktestSubsection
+    testlearn::countOfONESubsectionsTestResults
+    testlearn::kreportNumber
+    testlearn::countOfALLSubsectionsTestResults
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::inUse
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    testSectionCreatedFromATemplate::reportNumber
+    testlearnReportTags::note
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+
+Layouts used in this script
+
+    testSCRIPTloops
+    tableTestSectionFromTemplate
+
+Tables used in this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+    testlearn
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [reportNewTestResult]	Parent Folder: [test]	Next Script: [returnToSubsections]
+Script Name	returnToInspectionItems
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Enter Find Mode [ ]
+    Set Field [ testSubsectionForSubject::kcsections; $$genlocation ]
+    Perform Find [ ]
+    Sort Records [ ] [ No dialog ]
+
+Fields used in this script
+
+    testSubsectionForSubject::kcsections
+
+Scripts used in this script
+
+Layouts used in this script
+
+    testingSubsectionMenu
+
+Tables used in this script
+
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    testSubsectionForSubject
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [returnToInspectionItems]	Parent Folder: [test]	Next Script: [returnToTestSetup]
+Script Name	returnToSubsections
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testResult0
+    testResultLOCKED0
+    testResult1
+    testResultLOCKED1
+    testResult2
+    testResultLOCKED2
+    testResult3
+    testResultLOCKED3
+    testResult4
+    testResultLOCKED4
+    testResult5
+    testResultLOCKED5
+
+Scripts that use this script
+
+    stopLockedNodesRecordsBeingDeleted
+    stopNewRecordsBeingCreatedByLockedNode
+
+Script Definition
+Script Steps
+
+    #
+    #Close any open test item reference windows
+    #and resize the two remaining windows.
+    Close Window [ Name: "Reference"; Current file ]
+    Move/Resize Window [ Name: "Test"; Current file; Width: Get ( ScreenWidth ) / 2; Left: 0 ]
+    Move/Resize Window [ Name: "Tag Menus"; Current file; Width: Get ( ScreenWidth ) / 2; Left: Get ( ScreenWidth ) / 2 ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    #
+    #Return to this test's subsection menu, setting
+    #the Tag Menus window to show no tags,
+    #because there are no tags to show.
+    Go to Layout [ “testMenuNoTag” (TEMP) ]
+    Select Window [ Name: "Test"; Current file ]
+    Set Field [ TEMP::showFavorites; "" ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+
+Fields used in this script
+
+    TEMP::showFavorites
+
+Scripts used in this script
+
+Layouts used in this script
+
+    testMenuNoTag
+    testingSubsectionMenu
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [returnToSubsections]	Parent Folder: [test]	Next Script: [testInfoOpenTextNewWindow]
+Script Name	returnToTestSetup
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testingSubsectionMenu
+    PrintReportEdit
+    PrintReportLock
+
+Scripts that use this script
+
+    gotoReport
+    deleteReportTestResult
+    gotoTestSubsections
+
+Script Definition
+Script Steps
+
+    #
+    #If on test screen, see if any sections have results.
+    If [ Get (LayoutName) = "testingSubsectionMenu" ]
+    Set Variable [ $testInUseCheck; Value:1 ]
+    Go to Record/Request/Page [ First ]
+    Loop
+    If [ testResultsTestSection::countOfONESubsectionsTestResults ≠ "" ]
+    Set Variable [ $InUse; Value:1 ]
+    End If
+    Exit Loop If [ testResultsTestSection::countOfONESubsectionsTestResults ≠ "" ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    End If
+    #
+    #Close any open test item reference windows.
+    #NOTE: This is next loop is a work around to
+    #deal with the Reference window issue.
+    #Basically, there are several scripts that may
+    #open Reference windows for Info records that
+    #have references. Rather than try to figure out all
+    #the ways this occurs (easy with time), this loop
+    #just closes as many Reference windows as are
+    #currently open. Not the best solution, but it
+    #works and I really want to close out work on this
+    #4.0beta version and move on.
+    Loop
+    If [ ValueCount ( FilterValues ( WindowNames ( Get ( FileName ) ) ; "Reference" ) ) > 0 ]
+    Close Window [ Name: "Reference"; Current file ]
+    Set Variable [ $resizeTagMenusWindow; Value:1 ]
+    End If
+    Exit Loop If [ ValueCount ( FilterValues ( WindowNames ( Get ( FileName ) ) ; "Reference" ) ) = 0 ]
+    End Loop
+    #
+    #Turn off this subsection menu variable.
+    #Prevents user activating any buttons, until a
+    #subsection record is loaded.
+    Set Variable [ $$stopLoadingTestSubSection ]
+    #
+    #Turn of the test subject lock variable.
+    Set Variable [ $$testSubjectIsLocked ]
+    #
+    #Go to the Setup Test layout.
+    Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
+    Set Window Title [ Current Window; New Title: "Setup" ]
+    #
+    #Make sure window fills half of the screen.
+    Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
+    #
+    #Go to Tag Menus window.
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get (LastError) = 112 ]
+    New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    End If
+    #
+    #Make sure window to fills half of the screen.
+    Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2 ]
+    #
+    Go to Layout [ “defaultsAll” (tempSetup) ]
+    Perform Script [ “defaultsAll” ]
+    #
+    #Find all created test section records.
+    Select Window [ Name: "Setup"; Current file ]
+    Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    Show All Records
+    #
+    #Sort
+    Sort Records [ Keep records in sorted order; Specified Sort Order: testSubjectName::tag; ascending testSectionCreatedFromATemplate::reportNumber; descending testSectionCreatedFromATemplate::order; based on value list: “order Pulldown List” testSectionCreatedFromATemplate::name; ascending ] [ Restore; No dialog ]
+    #
+    #Go to selected test subsection record.
+    Go to Record/Request/Page [ $$TSRecordNumber ] [ No dialog ]
+    Set Variable [ $$tagtest ]
+    Set Variable [ $$testSubsection ]
+    Set Variable [ $$TSRecordNumber ]
+    Set Variable [ $$pictureWIndowColor ]
+    #
+    #Conditionally format records.
+    If [ $InUse = "" and $testInUseCheck = 1 ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
+    Else If [ $InUse = 1 and $testInUseCheck = 1 and testSectionCreatedFromATemplate::inUse ≠ "d" ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
+    End If
+    #
+
+Fields used in this script
+
+    testResultsTestSection::countOfONESubsectionsTestResults
+    testSubjectName::tag
+    testSectionCreatedFromATemplate::reportNumber
+    testSectionCreatedFromATemplate::order
+    testSectionCreatedFromATemplate::name
+    testSectionCreatedFromATemplate::inUse
+
+Scripts used in this script
+
+    defaultsAll
+
+Layouts used in this script
+
+    defaultTest
+    defaultsAll
+
+Tables used in this script
+
+    tag
+    testSectionCreatedFromATemplate
+    testlearn
+
+Table occurrences used by this script
+
+    testResultsTestSection
+    testSectionCreatedFromATemplate
+    testSubjectName
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [returnToTestSetup]	Parent Folder: [test]	Next Script: [testItemCheckOrTextOrForm]
+Script Name	testInfoOpenTextNewWindow
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testInfo
+    reportTagInfo
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Prevent the opening of the record's text
+    #window when user goes to the record.
+    If [ $$stopOpenNewTextWindow = 1 ]
+    Set Variable [ $$stopOpenNewTextWindow ]
+    Exit Script [ ]
+    End If
+    #
+    #Stop record load script while new window
+    #is opened.
+    Go to Field [ ]
+    Set Variable [ $$stoploadtestinfo; Value:1 ]
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #
+    #If record is locked go to locked layout.
+    If [ $$lockedMainLearnRecord = "" ]
+    Scroll Window [ Home ]
+    Go to Layout [ “testInfoText” (testlearnReportTags) ]
+    #
+    Else If [ $$lockedMainLearnRecord ≠ "" ]
+    Go to Layout [ “testInfoTextLocked” (testlearnReportTags) ]
+    End If
+    #
+    #Turn back on record load script and pause
+    #while user looks at text.
+    Set Variable [ $$stopLoadTestInfo ]
+    Pause/Resume Script [ Indefinitely ]
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+    testInfoText
+    testInfoTextLocked
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [testInfoOpenTextNewWindow]	Parent Folder: [test]	Next Script: [testItemCheckTemplateButton]
+Script Name	testItemCheckOrTextOrForm
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+    testItemCheckTemplateButton
+    testItemTextOrFormTemplateButton
+
+Script Definition
+Script Steps
+
+    #
+    #On the test-item layout, set this stop check
+    #or text variable to allows the user to click into
+    #this field for the purpose of navigating to a
+    #new record without changing the check or
+    #text mark status.
+    If [ $$stopCheckOrTest = 1 ]
+    Set Variable [ $$stopCheckOrTest ]
+    Exit Script [ ]
+    End If
+    #
+    #Prevent user from changing check/text
+    #status of locked records.
+    If [ tagCreatorLock::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "This record is locked. Go the node that created it — " & tagCreatorLock::tag & " — in the setup tag window and enter the password to unlock it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Prevent the test check items from being
+    #turned into T or FT items if they are
+    #in use as check items.
+    If [ tagMenus::notesOrCopyright = "✓" ]
+    #Get variables needed for delete and delete messages.
+    Set Variable [ $delete; Value:tagMenus::_Ltag ]
+    Set Variable [ $group; Value:tagMenuTestItemGroup::_Lgroup ]
+    Set Variable [ $groupName; Value:If ( Char ( tagMenuTestItemGroup::name ) ≤ 20 ; tagMenuTestItemGroup::name ; Left ( tagMenuTestItemGroup::name ; 20 ) & "..." ) ]
+    Set Variable [ $testItemName; Value:If ( Char ( tagMenus::tag ) ≤ 20 ; tagMenus::tag ; Left ( tagMenus::tag ; 20 ) & "..." ) ]
+    #
+    #
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stopDeleteTest; Value:1 ]
+    Set Variable [ $$stopTest; Value:1 ]
+    New Window [ Name: " "; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    Show All Records
+    Delete All Records [ No dialog ]
+    #
+    Go to Layout [ “tableTestLearn” (testlearn) ]
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::kctestResultCheckedItems; $delete ]
+    Perform Find [ ]
+    #
+    #If this section is found to be in use, then inform
+    #user of where and prevent its deletion.
+    If [ Get (LastError) ≠ 401 ]
+    Loop
+    Set Variable [ $useList; Value:TextColor( tagTLTestSubject::tag & " | test " & testlearn::kreportNumber & ¶ & "section " ;RGB(102;102;102)) & testSectionTemplateName::name & ¶ & TextColor( "sub-section " ;RGB(102;102;102)) & testlearn::subsectionCustomName ]
+    Go to Layout [ “TEMP” (TEMP) ]
+    New Record/Request
+    Set Field [ TEMP::DeleteMessageInTempWindow1; $useList ]
+    Go to Layout [ “testResult0” (testlearn) ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    Go to Layout [ “TEMP” (TEMP) ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: TEMP::DeleteMessageInTempWindow1; ascending ] [ Restore; No dialog ]
+    View As [ View as List ]
+    #
+    Show/Hide Toolbars [ Lock; Hide ]
+    Show/Hide Text Ruler [ Hide ]
+    #
+    #Due to a bug in FM13, window must first be
+    #moved back into the screen area before the
+    #calculation of the current screen's
+    #dimensions can be taken.
+    Move/Resize Window [ Current Window; Top: 0; Left: 0 ]
+    Move/Resize Window [ Current Window; Height: Get ( ScreenHeight ); Width: 360; Top: 0; Left: Get ( ScreenWidth ) - ( Get ( ScreenWidth )/2 + 360) ]
+    Set Field [ TEMP::Message; "Before the highlighted test item can be turned into a T or FT item, it must unchecked " & "(in the test module) from test results in the test sub-sections below." ]
+    Pause/Resume Script [ Indefinitely ]
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Refresh Window
+    Exit Script [ ]
+    Else
+    Close Window [ Current Window ]
+    Set Variable [ $delete ]
+    Set Variable [ $$stopLoadTestRecord ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stopDeleteTest ]
+    Set Variable [ $$stopTest ]
+    Refresh Window
+    End If
+    End If
+    #
+    #
+    #Change this test item's check or text mark
+    #status. This status determines if and when
+    #the test item's button is clicked a check is put
+    #next to it or its text is copied and pasted into
+    #a test results text field.
+    Set Field [ tagMenus::notesOrCopyright; Case ( tagMenus::match = "testItem" ; Case ( tagMenus::notesOrCopyright = "" ; "✓" ; Case ( tagMenus::notesOrCopyright = "✓" ; "T" ; Case ( tagMenus::notesOrCopyright = "T" ; "FT" ; Case ( tagMenus::notesOrCopyright = "FT" ; "✓" ) ) ) ) ) ]
+    Commit Records/Requests
+    If [ tagMenus::notesOrCopyright = "✓" ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextFontRemove ( tagMenus::tag ) ]
+    Set Field [ tagMenus::tag; TextSizeRemove ( tagMenus::tag ; 20 ) ]
+    Set Field [ tagMenus::tag; TextStyleRemove ( tagMenus::tag ; Bold ) ]
+    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    #
+    #Now force FileMaker to update formatting in
+    #the tagSpelling field, which is what shows the
+    #tag when the checkmark symbol is used.
+    Set Field [ tagMenus::tagSpelling; tagMenus::tag ]
+    End If
+    Refresh Window
+    #
+    #
+
+Fields used in this script
+
+    tagCreatorLock::orderOrLock
+    tagCreatorLock::tag
+    tagMenus::notesOrCopyright
+    tagMenus::_Ltag
+    tagMenuTestItemGroup::_Lgroup
+    tagMenuTestItemGroup::name
+    tagMenus::tag
+    testlearn::kctestResultCheckedItems
+    tagTLTestSubject::tag
+    testlearn::kreportNumber
+    testSectionTemplateName::name
+    testlearn::subsectionCustomName
+    TEMP::DeleteMessageInTempWindow1
+    TEMP::Message
+    tagMenus::match
+    tagMenus::textStyleOrCreatorNodeFlag
+    tagMenus::tagSpelling
+
+Scripts used in this script
+
+Layouts used in this script
+
+    TEMP
+    tableTestLearn
+    testResult0
+
+Tables used in this script
+
+    TEMP
+    tag
+    tag
+    tagGroup
+    testSectionCreatedFromATemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    tagCreatorLock
+    tagMenuTestItemGroup
+    tagMenus
+    tagTLTestSubject
+    testSectionTemplateName
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [testItemCheckOrTextOrForm]	Parent Folder: [test]	Next Script: [testItemStyles]
+Script Name	testItemCheckTemplateButton
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestItem
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If a check is showing change the item into text
+    #or form item.
+    If [ tagMenus::notesOrCopyright = "✓" ]
+    Perform Script [ “testItemCheckOrTextOrForm” ]
+    #
+    #
+    #If no check (no button) is showing then
+    #go to the text field, which is what the user is
+    #seeing when then click here.
+    Else
+    Go to Field [ tagMenus::tag ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    tagMenus::notesOrCopyright
+    tagMenus::tag
+
+Scripts used in this script
+
+    testItemCheckOrTextOrForm
+
+Layouts used in this script
+
+Tables used in this script
+
+    tag
+
+Table occurrences used by this script
+
+    tagMenus
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [testItemCheckTemplateButton]	Parent Folder: [test]	Next Script: [testItemTextOrFormTemplateButton]
+Script Name	testItemStyles
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestItem
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If the node that created this group is locked
+    #prevent new items be created for it even by a
+    #node that is not locked.
+    If [ nodeLockTestTagItemGroup::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "This group is locked. To format items, go the node that created this group — " & nodeLockTestTagItemGroup::tag & " — in the setup tag window and enter the password."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Apply style to text and note/flag style number.
+    If [ tagMenus::notesOrCopyright = "T" or tagMenus::notesOrCopyright = "FT" ]
+    If [ tagMenus::textStyleOrCreatorNodeFlag = "" ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "1" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Georgia" ) ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "1" ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "2" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
+    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "2" ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "3" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextSize ( tagMenus::tag ; 20 ) ]
+    Set Field [ tagMenus::tag; TextFont ( tagMenus::tag ; "Arial" ) ]
+    Set Field [ tagMenus::tag; TextStyleAdd ( tagMenus::tag ; Bold ) ]
+    Set Field [ tagMenus::tag; TextColor ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else If [ tagMenus::textStyleOrCreatorNodeFlag = "3" ]
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "" ]
+    Set Field [ tagMenus::tag; Trim (tagMenus::tag) ]
+    Set Field [ tagMenus::tag; TextFontRemove ( tagMenus::tag ) ]
+    Set Field [ tagMenus::tag; TextSizeRemove ( tagMenus::tag ; 20 ) ]
+    Set Field [ tagMenus::tag; TextStyleRemove ( tagMenus::tag ; Bold ) ]
+    Set Field [ tagMenus::tag; TextColorRemove ( tagMenus::tag ; RGB ( 99 ; 99 ; 99 ) ) ]
+    Else
+    Set Field [ tagMenus::textStyleOrCreatorNodeFlag; "" ]
+    End If
+    Else
+    Show Custom Dialog [ Message: "Only text (T) and form (FT) items can be formatted as headers. To turn this item into a text item, click on the check mark. (You may have to click it twice.)"; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+
+Fields used in this script
+
+    nodeLockTestTagItemGroup::orderOrLock
+    nodeLockTestTagItemGroup::tag
+    tagMenus::notesOrCopyright
+    tagMenus::textStyleOrCreatorNodeFlag
+    tagMenus::tag
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    tag
+    tag
+
+Table occurrences used by this script
+
+    nodeLockTestTagItemGroup
+    tagMenus
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [testItemStyles]	Parent Folder: [test]	Next Script: [testSubsectionNA]
+Script Name	testItemTextOrFormTemplateButton
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    setupTestItem
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If a T is showing change the item into an FT
+    #item, and if an FT is showing change the item
+    #into a check item.
+    If [ tagMenus::notesOrCopyright = "FT" or tagMenus::notesOrCopyright = "T" ]
+    Perform Script [ “testItemCheckOrTextOrForm” ]
+    #
+    #
+    #If neither a T or FT (no button) is showing then
+    #go to the text field, which is what the user is
+    #seeing when then click here.
+    Else
+    Go to Field [ tagMenus::tag ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    tagMenus::notesOrCopyright
+    tagMenus::tag
+
+Scripts used in this script
+
+    testItemCheckOrTextOrForm
+
+Layouts used in this script
+
+Tables used in this script
+
+    tag
+
+Table occurrences used by this script
+
+    tagMenus
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [testItemTextOrFormTemplateButton]	Parent Folder: [test]	Next Script: [toggleTestWindowView]
+Script Name	testSubsectionNA
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testingSubsectionMenu
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    If [ $$stopLoadingTestSubSection = 1 ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    End If
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #This script creates test a result that is not
+    #shown as a test result.
+    # Instead, this record is used to show an
+    #N/A or OK next to a test subsection to indicate
+    #that this subsection does not apply or doesn't
+    #require evidence of results to indicate that it is
+    #OK. If the user decides to not show the OK or
+    #N/A, then this script deletes this test result
+    #record, which enables the display of the N/A
+    #or OK on the test subsection menu layout.
+    #
+    #
+    #basic administration tasks
+    Set Error Capture [ On ]
+    Allow User Abort [ Off ]
+    If [ testResultsTestSection::_Ltestlearn = "" ]
+    Freeze Window
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #note item's ID number and name
+    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
+    Set Variable [ $$testSubsectionName; Value:testSubsectionForSubject::name ]
+    Set Field [ TEMP::testSubsectionName ]
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    New Record/Request
+    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Set Field [ testlearn::kreportNumber; $$reportNumber ]
+    Set Field [ testlearn::subsectionCustomName; $$testSectionName ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    #lock item location so it cannot be deleted unless all findings for it are deleted
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
+    Perform Find [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "t" ]
+    #refind all location records for this session
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
+    Perform Find [ ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "N/A" ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
+    Go to Field [ ]
+    Close Window [ Current Window ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    Else If [ testResultsTestSection::countOfONESubsectionsTestResults = "" and testResultsTestSection::_Ltestlearn ≠ "" ]
+    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "N/A" ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
+    Set Field [ TEMP::testSubsectionName ]
+    Go to Field [ ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    Else If [ testResultsTestSection::countOfONESubsectionsTestResults = "N/A" ]
+    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "OK" ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
+    Set Field [ TEMP::testSubsectionName ]
+    Go to Field [ ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    Else If [ testResultsTestSection::countOfONESubsectionsTestResults = "N/A" or testResultsTestSection::countOfONESubsectionsTestResults = "OK" ]
+    #
+    #
+    #Disable star symbol.
+    // If [ testResultsReportSection::countOfALLSubsectionsTestResults = "" ]
+    If [ testResultsReportSection::countOfALLSubsectionsTestResults = "" or testResultsReportSection::countOfALLSubsectionsTestResults ≠ "" ]
+    Set Field [ TEMP::testSubsectionName ]
+    // Show Custom Dialog [ Title: "FYI"; Message: "Use the star symbol to referr to other assessment findings. You currently do not have any for this item."; Default Button: “OK”, Commit: “No” ]
+    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "" ]
+    Go to Field [ ]
+    Freeze Window
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #note item's ID number and name
+    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
+    #
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Perform Find [ ]
+    #
+    Delete Record/Request [ No dialog ]
+    #Unlock Item Location
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Perform Find [ ]
+    #
+    If [ Get ( LastError ) = 401 ]
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
+    Perform Find [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
+    #refind all location records for this session
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
+    Perform Find [ ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    #
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
+    End If
+    Close Window [ Current Window ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    End If
+    Set Field [ testResultsTestSection::countOfONESubsectionsTestResults; "★" ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
+    Go to Field [ ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    Else If [ testResultsTestSection::countOfONESubsectionsTestResults ≠ "N/A" and testResultsTestSection::countOfONESubsectionsTestResults ≠ "OK" and testResultsTestSection::countOfONESubsectionsTestResults ≠ "★" ]
+    Set Field [ TEMP::testSubsectionName ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: in progress" ]
+    Go to Field [ ]
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Exit Script [ ]
+    End If
+    Freeze Window
+    New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #note item's ID number and name
+    Set Variable [ $$testSubsection; Value:testSubsectionForSubject::_LtestSubsection ]
+    Set Field [ TEMP::testSubsectionName ]
+    Go to Layout [ “testSCRIPTloops” (testlearn) ]
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Set Field [ testlearn::ktestSubsection; $$testSubsection ]
+    Perform Find [ ]
+    Delete Record/Request [ No dialog ]
+    #Unlock Item Location
+    Enter Find Mode [ ]
+    Set Field [ testlearn::ktestSubject; TEMP::kdefaultNodeTestSubject ]
+    Set Field [ testlearn::ktestSection; $$testSection ]
+    Perform Find [ ]
+    If [ Get ( LastError ) = 401 ]
+    Go to Layout [ “tableTestSectionFromTemplate” (testSectionCreatedFromATemplate) ]
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::_LtestSection; $$testSection ]
+    Perform Find [ ]
+    Set Field [ testSectionCreatedFromATemplate::inUse; "" ]
+    #refind all location records for this session
+    Enter Find Mode [ ]
+    Set Field [ testSectionCreatedFromATemplate::ktestSubjectNode; TEMP::kdefaultNodeTestSubject ]
+    Perform Find [ ]
+    Go to Layout [ “testingSubsectionMenu” (testSubsectionForSubject) ]
+    Set Field [ testSubsectionForSubject::gprogressGlobal; "status: pending" ]
+    End If
+    Set Variable [ $$stopLoadingTestSubSection ]
+    Close Window [ Current Window ]
+
+Fields used in this script
+
+    testResultsTestSection::_Ltestlearn
+    testSubsectionForSubject::_LtestSubsection
+    testSubsectionForSubject::name
+    TEMP::testSubsectionName
+    TEMP::kdefaultNodeTestSubject
+    testlearn::ktestSubject
+    testlearn::ktestSection
+    testlearn::kreportNumber
+    testlearn::subsectionCustomName
+    testlearn::ktestSubsection
+    testSectionCreatedFromATemplate::_LtestSection
+    testSectionCreatedFromATemplate::inUse
+    testSectionCreatedFromATemplate::ktestSubjectNode
+    testResultsTestSection::countOfONESubsectionsTestResults
+    testSubsectionForSubject::gprogressGlobal
+    testResultsReportSection::countOfALLSubsectionsTestResults
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+
+Layouts used in this script
+
+    testSCRIPTloops
+    tableTestSectionFromTemplate
+    testingSubsectionMenu
+
+Tables used in this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+    testSubsectionTemplate
+    testlearn
+    testlearn
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    testResultsReportSection
+    testResultsTestSection
+    testSectionCreatedFromATemplate
+    testSubsectionForSubject
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [testSubsectionNA]	Parent Folder: [test]	Next Script: [testResultInformationPulldown]
+Script Name	toggleTestWindowView
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    testResult0
+    testResultLOCKED0
+    testResult1
+    testResultLOCKED1
+    testResult2
+    testResultLOCKED2
+    testResult3
+    testResultLOCKED3
+    testResult4
+    testResultLOCKED4
+    testResult5
+    testResultLOCKED5
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Reveal more or fewer pictures and links for tag.
+    #First toggle from current view to next view.
+    #Turn off loadRecord script to speed up process.
+    Set Variable [ $$stopLoadTestRecord; Value:1 ]
+    #
+    #from 0 to 1
+    If [ Right ( Get (LayoutName) ; 1) = 0 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult1” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED1” (testlearn) ]
+    End If
+    #
+    #from 1 to 2
+    Else If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult2” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED2” (testlearn) ]
+    End If
+    #
+    #from 2 to 3
+    Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult3” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED3” (testlearn) ]
+    End If
+    #
+    #from 3 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult4” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED4” (testlearn) ]
+    End If
+    #
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult5” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED5” (testlearn) ]
+    End If
+    #
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult4” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED4” (testlearn) ]
+    End If
+    #
+    #from 4 to 3
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult3” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED3” (testlearn) ]
+    End If
+    #
+    #from 3 to 2
+    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult2” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED2” (testlearn) ]
+    End If
+    #
+    #from 2 to 1
+    Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult1” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED1” (testlearn) ]
+    End If
+    #
+    #from 1 to 0
+    Else If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    If [ TEMP::testSubjectNodeIsLocked = "" and TEMP::primaryNodeIsLocked = "" ]
+    Go to Layout [ “testResult0” (testlearn) ]
+    Else
+    Go to Layout [ “testResultLOCKED0” (testlearn) ]
+    End If
+    End If
+    #
+    #Remember layout user is on so they can be
+    #returned to correct view.
+    #
+    #Turn on loadRecord script needed for other scripts.
+    Set Variable [ $$stopLoadTestRecord ]
+    #
+    #from 0 to 1
+    If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
+    #from 1 to 2
+    Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
+    #from 2 to 3
+    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
+    #from 3 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
+    #from 4 to 5
+    Else If [ Right ( Get (LayoutName) ; 1) = 5 and Left ( TEMP::layoutTmain ; 4 ) = "more" ]
+    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
+    #from 5 to 4
+    Else If [ Right ( Get (LayoutName) ; 1) = 4 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
+    #from 4 to 3
+    Else If [ Right ( Get (LayoutName) ; 1) = 3 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
+    #from 3 to 2
+    Else If [ Right ( Get (LayoutName) ; 1) = 2 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
+    #from 2 to 1
+    Else If [ Right ( Get (LayoutName) ; 1) = 1 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    Set Field [ TEMP::layoutTmain; "less" & Get (LayoutName) ]
+    #from 1 to 0
+    Else If [ Right ( Get (LayoutName) ; 1) = 0 and Left ( TEMP::layoutTmain ; 4 ) = "less" ]
+    Set Field [ TEMP::layoutTmain; "more" & Get (LayoutName) ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    TEMP::layoutTmain
+    TEMP::testSubjectNodeIsLocked
+    TEMP::primaryNodeIsLocked
+
+Scripts used in this script
+
+Layouts used in this script
+
+    testResult1
+    testResultLOCKED1
+    testResult2
+    testResultLOCKED2
+    testResult3
+    testResultLOCKED3
+    testResult4
+    testResultLOCKED4
+    testResult5
+    testResultLOCKED5
+    testResult0
+    testResultLOCKED0
+
+Tables used in this script
+
+    TEMP
+
+Table occurrences used by this script
+
+    TEMP
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [toggleTestWindowView]	Parent Folder: [test]	Next Script: [useSubsectionAndCurrentTimeStamp]
+Script Name	testResultInformationPulldown
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Set up new test result fields with the selected
+    #section's name and key.
+    Set Field [ TEMP::testSubsectionNameForSubject; PulldownTestSectionName::name ]
+    Set Field [ TEMP::ktestSection; PulldownTestSectionName::_LtestSection ]
+    Set Variable [ $$subsectionCustomName; Value:TEMP::testSubsectionName ]
+    Set Field [ testlearnReportTags::kgtestSection; PulldownTestSectionName::_LtestSection ]
+    Go to Field [ ]
+    #
+
+Fields used in this script
+
+    PulldownTestSectionName::name
+    TEMP::testSubsectionNameForSubject
+    PulldownTestSectionName::_LtestSection
+    TEMP::ktestSection
+    TEMP::testSubsectionName
+    testlearnReportTags::kgtestSection
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+    testlearn
+
+Table occurrences used by this script
+
+    PulldownTestSectionName
+    TEMP
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [testResultInformationPulldown]	Parent Folder: [test]
+Script Name	useSubsectionAndCurrentTimeStamp
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    reportTestResult
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #Set up new test result information with this
+    #result's information.
+    Set Field [ TEMP::testSubsectionNameForSubject; tagReportTestSubjectSectionNAME::name ]
+    Set Field [ TEMP::ktestSection; testlearnReportTags::ktestSection ]
+    Set Variable [ $$subsectionCustomName; Value:testlearnReportTags::subsectionCustomName ]
+    Set Field [ testlearnReportTags::kgtestSection; testlearnReportTags::ktestSection ]
+    Set Field [ TEMP::TimeStamp; testlearnReportTags::timestamp ]
+
+Fields used in this script
+
+    tagReportTestSubjectSectionNAME::name
+    TEMP::testSubsectionNameForSubject
+    testlearnReportTags::ktestSection
+    TEMP::ktestSection
+    testlearnReportTags::subsectionCustomName
+    testlearnReportTags::kgtestSection
+    testlearnReportTags::timestamp
+    TEMP::TimeStamp
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    testSectionCreatedFromATemplate
+    testlearn
+
+Table occurrences used by this script
+
+    TEMP
+    tagReportTestSubjectSectionNAME
+    testlearnReportTags
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+probablyNotInUse
+	Parent Folder: [probablyNotInUse]
+Script Name	switchTestList
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #If the user selected the list currently showing then
+    #stop the script.
+    If [ TEMP::ktestItemSubsection = TEMP::ktestItemSubsectionOLD ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #switch to the selected test, which may or may
+    #not have a test-item list.
+    Allow User Abort [ Off ]
+    Set Error Capture [ On ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Enter Find Mode [ ]
+    Set Field [ tagMenuTestItemGroup::match; TEMP::ktestItemSubsection ]
+    Perform Find [ ]
+    #
+    #If there is no list, then inform the user of this fact
+    #at the end of the script, after the name of the list
+    #is updated. To do that capture the 401 error message.
+    If [ Get (LastError) = 401 ]
+    Set Variable [ $emptyList; Value:1 ]
+    End If
+    Set Variable [ $$stopLoadTagRecord ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuTestItemGroup::orderOrLibraryType; based on value list: “order Pulldown List” tagMenuTestItemGroup::_Lgroup; ascending tagMenus::orderOrLock; based on value list: “order Pulldown List” tagMenus::tag; ascending ] [ Restore; No dialog ]
+    #
+    #assign newly selected test item list to test
+    Select Window [ Name: "Setup"; Current file ]
+    Set Field [ testSubsectionTemplate::ktestItemGroup; TEMP::ktestItemSubsection ]
+    #
+    #get the switched-to-test's name.
+    #
+    #The reason for this whole section of the script
+    #(getting a test name) is that there is no relationship
+    #that can be made that would match the key of
+    #of the named test to this test and thus unlock
+    #and so allow the layout to show this test name.
+    #This is because the key to unlock the display of
+    #a test's name is in a keychain field where many
+    #keys may exist in list. Filemaker cannot match
+    #a lock in one table to list of keys in another table.
+    #There must be only one key in a field in order
+    #for Filemaker to know which key to use in a lock.
+    #The database does not have the intellegence or
+    #programming to search through a list of keys
+    #to make a match to a lock field in another table.
+    #Thus, in order to display the name of the test in use
+    #we must have the system put that name in a temp
+    #field with global storage, which then allows it
+    #to be displayed on any layout where that temp
+    #field is displayed. No relationship between the
+    #the temp table and the layout's table is required
+    #as long as the temp field is a global field, meaning
+    #all data in the field is the same for every record
+    #in the temp table.
+    #
+    #Get the ID of the current record so it can be
+    #looped back to.
+    Set Variable [ $currentTest; Value:testSubsectionTemplate::_LtestSubsection ]
+    #
+    #Turn of the record load triggered script to speed
+    #up this loop search.
+    Set Variable [ $$ID; Value:"ignore" ]
+    #
+    #Go to the first record and then test it and every
+    #other record until the test in question is found.
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ testSubsectionTemplate::_LtestSubsection = TEMP::ktestItemSubsection ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    #
+    #Set a temp field with this test's name. This name
+    #field will then be used to show this test's name on
+    #the Tag Menus layout for setupTestItems.
+    Set Field [ TEMP::ktestSubsectionName; testSubsectionTemplate::name ]
+    #
+    #go back to current test.
+    Go to Record/Request/Page [ First ]
+    Loop
+    Exit Loop If [ testSubsectionTemplate::_LtestSubsection = $currentTest ]
+    Go to Record/Request/Page [ Next; Exit after last ]
+    End Loop
+    Set Variable [ $$ID; Value:$currentTest ]
+    Refresh Window
+    #
+    #make new and old tag keys identical, so when
+    #a switch is made this copy can be used as the old key
+    #in the first part of this script. Switching automatically
+    #replaces the current key with whatever is selected,
+    #thus the need to preserve a copy now, before a switch is made.
+    Set Field [ TEMP::ktestItemSubsectionOLD; TEMP::ktestItemSubsection ]
+    #
+    #Update key used for the move pulldown to the new test.
+    Set Field [ TEMP::mTag; TEMP::ktestItemSubsection ]
+    #
+    #return to tag layout and show all selected items
+    Select Window [ Name: "Tag Menus"; Current file ]
+    Go to Layout [ “setupTestItem” (tagMenus) ]
+    Scroll Window [ Home ]
+    Go to Field [ ]
+    #
+    #If list is empty, now tell the user this so they don't
+    #think the system failed because nothing was found.
+    If [ $emptyList = 1 ]
+    Show Custom Dialog [ Message: "This test-item list contains no test items. You are welcome to create new ones."; Default Button: “OK”, Commit: “No” ]
+    End If
+
+Fields used in this script
+
+    TEMP::ktestItemSubsection
+    TEMP::ktestItemSubsectionOLD
+    tagMenuTestItemGroup::match
+    tagMenuTestItemGroup::orderOrLibraryType
+    tagMenuTestItemGroup::_Lgroup
+    tagMenus::orderOrLock
+    tagMenus::tag
+    testSubsectionTemplate::ktestItemGroup
+    testSubsectionTemplate::_LtestSubsection
+    testSubsectionTemplate::name
+    TEMP::ktestSubsectionName
+    TEMP::mTag
+
+Scripts used in this script
+
+Layouts used in this script
+
+    setupTestItem
+
+Tables used in this script
+
+    TEMP
+    tag
+    tagGroup
+    testSubsectionTemplate
+
+Table occurrences used by this script
+
+    TEMP
+    tagMenuTestItemGroup
+    tagMenus
+    testSubsectionTemplate
 
 Custom Functions used by this script
 

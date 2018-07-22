@@ -129,7 +129,7 @@
 </tr>
 <tr class="regularcharttext" vAlign="top">
 <td><a href="#146BaseTableAnchor_">MemorySwitch</a></td><td>
-<div align="left"><a href="#146BaseTableAnchor_">20 fields</a> defined, 4 records</div>
+<div align="left"><a href="#146BaseTableAnchor_">25 fields</a> defined, 36 records</div>
 </td><td><a href="#1065207TableAnchor_"><em>MemorySwitch</em></a></td>
 </tr>
 </tbody>
@@ -2557,7 +2557,7 @@
 <td><a name="144138FieldAnchor_"/>version</td><td>Calculated, Text</td><td><strong>Calculation:</strong>
 <ul>
 <li>Context table: <a href="#1065178TableAnchor_"><em>reference1</em></a></li>
-<li>"3.2c BETA"</li>
+<li>"3.2 BETA"</li>
 </ul>
 <strong>Auto-Enter:</strong>
 <ul>
@@ -2645,14 +2645,16 @@
 		<table width="100%" border="1">
 <tbody>
 <tr class="privsetfirst" vAlign="top">
-<td colSpan="9">Table Name: <a name="146BaseTableAnchor_"/>MemorySwitch - 20 Fields</td>
+<td colSpan="9">Table Name: <a name="146BaseTableAnchor_"/>MemorySwitch - 25 Fields</td>
 </tr>
 <tr class="chartheaders" vAlign="top">
 <td width="8%">Field Name</td><td width="7%">Type</td><td width="14%">Options</td><td width="10%">Comments</td><td width="13%">On Layouts</td><td width="15%">In Relationships</td><td width="22%">In Scripts</td><td width="11%">In Value Lists</td>
 </tr>
 			<tr class="regularcharttext" vAlign="top">
 <td><a name="1461FieldAnchor_"/>name</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
-<ul></ul>
+<ul>
+<li>Allow editing</li>
+</ul>
 <strong>Validation:</strong>
 <ul>
 <li>Only during data entry</li>
@@ -2760,7 +2762,7 @@
 </td>
 </tr>
 			<tr class="regularcharttext" vAlign="top">
-<td><a name="1465FieldAnchor_"/>currentLibraryMainWIndow</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
+<td><a name="1465FieldAnchor_"/>currentLibraryWIndows</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
 <ul>
 <li>Allow editing</li>
 </ul>
@@ -2771,7 +2773,7 @@
 <strong>Storage:</strong>
 <ul>
 <li>Global</li>
-<li>Repetitions: 1</li>
+<li>Repetitions: 3</li>
 <li>Index Language: English</li>
 </ul>
 </td><td></td><td>
@@ -2907,7 +2909,7 @@
 <strong>Storage:</strong>
 <ul>
 <li>Global</li>
-<li>Repetitions: 1</li>
+<li>Repetitions: 2</li>
 <li>Index Language: English</li>
 </ul>
 </td><td></td><td>
@@ -2923,13 +2925,15 @@
 </td>
 </tr>
 			<tr class="regularcharttext" vAlign="top">
-<td><a name="14611FieldAnchor_"/>helpPath</td><td>Calculated, Number</td><td><strong>Calculation:</strong>
+<td><a name="14611FieldAnchor_"/>helpPath</td><td>Calculated, Text</td><td><strong>Calculation:</strong>
 <ul>
 <li>Context table: <a href="#1065207TableAnchor_"><em>MemorySwitch</em></a></li>
 <li>
-<strong>Case</strong> ( <strong>Filter</strong> ( <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 4 ) ; "." ) ="." ; 
+<strong>//The first test figures out where this reference file name ends and the apps 3, 4, or 5 digit signiture begins.  
+</strong><strong>Case</strong> ( <strong>Filter</strong> ( <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 4 ) ; "." ) ="." ; 
 
-<strong>Case</strong> ( <strong>Get</strong> ( <strong>SystemPlatform</strong> ) = - 2 ;
+<strong>//The second test determines if the app is running on a Windows or Apple computer, as the Apple computer requires more dashes in from of file: to open the an app.
+</strong><strong>Case</strong> ( <strong>Get</strong> ( <strong>SystemPlatform</strong> ) = - 2 ;
 
 <strong>Substitute</strong> ( <strong>Substitute</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; <strong>Get</strong> (<strong>FileName</strong>) &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 4 ) ; "help" &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 4 )  ) ; " " ; "%20" ) ;
 
@@ -2937,11 +2941,21 @@
 
 ; 
 
+<strong>Case</strong> ( <strong>Filter</strong> ( <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 5 ) ; "." ) ="." ; 
+
 <strong>Case</strong> ( <strong>Get</strong> ( <strong>SystemPlatform</strong> ) = - 2 ;
 
 <strong>Substitute</strong> ( <strong>Substitute</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; <strong>Get</strong> (<strong>FileName</strong>) &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 5 ) ; "help" &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 5 )  ) ; " " ; "%20" ) ;
 
 <strong>Substitute</strong> ( <strong>Substitute</strong> ( <strong>Substitute</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; <strong>Get</strong> (<strong>FileName</strong>) &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 5 ) ; "help" &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 5 )  ) ; "file:/" ; "file://" ) ; " " ; "%20" ) )
+
+; 
+
+<strong>Case</strong> ( <strong>Get</strong> ( <strong>SystemPlatform</strong> ) = - 2 ;
+
+<strong>Substitute</strong> ( <strong>Substitute</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; <strong>Get</strong> (<strong>FileName</strong>) &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 6 ) ; "help" &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 6 )  ) ; " " ; "%20" ) ;
+
+<strong>Substitute</strong> ( <strong>Substitute</strong> ( <strong>Substitute</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; <strong>Get</strong> (<strong>FileName</strong>) &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 6 ) ; "help" &amp; <strong>Right</strong> ( <strong>Get</strong> (<strong>FilePath</strong>) ; 6 )  ) ; "file:/" ; "file://" ) ; " " ; "%20" ) ) )
 
 )</li>
 </ul>
@@ -2964,7 +2978,7 @@
 </td>
 </tr>
 			<tr class="regularcharttext" vAlign="top">
-<td><a name="14612FieldAnchor_"/>helpObjectName</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
+<td><a name="14612FieldAnchor_"/>helpLayoutObjectName</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
 <ul>
 <li>Allow editing</li>
 </ul>
@@ -2975,7 +2989,7 @@
 <strong>Storage:</strong>
 <ul>
 <li>Global</li>
-<li>Repetitions: 1</li>
+<li>Repetitions: 2</li>
 <li>Index Language: English</li>
 </ul>
 </td><td></td><td>
@@ -3207,6 +3221,138 @@
 <ul></ul>
 </td>
 </tr>
+			<tr class="regularcharttext" vAlign="top">
+<td><a name="14622FieldAnchor_"/>helpAppWindowName</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
+<ul>
+<li>Allow editing</li>
+</ul>
+<strong>Validation:</strong>
+<ul>
+<li>Only during data entry</li>
+</ul>
+<strong>Storage:</strong>
+<ul>
+<li>Global</li>
+<li>Repetitions: 3</li>
+<li>Index Language: English</li>
+</ul>
+</td><td>Use to return user to window they where on when they clicked the question mark button.</td><td>
+<ul>
+<li><a href="#121LayoutAnchor_">MemorySwitch</a></li>
+</ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td>
+</tr>
+			<tr class="regularcharttext" vAlign="top">
+<td><a name="14623FieldAnchor_"/>helpLayoutColumnName</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
+<ul>
+<li>Allow editing</li>
+</ul>
+<strong>Validation:</strong>
+<ul>
+<li>Only during data entry</li>
+</ul>
+<strong>Storage:</strong>
+<ul>
+<li>Global</li>
+<li>Repetitions: 2</li>
+<li>Index Language: English</li>
+</ul>
+</td><td></td><td>
+<ul>
+<li><a href="#121LayoutAnchor_">MemorySwitch</a></li>
+</ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td>
+</tr>
+			<tr class="regularcharttext" vAlign="top">
+<td><a name="14624FieldAnchor_"/>matchHelp</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
+<ul>
+<li>Constant data: help</li>
+<li>Allow editing</li>
+</ul>
+<strong>Validation:</strong>
+<ul>
+<li>Only during data entry</li>
+</ul>
+<strong>Storage:</strong>
+<ul>
+<li>Global</li>
+<li>Repetitions: 1</li>
+<li>Index Language: English</li>
+</ul>
+</td><td></td><td>
+<ul>
+<li><a href="#121LayoutAnchor_">MemorySwitch</a></li>
+</ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td>
+</tr>
+			<tr class="regularcharttext" vAlign="top">
+<td><a name="14625FieldAnchor_"/>helpAppIsRunning</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
+<ul>
+<li>Allow editing</li>
+</ul>
+<strong>Validation:</strong>
+<ul>
+<li>Only during data entry</li>
+</ul>
+<strong>Storage:</strong>
+<ul>
+<li>Global</li>
+<li>Repetitions: 1</li>
+<li>Index Language: English</li>
+</ul>
+</td><td>Use to tell other apps if the help is running so user is not bothered with questions that only make sense if it is open.  </td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td>
+</tr>
+			<tr class="regularcharttext" vAlign="top">
+<td><a name="14626FieldAnchor_"/>currentActionLogWIndow</td><td>Normal, Text</td><td><strong>Auto-Enter:</strong>
+<ul>
+<li>Allow editing</li>
+</ul>
+<strong>Validation:</strong>
+<ul>
+<li>Only during data entry</li>
+</ul>
+<strong>Storage:</strong>
+<ul>
+<li>Global</li>
+<li>Repetitions: 1</li>
+<li>Index Language: English</li>
+</ul>
+</td><td></td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td><td>
+<ul></ul>
+</td>
+</tr>
 		</tbody>
 </table>
 	
@@ -3217,6 +3363,9 @@
 <tbody>
 <tr class="chartheaders" vAlign="top">
 <td width="5%">ID</td><td width="95%">Path</td>
+</tr>
+<tr class="regularcharttext">
+<td>0</td><td>reference/</td>
 </tr>
 </tbody>
 </table>
@@ -3438,7 +3587,7 @@
 <tr class="regularcharttext" valign="top">
 <td><a name="121LayoutAnchor_"/>MemorySwitch</td><td>No</td><td>Yes</td><td>
 <ul>
-<li><a href="#121LayoutObjectsAnchor_Regular Fields">20 Regular Fields</a></li>
+<li><a href="#121LayoutObjectsAnchor_Regular Fields">23 Regular Fields</a></li>
 </ul>
 </td><td><a href="#1065207TableAnchor_"><em>MemorySwitch</em></a></td><td>On</td><td>On</td><td>Off</td><td>On</td><td></td><td>[File Default]</td><td></td><td><a href="#01valThemesSectionAnchor_">01</a></td>
 </tr>
@@ -5177,7 +5326,7 @@
 <table width="100%" border="1">
 <tbody>
 <tr class="chartheaders" valign="top">
-<td colspan="6" class="privsetfirst">Field Name: <a href="#1465FieldAnchor_"><em>MemorySwitch</em>::currentLibraryMainWIndow</a></td>
+<td colspan="6" class="privsetfirst">Field Name: <a href="#1465FieldAnchor_"><em>MemorySwitch</em>::currentLibraryWIndows</a></td>
 </tr>
 <tr class="chartsubheads" valign="top">
 <td class="chartheaders" colspan="2">Field Properties</td><td class="chartheaders" width="14%" colspan="1">Coordinates</td><td class="chartheaders" width="17%" colspan="1">Field Format</td><td class="chartheaders" width="30%" colspan="1">Field Behavior</td><td class="chartheaders" width="10%" colspan="1">Quick Find</td>
@@ -5199,6 +5348,8 @@
 </ul>
 </td><td colspan="1">Field Format: <ul>
 <li>Edit Box</li>
+<li>Show repetition: 1 through 1</li>
+<li>Orientation: vertical</li>
 </ul>
 </td><td colspan="1">Field Behavior:<ul>
 <li>Allow field to be entered: In Find mode, In Browse mode</li>
@@ -5321,7 +5472,7 @@
 <table width="100%" border="1">
 <tbody>
 <tr class="chartheaders" valign="top">
-<td colspan="6" class="privsetfirst">Field Name: <a href="#14612FieldAnchor_"><em>MemorySwitch</em>::helpObjectName</a></td>
+<td colspan="6" class="privsetfirst">Field Name: <a href="#14612FieldAnchor_"><em>MemorySwitch</em>::helpLayoutObjectName</a></td>
 </tr>
 <tr class="chartsubheads" valign="top">
 <td class="chartheaders" colspan="2">Field Properties</td><td class="chartheaders" width="14%" colspan="1">Coordinates</td><td class="chartheaders" width="17%" colspan="1">Field Format</td><td class="chartheaders" width="30%" colspan="1">Field Behavior</td><td class="chartheaders" width="10%" colspan="1">Quick Find</td>
@@ -5346,6 +5497,8 @@
 </ul>
 </td><td colspan="1">Field Format: <ul>
 <li>Edit Box</li>
+<li>Show repetition: 1 through 1</li>
+<li>Orientation: vertical</li>
 </ul>
 </td><td colspan="1">Field Behavior:<ul>
 <li>Allow field to be entered: In Find mode, In Browse mode</li>
@@ -5463,6 +5616,8 @@
 </ul>
 </td><td colspan="1">Field Format: <ul>
 <li>Edit Box</li>
+<li>Show repetition: 1 through 1</li>
+<li>Orientation: vertical</li>
 </ul>
 </td><td colspan="1">Field Behavior:<ul>
 <li>Allow field to be entered: In Find mode, In Browse mode</li>
@@ -5779,6 +5934,127 @@
 </td><td colspan="1">Field Behavior:<ul>
 <li>Allow field to be entered: In Find mode, In Browse mode</li>
 <li>Touch keyboard type: System Default</li>
+<li>Go to next field using: Tab key</li>
+</ul>
+</td><td colspan="1">No</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="1">
+<tbody>
+<tr class="chartheaders" valign="top">
+<td colspan="6" class="privsetfirst">Field Name: <a href="#14622FieldAnchor_"><em>MemorySwitch</em>::helpAppWindowName</a></td>
+</tr>
+<tr class="chartsubheads" valign="top">
+<td class="chartheaders" colspan="2">Field Properties</td><td class="chartheaders" width="14%" colspan="1">Coordinates</td><td class="chartheaders" width="17%" colspan="1">Field Format</td><td class="chartheaders" width="30%" colspan="1">Field Behavior</td><td class="chartheaders" width="10%" colspan="1">Quick Find</td>
+</tr>
+<tr class="regularcharttext" valign="top">
+<td colspan="2"><a name="121Field18.00000002644.554687532.00000002764.5546875LayoutObjectAnchor_"/><ul>
+<b>Layout Name:</b>
+<li><a href="#121LayoutAnchor_">MemorySwitch</a></li>
+<p></p>
+<b>Visibility:</b>
+<li>Only visible in Table View</li>
+</ul>
+</td><td colspan="1">
+<ul>
+<li>Top: 18 pt</li>
+<li>Left: 2645 pt</li>
+<li>Bottom: 32 pt</li>
+<li>Right: 2765 pt</li>
+</ul>
+<ul>
+<li>Anchoring: Left, Top</li>
+</ul>
+</td><td colspan="1">Field Format: <ul>
+<li>Edit Box</li>
+<li>Show repetition: 1 through 1</li>
+<li>Orientation: vertical</li>
+</ul>
+</td><td colspan="1">Field Behavior:<ul>
+<li>Allow field to be entered: In Find mode, In Browse mode</li>
+<li>Touch keyboard type: Default for Data Type</li>
+<li>Go to next field using: Tab key</li>
+</ul>
+</td><td colspan="1">No</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="1">
+<tbody>
+<tr class="chartheaders" valign="top">
+<td colspan="6" class="privsetfirst">Field Name: <a href="#14623FieldAnchor_"><em>MemorySwitch</em>::helpLayoutColumnName</a></td>
+</tr>
+<tr class="chartsubheads" valign="top">
+<td class="chartheaders" colspan="2">Field Properties</td><td class="chartheaders" width="14%" colspan="1">Coordinates</td><td class="chartheaders" width="17%" colspan="1">Field Format</td><td class="chartheaders" width="30%" colspan="1">Field Behavior</td><td class="chartheaders" width="10%" colspan="1">Quick Find</td>
+</tr>
+<tr class="regularcharttext" valign="top">
+<td colspan="2"><a name="121Field18.00000002764.554687532.00000002884.5546875LayoutObjectAnchor_"/><ul>
+<b>Layout Name:</b>
+<li><a href="#121LayoutAnchor_">MemorySwitch</a></li>
+<p></p>
+<b>Visibility:</b>
+<li>Only visible in Table View</li>
+</ul>
+</td><td colspan="1">
+<ul>
+<li>Top: 18 pt</li>
+<li>Left: 2765 pt</li>
+<li>Bottom: 32 pt</li>
+<li>Right: 2885 pt</li>
+</ul>
+<ul>
+<li>Anchoring: Left, Top</li>
+</ul>
+</td><td colspan="1">Field Format: <ul>
+<li>Edit Box</li>
+<li>Show repetition: 1 through 1</li>
+<li>Orientation: vertical</li>
+</ul>
+</td><td colspan="1">Field Behavior:<ul>
+<li>Allow field to be entered: In Find mode, In Browse mode</li>
+<li>Touch keyboard type: Default for Data Type</li>
+<li>Go to next field using: Tab key</li>
+</ul>
+</td><td colspan="1">No</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table width="100%" border="1">
+<tbody>
+<tr class="chartheaders" valign="top">
+<td colspan="6" class="privsetfirst">Field Name: <a href="#14624FieldAnchor_"><em>MemorySwitch</em>::matchHelp</a></td>
+</tr>
+<tr class="chartsubheads" valign="top">
+<td class="chartheaders" colspan="2">Field Properties</td><td class="chartheaders" width="14%" colspan="1">Coordinates</td><td class="chartheaders" width="17%" colspan="1">Field Format</td><td class="chartheaders" width="30%" colspan="1">Field Behavior</td><td class="chartheaders" width="10%" colspan="1">Quick Find</td>
+</tr>
+<tr class="regularcharttext" valign="top">
+<td colspan="2"><a name="121Field18.00000002884.554687532.00000003004.5546875LayoutObjectAnchor_"/><ul>
+<b>Layout Name:</b>
+<li><a href="#121LayoutAnchor_">MemorySwitch</a></li>
+<p></p>
+<b>Visibility:</b>
+<li>Only visible in Table View</li>
+</ul>
+</td><td colspan="1">
+<ul>
+<li>Top: 18 pt</li>
+<li>Left: 2885 pt</li>
+<li>Bottom: 32 pt</li>
+<li>Right: 3005 pt</li>
+</ul>
+<ul>
+<li>Anchoring: Left, Top</li>
+</ul>
+</td><td colspan="1">Field Format: <ul>
+<li>Edit Box</li>
+</ul>
+</td><td colspan="1">Field Behavior:<ul>
+<li>Allow field to be entered: In Find mode, In Browse mode</li>
+<li>Touch keyboard type: Default for Data Type</li>
 <li>Go to next field using: Tab key</li>
 </ul>
 </td><td colspan="1">No</td>
