@@ -1,4 +1,4 @@
-January 15, 2018 17:42:57 Library.fmp12 - pictureExport -1-
+July 20, 2018 21:32:09 Library.fmp12 - pictureExport -1-
 pictures: pictureExport
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
@@ -15,4 +15,6 @@ Else If [ testlearn::picture ≠ "" ]
 Export Field Contents [ testlearn::picture ]
 Else If [ testlearnReportTags::picture ≠ "" ]
 Export Field Contents [ testlearnReportTags::picture ]
+Else If [ refLearnShowMedia::picture ≠ "" ]
+Export Field Contents [ refLearnShowMedia::picture ]
 End If

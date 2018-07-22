@@ -1,4 +1,4 @@
-January 18, 2018 14:37:28 Library.fmp12 - editReference -1-
+July 20, 2018 21:51:18 Library.fmp12 - editReference -1-
 reference: editReference
 #
 #
@@ -20,7 +20,8 @@ End If
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click
+this button."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #

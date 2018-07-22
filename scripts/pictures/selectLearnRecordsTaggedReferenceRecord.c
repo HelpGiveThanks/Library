@@ -1,4 +1,4 @@
-January 15, 2018 17:34:16 Library.fmp12 - selectLearnRecordsTaggedReferenceRecord -1-
+July 20, 2018 21:32:36 Library.fmp12 - selectLearnRecordsTaggedReferenceRecord… -1-
 pictures: selectLearnRecordsTaggedReferenceRecord
 #
 #If node is currenlty locked then stop script, inform user.
@@ -15,11 +15,15 @@ End If
 If [ testlearn::picture = "" ]
 If [ testlearn::kshowReferencedMedia = refLearn::_Lreference ]
 Set Field [ testlearn::kshowReferencedMedia; "" ]
+Set Variable [ $$refMediaSelectedToShow; Value:Case ( testlearn::kshowReferencedMedia = "" ; "" ; testlearn::
+kshowReferencedMedia ) ]
 Else If [ //There is a picture to show if...
 refLearn::picture ≠ "" or
 refLearn::showMedia ≠ "" and refLearn::URL ≠ "" or
 refLearn::showMedia[2] ≠ "" and refLearn::kfileLocation ≠ "" and refLearn::fileName ≠ "" ]
 Set Field [ testlearn::kshowReferencedMedia; refLearn::_Lreference ]
+Set Variable [ $$refMediaSelectedToShow; Value:Case ( testlearn::kshowReferencedMedia = "" ; "" ; testlearn::
+kshowReferencedMedia ) ]
 Else
 If [ TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "This reference has no media to show. Picture button will be a darker grey if there is

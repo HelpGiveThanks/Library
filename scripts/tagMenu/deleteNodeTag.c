@@ -1,10 +1,10 @@
-January 20, 2018 17:56:40 Library.fmp12 - deleteNodeTag -1-
+July 21, 2018 14:11:41 Library.fmp12 - deleteNodeTag -1-
 tagMenu: deleteNodeTag
 #
 #
 #If user is looking at keyword switch to that script.
 If [ $$citationMatch = "key" ]
-Perform Script [ “deleteKeywordTag” ]
+Perform Script [ “deleteKeywordTag (update)” ]
 Exit Script [ ]
 End If
 #
@@ -93,7 +93,12 @@ Set Field [ testlearn::kNodeOther; $check & ¶ ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 Extend Found Set [ ]
 If [ Get (FoundCount) ≠ 0 ]
+If [ $inUse ≠ "" ]
+Set Variable [ $addToInUse; Value:$inUse ]
+Set Variable [ $inUse; Value:$addToInUse & "; Learn " & Get (FoundCount) ]
+Else If [ $inUse = "" ]
 Set Variable [ $inUse; Value:"Learn " & Get (FoundCount) ]
+End If
 End If
 #
 #
@@ -117,192 +122,6 @@ Set Variable [ $addToInUse; Value:$inUse ]
 Set Variable [ $inUse; Value:$addToInUse & "; Reference " & Get (FoundCount) ]
 Else If [ $inUse = "" ]
 Set Variable [ $inUse; Value:"Reference " & Get (FoundCount) ]
-End If
-End If
-#
-#
-#
-#
-#
-#TAG BRAINSTORM
-#See if node is used by any test result records.
-#Check in primary...
-Go to Layout [ “tableTag” (tagTable) ]
-Enter Find Mode [ ]
-Set Field [ tagTable::kRecordCreatorNode; $check ]
-Set Field [ tagTable::match; "brainstorm" ]
-Perform Find [ ]
-#
-If [ Get (FoundCount) ≠ 0 ]
-If [ $inUse ≠ "" ]
-Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & "; Tags — brainstorm " & Get (FoundCount) ]
-Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:"Tags — brainstorm " & Get (FoundCount) ]
-End If
-Set Variable [ $TagsHeader; Value:1 ]
-End If
-#
-#
-#
-#
-#
-#TAG COPYRIGHT
-#See if node is used by any test result records.
-#Check in primary...
-Go to Layout [ “tableTag” (tagTable) ]
-Enter Find Mode [ ]
-Set Field [ tagTable::kRecordCreatorNode; $check ]
-Set Field [ tagTable::match; "copyright" ]
-Perform Find [ ]
-#
-If [ Get (FoundCount) ≠ 0 ]
-If [ $inUse ≠ "" ]
-Set Variable [ $addToInUse; Value:$inUse ]
-If [ $TagsHeader ≠ "" ]
-Set Variable [ $inUse; Value:$addToInUse & ", copyright " & Get (FoundCount) ]
-Else
-Set Variable [ $inUse; Value:$addToInUse & "; Tags — copyright " & Get (FoundCount) ]
-End If
-Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:"Tags — copyright " & Get (FoundCount) ]
-End If
-Set Variable [ $TagsHeader; Value:1 ]
-End If
-#
-#
-#
-#
-#
-#TAG KEYWORD
-#See if node is used by any test result records.
-#Check in primary...
-Go to Layout [ “tableTag” (tagTable) ]
-Enter Find Mode [ ]
-Set Field [ tagTable::kRecordCreatorNode; $check ]
-Set Field [ tagTable::match; "key" ]
-Perform Find [ ]
-#
-If [ Get (FoundCount) ≠ 0 ]
-If [ $inUse ≠ "" ]
-Set Variable [ $addToInUse; Value:$inUse ]
-If [ $TagsHeader ≠ "" ]
-Set Variable [ $inUse; Value:$addToInUse & ", key " & Get (FoundCount) ]
-Else
-Set Variable [ $inUse; Value:$addToInUse & "Tags — key " & Get (FoundCount) ]
-End If
-Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:"Tags — key " & Get (FoundCount) ]
-End If
-Set Variable [ $TagsHeader; Value:1 ]
-End If
-#
-#
-#
-#
-#
-#TAG NODE
-#See if node is used by any test result records.
-#Check in primary...
-Go to Layout [ “tableTag” (tagTable) ]
-Enter Find Mode [ ]
-Set Field [ tagTable::kRecordCreatorNode; $check ]
-Set Field [ tagTable::match; "node" ]
-#Omit creator nodes.
-Set Field [ tagTable::textStyleOrCreatorNodeFlag; "=" ]
-Perform Find [ ]
-#
-If [ Get (FoundCount) ≠ 0 ]
-If [ $inUse ≠ "" ]
-Set Variable [ $addToInUse; Value:$inUse ]
-If [ $TagsHeader ≠ "" ]
-Set Variable [ $inUse; Value:$addToInUse & ", node " & Get (FoundCount) ]
-Else
-Set Variable [ $inUse; Value:$addToInUse & ": Tags — node " & Get (FoundCount) ]
-End If
-Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:"Tags — node " & Get (FoundCount) ]
-End If
-Set Variable [ $TagsHeader; Value:1 ]
-End If
-#
-#
-#
-#
-#
-#TAG PATH
-#See if node is used by any test result records.
-#Check in primary...
-Go to Layout [ “tableTag” (tagTable) ]
-Enter Find Mode [ ]
-Set Field [ tagTable::kRecordCreatorNode; $check ]
-Set Field [ tagTable::match; "path" ]
-Perform Find [ ]
-#
-If [ Get (FoundCount) ≠ 0 ]
-If [ $inUse ≠ "" ]
-Set Variable [ $addToInUse; Value:$inUse ]
-If [ $TagsHeader ≠ "" ]
-Set Variable [ $inUse; Value:$addToInUse & ", path " & Get (FoundCount) ]
-Else
-Set Variable [ $inUse; Value:$addToInUse & "; Tags — path " & Get (FoundCount) ]
-End If
-Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:"Tags — path " & Get (FoundCount) ]
-End If
-Set Variable [ $TagsHeader; Value:1 ]
-End If
-#
-#
-#
-#
-#
-#TAG PUBLICATION
-#See if node is used by any test result records.
-#Check in primary...
-Go to Layout [ “tableTag” (tagTable) ]
-Enter Find Mode [ ]
-Set Field [ tagTable::kRecordCreatorNode; $check ]
-Set Field [ tagTable::match; "publication" ]
-Perform Find [ ]
-#
-If [ Get (FoundCount) ≠ 0 ]
-If [ $inUse ≠ "" ]
-Set Variable [ $addToInUse; Value:$inUse ]
-If [ $TagsHeader ≠ "" ]
-Set Variable [ $inUse; Value:$addToInUse & ", publication " & Get (FoundCount) ]
-Else
-Set Variable [ $inUse; Value:$addToInUse & "; Tags — publication " & Get (FoundCount) ]
-End If
-Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:"Tags — publication " & Get (FoundCount) ]
-End If
-Set Variable [ $TagsHeader; Value:1 ]
-End If
-#
-#
-#
-#
-#
-#TAG PUBLISHER
-#See if node is used by any test result records.
-#Check in primary...
-Go to Layout [ “tableTag” (tagTable) ]
-Enter Find Mode [ ]
-Set Field [ tagTable::kRecordCreatorNode; $check ]
-Set Field [ tagTable::match; "publisher" ]
-Perform Find [ ]
-#
-If [ Get (FoundCount) ≠ 0 ]
-If [ $inUse ≠ "" ]
-Set Variable [ $addToInUse; Value:$inUse ]
-If [ $TagsHeader ≠ "" ]
-Set Variable [ $inUse; Value:$addToInUse & ", publisher " & Get (FoundCount) ]
-Else
-Set Variable [ $inUse; Value:$addToInUse & "; Tags — publisher " & Get (FoundCount) ]
-End If
-Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:"Tags — publisher " & Get (FoundCount) ]
 End If
 End If
 #
@@ -433,6 +252,199 @@ End If
 #
 #
 #
+#
+#TAG BRAINSTORM
+#See if node is used by any test result records.
+#Check in primary...
+Go to Layout [ “tableTag” (tagTable) ]
+Enter Find Mode [ ]
+Set Field [ tagTable::kRecordCreatorNode; $check ]
+Set Field [ tagTable::match; "brainstorm" ]
+Perform Find [ ]
+#
+If [ Get (FoundCount) ≠ 0 ]
+If [ $inUse ≠ "" ]
+Set Variable [ $addToInUse; Value:$inUse ]
+Set Variable [ $inUse; Value:$addToInUse & "; Tags — brainstorm " & Get (FoundCount) ]
+Else If [ $inUse = "" ]
+Set Variable [ $inUse; Value:"Tags — brainstorm " & Get (FoundCount) ]
+End If
+Set Variable [ $TagsHeader; Value:1 ]
+Set Variable [ $inuseTags; Value:1 ]
+End If
+#
+#
+#
+#
+#
+#TAG COPYRIGHT
+#See if node is used by any test result records.
+#Check in primary...
+Go to Layout [ “tableTag” (tagTable) ]
+Enter Find Mode [ ]
+Set Field [ tagTable::kRecordCreatorNode; $check ]
+Set Field [ tagTable::match; "copyright" ]
+Perform Find [ ]
+#
+If [ Get (FoundCount) ≠ 0 ]
+If [ $inUse ≠ "" ]
+Set Variable [ $addToInUse; Value:$inUse ]
+If [ $TagsHeader ≠ "" ]
+Set Variable [ $inUse; Value:$addToInUse & ", copyright " & Get (FoundCount) ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & "; Tags — copyright " & Get (FoundCount) ]
+End If
+Else If [ $inUse = "" ]
+Set Variable [ $inUse; Value:"Tags — copyright " & Get (FoundCount) ]
+End If
+Set Variable [ $TagsHeader; Value:1 ]
+Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+End If
+#
+#
+#
+#
+#
+#TAG KEYWORD
+#See if node is used by any test result records.
+#Check in primary...
+Go to Layout [ “tableTag” (tagTable) ]
+Enter Find Mode [ ]
+Set Field [ tagTable::kRecordCreatorNode; $check ]
+Set Field [ tagTable::match; "key" ]
+Perform Find [ ]
+#
+If [ Get (FoundCount) ≠ 0 ]
+If [ $inUse ≠ "" ]
+Set Variable [ $addToInUse; Value:$inUse ]
+If [ $TagsHeader ≠ "" ]
+Set Variable [ $inUse; Value:$addToInUse & ", key " & Get (FoundCount) ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & "; Tags — key " & Get (FoundCount) ]
+End If
+Else If [ $inUse = "" ]
+Set Variable [ $inUse; Value:"Tags — key " & Get (FoundCount) ]
+End If
+Set Variable [ $TagsHeader; Value:1 ]
+Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+End If
+#
+#
+#
+#
+#
+#TAG NODE
+#See if node is used by any test result records.
+#Check in primary...
+Go to Layout [ “tableTag” (tagTable) ]
+Enter Find Mode [ ]
+Set Field [ tagTable::kRecordCreatorNode; $check ]
+Set Field [ tagTable::match; "node" ]
+#Omit creator nodes.
+Set Field [ tagTable::textStyleOrCreatorNodeFlag; "=" ]
+Perform Find [ ]
+#
+If [ Get (FoundCount) ≠ 0 ]
+If [ $inUse ≠ "" ]
+Set Variable [ $addToInUse; Value:$inUse ]
+If [ $TagsHeader ≠ "" ]
+Set Variable [ $inUse; Value:$addToInUse & ", node " & Get (FoundCount) ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & "; Tags — node " & Get (FoundCount) ]
+End If
+Else If [ $inUse = "" ]
+Set Variable [ $inUse; Value:"Tags — node " & Get (FoundCount) ]
+End If
+Set Variable [ $TagsHeader; Value:1 ]
+Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+End If
+#
+#
+#
+#
+#
+#TAG PATH
+#See if node is used by any test result records.
+#Check in primary...
+Go to Layout [ “tableTag” (tagTable) ]
+Enter Find Mode [ ]
+Set Field [ tagTable::kRecordCreatorNode; $check ]
+Set Field [ tagTable::match; "path" ]
+Perform Find [ ]
+#
+If [ Get (FoundCount) ≠ 0 ]
+If [ $inUse ≠ "" ]
+Set Variable [ $addToInUse; Value:$inUse ]
+If [ $TagsHeader ≠ "" ]
+Set Variable [ $inUse; Value:$addToInUse & ", path " & Get (FoundCount) ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & "; Tags — path " & Get (FoundCount) ]
+End If
+Else If [ $inUse = "" ]
+Set Variable [ $inUse; Value:"Tags — path " & Get (FoundCount) ]
+End If
+Set Variable [ $TagsHeader; Value:1 ]
+Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+End If
+#
+#
+#
+#
+#
+#TAG PUBLICATION
+#See if node is used by any test result records.
+#Check in primary...
+Go to Layout [ “tableTag” (tagTable) ]
+Enter Find Mode [ ]
+Set Field [ tagTable::kRecordCreatorNode; $check ]
+Set Field [ tagTable::match; "publication" ]
+Perform Find [ ]
+#
+If [ Get (FoundCount) ≠ 0 ]
+If [ $inUse ≠ "" ]
+Set Variable [ $addToInUse; Value:$inUse ]
+If [ $TagsHeader ≠ "" ]
+Set Variable [ $inUse; Value:$addToInUse & ", publication " & Get (FoundCount) ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & "; Tags — publication " & Get (FoundCount) ]
+End If
+Else If [ $inUse = "" ]
+Set Variable [ $inUse; Value:"Tags — publication " & Get (FoundCount) ]
+End If
+Set Variable [ $TagsHeader; Value:1 ]
+Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+End If
+#
+#
+#
+#
+#
+#TAG PUBLISHER
+#See if node is used by any test result records.
+#Check in primary...
+Go to Layout [ “tableTag” (tagTable) ]
+Enter Find Mode [ ]
+Set Field [ tagTable::kRecordCreatorNode; $check ]
+Set Field [ tagTable::match; "publisher" ]
+Perform Find [ ]
+#
+If [ Get (FoundCount) ≠ 0 ]
+If [ $inUse ≠ "" ]
+Set Variable [ $addToInUse; Value:$inUse ]
+If [ $TagsHeader ≠ "" ]
+Set Variable [ $inUse; Value:$addToInUse & ", publisher " & Get (FoundCount) ]
+Else
+Set Variable [ $inUse; Value:$addToInUse & "; Tags — publisher " & Get (FoundCount) ]
+End If
+Else If [ $inUse = "" ]
+Set Variable [ $inUse; Value:"Tags — publisher " & Get (FoundCount) ]
+End If
+Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
+End If
+#
+#
+#
+#
 #TEST SUBJECT — SECTION
 #See if node is the test subject for any
 #test section records created to test it.
@@ -443,6 +455,7 @@ Perform Find [ ]
 If [ Get (FoundCount) ≠ 0 ]
 Set Variable [ $inUseTestSubject; Value:"Setup Test " & Get (FoundCount) ]
 End If
+#
 #
 #
 #
@@ -585,8 +598,23 @@ If [ $primaryOtherOrTestSubjectNode = "" and $locked = "" ]
 #
 #Node created library records.
 If [ $inUse ≠ "" ]
-Show Custom Dialog [ Message: "The records created by this node must be deteted before it can be deleted: " &
-$inUse & "."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: Case ( $inuseTags = "" ;
+ "This node tag is in use in " &
+ Case ( Length ( Filter ( $inUse ; ";" ) ) = 0 ;
+ "1 library section: " & $inUse & ". It cannot be deleted." ;
+ Length ( Filter ( $inUse ; ";" ) ) & " library sections: " & $inUse & ". It cannot be deleted." )
+ ;
+ "This node tag is in use in " &
+ Case ( Length ( Filter ( $inUse ; ";" ) ) = 1 ;
+ "1 library section and " &
+ Case ( $inuseTags = 1 ;
+ "1 tag menu: " & $inUse & "." ;
+ $inuseTags & " tag menus:" & $inUse & ". It cannot be deleted." ) ;
+ Length ( Filter ( $inUse ; ";" ) ) & " library sections and " &
+ Case ( $inuseTags = 1 ;
+ "1 tag menu: " & $inUse & "." ;
+ $inuseTags & " tag menus: " & $inUse & ". It cannot be deleted." ) )
+ ); Default Button: “OK”, Commit: “Yes” ]
 #
 #AND test subject records where created
 #for this node.
@@ -620,8 +648,23 @@ If [ $primaryOtherOrTestSubjectNode ≠ "" or $locked ≠ "" ]
 #
 #Node created library records.
 If [ $inUse ≠ "" ]
-Show Custom Dialog [ Message: "Also, the records created by this node must be deteted before it can be deleted: " &
-$inUse & "."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: Case ( $inuseTags = "" ;
+ "Also, this node tag is in use in " &
+ Case ( Length ( Filter ( $inUse ; ";" ) ) = 0 ;
+ "1 library section: " & $inUse & "." ;
+ Length ( Filter ( $inUse ; ";" ) ) & " library sections: " & $inUse & "." )
+ ;
+ "Also, this node tag is in use in " &
+ Case ( Length ( Filter ( $inUse ; ";" ) ) = 1 ;
+ "1 library section and " &
+ Case ( $inuseTags = 1 ;
+ "1 tag menu: " & $inUse & "." ;
+ $inuseTags & " tag menus:" & $inUse & "." ) ;
+ Length ( Filter ( $inUse ; ";" ) ) & " library sections and " &
+ Case ( $inuseTags = 1 ;
+ "1 tag menu: " & $inUse & "." ;
+ $inuseTags & " tag menus: " & $inUse & "." ) )
+ ); Default Button: “OK”, Commit: “Yes” ]
 #
 #AND test subject records where created
 #for this node.

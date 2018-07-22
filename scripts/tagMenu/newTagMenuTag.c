@@ -1,4 +1,4 @@
-January 15, 2018 16:46:01 Library.fmp12 - newTagMenuTag -1-
+July 21, 2018 14:17:00 Library.fmp12 - newTagMenuTag -1-
 tagMenu: newTagMenuTag
 #
 #Admin tasks.
@@ -25,14 +25,14 @@ End If
 #this first tag to belong to. All tags must belong
 #to a tag group.
 If [ Get (FoundCount) = 0 ]
-Perform Script [ “newTagMenuTagGroup” ]
+Perform Script [ “newTagMenuTagGroup (update)” ]
 Exit Script [ ]
 End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
 If [ tempSetup::kdefaultNodePrimary ≠ "self" ]
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
 End If
 #
 #Stop spelling check script.
@@ -75,8 +75,8 @@ Set Variable [ $$tagRecordID; Value:Get (RecordID) ]
 #Setup as the new primary node.
 If [ tempSetup::kdefaultNodePrimary = "self" or $$createNewPrimary = 1 ]
 Set Field [ TEMP::kdefaultNodePrimary; tagMenus::_Ltag ]
-Set Field [ tagMenus::tag; "MyLastName, MyFirstName" ]
-Set Field [ tagMenus::tagSpelling; "MyLastName, MyFirstName" ]
+Set Field [ tagMenus::tag; "LastName, FirstName" ]
+Set Field [ tagMenus::tagSpelling; "LastName, FirstName" ]
 Set Variable [ $$createNewPrimary; Value:1 ]
 Set Field [ tempSetup::kdefaultNodePrimary; "" ]
 Set Field [ tempSetup::DEFAULTNodePrimaryName; "" ]
@@ -175,25 +175,26 @@ Set Variable [ $$stopLoadTagRecord ]
 If [ $$citationMatch = "copyright" ]
 Set Field [ tagMenus::tag; "Copyright Abbreviation — Full copyright name or brief description" ]
 Set Field [ tagMenus::tagSpelling; "Copyright Abbreviation — Full copyright name or brief description" ]
-Set Field [ tagMenus::notesOrCopyright; TextFont ( "[NOTE: Click the 'web' button above to view the most current and complete
-source of the text excerpts below, copied on " & MonthName ( Get ( CurrentDate ) ) & " " & Day ( Get ( CurrentDate ) ) & ", " &
-Year ( Get ( CurrentDate ) ) & " from https://website.org for your convenience.]" ; "Arial" ) & ¶ & ¶ &
+Set Field [ tagMenus::notesOrCopyright; TextSize ( TextFont ( "[NOTE: Click the 'web' button above to view the most current and
+complete source of the text below, copied on " & MonthName ( Get ( CurrentDate ) ) & " " & Day ( Get ( CurrentDate ) ) & ", " &
+Year ( Get ( CurrentDate ) ) & " from https://website.org for your convenience.]" ; "Arial" ) & ¶ ; 16 ) &
+TextSize ( ¶ &
 "Description of copyright from the webpage you copied it from (copy and paste it here)."
 & ¶ & ¶ &
 "Create a reference record for this copyright that includes the web address."
 & ¶ & ¶ &
 "Use the add button to add the reference with the website link to this copyright record and a copyright image, which you may
-pick from those included in this library." ]
+pick from those included in this library." ; 18 ) ]
 Commit Records/Requests
 [ Skip data entry validation; No dialog ]
-Perform Script [ “reviewCopyright” ]
+Perform Script [ “reviewCopyright (update)” ]
 Go to Field [ tagMenus::tag ]
 End If
 #
 #Run primary node script if user is creating a
 #new primary node.
 If [ $$createNewPrimary = 1 ]
-Perform Script [ “addORremovePrimaryTag” ]
+Perform Script [ “addORremovePrimaryTag (update)” ]
 Set Variable [ $$createNewPrimary ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]

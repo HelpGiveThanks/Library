@@ -1,4 +1,4 @@
-January 18, 2018 16:01:13 Library.fmp12 - backToLearnOrDefaultSetup -1-
+July 21, 2018 12:41:38 Library.fmp12 - backToLearnOrDefaultSetup -1-
 sharedLayoutScripts: backToLearnOrDefaultSetup
 #
 #Admin tasks.
@@ -106,7 +106,7 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Show All Records
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “CHUNKcheckForDragPasteChanges” ]
+Perform Script [ “CHUNK_checkForDraggedPasteChanges” ]
 #
 #Go to default tags layout
 #and load up defaults.
@@ -176,7 +176,8 @@ Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::da
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
 [ Restore; No dialog ]
 End If
 Go to Record/Request/Page
@@ -196,7 +197,11 @@ Go to Layout [ “learnStuff3” (testlearn) ]
 End If
 Set Field [ TEMP::layoutLmain; "more" & Get (LayoutName) ]
 Else If [ tempSetup::layoutLmain ≠ "" ]
-Go to Layout [ Middle ( tempSetup::layoutLmain ; 5 ; 42 ) ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Go to Layout [ "Learn" & Right ( tempSetup::layoutLmain ; 1 ) ]
+Else
+Go to Layout [ "LearnStuff" & Right ( tempSetup::layoutLmain ; 1 ) ]
+End If
 End If
 #
 Set Variable [ $$stoploadCitation ]
@@ -220,14 +225,16 @@ Set Variable [ $$stopLoadTagRecord ]
 #Prevent halting to loadTagRecord script.
 Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 #
-Perform Script [ “CHUNKcheckForDragPasteChanges” ]
+Perform Script [ “CHUNK_checkForDraggedPasteChanges” ]
 #
 Go to Layout [ $$learnTagLayout ]
 Set Variable [ $$learnTagLayout ]
 Set Variable [ $$stopLoadTagRecord ]
 If [ $$module = "ref" ]
-Perform Script [ “menuReference” ]
-Else If [ $$module = "learnTest" ]
+Perform Script [ “menuReference (update)” ]
+Else If [ $$module = "learnTest"
+ or
+$$module = "learnSTest" ]
 Perform Script [ “menuTest” ]
 End If
 #
@@ -238,7 +245,7 @@ Select Window [ Name: "Learn"; Current file ]
 #
 #Perform Load Citation script to restore conditional
 #formatting.
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
 #Finish up back script on the Tag Menus
 #if this is where the user started from by

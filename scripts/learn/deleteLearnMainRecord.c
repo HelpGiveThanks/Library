@@ -1,4 +1,4 @@
-January 16, 2018 15:40:31 Library.fmp12 - deleteLearnMainRecord -1-
+July 20, 2018 17:18:53 Library.fmp12 - deleteLearnMainRecord -1-
 learn: deleteLearnMainRecord
 #
 #
@@ -13,7 +13,8 @@ End If
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit find mode, then click this button."; Default Button: “OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click
+this button."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #

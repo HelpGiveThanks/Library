@@ -1,4 +1,4 @@
-January 15, 2018 16:19:06 Library.fmp12 - menuKey -1-
+July 21, 2018 14:16:11 Library.fmp12 - menuKey -1-
 tagMenu: menuKey
 #
 #Prevent halting of script.
@@ -6,16 +6,45 @@ Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
 #
 #Clear brainstorm and test tags so there conditional
 #formatting in the Learn window is removed.
-If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
 Select Window [ Name: "Learn"; Current file ]
 Go to Field [ ]
 Set Variable [ $$tagBrainstorm ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
+If [ $$primaryKey = "" ]
+Set Variable [ $firstOtherKeyword; Value:Case ( Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::
+OtherKeyWords ; 1 ) ) + 1 ; 1 ) = "," ;
+LeftWords ( testlearn::OtherKeyWords ; 1 ) ;
+Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 2 ) ) + 1 ; 1 ) = "," ;
+LeftWords ( testlearn::OtherKeyWords ; 2 ) ;
+Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 3 ) ) + 1 ; 1 ) = "," ;
+LeftWords ( testlearn::OtherKeyWords ; 3 ) ;
+Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 4 ) ) + 1 ; 1 ) = "," ;
+LeftWords ( testlearn::OtherKeyWords ; 4 ) ;
+LeftWords ( testlearn::OtherKeyWords ; 5 ) ) ]
+End If
+#
+#Sort the records by date field, if current sort is
+#by brainstorm or test order numbers.
+If [ $$citationMatch = "brainstorm" or $$citationMatch = "test" ]
+If [ TEMP::TLTestSort = 1 or TEMP::TLBrainstormSort = 1 ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
+#
+#Set the sort preference field to date.
+If [ $$citationMatch = "brainstorm" ]
+Set Field [ TEMP::TLBrainstormSort; "" ]
+Else If [ $$citationMatch = "test" ]
+Set Field [ TEMP::TLTestSort; "" ]
+End If
+End If
 End If
 #
 #Exit fields in current tag menu to run
@@ -65,7 +94,7 @@ Perform Find [ ]
 #
 // #If no records exist then create one.
 // If [ Get (FoundCount)=0 ]
-// Perform Script [ “newTagMenuTagGroup” ]
+// Perform Script [ “newTagMenuTagGroup (update)” ]
 // End If
 #
 #Sort according to current users wishes.
@@ -100,7 +129,7 @@ End If
 // #mode back to citation mode (or adding node
 // #tags to citations instead of the other way around).
 // If [ $$add = 1 and $$addcitationMatch = "node" ]
-// Perform Script [ “addLinksPicturesToTagsMode” ]
+// Perform Script [ “addLinksPicturesToTagsMode (update)” ]
 // End If
 #
 #Go to citation record's current selection or to first record.
@@ -116,16 +145,18 @@ Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
+If [ $$primaryKey ≠ "" ]
 Loop
 Exit Loop If [ $$primaryKey = tagMenus::_Ltag ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
-If [ $$primaryKey ≠ tagMenus::_Ltag ]
+Else If [ $firstOtherKeyword ≠ "" ]
+Loop
+Exit Loop If [ $firstOtherKeyword = LeftWords ( tagMenus::tag ; 5 ) ]
 Go to Record/Request/Page
-[ First ]
-Scroll Window
-[ Home ]
+[ Next; Exit after last ]
+End Loop
 End If
 #
 #Goto correct layout.
@@ -159,7 +190,7 @@ Set Variable [ $$stopLoadTagRecord ]
 #
 #Prevent halting to loadTagRecord script.
 Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 Set Variable [ $$doNotHaltOtherScripts ]
 #
 #Just in case user was in nonTag field on this

@@ -1,4 +1,4 @@
-January 19, 2018 14:41:35 Library.fmp12 - addORremoveRefTagStep2_forLearnRecord -1-
+July 21, 2018 13:48:44 Library.fmp12 - addORremoveRefTagStep2_forLearnRecord -1-
 tagMenu: addORremoveRefTagStep2_forLearnRecord
 #
 #Conditionally format field in learn or
@@ -20,6 +20,14 @@ Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
 Select Window [ Name: "Learn"; Current file ]
 Set Variable [ $$ref; Value:testlearn::kcreference ]
+#
+#Capture tagged location. If this is
+#changed while on the Qv layout it will effect
+#the record's sort location and require a resort
+#for the user to see the record in the Learn window.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$QvLocation; Value:testlearn::orderInventoryGroupNumber ]
+End If
 Else If [ Get (LastError) ≠ 112 ]
 Set Variable [ $$ref; Value:reference::lock ]
 End If
@@ -46,9 +54,9 @@ End If
 Select Window [ Name: "Learn"; Current file ]
 If [ TEMP::InventoryLibraryYN ≠ "" and testlearn::brainstormCasePoint ≠ "" ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Show Custom Dialog [ Message: "This item is a holder (box, shelf, etc.). To create a holder-within-a-holder relationship 1)
-create a location record for the pimary holder, and 2) tag the secondary holder as being in that location."; Default Button:
-“OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "This record is an in/onTag and cannot be tagged by another in/onTag. Example: To
+create a box on a shelf relationship make the shelf a location tag and the box an in/onTag."; Default Button: “OK”,
+Commit: “Yes” ]
 Halt Script
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -75,9 +83,9 @@ Else
 #container the item is in.
 If [ $$ref ≠ "" ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Show Custom Dialog [ Message: "Inventory can be in locations (shed, bedroom, etc.) or in/on an inventory holder
-(box, shelf, etc.). To add this holder tag, the location tag will be removed when you click OK."; Default Button:
-“OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+Show Custom Dialog [ Message: "Remove the location tag currently applied to this item and replace it with this
+in/on tag? Items can be in locations (shed, kitchen, etc.) or in/on a box, shelf, etc. that is in a location.";
+Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Variable [ $$stopLoadTagRecord ]
 Halt Script
@@ -93,6 +101,23 @@ End If
 Set Variable [ $$ref; Value:testlearn::kcreference ]
 Go to Field [ ]
 #
+#
+#
+#
+If [ $$QvLocation ≠ testlearn::orderInventoryGroupNumber ]
+Sort Records [ ]
+[ No dialog ]
+#
+#Capture tagged location. If this is
+#changed while on the Qv layout it will effect
+#the record's sort location and require a resort
+#for the user to see the record in the Learn window.
+If [ Get ( LayoutName ) ≠ "learn4EDITstuff" ]
+Set Variable [ $$QvLocation ]
+End If
+#
+End If
+#
 Else If [ Get (LastError) ≠ 112 ]
 #If in the reference section, do this...
 Set Field [ reference::lock; $newRef & "¶" & $$ref ]
@@ -105,7 +130,8 @@ Refresh Window
 #
 #Sort records according to users wishes.
 If [ TEMP::InventoryLibraryYN ≠ "" ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
 [ Restore; No dialog ]
 Else
 Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
@@ -123,6 +149,12 @@ Go to Record/Request/Page [ $recordNumber ]
 Exit Script [ ]
 End If
 #
+#
+#
+#
+#
+#
+#
 #If tag has been selected, then remove it.
 Set Variable [ $removeRef; Value:testlearn::_Ltestlearn & "L" ]
 #
@@ -139,6 +171,17 @@ Substitute ( $$ref ; $removeRef; "" )
 ) ]
 Set Variable [ $$ref; Value:testlearn::kcreference ]
 Go to Field [ ]
+#
+#
+#
+#
+If [ $$QvLocation ≠ testlearn::orderInventoryGroupNumber ]
+If [ Get ( LayoutName ) ≠ "learn4EDITstuff" ]
+Set Variable [ $$QvLocation ]
+End If
+Sort Records [ ]
+[ No dialog ]
+End If
 Else If [ Get (LastError) ≠ 112 ]
 Set Field [ reference::lock; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not
 removed, then the removal calc without the paragraph mark is used
@@ -155,7 +198,8 @@ Refresh Window
 #
 #Sort records according to users wishes.
 If [ TEMP::InventoryLibraryYN ≠ "" ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
 [ Restore; No dialog ]
 Else
 Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
@@ -171,4 +215,5 @@ Scroll Window
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]
 Set Variable [ $$skipFirstPartOfScript ]
+#
 #

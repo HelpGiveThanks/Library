@@ -1,4 +1,4 @@
-January 15, 2018 17:03:12 Library.fmp12 - addInitialDateTimeToTextField -1-
+July 21, 2018 12:55:38 Library.fmp12 - addInitialDateTimeToTextField -1-
 tagMenu: addInitialDateTimeToTextField
 #
 #
@@ -119,8 +119,8 @@ End If
 #Make sure the cursor is in active field and if
 #not tell them to click in one.
 If [ Get ( ActiveFieldName ) = "" ]
-Show Custom Dialog [ Message: "Enter a field and place the cursor where you want the text to go. "; Default Button: “OK”,
-Commit: “Yes” ]
+Show Custom Dialog [ Message: "To insert this text — " & Trim ($tag) & " — 1) click into a field, and then 2) click exactly where
+you want it inserted in the field."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 #
 #Insert the text block.

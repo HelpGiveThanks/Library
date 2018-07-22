@@ -1,10 +1,47 @@
-January 15, 2018 18:03:33 Library.fmp12 - showCitationPicture1inNewWindow -1-
+July 20, 2018 21:32:51 Library.fmp12 - showCitationPicture1inNewWindow -1-
 pictures: showCitationPicture1inNewWindow
 #
 #
 #Admin tasks.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
+#
+#Stop script if user clicked in the media field to
+#navigate to this record, not to open the media
+#window.
+If [ $$stopOpenNewTextWindow = 1 ]
+Set Variable [ $$stopOpenNewTextWindow ]
+Exit Script [ ]
+End If
+#
+#If on the Tag Menus learn layout and there
+#is no media to show, exit this script.
+If [ Get ( WindowName ) = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" and testlearn::picture = "" and testlearn::
+kshowReferencedMedia = "" ]
+Exit Script [ ]
+End If
+#
+#
+#In inventory mode, if the user is not in any
+#hidden fields, and there is no media for this
+#record, and the user just activated this script
+#by clicking on the empty media field, then
+#show the hidden fields including the hidden
+#media field so the user can click on it and add
+#a media if they want to.
+If [ Get ( WindowName ) = "Tag Menus" and reference::picture = "" and $$editLocation = reference::_Lreference and TEMP::
+InventoryLibraryYN ≠ "" ]
+If [ Get ( ActiveFieldName ) = "" ]
+Go to Object [ Object Name: "tag 1" ]
+Refresh Window
+Halt Script
+Else
+Set Variable [ $$editLocation ]
+Set Variable [ $openHIddenPicture; Value:1 ]
+Refresh Window
+End If
+End If
+Go to Field [ ]
 #
 #
 #Make sure on layouts where long text field
@@ -13,9 +50,9 @@ Set Error Capture [ On ]
 #cover up, that this script is stopped, and the
 #user is taken to this long text field instead of
 #the picture window opening up.
-If [ reference::referenceShortLong ≠ "" and Get (LayoutTableName) = "reference" and Get (WindowName) = "Tag Menus"
- or
-reference::referenceShortLong ≠ "" and Get (LayoutName) = "TestInfoReference" ]
+If [ reference::referenceHidePicture ≠ "" and Get (LayoutTableName) = "reference" and Get (WindowName) = "Tag Menus" and
+$openHIddenPicture = "" or
+reference::referenceHidePicture ≠ "" and Get (LayoutName) = "TestInfoReference" ]
 Go to Object [ Object Name: "tag 1" ]
 Set Variable [ $$stopGoToKeyTag; Value:1 ]
 Exit Script [ ]
@@ -133,7 +170,8 @@ Set Variable [ $fileLocation; Value:Case (
 reference::picture ≠ "" ; "database" ;
 reference::kfileLocation ≠ "" and reference::fileName ≠ "" and reference::showMedia[2] ≠ "" ; "harddrive" ;
 reference::URL ≠ "" and reference::showMedia ≠ "" ; "web" ;
-Case ( Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceSTUFF" ; "none" ; "tag=none" )
+Case ( Get (LayoutName) = "ReferenceEDIT" or Get (LayoutName) = "ReferenceSTUFF" or Get (LayoutName) =
+"learnMenuRefStuff" ; "none" ; "tag=none" )
 ) ]
 If [ Get (LayoutName) = "ReferenceEDIT" and tagTLNodePrimary::orderOrLock = "" ]
 Set Variable [ $referenceEDIT; Value:1 ]
@@ -217,7 +255,7 @@ Set Variable [ $$defaultPrimaryNodePicture ]
 #
 #
 #If the user clicked on a picture field that is
-#empty in the tag window exit this script.
+#empty in the tag window exit this script, unless the user is in an inventory library.
 If [ $fileLocation = "tag=none"
  or
 $fileLocation = "none" and $lock = 1 ]
@@ -265,7 +303,7 @@ Set Variable [ $$fileLocation; Value:$fileLocation ]
 Set Variable [ $$learnLayout; Value:$learnLayout ]
 Set Variable [ $$referenceLayout; Value:$referenceLayout ]
 #
-Perform Script [ “CHUNK_insertPictureOrMovie” ]
+Perform Script [ “CHUNK_insertPictureOrMovie (update)” ]
 #
 #If the user canceled the media add, then exit
 #this script as there is no picture to show.
@@ -304,6 +342,7 @@ Set Variable [ $$stopWhenLoadingInfoRecordReferences; Value:1 ]
 If [ Get ( WindowName ) ≠ "Media" ]
 New Window [ Name: "Media"; Height: 435; Width: 400; Top: Get (ScreenHeight)/4; Left: Get (ScreenWidth)/4; Style:
 Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 End If
 #
 #
@@ -455,8 +494,10 @@ If [ Get (LayoutTableName) = "testLearn" or Get (LayoutTableName) = "testlearnRe
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
+Set Variable [ $learnWindowName; Value:Get ( WindowName ) ]
 New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4; Left: Get
 (ScreenWidth)/4; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 #
 #
 #Go to edit media layout only if on a
@@ -469,12 +510,19 @@ orderOrLock = "" and Get (LayoutName) ≠ "PrintReportEdit" ]
 #Display database file.
 If [ $fileLocation = "database" or $fileLocation = "TLpicture" ]
 If [ $fileLocation = "database" ]
+#
+#If looking at learn media in the tag menus
+#window, go to the view layout.
+If [ $learnWindowName = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" ]
+Go to Layout [ “LearnRefPictureWindow” (testlearn) ]
+Else
 Go to Layout [ “LearnRefPictureWindowEDIT” (testlearn) ]
+End If
 Else If [ $fileLocation = "TLpicture" ]
 #
-#If looking at learn media on an inventory
-#library's Tag Menu, go to the view layout.
-If [ Right ( Get (LayoutName) ; 4 ) = "Cite" ]
+#If looking at learn media in the tag menus
+#window, go to the view layout.
+If [ $learnWindowName = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" ]
 Go to Layout [ “LearnPictureWindow” (testlearn) ]
 Else
 Go to Layout [ “LearnPictureWindowEDIT” (testlearn) ]
@@ -483,11 +531,25 @@ End If
 #
 #Display harddrive file.
 Else If [ $fileLocation = "harddrive" ]
+#
+#If looking at learn media in the tag menus
+#window, go to the view layout.
+If [ $learnWindowName = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" ]
+Go to Layout [ “LearnRefExternalPictureWindow” (testlearn) ]
+Else
 Go to Layout [ “LearnRefExternalPictureWindowEDIT” (testlearn) ]
+End If
 #
 #Display webpage.
 Else If [ $fileLocation = "web" ]
+#
+#If looking at learn media in the tag menus
+#window, go to the view layout.
+If [ $learnWindowName = "Tag Menus" and Get ( LayoutTableName ) = "testlearn" ]
+Go to Layout [ “LearnRefWebPictureWindow” (testlearn) ]
+Else
 Go to Layout [ “LearnRefWebPictureWindowEDIT” (testlearn) ]
+End If
 End If
 #
 #Not editable (view only) layouts.

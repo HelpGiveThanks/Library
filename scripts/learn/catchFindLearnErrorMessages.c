@@ -1,4 +1,4 @@
-January 16, 2018 22:00:38 Library.fmp12 - catchFindLearnErrorMessages -1-
+July 20, 2018 17:17:38 Library.fmp12 - catchFindLearnErrorMessages -1-
 learn: catchFindLearnErrorMessages
 #
 #This script is used by the findLearnRecord script.
@@ -111,7 +111,7 @@ Else If [ $$GoToField = "" ]
 #script or the cancel find script will halt all
 #copies of the script launched during the
 #sesion.
-Perform Script [ “findLearnRecord” ]
+Perform Script [ “findLearnRecord (update)” ]
 Exit Script [ ]
 End If
 End If
@@ -136,10 +136,10 @@ Set Field [ testlearn::timestamp; $$timestamp ]
 #
 #Explain problems with enter date and time
 #and how this problem can be addressed.
-Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2016
+Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2018
 12:25:30."; Default Button: “OK”, Commit: “No” ]
-Show Custom Dialog [ Message: "You can replace the M/D/2016 H:M:S numbers with asterisks to, for example, search by
-year = */*/2016 *:*:*"; Default Button: “OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "You can replace the M/D/2018 H:M:S numbers with asterisks to, for example, search by
+year = */*/2018 *:*:*"; Default Button: “OK”, Commit: “No” ]
 Show Custom Dialog [ Message: "Click the 'less than' (or search before this date), 'more than' (or search after this date), or
 between dates search strategy buttons, and a properly formatted date search will be inserted for you to edit."; Default
 Button: “OK”, Commit: “No” ]
@@ -161,7 +161,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findLearnRecord” ]
+Perform Script [ “findLearnRecord (update)” ]
 Exit Script [ ]
 End If
 End If
@@ -206,7 +206,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findLearnRecord” ]
+Perform Script [ “findLearnRecord (update)” ]
 Exit Script [ ]
 End If
 End If

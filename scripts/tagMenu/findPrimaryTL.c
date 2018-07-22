@@ -1,8 +1,47 @@
-January 20, 2018 18:05:22 Library.fmp12 - findPrimaryTL -1-
+July 21, 2018 14:13:09 Library.fmp12 - findPrimaryTL -1-
 tagMenu: findPrimaryTL
 #
+#
+#If this tag has a picture that is hidden, ask if
+#the user wants to see the picture or find
+#record's with this tag.
+If [ //There is a picture to show if...
+Get (LayoutName) = "learnMenu4NoPicRefCiteFindTL" and
+(
+testlearn::picture ≠ "" or
+testlearn::kshowReferencedMedia ≠ ""
+)
+or
+Get (LayoutName) = "learnFindCiteS" and
+(
+reference::picture ≠ "" or
+reference::showMedia ≠ "" and reference::URL ≠ "" or
+reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ ""
+) ]
+If [ "L"& testlearn::_Ltestlearn & ¶ = FilterValues ( $$Found ; "L" & testlearn::_Ltestlearn )
+or
+"r" & reference::_Lreference & ¶ = FilterValues ( $$Found ; "r" & reference::_Lreference ) ]
+Show Custom Dialog [ Message: "Show this tag's picture or hide learn records tagged only this tag?"; Default Button: “hide”,
+Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+Else
+Show Custom Dialog [ Message: "Show this tag's picture or find learn records tagged with it?"; Default Button: “find”,
+Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+End If
+If [ Get (LastMessageChoice) = 2 ]
+Set Variable [ $$stopOpenNewTextWindow ]
+Perform Script [ “showCitationPicture1inNewWindow (udpate)” ]
+Exit Script [ ]
+End If
+If [ Get (LastMessageChoice) = 3 ]
+Exit Script [ ]
+End If
+End If
+#
+#
 #Select tag to be found.
-If [ Right ( Get (LayoutName) ; 4 ) = "cite" ]
+If [ Right ( Get (LayoutName) ; 4 ) = "cite"
+or
+Right ( Get (LayoutName) ; 5 ) = "citeS" ]
 Set Variable [ $tag; Value:reference::_Lreference ]
 Else If [ Right ( Get (LayoutName) ; 4 ) = "find" or Get (LayoutTableName) = "tagMenus" ]
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
@@ -347,7 +386,7 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
 #Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]

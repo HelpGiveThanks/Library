@@ -1,4 +1,4 @@
-January 23, 2018 12:05:34 Library.fmp12 - menuLearn -1-
+July 21, 2018 12:41:21 Library.fmp12 - menuLearn -1-
 reference: menuLearn
 #
 #
@@ -11,9 +11,28 @@ Set Variable [ $$tagBrainstorm ]
 Set Variable [ $$tagtest ]
 Set Variable [ $$tagRecordID ]
 Set Variable [ $$tagEdit ]
+#
+#Sort the records by date field, if current sort is
+#by order number.
+If [ TEMP::TLTestSort = 1 or TEMP::TLBrainstormSort = 1 ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
+#
+#Set the sort preference field to date.
+If [ $$citationMatch = "brainstorm" ]
+Set Field [ TEMP::TLBrainstormSort; "" ]
+Else If [ $$citationMatch = "test" ]
+Set Field [ TEMP::TLTestSort; "" ]
+End If
+End If
+#
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 #
@@ -57,14 +76,13 @@ Exit Script [ ]
 End If
 #
 #Continue with show all internal reference possibilities...
-If [ TEMP::InventoryLibraryYN ≠ "" ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending
-testlearn::date; descending
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
-testlearn::timestamp; descending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
 [ Restore; No dialog ]
 End If
 #
@@ -94,7 +112,12 @@ End If
 #
 #Goto correct layout.
 If [ TEMP::InventoryLibraryYN = "" ]
+#Idea Mode
+#
 If [ TEMP::layoutLtagL = "" ]
+#If no layout preference is set, then on iDevices
+#go the layout with no pictures, and to the
+#layout with pictures on desktop computers.
 If [ Get (SystemPlatform) = 3 ]
 Go to Layout [ “learnMenu4noPicRefCite” (testlearn) ]
 Set Field [ TEMP::layoutLtagL; "more" & Get (LayoutName) ]
@@ -103,13 +126,23 @@ Go to Layout [ “learnMenu4RefCite” (testlearn) ]
 Set Field [ TEMP::layoutLtagL; "less" & Get (LayoutName) ]
 End If
 Else
+#
+#Go the layout the user has selected.
 Go to Layout [ Middle ( TEMP::layoutLtagL ; 5 ; 42 ) ]
 End If
+#
 Else
+#
+#Inventory Mode
 If [ Left (Get (LayoutName) ; 1) = "l" ]
 Go to Layout [ “learnMenu4STUFFRefCite” (testlearn) ]
+// Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
+[ Restore; No dialog ]
 Else If [ Left (Get (LayoutName) ; 1) = "r" ]
 End If
+#
+#
 End If
 #
 #Update conditional formatting in main window.

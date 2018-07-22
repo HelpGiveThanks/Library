@@ -1,5 +1,22 @@
-January 19, 2018 14:37:24 Library.fmp12 - sortTags -1-
+July 21, 2018 14:35:54 Library.fmp12 - sortTags -1-
 tagMenu: sortTags
+#
+#Sort Insert Reference window references.
+If [ Get (WindowName) = "Insert Reference" ]
+If [ TEMP::sortInsertRef = "cat" or TEMP::sortInsertRef = "" ]
+Set Field [ TEMP::sortInsertRef; "abc" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+Else If [ TEMP::sortInsertRef = "abc" ]
+Set Field [ TEMP::sortInsertRef; "cat" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list:
+“order Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::referenceShort; ascending ]
+[ Restore; No dialog ]
+End If
+Exit Script [ ]
+End If
 #
 #Sort records and save sort state for future visits.
 If [ $$citationMatch = "key" and TEMP::sortKey = "abc" ]
@@ -126,11 +143,20 @@ Exit Script [ ]
 #
 Else If [ $$citationMatch = "ref" and TEMP::sortRef = "abc" ]
 Set Field [ TEMP::sortRef; "cat" ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list: “order
-Pulldown List”
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list:
+“order Pulldown List”
 tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on value list:
+“order Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::publicationYearOrStuffOrderNumber; based on value list: “order Pulldown List”
+reference::Title; ascending ]
+[ Restore; No dialog ]
+End If
 Exit Script [ ]
 #
 Else If [ $$citationMatch = "testItem" and TEMP::sortTestItem = "abc" ]

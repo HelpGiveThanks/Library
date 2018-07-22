@@ -1,4 +1,4 @@
-January 20, 2018 18:21:20 Library.fmp12 - lockNodesRecords -1-
+July 21, 2018 14:15:32 Library.fmp12 - lockNodesRecords -1-
 tagMenu: lockNodesRecords
 #
 #
@@ -109,9 +109,10 @@ End Loop
 #If there is no password, ask user to create one.
 Else If [ tagMenus::orderOrLock[2] = "" ]
 Set Field [ TEMP::passwordCheck; "" ]
-Show Custom Dialog [ Message: "Enter a password to lock " & tagMenus::tag & "'s records. WARNING: If you can't remember
-this password, your records will remain locked."; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”;
-Input #1: tagMenus::orderOrLock, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
+Show Custom Dialog [ Message: "Lock " & tagMenus::tag & "'s Primary Node [learn, reference, all tag, and test template]
+records, and Test Subject Node [test and report] records. Reference setup records locked separately. WARNING: Password
+lost = Forever locked, sort of... (Click ?)"; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1:
+tagMenus::orderOrLock, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ tagMenus::orderOrLock; "" ]
 Exit Script [ ]

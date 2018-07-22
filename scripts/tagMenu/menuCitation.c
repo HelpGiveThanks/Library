@@ -1,4 +1,4 @@
-January 15, 2018 16:32:08 Library.fmp12 - menuCitation -1-
+July 21, 2018 14:15:53 Library.fmp12 - menuCitation -1-
 tagMenu: menuCitation
 #
 #
@@ -90,12 +90,24 @@ Set Variable [ $$citationItem; Value:reference::_Lreference ]
 Refresh Window
 End If
 #
-#Goto correct layout.
-If [ Left (Get (LayoutName) ; 1) = "l" ]
-Go to Layout [ “learnMenu3Cite” (reference) ]
-Else If [ Left (Get (LayoutName) ; 1) = "r" ]
+#
+#If no layout preference is set, then on iDevices
+#go the layout with no pictures, and to the
+#layout with pictures on desktop computers.
+If [ TEMP::layoutRtagCite = "" ]
+If [ Get (SystemPlatform) = 3 ]
+Go to Layout [ “ReferenceMenu3CiteNoPicture” (reference) ]
+Set Field [ TEMP::layoutRtagCite; "more" & Get (LayoutName) ]
+Else
 Go to Layout [ “ReferenceMenu3Cite” (reference) ]
+Set Field [ TEMP::layoutRtagCite; "less" & Get (LayoutName) ]
 End If
+Else
+#
+#Go the layout the user has selected.
+Go to Layout [ Middle ( TEMP::layoutRtagCite ; 5 ; 42 ) ]
+End If
+#
 #
 #Now that looping thru records is comlete,
 #turn back on record load scripts.

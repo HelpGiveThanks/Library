@@ -1,4 +1,4 @@
-January 15, 2018 16:44:47 Library.fmp12 - newTagMenuTagGroup -1-
+July 21, 2018 14:17:17 Library.fmp12 - newTagMenuTagGroup -1-
 tagMenu: newTagMenuTagGroup
 #
 #Admin tasks.
@@ -13,13 +13,27 @@ End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
 #
 #If the user has not selected a primary node,
 #then prevent this script from creating new
 #records. All records must be created by the
 #primary node.
 If [ tempSetup::kdefaultNodePrimary = "" and $$stopAddBack ≠ 1 ]
+#Make sure all creator nodes are showing
+#before asking the user to select one or
+#create one.
+Set Error Capture [ On ]
+Allow User Abort [ Off ]
+Enter Find Mode [ ]
+Set Field [ tagMenus::match; $$citationMatch ]
+Set Field [ tagMenus::textStyleOrCreatorNodeFlag; 123456789 ]
+Perform Find [ ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value list:
+“order Pulldown List”
+tagMenuGroup::name; ascending
+tagMenus::tag; ascending ]
+[ Restore; No dialog ]
 Show Custom Dialog [ Message: "Select yourself (the node responsible for creating and editing records) from the nodes listed
 below, OR create a new node record for yourself."; Default Button: “select”, Commit: “Yes”; Button 2: “create”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 1 ]
@@ -46,6 +60,12 @@ End If
 Set Field [ testSubsectionGroup::name; "group" & testSubsectionGroup::_Lgroup ]
 Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "group" & testSubsectionGroup::_Lgroup ]
 Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
+#(Further testing required. This group is
+#created by the new library script, so it does
+#not need to be created here.)
+// If [ tempSetup::kdefaultNodePrimary = "self" ]
+// Set Field [ testSubsectionGroup::orderOrLibraryType; "001" ]
+// End If
 #
 #
 #Create new tag for this group so it will show up.
@@ -81,8 +101,8 @@ Set Field [ tagMenus::kGroupOrTest; $group ]
 #Setup as the new primary node.
 If [ tempSetup::kdefaultNodePrimary = "self" ]
 Set Field [ TEMP::kdefaultNodePrimary; tagMenus::_Ltag ]
-Set Field [ tagMenus::tag; "MyLastName, MyFirstName" ]
-Set Field [ tagMenus::tagSpelling; "MyLastName, MyFirstName" ]
+Set Field [ tagMenus::tag; "LastName, FirstName" ]
+Set Field [ tagMenus::tagSpelling; "LastName, FirstName" ]
 Set Variable [ $$createNewPrimary; Value:1 ]
 Set Field [ tempSetup::kdefaultNodePrimary; "" ]
 Set Field [ tempSetup::DEFAULTNodePrimaryName; "" ]
@@ -139,7 +159,7 @@ If [ $$citationMatch = "brainstorm" ]
 #
 #Set default copyright for tag.
 Set Field [ tagMenus::notesOrCopyright; TEMP::kdefaultCopyright ]
-Perform Script [ “loadBrainstormTags” ]
+Perform Script [ “loadBrainstormTags (udpate)” ]
 Else
 Set Variable [ $$doNotHaltOtherScripts ]
 End If
@@ -164,7 +184,7 @@ Year ( Get ( CurrentDate ) ) & " from https://website.org for your convenience.]
 pick from those included in this library." ]
 Commit Records/Requests
 [ Skip data entry validation; No dialog ]
-Perform Script [ “reviewCopyright” ]
+Perform Script [ “reviewCopyright (update)” ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]
 End If
@@ -172,7 +192,7 @@ End If
 #Run primary node script if user is creating a
 #new primary node.
 If [ $$createNewPrimary = 1 ]
-Perform Script [ “addORremovePrimaryTag” ]
+Perform Script [ “addORremovePrimaryTag (update)” ]
 Set Variable [ $$createNewPrimary ]
 Go to Field [ tagMenus::tag ]
 [ Select/perform ]

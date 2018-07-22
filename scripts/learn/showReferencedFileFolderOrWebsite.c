@@ -1,5 +1,5 @@
-January 16, 2018 15:39:06 Library.fmp12 - showReferencedFileFolderOrWebsite -1-
-learn: showReferencedFileFolderOrWebsite
+July 20, 2018 17:23:58 Library.fmp12 - showReferencedFileFolder -1-
+learn: showReferencedFileFolder
 #
 #
 #FILE BUTTON (or on copyright menu WEB BUTTON)
@@ -129,63 +129,23 @@ Set Variable [ $$openReferencedWebsite ]
 End If
 #
 #
+#FILE BUTTON
+#If the user clicked a file button
+#the present them with
+#file and folder buttons.
+If [ $openReferencedWebsite = "" ]
+#
 #If the file path tag's "real shelf, box, etc."
 #checkbox in the Reference's Tag Menu's
 #window is empty, then ask if the user wants to
 #open the digital-file's folder or open the file.
-If [ $openReferencedWebsite = "" ]
 If [ tagRefFolderPath::kfileORkTestItemCreatorNode = "" and tagRefLearnFolderPath::kfileORkTestItemCreatorNode = "" and
 refTestFolderPath::kfileORkTestItemCreatorNode = "" and $$tagMenusRealCheckbox = "" ]
 #
-#1) If user has clicked on a tagmenus
-#table tag, present them with
-#web, folder, file buttons.
-If [ //If TagMenus has a URL ask this question.
- $$tagMenusURL ≠ "" or
- $$tagMenusISBN ≠ "" or
- $$tagMenusISSN ≠ "" or
- $$tagMenusDOI ≠ "" ]
-#Only has a url...
-If [ ( Get (LayoutTableName) = "tagMenus" and
- (
-//All fields required to find file in the main or x folders.
-$$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and FilterValues ( $$tagMenusFileLocation ;
-"8162011225605315" ) ≠ "8162011225605315" & ¶
- or
-//All fields required to a find file in a file path tag 'other' folder.
-$$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and $$tagMenusFilePath ≠ ""
- ) ) = 0 ]
-#Since there is only a website to open, then
-#note this for the calcs below and don't
-#ask a question.
-Set Variable [ $openReferencedWebsite; Value:1 ]
-Else
-#Has url and folder and file ...
-Show Custom Dialog [ Message: "Open link to website OR" & ¶ & "file's folder OR" & ¶ & "file?"; Default Button:
-“file”, Commit: “Yes”; Button 2: “folder”, Commit: “No”; Button 3: “website”, Commit: “No” ]
-If [ Get (LastMessageChoice) = 3 ]
-Set Variable [ $openReferencedWebsite; Value:1 ]
-End If
-End If
-#Only has a folder and file ...
-Else If [ ( Get (LayoutTableName) = "tagMenus" and
- (
-//All fields required to find file in the main or x folders.
-$$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and FilterValues ( $$tagMenusFileLocation ;
-"8162011225605315" ) ≠ "8162011225605315" & ¶
- or
-//All fields required to a find file in a file path tag 'other' folder.
-$$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and $$tagMenusFilePath ≠ ""
- ) ) = 0 ]
-Show Custom Dialog [ Message: "Open link to website OR" & ¶ & "file's folder OR" & ¶ & "file?"; Default Button: “file”,
-Commit: “Yes”; Button 2: “folder”, Commit: “No”; Button 3: “website”, Commit: “No” ]
-#
-#2) If the user clicked a file button
-#the present them with
-#file and folder buttons.
-Else
-Show Custom Dialog [ Message: "Open link to the folder the file is in" & ¶ & "OR" & ¶ & "the file?"; Default Button: “file”,
-Commit: “Yes”; Button 2: “folder”, Commit: “No” ]
+Show Custom Dialog [ Message: "Open the file's folder" & ¶ & "OR" & ¶ & "the file?"; Default Button: “file”, Commit: “Yes”;
+Button 2: “folder”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 3 ]
+Exit Script [ ]
 End If
 #
 Else

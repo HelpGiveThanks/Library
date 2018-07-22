@@ -1,4 +1,4 @@
-January 11, 2018 19:01:16 Library.fmp12 - setupReference_New -1-
+July 20, 2018 21:30:47 Library.fmp12 - setupReference_New -1-
 librarySetup: setupReference_New
 #
 #
@@ -11,7 +11,7 @@ End If
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
 #
 #Make sure user understands the reason
 #to create a setup reference record.
@@ -49,10 +49,11 @@ Set Field [ librarySetupReferenceMain::name; "Remix of Library Setup Name" ]
 End If
 #
 Set Field [ librarySetupReferenceMain::creatorName; "FirstName LastName" ]
+Set Field [ librarySetupReferenceMain::version; "1" ]
 #
 #Go to edit setup reference window.
 Set Variable [ $$newSetupReference; Value:1 ]
-Perform Script [ “setupReference_GoToPortalReferenceRevieworWebsite” ]
+Perform Script [ “setupReference_GoToPortalReferenceRevieworWebsite (update)” ]
 #
 #
 #

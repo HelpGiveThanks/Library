@@ -1,4 +1,4 @@
-January 20, 2018 17:47:54 Library.fmp12 - checkKeyANDNodeTagNames -1-
+July 21, 2018 13:49:00 Library.fmp12 - checkKeyANDNodeTagNames -1-
 tagMenu: checkKeyANDNodeTagNames
 #
 #
@@ -26,7 +26,7 @@ If [ Get ( ActiveFieldName ) = "tag" ]
 Set Variable [ $$tag; Value:tagMenus::_Ltag ]
 End If
 Set Variable [ $tagSpelling; Value:tagMenus::tagSpelling ]
-Perform Script [ “CHUNKcheckForDragPasteChanges” ]
+Perform Script [ “CHUNK_checkForDraggedPasteChanges” ]
 Set Variable [ $$tag ]
 Set Field [ tagMenus::tagSpelling; $tagSpelling ]
 #
@@ -290,6 +290,10 @@ Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 #If the spellling of the tag has changed or if tag
 #is new do the following.
 If [ tagMenus::tag ≠ tagMenus::tagSpelling and tagMenus::tagSpelling ≠ "" ]
+#
+#(See disabled code not below.)
+// Set Variable [ $$key; Value:tagMenus::_Ltag ]
+#
 #Commit records so user can change spelling.
 #Without commit records the system will not find
 #a newly added tag during the find part script.
@@ -301,10 +305,38 @@ Select Window [ Name: "Setup"; Current file ]
 Commit Records/Requests
 Else If [ Get (LastError) ≠ 112 ]
 Commit Records/Requests
+#
+#
+#This block of code is the unfinished start of
+#informing the user when they change the
+#spelling of a keyword that is in use as a
+#reference header that its alphabetical position
+#might be altered. I thought this is important
+#information for keyword order number
+#changes, which can actually un-alphabetize
+#the order the reference group headers.
+#However, I thought such information would be
+#pointing-out-the-obvious when it comes to
+#spelling changes changing the alphabetical
+#position, and, so, stopped work on this code
+#and disabled it.
+Set Variable [ $$stoploadCitation; Value:1 ]
+// New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize:
+“Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+// Go to Layout [ “ReferenceScriptLoops” (reference) ]
+// Enter Find Mode [ ]
+// Set Field [ tagKeywordPrimary::_Ltag; $$key ]
+// Perform Find [ ]
+// #
+// #If the edited record moved then note this.
+// If [ Get ( FoundCount ) ≠ 0 ]
+// Show Custom Dialog [ Message: "lkjlk"; Default Button: “OK”, Commit: “Yes” ]
+// End If
+// Close Window [ Current Window ]
+#
 End If
 Else If [ Get (LastError) ≠ 112 ]
 Commit Records/Requests
-#
 #
 #
 #See if the edited record changed position in
@@ -339,8 +371,40 @@ End If
 #If the edited record move then note this.
 If [ $currentrecord ≠ Get (RecordNumber) ]
 Set Variable [ $recordMoved; Value:Get (RecordNumber) ]
+#
+#
+Else
+#This block of code is the unfinished start of
+#informing the user when they change the
+#spelling of a keyword that is in use as a
+#reference header that its alphabetical position
+#might be altered. I thought this is important
+#information for keyword order number
+#changes, which can actually un-alphabetize
+#the order the reference group headers.
+#However, I thought such information would be
+#pointing-out-the-obvious when it comes to
+#spelling changes changing the alphabetical
+#position, and, so, stopped work on this code
+#and disabled it.
+// Set Variable [ $$stoploadCitation; Value:1 ]
+// New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize:
+“Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+// Go to Layout [ “ReferenceScriptLoops” (reference) ]
+// Enter Find Mode [ ]
+// Set Field [ tagKeywordPrimary::_Ltag; $$key ]
+// Perform Find [ ]
+// #
+// #If the edited record moved then note this.
+// If [ Get ( FoundCount ) ≠ 0 ]
+// Show Custom Dialog [ Message: "lkjlk"; Default Button: “OK”, Commit: “Yes” ]
+// Set Variable [ ]
+// End If
+// Close Window [ Current Window ]
 End If
+#
 Close Window [ Name: "CheckDuplicateRecordPosition"; Current file ]
+#
 #
 #Re-sort and return to edited record if it
 #was moved.

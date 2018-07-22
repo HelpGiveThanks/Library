@@ -1,4 +1,4 @@
-January 20, 2018 19:09:20 Library.fmp12 - menuNodeFind -1-
+July 21, 2018 14:44:41 Library.fmp12 - menuNodeFind -1-
 tagMenu: menuFind: menuNodeFind
 #
 #Set citationMatch to color menu button with inUse color.
@@ -24,6 +24,14 @@ Set Error Capture [ On ]
 Allow User Abort [ Off ]
 Enter Find Mode [ ]
 Set Field [ tagMenus::match; $$citationMatch ]
+#
+#In Learn section only show creator nodes,
+#as these are the only nodes that can create
+#or edit learn records.
+If [ Left (Get (LayoutName) ; 1) = "l" ]
+Set Field [ tagMenus::textStyleOrCreatorNodeFlag; 123456789 ]
+End If
+#
 Perform Find [ ]
 #
 #Sort according to current users wishes.

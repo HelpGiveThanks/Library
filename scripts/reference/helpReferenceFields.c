@@ -1,4 +1,4 @@
-January 21, 2018 12:24:42 Library.fmp12 - helpReferenceFields -1-
+July 21, 2018 12:40:44 Library.fmp12 - helpReferenceFields -1-
 reference: helpReferenceFields
 #
 #
@@ -6,6 +6,20 @@ reference: helpReferenceFields
 #leave repition 50 blank as it is the one used on
 #the reference layout. By leaving it blank, no
 #text appears in this field.
+#
+#After a user selects a popup calendar date,
+#the exitAndStopClearCitationMatch sets the
+#variable below and then FileMaker leaves the
+#date field and enters the help field, which
+#thanks to this variable will not run, giving the
+#user a pleasant experience of selecting a
+#calendar date and watching the calendar go
+#away without anything else happening.
+If [ $$pleaseExitUserJustLeftCalendarField ≠ "" ]
+Set Variable [ $$pleaseExitUserJustLeftCalendarField ]
+Go to Field [ ]
+Exit Script [ ]
+End If
 #
 #
 #Get help message number from the object

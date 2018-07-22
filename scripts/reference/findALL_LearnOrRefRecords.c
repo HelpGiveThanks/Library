@@ -1,4 +1,4 @@
-January 18, 2018 15:02:20 Library.fmp12 - findALL_LearnOrRefRecords -1-
+July 20, 2018 21:52:08 Library.fmp12 - findALL_LearnOrRefRecords -1-
 reference: findALL_LearnOrRefRecords
 #
 #If in find mode, exit script.
@@ -41,7 +41,8 @@ Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::da
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
 [ Restore; No dialog ]
 End If
 Go to Record/Request/Page
@@ -49,7 +50,7 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 Exit Script [ ]
 End If
 #
@@ -136,6 +137,6 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
 #

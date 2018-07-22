@@ -1,4 +1,4 @@
-January 20, 2018 18:04:06 Library.fmp12 - findMode -1-
+July 21, 2018 14:12:18 Library.fmp12 - findMode -1-
 tagMenu: findMode
 #
 #
@@ -58,17 +58,33 @@ reference::referenceShort; ascending ]
 Constrain Found Set [ Specified Find Requests: Omit Records; Criteria: reference::lock: “lock” ]
 [ Restore ]
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 Halt Script
 Else
-Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on value
-list: “order Pulldown List”
+#
+If [ $$citationMatch = "learn" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
+testlearn::timestamp; descending ]
+[ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber;
+ascending
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
+#
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on
+value list: “order Pulldown List”
 tagMenuGroup::name; ascending
 tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
+End If
+#
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 Halt Script
 End If
 #
@@ -112,7 +128,8 @@ End If
 End If
 #
 #If user selects to find tags enter find mode first.
-If [ Get ( LastMessageChoice ) = 1 and $$ClearMessageChoice ≠ 2 or
+If [ Get ( LastMessageChoice ) = 1 and $$ClearMessageChoice ≠ 2
+ or
 $$stopAdd = 1 ]
 Enter Find Mode [ ]
 #
@@ -143,9 +160,9 @@ End If
 #Select the field where the user needs to enter the
 #find information.
 If [ TEMP::InventoryLibraryYN ≠ "" ]
-Go to Field [ reference::referenceSTUFF ]
+// Go to Field [ reference::referenceSTUFF ]
 Else
-Go to Field [ reference::referenceForReferenceWindow ]
+// Go to Field [ reference::referenceForReferenceWindow ]
 End If
 #
 #Pause and wait until user is ready to perform find.
@@ -171,7 +188,7 @@ tagKeywordPrimary::tag; ascending
 reference::referenceShort; ascending ]
 [ Restore; No dialog ]
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 Halt Script
 Exit Script [ ]
 #
@@ -213,9 +230,9 @@ End If
 #Select the field where the user needs to enter the
 #find information.
 If [ Left (Get (LayoutName) ; 5 ) = "learn" ]
-Go to Field [ testlearn::note ]
+// Go to Field [ testlearn::note ]
 Else
-Go to Field [ tagMenus::tag ]
+// Go to Field [ tagMenus::tag ]
 End If
 #
 #Pause and wait until user is ready to perform find.
@@ -230,14 +247,30 @@ Perform Find [ ]
 #
 Go to Layout [ $$findLayout ]
 Set Variable [ $$findLayout ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType; based on
-value list: “order Pulldown List”
+#
+If [ $$citationMatch = "learn" ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
+testlearn::timestamp; descending ]
+[ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::
+orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
+#
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagMenuGroup::orderOrLibraryType;
+based on value list: “order Pulldown List”
 tagMenuGroup::name; ascending
 tagMenus::orderOrLock; based on value list: “order Pulldown List”
 tagMenus::tag; ascending ]
 [ Restore; No dialog ]
+End If
+#
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 Exit Script [ ]
 End If
 #
@@ -266,11 +299,35 @@ Set Variable [ $$findLayout; Value:Get (LayoutName) ]
 #FIND FOR LEARN MODULE
 #
 If [ Right ( Get (LayoutName) ; 7 ) = "refcite" and Left ( Get (LayoutName) ; 1 ) = "l" ]
-If [ TEMP::InventoryLibraryYN ≠ "" ]
-Go to Layout [ “learnMenu4RefStuffCiteFindTL” (testlearn) ]
+#
+If [ TEMP::InventoryLibraryYN = "" ]
+#Idea Mode
+#
+If [ TEMP::layoutLtagLFIND = "" ]
+#If no layout preference is set, then on iDevices
+#go the layout with no pictures, and to the
+#layout with pictures on desktop computers.
+If [ Get (SystemPlatform) = 3 ]
+Go to Layout [ “learnMenu4NoPicRefCiteFindTL” (testlearn) ]
+Set Field [ TEMP::layoutLtagLFIND; "more" & Get (LayoutName) ]
 Else
 Go to Layout [ “learnMenu4RefCiteFindTL” (testlearn) ]
+Set Field [ TEMP::layoutLtagLFIND; "less" & Get (LayoutName) ]
 End If
+#
+Else
+#
+#Go the layout the user has selected.
+Go to Layout [ Middle ( TEMP::layoutLtagLFIND ; 5 ; 42 ) ]
+End If
+#
+Else
+#Inventory Mode
+#
+#Go the layout the user has selected.
+Go to Layout [ “learnMenu4RefStuffCiteFindTL” (testlearn) ]
+End If
+#
 Else If [ Right ( Get (LayoutName) ; 9 ) = "Copyright" and Left ( Get (LayoutName) ; 1 ) = "l" ]
 If [ TEMP::InventoryLibraryYN ≠ "" ]
 Go to Layout [ “learnSFind” (tagMenus) ]
@@ -297,12 +354,35 @@ Go to Layout [ “learnFindSTest” (testSubsectionTemplate) ]
 Else
 Go to Layout [ “learnFindTest” (testSubsectionTemplate) ]
 End If
+#
+#
+#
+#
 Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" and Left ( Get (LayoutName) ; 1 ) = "l"
 or
 Right ( Get (LayoutName) ; 6 ) = "3citeS" and Left ( Get (LayoutName) ; 1 ) = "l" ]
+#
+#
+#If no layout preference is set, then on iDevices
+#go the layout with no pictures, and to the
+#layout with pictures on desktop computers.
+If [ TEMP::layoutLtagRFIND = "" ]
+If [ Get (SystemPlatform) = 3 ]
+Go to Layout [ “learnFindCiteS” (reference) ]
+Set Field [ TEMP::layoutLtagRFIND; "more" & Get (LayoutName) ]
+Else
 Go to Layout [ “learnFindCite” (reference) ]
+Set Field [ TEMP::layoutLtagRFIND; "less" & Get (LayoutName) ]
+End If
+Else
+#
+#Go the layout the user has selected.
+Go to Layout [ Middle ( TEMP::layoutLtagRFIND ; 5 ; 42 ) ]
+End If
+#
 Else If [ Right ( Get (LayoutName) ; 8 ) = "RefStuff" and Left ( Get (LayoutName) ; 1 ) = "l" ]
 Go to Layout [ “learnFindStuffCite” (reference) ]
+#
 #
 #FIND FOR REFERENCE MODULE
 #
@@ -326,8 +406,27 @@ Go to Layout [ “ReferenceMenu2SkeywordOrNodeFind” (tagMenus) ]
 Else
 Go to Layout [ “ReferenceMenu2keywordOrNodeFind” (tagMenus) ]
 End If
-Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" and Left ( Get (LayoutName) ; 1 ) = "r" ]
+Else If [ Middle ( Get ( LayoutName ) ; 14 ; 5 ) = "3cite" and Left ( Get (LayoutName) ; 1 ) = "r" ]
+#
+#
+#If no layout preference is set, then on iDevices
+#go the layout with no pictures, and to the
+#layout with pictures on desktop computers.
+If [ TEMP::layoutRtagCiteFIND = "" ]
+If [ Get (SystemPlatform) = 3 ]
+Go to Layout [ “ReferenceMenu3CiteFindS” (reference) ]
+Set Field [ TEMP::layoutRtagCiteFIND; "more" & Get (LayoutName) ]
+Else
 Go to Layout [ “ReferenceMenu3CiteFind” (reference) ]
+Set Field [ TEMP::layoutRtagCiteFIND; "less" & Get (LayoutName) ]
+End If
+Else
+#
+#Go the layout the user has selected.
+Go to Layout [ Middle ( TEMP::layoutRtagCiteFIND ; 5 ; 42 ) ]
+End If
+#
+#
 Else If [ Right ( Get (LayoutName) ; 9 ) = "Copyright" and Left ( Get (LayoutName) ; 1 ) = "r" ]
 Go to Layout [ “ReferenceMenuFind” (tagMenus) ]
 End If
@@ -353,7 +452,8 @@ End If
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get ( LayoutTableName ) = "testlearn" and TEMP::InventoryLibraryYN ≠ "" ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::concatenateSTUFFcontainer; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
 [ Restore; No dialog ]
 End If
 If [ Get ( LayoutTableName ) = "testlearn" and TEMP::InventoryLibraryYN = "" ]
@@ -370,11 +470,11 @@ Set Variable [ $$found ]
 Set Variable [ $$foundOther ]
 Set Variable [ $$findLayout ]
 If [ $$citationmatch = "cite" ]
-Perform Script [ “menuCitation” ]
+Perform Script [ “menuCitation (update)” ]
 Else If [ $$citationmatch = "key" ]
-Perform Script [ “menuKey” ]
+Perform Script [ “menuKey (udpate)” ]
 Else If [ $$citationMatch = "node" ]
-Perform Script [ “menuNode” ]
+Perform Script [ “menuNode (update)” ]
 Else If [ $$citationMatch = "medium" ]
 Perform Script [ “menuMedium” ]
 Else If [ $$citationMatch = "copyright" ]
@@ -390,9 +490,9 @@ Perform Script [ “menuBrainstorm” ]
 Else If [ $$citationMatch = "test" ]
 Perform Script [ “menuTest” ]
 Else If [ $$citationMatch = "learn" ]
-Perform Script [ “menuLearn” ]
+Perform Script [ “menuLearn (udpate)” ]
 Else If [ $$citationMatch = "ref" ]
-Perform Script [ “menuReference” ]
+Perform Script [ “menuReference (update)” ]
 End If
 Set Variable [ $$stoploadCitation ]
 Exit Script [ ]

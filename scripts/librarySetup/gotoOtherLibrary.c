@@ -1,4 +1,4 @@
-January 11, 2018 18:38:37 Library.fmp12 - gotoOtherLibrary -1-
+July 20, 2018 17:26:42 Library.fmp12 - gotoOtherLibrary -1-
 librarySetup: gotoOtherLibrary
 #
 #!!!!!!!!!! NOTE !!!!!!!!!!!!!
@@ -32,7 +32,7 @@ Exit Script [ ]
 End If
 #
 #Close all solutions window if open after selecting a library.
-Close Window [ Name: "All Solutions"; Current file ]
+Close Window [ Name: "All Apps"; Current file ]
 Set Variable [ $$otherApps ]
 Halt Script
 #
@@ -90,7 +90,7 @@ MemorySwitch::name ) ) ; 1 ) ]
 Select Window [ Name: GetValue ( WindowNames ( Case ( Get ( SystemPlatform ) = - 2 ;
 MemorySwitch::name ;
 MemorySwitch::name ) ) ; 2 ) ]
-Select Window [ Name: MemorySwitch::currentLibraryMainWIndow ]
+Select Window [ Name: MemorySwitch::currentLibraryWIndows ]
 End If
 #
 #There is no harm in leaving multiple libraries
@@ -174,9 +174,14 @@ Delete Portal Row
 Exit Script [ ]
 End If
 #
+#Set selected path and name to current name
+#and path.
+Set Field [ MemorySwitch::currentLibraryPath; $path ]
+Set Field [ MemorySwitch::currentLibraryName; $name ]
+#
 #Close other solutions window if open after selecting a library.
 If [ $$otherApps = 1 ]
-Close Window [ Name: "All Solutions"; Current file ]
+Close Window [ Name: "All Apps"; Current file ]
 Set Variable [ $$otherApps ]
 Halt Script
 End If

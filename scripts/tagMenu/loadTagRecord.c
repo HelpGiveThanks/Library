@@ -1,4 +1,4 @@
-January 15, 2018 17:21:02 Library.fmp12 - loadTagRecord -1-
+July 21, 2018 14:13:49 Library.fmp12 - loadTagRecord -1-
 tagMenu: loadTagRecord
 #
 #NOTE: this script is used on the Tag Menus window
@@ -29,6 +29,14 @@ End If
 #Admin tasks.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
+#
+#When user has navigated to a key tag menu
+#record by clicking on the order-number
+#popup menu, set this variable to insure the
+#order number selection process is completed.
+If [ Get ( ActiveFieldName ) = "orderOrLock" and $$citationMatch = "key" ]
+Set Variable [ $$keyOrderNumberPossibleChanged; Value:1 ]
+End If
 #
 #On the test-item layout, set this stop check
 #or text variable to allow the user to click into
@@ -65,7 +73,9 @@ Set Variable [ $$stopFilePathWarning ]
 #Capture recordID to conditionally format current record.
 Set Variable [ $$tagRecordID; Value:Get (RecordID) ]
 #
-Refresh Window
+#Clear the old record's ID so its hidden edit
+#fields do not get revealed during navigation.
+Set Variable [ $$editLocation ]
 #
 #Get tag's group key for 'move' button script.
 Set Variable [ $$groupOLD; Value:tagMenus::kGroupOrTest ]
@@ -97,6 +107,28 @@ End If
 #number in case user changes it.
 Set Variable [ $$refGroupOrderNumber; Value:tagKeywordPrimary::orderOrLock ]
 Set Variable [ $$refOrderNumber; Value:reference::publicationYearOrStuffOrderNumber ]
+Set Variable [ $$refOrderNumber; Value:reference::publicationYearOrStuffOrderNumber ]
+Set Variable [ $$refIDForMainLearnRecord; Value:reference::_Lreference ]
+#
+#Refresh the window so hidden fields that must
+#match the ID variable just updated will now
+#show up.
+Refresh Window
+#
+#
+#Clear these variables and then load them.
+Set Variable [ $$refIDForMainLearnRecord ]
+Set Variable [ $$learnIDForMainLearnRecord; Value:reference::_Lreference ]
+Set Variable [ $$refIDForMainLearnRecord; Value:reference::_Lreference ]
+If [ TEMP::layoutLmain = "lesslearn4"
+or
+TEMP::layoutLmain = "morelearn4"
+or
+$$testLearnLayoutName ≠ "" ]
+Select Window [ Name: "Learn"; Current file ]
+Refresh Window
+Select Window [ Name: "Tag Menus"; Current file ]
+End If
 #
 #Get tag's copyright key for 'select' button
 #in case this node is locked, and the copyright
@@ -138,11 +170,14 @@ If [ $$citationMatch = "ref"
 $$citationMatch = "key"
  or
 $$citationMatch = "node" ]
-Perform Script [ “enterShortOrLongTagField” ]
+Perform Script [ “enterShortOrLongTagField (update)” ]
 // Show Custom Dialog [ Title: "halt"; Message: "halt"; Default Button: “OK”, Commit: “Yes” ]
 Halt Script
 End If
 #
 End If
+#
+#Clear the order number check variable.
+Set Variable [ $$keyOrderNumberPossibleChanged ]
 #
 #

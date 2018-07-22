@@ -1,4 +1,4 @@
-January 20, 2018 18:26:34 Library.fmp12 - sortTestOrBrainstormTaggedLearnRecords -1-
+July 21, 2018 14:36:22 Library.fmp12 - sortTestOrBrainstormTaggedLearnRecords -1-
 tagMenu: sortTestOrBrainstormTaggedLearnRecords
 #
 #Used by the following scripts:
@@ -26,7 +26,7 @@ Set Variable [ $$stoploadCitation; Value:1 ]
 #test learn table records sorted by order number.
 #If they do (the tlbrainstormsort is blank) then sort
 #by order number.
-If [ TEMP::TLBrainstormSort = "order" and $$citationMatch = "brainstorm" ]
+If [ TEMP::TLBrainstormSort =1 and $$citationMatch = "brainstorm" ]
 #
 #Set the TLBrainstormSort field with a 1. Now if user
 #clicks the sort button it will be because they
@@ -110,10 +110,20 @@ End Loop
 End If
 #
 #Sort the records by order field.
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list:
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list:
 “testPulldownListANDsortOrderList”
+testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList”
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list:
+“testPulldownListANDsortOrderList”
+testlearn::orderInventoryGroupNumber; ascending
+testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList”
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
 #
 #Return to record user was on at
 #the start of this script.
@@ -139,7 +149,7 @@ End If
 #learn records sorted by order number.
 #If they do (the TLTestSort is blank) then sort
 #by order number.
-If [ TEMP::TLTestSort = "order" and $$citationMatch = "test" ]
+If [ TEMP::TLTestSort = 1 and $$citationMatch = "test" ]
 #
 #To speed up the process, sort to the top the records
 #that have kbrainstorm numbers. Do not loop thru
@@ -222,10 +232,20 @@ on value list: “testPulldownListANDsortOrderList”
 testlearnReportTags::timestamp; descending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list:
-“testPulldownListANDsortOrderList”
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value
+list: “testPulldownListANDsortOrderList”
+testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList”
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value
+list: “testPulldownListANDsortOrderList”
+testlearn::orderInventoryGroupNumber; ascending
+testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList”
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
 End If
 #
 #Return to record user was on at

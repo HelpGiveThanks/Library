@@ -1,4 +1,4 @@
-January 18, 2018 15:57:46 Library.fmp12 - stopNewRecordsBeingCreatedByLockedNode -1-
+July 21, 2018 12:54:08 Library.fmp12 - stopNewRecordsBeingCreatedByLockedNode -1-
 sharedLayoutScripts: stopNewRecordsBeingCreatedByLockedNode
 #
 #
@@ -106,8 +106,7 @@ ReportResultTestSubject::orderOrLock ≠ ""
  or
 reportTestSubjectLock::orderOrLock = "0"
  or
-TEMP::testSubjectNodeIsLocked ≠ "" and Left ( Get ( LayoutName ) ; 7 ) = "default" and Get ( LayoutName ) ≠ "defaultTest" and
-Get ( LayoutName ) ≠ "defaultSetup" ]
+TEMP::testSubjectNodeIsLocked ≠ "" and Get ( LayoutName ) = "defaultTestNewSection" ]
 #
 #Get the current test subject's name.
 Set Variable [ $testSubjectName; Value:Case ( testSubsectionTestSubjectLock::orderOrLock = "0" ;
@@ -128,8 +127,12 @@ $$checkORaddTestItem = 1 and Get ( WindowName ) = "Report" ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Set Variable [ $$checkORaddTestItem ]
 End If
+Set Variable [ $$highlightTestSubject; Value:1 ]
+Refresh Window
 Show Custom Dialog [ Message: "The test subject — " & $testSubjectName & " — is locked. To unlock, A) go back to the setup
 node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit: “Yes” ]
+Set Variable [ $$highlightTestSubject ]
+Refresh Window
 #
 Halt Script
 #

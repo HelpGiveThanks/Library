@@ -1,4 +1,4 @@
-January 15, 2018 17:13:07 Library.fmp12 - loadBrainstormTags -1-
+July 21, 2018 14:13:31 Library.fmp12 - loadBrainstormTags -1-
 tagMenu: loadBrainstormTags
 #
 #
@@ -69,9 +69,15 @@ Set Variable [ $$tagBrainstorm; Value:tagMenus::_Ltag ]
 #
 Select Window [ Name: "Learn"; Current file ]
 Refresh Window
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+Else
 Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+End If
 Set Field [ TEMP::TLBrainstormSort; "" ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
@@ -104,7 +110,7 @@ Refresh Window
 #Just in case user was in nonTag field on this
 #window when user clicked a menu button on
 #the other window, exit all fields.
-Set Field [ TEMP::TLBrainstormSort; "order" ]
+Set Field [ TEMP::TLBrainstormSort; 1 ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "Learn"; Current file ]
 #
@@ -134,9 +140,9 @@ End Loop
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$returnFocusToThisRecord ]
 End If
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update)” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]

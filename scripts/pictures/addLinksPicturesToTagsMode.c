@@ -1,5 +1,15 @@
-January 15, 2018 17:55:35 Library.fmp12 - addLinksPicturesToTagsMode -1-
+July 20, 2018 21:31:03 Library.fmp12 - addLinksPicturesToTagsMode -1-
 pictures: addLinksPicturesToTagsMode
+#
+#For now, hide the the add button until a
+#solution can be figured out to allow user to
+#create references for pictures used by node
+#tags in inventory mode.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Show Custom Dialog [ Message: "In inventory mode, pictures and links cannot be added to tags as of library version 4.0d. Plans
+are to add this feature back in a future version."; Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
 #
 #Admin tasks.
 Allow User Abort [ Off ]
@@ -225,7 +235,7 @@ End If
 #Clear the stop load record variable and load
 #the current record's info.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
 #Go to tag menu window.
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -318,7 +328,7 @@ Go to Layout [ “defaultCopyright” (tagMenus) ]
 Set Variable [ $$citationitem; Value:tempSetup::kdefaultCopyright ]
 Refresh Window
 If [ $$userInCopyrightWindow = 1 ]
-Perform Script [ “reviewCopyright” ]
+Perform Script [ “reviewCopyright (update)” ]
 #
 #
 #Turn back on the last section of the
@@ -418,7 +428,7 @@ Set Variable [ $$returnLayout ]
 Set Variable [ $$returnRecord ]
 Set Variable [ $$tagLayout ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
 #If the user was in reference mode prior to add mode ...
 Else If [ $$returnWIndow = "References" ]
@@ -504,7 +514,7 @@ Set Variable [ $$stoploadCitation ]
 Set Variable [ $$returnLayout ]
 Set Variable [ $$returnRecord ]
 Set Variable [ $$returnWindow ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
 #Go to record user was on before add mode.
 Scroll Window
@@ -517,7 +527,7 @@ Go to Record/Request/Page [ $recordNumber ]
 #return user to this window.
 If [ $$userInCopyrightWindow = 1 ]
 Set Variable [ $$userInCopyrightWindow ]
-Perform Script [ “reviewCopyright” ]
+Perform Script [ “reviewCopyright (update)” ]
 End If
 #
 End If

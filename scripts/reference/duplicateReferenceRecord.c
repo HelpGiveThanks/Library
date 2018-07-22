@@ -1,13 +1,14 @@
-January 18, 2018 14:55:53 Library.fmp12 - duplicateReferenceRecord -1-
+July 20, 2018 21:50:57 Library.fmp12 - duplicateReferenceRecord -1-
 reference: duplicateReferenceRecord
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click
+this button."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
@@ -199,7 +200,7 @@ Set Field [ reference::lock; $$Ref ]
 #Load new record as the record being
 #focused on.
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
 #Determine if in stuff or idea mode.
 If [ TEMP::InventoryLibraryYN ≠ "" ]

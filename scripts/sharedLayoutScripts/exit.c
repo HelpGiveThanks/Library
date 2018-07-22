@@ -1,4 +1,4 @@
-January 18, 2018 16:09:49 Library.fmp12 - exit -1-
+July 21, 2018 12:42:51 Library.fmp12 - exit -1-
 sharedLayoutScripts: exit
 #
 // #Follow the record whose order number was
@@ -9,6 +9,15 @@ sharedLayoutScripts: exit
 // Sort Records [ ]
 [ No dialog ]
 // End If
+#
+#Get active field name for see if key tag menu
+#order number has been changed below.
+If [ $$keyOrderNumberPossibleChanged ≠ "" ]
+Set Variable [ $$keyOrderNumberPossibleChanged ]
+Set Variable [ $activeFieldName; Value:"orderOrLock" ]
+Else
+Set Variable [ $activeFieldName; Value:Get ( ActiveFieldName ) ]
+End If
 #
 #If there are no editors on the referenceEDIT
 #layout than delete any abbreviations.
@@ -112,7 +121,9 @@ End If
 #
 #Delete tag order number if user selects
 #delete order number option.
-If [ $$citationMatch = "key" and tagMenus::orderOrLock = "delete number"
+If [ $$citationMatch = "brainstorm" and tagMenus::orderOrLock = "delete number"
+ or
+$$citationMatch = "key" and tagMenus::orderOrLock = "delete number"
  or
 $$citationMatch = "testItem" and tagMenus::orderOrLock = "delete number"
  or
@@ -150,7 +161,7 @@ End If
 #order number, but if the node does have
 #password then put in a zero.
 If [ $$citationMatch = "node" and tagMenus::orderOrLock[2] = "" and Get (LayoutName) ≠ "defaultSections" and Get (LayoutName) ≠
-"defaultTestNewSection" ]
+"defaultTestNewSection" and Get (WindowName) = "Tag Menus" ]
 Set Field [ tagMenus::orderOrLock; "" ]
 Set Field [ tagMenus::orderOrLock[2]; "" ]
 Else If [ $$citationMatch = "node" and tagMenus::orderOrLock[2] ≠ "" and Get (LayoutName) ≠ "defaultSections" ]
@@ -236,11 +247,19 @@ Sort Records [ ]
 [ No dialog ]
 End If
 #
-#If this is the reference section and user is
+#The next sections of code require doing finds
+#that could result in nothing found error
+#messages, so prevent these from showing up.
+Allow User Abort [ Off ]
+Set Error Capture [ On ]
+#
+#If this is the keyword tag menu and user is
 #looking at either author/node or keyword/
 #subject ordered records, check to see if this
-#order has changed as a result of re-ordering
-#the author/node or keyword/subject tags.
+#has changed the reference group order as a
+#result of re-ordering the author/node or
+#keyword/subject tags.
+If [ $activeFieldName = "orderOrLock" ]
 If [ $$citationMatch = "key" and $$referenceSort = "" and Get ( WindowName ) = "Tag Menus"
  or
 $$citationMatch = "node" and $$referenceSort = "author" and Get ( WindowName ) = "Tag Menus" ]
@@ -253,39 +272,8 @@ Commit Records/Requests
 #alphabetical or order number changing edits.
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $currentrecord; Value:Get (RecordNumber) ]
-New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”;
-Zoom Control Area: “Yes”; Resize: “Yes” ]
-If [ $$citationMatch = "key" and $$referenceSort = "" ]
-If [ TEMP::InventoryLibraryYN ≠ "" ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on
-value list: “testPulldownListANDsortOrderList”
-tagKeywordPrimary::tag; ascending
-reference::publicationYearOrStuffOrderNumber; based on value list: “testPulldownListANDsortOrderList”
-reference::Title; ascending
-reference::thoughtsNotesEtc; ascending ]
-[ Restore; No dialog ]
-Else
-Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based on
-value list: “order Pulldown List”
-tagKeywordPrimary::tag; ascending
-reference::referenceForReferenceWindow; ascending ]
-[ Restore; No dialog ]
-End If
-Else If [ $$citationMatch = "node" and $$referenceSort = "author" ]
-Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByAuthor; ascending
-reference::referenceForReferenceWindow; ascending ]
-[ Restore; No dialog ]
-End If
-#
-#If the edited record moved then note this.
-If [ $currentrecord ≠ Get (RecordNumber) ]
-Set Variable [ $recordMoved; Value:Get (RecordNumber) ]
-End If
-Close Window [ Name: "CheckDuplicateRecordPosition"; Current file ]
-#
-#Re-sort to view edited record if it
-#was moved.
-If [ $recordMoved ≠ "" ]
+New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize:
+“Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 If [ $$citationMatch = "key" and $$referenceSort = "" ]
 If [ TEMP::InventoryLibraryYN ≠ "" ]
 Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock; based
@@ -307,14 +295,135 @@ Sort Records [ Keep records in sorted order; Specified Sort Order: reference::so
 reference::referenceForReferenceWindow; ascending ]
 [ Restore; No dialog ]
 End If
+#
+#If the edited record moved then note this.
+If [ $currentrecord ≠ Get (RecordNumber) ]
+Set Variable [ $recordMoved; Value:Get (RecordNumber) ]
+End If
+Close Window [ Name: "CheckDuplicateRecordPosition"; Current file ]
+#
+#Re-sort to view edited record if it
+#was moved.
+If [ $recordMoved ≠ "" ]
+If [ $$citationMatch = "key" and $$referenceSort = "" ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock;
+based on value list: “testPulldownListANDsortOrderList”
+tagKeywordPrimary::tag; ascending
+reference::publicationYearOrStuffOrderNumber; based on value list:
+“testPulldownListANDsortOrderList”
+reference::Title; ascending
+reference::thoughtsNotesEtc; ascending ]
+[ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: tagKeywordPrimary::orderOrLock;
+based on value list: “order Pulldown List”
+tagKeywordPrimary::tag; ascending
+reference::referenceForReferenceWindow; ascending ]
+[ Restore; No dialog ]
+End If
+Else If [ $$citationMatch = "node" and $$referenceSort = "author" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: reference::sortByAuthor; ascending
+reference::referenceForReferenceWindow; ascending ]
+[ Restore; No dialog ]
+End If
 Go to Record/Request/Page [ $recordMoved ]
 [ No dialog ]
-End If
 End If
 #
 #Return to the Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]
+#
+#Check keyword sort order.
+Else
+Set Variable [ $checkReferenceKeywordHeaderOrder; Value:1 ]
 End If
+#
+#Check keyword sort order.
+Else
+Set Variable [ $checkReferenceKeywordHeaderOrder; Value:1 ]
+End If
+#
+#If keyword order number is being changed,
+#and the Reference Main window is not
+#showing (because user in the Learn section),
+#or it is showing but not currently sorted by
+#keyword, then inform user with a dialogue box
+#that changes to the order number affect the
+#keyword headers for references.
+If [ $checkReferenceKeywordHeaderOrder ≠ "" ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $keyTag; Value:tagMenus::_Ltag ]
+New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”;
+Zoom Control Area: “Yes”; Resize: “Yes” ]
+Go to Layout [ “ReferenceScriptLoops” (reference) ]
+Enter Find Mode [ ]
+Set Field [ tagKeywordPrimary::_Ltag; $keyTag ]
+Perform Find [ ]
+#
+#If the edited record moved then note this.
+If [ Get ( FoundCount ) ≠ 0 ]
+Set Variable [ $keyHeaderMoved; Value:1 ]
+End If
+#
+#Return to the Tag Menus window.
+Close Window [ Current Window ]
+Select Window [ Name: "Tag Menus"; Current file ]
+Set Variable [ $$stopLoadTagRecord ]
+Go to Field [ ]
+#
+#Tell user if this changed a reference header.
+If [ $keyHeaderMoved ≠ "" ]
+If [ tagMenus::orderOrLock = "" ]
+Show Custom Dialog [ Message: "FYI: This key (keyword) tag is in use as a reference group header, which will
+now, like this keyword, be sorted alphabetically."; Default Button: “OK”, Commit: “Yes” ]
+Else
+Show Custom Dialog [ Message: "FYI: This key (keyword) tag is in use as a reference group header, and like the
+keyword, the header will no longer be sorted alphabetically."; Default Button: “OK”, Commit: “Yes” ]
+End If
+End If
+End If
+#
+#Sort records to follow changed order number.
+Sort Records [ ]
+[ No dialog ]
+End If
+#
+#
+#
+#If this is the location tag menu and user is
+#changing an order number or deleting one,
+#re-sort the learn window records in case
+#they are affected.
+If [ $activeFieldName = "publicationYearOrStuffOrderNumber" ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Set Variable [ $refTag; Value:reference::_Lreference ]
+New Window [ Name: "CheckDuplicateRecordPosition"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom
+Control Area: “Yes”; Resize: “Yes” ]
+Go to Layout [ “learnSCRIPTloops” (testlearn) ]
+Enter Find Mode [ ]
+Set Field [ testlearn::kcreference; $refTag ]
+Perform Find [ ]
+#
+#If the edited record moved then note this.
+If [ Get ( FoundCount ) ≠ 0 ]
+Set Variable [ $refHeaderMoved; Value:1 ]
+End If
+#
+#Return to the Tag Menus window.
+Close Window [ Current Window ]
+Set Variable [ $$stopLoadTagRecord ]
+Go to Field [ ]
+#
+#Return to the Tag Menus window.
+If [ $refHeaderMoved ≠ "" ]
+Select Window [ Name: "Learn"; Current file ]
+Sort Records [ ]
+[ No dialog ]
+End If
+Select Window [ Name: "Tag Menus"; Current file ]
+End If
+#
 #
 #
 #This prevents the system trademark tag (not

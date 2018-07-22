@@ -1,10 +1,10 @@
-January 20, 2018 17:55:45 Library.fmp12 - deleteKeywordTag -1-
+July 21, 2018 13:50:12 Library.fmp12 - deleteKeywordTag -1-
 tagMenu: deleteKeywordTag
 #
 #
 #If user is looking at Node switch to that script.
 If [ $$citationMatch = "node" ]
-Perform Script [ “deleteNodeTag” ]
+Perform Script [ “deleteNodeTag (update)” ]
 Exit Script [ ]
 End If
 #
@@ -79,7 +79,8 @@ Set Field [ testlearn::kcKeywordOther; $check & ¶ ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 Extend Found Set [ ]
 If [ Get (FoundCount) ≠ 0 ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " learn" ]
+Set Variable [ $inUse; Value:"Learn " & Get (FoundCount) ]
+Set Variable [ $learn; Value:1 ]
 End If
 #
 #See if keyword is used by any discovery records.
@@ -109,10 +110,11 @@ Extend Found Set [ ]
 If [ Get (FoundCount) ≠ 0 ]
 If [ $inUse ≠ "" ]
 Set Variable [ $addToInUse; Value:$inUse ]
-Set Variable [ $inUse; Value:$addToInUse & ", " & Get (FoundCount) & " reference" ]
+Set Variable [ $inUse; Value:$addToInUse & ", " & "Reference " & Get (FoundCount) ]
 Else If [ $inUse = "" ]
-Set Variable [ $inUse; Value:Get (FoundCount) & " reference" ]
+Set Variable [ $inUse; Value:"Reference " & Get (FoundCount) ]
 End If
+Set Variable [ $reference; Value:1 ]
 End If
 #
 #Close window used to find records using tag.
@@ -224,7 +226,7 @@ Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 #
 #Load keys for tag focus is now on.
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 End If
 #
 #If the keyword is found in use then tell user
@@ -233,8 +235,11 @@ If [ $inUse ≠ "" ]
 Set Variable [ $delete ]
 Set Variable [ $group ]
 Refresh Window
-Show Custom Dialog [ Message: "This keyword cannot be deleted as it in use x number of times in the following modules' main
-windows: " & $inUse & "."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: Case ( $learn ≠ "" and $reference ≠ "" ;
+"This keyword is in use in 2 library sections: " & $inUse & ". It cannot be deleted. Use the Tag Menus find feature in each
+section to find the records using it." ;
+"This keyword is in use in 1 library section: " & $inUse & ". It cannot be deleted. Use the Tag Menus find feature in this
+section to find the records using it." ); Default Button: “OK”, Commit: “Yes” ]
 Set Variable [ $$addTagToCitation ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]

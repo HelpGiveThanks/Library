@@ -1,4 +1,4 @@
-January 20, 2018 19:13:45 Library.fmp12 - menuCitationFind -1-
+July 21, 2018 14:44:15 Library.fmp12 - menuCitationFind -1-
 tagMenu: menuFind: menuCitationFind
 #
 #Set citationMatch to color menu button with inUse color.
@@ -11,8 +11,24 @@ Freeze Window
 #formatting to transparent.
 Set Variable [ $$internal ]
 #
-#Goto correct layout.
+#
+#If no layout preference is set, then on iDevices
+#go the layout with no pictures, and to the
+#layout with pictures on desktop computers.
+If [ TEMP::layoutRtagCiteFIND = "" ]
+If [ Get (SystemPlatform) = 3 ]
+Go to Layout [ “ReferenceMenu3CiteFindS” (reference) ]
+Set Field [ TEMP::layoutRtagCiteFIND; "more" & Get (LayoutName) ]
+Else
 Go to Layout [ “ReferenceMenu3CiteFind” (reference) ]
+Set Field [ TEMP::layoutRtagCiteFIND; "less" & Get (LayoutName) ]
+End If
+Else
+#
+#Go the layout the user has selected.
+Go to Layout [ Middle ( TEMP::layoutRtagCiteFIND ; 5 ; 42 ) ]
+End If
+#
 #
 #Find references for reference module.
 Show All Records

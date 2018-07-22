@@ -1,4 +1,4 @@
-January 15, 2018 16:48:25 Library.fmp12 - loadTestTags -1-
+July 21, 2018 14:15:14 Library.fmp12 - loadTestTags -1-
 tagMenu: loadTestTags
 #
 #Capture recordID to conditionally format current record.
@@ -153,14 +153,20 @@ If [ $atLeastOneRecord ≠ 1 ]
 Set Variable [ $$tagtest; Value:testSubsectionTemplate::_LtestSubsection ]
 #
 Select Window [ Name: "Learn"; Current file ]
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+Else
 Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+End If
 Scroll Window
 [ Home ]
 Set Field [ TEMP::TLTestSort; "" ]
 Set Variable [ $$stopLoadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
@@ -193,10 +199,10 @@ Refresh Window
 #window when user clicked a menu button on
 #the other window, exit all fields.
 // If [ TEMP::TLTestSort = "" ]
-Set Field [ TEMP::TLTestSort; "order" ]
+Set Field [ TEMP::TLTestSort; 1 ]
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 Select Window [ Name: "Learn"; Current file ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update)” ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Record/Request/Page [ $recordNumber ]
 [ No dialog ]

@@ -1,4 +1,4 @@
-January 15, 2018 16:21:24 Library.fmp12 - reviewCopyright -1-
+July 21, 2018 14:17:34 Library.fmp12 - reviewCopyright -1-
 tagMenu: reviewCopyright
 #
 #
@@ -428,9 +428,9 @@ Resize: “Yes” ]
 #Show just the copyright of interest in the
 #locked or unlocked window.
 If [ $unlocked = "" ]
-Go to Layout [ “learnMenuCopyrightVIEW” (tagMenus) ]
+Go to Layout [ “CopyrightVIEW” (tagMenus) ]
 Else
-Go to Layout [ “learnMenuCopyrightEDIT” (tagMenus) ]
+Go to Layout [ “CopyrightEDIT” (tagMenus) ]
 End If
 Enter Find Mode [ ]
 Set Field [ tagMenus::_Ltag; $copyright ]

@@ -1,4 +1,4 @@
-January 12, 2018 14:29:44 Library.fmp12 - deleteSubsectionFromUserTest -1-
+July 21, 2018 14:45:05 Library.fmp12 - deleteSubsectionFromUserTest -1-
 test: setup: deleteSubsectionFromUserTest
 #
 #If there are no records, halt this script.
@@ -17,13 +17,15 @@ End If
 #
 #Test subject is locked.
 If [ testSubjectName::orderOrLock ≠ "" ]
-Set Variable [ $$highlightTestSection; Value:1 ]
+Set Variable [ $$highlightTestSubject; Value:1 ]
 Refresh Window
 #
 #Get the current test subject's name.
 Show Custom Dialog [ Message: "The test subject — " & testSubjectName::tag & " — is locked. To unlock, A) go back to the
 setup node tag menu. B) Select this test subject. C) Click 'lock' and enter the password."; Default Button: “OK”, Commit:
 “Yes” ]
+Set Variable [ $$highlightTestSubject ]
+Refresh Window
 Halt Script
 End If
 #
@@ -92,8 +94,8 @@ End If
 #test that any sub-section belongs to. The
 #sort is simply grouping all sub-sections by
 #their report number, so it looks like they are
-#under a group. Thus, deleting the last sub#section
-with particular test number will also
+#under a group. Thus, deleting the last sub-
+#section with particular test number will also
 #cause the appearance of its test number to
 #disappear.
 Delete Record/Request

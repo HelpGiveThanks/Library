@@ -1,4 +1,4 @@
-January 15, 2018 17:04:22 Library.fmp12 - createFormOutOf_FT_TestItems -1-
+July 21, 2018 13:49:35 Library.fmp12 - createFormOutOf_FT_TestItems -1-
 tagMenu: createFormOutOf_FT_TestItems
 #
 #
@@ -9,6 +9,13 @@ tagMenu: createFormOutOf_FT_TestItems
 Go to Field [ ]
 #
 #
+#
+#If it turns out there are no FT items, then tell
+#the user this and exit the script.
+If [ $$noFT_ItemsFound = 1 ]
+Show Custom Dialog [ Message: "There are no form (FT) items for this subsection."; Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
 #
 #
 #
@@ -107,11 +114,17 @@ Else
 Show Custom Dialog [ Message: "A form will be added below the current text. You may need to scroll down to see it.";
 Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
 End If
+#Stop the script if the user clicks cancel.
+If [ Get (LastMessageChoice) = 2 ]
+Exit Script [ ]
+End If
+#
+End If
 End If
 #
 #
 #If the user is on the setup layout, note this.
-Else If [ Left (Get (LayoutName) ; 5 ) = "setup" ]
+If [ Left (Get (LayoutName) ; 5 ) = "setup" ]
 Set Variable [ $insertFormInPreviewWindow; Value:1 ]
 End If
 #
@@ -127,7 +140,7 @@ End If
 #
 #Create the form, unless the user
 #clicked cancel in a new window.
-If [ Get (LastMessageChoice) ≠ 2 ]
+If [ Get (LastMessageChoice) ≠ 2 or $$addFormToNewTestResult ≠ "" ]
 Set Variable [ $$userClickedVButton; Value:1 ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
@@ -230,15 +243,6 @@ End If
 #BEGIN Insert form in designated field.
 #
 #
-#If it turns out there are no FT items, then tell
-#the user this and exit the script.
-If [ $form = "" ]
-Close Window [ Current Window ]
-Show Custom Dialog [ Message: "There are no form test (FT) items."; Default Button: “OK”, Commit: “Yes” ]
-Exit Script [ ]
-End If
-#
-#
 #Create a clear formatting variable to insure
 #anything typed after the newly inserted form
 #will be in the default format.
@@ -283,19 +287,18 @@ End If
 #If the note field is blank, then add the form to it.
 If [ $note = "" ]
 If [ $report = 1 ]
-Set Field [ $form & $clearFormatting & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & $clearFormatting ]
+Set Field [ $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
 Else
-Set Field [ testlearn::note; $form & $clearFormatting & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & $clearFormatting ]
+Set Field [ testlearn::note; $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
 End If
 #
 #If it is not blank, then add the form below
 #the curren text.
 Else
 If [ $report = 1 ]
-Set Field [ $note & ¶ & $form & $clearFormatting & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & $clearFormatting ]
+Set Field [ $note & ¶ & $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
 Else
-Set Field [ testlearn::note; $note & ¶ & $form & $clearFormatting & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ & ¶ &
-$clearFormatting ]
+Set Field [ testlearn::note; $note & ¶ & $form & $clearFormatting & ¶ & ¶ & $clearFormatting ]
 End If
 End If
 #

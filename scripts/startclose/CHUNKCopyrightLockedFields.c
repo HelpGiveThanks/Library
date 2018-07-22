@@ -1,4 +1,4 @@
-January 10, 2018 15:37:48 Library.fmp12 - CHUNK_CopyrightLockedFields -1-
+July 21, 2018 13:31:59 Library.fmp12 - CHUNK_CopyrightLockedFields -1-
 startclose: CHUNK_CopyrightLockedFields
 #
 #
@@ -155,8 +155,9 @@ Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; $name ]
 #
 #
 #
-#Refresh locked tag records (filelocation and
-#copyright records) by deleting them and then
+#Refresh locked tag records (filelocation,
+#inventory location headers, and copyright
+#records) by deleting them and then
 #recreating them.
 Go to Layout [ “tableTag” (tagTable) ]
 Perform Find [ Specified Find Requests: Find Records; Criteria: tagTable::orderOrLock: “"lock"” ]
@@ -203,8 +204,43 @@ Set Field [ tagTable::kRecordCreatorNode; "defaultFilePathCheckBox" ]
 #
 #
 #
-#Refresh copyright records.
 #
+#Refresh inventory library's 3 location groups.
+New Record/Request
+Set Field [ tagTable::tag; "primary location" ]
+Set Field [ tagTable::_Number; 3386 ]
+Set Field [ tagTable::tagSpelling; "primary location" ]
+Set Field [ tagTable::orderOrLock; "lock" ]
+Set Field [ tagTable::match; "location" ]
+Set Field [ tagTable::_Ltag; "31120182009273386" ]
+Set Field [ tagTable::kRecordCreatorNode; "defaultLocation" ]
+#
+New Record/Request
+Set Field [ tagTable::tag; "secondary location" ]
+Set Field [ tagTable::_Number; 3387 ]
+Set Field [ tagTable::tagSpelling; "secondary location" ]
+Set Field [ tagTable::orderOrLock; "lock" ]
+Set Field [ tagTable::match; "location" ]
+Set Field [ tagTable::_Ltag; "31120182009473387" ]
+Set Field [ tagTable::kRecordCreatorNode; "defaultLocation" ]
+#
+New Record/Request
+Set Field [ tagTable::tag; "tertiary location" ]
+Set Field [ tagTable::_Number; 3388 ]
+Set Field [ tagTable::tagSpelling; "tertiary location" ]
+Set Field [ tagTable::orderOrLock; "lock" ]
+Set Field [ tagTable::match; "location" ]
+Set Field [ tagTable::_Ltag; 31120182009593388 ]
+Set Field [ tagTable::kRecordCreatorNode; "defaultLocation" ]
+#
+#
+#
+#
+#
+#
+#
+#
+#Refresh copyright records.
 #
 #0 Share - all copyrights given up by creator
 New Record/Request

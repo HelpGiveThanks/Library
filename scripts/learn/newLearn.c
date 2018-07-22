@@ -1,17 +1,27 @@
-January 17, 2018 11:33:46 Library.fmp12 - newLearn -1-
+July 20, 2018 17:22:12 Library.fmp12 - newLearn -1-
 learn: newLearn
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Exit find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click
+this button."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
 Set Variable [ $$stoploadCitation; Value:1 ]
+#
+#If in inventory mode, add the primary location
+#tag of the group the user was in when they
+#clicked the new button.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $locationTag; Value:Case ( refContainerLocation::_Lreference ≠ "" ; refContainerLocation::_Lreference ; refLearn
+2::_Lreference ) ]
+End If
+#
 Go to Field [ ]
 Freeze Window
 New Record/Request
@@ -21,6 +31,12 @@ Set Field [ testlearn::dateModify; Get ( CurrentTimeStamp ) ]
 Set Field [ testlearn::kNodeOther; TEMP::kdefaultNodeOther ]
 Set Field [ testlearn::NodeOthers; TEMP::DEFAULTNodeOtherNames ]
 Set Field [ testlearn::kcopyright; TEMP::kdefaultCopyright ]
+#If in inventory mode, add the primary location
+#tag of the group the user was in when they
+#clicked the new button.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Field [ testlearn::kcreference; $locationTag ]
+End If
 Set Field [ testlearn::incomplete; "incomplete" & ¶ ]
 Set Field [ testlearn::filterFind; "main" & ¶ ]
 If [ Right ( Get ( LayoutName ) ; 4 ) = "EDIT" ]
@@ -37,7 +53,7 @@ Set Variable [ $record; Value:Get (RecordNumber) ]
 Go to Record/Request/Page [ $record ]
 [ No dialog ]
 Set Variable [ $$stoploadCitation ]
-// Perform Script [ “loadLearnOrRefMainRecord” ]
+// Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 Set Variable [ $$main; Value:testlearn::_Ltestlearn ]
 #
 #capture keys of related tag menu items to
@@ -78,5 +94,5 @@ Set Variable [ $$stopLoadCitation ]
 #
 #Open new record in text window so
 #user can now edit it.
-Perform Script [ “learnOpenTextNewWindow” ]
+Perform Script [ “learnOpenTextNewWindow (update)” ]
 #

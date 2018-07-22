@@ -1,9 +1,9 @@
-January 15, 2018 15:00:55 Library.fmp12 - newTestResult -1-
+July 21, 2018 14:46:03 Library.fmp12 - newTestResult -1-
 test: test: newTestResult
 #
 #If node is currenlty locked then stop script,
 #and inform the user.
-Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+Perform Script [ “stopNewRecordsBeingCreatedByLockedNode (update)” ]
 #
 #basic administration tasks
 Set Error Capture [ On ]
@@ -200,11 +200,22 @@ Set Field [ testlearn::recordnumberglobal; Get (RecordNumber) ]
 #or load a fresh form.
 If [ $$noFT_ItemsFound = "" ]
 If [ $noteForPossibleUseInNewRecord ≠ "" ]
-Show Custom Dialog [ Message: "Paste the filled out form used in the previous record OR create a fresh (blank) copy of the
-form for this record?"; Default Button: “fresh”, Commit: “Yes”; Button 2: “paste”, Commit: “No” ]
-If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ testlearn::note; $noteForPossibleUseInNewRecord ]
+Show Custom Dialog [ Message: "Use a copy the form you where just viewing (now shown), OR create a new form for this
+record?"; Default Button: “copy”, Commit: “Yes”; Button 2: “new”, Commit: “No” ]
+#Use Copy
+If [ Get ( LastMessageChoice ) = 1 ]
+If [ Filter ( $noteForPossibleUseInNewRecord ; "!" ) ≠ "" ]
+Show Custom Dialog [ Message: "Remove exclamation points — ! — from the copied form? (Remove them if you
+use them to indicated you completed an item on the form)"; Default Button: “remove”, Commit: “Yes”; Button 2:
+“keep”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 1 ]
+Set Field [ testlearn::note; Substitute ( $noteForPossibleUseInNewRecord ; "!" ; "" ) ]
+End If
+End If
+#Create New
 Else
+Set Field [ testlearn::note; "" ]
 Set Variable [ $$addFormToNewTestResult; Value:1 ]
 End If
 Else

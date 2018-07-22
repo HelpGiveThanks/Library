@@ -1,9 +1,8 @@
-January 10, 2018 15:28:48 Library.fmp12 - startDatabase -1-
+July 21, 2018 12:55:10 Library.fmp12 - startDatabase -1-
 startclose: startDatabase
 #
 #PURPOSE: Manage the 4 script newLibrary
 #creation process, OR open the library.
-#
 #
 #BEGIN: Manage new library creation process.
 #
@@ -23,7 +22,7 @@ New Record/Request
 #than starting up this copy of the library as
 #ready to use library file.
 If [ backup::newLibrary = "234874920347574weidf792342f9823984" ]
-Perform Script [ “newLibraryStep2eraseRecordsInCopyOfLibrary” ]
+Perform Script [ “newLibraryStep2_EraseRecordsInCopyOfLibrary” ]
 Exit Script [ ]
 End If
 #
@@ -52,7 +51,7 @@ Exit Script [ ]
 #
 #Perform step 3A if the user clicks new.
 Else If [ Get ( LastMessageChoice ) = 1 ]
-Perform Script [ “newLibraryStep3A_makeEmptiedLibraryANewLibrary” ]
+Perform Script [ “newLibraryStep3A_makeEmptiedLibraryANewLibrary (update)” ]
 Exit Script [ ]
 #
 #Perform step 3B if the user clicks import.
@@ -242,6 +241,31 @@ Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (Scr
 End If
 Go to Field [ ]
 #
+#Show all library setup references and sort
+#them by date so focus is on most current
+#setup reference.
+Show All Records
+Sort Records [ Keep records in sorted order; Specified Sort Order: librarySetupReferenceMain::publicationDate; descending ]
+[ Restore; No dialog ]
+Go to Record/Request/Page
+[ First ]
+#
+#Make sure library's creator node and
+#its tag node group exists.
+Perform Script [ “CHUNK_checkCreatorNodeAndPrimaryNode” ]
+#
+#Insure filelocation records are present,
+#and default copyright tags.
+Perform Script [ “CHUNK_CopyrightLockedFields (update)” ]
+#
+#Insure during last session, user didn't drag
+#new spellings into locked tag records.
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
+Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
+Show All Records
+Set Variable [ $$stopLoadTagRecord ]
+Perform Script [ “CHUNK_checkForDraggedPasteChanges” ]
+#
 #Open Setup's Tag-Menus window.
 If [ Get ( SystemPlatform ) = - 2 ]
 New Window [ Name: "Tag Menus"; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: Get
@@ -251,22 +275,6 @@ Else
 New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) /
 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
 End If
-#
-#Make sure library's creator node and
-#its tag node group exists.
-Perform Script [ “CHUNKcheckCreatorNodeAndPrimaryNode” ]
-#
-#Insure filelocation records are present,
-#and default copyright tags.
-Perform Script [ “CHUNKCopyrightLockedFields” ]
-#
-#Insure during last session, user didn't drag
-#new spellings into locked tag records.
-Set Variable [ $$stopLoadTagRecord; Value:1 ]
-Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
-Show All Records
-Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “CHUNKcheckForDragPasteChanges” ]
 #
 #Show regular menus if Admin logs in only.
 If [ Get ( AccountName ) = "Admin" ]
@@ -310,6 +318,9 @@ Set Field [ TEMP::testHideFormTextItemsFTs; 1 ]
 #Tell other databases to go to this library
 #when user clicks the 'library' button in
 #another Help Give Thanks database.
+Set Field [ MemorySwitch::currentLibraryWIndows; "Setup" ]
+Set Field [ MemorySwitch::currentLibraryWIndows[2]; "Tag Menus" ]
+Set Field [ MemorySwitch::currentLibraryWIndows[3]; "" ]
 Go to Layout [ “startMemorySwitch” (MemorySwitch) ]
 Show All Records
 #
@@ -353,17 +364,25 @@ Set Field [ MemorySwitch::versionLibrary; tempSetup::versionNumber ]
 #Go to the main layout.
 Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
 #
-#Show regular menus if Admin logs in only.
+#Show regular menus if Admin logs and set the
+#print page size for one long page so when
+#generating PDFs for GitHub a scripts title will
+#be shown only once (it shows multiple times if
+#the script takes several letter size pages).
 Show/Hide Text Ruler
 [ Hide ]
 If [ Get ( AccountName ) = "Admin" ]
 Show/Hide Toolbars
 [ Hide ]
 Install Menu Set [ “[Standard FileMaker Menus]” ]
+Print Setup [ Orientation: Portrait; Paper size: 8.5" x 1000" ]
+[ Restore; No dialog ]
 Else
 Show/Hide Toolbars
 [ Lock; Hide ]
 Install Menu Set [ “HGT” ]
+Print Setup [ Orientation: Portrait; Paper size: 8.5" x 11" ]
+[ Restore; No dialog ]
 End If
 #
 #Warn user if the library files are on the
@@ -440,17 +459,7 @@ Set Variable [ $$primaryNodeNameChangeCheck ]
 Set Variable [ $$libraryNameForNameChangeCheck ]
 Set Variable [ $$testSubjectNodeNameChangeCheck ]
 #
-#
 End If
-#
-#Show all library setup references and sort
-#them by date so focus is on most current
-#setup reference.
-Show All Records
-Sort Records [ Keep records in sorted order; Specified Sort Order: librarySetupReferenceMain::publicationDate; descending ]
-[ Restore; No dialog ]
-Go to Record/Request/Page
-[ First ]
 #
 #END: Open library.
 #

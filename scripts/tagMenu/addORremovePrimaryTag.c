@@ -1,9 +1,38 @@
-January 15, 2018 17:19:27 Library.fmp12 - addORremovePrimaryTag -1-
+July 21, 2018 13:47:29 Library.fmp12 - addORremovePrimaryTag -1-
 tagMenu: addORremovePrimaryTag
 #
 #Admin tasks.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
+#
+#
+#If this tag has a picture that is hidden, ask if
+#the user wants to see the picture or find
+#record's with this tag.
+If [ //There is a picture to show if...
+Get (LayoutName) = "ReferenceMenu3CiteNoPicture" and
+(
+reference::picture ≠ "" or
+reference::showMedia ≠ "" and reference::URL ≠ "" or
+reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ ""
+) ]
+If [ reference::_Lreference = $$citationItem and $$citationMatch = "cite" ]
+Show Custom Dialog [ Message: "Show this tag's picture or remove tag from the selected learn record?"; Default Button:
+“remove”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+Else
+Show Custom Dialog [ Message: "Show this tag's picture or add this tag to the selected learn record?"; Default Button:
+“add”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+End If
+If [ Get (LastMessageChoice) = 2 ]
+Set Variable [ $$stopOpenNewTextWindow ]
+Perform Script [ “showCitationPicture1inNewWindow (udpate)” ]
+Exit Script [ ]
+End If
+If [ Get (LastMessageChoice) = 3 ]
+Exit Script [ ]
+End If
+End If
+#
 #
 #This prevents the system trademark tag (not
 #user created) being used improperly.
@@ -89,7 +118,9 @@ tagMenus::_Ltag = $$citationitem and $$citationMatch = "publication"
 or
 tagMenus::_Ltag = $$citationitem and $$citationMatch = "path"
 or
-tagMenus::_Ltag = $$citationitem and $$citationMatch = "publisher" ]
+tagMenus::_Ltag = $$citationitem and $$citationMatch = "publisher"
+or
+reference::_Lreference = $$citationItem and $$citationMatch = "cite" ]
 Show Custom Dialog [ Message: "Remove Tag?" & ¶ &
 "OR " & ¶ &
 "Find references tagged with it?"; Default Button: “remove”, Commit: “Yes”; Button 2: “find”, Commit: “No”; Button 3:
@@ -105,7 +136,7 @@ If [ Get ( LastMessageChoice ) = 2 ]
 #gets carried over to the Find Mode Script, which then
 #activates tag instead of reference record find mode.
 Set Variable [ $$ClearMessageChoice; Value:1 ]
-Perform Script [ “findMode” ]
+Perform Script [ “findMode (update)” ]
 Exit Script [ ]
 Else If [ Get ( LastMessageChoice ) = 3 ]
 Set Variable [ $$referenceRecordOne ]
@@ -166,8 +197,9 @@ Set Variable [ $tableName; Value:Get ( LayoutTableName ) ]
 If [ Right ( Get (LayoutName) ; 4 ) = "test" ]
 Set Variable [ $tag; Value:testSubsectionTemplate::_LtestSubsection ]
 Set Variable [ $tagName; Value:testSubsectionTemplate::name ]
-Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" ]
+Else If [ Middle ( Get ( LayoutName ) ; 14 ; 5 ) = "3cite" ]
 Set Variable [ $tag; Value:reference::_Lreference ]
+Set Variable [ $citeBug; Value:1 ]
 Else If [ Right ( Get (LayoutName) ; 7 ) = "refcite" ]
 Set Variable [ $tag; Value:testlearn::_Ltestlearn ]
 Else If [ Right ( Get (LayoutName) ; 8 ) = "sections" ]
@@ -224,7 +256,7 @@ Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
 #Conditionally format selected tag.
 If [ Right ( Get (LayoutName) ; 4 ) ≠ "cite" ]
 Set Variable [ $$citationItem; Value:tagMenus::_Ltag ]
-Else If [ Right ( Get (LayoutName) ; 5 ) = "3cite" ]
+Else If [ $citeBug = 1 ]
 Set Variable [ $$citationItem; Value:reference::_Lreference ]
 Set Variable [ $citeCopyright; Value:reference::kCopyright ]
 Set Variable [ $citeCopyrightDate; Value:reference::CopyrightYear ]
@@ -244,6 +276,22 @@ Set Variable [ $citeCopyright; Value:testlearn::kcopyright ]
 Set Variable [ $citekeywordOther; Value:testlearn::kcKeywordOther ]
 Set Variable [ $citekeywordOtherWords; Value:testlearn::OtherKeyWords ]
 Set Variable [ $citekeywordPrimary; Value:testlearn::kKeywordPrimary ]
+End If
+#
+If [ $citeBug = 1 ]
+Set Variable [ $$citationItem; Value:reference::_Lreference ]
+Set Variable [ $citeCopyright; Value:reference::kCopyright ]
+Set Variable [ $citeCopyrightDate; Value:reference::CopyrightYear ]
+Set Variable [ $citekeywordOther; Value:reference::kkeywordOther ]
+Set Variable [ $citekeywordOtherWords; Value:reference::OtherKeyWords ]
+Set Variable [ $citekeywordPrimary; Value:reference::kkeywordPrimary ]
+#
+Set Variable [ $filename; Value:reference::fileName ]
+Set Variable [ $fileLocation; Value:reference::kfileLocation ]
+Set Variable [ $folderpath; Value:reference::kfolderpath ]
+Set Variable [ $medium; Value:reference::kmedium ]
+Set Variable [ $URL; Value:reference::URL ]
+Set Variable [ $URLdate; Value:reference::URLdate ]
 End If
 #
 // New Window [ Name: "Add Tag"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”;
@@ -620,7 +668,7 @@ End Loop
 #test tag's record set.
 Set Field [ testlearn::orderTestInformation; "001" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update)” ]
 End If
 #
 Else If [ $$citationMatch = "brainstorm" ]
@@ -669,7 +717,7 @@ End Loop
 #test tag's record set.
 Set Field [ testlearn::orderTestInformation; "001" ]
 Set Field [ TEMP::TLTestSort; "order" ]
-Perform Script [ “sortTestOrBrainstormTaggedLearnRecords” ]
+Perform Script [ “sortTestOrBrainstormTaggedLearnRecords (update)” ]
 End If
 End If
 #
@@ -861,7 +909,7 @@ Else If [ reference::kcitation ≠ $tag ]
 Set Field [ reference::kcitation; $tag ]
 Set Variable [ $$cite; Value:reference::kcitation ]
 Select Window [ Name: "Tag Menus"; Current file ]
-Perform Script [ “CHUNKaddReferenceNodeAndKeywordTagIDs” ]
+Perform Script [ “CHUNK_addReferenceNodeAndKeywordTagIDs” ]
 End If
 #
 Else If [ $$citationMatch = "publication" ]
@@ -1025,9 +1073,9 @@ Go to Record/Request/Page [ $recordNumber ]
 #brainstorm item (if in brainstorm mode) and sort
 #by order and then date and time.
 If [ $$citationMatch = "test" ]
-Perform Script [ “loadTestTags” ]
+Perform Script [ “loadTestTags (update)” ]
 Else If [ $$citationMatch = "brainstorm" ]
-Perform Script [ “loadBrainstormTags” ]
+Perform Script [ “loadBrainstormTags (udpate)” ]
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window

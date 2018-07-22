@@ -1,4 +1,4 @@
-January 18, 2018 14:47:47 Library.fmp12 - deleteReference -1-
+July 20, 2018 21:50:11 Library.fmp12 - deleteReference -1-
 reference: deleteReference
 #
 #
@@ -31,7 +31,8 @@ End If
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
-Show Custom Dialog [ Message: "Cancel find mode, then click this button."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click
+this button."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
@@ -39,9 +40,12 @@ End If
 #If user is in tag field and has changed spelling
 #exit this tag record, otherwise current reference record
 #will get deleted by the spelling check script.
+If [ TEMP::InventoryLibraryYN = "" ]
 Select Window [ Name: "Tag Menus"; Current file ]
 Go to Field [ ]
 Select Window [ Name: "References"; Current file ]
+End If
+#
 If [ TEMP::InventoryLibraryYN = "" ]
 #
 #If reference is sorted by ...
@@ -98,6 +102,7 @@ Go to Field [ ]
 #Prevent all record load scripts (they slow down
 #this script and are uneccessary).
 Set Variable [ $$stoploadCitation; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #
 #Set variables to conditionally format section to
@@ -396,6 +401,10 @@ Delete Record/Request
 Set Variable [ $$addTagToCitation ]
 Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+If [ TEMP::InventoryLibraryYN = "" ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
+Else
+Perform Script [ “loadTagRecord (update)” ]
+End If
 End If
 #

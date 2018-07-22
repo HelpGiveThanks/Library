@@ -1,5 +1,41 @@
-January 20, 2018 18:07:40 Library.fmp12 - findPrimaryRef -1-
+July 21, 2018 14:12:45 Library.fmp12 - findPrimaryRef -1-
 tagMenu: findPrimaryRef
+#
+#
+#If this tag has a picture that is hidden, ask if
+#the user wants to see the picture or find
+#record's with this tag.
+If [ //There is a picture to show if...
+Get (LayoutName) = "ReferenceMenu3CiteNoPicture" and
+(
+reference::picture ≠ "" or
+reference::showMedia ≠ "" and reference::URL ≠ "" or
+reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ ""
+)
+or
+Get (LayoutName) = "ReferenceMenu3CiteFindS" and
+(
+reference::picture ≠ "" or
+reference::showMedia ≠ "" and reference::URL ≠ "" or
+reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ ""
+) ]
+If [ reference::_Lreference = $$citationItem and $$citationMatch = "cite" ]
+Show Custom Dialog [ Message: "Show this tag's picture or hide reference records tagged only with it?"; Default Button:
+“hide”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+Else
+Show Custom Dialog [ Message: "Show this tag's picture or find references tagged with it?"; Default Button: “find”, Commit:
+“Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+End If
+If [ Get (LastMessageChoice) = 2 ]
+Set Variable [ $$stopOpenNewTextWindow ]
+Perform Script [ “showCitationPicture1inNewWindow (udpate)” ]
+Exit Script [ ]
+End If
+If [ Get (LastMessageChoice) = 3 ]
+Exit Script [ ]
+End If
+End If
+#
 #
 #Select tag to be found.
 Set Variable [ $tag; Value:tagMenus::_Ltag ]
@@ -307,7 +343,7 @@ Go to Record/Request/Page
 Scroll Window
 [ Home ]
 Set Variable [ $$stoploadCitation ]
-Perform Script [ “loadLearnOrRefMainRecord” ]
+Perform Script [ “loadLearnOrRefMainRecord (update)” ]
 #
 #Return to Tag Menus window.
 Select Window [ Name: "Tag Menus"; Current file ]

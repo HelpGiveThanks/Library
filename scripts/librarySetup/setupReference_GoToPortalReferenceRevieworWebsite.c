@@ -1,5 +1,14 @@
-January 11, 2018 19:15:27 Library.fmp12 - setupReference_GoToPortalReferenceRevieworWebsite -1-
+July 20, 2018 21:27:33 Library.fmp12 - setupReference_GoToPortalReferenceRevieworWebsite… -1-
 librarySetup: setupReference_GoToPortalReferenceRevieworWebsite
+#
+#
+#If there are no user created references, then tell user
+#how to download a fresh copy of the library app.
+If [ Get (FoundCount) = 0 ]
+Show Custom Dialog [ Message: "This library when downloaded was an empty, unmodified version of the applicaiton, without any
+user created notes (Learn records), references, or test templates in it."; Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
 #
 #
 #Capture variables needed when user clicks

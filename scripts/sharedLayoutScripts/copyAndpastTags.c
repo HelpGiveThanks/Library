@@ -1,6 +1,13 @@
-January 18, 2018 15:55:32 Library.fmp12 - copyAndpastTags -1-
+July 21, 2018 12:42:33 Library.fmp12 - copyAndpastTags -1-
 sharedLayoutScripts: copyAndpastTags
 #
+#
+#If in find mode, exit script.
+If [ $$findMode ≠ "" ]
+Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click
+this button."; Default Button: “OK”, Commit: “Yes” ]
+Exit Script [ ]
+End If
 #
 #If node is currenlty locked then stop script, inform user.
 If [ tagTLNodePrimary::orderOrLock ≠ "" ]
@@ -21,7 +28,7 @@ or
 reference::kkeywordOther = "" and reference::kkeywordPrimary = "" and $$copyAndpastTagsRECORD = "" and Get
 ( LayoutTableName ) = "Reference" ]
 Show Custom Dialog [ Message: "There are no keywords to copy. You can add some by copying them from a note that has
-them, or by adding some keywords from the Tag Menus' key menu."; Default Button: “OK”, Commit: “Yes” ]
+them, or by adding some keywords from the key tag menu."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
@@ -48,10 +55,15 @@ If [ $$copyAndpastTagsOtherID = "" and $$copyAndpastTagsPrimaryID = "" ]
 Show Custom Dialog [ Message: "Paste blanks? FYI: You copied blanks, and pasting them will delete/blank this
 record's keywords."; Default Button: “yes”, Commit: “Yes”; Button 2: “Cancel”, Commit: “No” ]
 Else
+If [ testlearn::kcKeywordOther = "" and testlearn::kKeywordPrimary = "" and Get ( LayoutTableName ) = "testlearn"
+or
+reference::kkeywordOther = "" and reference::kkeywordPrimary = "" and Get ( LayoutTableName ) = "Reference" ]
+Else
 Show Custom Dialog [ Message: "Replace this record's keywords with the copied ones?"; Default Button: “yes”,
 Commit: “Yes”; Button 2: “Cancel”, Commit: “No” ]
 End If
-If [ Get (LastMessageChoice) = 1 ]
+End If
+If [ Get (LastMessageChoice) ≠ 2 ]
 If [ Get (LayoutTableName) = "reference" ]
 #
 #Because keyword primary in the Reference

@@ -1,4 +1,4 @@
-January 15, 2018 16:18:07 Library.fmp12 - menuNode -1-
+July 21, 2018 14:16:28 Library.fmp12 - menuNode -1-
 tagMenu: menuNode
 #
 #Prevent halting of script.
@@ -22,10 +22,16 @@ Set Variable [ $$tagEdit ]
 #
 #Sort the records by date field, if current sort is
 #by order number.
-If [ TEMP::TLTestSort = "order" or TEMP::TLBrainstormSort = "order" ]
+If [ TEMP::TLTestSort = 1 or TEMP::TLBrainstormSort = 1 ]
+If [ TEMP::InventoryLibraryYN = "" ]
 Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::date; descending
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
 #
 #Set the sort preference field to date.
 If [ $$citationMatch = "brainstorm" ]
@@ -115,7 +121,7 @@ End If
 // #mode back to citation mode (or adding node
 // #tags to citations instead of the other way around).
 // If [ $$add = 1 and $$addcitationMatch = "key" ]
-// Perform Script [ “addLinksPicturesToTagsMode” ]
+// Perform Script [ “addLinksPicturesToTagsMode (update)” ]
 // End If
 #
 #Go to citation record's current selection or to first record.
@@ -172,7 +178,7 @@ End If
 #Inform user of items use on both screens.
 Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$doNotHaltOtherScripts; Value:1 ]
-Perform Script [ “loadTagRecord” ]
+Perform Script [ “loadTagRecord (update)” ]
 Set Variable [ $$doNotHaltOtherScripts ]
 #
 #Just in case user was in nonTag field on this
@@ -222,15 +228,18 @@ Select Window [ Name: "Tag Menus"; Current file ]
 Refresh Window
 #
 #Show creator node explanation
-#once per session.
+#once per session in idea mode only.
+If [ TEMP::InventoryLibraryYN = "" ]
 If [ $$showCreatorNodemessageOnlyOnce = "" ]
-Show Custom Dialog [ Message: "Library setup and learn sections require creator nodes to create and edit records in this library
-and to be the subjects of tests. Author nodes are used in the reference section to tag referenced works as their authors.";
-Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Library setup and learn sections require creator nodes to create and edit records in this
+library and to be the subjects of tests. Author nodes are used in the reference section to tag referenced works as their
+authors."; Default Button: “OK”, Commit: “Yes” ]
 Show Custom Dialog [ Message: "NOTE: Creator nodes are listed in the reference section, where they can be used to tag a
-reference as an author. Author nodes are never listed in the setup or learn sections."; Default Button: “OK”, Commit: “Yes” ]
-Show Custom Dialog [ Message: "These messages appear only per session. Restart this library to see them again."; Default
-Button: “OK”, Commit: “Yes” ]
+reference as an author. Author nodes are never listed in the setup or learn sections."; Default Button: “OK”, Commit:
+“Yes” ]
+Show Custom Dialog [ Message: "These messages appear only per session. Restart this library to see them again.";
+Default Button: “OK”, Commit: “Yes” ]
 Set Variable [ $$showCreatorNodemessageOnlyOnce; Value:1 ]
+End If
 End If
 #

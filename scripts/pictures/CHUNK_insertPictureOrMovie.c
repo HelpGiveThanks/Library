@@ -1,4 +1,4 @@
-January 15, 2018 17:36:26 Library.fmp12 - CHUNK_insertPictureOrMovie -1-
+July 20, 2018 21:31:34 Library.fmp12 - CHUNK_insertPictureOrMovie -1-
 pictures: CHUNK_insertPictureOrMovie
 #
 #
@@ -93,10 +93,21 @@ make a movie?"; Default Button: “cancel”, Commit: “Yes”; Button 2: “ca
 #C) If the user cancels, then exit the script.
 If [ Get ( LastMessageChoice ) = 1 ]
 #
+#If on a reference layout ...
+If [ $referenceLayout = 1 ]
+#
 #If media is required, insert a place holder.
 If [ $$ReplaceMeMediaRequired = 1 ]
 Set Field [ reference::picture; "Replace Me. Media Required" ]
 Set Variable [ $$ReplaceMeMediaRequired ]
+End If
+#
+#If in inventory mode, turn back on variable that
+#allows the user to edit this reference record.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$editLocation; Value:reference::_Lreference ]
+End If
+#
 End If
 #
 Exit Script [ ]
@@ -143,10 +154,12 @@ Else If [ Get ( LastMessageChoice ) = 2 ]
 If [ Get ( WindowName ) ≠ "Media" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
 New Window [ Name: "Media"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control
 Area: “Yes”; Resize: “Yes” ]
+Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 #
 #Go to correct media layout.
 If [ $referenceLayout = 1 ]
@@ -171,6 +184,7 @@ End If
 #Restart record load scripts.
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stoploadtestinfo ]
+Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTestResultRecord ]
 End If
@@ -200,6 +214,12 @@ If [ reference::picture = "" and $referenceLayout = 1 ]
 If [ $$ReplaceMeMediaRequired = 1 ]
 Set Field [ reference::picture; "Replace Me. Media Required" ]
 Set Variable [ $$ReplaceMeMediaRequired ]
+End If
+#
+#If in inventory mode, turn back on variable that
+#allows the user to edit this reference record.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$editLocation; Value:reference::_Lreference ]
 End If
 #
 #Close window and exit script.
@@ -236,10 +256,12 @@ Else If [ Get ( LastMessageChoice ) = 3 ]
 If [ Get ( WindowName ) ≠ "Media" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
 New Window [ Name: "Media"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control
 Area: “Yes”; Resize: “Yes” ]
+Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 #
 #Go to correct media layout.
 If [ $referenceLayout = 1 ]
@@ -264,6 +286,7 @@ End If
 #Restart record load scripts.
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stoploadtestinfo ]
+Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTestResultRecord ]
 End If
@@ -293,6 +316,12 @@ If [ reference::picture = "" and $referenceLayout = 1 ]
 If [ $$ReplaceMeMediaRequired = 1 ]
 Set Field [ reference::picture; "Replace Me. Media Required" ]
 Set Variable [ $$ReplaceMeMediaRequired ]
+End If
+#
+#If in inventory mode, turn back on variable that
+#allows the user to edit this reference record.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$editLocation; Value:reference::_Lreference ]
 End If
 #
 #Close window and exit script.
@@ -335,10 +364,12 @@ Else If [ Get ( LastMessageChoice ) = 3 ]
 If [ Get ( WindowName ) ≠ "Media" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
 New Window [ Name: "Media"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area:
 “Yes”; Resize: “Yes” ]
+Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 #
 #Go to correct media layout.
 If [ $referenceLayout = 1 ]
@@ -363,6 +394,7 @@ End If
 #Restart record load scripts.
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stoploadtestinfo ]
+Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTestResultRecord ]
 End If
@@ -391,6 +423,12 @@ If [ reference::picture = "" and $referenceLayout = 1 ]
 If [ $$ReplaceMeMediaRequired = 1 ]
 Set Field [ reference::picture; "Replace Me. Media Required" ]
 Set Variable [ $$ReplaceMeMediaRequired ]
+End If
+#
+#If in inventory mode, turn back on variable that
+#allows the user to edit this reference record.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$editLocation; Value:reference::_Lreference ]
 End If
 #
 #Close window and exit script.
@@ -460,6 +498,9 @@ Commit: “No”; Button 3: “picture”, Commit: “No” ]
 #script.
 If [ Get ( LastMessageChoice ) = 1 ]
 #
+#If on a reference layout ...
+If [ $referenceLayout = 1 ]
+#
 #If media is required and there is no media,
 #then insert a place holder.
 If [ $$ReplaceMeMediaRequired = 1 and reference::showMedia[1] = "" and reference::showMedia[2] = "" ]
@@ -467,6 +508,13 @@ Set Field [ reference::picture; "Replace Me. Media Required" ]
 Set Variable [ $$ReplaceMeMediaRequired ]
 End If
 #
+#If in inventory mode, turn back on variable that
+#allows the user to edit this reference record.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$editLocation; Value:reference::_Lreference ]
+End If
+#
+End If
 #
 Exit Script [ ]
 #
@@ -485,11 +533,13 @@ Else If [ Get ( LastMessageChoice ) = 2 ]
 If [ Get ( WindowName ) ≠ "Media" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
 New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4;
 Left: Get (ScreenWidth)/4; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area:
 “Yes”; Resize: “Yes” ]
+Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 #
 #If user is on a reference layout...
 If [ Get (LayoutTableName) = "reference" ]
@@ -524,6 +574,7 @@ End If
 #Restart record load scripts.
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stoploadtestinfo ]
+Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTestResultRecord ]
 End If
@@ -578,6 +629,12 @@ Set Field [ reference::picture; "Replace Me. Media Required" ]
 Set Variable [ $$ReplaceMeMediaRequired ]
 End If
 #
+#If in inventory mode, turn back on variable that
+#allows the user to edit this reference record.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$editLocation; Value:reference::_Lreference ]
+End If
+#
 Exit Script [ ]
 Else If [ testlearn::picture = "" and $learnLayout = 1 ]
 #
@@ -617,11 +674,13 @@ Else If [ Get ( LastMessageChoice ) = 3 ]
 If [ Get ( WindowName ) ≠ "Media" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 Set Variable [ $$stoploadtestinfo; Value:1 ]
+Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Set Variable [ $$stopLoadTestRecord; Value:1 ]
 Set Variable [ $$stopLoadTestResultRecord; Value:1 ]
 New Window [ Name: "Media"; Height: Get (ScreenHeight)/2; Width: Get (ScreenWidth)/2; Top: Get (ScreenHeight)/4;
 Left: Get (ScreenWidth)/4; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area:
 “Yes”; Resize: “Yes” ]
+Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 #
 #If user is on a reference layout...
 If [ Get (LayoutTableName) = "reference" ]
@@ -658,6 +717,7 @@ End If
 #Restart record load scripts.
 Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stoploadtestinfo ]
+Set Variable [ $$stopLoadTagRecord ]
 Set Variable [ $$stopLoadTestRecord ]
 Set Variable [ $$stopLoadTestResultRecord ]
 End If
@@ -700,6 +760,12 @@ End If
 If [ $$ReplaceMeMediaRequired = 1 and reference::showMedia[1] = "" and reference::showMedia[2] = "" ]
 Set Field [ reference::picture; "Replace Me. Media Required" ]
 Set Variable [ $$ReplaceMeMediaRequired ]
+End If
+#
+#If in inventory mode, turn back on variable that
+#allows the user to edit this reference record.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$editLocation; Value:reference::_Lreference ]
 End If
 #
 Exit Script [ ]

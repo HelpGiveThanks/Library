@@ -1,4 +1,4 @@
-January 18, 2018 15:38:17 Library.fmp12 - loadLearnOrRefMainRecord -1-
+July 21, 2018 12:41:01 Library.fmp12 - loadLearnOrRefMainRecord -1-
 reference: loadLearnOrRefMainRecord
 #
 #
@@ -85,6 +85,8 @@ Set Variable [ $$node; Value:testlearn::kNodeOther ]
 Set Variable [ $$primaryNode; Value:testlearn::kNodePrimary ]
 Set Variable [ $$copyright; Value:testlearn::kcopyright ]
 Set Variable [ $$ref; Value:testlearn::kcreference ]
+Set Variable [ $$refMediaSelectedToShow; Value:Case ( testlearn::kshowReferencedMedia = "" ; "" ; testlearn::
+kshowReferencedMedia ) ]
 Set Variable [ $$PrimaryKey; Value:testlearn::kKeywordPrimary ]
 Set Variable [ $$Key; Value:testlearn::kcKeywordOther ]
 Set Variable [ $$OtherKey; Value:testlearn::kcKeywordOther ]
@@ -108,17 +110,27 @@ If [ $$add = "" and $$DuplicateDontGoToTagMenuWindow = "" ]
 #done to prevent flashing and slowing down script.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current file ]
+#
+#Turn off the reveal hidden field's variable so
+#they don't get revealed in the location Tag
+#Menus window by navigating to a different
+#learn record, which would be odd.
+Set Variable [ $$editLocation ]
+#
 If [ Get (LastError) = 112 ]
-Perform Script [ “TgotoCitationMenu” ]
+Perform Script [ “TgotoCitationMenu (udpate)” ]
 End If
 Refresh Window
 Go to Field [ ]
+#
+#Turn back on the reveal hidden field's variable
+#so if the user now selects the current location
+#record in the Tag Menus window, the hidden
+#fields they need to edit it will show up.
+Set Variable [ $$editLocation; Value:reference::_Lreference ]
+#
 End If
 Set Variable [ $$DuplicateDontGoToTagMenuWindow ]
-#
-#
-#
-#
 #
 Else If [ Get (LastError) ≠ 112 ]
 #
@@ -208,7 +220,7 @@ If [ $$add = "" ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) = 112 ]
-Perform Script [ “TgotoCitationMenu” ]
+Perform Script [ “TgotoCitationMenu (udpate)” ]
 End If
 Refresh Window
 End If
@@ -220,12 +232,12 @@ Select Window [ Name: $windowName; Current file ]
 Refresh Window
 #
 #
-#Purplefy Learn layout Find Button!
+#Purple highlight the find button for idea notes.
 #If user is loading a learn record, then check
 #if any learn records reference it and if so
 #set a variable to conditionally format the learn
 #window's 'find' button purple to indicate this.
-If [ Get ( WindowName ) = "Learn" ]
+If [ Get ( WindowName ) = "Learn" and TEMP::InventoryLibraryYN = "" ]
 Set Variable [ $$stoploadCitation; Value:1 ]
 New Window [ Name: "LinkedLearnRecords"; Height: 1; Width: 1; Top: -1000; Left: -1000; Style: Document; Close: “Yes”;
 Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
@@ -256,4 +268,5 @@ Refresh Window
 End If
 #
 Set Variable [ $$stopTgotoCitationMenu ]
+#
 #

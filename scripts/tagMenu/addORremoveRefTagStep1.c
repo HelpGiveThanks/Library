@@ -1,5 +1,43 @@
-January 19, 2018 14:38:26 Library.fmp12 - addORremoveRefTagStep1 -1-
+July 21, 2018 13:48:13 Library.fmp12 - addORremoveRefTagStep1 -1-
 tagMenu: addORremoveRefTagStep1
+#
+#
+#
+#If this tag has a picture that is hidden, ask if
+#the user wants to see the picture or find
+#record's with this tag.
+If [ //There is a picture to show if...
+Get (LayoutName) = "learnMenu4noPicRefCite" and
+(
+testlearn::picture ≠ "" or
+testlearn::kshowReferencedMedia ≠ ""
+)
+or
+Get (LayoutName) = "learnMenu3CiteS" and
+(
+reference::picture ≠ "" or
+reference::showMedia ≠ "" and reference::URL ≠ "" or
+reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ ""
+) ]
+If [ testlearn::_Ltestlearn & "L" & ¶ = FilterValues ( $$ref & ¶ ; testlearn::_Ltestlearn & "L" & ¶ ) and $$citationMatch = "learn" or
+reference::_Lreference & "¶" = FilterValues ( $$ref ; reference::_Lreference & "¶" ) and $$citationMatch = "ref" ]
+Show Custom Dialog [ Message: "Show this tag's picture or remove tag from the selected learn record?"; Default Button:
+“remove”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+Else
+Show Custom Dialog [ Message: "Show this tag's picture or add this tag to the selected learn record?"; Default Button:
+“add”, Commit: “Yes”; Button 2: “show”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+End If
+If [ Get (LastMessageChoice) = 2 ]
+Set Variable [ $$stopOpenNewTextWindow ]
+Perform Script [ “showCitationPicture1inNewWindow (udpate)” ]
+Exit Script [ ]
+End If
+If [ Get (LastMessageChoice) = 3 ]
+Exit Script [ ]
+End If
+End If
+#
+#
 #
 #
 #If main record node is currenlty locked then
@@ -36,7 +74,7 @@ Halt Script
 End If
 #
 #Complete process.
-Perform Script [ “addORremoveRefTagStep2_forLearnRecord” ]
+Perform Script [ “addORremoveRefTagStep2_forLearnRecord (update)” ]
 Select Window [ Name: "Learn"; Current file ]
 Refresh Window
 Select Window [ Name: "Tag Menus"; Current file ]
@@ -44,5 +82,5 @@ Exit Script [ ]
 End If
 #
 #If user is looking at reference records do this.
-Perform Script [ “addORremoveRefTagStep2_forRefRecord” ]
+Perform Script [ “addORremoveRefTagStep2_forRefRecord (update)” ]
 #

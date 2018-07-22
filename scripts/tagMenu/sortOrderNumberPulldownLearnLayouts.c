@@ -1,4 +1,4 @@
-January 15, 2018 16:57:34 Library.fmp12 - sortOrderNumberPulldownLearnLayouts -1-
+July 21, 2018 14:18:14 Library.fmp12 - sortOrderNumberPulldownLearnLayouts -1-
 tagMenu: sortOrderNumberPulldownLearnLayouts
 #
 #Exit order number field.
@@ -17,6 +17,15 @@ hidden."; Default Button: “OK”, Commit: “Yes” ]
 Set Variable [ $$orderNumbersNotAllowed ]
 Exit Script [ ]
 End If
+#
+#Decided to allow user to sort by numbers, but
+#because a number header adds too much
+#distraction, the inventory views do not show it.
+// If [ TEMP::InventoryLibraryYN ≠ "" ]
+// Show Custom Dialog [ Message: "Inventory records are organized by location, and then alphabetically."; Default Button: “OK”,
+Commit: “Yes” ]
+// Exit Script [ ]
+// End If
 #
 #Get order number user has selected.
 If [ Right ( Get (LayoutName) ; 4 ) = "info" ]
@@ -183,10 +192,29 @@ list: “testPulldownListANDsortOrderList”
 testlearnReportTags::timestamp; descending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderTestInformation; based on value list:
+If [ TEMP::InventoryLibraryYN = "" ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list:
 “testPulldownListANDsortOrderList”
+testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList”
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
+#
+#User might have been looking at records
+#sorted by date. Now that they are being
+#sorted by number, inform the library that this
+#is the new view so that when the user clicks
+#the sort button again it will switch to the date
+#sort view, instead of remaining on the number
+#sort view (which is already on).
+Set Field [ TEMP::TLBrainstormSort; 1 ]
+Else
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryList; based on value list:
+“testPulldownListANDsortOrderList”
+testlearn::orderInventoryGroupNumber; ascending
+testlearn::orderTestInformation; based on value list: “testPulldownListANDsortOrderList”
+testlearn::note; ascending ]
+[ Restore; No dialog ]
+End If
 End If
 #
 #

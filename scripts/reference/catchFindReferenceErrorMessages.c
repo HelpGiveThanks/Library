@@ -1,4 +1,4 @@
-January 18, 2018 15:17:23 Library.fmp12 - catchFindReferenceErrorMessages -1-
+July 20, 2018 21:33:26 Library.fmp12 - catchFindReferenceErrorMessages -1-
 reference: catchFindReferenceErrorMessages
 #
 #This script is used by the findReference
@@ -26,7 +26,7 @@ Set Error Capture [ On ]
 #
 #Copy the user's current find request.
 Set Variable [ $$captureUserFindRequests; Value:1 ]
-Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
+Perform Script [ “CHUNK_findReferenceRecordUserFindRequests (update)” ]
 Set Variable [ $$captureUserFindRequests ]
 #
 #
@@ -34,7 +34,7 @@ Set Variable [ $$captureUserFindRequests ]
 #cancelled action" = 1 error is generated or the
 #508 = "invalid find request" variable is generated.
 If [ $$r4 ≠ "" ]
-Set Field [ reference::referenceForReferenceWindow; $$r4 ]
+Set Field [ reference::referenceForReferenceFINDWindow; $$r4 ]
 #
 #BUG: The 1 error is a bug because the script,
 #not the user, is generating the error. If the user
@@ -112,7 +112,7 @@ Else If [ $$GoToField = "" ]
 #script or the cancel find script will halt all
 #copies of the script launched during the
 #sesion.
-Perform Script [ “findReferenceRecord” ]
+Perform Script [ “findReferenceRecord (update)” ]
 Exit Script [ ]
 End If
 End If
@@ -162,7 +162,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findReferenceRecord” ]
+Perform Script [ “findReferenceRecord (update)” ]
 Exit Script [ ]
 End If
 End If
@@ -211,7 +211,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findReferenceRecord” ]
+Perform Script [ “findReferenceRecord (update)” ]
 Exit Script [ ]
 End If
 End If
@@ -255,7 +255,7 @@ Exit Script [ ]
 Else If [ $$GoToField = "" ]
 #
 #Start this script over. SEE ABOVE NOTE.
-Perform Script [ “findReferenceRecord” ]
+Perform Script [ “findReferenceRecord (update)” ]
 Exit Script [ ]
 End If
 End If

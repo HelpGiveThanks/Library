@@ -1,4 +1,4 @@
-January 19, 2018 14:39:52 Library.fmp12 - addORremoveRefTagStep2_forRefRecord -1-
+July 21, 2018 13:48:27 Library.fmp12 - addORremoveRefTagStep2_forRefRecord -1-
 tagMenu: addORremoveRefTagStep2_forRefRecord
 #
 #Get current record IDs in reference or
@@ -7,21 +7,35 @@ Select Window [ Name: "References"; Current file ]
 If [ Get (LastError) = 112 ]
 Select Window [ Name: "Learn"; Current file ]
 #
-#Only allow user to have location tags for the
-#item or for the container the item is in.
-If [ TEMP::InventoryLibraryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
-Select Window [ Name: "Tag Menus"; Current file ]
-Show Custom Dialog [ Message: "This item is tagged with a holder tag. Remove this holder tag before tagging it with a
-location tag. In the Tag Menus window 1) click 'holder' then 2) deslect the highlighted tag. Items can be either in a
-holder or in a location."; Default Button: “OK”, Commit: “Yes” ]
-Halt Script
+#Capture tagged location. If this is
+#changed while on the Qv layout it will effect
+#the record's sort location and require a resort
+#for the user to see the record in the Learn window.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$QvLocation; Value:testlearn::orderInventoryGroupNumber ]
 End If
+#
+#Decided to not show learn tags, so this
+#next block of script makes no sense and
+#is disabled.
+// #Only allow user to have location tags for the
+// #item or for the container the item is in.
+// If [ TEMP::InventoryLibraryYN ≠ "" and Filter ( $$ref ; "L" ) ≠ "" ]
+// Select Window [ Name: "Tag Menus"; Current file ]
+// Show Custom Dialog [ Message: "This item is tagged with an in/on tag. Remove it before applying a location tag. 1)
+Click in/on. 2) Deslect the highlighted tag. 3) Click location. 4) Apply the tag."; Default Button: “OK”, Commit: “Yes” ]
+// Halt Script
+// End If
 #
 Set Variable [ $$ref; Value:testlearn::kcreference ]
 Else If [ Get (LastError) ≠ 112 ]
 Set Variable [ $$ref; Value:reference::lock ]
 End If
 Select Window [ Name: "Tag Menus"; Current file ]
+#
+#
+#
+#
 #
 #If tag user clicked has not yet been selected, then add it.
 If [ reference::_Lreference & "¶" ≠ FilterValues ( $$ref ; reference::_Lreference & "¶" ) ]
@@ -76,6 +90,15 @@ Set Field [ testlearn::kcreference; $newRef & "¶" & $$ref ]
 Set Variable [ $$ref; Value:testlearn::kcreference ]
 Go to Field [ ]
 #
+#
+#
+#
+If [ $$QvLocation ≠ testlearn::orderInventoryGroupNumber ]
+Set Variable [ $$QvLocation ]
+Sort Records [ ]
+[ No dialog ]
+End If
+#
 #Ask user if they would like to show the
 #reference's media if there is any to show.
 If [ $media = 1 and testlearn::picture = "" ]
@@ -90,6 +113,7 @@ location media."; Default Button: “no”, Commit: “Yes”; Button 2: “yes�
 End If
 If [ Get (LastMessageChoice) = 2 ]
 Set Field [ testlearn::kshowReferencedMedia; $newRef ]
+Set Variable [ $$refMediaSelectedToShow; Value:$newRef ]
 End If
 End If
 #
@@ -119,8 +143,13 @@ Set Variable [ $$stopLoadTagRecord ]
 Exit Script [ ]
 End If
 #
+#
+#
+#
+#
 #If tag has been selected, then remove it.
 Set Variable [ $removeRef; Value:reference::_Lreference ]
+Set Variable [ $$refMediaSelectedToShow ]
 #
 #Set record number so can return user to it when done.
 Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
@@ -143,6 +172,17 @@ Set Field [ testlearn::kshowReferencedMedia; "" ]
 End If
 #
 Go to Field [ ]
+#
+#
+#
+#
+If [ $$QvLocation ≠ testlearn::orderInventoryGroupNumber ]
+Set Variable [ $$QvLocation ]
+Sort Records [ ]
+[ No dialog ]
+End If
+#
+#
 Else If [ Get (LastError) ≠ 112 ]
 Set Field [ reference::lock; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not
 removed, then the removal calc without the paragraph mark is used

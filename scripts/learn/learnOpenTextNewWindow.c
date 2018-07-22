@@ -1,14 +1,26 @@
-January 16, 2018 21:58:23 Library.fmp12 - learnOpenTextNewWindow -1-
+July 20, 2018 17:20:54 Library.fmp12 - learnOpenTextNewWindow -1-
 learn: learnOpenTextNewWindow
 If [ Get ( WindowMode ) = 1 ]
 Go to Field [ testlearn::note ]
 Exit Script [ ]
 End If
+#
+#Stop script if user clicked in the note field to
+#navigate to this record, not to open the text
+#edit window.
 If [ $$stopOpenNewTextWindow = 1 ]
 Set Variable [ $$stopOpenNewTextWindow ]
 Exit Script [ ]
 End If
 Go to Field [ ]
+#
+#Set variable so when user closes this edit
+#window a test can be performed to see if
+#record was changed and so Learn window
+#needs to be resorted for inventory tags only.
+If [ TEMP::InventoryLibraryYN ≠ "" ]
+Set Variable [ $$copyNoteForSortCheck; Value:testlearn::note ]
+End If
 #
 Set Variable [ $record; Value:testlearn::_Ltestlearn ]
 Set Variable [ $$stopLoadCitation; Value:1 ]
@@ -61,3 +73,5 @@ Show Custom Dialog [ Message: "Use two-finger pinch-and-zoom gesture to make tex
 “OK”, Commit: “Yes” ]
 End If
 Pause/Resume Script [ Indefinitely ]
+#
+#

@@ -1,4 +1,4 @@
-January 10, 2018 16:24:08 Library.fmp12 - newLibraryStep3A_makeEmptiedLibraryANewLibrary -1-
+July 20, 2018 17:25:19 Library.fmp12 - newLibraryStep3A_makeEmptiedLibraryANewLibrary -1-
 libraryNewOrImport: newLibraryStep3A_makeEmptiedLibraryANewLibrary
 #
 #
@@ -34,8 +34,9 @@ libraryNewOrImport: newLibraryStep3A_makeEmptiedLibraryANewLibrary
 Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
 New Record/Request
 Set Field [ testSubsectionGroup::match; "node" ]
-Set Field [ testSubsectionGroup::name; "Record Creator Nodes/Authors" ]
-Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "Record Creator Nodes/Authors" ]
+Set Field [ testSubsectionGroup::orderOrLibraryType; "001" ]
+Set Field [ testSubsectionGroup::name; "record creators and test subjects" ]
+Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; "record creators and test subjects" ]
 Commit Records/Requests
 [ Skip data entry validation; No dialog ]
 Set Variable [ $group; Value:testSubsectionGroup::_Lgroup ]
@@ -106,7 +107,7 @@ Set Field [ backup::newLibrary; "" ]
 # This variable will trigger these final steps
 #found at the end of startDatabase script.
 Set Variable [ $$newLibraryNextSteps; Value:1 ]
-Perform Script [ “startDatabase” ]
+Perform Script [ “startDatabase (update)” ]
 #
 #END STEP 3A: Create new library records.
 #

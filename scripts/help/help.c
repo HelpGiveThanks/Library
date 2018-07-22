@@ -1,130 +1,272 @@
-January 18, 2018 16:12:28 Library.fmp12 - help -1-
+July 20, 2018 17:15:12 Library.fmp12 - help -1-
 help: help
 #
 #
-// Close Window [ Name: "Help" ]
+#BEGIN Help interface and column message
 #
-#Set back path from help to this solution.
+#If the help app is open figure out if it is
+#focused on help for the interface the user
+#is currently looking at.
+If [ MemorySwitch::helpAppIsRunning ≠ "" ]
+#
+#If not focused on the help layout or column for
+#the current interface then ask the user if they
+#would like to go to help for this interface, or
+#return the help for the interface currently showing.
+If [ MemorySwitch::helpLayoutName ≠ $$helpLayoutName or MemorySwitch::helpLayoutColumnName ≠ $$helpColumnName ]
+If [ $$helpLayoutName = "Test" ]
+If [ $$helpColumnName = "B" ]
+Show Custom Dialog [ Message: "Go to help for this interface (Test Templates" & ": Column — " & $
+$helpColumnName & "), or return to the interface help being viewed?"; Default Button: “return”, Commit: “Yes”;
+Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+Else If [ $$helpColumnName = "C" ]
+Show Custom Dialog [ Message: "Go to help for this interface (Test" & ": Column — " & $$helpColumnName & "),
+or return to the interface help being viewed?"; Default Button: “return”, Commit: “Yes”; Button 2: “go”, Commit:
+“No”; Button 3: “cancel”, Commit: “No” ]
+Else
+Show Custom Dialog [ Message: "Go to help for this interface (Report" & ": Column — " & $$helpColumnName &
+"), or return to the interface help being viewed?"; Default Button: “return”, Commit: “Yes”; Button 2: “go”,
+Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+End If
+Else
+#
+#If the $$gotoHelpObject variable is blank,
+#meaning the user has already been asked if
+#they want to go help for an interface that has
+#to close to do so, ask if they want to go to help.
+If [ $$gotoHelpObject = "" ]
+Show Custom Dialog [ Message: "Go to help for this interface (" & $$helpLayoutName & ": Column — " & $
+$helpColumnName & "), or return to the interface help being viewed?"; Default Button: “return”, Commit: “Yes”;
+Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+End If
+End If
+#
+#
+#
+If [ Get (LastMessageChoice) = 2 or $$gotoHelpObject ≠ "" ]
+Set Field [ MemorySwitch::helpLayoutName; $$helpLayoutName ]
+Set Field [ MemorySwitch::helpLayoutColumnName; $$helpColumnName ]
+Set Field [ MemorySwitch::helpLayoutObjectName; $$helpColumnName ]
+Set Variable [ $messageChoice; Value:2 ]
+End If
+#
+If [ Get (LastMessageChoice) = 3 ]
+Exit Script [ ]
+End If
+#
+#
+#If focused on the help layout and column for
+#the current interface then just go to it.
+Else
+If [ Get ( SystemPlatform ) ≠ 3 ]
+Select Window [ Name: "Help" ]
+Else
+Open URL [ "fmp://%7e/Help" ]
+[ No dialog ]
+End If
+Exit Script [ ]
+End If
+#
+#If the help app is not open, then tell the user
+#what interface and column they are going
+#to be taken to when it is opened.
+Else
+Set Field [ MemorySwitch::helpLayoutName; $$helpLayoutName ]
+Set Field [ MemorySwitch::helpLayoutColumnName; $$helpColumnName ]
+Set Field [ MemorySwitch::helpLayoutObjectName; $$helpColumnName ]
+If [ $$helpLayoutName = "Test" ]
+If [ $$helpColumnName = "B" ]
+Show Custom Dialog [ Message: "Now going to help for this interface (Test Templates" & ": Column — " & $
+$helpColumnName & ")."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+Else If [ $$helpColumnName = "C" ]
+Show Custom Dialog [ Message: "Now going to help for this interface (Test" & ": Column — " & $$helpColumnName &
+")."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+Else
+Show Custom Dialog [ Message: "Now going to help for this interface (Report" & ": Column — " & $$helpColumnName
+& ")."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+End If
+Else
+Show Custom Dialog [ Message: "Now going to help for this interface (" & $$helpLayoutName & ": Column — " & $
+$helpColumnName & ")."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+End If
+#
+If [ Get (LastMessageChoice) = 2 ]
+Exit Script [ ]
+End If
+End If
+#
+#
+#END Help interface and column message
+#
+#
+#
+#
+#
+#BEGIN Find and record all open windows
+#
+#
+#Get the name of the window that the user
+#clicked the help button on.
+Set Variable [ $windowHelpWasClickedOn; Value:Get (WindowName) ]
+#
+#Update the current app being used info.
 Set Field [ MemorySwitch::backToSolution; "Library" ]
 #
 #
-#Set tag menu variable to 1 if user is on tag menu, and
-#then select the main window to determin the module.
-If [ Get (WindowName) = "Tag Menus" ]
-If [ $$findMode = 1 ]
-Set Field [ MemorySwitch::helpObjectName; "find" ]
-Else
-If [ $$citationMatch = "publisher" or $$citationMatch = "path" or $$citationMatch = "publication" ]
-Set Field [ MemorySwitch::helpObjectName; "key" ]
-Else
-Set Field [ MemorySwitch::helpObjectName; $$citationMatch ]
-End If
-#
-If [ Get (LayoutName) = "testMenuTestItem" ]
-Set Field [ MemorySwitch::helpObjectName; "test item" ]
-Else If [ Get (LayoutName) = "testInfo" ]
-Set Field [ MemorySwitch::helpObjectName; "test info" ]
-Else If [ Get (LayoutName) = "reportTestResult" ]
-Set Field [ MemorySwitch::helpObjectName; "result" ]
-Else If [ Get (LayoutName) = "reportTagItem" ]
-Set Field [ MemorySwitch::helpObjectName; "item" ]
-Else If [ Get (LayoutName) = "reportTagInfo" ]
-Set Field [ MemorySwitch::helpObjectName; "info" ]
-Else If [ Get (LayoutName) = "setupTestSection" ]
-Set Field [ MemorySwitch::helpObjectName; "section" ]
-End If
-#
-End If
-Set Variable [ $tagWindow; Value:1 ]
-Select Window [ Name: "Setup"; Current file ]
+#Now figure out what other windows are open.
+#There can be up to three windows open.
+#LEARN
+#Is this window open and not alread recorded?
 Select Window [ Name: "Learn"; Current file ]
-Select Window [ Name: "Share"; Current file ]
-Select Window [ Name: "References"; Current file ]
-Select Window [ Name: "Test"; Current file ]
-Select Window [ Name: "Report"; Current file ]
-End If
-#
-#Determine the module.
-If [ Get ( LayoutTableName ) = "tempSetup" ]
-Set Field [ MemorySwitch::helpLayoutName; "Setup" ]
-If [ Get (LayoutName) = "allSolutions" ]
-Set Field [ MemorySwitch::helpLayoutName; "dashboard" ]
-Set Field [ MemorySwitch::helpObjectName; "" ]
-End If
-Else If [ Get ( LayoutTableName ) = "testLearn" and Get (LayoutName) ≠ "testResult" ]
-Set Field [ MemorySwitch::helpLayoutName; "Learn" ]
-Else If [ Get ( LayoutTableName ) = "reference" ]
-Set Field [ MemorySwitch::helpLayoutName; "Reference" ]
-Else If [ Get ( LayoutTableName ) = "testSubsection" ]
-Set Field [ MemorySwitch::helpLayoutName; "Test" ]
-Else If [ Get ( LayoutTableName ) = "testSubjectsTestSubsection" ]
-Set Field [ MemorySwitch::helpLayoutName; "Test" ]
-Else If [ Get ( LayoutTableName ) = "testLearn" and Get (LayoutName) = "testResult" ]
-Set Field [ MemorySwitch::helpLayoutName; "Test" ]
-Else If [ Get ( LayoutTableName ) = "report" ]
-Set Field [ MemorySwitch::helpLayoutName; "Test" ]
-End If
-#
-If [ $tagWindow ≠ 1 ]
-#Help for library setup module main window.
-If [ Get (LayoutName) = "defaultSetup" ]
-Set Field [ MemorySwitch::helpObjectName; "library" ]
-End If
-#
-#Help for test setup module main window.
-If [ Get (LayoutName) = "setupTestSubsection" ]
-Set Field [ MemorySwitch::helpObjectName; "test templates" ]
-End If
-#
-#Help for test select main window.
-If [ Get (LayoutName) = "testingSubsectionMenu" ]
-Set Field [ MemorySwitch::helpObjectName; "test select" ]
-End If
-#
-#Help for test select main window.
-If [ Get (LayoutName) = "testResult" ]
-Set Field [ MemorySwitch::helpObjectName; "test finding" ]
-End If
-#
-#Help for report main window.
-If [ Get (LayoutName) = "PrintReportEdit" ]
-Set Field [ MemorySwitch::helpObjectName; "report" ]
-End If
-#
-#Help for learn module main window.
-If [ Get (LayoutName) = "learn1" or Get (LayoutName) = "learn2" or Get (LayoutName) = "learn3" or Get (LayoutName) = "learn4" ]
-Set Field [ MemorySwitch::helpObjectName; "learn" ]
-Else If [ Get (LayoutName) = "LearnTextWindow" ]
-Set Field [ MemorySwitch::helpObjectName; "edit" ]
-Show Custom Dialog [ Message: "This edit-note window will be closed while you view help for this window. Your work will
-be saved! When you are finished viewing help, click on your text to re-open this window and continue editing."; Default
-Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Pause/Resume Script [ Indefinitely ]
-Exit Script [ ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
 Else
-Close Window [ Current Window ]
-End If
-Else If [ Get (LayoutName) = "Learn4EDIT" ]
-Set Field [ MemorySwitch::helpObjectName; "qv" ]
-Else If [ Get (LayoutName) = "learnFind" ]
-Set Field [ MemorySwitch::helpObjectName; "learnFind" ]
-Else If [ Get (LayoutName) = "learnPreviewLayout" ]
-Set Field [ MemorySwitch::helpObjectName; "print" ]
-#
-#Help for reference module main window.
-Else If [ Get (LayoutName) = "reference" ]
-Set Field [ MemorySwitch::helpObjectName; "ref" ]
-Else If [ Get (LayoutName) = "referenceEdit" ]
-Set Field [ MemorySwitch::helpObjectName; "ref edit" ]
-Else If [ Get (LayoutName) = "referenceFind" ]
-Set Field [ MemorySwitch::helpObjectName; "ref find" ]
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
 End If
 End If
+#REFERENCE (NOTE: Change this window
+#name to references when time permits.)
+#Is this window open and not alread recorded?
+Select Window [ Name: "Reference"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#REFERENCES
+#Is this window open and not alread recorded?
+Select Window [ Name: "References"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#REPORT
+#Is this window open and not alread recorded?
+Select Window [ Name: "Report"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#SETUP
+#Is this window open and not alread recorded?
+Select Window [ Name: "Setup"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#SHARE
+#Is this window open and not alread recorded?
+Select Window [ Name: "Share"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#TAG MENUS
+#Is this window open and not alread recorded?
+Select Window [ Name: "Tag Menus"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#TEST
+#Is this window open and not alread recorded?
+Select Window [ Name: "Test"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#TEST TEMPLATES
+#Is this window open and not alread recorded?
+Select Window [ Name: "Test Templates"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowHelpWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#
+Set Field [ MemorySwitch::helpAppWindowName; $windowHelpWasClickedOn ]
+Set Field [ MemorySwitch::helpAppWindowName[2]; $windowAlsoOpen2 ]
+Set Field [ MemorySwitch::helpAppWindowName[3]; $windowAlsoOpen3 ]
 #
 #
-Pause/Resume Script [ Duration (seconds): .1 ]
+#END Find and record all open windows
 #
+#
+#
+#
+#Go to the help windows if the app is open.
+If [ Get ( SystemPlatform ) ≠ 3 ]
+Select Window [ Name: "Tutorial" ]
+Select Window [ Name: "Menu" ]
+Select Window [ Name: "Help" ]
+Else
+Open URL [ "fmp://%7e/Help" ]
+[ No dialog ]
+End If
+#
+#
+#If open, then run the script that forces help
+#to go the user's selected help location.
+If [ Get (LastError) ≠ 112 //window is missing = 112 ]
+If [ $messageChoice = 2 ]
+Perform Script [ “TRIGGERED_SCRIPTByOtherApp (new)” from file: “Help” ]
+Else
+Perform Script [ “fixForLearnLayoutBug (new)” from file: “Help” ]
+End If
+#
+Else
+#
+#If help is not open, then open it.
 If [ Get ( SystemPlatform ) ≠ 3 ]
 Open URL [ MemorySwitch::helpPath ]
 [ No dialog ]
@@ -132,10 +274,7 @@ Open URL [ Substitute ( MemorySwitch::helpPath ; "file://" ; "file:///Volumes/" 
 [ No dialog ]
 Else
 Open URL [ "fmp://%7e/Help" ]
-[ No dialog ]
 End If
-#
-Select Window [ Name: "Help" ]
-Select Window [ Name: "Tutorial" ]
+End If
 #
 #

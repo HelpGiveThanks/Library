@@ -1,4 +1,4 @@
-January 15, 2018 17:15:32 Library.fmp12 - TgotoCitationMenu -1-
+July 21, 2018 14:36:47 Library.fmp12 - TgotoCitationMenu -1-
 tagMenu: TgotoCitationMenu
 #
 // If [ Get ( ActiveFieldContents ) = "" ]
@@ -22,11 +22,30 @@ Set Variable [ $$citationMatch; Value:Get (ActiveFieldName) ]
 If [ Filter ( Get ( ActiveFieldTableName ) ; "refLearn" ) = "refLearn" ]
 Set Variable [ $$citationMatch; Value:"ref" ]
 Set Variable [ $learnRef; Value:refLearn::_Lreference ]
+Set Variable [ $$refIDForMainLearnRecord; Value:refLearn::_Lreference ]
+End If
+#
+If [ Filter ( Get ( ActiveFieldTableName ) ; "refTestLearn" ) = "refTestLearn" ]
+Set Variable [ $$citationMatch; Value:"learn" ]
+Set Variable [ $learnRef; Value:refTestLearn::_Ltestlearn ]
+Set Variable [ $$learnIDForMainLearnRecord; Value:refTestLearn::_Ltestlearn ]
 End If
 #
 If [ Left (Get (ActiveFieldName); 4) = "kkey" or Left (Get (ActiveFieldName); 5) = "kckey" or Get (ActiveFieldName) = "" ]
 Set Variable [ $$citationMatch; Value:"key" ]
 Set Variable [ $$citationItem; Value:tagTLKeywordPrimary::_Ltag ]
+If [ $$primaryKey = "" ]
+Set Variable [ $firstOtherKeyword; Value:Case ( Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::
+OtherKeyWords ; 1 ) ) + 1 ; 1 ) = "," ;
+LeftWords ( testlearn::OtherKeyWords ; 1 ) ;
+Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 2 ) ) + 1 ; 1 ) = "," ;
+LeftWords ( testlearn::OtherKeyWords ; 2 ) ;
+Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 3 ) ) + 1 ; 1 ) = "," ;
+LeftWords ( testlearn::OtherKeyWords ; 3 ) ;
+Middle ( testlearn::OtherKeyWords ; Length ( LeftWords ( testlearn::OtherKeyWords ; 4 ) ) + 1 ; 1 ) = "," ;
+LeftWords ( testlearn::OtherKeyWords ; 4 ) ;
+LeftWords ( testlearn::OtherKeyWords ; 5 ) ) ]
+End If
 End If
 #
 If [ Left ( Get ( ActiveFieldName ) ; 5 ) = "knode" or
@@ -80,7 +99,7 @@ Else If [ $$citationMatch = "key" ]
 If [ tagMenus::match ≠ "key" ]
 #
 #Menu NOT selected.
-Perform Script [ “menuKey” ]
+Perform Script [ “menuKey (udpate)” ]
 #
 Else
 #Menu IS selected.
@@ -118,11 +137,19 @@ Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
+If [ $$primaryKey ≠ "" ]
 Loop
 Exit Loop If [ $$primaryKey = tagMenus::_Ltag ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
+Else If [ $firstOtherKeyword ≠ "" ]
+Loop
+Exit Loop If [ $firstOtherKeyword = LeftWords ( tagMenus::tag ; 5 ) ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+End If
 #
 #Finish.
 Go to Layout [ $reflayoutname ]
@@ -139,7 +166,7 @@ Else If [ $$citationMatch = "node" ]
 If [ tagMenus::match ≠ "node" ]
 #
 #Menu NOT selected.
-Perform Script [ “menuNode” ]
+Perform Script [ “menuNode (update)” ]
 #
 Else
 #Menu IS selected.
@@ -177,11 +204,13 @@ Go to Record/Request/Page
 [ First ]
 Scroll Window
 [ Home ]
+If [ $$primaryNode ≠ "" ]
 Loop
 Exit Loop If [ $$primaryNode = tagMenus::_Ltag ]
 Go to Record/Request/Page
 [ Next; Exit after last ]
 End Loop
+End If
 #
 #Finish.
 Go to Layout [ $reflayoutname ]
@@ -198,7 +227,20 @@ Else If [ $$citationMatch = "ref" ]
 If [ Get (LayoutTableName) ≠ "reference" ]
 #
 #Menu NOT selected.
-Perform Script [ “menuReference” ]
+Perform Script [ “menuReference (update)” ]
+#
+#Reset this variable which is changed
+#by the menuReference script.
+Set Variable [ $$refIDForMainLearnRecord; Value:$learnRef ]
+If [ TEMP::layoutLmain = "lesslearn4"
+or
+TEMP::layoutLmain = "morelearn4"
+or
+$$testLearnLayoutName ≠ "" ]
+Select Window [ Name: "Learn"; Current file ]
+Refresh Window
+Select Window [ Name: "Tag Menus"; Current file ]
+End If
 End If
 #
 #Menu IS selected.
@@ -231,6 +273,46 @@ Set Variable [ $$stoploadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 End If
 #
+#
+#
+Else If [ $$citationMatch = "learn" ]
+#LEARN MENU
+#
+#See if user has selected requested menu.
+If [ Get (LayoutTableName) ≠ "testlearn" ]
+#
+#Menu NOT selected.
+Perform Script [ “menuLearn (udpate)” ]
+End If
+#
+#Menu IS selected.
+#
+#Record not selected, do this:
+If [ $learnRef ≠ testlearn::_Ltestlearn ]
+#
+#Go to a layout with no pictures
+Set Variable [ $reflayoutname; Value:Get (LayoutName) ]
+Go to Layout [ “learnSCRIPTloops” (testlearn) ]
+#
+#Make sure record is showing.
+Enter Find Mode [ ]
+Set Field [ testlearn::_Ltestlearn; $learnRef ]
+Extend Found Set [ ]
+#
+#Loop thru records to find user's selection.
+Go to Record/Request/Page
+[ First ]
+Loop
+Exit Loop If [ $learnRef = testlearn::_Ltestlearn ]
+Go to Record/Request/Page
+[ Next; Exit after last ]
+End Loop
+#
+#Finish.
+Go to Layout [ $reflayoutname ]
+Set Variable [ $$stoploadCitation ]
+Set Variable [ $$stopLoadTagRecord ]
+End If
 #
 #
 #
@@ -283,11 +365,11 @@ Perform Script [ “menuPublication” ]
 Else If [ $$citationMatch = "kpublisher" ]
 Perform Script [ “menuPublisher” ]
 Else If [ $$citationMatch = "key" ]
-Perform Script [ “menuKey” ]
+Perform Script [ “menuKey (udpate)” ]
 Else If [ $$citationMatch = "node" ]
-Perform Script [ “menuNode” ]
+Perform Script [ “menuNode (update)” ]
 Else If [ $$citationMatch = "kcitation" ]
-Perform Script [ “menuCitation” ]
+Perform Script [ “menuCitation (update)” ]
 End If
 #
 Select Window [ Name: "Tag Menus"; Current file ]
