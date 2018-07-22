@@ -259,9 +259,9 @@ End If
 #to go the user's selected help location.
 If [ Get (LastError) ≠ 112 //window is missing = 112 ]
 If [ $messageChoice = 2 ]
-Perform Script [ “TRIGGERED_SCRIPTByOtherApp (new)” from file: “Help” ]
+Perform Script [ “TRIGGERED_SCRIPTByOtherApp” from file: “Help” ]
 Else
-Perform Script [ “fixForLearnLayoutBug (new)” from file: “Help” ]
+Perform Script [ “fixForLearnLayoutBug” from file: “Help” ]
 End If
 #
 Else

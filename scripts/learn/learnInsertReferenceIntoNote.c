@@ -131,7 +131,7 @@ Move/Resize Window [ Name: "Test"; Current file; Width: Get ( ScreenWidth ) / 3;
 #
 #Turn back on info record record's load script.
 Set Variable [ $$STOPloadReferenceForInsertIntoText ]
-Perform Script [ “loadReferenceForInsertIntoText (new)” ]
+Perform Script [ “loadReferenceForInsertIntoText” ]
 #
 #Pause the script so the user cannot do
 #anything until they either insert a reference

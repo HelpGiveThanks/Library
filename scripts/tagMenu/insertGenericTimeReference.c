@@ -6,6 +6,6 @@ tagMenu: insertGenericTimeReference
 #button, and pass that on to the next script
 #to peform this insert.
 Set Variable [ $$andTime; Value:1 ]
-Perform Script [ “insertGenericNumberOrTimeReference (new)” ]
+Perform Script [ “insertGenericNumberOrTimeReference” ]
 #
 #

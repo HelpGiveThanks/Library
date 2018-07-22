@@ -6,6 +6,6 @@ tagMenu: insertRefenceToRefenceAndPageNumber
 #button, and pass that on to the next script
 #to peform this insert.
 Set Variable [ $$andPageNumber; Value:1 ]
-Perform Script [ “insertReferenceToReference (new)” ]
+Perform Script [ “insertReferenceToReference” ]
 #
 #
