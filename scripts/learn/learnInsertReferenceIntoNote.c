@@ -1,5 +1,5 @@
-July 21, 2018 14:45:39 Library.fmp12 - learnInsertReferenceIntoNote -1-
-test: test: learnInsertReferenceIntoNote
+July 23, 2018 11:41:01 Library.fmp12 - learnInsertReferenceIntoNote -1-
+learn: learnInsertReferenceIntoNote
 #
 #
 #Admin tasks.
@@ -13,8 +13,8 @@ Set Error Capture [ On ]
 If [ testlearn::kcreference = ""
  or
 ValueCount ( testlearn::kcreference ) - Length ( Filter ( testlearn::kcreference ; "L" ) ) = 0 ]
-Show Custom Dialog [ Message: "If you add references to a record like this one, this button will give you a list of pre-formatted
-references to insert including the author's name and date of publication."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "No reference tags have been added to this record. This button will give you a list of preformatted
+references to insert into a note if references are added."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
@@ -23,8 +23,8 @@ End If
 If [ Get ( ActiveFieldName ) = ""
 or
 Get ( ActiveFieldName ) ≠ "note" ]
-Show Custom Dialog [ Message: "Click into the text field, and then click exactly where you want — " & Trim ($tag) & " —
-inserted."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Where do you a reference inserted? Before clicking the [Ref] button, click into the text field,
+and click exactly where you want your reference to go."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
