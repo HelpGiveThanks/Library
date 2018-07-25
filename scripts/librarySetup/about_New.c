@@ -1,5 +1,5 @@
-July 24, 2018 16:39:49 Library.fmp12 - setupReference_New -1-
-librarySetup: setupReference_New
+July 24, 2018 16:39:49 Library.fmp12 - about_New -1-
+librarySetup: about_New
 #
 #
 #This script is for creating a curator record.
@@ -47,7 +47,7 @@ Set Field [ librarySetupReferenceMain::version; "1" ]
 #
 #Go to edit setup reference window.
 Set Variable [ $$newSetupReference; Value:1 ]
-Perform Script [ “setupReference_GoToPortalReferenceRevieworWebsite” ]
+Perform Script [ “about_GoToConfigurationRevieworWebsite” ]
 #
 #
 #

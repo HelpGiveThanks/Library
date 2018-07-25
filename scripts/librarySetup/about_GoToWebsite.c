@@ -1,5 +1,5 @@
-July 24, 2018 16:45:50 Library.fmp12 - setupReference_GoToWebsite -1-
-librarySetup: setupReference_GoToWebsite
+July 24, 2018 16:45:50 Library.fmp12 - about_GoToWebsite -1-
+librarySetup: about_GoToWebsite
 #
 #
 #If there are no setup references, then

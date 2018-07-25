@@ -1,5 +1,5 @@
-July 24, 2018 16:52:34 Library.fmp12 - setupReference_GoToPortalReferenceRevieworWebsite -1-
-librarySetup: setupReference_GoToPortalReferenceRevieworWebsite
+July 24, 2018 16:52:34 Library.fmp12 - about_GoToPortalReferenceRevieworWebsite -1-
+librarySetup: about_GoToPortalReferenceRevieworWebsite
 #
 #
 #If there are no user created references, then tell user

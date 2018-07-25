@@ -1,5 +1,5 @@
-July 24, 2018 16:31:38 Library.fmp12 - setupReference_GoToReviewOrEditWindow -1-
-librarySetup: setupReference_GoToReviewOrEditWindow
+July 24, 2018 16:31:38 Library.fmp12 - about_GoToReviewOrEditWindow -1-
+librarySetup: about_GoToReviewOrEditWindow
 #
 #
 #If user is on the review layout, take them

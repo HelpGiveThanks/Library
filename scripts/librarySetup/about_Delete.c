@@ -1,5 +1,5 @@
-July 24, 2018 16:31:23 Library.fmp12 - setupReference_Delete -1-
-librarySetup: setupReference_Delete
+July 24, 2018 16:31:23 Library.fmp12 - about_Delete -1-
+librarySetup: about_Delete
 #
 #
 #Stop script if there are no records to lock.

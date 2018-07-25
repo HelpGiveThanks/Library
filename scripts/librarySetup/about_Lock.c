@@ -1,5 +1,5 @@
-July 24, 2018 16:35:05 Library.fmp12 - setupReference_Lock -1-
-librarySetup: setupReference_Lock
+July 24, 2018 16:35:05 Library.fmp12 - about_Lock -1-
+librarySetup: about_Lock
 #
 #
 #Stop script if there are no records to lock.
