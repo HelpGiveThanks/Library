@@ -1,4 +1,4 @@
-January 11, 2018 19:14:03 Library.fmp12 - setupReference_GoToWebsite -1-
+July 24, 2018 16:45:50 Library.fmp12 - setupReference_GoToWebsite -1-
 librarySetup: setupReference_GoToWebsite
 #
 #
@@ -20,13 +20,12 @@ If [ Get (WindowName) = "Setup" ]
 #
 If [ librarySetupReferenceMain::password = "" ]
 #If NOT locked ...
-Show Custom Dialog [ Message: "1) Click the review button, and then 2) the edit button, 3) to add a website URL to
-this setup reference in the edit window."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "1) Click the review button, and then 2) the edit button, 3) to add a website URL in the
+edit window."; Default Button: “OK”, Commit: “Yes” ]
 Else
 #If locked ...
-Show Custom Dialog [ Message: "1) Click the lock button and unlock this setup reference, 2) then click the review
-button, 3) the edit button, 4) to add a website URL to this setup reference in the edit window."; Default Button: “OK”,
-Commit: “Yes” ]
+Show Custom Dialog [ Message: "1) Click the lock button and unlock this about record, then click the 2) review button,
+and 3) the edit button, 4) to add a website URL in the edit window."; Default Button: “OK”, Commit: “Yes” ]
 End If
 #
 #on the Review Reference window ...
@@ -34,18 +33,18 @@ Else If [ Get (WindowName) = "Review Reference" ]
 #
 If [ librarySetupReferenceMain::password = "" ]
 #If NOT locked ...
-Show Custom Dialog [ Message: "1) Click the edit button, 2) to add a website URL to this in the Edit Reference
-window."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "1) Click the edit button, 2) to add a website URL."; Default Button: “OK”, Commit:
+“Yes” ]
 Else
 #If locked ...
-Show Custom Dialog [ Message: "1) Click the lock button and unlock this setup reference, 2) then click edit button, 3)
-to add a website URL to this in the Edit Reference window."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "1) Click the lock button to unlock this about record. Then 2) click edit button, to 3)
+add a website URL."; Default Button: “OK”, Commit: “Yes” ]
 End If
 #
 #on the Edit Reference window, which is
 #always unlocked.
-Else If [ Get (WindowName) = "Edit Reference" ]
-Show Custom Dialog [ Message: "Add a website URL below, then click the web button again to go to that website."; Default
+Else If [ Get (WindowName) = "Edit About" ]
+Show Custom Dialog [ Message: "Add a website URL below, then click the web button again to go to the website."; Default
 Button: “OK”, Commit: “Yes” ]
 End If
 #

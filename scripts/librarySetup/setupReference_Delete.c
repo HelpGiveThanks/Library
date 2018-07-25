@@ -1,4 +1,4 @@
-January 25, 2018 10:23:17 CODELibrary.fmp12 - setupReference_Delete -1-
+July 24, 2018 16:31:23 Library.fmp12 - setupReference_Delete -1-
 librarySetup: setupReference_Delete
 #
 #
@@ -20,16 +20,16 @@ End If
 #user it's locked, but the record can still be
 #deleted or edited because it is not locked.
 If [ librarySetupCreator::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "This library setup-reference's creator node — " & librarySetupCreator::tag & " — is locked.
-HOWEVER, the lock for these setup-reference records are separate from their creator's lock, so you can edit and delete it.";
-Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "The creator node — " & librarySetupCreator::tag & " — is locked. HOWEVER, the lock for
+these about records are separate from their creator's lock, so you can edit and delete it."; Default Button: “OK”, Commit:
+“Yes” ]
 End If
 #
 #
 #Make sure the user wants to delete
 #the record.
-Show Custom Dialog [ Message: "Delete this library setup-reference?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “OK”,
-Commit: “No” ]
+Show Custom Dialog [ Message: "Delete this library about record?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “OK”, Commit:
+“No” ]
 #
 #
 #If user cancels delete, exit script.
@@ -45,9 +45,9 @@ Delete Record/Request
 #
 #
 #Close the Review Reference window if open.
-If [ Get (WindowName) = "Review Reference"
+If [ Get (WindowName) = "About"
  or
-Get (WindowName) = "Edit Reference" ]
+Get (WindowName) = "Edit About" ]
 Close Window [ Current Window ]
 Halt Script
 End If

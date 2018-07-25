@@ -1,4 +1,4 @@
-January 11, 2018 19:10:49 Library.fmp12 - setupReference_Lock -1-
+July 24, 2018 16:35:05 Library.fmp12 - setupReference_Lock -1-
 librarySetup: setupReference_Lock
 #
 #
@@ -36,9 +36,9 @@ End If
 #Unlock reference if password is correct.
 If [ $password = TEMP::passwordCheck ]
 #
-#If user is in the Review Reference window,
-#then take user to the unlocked review layout.
-If [ Get (WindowName) = "Review Reference" ]
+#If user is in the about window,
+#then take user to the unlocked about layout.
+If [ Get (WindowName) = "About" ]
 Go to Layout [ “setupReferenceViewUnlocked” (librarySetupReferenceMain) ]
 End If
 #
@@ -110,11 +110,11 @@ End If
 #
 #If user in the Review Reference window,
 #then take user to the locked review layout.
-If [ Get (WindowName) = "Review Reference"
+If [ Get (WindowName) = "About"
  or
-Get (WindowName) = "Edit Reference" ]
+Get (WindowName) = "Edit About" ]
 Go to Layout [ “setupReferenceViewLocked” (librarySetupReferenceMain) ]
-Set Window Title [ Current Window; New Title: "Review Reference" ]
+Set Window Title [ Current Window; New Title: "About" ]
 End If
 #
 End If

@@ -1,12 +1,12 @@
-July 20, 2018 21:27:33 Library.fmp12 - setupReference_GoToPortalReferenceRevieworWebsite… -1-
+July 24, 2018 16:52:34 Library.fmp12 - setupReference_GoToPortalReferenceRevieworWebsite -1-
 librarySetup: setupReference_GoToPortalReferenceRevieworWebsite
 #
 #
 #If there are no user created references, then tell user
 #how to download a fresh copy of the library app.
 If [ Get (FoundCount) = 0 ]
-Show Custom Dialog [ Message: "This library when downloaded was an empty, unmodified version of the applicaiton, without any
-user created notes (Learn records), references, or test templates in it."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "This library when downloaded was an empty, unmodified version of the applicaiton, without
+any user created notes (Learn records), references, or test templates in it."; Default Button: “OK”, Commit: “Yes” ]
 Exit Script [ ]
 End If
 #
@@ -38,8 +38,8 @@ Go to Field [ ]
 #to go to the web when they just clicked the
 #review button insetad of the web button.)
 If [ $URL ≠ "" and $portal ≠ "" ]
-Show Custom Dialog [ Message: "Review setup reference, or go to its website?"; Default Button: “cancel”, Commit: “Yes”; Button
-2: “review”, Commit: “No”; Button 3: “go”, Commit: “No” ]
+Show Custom Dialog [ Message: "Review library information, or go to library website?"; Default Button: “cancel”, Commit: “Yes”;
+Button 2: “review”, Commit: “No”; Button 3: “go”, Commit: “No” ]
 End If
 #
 #
@@ -63,11 +63,11 @@ End If
 #
 #Close a Review Reference window that
 #might be open due to a script interruption.
-Close Window [ Name: "Review Reference"; Current file ]
+Close Window [ Name: "About"; Current file ]
 #
 #Open an Review Reference window.
-New Window [ Name: "Review Reference"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area:
-“Yes”; Resize: “Yes” ]
+New Window [ Name: "About"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize:
+“Yes” ]
 #
 #If there is no password, go the review layout
 #with an edit button, otherwise go to the
@@ -96,6 +96,7 @@ Perform Find [ ]
 If [ $$newSetupReference ≠ "" ]
 Set Variable [ $$newSetupReference ]
 Go to Layout [ “defaultSetupViewAndEdit” (librarySetupReferenceMain) ]
+Set Window Title [ Current Window; New Title: "Edit About" ]
 #
 #Tell user why the must enter their
 #name again, when they used their

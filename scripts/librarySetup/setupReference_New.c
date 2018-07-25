@@ -1,4 +1,4 @@
-July 20, 2018 21:30:47 Library.fmp12 - setupReference_New -1-
+July 24, 2018 16:39:49 Library.fmp12 - setupReference_New -1-
 librarySetup: setupReference_New
 #
 #
@@ -15,7 +15,7 @@ Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Make sure user understands the reason
 #to create a setup reference record.
-Show Custom Dialog [ Message: "NOTE: Create setup reference records to share a library filled with templates, information, and
+Show Custom Dialog [ Message: "NOTE: Create about-the-library records to share a library filled with templates, information, and
 reference records to help others track a process, learning something, etc."; Default Button: “cancel”, Commit: “Yes”; Button 2:
 “OK”, Commit: “No” ]
 #
@@ -27,8 +27,9 @@ End If
 #
 #Encourage user to improve any library
 #setup the use.
-Show Custom Dialog [ Message: "1) Make a short note about your setup's purpose, or improvements, modifications, etc. to another's
-setup. 2) Give yourself credit. 3) Share!"; Default Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "1) Make a short note about your library configuration's purpose, or your improvements,
+modifications, etc. to another's configuration. 2) Give yourself credit. 3) Share!"; Default Button: “cancel”, Commit: “Yes”; Button
+2: “OK”, Commit: “No” ]
 #
 #If they click cancel, then exit the script.
 If [ Get (LastMessageChoice) = 1 ]
@@ -39,14 +40,7 @@ End If
 #Create new setup reference.
 New Record/Request
 Set Field [ librarySetupReferenceMain::kcreatorNode; TEMP::kdefaultNodePrimary ]
-#
-#Call the new library a remix if there is already
-#one library reference present.
-If [ Get (FoundCount) = 1 ]
-Set Field [ librarySetupReferenceMain::name; "Library Setup Name" ]
-Else
-Set Field [ librarySetupReferenceMain::name; "Remix of Library Setup Name" ]
-End If
+Set Field [ librarySetupReferenceMain::name; "Library Configuration Name" ]
 #
 Set Field [ librarySetupReferenceMain::creatorName; "FirstName LastName" ]
 Set Field [ librarySetupReferenceMain::version; "1" ]
