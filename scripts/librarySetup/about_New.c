@@ -1,4 +1,4 @@
-July 24, 2018 16:39:49 Library.fmp12 - about_New -1-
+July 24, 2018 17:35:49 Library.fmp12 - about_New -1-
 librarySetup: about_New
 #
 #
@@ -39,11 +39,11 @@ End If
 #
 #Create new setup reference.
 New Record/Request
-Set Field [ librarySetupReferenceMain::kcreatorNode; TEMP::kdefaultNodePrimary ]
-Set Field [ librarySetupReferenceMain::name; "Library Configuration Name" ]
+Set Field [ aboutLibraryMain::kcreatorNode; TEMP::kdefaultNodePrimary ]
+Set Field [ aboutLibraryMain::name; "Library Configuration Name" ]
 #
-Set Field [ librarySetupReferenceMain::creatorName; "FirstName LastName" ]
-Set Field [ librarySetupReferenceMain::version; "1" ]
+Set Field [ aboutLibraryMain::creatorName; "FirstName LastName" ]
+Set Field [ aboutLibraryMain::version; "1" ]
 #
 #Go to edit setup reference window.
 Set Variable [ $$newSetupReference; Value:1 ]

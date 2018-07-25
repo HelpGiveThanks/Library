@@ -1,4 +1,4 @@
-July 24, 2018 16:45:50 Library.fmp12 - about_GoToWebsite -1-
+July 24, 2018 17:36:19 Library.fmp12 - about_GoToWebsite -1-
 librarySetup: about_GoToWebsite
 #
 #
@@ -13,12 +13,12 @@ End If
 #
 #If there is no URL, then tell the user how
 #to add one ...
-If [ librarySetupReferenceMain::URL = "" ]
+If [ aboutLibraryMain::URL = "" ]
 #
 #on the Setup window ...
 If [ Get (WindowName) = "Setup" ]
 #
-If [ librarySetupReferenceMain::password = "" ]
+If [ aboutLibraryMain::password = "" ]
 #If NOT locked ...
 Show Custom Dialog [ Message: "1) Click the review button, and then 2) the edit button, 3) to add a website URL in the
 edit window."; Default Button: “OK”, Commit: “Yes” ]
@@ -31,7 +31,7 @@ End If
 #on the Review Reference window ...
 Else If [ Get (WindowName) = "Review Reference" ]
 #
-If [ librarySetupReferenceMain::password = "" ]
+If [ aboutLibraryMain::password = "" ]
 #If NOT locked ...
 Show Custom Dialog [ Message: "1) Click the edit button, 2) to add a website URL."; Default Button: “OK”, Commit:
 “Yes” ]
@@ -53,7 +53,7 @@ End If
 #
 #If there is a URL, then go to it.
 Else
-Open URL [ librarySetupReferenceMain::URL ]
+Open URL [ aboutLibraryMain::URL ]
 [ No dialog ]
 End If
 #

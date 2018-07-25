@@ -1,4 +1,4 @@
-January 19, 2018 2:05:38 Library.fmp12 - newLibraryStep3B_importLibraryIntoEmptiedLibrary -1-
+July 24, 2018 17:35:03 Library.fmp12 - newLibraryStep3B_importLibraryIntoEmptiedLibrary -1-
 libraryNewOrImport: newLibraryStep3B_importLibraryIntoEmptiedLibrary
 #
 #
@@ -81,7 +81,7 @@ Commit Records/Requests
 #Ask the user what file they want to
 #import from. Because it is an (unknown) file,
 #the user will be prompted to select this file.
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 Open File [ <unknown> ]
 #
 #If the user cancels the file selection process,
@@ -222,20 +222,20 @@ Source field 48 import to testlearn::pictureThumbnail ]
 [ No dialog ]
 #
 #
-#4) Import LIBRARY SETUP reference records.
-Go to Layout [ “tableSetupReference” (setupReference) ]
-Import Records [ Source: “$filepath”; Target: “setupReference”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1
-import to setupReference::_LlibrarySetupHowToCredit
-Source field 2 import to setupReference::_Number
-Source field 3 import to setupReference::URL
-Source field 4 import to setupReference::publicationDate
-Source field 5 import to setupReference::kcreatorNode
-Source field 6 import to setupReference::name
-Source field 7 import to setupReference::password
-Source field 8 import to setupReference::klibrary
-Source field 9 import to setupReference::version
-Source field 13 import to setupReference::creatorName
-Source field 14 import to setupReference::note ]
+#4) Import about library records.
+Go to Layout [ “tableAboutLibrary” (aboutLibrary) ]
+Import Records [ Source: “$filepath”; Target: “aboutLibrary”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1
+import to aboutLibrary::_LaboutLibrary
+Source field 2 import to aboutLibrary::_Number
+Source field 3 import to aboutLibrary::URL
+Source field 4 import to aboutLibrary::publicationDate
+Source field 5 import to aboutLibrary::kcreatorNode
+Source field 6 import to aboutLibrary::name
+Source field 7 import to aboutLibrary::password
+Source field 8 import to aboutLibrary::klibrary
+Source field 9 import to aboutLibrary::version
+Source field 13 import to aboutLibrary::creatorName
+Source field 14 import to aboutLibrary::note ]
 [ No dialog ]
 #
 #

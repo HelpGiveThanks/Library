@@ -1,4 +1,4 @@
-July 24, 2018 16:31:23 Library.fmp12 - about_Delete -1-
+July 24, 2018 17:37:45 Library.fmp12 - about_Delete -1-
 librarySetup: about_Delete
 #
 #
@@ -11,7 +11,7 @@ End If
 #If there is a password, the delete (x) button
 #is invisible, but it can still be clicked, so its
 #important to stop this script.
-If [ librarySetupReferenceMain::password[2] ≠ "" ]
+If [ aboutLibraryMain::password[2] ≠ "" ]
 Exit Script [ ]
 End If
 #
@@ -19,8 +19,8 @@ End If
 #If record's creator node is locked, tell the
 #user it's locked, but the record can still be
 #deleted or edited because it is not locked.
-If [ librarySetupCreator::orderOrLock ≠ "" ]
-Show Custom Dialog [ Message: "The creator node — " & librarySetupCreator::tag & " — is locked. HOWEVER, the lock for
+If [ aboutLibraryCreator::orderOrLock ≠ "" ]
+Show Custom Dialog [ Message: "The creator node — " & aboutLibraryCreator::tag & " — is locked. HOWEVER, the lock for
 these about records are separate from their creator's lock, so you can edit and delete it."; Default Button: “OK”, Commit:
 “Yes” ]
 End If

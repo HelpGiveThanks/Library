@@ -1,4 +1,4 @@
-July 24, 2018 16:35:05 Library.fmp12 - about_Lock -1-
+July 24, 2018 17:36:03 Library.fmp12 - about_Lock -1-
 librarySetup: about_Lock
 #
 #
@@ -11,7 +11,7 @@ End If
 #Capture the password for comparrison and to return
 #the password field back to if the user fails to get the
 #password right.
-Set Variable [ $password; Value:librarySetupReferenceMain::password[2] ]
+Set Variable [ $password; Value:aboutLibraryMain::password[2] ]
 Set Field [ TEMP::passwordCheck; "" ]
 Go to Field [ ]
 #
@@ -21,13 +21,13 @@ Go to Field [ ]
 #calling up of this script.
 #
 #If there is a password, ask user to enter it.
-If [ librarySetupReferenceMain::password[2] ≠ "" ]
+If [ aboutLibraryMain::password[2] ≠ "" ]
 Loop
 Show Custom Dialog [ Message: "Enter the password to unlock — " &
- Case ( Length ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ) < 36 ;
- Left ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ; 35 ) & "... |" ;
- librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName & " |" ); Default
-Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: TEMP::passwordCheck, Password ]
+ Case ( Length ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ) < 36 ;
+ Left ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ; 35 ) & "... |" ;
+ aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName & " |" ); Default Button: “enter”, Commit:
+“Yes”; Button 2: “cancel”, Commit: “No”; Input #1: TEMP::passwordCheck, Password ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Field [ TEMP::passwordCheck; "" ]
 Halt Script
@@ -39,30 +39,30 @@ If [ $password = TEMP::passwordCheck ]
 #If user is in the about window,
 #then take user to the unlocked about layout.
 If [ Get (WindowName) = "About" ]
-Go to Layout [ “setupReferenceViewUnlocked” (librarySetupReferenceMain) ]
+Go to Layout [ “aboutLibraryReviewUnlocked” (aboutLibraryMain) ]
 End If
 #
 Show Custom Dialog [ Message: "unlocked"; Default Button: “OK”, Commit: “No” ]
 Set Field [ TEMP::passwordCheck; "" ]
-Set Field [ librarySetupReferenceMain::password; "" ]
-Set Field [ librarySetupReferenceMain::password[2]; "" ]
+Set Field [ aboutLibraryMain::password; "" ]
+Set Field [ aboutLibraryMain::password[2]; "" ]
 #
 Halt Script
 End If
 End Loop
 #
 #If there is no password, ask user to create one.
-Else If [ librarySetupReferenceMain::password[2] = "" ]
+Else If [ aboutLibraryMain::password[2] = "" ]
 Set Field [ TEMP::passwordCheck; "" ]
 Show Custom Dialog [ Message: "Enter a password to lock — " &
- Case ( Length ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ) < 36 ;
- Left ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ; 35 ) & "... |" ;
- librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName & " |" )
+ Case ( Length ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ) < 36 ;
+ Left ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ; 35 ) & "... |" ;
+ aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName & " |" )
  & " WARNING: If you can't remember this password, your records will remain locked."; Default Button: “enter”, Commit:
-“Yes”; Button 2: “cancel”, Commit: “No”; Input #1: librarySetupReferenceMain::password, Password, "password"; Input #2:
-TEMP::passwordCheck, Password, "confirm password" ]
+“Yes”; Button 2: “cancel”, Commit: “No”; Input #1: aboutLibraryMain::password, Password, "password"; Input #2: TEMP::
+passwordCheck, Password, "confirm password" ]
 If [ Get ( LastMessageChoice ) = 2 ]
-Set Field [ librarySetupReferenceMain::password; "" ]
+Set Field [ aboutLibraryMain::password; "" ]
 Exit Script [ ]
 End If
 #
@@ -70,12 +70,12 @@ End If
 #
 #If they don't match, ask user to try again.
 Loop
-If [ librarySetupReferenceMain::password ≠ TEMP::passwordCheck ]
+If [ aboutLibraryMain::password ≠ TEMP::passwordCheck ]
 Show Custom Dialog [ Message: "Passwords did not match."; Default Button: “enter”, Commit: “Yes”; Button 2:
-“cancel”, Commit: “No”; Input #1: librarySetupReferenceMain::password, Password, "password"; Input #2: TEMP::
+“cancel”, Commit: “No”; Input #1: aboutLibraryMain::password, Password, "password"; Input #2: TEMP::
 passwordCheck, Password, "confirm password" ]
 If [ Get ( LastMessageChoice ) = 2 ]
-Set Field [ librarySetupReferenceMain::password; "" ]
+Set Field [ aboutLibraryMain::password; "" ]
 Halt Script
 End If
 End If
@@ -84,17 +84,17 @@ End If
 #another and explain why the must do so.
 If [ TEMP::passwordCheck = 0 ]
 Show Custom Dialog [ Message: "Zero is not allowed. Try again."; Default Button: “enter”, Commit: “Yes”; Button 2:
-“cancel”, Commit: “No”; Input #1: librarySetupReferenceMain::password, Password, "password"; Input #2: TEMP::
+“cancel”, Commit: “No”; Input #1: aboutLibraryMain::password, Password, "password"; Input #2: TEMP::
 passwordCheck, Password, "confirm password" ]
 If [ Get ( LastMessageChoice ) = 2 ]
-Set Field [ librarySetupReferenceMain::password; "" ]
+Set Field [ aboutLibraryMain::password; "" ]
 Halt Script
 End If
 End If
 #
 #If the password is valid exit the
 #password check loop.
-Exit Loop If [ librarySetupReferenceMain::password = TEMP::passwordCheck and TEMP::passwordCheck ≠ 0 ]
+Exit Loop If [ aboutLibraryMain::password = TEMP::passwordCheck and TEMP::passwordCheck ≠ 0 ]
 End Loop
 #
 #Move the user entered password into the
@@ -103,9 +103,9 @@ End Loop
 #will not reveal to any user what the actual
 #password is, as the second field appears on
 #zero layouts.
-Set Field [ librarySetupReferenceMain::password[2]; TEMP::passwordCheck ]
+Set Field [ aboutLibraryMain::password[2]; TEMP::passwordCheck ]
 If [ TEMP::passwordCheck ≠ "" ]
-Set Field [ librarySetupReferenceMain::password; 0 ]
+Set Field [ aboutLibraryMain::password; 0 ]
 End If
 #
 #If user in the Review Reference window,
@@ -113,7 +113,7 @@ End If
 If [ Get (WindowName) = "About"
  or
 Get (WindowName) = "Edit About" ]
-Go to Layout [ “setupReferenceViewLocked” (librarySetupReferenceMain) ]
+Go to Layout [ “aboutLibraryReviewLocked” (aboutLibraryMain) ]
 Set Window Title [ Current Window; New Title: "About" ]
 End If
 #

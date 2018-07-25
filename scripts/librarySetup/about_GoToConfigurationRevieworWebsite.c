@@ -1,5 +1,5 @@
-July 24, 2018 16:52:34 Library.fmp12 - about_GoToPortalReferenceRevieworWebsite -1-
-librarySetup: about_GoToPortalReferenceRevieworWebsite
+July 24, 2018 17:37:28 Library.fmp12 - about_GoToConfigurationRevieworWebsite -1-
+librarySetup: about_GoToConfigurationRevieworWebsite
 #
 #
 #If there are no user created references, then tell user
@@ -15,13 +15,13 @@ End If
 #the review button, or clicks on a portal
 #reference record.
 If [ Get ( ActiveFieldName ) = "" ]
-Set Variable [ $record; Value:librarySetupReferenceMain::_LlibrarySetupHowToCredit ]
-Set Variable [ $password; Value:librarySetupReferenceMain::password ]
-Set Variable [ $url; Value:librarySetupReferenceMain::URL ]
+Set Variable [ $record; Value:aboutLibraryMain::_LaboutLibrary ]
+Set Variable [ $password; Value:aboutLibraryMain::password ]
+Set Variable [ $url; Value:aboutLibraryMain::URL ]
 Else
-Set Variable [ $record; Value:librarySetupReferencePortal::_LlibrarySetupHowToCredit ]
-Set Variable [ $password; Value:librarySetupReferencePortal::password ]
-Set Variable [ $url; Value:librarySetupReferencePortal::URL ]
+Set Variable [ $record; Value:aboutLibraryReferencePortal::_LaboutLibrary ]
+Set Variable [ $password; Value:aboutLibraryReferencePortal::password ]
+Set Variable [ $url; Value:aboutLibraryReferencePortal::URL ]
 Set Variable [ $portal; Value:1 ]
 End If
 #
@@ -54,7 +54,7 @@ End If
 #message dialogue box) to the library's
 #website.
 If [ Get (LastMessageChoice) = 3 ]
-Open URL [ librarySetupReferencePortal::URL ]
+Open URL [ aboutLibraryReferencePortal::URL ]
 [ No dialog ]
 Go to Field [ ]
 Exit Script [ ]
@@ -73,9 +73,9 @@ New Window [ Name: "About"; Style: Document; Close: “Yes”; Minimize: “Yes�
 #with an edit button, otherwise go to the
 #review layout with no edit button.
 If [ $password = "" ]
-Go to Layout [ “setupReferenceViewUnlocked” (librarySetupReferenceMain) ]
+Go to Layout [ “aboutLibraryReviewUnlocked” (aboutLibraryMain) ]
 Else
-Go to Layout [ “setupReferenceViewLocked” (librarySetupReferenceMain) ]
+Go to Layout [ “aboutLibraryReviewLocked” (aboutLibraryMain) ]
 End If
 #
 #Adjust window size and postion (for
@@ -85,7 +85,7 @@ Adjust Window
 [ Resize to Fit ]
 Move/Resize Window [ Current Window; Height: Get (ScreenHeight) ]
 Enter Find Mode [ ]
-Set Field [ librarySetupReferenceMain::_LlibrarySetupHowToCredit; $record ]
+Set Field [ aboutLibraryMain::_LaboutLibrary; $record ]
 Perform Find [ ]
 #
 #
@@ -95,16 +95,16 @@ Perform Find [ ]
 #stay on the review layout.
 If [ $$newSetupReference ≠ "" ]
 Set Variable [ $$newSetupReference ]
-Go to Layout [ “defaultSetupViewAndEdit” (librarySetupReferenceMain) ]
+Go to Layout [ “aboutLibraryEdit” (aboutLibraryMain) ]
 Set Window Title [ Current Window; New Title: "Edit About" ]
 #
 #Tell user why the must enter their
 #name again, when they used their
 #node record to create this record.
-Go to Field [ librarySetupReferenceMain::name ]
+Go to Field [ aboutLibraryMain::name ]
 Show Custom Dialog [ Message: "NOTE: The creator name field is not filled in because unlike node tags, it needs to be in
 FirstName LastName order, like the author's name on the cover of a book."; Default Button: “OK”, Commit: “Yes” ]
-Go to Field [ librarySetupReferenceMain::name ]
+Go to Field [ aboutLibraryMain::name ]
 End If
 #
 #Pause the script to prevent the user doing
