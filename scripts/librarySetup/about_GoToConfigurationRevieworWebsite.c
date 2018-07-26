@@ -1,4 +1,4 @@
-July 24, 2018 17:37:28 Library.fmp12 - about_GoToConfigurationRevieworWebsite -1-
+July 25, 2018 17:39:40 HallucinationQualityManagement_David.fmp12 - about_GoToConfigurationReviewo… -1-
 librarySetup: about_GoToConfigurationRevieworWebsite
 #
 #
@@ -38,13 +38,13 @@ Go to Field [ ]
 #to go to the web when they just clicked the
 #review button insetad of the web button.)
 If [ $URL ≠ "" and $portal ≠ "" ]
-Show Custom Dialog [ Message: "Review library information, or go to library website?"; Default Button: “cancel”, Commit: “Yes”;
-Button 2: “review”, Commit: “No”; Button 3: “go”, Commit: “No” ]
+Show Custom Dialog [ Message: "Review library information, or go to library website?"; Default Button: “review”, Commit: “Yes”;
+Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 End If
 #
 #
 #If they click cancel, then exit the script.
-If [ Get (LastMessageChoice) = 1 ]
+If [ Get (LastMessageChoice) = 3 ]
 Go to Field [ ]
 Exit Script [ ]
 End If
@@ -53,7 +53,7 @@ End If
 #If they click go, then go (in the portal
 #message dialogue box) to the library's
 #website.
-If [ Get (LastMessageChoice) = 3 ]
+If [ Get (LastMessageChoice) = 2 ]
 Open URL [ aboutLibraryReferencePortal::URL ]
 [ No dialog ]
 Go to Field [ ]
