@@ -1,6 +1,3 @@
-Use this file to copy just the script section of the current FileMaker Database Design Report.  Commit it.  Then paste in the script section from your updated database design report to see all changes between current and updated versions.  This a large file and you will be see the changes only in the GitHub desktop tool; not on the GitHub website.  Do this comparison  to basically insure everything is documented in an updated version.
-
-
 Script Hierarchy
 dataCleanUpScripts
 
@@ -88,6 +85,12 @@ newLibraryStep3A_makeEmptiedLibraryANewLibrary
 newLibraryStep3B_importLibraryIntoEmptiedLibrary
 librarySetup
 
+about_Delete
+about_GoToConfigurationRevieworWebsite
+about_GoToReviewOrEditWindow
+about_GoToWebsite
+about_Lock
+about_New
 allAppsMenu
 changeLibraryName
 gotoBudgetPlanner
@@ -103,12 +106,6 @@ moreInfo
 probablyNotInUse
 
 copyPrimaryNodeID
-setupReference_Delete
-setupReference_GoToPortalReferenceRevieworWebsite
-setupReference_GoToReviewOrEditWindow
-setupReference_GoToWebsite
-setupReference_Lock
-setupReference_New
 pictures
 
 addLinksPicturesToTagsMode
@@ -1127,9 +1124,9 @@ Script Steps
     #to go the user's selected help location.
     If [ Get (LastError) ≠ 112 //window is missing = 112 ]
     If [ $messageChoice = 2 ]
-    Perform Script [ “TRIGGERED_SCRIPTByOtherApp (new)” from file: “Help” ]
+    Perform Script [ “TRIGGERED_SCRIPTByOtherApp” from file: “Help” ]
     Else
-    Perform Script [ “fixForLearnLayoutBug (new)” from file: “Help” ]
+    Perform Script [ “fixForLearnLayoutBug” from file: “Help” ]
     End If
     #
     Else
@@ -1157,8 +1154,8 @@ Fields used in this script
 
 Scripts used in this script
 
-    TRIGGERED_SCRIPTByOtherApp (new)
-    fixForLearnLayoutBug (new)
+    TRIGGERED_SCRIPTByOtherApp
+    fixForLearnLayoutBug
 
 Layouts used in this script
 
@@ -4896,6 +4893,7 @@ Script Steps
     #references). And if there are then ask if the
     #user would like to find them or go the QV
     #interface for this record.
+    If [ TEMP::InventoryLibraryYN = "" ]
     If [ ( testlearn::kcreference = "" or ValueCount ( testlearn::kcreference ) - Length ( Filter ( testlearn::kcreference ; "L" ) ) = 0 ) = 0 ]
     Show Custom Dialog [ Message: "Go to the QV interface for this record?" & ¶ & " OR " & ¶ & "Find all its references?"; Default Button: “go”, Commit: “Yes”; Button 2: “find”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     If [ Get ( LastMessageChoice ) = 1 ]
@@ -4910,6 +4908,7 @@ Script Steps
     If [ Get ( LastMessageChoice ) = 3 ]
     #Cancel.
     Exit Script [ ]
+    End If
     End If
     End If
     #
@@ -4967,8 +4966,8 @@ Script Steps
 
 Fields used in this script
 
-    testlearn::kcreference
     TEMP::InventoryLibraryYN
+    testlearn::kcreference
     testlearn::note
     testlearn::orderInventoryGroupNumber
     testlearn::timestamp
@@ -5028,7 +5027,7 @@ Layouts used in this script
 
 Tables used in this script
 
-    setupReference
+    aboutLibrary
 
 Table occurrences used by this script
 
@@ -5151,14 +5150,14 @@ Script Steps
     #the benefits of tag references and then
     #clicking the insertRef button.
     If [ testlearn::kcreference = "" or ValueCount ( testlearn::kcreference ) - Length ( Filter ( testlearn::kcreference ; "L" ) ) = 0 ]
-    Show Custom Dialog [ Message: "If you add references to a record like this one, this button will give you a list of pre-formatted references to insert including the author's name and date of publication."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "No reference tags have been added to this record. This button will give you a list of pre-formatted references to insert into a note if references are added."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
     #Make sure the cursor is in active field and if
     #not tell them to click in one.
     If [ Get ( ActiveFieldName ) = "" or Get ( ActiveFieldName ) ≠ "note" ]
-    Show Custom Dialog [ Message: "Click into the text field, and then click exactly where you want — " & Trim ($tag) & " — inserted."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Where do you a reference inserted? Before clicking the [Ref] button, click into the text field, and click exactly where you want your reference to go."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
     #
@@ -7657,7 +7656,7 @@ Script Steps
     #Ask the user what file they want to
     #import from. Because it is an (unknown) file,
     #the user will be prompted to select this file.
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Open File [ <unknown> ]
     #
     #If user clicks cancel then exit
@@ -7688,7 +7687,7 @@ Script Steps
     Set Field [ backup::backup; "" ]
     #Important!!! Clear the clipboard!
     Copy [ ] [ Select ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Show Custom Dialog [ Message: "Open library's records cannot be imported. 1) Close the library you're trying to import. 2) Click the import button." ]
     Exit Script [ ]
     End If
@@ -7707,7 +7706,7 @@ Script Steps
     Set Field [ backup::backup; "" ]
     #Important!!! Clear the clipboard!
     Copy [ ] [ Select ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Show Custom Dialog [ Message: "The library selected for import is an idea library. This library is an inventory library. Idea library records cannot be imported into an inventory library." ]
     #
     Exit Script [ ]
@@ -7716,7 +7715,7 @@ Script Steps
     Set Field [ backup::backup; "" ]
     #Important!!! Clear the clipboard!
     Copy [ ] [ Select ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Show Custom Dialog [ Message: "The library selected for import is an inventory library. This library is an idea library. Inventory library records cannot be imported into an idea library." ]
     Exit Script [ ]
     #
@@ -7727,7 +7726,7 @@ Script Steps
     #the import process.
     // Else If [ "failure" = backup::backup ]
     // Set Field [ backup::backup; "" ]
-    // Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    // Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     // Show Custom Dialog [ Message: "The computer's clipboard contents where changed during the import, which caused this import attempt to fail. Please try again." ]
     // Show Custom Dialog [ Message: "IMPORTANT!!! Do not user the cut or copy commands during the import process." ]
     // Exit Script [ ]
@@ -7774,13 +7773,13 @@ Script Steps
     End If
     #
     #
-    #4) Import LIBRARY SETUP reference records.
-    Go to Layout [ “tableSetupReference” (setupReference) ]
+    #4) Import about library records.
+    Go to Layout [ “tableAboutLibrary” (aboutLibrary) ]
     Show All Records
     If [ Get (FoundCount) = 0 ]
-    Import Records [ Source: “$filepath”; Target: “setupReference”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to setupReference::_LlibrarySetupHowToCredit Source field 2 import to setupReference::_Number Source field 3 import to setupReference::URL Source field 4 import to setupReference::publicationDate Source field 5 import to setupReference::kcreatorNode Source field 6 import to setupReference::name Source field 7 import to setupReference::password Source field 8 import to setupReference::klibrary Source field 9 import to setupReference::version Source field 13 import to setupReference::creatorName Source field 14 import to setupReference::note ] [ No dialog ]
+    Import Records [ Source: “$filepath”; Target: “aboutLibrary”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to aboutLibrary::_LaboutLibrary Source field 2 import to aboutLibrary::_Number Source field 3 import to aboutLibrary::URL Source field 4 import to aboutLibrary::publicationDate Source field 5 import to aboutLibrary::kcreatorNode Source field 6 import to aboutLibrary::name Source field 7 import to aboutLibrary::password Source field 8 import to aboutLibrary::klibrary Source field 9 import to aboutLibrary::version Source field 13 import to aboutLibrary::creatorName Source field 14 import to aboutLibrary::note ] [ No dialog ]
     Else
-    Import Records [ Source: “$filepath”; Target: “setupReference”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 match with setupReference::_LlibrarySetupHowToCredit Source field 2 import to setupReference::_Number Source field 3 import to setupReference::URL Source field 4 import to setupReference::publicationDate Source field 5 import to setupReference::kcreatorNode Source field 6 import to setupReference::name Source field 7 import to setupReference::password Source field 8 import to setupReference::klibrary Source field 9 import to setupReference::version Source field 13 import to setupReference::creatorName Source field 14 import to setupReference::note ] [ No dialog ]
+    Import Records [ Source: “$filepath”; Target: “aboutLibrary”; Method: Update matching; Add remaining; Character Set: “Unicode”; Field Mapping: Source field 1 match with aboutLibrary::_LaboutLibrary Source field 2 import to aboutLibrary::_Number Source field 3 import to aboutLibrary::URL Source field 4 import to aboutLibrary::publicationDate Source field 5 import to aboutLibrary::kcreatorNode Source field 6 import to aboutLibrary::name Source field 7 import to aboutLibrary::password Source field 8 import to aboutLibrary::klibrary Source field 9 import to aboutLibrary::version Source field 13 import to aboutLibrary::creatorName Source field 14 import to aboutLibrary::note ] [ No dialog ]
     End If
     #
     #
@@ -7917,7 +7916,7 @@ Script Steps
     # This variable will trigger the success
     #dialogue box.
     Set Variable [ $$addRecords; Value:1 ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Restart database to insure updated file's
     #information are used for this library's temp
@@ -7958,7 +7957,7 @@ Layouts used in this script
     tableTestSectionFromTemplate
     tableTestSubsectionTemplates
     tableTestLearn
-    tableSetupReference
+    tableAboutLibrary
     tableTag
     tableTagGroup
     tableReference
@@ -7987,8 +7986,8 @@ Table occurrences used by this script
     testSubsectionTemplate
     testlearn
     testlearn
-    setupReference
-    setupReference
+    aboutLibrary
+    aboutLibrary
     report
     report
 
@@ -8139,7 +8138,7 @@ Script Steps
     #Go to main library layout to give user a nice
     #background against which to show the
     #dialogue boxes.
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Ask user to create the necessary folders for
     #the new library file's files.
@@ -8150,7 +8149,7 @@ Script Steps
     If [ Get ( LastMessageChoice ) = 2 ]
     Go to Layout [ “backup” (backup) ]
     Set Field [ backup::newLibrary; "" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Exit Script [ ]
     End If
     #
@@ -8163,7 +8162,7 @@ Script Steps
     If [ Get ( LastMessageChoice ) = 2 ]
     Go to Layout [ “backup” (backup) ]
     Set Field [ backup::newLibrary; "" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Exit Script [ ]
     End If
     #
@@ -8175,7 +8174,7 @@ Script Steps
     If [ Get ( LastError ) = 1 ]
     Go to Layout [ “backup” (backup) ]
     Set Field [ backup::newLibrary; "" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Exit Script [ ]
     End If
     #
@@ -8183,7 +8182,7 @@ Script Steps
     #erased when started, remove the erase code.
     Go to Layout [ “backup” (backup) ]
     Set Field [ backup::newLibrary; "" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Close this file and inform user to now open
     #their copy of this library just created and set
@@ -8300,7 +8299,7 @@ Script Steps
     If [ Get ( LastMessageChoice ) = 1 ]
     Go to Layout [ “backup” (backup) ]
     Set Field [ backup::newLibrary; "" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Exit Script [ ]
     End If
     #
@@ -8338,7 +8337,7 @@ Script Steps
     #
     #
     #4) Delete LIBRARY SETUP reference records.
-    Go to Layout [ “tableSetupReference” (setupReference) ]
+    Go to Layout [ “tableAboutLibrary” (aboutLibrary) ]
     Show All Records
     Delete All Records [ No dialog ]
     #
@@ -8427,7 +8426,7 @@ Layouts used in this script
     tableTestSectionFromTemplate
     tableTestSubsectionTemplates
     tableTestLearn
-    tableSetupReference
+    tableAboutLibrary
     tableTag
     tableTagGroup
     tableReference
@@ -8708,7 +8707,7 @@ Script Steps
     #Ask the user what file they want to
     #import from. Because it is an (unknown) file,
     #the user will be prompted to select this file.
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Open File [ <unknown> ]
     #
     #If the user cancels the file selection process,
@@ -8766,9 +8765,9 @@ Script Steps
     Import Records [ Source: “$filepath”; Target: “testlearn”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to testlearn::_Ltestlearn Source field 2 import to testlearn::ktestSubject Source field 3 import to testlearn::_Number Source field 4 import to testlearn::ktestSubsection Source field 5 import to testlearn::note Source field 6 import to testlearn::picture Source field 7 import to testlearn::subsectionCustomName Source field 8 import to testlearn::kcInUseOnReportSubsection Source field 9 import to testlearn::ktestSection Source field 10 import to testlearn::countOfALLSubsectionsTestResults Source field 11 import to testlearn::checkboxCaption Source field 12 import to testlearn::recordnumberglobal Source field 13 import to testlearn::recordcountglobal Source field 14 import to testlearn::countOfONESubsectionsTestResults Source field 15 import to testlearn::rateORgradeTestResult Source field 16 import to testlearn::kclibrary Source field 17 import to testlearn::kshowReferencedMedia Source field 18 import to testlearn::kreportNumber Source field 19 import to testlearn::timestamp Source field 21 import to testlearn::orderTestResult Source field 22 import to testlearn::kcKeywordOther Source field 23 import to testlearn::kNodeOther Source field 24 import to testlearn::kcopyright Source field 25 import to testlearn::kNodePrimary Source field 26 import to testlearn::kKeywordPrimary Source field 27 import to testlearn::OtherKeyWords Source field 28 import to testlearn::NodeOthers Source field 29 import to testlearn::URL Source field 30 import to testlearn::kcreference Source field 32 import to testlearn::filterFind Source field 33 import to testlearn::kRecordCreatorNode Source field 34 import to testlearn::kRecordModifierNode Source field 35 import to testlearn::dateModify Source field 36 import to testlearn::incomplete Source field 38 import to testlearn::copyrightYear Source field 39 import to testlearn::kcbrainstorm Source field 40 import to testlearn::kgtestSection Source field 41 import to testlearn::kctestSubsectionInfo Source field 42 import to testlearn::orderTestInformation Source field 43 import to testlearn::kctestResultCheckedItems Source field 45 import to testlearn::brainstormCasePoint Source field 48 import to testlearn::pictureThumbnail ] [ No dialog ]
     #
     #
-    #4) Import LIBRARY SETUP reference records.
-    Go to Layout [ “tableSetupReference” (setupReference) ]
-    Import Records [ Source: “$filepath”; Target: “setupReference”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to setupReference::_LlibrarySetupHowToCredit Source field 2 import to setupReference::_Number Source field 3 import to setupReference::URL Source field 4 import to setupReference::publicationDate Source field 5 import to setupReference::kcreatorNode Source field 6 import to setupReference::name Source field 7 import to setupReference::password Source field 8 import to setupReference::klibrary Source field 9 import to setupReference::version Source field 13 import to setupReference::creatorName Source field 14 import to setupReference::note ] [ No dialog ]
+    #4) Import about library records.
+    Go to Layout [ “tableAboutLibrary” (aboutLibrary) ]
+    Import Records [ Source: “$filepath”; Target: “aboutLibrary”; Method: Add; Character Set: “Unicode”; Field Mapping: Source field 1 import to aboutLibrary::_LaboutLibrary Source field 2 import to aboutLibrary::_Number Source field 3 import to aboutLibrary::URL Source field 4 import to aboutLibrary::publicationDate Source field 5 import to aboutLibrary::kcreatorNode Source field 6 import to aboutLibrary::name Source field 7 import to aboutLibrary::password Source field 8 import to aboutLibrary::klibrary Source field 9 import to aboutLibrary::version Source field 13 import to aboutLibrary::creatorName Source field 14 import to aboutLibrary::note ] [ No dialog ]
     #
     #
     #5) Import tag records.
@@ -8857,7 +8856,7 @@ Layouts used in this script
     tableTestSectionFromTemplate
     tableTestSubsectionTemplates
     tableTestLearn
-    tableSetupReference
+    tableAboutLibrary
     tableTag
     tableTagGroup
     tableReference
@@ -8876,7 +8875,7 @@ Table occurrences used by this script
     testSectionCreatedFromATemplate
     testSubsectionTemplate
     testlearn
-    setupReference
+    aboutLibrary
     tagTable
     testSubsectionGroup
     report
@@ -8888,7 +8887,652 @@ Custom menu set used by this script
 
 
 librarySetup
-	Parent Folder: [librarySetup]	Next Script: [changeLibraryName]
+	Parent Folder: [librarySetup]	Next Script: [about_GoToConfigurationRevieworWebsite]
+Script Name	about_Delete
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+    aboutLibraryReviewUnlocked
+    aboutLibraryEdit
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Stop script if there are no records to lock.
+    If [ Get (FoundCount) = 0 ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If there is a password, the delete (x) button
+    #is invisible, but it can still be clicked, so its
+    #important to stop this script.
+    If [ aboutLibraryMain::password[2] ≠ "" ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If record's creator node is locked, tell the
+    #user it's locked, but the record can still be
+    #deleted or edited because it is not locked.
+    If [ aboutLibraryCreator::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "The creator node — " & aboutLibraryCreator::tag & " — is locked. HOWEVER, the lock for these about records are separate from their creator's lock, so you can edit and delete it."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+    #Make sure the user wants to delete
+    #the record.
+    Show Custom Dialog [ Message: "Delete this library about record?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
+    #
+    #
+    #If user cancels delete, exit script.
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Delete the record.
+    Delete Record/Request [ No dialog ]
+    #
+    #
+    #Close the Review Reference window if open.
+    If [ Get (WindowName) = "About" or Get (WindowName) = "Edit About" ]
+    Close Window [ Current Window ]
+    Halt Script
+    End If
+    #
+    #
+
+Fields used in this script
+
+    aboutLibraryMain::password
+    aboutLibraryCreator::orderOrLock
+    aboutLibraryCreator::tag
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    aboutLibrary
+    tag
+
+Table occurrences used by this script
+
+    aboutLibraryCreator
+    aboutLibraryMain
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [about_Delete]	Parent Folder: [librarySetup]	Next Script: [about_GoToReviewOrEditWindow]
+Script Name	about_GoToConfigurationRevieworWebsite
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+
+Scripts that use this script
+
+    about_New
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If there are no user created references, then tell user
+    #how to download a fresh copy of the library app.
+    If [ Get (FoundCount) = 0 ]
+    Show Custom Dialog [ Message: "This library when downloaded was an empty, unmodified version of the applicaiton, without any user created notes (Learn records), references, or test templates in it."; Default Button: “OK”, Commit: “Yes” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Capture variables needed when user clicks
+    #the review button, or clicks on a portal
+    #reference record.
+    If [ Get ( ActiveFieldName ) = "" ]
+    Set Variable [ $record; Value:aboutLibraryMain::_LaboutLibrary ]
+    Set Variable [ $password; Value:aboutLibraryMain::password ]
+    Set Variable [ $url; Value:aboutLibraryMain::URL ]
+    Else
+    Set Variable [ $record; Value:aboutLibraryReferencePortal::_LaboutLibrary ]
+    Set Variable [ $password; Value:aboutLibraryReferencePortal::password ]
+    Set Variable [ $url; Value:aboutLibraryReferencePortal::URL ]
+    Set Variable [ $portal; Value:1 ]
+    End If
+    #
+    #Exit any field user was in.
+    Go to Field [ ]
+    #
+    #
+    #Ask the user if they want to view this library'e
+    #record, edit it, or go to the library's website,
+    #BUT ONLY IF the record has a URL, and the
+    #user click on a portal record. (The main
+    #record has a button to go to the web, so it
+    #would be redundant to ask them if they want
+    #to go to the web when they just clicked the
+    #review button insetad of the web button.)
+    If [ $URL ≠ "" and $portal ≠ "" ]
+    Show Custom Dialog [ Message: "Review library information, or go to library website?"; Default Button: “review”, Commit: “Yes”; Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    End If
+    #
+    #
+    #If they click cancel, then exit the script.
+    If [ Get (LastMessageChoice) = 3 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If they click go, then go (in the portal
+    #message dialogue box) to the library's
+    #website.
+    If [ Get (LastMessageChoice) = 2 ]
+    Open URL [ aboutLibraryReferencePortal::URL ] [ No dialog ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Close a Review Reference window that
+    #might be open due to a script interruption.
+    Close Window [ Name: "About"; Current file ]
+    #
+    #Open an Review Reference window.
+    New Window [ Name: "About"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #
+    #If there is no password, go the review layout
+    #with an edit button, otherwise go to the
+    #review layout with no edit button.
+    If [ $password = "" ]
+    Go to Layout [ “aboutLibraryReviewUnlocked” (aboutLibraryMain) ]
+    Else
+    Go to Layout [ “aboutLibraryReviewLocked” (aboutLibraryMain) ]
+    End If
+    #
+    #Adjust window size and postion (for
+    #iDevice users), and then find just the
+    #record the user is interested in reviewing.
+    Adjust Window [ Resize to Fit ]
+    Move/Resize Window [ Current Window; Height: Get (ScreenHeight) ]
+    Enter Find Mode [ ]
+    Set Field [ aboutLibraryMain::_LaboutLibrary; $record ]
+    Perform Find [ ]
+    #
+    #
+    #If this script was triggered by the
+    #newSetupReference script, then
+    #go to the edit layout, otherwise
+    #stay on the review layout.
+    If [ $$newSetupReference ≠ "" ]
+    Set Variable [ $$newSetupReference ]
+    Go to Layout [ “aboutLibraryEdit” (aboutLibraryMain) ]
+    Set Window Title [ Current Window; New Title: "Edit About" ]
+    #
+    #Tell user why the must enter their
+    #name again, when they used their
+    #node record to create this record.
+    Go to Field [ aboutLibraryMain::name ]
+    Show Custom Dialog [ Message: "NOTE: The creator name field is not filled in because unlike node tags, it needs to be in FirstName LastName order, like the author's name on the cover of a book."; Default Button: “OK”, Commit: “Yes” ]
+    Go to Field [ aboutLibraryMain::name ]
+    End If
+    #
+    #Pause the script to prevent the user doing
+    #anything else until they have closed this
+    #review window.
+    Pause/Resume Script [ Indefinitely ]
+    #
+    #Just in case, close this window if the user
+    #hits the continue button somehow.
+    Close Window [ Current Window ]
+    Exit Script [ ]
+    #
+    #
+
+Fields used in this script
+
+    aboutLibraryMain::_LaboutLibrary
+    aboutLibraryMain::password
+    aboutLibraryMain::URL
+    aboutLibraryReferencePortal::_LaboutLibrary
+    aboutLibraryReferencePortal::password
+    aboutLibraryReferencePortal::URL
+    aboutLibraryMain::name
+
+Scripts used in this script
+
+Layouts used in this script
+
+    aboutLibraryReviewUnlocked
+    aboutLibraryReviewLocked
+    aboutLibraryEdit
+
+Tables used in this script
+
+    aboutLibrary
+
+Table occurrences used by this script
+
+    aboutLibraryMain
+    aboutLibraryReferencePortal
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [about_GoToConfigurationRevieworWebsite]	Parent Folder: [librarySetup]	Next Script: [about_GoToWebsite]
+Script Name	about_GoToReviewOrEditWindow
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    aboutLibraryReviewUnlocked
+    aboutLibraryEdit
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If user is on the review layout, take them
+    #to the edit layout.
+    If [ Get (WindowName) = "About" ]
+    Go to Layout [ “aboutLibraryEdit” (aboutLibraryMain) ]
+    Set Window Title [ Of Window: "About"; Current file; New Title: "Edit About" ]
+    #
+    #
+    #If record's creator node is locked, tell the
+    #user it's locked, but the record can still be
+    #deleted or edited because it is not locked.
+    If [ aboutLibraryCreator::orderOrLock ≠ "" ]
+    Show Custom Dialog [ Message: "The creator node — " & aboutLibraryCreator::tag & " — is locked. HOWEVER, the lock for these about records are separate from their creator's lock, so you can edit and delete it."; Default Button: “OK”, Commit: “No” ]
+    End If
+    #
+    #
+    #If user is on the edit layout, take them
+    #to the review layout.
+    Else If [ Get (WindowName) = "Edit About" ]
+    Go to Layout [ “aboutLibraryReviewUnlocked” (aboutLibraryMain) ]
+    Set Window Title [ Of Window: "Edit About"; Current file; New Title: "About" ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    aboutLibraryCreator::orderOrLock
+    aboutLibraryCreator::tag
+
+Scripts used in this script
+
+Layouts used in this script
+
+    aboutLibraryEdit
+    aboutLibraryReviewUnlocked
+
+Tables used in this script
+
+    tag
+
+Table occurrences used by this script
+
+    aboutLibraryCreator
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [about_GoToReviewOrEditWindow]	Parent Folder: [librarySetup]	Next Script: [about_Lock]
+Script Name	about_GoToWebsite
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+    aboutLibraryReviewLocked
+    aboutLibraryReviewUnlocked
+    aboutLibraryEdit
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #If there are no setup references, then
+    #go to the helpgive thanks website.
+    If [ Get (FoundCount) = 0 ]
+    Open URL [ "https://helpgivethanks.github.io" ] [ No dialog ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If there is no URL, then tell the user how
+    #to add one ...
+    If [ aboutLibraryMain::URL = "" ]
+    #
+    #on the Setup window ...
+    If [ Get (WindowName) = "Setup" ]
+    #
+    If [ aboutLibraryMain::password = "" ]
+    #If NOT locked ...
+    Show Custom Dialog [ Message: "1) Click the review button, and then 2) the edit button, 3) to add a website URL in the edit window."; Default Button: “OK”, Commit: “Yes” ]
+    Else
+    #If locked ...
+    Show Custom Dialog [ Message: "1) Click the lock button and unlock this about record, then click the 2) review button, and 3) the edit button, 4) to add a website URL in the edit window."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #on the Review Reference window ...
+    Else If [ Get (WindowName) = "Review Reference" ]
+    #
+    If [ aboutLibraryMain::password = "" ]
+    #If NOT locked ...
+    Show Custom Dialog [ Message: "1) Click the edit button, 2) to add a website URL."; Default Button: “OK”, Commit: “Yes” ]
+    Else
+    #If locked ...
+    Show Custom Dialog [ Message: "1) Click the lock button to unlock this about record. Then 2) click edit button, to 3) add a website URL."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #on the Edit Reference window, which is
+    #always unlocked.
+    Else If [ Get (WindowName) = "Edit About" ]
+    Show Custom Dialog [ Message: "Add a website URL below, then click the web button again to go to the website."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+    #
+    #
+    #If there is a URL, then go to it.
+    Else
+    Open URL [ aboutLibraryMain::URL ] [ No dialog ]
+    End If
+    #
+    #
+
+Fields used in this script
+
+    aboutLibraryMain::URL
+    aboutLibraryMain::password
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    aboutLibrary
+
+Table occurrences used by this script
+
+    aboutLibraryMain
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [about_GoToWebsite]	Parent Folder: [librarySetup]	Next Script: [about_New]
+Script Name	about_Lock
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+    aboutLibraryReviewLocked
+    aboutLibraryReviewUnlocked
+    aboutLibraryEdit
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #Stop script if there are no records to lock.
+    If [ Get (FoundCount) = 0 ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #Capture the password for comparrison and to return
+    #the password field back to if the user fails to get the
+    #password right.
+    Set Variable [ $password; Value:aboutLibraryMain::password[2] ]
+    Set Field [ TEMP::passwordCheck; "" ]
+    Go to Field [ ]
+    #
+    #Use the halt instead of exit script step as the
+    #user can sometimes click the lock button
+    #twice. The halt stops the second click's
+    #calling up of this script.
+    #
+    #If there is a password, ask user to enter it.
+    If [ aboutLibraryMain::password[2] ≠ "" ]
+    Loop
+    Show Custom Dialog [ Message: "Enter the password to unlock — " & Case ( Length ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ) < 36 ; Left ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ; 35 ) & "... |" ; aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName & " |" ); Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: TEMP::passwordCheck, Password ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Field [ TEMP::passwordCheck; "" ]
+    Halt Script
+    End If
+    #
+    #Unlock reference if password is correct.
+    If [ $password = TEMP::passwordCheck ]
+    #
+    #If user is in the about window,
+    #then take user to the unlocked about layout.
+    If [ Get (WindowName) = "About" ]
+    Go to Layout [ “aboutLibraryReviewUnlocked” (aboutLibraryMain) ]
+    End If
+    #
+    Show Custom Dialog [ Message: "unlocked"; Default Button: “OK”, Commit: “No” ]
+    Set Field [ TEMP::passwordCheck; "" ]
+    Set Field [ aboutLibraryMain::password; "" ]
+    Set Field [ aboutLibraryMain::password[2]; "" ]
+    #
+    Halt Script
+    End If
+    End Loop
+    #
+    #If there is no password, ask user to create one.
+    Else If [ aboutLibraryMain::password[2] = "" ]
+    Set Field [ TEMP::passwordCheck; "" ]
+    Show Custom Dialog [ Message: "Enter a password to lock — " & Case ( Length ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ) < 36 ; Left ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ; 35 ) & "... |" ; aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName & " |" ) & " WARNING: If you can't remember this password, your records will remain locked."; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: aboutLibraryMain::password, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Field [ aboutLibraryMain::password; "" ]
+    Exit Script [ ]
+    End If
+    #
+    #Check validity of password entered.
+    #
+    #If they don't match, ask user to try again.
+    Loop
+    If [ aboutLibraryMain::password ≠ TEMP::passwordCheck ]
+    Show Custom Dialog [ Message: "Passwords did not match."; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: aboutLibraryMain::password, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Field [ aboutLibraryMain::password; "" ]
+    Halt Script
+    End If
+    End If
+    #
+    #If the user picks 0, then make them choose
+    #another and explain why the must do so.
+    If [ TEMP::passwordCheck = 0 ]
+    Show Custom Dialog [ Message: "Zero is not allowed. Try again."; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: aboutLibraryMain::password, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Field [ aboutLibraryMain::password; "" ]
+    Halt Script
+    End If
+    End If
+    #
+    #If the password is valid exit the
+    #password check loop.
+    Exit Loop If [ aboutLibraryMain::password = TEMP::passwordCheck and TEMP::passwordCheck ≠ 0 ]
+    End Loop
+    #
+    #Move the user entered password into the
+    #second field, and replace it with 0, which will
+    #tell the system that this node is locked, but
+    #will not reveal to any user what the actual
+    #password is, as the second field appears on
+    #zero layouts.
+    Set Field [ aboutLibraryMain::password[2]; TEMP::passwordCheck ]
+    If [ TEMP::passwordCheck ≠ "" ]
+    Set Field [ aboutLibraryMain::password; 0 ]
+    End If
+    #
+    #If user in the Review Reference window,
+    #then take user to the locked review layout.
+    If [ Get (WindowName) = "About" or Get (WindowName) = "Edit About" ]
+    Go to Layout [ “aboutLibraryReviewLocked” (aboutLibraryMain) ]
+    Set Window Title [ Current Window; New Title: "About" ]
+    End If
+    #
+    End If
+    #
+    Halt Script
+    #
+
+Fields used in this script
+
+    aboutLibraryMain::password
+    TEMP::passwordCheck
+    aboutLibraryMain::name
+    aboutLibraryMain::creatorName
+    <Missing Field>
+
+Scripts used in this script
+
+Layouts used in this script
+
+    aboutLibraryReviewUnlocked
+    aboutLibraryReviewLocked
+
+Tables used in this script
+
+    TEMP
+    aboutLibrary
+
+Table occurrences used by this script
+
+    TEMP
+    aboutLibraryMain
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [about_Lock]	Parent Folder: [librarySetup]	Next Script: [allAppsMenu]
+Script Name	about_New
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    defaultSetup
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #This script is for creating a curator record.
+    If [ TEMP::kdefaultNodePrimary = "" ]
+    Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Default Button: “OK”, Commit: “Yes” ]
+    Halt Script
+    End If
+    #
+    #If node is currenlty locked then stop script,
+    #and inform the user.
+    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
+    #
+    #Make sure user understands the reason
+    #to create a setup reference record.
+    Show Custom Dialog [ Message: "NOTE: Create about-the-library records to share a library filled with templates, information, and reference records to help others track a process, learning something, etc."; Default Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
+    #
+    #If they click cancel, then exit the script.
+    If [ Get (LastMessageChoice) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #Encourage user to improve any library
+    #setup the use.
+    Show Custom Dialog [ Message: "1) Make a short note about your library configuration's purpose, or your improvements, modifications, etc. to another's configuration. 2) Give yourself credit. 3) Share!"; Default Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
+    #
+    #If they click cancel, then exit the script.
+    If [ Get (LastMessageChoice) = 1 ]
+    Go to Field [ ]
+    Exit Script [ ]
+    End If
+    #
+    #Create new setup reference.
+    New Record/Request
+    Set Field [ aboutLibraryMain::kcreatorNode; TEMP::kdefaultNodePrimary ]
+    Set Field [ aboutLibraryMain::name; "Library Configuration Name" ]
+    #
+    Set Field [ aboutLibraryMain::creatorName; "FirstName LastName" ]
+    Set Field [ aboutLibraryMain::version; "1" ]
+    #
+    #Go to edit setup reference window.
+    Set Variable [ $$newSetupReference; Value:1 ]
+    Perform Script [ “about_GoToConfigurationRevieworWebsite” ]
+    #
+    #
+    #
+
+Fields used in this script
+
+    TEMP::kdefaultNodePrimary
+    aboutLibraryMain::kcreatorNode
+    aboutLibraryMain::name
+    aboutLibraryMain::creatorName
+    aboutLibraryMain::version
+
+Scripts used in this script
+
+    stopNewRecordsBeingCreatedByLockedNode
+    about_GoToConfigurationRevieworWebsite
+
+Layouts used in this script
+
+Tables used in this script
+
+    TEMP
+    aboutLibrary
+
+Table occurrences used by this script
+
+    TEMP
+    aboutLibraryMain
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [about_New]	Parent Folder: [librarySetup]	Next Script: [changeLibraryName]
 Script Name	allAppsMenu
 Run script with full access privileges	Off
 Include In Menu	No
@@ -8978,7 +9622,7 @@ Script Steps
     Else
     Set Field [ testSubsectionGroup::versionNumber; "" ]
     End If
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Make sure users understand that this field is
     #for this copy only, whereas the library setup
@@ -9558,7 +10202,7 @@ Script Steps
     Set Field [ testSubsectionGroup::_Lgroup; TEMP::klibrary ]
     Perform Find [ ]
     Set Field [ testSubsectionGroup::orderOrLibraryType; "" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Explain to user importance of sticking to the
     #library type choosen once they start creating
@@ -9633,7 +10277,7 @@ Script Steps
     End Loop
     #
     #
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #
     #Explain to user importance of sticking to the
@@ -9723,7 +10367,7 @@ Script Steps
     Set Field [ testSubsectionGroup::_Lgroup; TEMP::klibrary ]
     Perform Find [ ]
     Set Field [ testSubsectionGroup::orderOrLibraryType; "" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Explain to user importance of sticking to the
     #library type choosen once they start creating
@@ -9798,7 +10442,7 @@ Script Steps
     End Loop
     #
     #
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Explain to user importance of sticking to the
     #library type choosen once they start creating
@@ -9848,7 +10492,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [libraryTypeCheckBoxRepition2]	Parent Folder: [librarySetup]	Next Script: [setupReference_Delete]
+Previous Script: [libraryTypeCheckBoxRepition2]	Parent Folder: [librarySetup]
 Script Name	moreInfo
 Run script with full access privileges	Off
 Include In Menu	Yes
@@ -9879,657 +10523,6 @@ Layouts used in this script
 Tables used in this script
 
 Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [moreInfo]	Parent Folder: [librarySetup]	Next Script: [setupReference_GoToPortalReferenceRevieworWebsite]
-Script Name	setupReference_Delete
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultSetup
-    setupReferenceViewUnlocked
-    defaultSetupViewAndEdit
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #Stop script if there are no records to lock.
-    If [ Get (FoundCount) = 0 ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #If there is a password, the delete (x) button
-    #is invisible, but it can still be clicked, so its
-    #important to stop this script.
-    If [ librarySetupReferenceMain::password[2] ≠ "" ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #If record's creator node is locked, tell the
-    #user it's locked, but the record can still be
-    #deleted or edited because it is not locked.
-    If [ librarySetupCreator::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "This library setup-reference's creator node — " & librarySetupCreator::tag & " — is locked. HOWEVER, the lock for these setup-reference records are separate from their creator's lock, so you can edit and delete it."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    #
-    #
-    #Make sure the user wants to delete
-    #the record.
-    Show Custom Dialog [ Message: "Delete this library setup-reference?"; Default Button: “Cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
-    #
-    #
-    #If user cancels delete, exit script.
-    If [ Get ( LastMessageChoice ) = 1 ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #Delete the record.
-    Delete Record/Request [ No dialog ]
-    #
-    #
-    #Close the Review Reference window if open.
-    If [ Get (WindowName) = "Review Reference" or Get (WindowName) = "Edit Reference" ]
-    Close Window [ Current Window ]
-    Halt Script
-    End If
-    #
-    #
-
-Fields used in this script
-
-    librarySetupReferenceMain::password
-    librarySetupCreator::orderOrLock
-    librarySetupCreator::tag
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    setupReference
-    tag
-
-Table occurrences used by this script
-
-    librarySetupCreator
-    librarySetupReferenceMain
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [setupReference_Delete]	Parent Folder: [librarySetup]	Next Script: [setupReference_GoToReviewOrEditWindow]
-Script Name	setupReference_GoToPortalReferenceRevieworWebsite
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultSetup
-
-Scripts that use this script
-
-    setupReference_New
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If there are no user created references, then tell user
-    #how to download a fresh copy of the library app.
-    If [ Get (FoundCount) = 0 ]
-    Show Custom Dialog [ Message: "This library when downloaded was an empty, unmodified version of the applicaiton, without any user created notes (Learn records), references, or test templates in it."; Default Button: “OK”, Commit: “Yes” ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #Capture variables needed when user clicks
-    #the review button, or clicks on a portal
-    #reference record.
-    If [ Get ( ActiveFieldName ) = "" ]
-    Set Variable [ $record; Value:librarySetupReferenceMain::_LlibrarySetupHowToCredit ]
-    Set Variable [ $password; Value:librarySetupReferenceMain::password ]
-    Set Variable [ $url; Value:librarySetupReferenceMain::URL ]
-    Else
-    Set Variable [ $record; Value:librarySetupReferencePortal::_LlibrarySetupHowToCredit ]
-    Set Variable [ $password; Value:librarySetupReferencePortal::password ]
-    Set Variable [ $url; Value:librarySetupReferencePortal::URL ]
-    Set Variable [ $portal; Value:1 ]
-    End If
-    #
-    #Exit any field user was in.
-    Go to Field [ ]
-    #
-    #
-    #Ask the user if they want to view this library'e
-    #record, edit it, or go to the library's website,
-    #BUT ONLY IF the record has a URL, and the
-    #user click on a portal record. (The main
-    #record has a button to go to the web, so it
-    #would be redundant to ask them if they want
-    #to go to the web when they just clicked the
-    #review button insetad of the web button.)
-    If [ $URL ≠ "" and $portal ≠ "" ]
-    Show Custom Dialog [ Message: "Review setup reference, or go to its website?"; Default Button: “cancel”, Commit: “Yes”; Button 2: “review”, Commit: “No”; Button 3: “go”, Commit: “No” ]
-    End If
-    #
-    #
-    #If they click cancel, then exit the script.
-    If [ Get (LastMessageChoice) = 1 ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #If they click go, then go (in the portal
-    #message dialogue box) to the library's
-    #website.
-    If [ Get (LastMessageChoice) = 3 ]
-    Open URL [ librarySetupReferencePortal::URL ] [ No dialog ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #Close a Review Reference window that
-    #might be open due to a script interruption.
-    Close Window [ Name: "Review Reference"; Current file ]
-    #
-    #Open an Review Reference window.
-    New Window [ Name: "Review Reference"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    #
-    #If there is no password, go the review layout
-    #with an edit button, otherwise go to the
-    #review layout with no edit button.
-    If [ $password = "" ]
-    Go to Layout [ “setupReferenceViewUnlocked” (librarySetupReferenceMain) ]
-    Else
-    Go to Layout [ “setupReferenceViewLocked” (librarySetupReferenceMain) ]
-    End If
-    #
-    #Adjust window size and postion (for
-    #iDevice users), and then find just the
-    #record the user is interested in reviewing.
-    Adjust Window [ Resize to Fit ]
-    Move/Resize Window [ Current Window; Height: Get (ScreenHeight) ]
-    Enter Find Mode [ ]
-    Set Field [ librarySetupReferenceMain::_LlibrarySetupHowToCredit; $record ]
-    Perform Find [ ]
-    #
-    #
-    #If this script was triggered by the
-    #newSetupReference script, then
-    #go to the edit layout, otherwise
-    #stay on the review layout.
-    If [ $$newSetupReference ≠ "" ]
-    Set Variable [ $$newSetupReference ]
-    Go to Layout [ “defaultSetupViewAndEdit” (librarySetupReferenceMain) ]
-    #
-    #Tell user why the must enter their
-    #name again, when they used their
-    #node record to create this record.
-    Go to Field [ librarySetupReferenceMain::name ]
-    Show Custom Dialog [ Message: "NOTE: The creator name field is not filled in because unlike node tags, it needs to be in FirstName LastName order, like the author's name on the cover of a book."; Default Button: “OK”, Commit: “Yes” ]
-    Go to Field [ librarySetupReferenceMain::name ]
-    End If
-    #
-    #Pause the script to prevent the user doing
-    #anything else until they have closed this
-    #review window.
-    Pause/Resume Script [ Indefinitely ]
-    #
-    #Just in case, close this window if the user
-    #hits the continue button somehow.
-    Close Window [ Current Window ]
-    Exit Script [ ]
-    #
-    #
-
-Fields used in this script
-
-    librarySetupReferenceMain::_LlibrarySetupHowToCredit
-    librarySetupReferenceMain::password
-    librarySetupReferenceMain::URL
-    librarySetupReferencePortal::_LlibrarySetupHowToCredit
-    librarySetupReferencePortal::password
-    librarySetupReferencePortal::URL
-    librarySetupReferenceMain::name
-
-Scripts used in this script
-
-Layouts used in this script
-
-    setupReferenceViewUnlocked
-    setupReferenceViewLocked
-    defaultSetupViewAndEdit
-
-Tables used in this script
-
-    setupReference
-
-Table occurrences used by this script
-
-    librarySetupReferenceMain
-    librarySetupReferencePortal
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [setupReference_GoToPortalReferenceRevieworWebsite]	Parent Folder: [librarySetup]	Next Script: [setupReference_GoToWebsite]
-Script Name	setupReference_GoToReviewOrEditWindow
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    setupReferenceViewUnlocked
-    defaultSetupViewAndEdit
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If user is on the review layout, take them
-    #to the edit layout.
-    If [ Get (WindowName) = "Review Reference" ]
-    Go to Layout [ “defaultSetupViewAndEdit” (librarySetupReferenceMain) ]
-    Set Window Title [ Of Window: "Review Reference"; Current file; New Title: "Edit Reference" ]
-    #
-    #
-    #If record's creator node is locked, tell the
-    #user it's locked, but the record can still be
-    #deleted or edited because it is not locked.
-    If [ librarySetupCreator::orderOrLock ≠ "" ]
-    Show Custom Dialog [ Message: "This library setup-reference's creator node — " & librarySetupCreator::tag & " — is locked. HOWEVER, the lock for these setup-reference records are separate from their creator's lock, so you can edit and delete it."; Default Button: “OK”, Commit: “No” ]
-    End If
-    #
-    #
-    #If user is on the edit layout, take them
-    #to the review layout.
-    Else If [ Get (WindowName) = "Edit Reference" ]
-    Go to Layout [ “setupReferenceViewUnlocked” (librarySetupReferenceMain) ]
-    Set Window Title [ Of Window: "Edit Reference"; Current file; New Title: "Review Reference" ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    librarySetupCreator::orderOrLock
-    librarySetupCreator::tag
-
-Scripts used in this script
-
-Layouts used in this script
-
-    defaultSetupViewAndEdit
-    setupReferenceViewUnlocked
-
-Tables used in this script
-
-    tag
-
-Table occurrences used by this script
-
-    librarySetupCreator
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [setupReference_GoToReviewOrEditWindow]	Parent Folder: [librarySetup]	Next Script: [setupReference_Lock]
-Script Name	setupReference_GoToWebsite
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultSetup
-    setupReferenceViewLocked
-    setupReferenceViewUnlocked
-    defaultSetupViewAndEdit
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #If there are no setup references, then
-    #go to the helpgive thanks website.
-    If [ Get (FoundCount) = 0 ]
-    Open URL [ "https://helpgivethanks.github.io" ] [ No dialog ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #If there is no URL, then tell the user how
-    #to add one ...
-    If [ librarySetupReferenceMain::URL = "" ]
-    #
-    #on the Setup window ...
-    If [ Get (WindowName) = "Setup" ]
-    #
-    If [ librarySetupReferenceMain::password = "" ]
-    #If NOT locked ...
-    Show Custom Dialog [ Message: "1) Click the review button, and then 2) the edit button, 3) to add a website URL to this setup reference in the edit window."; Default Button: “OK”, Commit: “Yes” ]
-    Else
-    #If locked ...
-    Show Custom Dialog [ Message: "1) Click the lock button and unlock this setup reference, 2) then click the review button, 3) the edit button, 4) to add a website URL to this setup reference in the edit window."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    #
-    #on the Review Reference window ...
-    Else If [ Get (WindowName) = "Review Reference" ]
-    #
-    If [ librarySetupReferenceMain::password = "" ]
-    #If NOT locked ...
-    Show Custom Dialog [ Message: "1) Click the edit button, 2) to add a website URL to this in the Edit Reference window."; Default Button: “OK”, Commit: “Yes” ]
-    Else
-    #If locked ...
-    Show Custom Dialog [ Message: "1) Click the lock button and unlock this setup reference, 2) then click edit button, 3) to add a website URL to this in the Edit Reference window."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    #
-    #on the Edit Reference window, which is
-    #always unlocked.
-    Else If [ Get (WindowName) = "Edit Reference" ]
-    Show Custom Dialog [ Message: "Add a website URL below, then click the web button again to go to that website."; Default Button: “OK”, Commit: “Yes” ]
-    End If
-    #
-    #
-    #
-    #
-    #If there is a URL, then go to it.
-    Else
-    Open URL [ librarySetupReferenceMain::URL ] [ No dialog ]
-    End If
-    #
-    #
-
-Fields used in this script
-
-    librarySetupReferenceMain::URL
-    librarySetupReferenceMain::password
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-    setupReference
-
-Table occurrences used by this script
-
-    librarySetupReferenceMain
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [setupReference_GoToWebsite]	Parent Folder: [librarySetup]	Next Script: [setupReference_New]
-Script Name	setupReference_Lock
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultSetup
-    setupReferenceViewLocked
-    setupReferenceViewUnlocked
-    defaultSetupViewAndEdit
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #Stop script if there are no records to lock.
-    If [ Get (FoundCount) = 0 ]
-    Exit Script [ ]
-    End If
-    #
-    #
-    #Capture the password for comparrison and to return
-    #the password field back to if the user fails to get the
-    #password right.
-    Set Variable [ $password; Value:librarySetupReferenceMain::password[2] ]
-    Set Field [ TEMP::passwordCheck; "" ]
-    Go to Field [ ]
-    #
-    #Use the halt instead of exit script step as the
-    #user can sometimes click the lock button
-    #twice. The halt stops the second click's
-    #calling up of this script.
-    #
-    #If there is a password, ask user to enter it.
-    If [ librarySetupReferenceMain::password[2] ≠ "" ]
-    Loop
-    Show Custom Dialog [ Message: "Enter the password to unlock — " & Case ( Length ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ) < 36 ; Left ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ; 35 ) & "... |" ; librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName & " |" ); Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: TEMP::passwordCheck, Password ]
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Set Field [ TEMP::passwordCheck; "" ]
-    Halt Script
-    End If
-    #
-    #Unlock reference if password is correct.
-    If [ $password = TEMP::passwordCheck ]
-    #
-    #If user is in the Review Reference window,
-    #then take user to the unlocked review layout.
-    If [ Get (WindowName) = "Review Reference" ]
-    Go to Layout [ “setupReferenceViewUnlocked” (librarySetupReferenceMain) ]
-    End If
-    #
-    Show Custom Dialog [ Message: "unlocked"; Default Button: “OK”, Commit: “No” ]
-    Set Field [ TEMP::passwordCheck; "" ]
-    Set Field [ librarySetupReferenceMain::password; "" ]
-    Set Field [ librarySetupReferenceMain::password[2]; "" ]
-    #
-    Halt Script
-    End If
-    End Loop
-    #
-    #If there is no password, ask user to create one.
-    Else If [ librarySetupReferenceMain::password[2] = "" ]
-    Set Field [ TEMP::passwordCheck; "" ]
-    Show Custom Dialog [ Message: "Enter a password to lock — " & Case ( Length ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ) < 36 ; Left ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ; 35 ) & "... |" ; librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName & " |" ) & " WARNING: If you can't remember this password, your records will remain locked."; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: librarySetupReferenceMain::password, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Set Field [ librarySetupReferenceMain::password; "" ]
-    Exit Script [ ]
-    End If
-    #
-    #Check validity of password entered.
-    #
-    #If they don't match, ask user to try again.
-    Loop
-    If [ librarySetupReferenceMain::password ≠ TEMP::passwordCheck ]
-    Show Custom Dialog [ Message: "Passwords did not match."; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: librarySetupReferenceMain::password, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Set Field [ librarySetupReferenceMain::password; "" ]
-    Halt Script
-    End If
-    End If
-    #
-    #If the user picks 0, then make them choose
-    #another and explain why the must do so.
-    If [ TEMP::passwordCheck = 0 ]
-    Show Custom Dialog [ Message: "Zero is not allowed. Try again."; Default Button: “enter”, Commit: “Yes”; Button 2: “cancel”, Commit: “No”; Input #1: librarySetupReferenceMain::password, Password, "password"; Input #2: TEMP::passwordCheck, Password, "confirm password" ]
-    If [ Get ( LastMessageChoice ) = 2 ]
-    Set Field [ librarySetupReferenceMain::password; "" ]
-    Halt Script
-    End If
-    End If
-    #
-    #If the password is valid exit the
-    #password check loop.
-    Exit Loop If [ librarySetupReferenceMain::password = TEMP::passwordCheck and TEMP::passwordCheck ≠ 0 ]
-    End Loop
-    #
-    #Move the user entered password into the
-    #second field, and replace it with 0, which will
-    #tell the system that this node is locked, but
-    #will not reveal to any user what the actual
-    #password is, as the second field appears on
-    #zero layouts.
-    Set Field [ librarySetupReferenceMain::password[2]; TEMP::passwordCheck ]
-    If [ TEMP::passwordCheck ≠ "" ]
-    Set Field [ librarySetupReferenceMain::password; 0 ]
-    End If
-    #
-    #If user in the Review Reference window,
-    #then take user to the locked review layout.
-    If [ Get (WindowName) = "Review Reference" or Get (WindowName) = "Edit Reference" ]
-    Go to Layout [ “setupReferenceViewLocked” (librarySetupReferenceMain) ]
-    Set Window Title [ Current Window; New Title: "Review Reference" ]
-    End If
-    #
-    End If
-    #
-    Halt Script
-    #
-
-Fields used in this script
-
-    librarySetupReferenceMain::password
-    TEMP::passwordCheck
-    librarySetupReferenceMain::name
-    librarySetupReferenceMain::creatorName
-    <Missing Field>
-
-Scripts used in this script
-
-Layouts used in this script
-
-    setupReferenceViewUnlocked
-    setupReferenceViewLocked
-
-Tables used in this script
-
-    TEMP
-    setupReference
-
-Table occurrences used by this script
-
-    TEMP
-    librarySetupReferenceMain
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [setupReference_Lock]	Parent Folder: [librarySetup]
-Script Name	setupReference_New
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-    defaultSetup
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-    #
-    #
-    #This script is for creating a curator record.
-    If [ TEMP::kdefaultNodePrimary = "" ]
-    Show Custom Dialog [ Message: "Select yourself (the node responsible for creating new records) by clicking the node button."; Default Button: “OK”, Commit: “Yes” ]
-    Halt Script
-    End If
-    #
-    #If node is currenlty locked then stop script,
-    #and inform the user.
-    Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
-    #
-    #Make sure user understands the reason
-    #to create a setup reference record.
-    Show Custom Dialog [ Message: "NOTE: Create setup reference records to share a library filled with templates, information, and reference records to help others track a process, learning something, etc."; Default Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
-    #
-    #If they click cancel, then exit the script.
-    If [ Get (LastMessageChoice) = 1 ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #Encourage user to improve any library
-    #setup the use.
-    Show Custom Dialog [ Message: "1) Make a short note about your setup's purpose, or improvements, modifications, etc. to another's setup. 2) Give yourself credit. 3) Share!"; Default Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
-    #
-    #If they click cancel, then exit the script.
-    If [ Get (LastMessageChoice) = 1 ]
-    Go to Field [ ]
-    Exit Script [ ]
-    End If
-    #
-    #Create new setup reference.
-    New Record/Request
-    Set Field [ librarySetupReferenceMain::kcreatorNode; TEMP::kdefaultNodePrimary ]
-    #
-    #Call the new library a remix if there is already
-    #one library reference present.
-    If [ Get (FoundCount) = 1 ]
-    Set Field [ librarySetupReferenceMain::name; "Library Setup Name" ]
-    Else
-    Set Field [ librarySetupReferenceMain::name; "Remix of Library Setup Name" ]
-    End If
-    #
-    Set Field [ librarySetupReferenceMain::creatorName; "FirstName LastName" ]
-    Set Field [ librarySetupReferenceMain::version; "1" ]
-    #
-    #Go to edit setup reference window.
-    Set Variable [ $$newSetupReference; Value:1 ]
-    Perform Script [ “setupReference_GoToPortalReferenceRevieworWebsite” ]
-    #
-    #
-    #
-
-Fields used in this script
-
-    TEMP::kdefaultNodePrimary
-    librarySetupReferenceMain::kcreatorNode
-    librarySetupReferenceMain::name
-    librarySetupReferenceMain::creatorName
-    librarySetupReferenceMain::version
-
-Scripts used in this script
-
-    stopNewRecordsBeingCreatedByLockedNode
-    setupReference_GoToPortalReferenceRevieworWebsite
-
-Layouts used in this script
-
-Tables used in this script
-
-    TEMP
-    setupReference
-
-Table occurrences used by this script
-
-    TEMP
-    librarySetupReferenceMain
 
 Custom Functions used by this script
 
@@ -10931,7 +10924,7 @@ Script Steps
     #
     #There is always only one default record, so
     #finding and looping to record is not necessary.
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Set Window Title [ Current Window; New Title: "Setup" ]
     #
     #Go to the tag menu and perform the Node
@@ -21332,7 +21325,7 @@ Script Steps
     Select Window [ Name: "Learn"; Current file ]
     Set Window Title [ Current Window; New Title: "Setup" ]
     Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Clear variables that where set
     #in other modules.
@@ -21731,9 +21724,9 @@ Layouts that use this script
 
     moreInfo
     allApps
-    setupReferenceViewLocked
-    setupReferenceViewUnlocked
-    defaultSetupViewAndEdit
+    aboutLibraryReviewLocked
+    aboutLibraryReviewUnlocked
+    aboutLibraryEdit
     ReferenceViewEDIT
     ReferenceViewDump
     testItemFormPreview
@@ -23229,7 +23222,7 @@ Scripts that use this script
 
     duplicateLearnRecord
     newLearn
-    setupReference_New
+    about_New
     duplicateReferenceRecord
     newLocationRecord
     newReference
@@ -24574,7 +24567,7 @@ Script Steps
     #step 3A (new library) or step 3B (upgrade old
     #library to this library's version)?
     If [ backup::newLibrary = "newLibrary" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Show Custom Dialog [ Message: "1) Create a new, empty library." & ¶ & "2) Import another library's records into version " & tempSetup::versionNumber & " of the library application."; Default Button: “new”, Commit: “Yes”; Button 2: “import”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     #
     #If the user cancels, then close this new file as
@@ -24758,7 +24751,7 @@ Script Steps
     End If
     #
     #Re-title and re-size main library setup window.
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Set Window Title [ Current Window; New Title: "Setup" ]
     Show/Hide Text Ruler [ Hide ]
     If [ Get ( SystemPlatform ) = - 2 ]
@@ -24772,7 +24765,7 @@ Script Steps
     #them by date so focus is on most current
     #setup reference.
     Show All Records
-    Sort Records [ Keep records in sorted order; Specified Sort Order: librarySetupReferenceMain::publicationDate; descending ] [ Restore; No dialog ]
+    Sort Records [ Keep records in sorted order; Specified Sort Order: aboutLibraryMain::publicationDate; descending ] [ Restore; No dialog ]
     Go to Record/Request/Page [ First ]
     #
     #Make sure library's creator node and
@@ -24875,7 +24868,7 @@ Script Steps
     Set Field [ MemorySwitch::versionLibrary; tempSetup::versionNumber ]
     #
     #Go to the main layout.
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Show regular menus if Admin logs and set the
     #print page size for one long page so when
@@ -24982,7 +24975,7 @@ Fields used in this script
     testSubsectionGroup::name
     testSubsectionGroup::versionNumber
     TEMP::userLibraryVersionNumber
-    librarySetupReferenceMain::publicationDate
+    aboutLibraryMain::publicationDate
     tempSetup::layoutLtagK
     tempSetup::layoutRtagK
     tempSetup::layoutLtagN
@@ -25028,8 +25021,8 @@ Tables used in this script
     MemorySwitch
     TEMP
     TEMP
+    aboutLibrary
     backup
-    setupReference
     tagGroup
     tagGroup
 
@@ -25037,9 +25030,9 @@ Table occurrences used by this script
 
     MemorySwitch
     TEMP
+    aboutLibraryMain
     backup
     libraryNameAndInfo
-    librarySetupReferenceMain
     tempSetup
     testSubsectionGroup
 
@@ -31585,7 +31578,7 @@ Script Steps
 
     #
     #Set citationMatch to color menu button with inUse color.
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Refresh Window
     #
 
@@ -32560,12 +32553,12 @@ Script Steps
     #SETUP REFERENCE
     #See if node is used by any setup
     #reference records.
-    Go to Layout [ “tableSetupReference” (librarySetupReferenceMain) ]
+    Go to Layout [ “tableSetupReference” (aboutLibraryMain) ]
     Enter Find Mode [ ]
-    Set Field [ librarySetupReferenceMain::kcreatorNode; $check ]
+    Set Field [ aboutLibraryMain::kcreatorNode; $check ]
     Perform Find [ ]
     If [ Get (FoundCount) ≠ 0 ]
-    Set Variable [ $setupReference; Value:Case ( Length ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ) < 56 ; Left ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ; 55 ) & "... |" ; librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName & " |" ) ]
+    Set Variable [ $setupReference; Value:Case ( Length ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ) < 56 ; Left ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ; 55 ) & "... |" ; aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName & " |" ) ]
     Set Variable [ $foundCount; Value:Get (FoundCount) ]
     End If
     #
@@ -33380,9 +33373,9 @@ Fields used in this script
     testSubsectionGroup::kRecordCreatorNode
     testSubsectionGroup::ReportCaptionORLibraryCreatorName
     testSubsectionGroup::nameSpellingFORTestItemGroup
-    librarySetupReferenceMain::kcreatorNode
-    librarySetupReferenceMain::name
-    librarySetupReferenceMain::creatorName
+    aboutLibraryMain::kcreatorNode
+    aboutLibraryMain::name
+    aboutLibraryMain::creatorName
     testlearn::kNodePrimary
     testlearn::filterFind
     testlearn::kNodeOther
@@ -33429,9 +33422,9 @@ Layouts used in this script
 Tables used in this script
 
     TEMP
+    aboutLibrary
     reference
     report
-    setupReference
     tag
     tag
     tagGroup
@@ -33443,7 +33436,7 @@ Tables used in this script
 Table occurrences used by this script
 
     TEMP
-    librarySetupReferenceMain
+    aboutLibraryMain
     reference
     report
     tagCreatorLock
@@ -37719,20 +37712,20 @@ Script Steps
     #reference table layout.
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “tableSetupReference” (librarySetupReferenceMain) ]
+    Go to Layout [ “tableSetupReference” (aboutLibraryMain) ]
     #
     #Find any records created by this node.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     Enter Find Mode [ ]
-    Set Field [ librarySetupReferenceMain::kcreatorNode; $tagKey ]
-    Set Field [ librarySetupReferenceMain::password; 0 ]
+    Set Field [ aboutLibraryMain::kcreatorNode; $tagKey ]
+    Set Field [ aboutLibraryMain::password; 0 ]
     Perform Find [ ]
     #
     #If there are locked setup references, tell the
     #user that they the must be locked separately.
-    If [ librarySetupReferenceMain::password ≠ "" ]
-    Set Variable [ $setupReference; Value:Case ( Length ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ) < 56 ; Left ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ; 55 ) & "...." ; librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName & "." ) ]
+    If [ aboutLibraryMain::password ≠ "" ]
+    Set Variable [ $setupReference; Value:Case ( Length ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ) < 56 ; Left ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ; 55 ) & "...." ; aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName & "." ) ]
     Set Variable [ $foundCount; Value:Get (FoundCount) ]
     Close Window [ Current Window ]
     If [ $foundCount = 1 ]
@@ -37833,21 +37826,21 @@ Script Steps
     #reference table layout.
     Set Variable [ $$stopLoadTagRecord; Value:1 ]
     New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
-    Go to Layout [ “tableSetupReference” (librarySetupReferenceMain) ]
+    Go to Layout [ “tableSetupReference” (aboutLibraryMain) ]
     #
     #Find any records created by this node.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     Enter Find Mode [ ]
-    Set Field [ librarySetupReferenceMain::kcreatorNode; $tagKey ]
-    Set Field [ librarySetupReferenceMain::password; "=" ]
+    Set Field [ aboutLibraryMain::kcreatorNode; $tagKey ]
+    Set Field [ aboutLibraryMain::password; "=" ]
     Perform Find [ ]
     #
     #
     #If there are any unlocked, tell the user that
     #they the must be locked separately.
-    If [ librarySetupReferenceMain::password = "" ]
-    Set Variable [ $setupReference; Value:Case ( Length ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ) < 56 ; Left ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ; 55 ) & "... |" ; librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName & " |" ) ]
+    If [ aboutLibraryMain::password = "" ]
+    Set Variable [ $setupReference; Value:Case ( Length ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ) < 56 ; Left ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ; 55 ) & "... |" ; aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName & " |" ) ]
     Set Variable [ $foundCount; Value:Get (FoundCount) ]
     Close Window [ Current Window ]
     If [ $foundCount = 1 ]
@@ -37881,10 +37874,10 @@ Fields used in this script
     tempSetup::primaryNodesCreatorNodeIsLocked
     TEMP::kdefaultNodeTestSubject
     tempSetup::testSubjectNodeIsLocked
-    librarySetupReferenceMain::kcreatorNode
-    librarySetupReferenceMain::password
-    librarySetupReferenceMain::name
-    librarySetupReferenceMain::creatorName
+    aboutLibraryMain::kcreatorNode
+    aboutLibraryMain::password
+    aboutLibraryMain::name
+    aboutLibraryMain::creatorName
     tempSetup::nodeLockedShow
 
 Scripts used in this script
@@ -37897,13 +37890,13 @@ Tables used in this script
 
     TEMP
     TEMP
-    setupReference
+    aboutLibrary
     tag
 
 Table occurrences used by this script
 
     TEMP
-    librarySetupReferenceMain
+    aboutLibraryMain
     tagMenus
     tempSetup
 
@@ -41669,7 +41662,7 @@ Script Steps
     #
     Exit Script [ ]
     Else If [ $$module = "defaultSections" ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     Select Window [ Name: "Tag Menus"; Current file ]
     Go to Layout [ $$module ]
     If [ $$module = "defaultSections" ]
@@ -46927,7 +46920,7 @@ Script Steps
     Select Window [ Name: "Learn"; Current file ]
     Set Window Title [ Current Window; New Title: "Setup" ]
     Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
     #Clear variables that where set
     #in other modules.
@@ -49902,7 +49895,7 @@ Script Steps
     End If
     Set Window Title [ Current Window; New Title: "Setup" ]
     Move/Resize Window [ Name: "Setup"; Current file; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-    Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+    Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     New Window [ Name: "Tag Menus"; Width: Get (ScreenWidth) / 2; Left: Get (ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
     Go to Layout [ “defaultTest” (testSectionCreatedFromATemplate) ]
     // Perform Script [ “templateTestSectionMenu” ]

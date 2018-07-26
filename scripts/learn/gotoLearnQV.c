@@ -1,4 +1,4 @@
-July 20, 2018 17:20:22 Library.fmp12 - gotoLearnQV -1-
+July 25, 2018 17:58:27 Library.fmp12 - gotoLearnQV -1-
 learn: gotoLearnQV
 #
 #If in find mode, exit script.
@@ -13,6 +13,7 @@ End If
 #references). And if there are then ask if the
 #user would like to find them or go the QV
 #interface for this record.
+If [ TEMP::InventoryLibraryYN = "" ]
 If [ ( testlearn::kcreference = ""
  or
 ValueCount ( testlearn::kcreference ) - Length ( Filter ( testlearn::kcreference ; "L" ) ) = 0 )
@@ -33,6 +34,7 @@ End If
 If [ Get ( LastMessageChoice ) = 3 ]
 #Cancel.
 Exit Script [ ]
+End If
 End If
 End If
 #
