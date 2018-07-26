@@ -1,4 +1,4 @@
-July 24, 2018 17:35:49 Library.fmp12 - about_New -1-
+July 25, 2018 23:45:21 Library.fmp12 - about_New -1-
 librarySetup: about_New
 #
 #
@@ -15,24 +15,23 @@ Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Make sure user understands the reason
 #to create a setup reference record.
-Show Custom Dialog [ Message: "NOTE: Create about-the-library records to share a library filled with templates, information, and
-reference records to help others track a process, learning something, etc."; Default Button: “cancel”, Commit: “Yes”; Button 2:
-“OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "NOTE: Create about-the-library records to share a library filled with your templates, information, and
+reference records to help others learn, research, follow a checklist, etc."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”,
+Commit: “No” ]
 #
 #If they click cancel, then exit the script.
-If [ Get (LastMessageChoice) = 1 ]
+If [ Get (LastMessageChoice) = 2 ]
 Go to Field [ ]
 Exit Script [ ]
 End If
 #
 #Encourage user to improve any library
 #setup the use.
-Show Custom Dialog [ Message: "1) Make a short note about your library configuration's purpose, or your improvements,
-modifications, etc. to another's configuration. 2) Give yourself credit. 3) Share!"; Default Button: “cancel”, Commit: “Yes”; Button
-2: “OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "Make a short note about your library configuration's purpose, or your improvements, modifications,
+etc. to another's configuration."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
 #
 #If they click cancel, then exit the script.
-If [ Get (LastMessageChoice) = 1 ]
+If [ Get (LastMessageChoice) = 2 ]
 Go to Field [ ]
 Exit Script [ ]
 End If

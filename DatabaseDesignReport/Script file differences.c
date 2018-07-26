@@ -9026,7 +9026,7 @@ Script Steps
     #would be redundant to ask them if they want
     #to go to the web when they just clicked the
     #review button insetad of the web button.)
-    If [ $URL ≠ "" and $portal ≠ "" ]
+    If [ $URL ≠ "" and $portal ≠ "" and $$newSetupReference = "" ]
     Show Custom Dialog [ Message: "Review library information, or go to library website?"; Default Button: “review”, Commit: “Yes”; Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     End If
     #
@@ -9041,7 +9041,7 @@ Script Steps
     #If they click go, then go (in the portal
     #message dialogue box) to the library's
     #website.
-    If [ Get (LastMessageChoice) = 2 ]
+    If [ Get (LastMessageChoice) = 2 and $$newSetupReference = "" ]
     Open URL [ aboutLibraryReferencePortal::URL ] [ No dialog ]
     Go to Field [ ]
     Exit Script [ ]
@@ -9086,8 +9086,6 @@ Script Steps
     #Tell user why the must enter their
     #name again, when they used their
     #node record to create this record.
-    Go to Field [ aboutLibraryMain::name ]
-    Show Custom Dialog [ Message: "NOTE: The creator name field is not filled in because unlike node tags, it needs to be in FirstName LastName order, like the author's name on the cover of a book."; Default Button: “OK”, Commit: “Yes” ]
     Go to Field [ aboutLibraryMain::name ]
     End If
     #
@@ -9469,20 +9467,20 @@ Script Steps
     #
     #Make sure user understands the reason
     #to create a setup reference record.
-    Show Custom Dialog [ Message: "NOTE: Create about-the-library records to share a library filled with templates, information, and reference records to help others track a process, learning something, etc."; Default Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "NOTE: Create about-the-library records to share a library filled with your templates, information, and reference records to help others learn, research, follow a checklist, etc."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
     #
     #If they click cancel, then exit the script.
-    If [ Get (LastMessageChoice) = 1 ]
+    If [ Get (LastMessageChoice) = 2 ]
     Go to Field [ ]
     Exit Script [ ]
     End If
     #
     #Encourage user to improve any library
     #setup the use.
-    Show Custom Dialog [ Message: "1) Make a short note about your library configuration's purpose, or your improvements, modifications, etc. to another's configuration. 2) Give yourself credit. 3) Share!"; Default Button: “cancel”, Commit: “Yes”; Button 2: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "Make a short note about your library configuration's purpose, or your improvements, modifications, etc. to another's configuration."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
     #
     #If they click cancel, then exit the script.
-    If [ Get (LastMessageChoice) = 1 ]
+    If [ Get (LastMessageChoice) = 2 ]
     Go to Field [ ]
     Exit Script [ ]
     End If

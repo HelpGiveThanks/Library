@@ -1,4 +1,4 @@
-July 25, 2018 17:39:40 HallucinationQualityManagement_David.fmp12 - about_GoToConfigurationReviewo… -1-
+July 25, 2018 23:43:06 Library.fmp12 - about_GoToConfigurationRevieworWebsite -1-
 librarySetup: about_GoToConfigurationRevieworWebsite
 #
 #
@@ -37,7 +37,7 @@ Go to Field [ ]
 #would be redundant to ask them if they want
 #to go to the web when they just clicked the
 #review button insetad of the web button.)
-If [ $URL ≠ "" and $portal ≠ "" ]
+If [ $URL ≠ "" and $portal ≠ "" and $$newSetupReference = "" ]
 Show Custom Dialog [ Message: "Review library information, or go to library website?"; Default Button: “review”, Commit: “Yes”;
 Button 2: “go”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 End If
@@ -53,7 +53,7 @@ End If
 #If they click go, then go (in the portal
 #message dialogue box) to the library's
 #website.
-If [ Get (LastMessageChoice) = 2 ]
+If [ Get (LastMessageChoice) = 2 and $$newSetupReference = "" ]
 Open URL [ aboutLibraryReferencePortal::URL ]
 [ No dialog ]
 Go to Field [ ]
@@ -101,9 +101,6 @@ Set Window Title [ Current Window; New Title: "Edit About" ]
 #Tell user why the must enter their
 #name again, when they used their
 #node record to create this record.
-Go to Field [ aboutLibraryMain::name ]
-Show Custom Dialog [ Message: "NOTE: The creator name field is not filled in because unlike node tags, it needs to be in
-FirstName LastName order, like the author's name on the cover of a book."; Default Button: “OK”, Commit: “Yes” ]
 Go to Field [ aboutLibraryMain::name ]
 End If
 #
