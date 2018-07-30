@@ -19494,9 +19494,13 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    defaultCopyright
+    CopyrightVIEW
+    CopyrightEDIT
     Reference
     ReferenceEDIT
     ReferenceFilePathEDIT
+    ReferenceMenuCopyright
     ReferenceMenu3Cite
     ReferenceMenu3CiteNoPicture
     ReferencePictureWindow_Web
@@ -19532,6 +19536,14 @@ Script Steps
 
     #
     #
+    #Open copyright's website if user is on the
+    #copyright tag menu.
+    If [ refTitle1::URL ≠ "" and $$citationMatch = "copyright" ]
+    Open URL [ refTitle1::URL ] [ No dialog ]
+    Exit Script [ ]
+    End If
+    #
+    #
     #Note that user has clicked the web button.
     Set Variable [ $$openReferencedWebsite; Value:1 ]
     #
@@ -19545,6 +19557,8 @@ Script Steps
 
 Fields used in this script
 
+    refTitle1::URL
+
 Scripts used in this script
 
     showReferencedFileFolder
@@ -19553,7 +19567,11 @@ Layouts used in this script
 
 Tables used in this script
 
+    reference
+
 Table occurrences used by this script
+
+    refTitle1
 
 Custom Functions used by this script
 
@@ -20126,12 +20144,8 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
-    defaultCopyright
-    CopyrightVIEW
-    CopyrightEDIT
     defaultNode3
     defaultNode4
-    ReferenceMenuCopyright
     ReferenceMenu2keywordOrNode4
     ReferenceMenu2SkeywordOrNode4
     ReferenceMenu2keywordOrNode5
