@@ -1,4 +1,4 @@
-July 21, 2018 14:13:49 Library.fmp12 - loadTagRecord -1-
+August 4, 2018 14:17:32 Library.fmp12 - loadTagRecord -1-
 tagMenu: loadTagRecord
 #
 #NOTE: this script is used on the Tag Menus window
@@ -29,6 +29,7 @@ End If
 #Admin tasks.
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
+Set Variable [ $$ifScriptRunsHalfSecondAfterThisOneHaltIt ]
 #
 #When user has navigated to a key tag menu
 #record by clicking on the order-number
@@ -171,8 +172,32 @@ $$citationMatch = "key"
  or
 $$citationMatch = "node" ]
 Perform Script [ “enterShortOrLongTagField” ]
+#
+#If there is media, then open the media window,
+#but if not then halt this script, just in case the
+#user clicked on a button when navigating. The
+#halt command will stop that button's script
+#from running.
+If [ $$citationMatch = "ref" and reference::picture = "" and reference::showMedia = "" and reference::showMedia[2] = ""
+ and
+tagMenus::Kpicture1 = "" and tagMenus::match ≠ "testItem" ]
+#
+#Use this message when testing to see if this
+#loadTagRecord script is halting other scripts
+#that really need to run.
 // Show Custom Dialog [ Title: "halt"; Message: "halt"; Default Button: “OK”, Commit: “Yes” ]
 Halt Script
+Else
+#
+#This variable is used by any scripts that where
+#started by navigating to the current tag record
+#which started this script, except the open
+#media window script. The other scripts
+#running right after this one will test if less than
+#a second has past since this variable was set,
+#and if so they will exit (not run).
+Set Variable [ $$ifScriptRunsHalfSecondAfterThisOneHaltIt; Value:Get ( CurrentTime ) ]
+End If
 End If
 #
 End If

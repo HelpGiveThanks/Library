@@ -1,4 +1,4 @@
-July 20, 2018 21:32:51 Library.fmp12 - showCitationPicture1inNewWindow -1-
+August 3, 2018 19:34:59 Library.fmp12 - showCitationPicture1inNewWindow -1-
 pictures: showCitationPicture1inNewWindow
 #
 #
@@ -6,13 +6,21 @@ pictures: showCitationPicture1inNewWindow
 Allow User Abort [ Off ]
 Set Error Capture [ On ]
 #
+#
 #Stop script if user clicked in the media field to
-#navigate to this record, not to open the media
-#window.
+#navigate to this record, and the media window
+#is empty.
 If [ $$stopOpenNewTextWindow = 1 ]
 Set Variable [ $$stopOpenNewTextWindow ]
+#Open picture window if there is a picture
+#to show.
+If [ testlearn::kshowReferencedMedia = "" and testlearn::picture = ""
+and
+testlearnReportTags::kshowReferencedMedia = "" and testlearnReportTags::picture = "" ]
 Exit Script [ ]
 End If
+End If
+#
 #
 #If on the Tag Menus learn layout and there
 #is no media to show, exit this script.

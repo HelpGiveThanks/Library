@@ -1,4 +1,4 @@
-July 21, 2018 13:48:27 Library.fmp12 - addORremoveRefTagStep2_forRefRecord -1-
+August 3, 2018 19:26:06 Library.fmp12 - addORremoveRefTagStep2_forRefRecord -1-
 tagMenu: addORremoveRefTagStep2_forRefRecord
 #
 #Get current record IDs in reference or
@@ -34,6 +34,15 @@ End If
 Select Window [ Name: "Tag Menus"; Current file ]
 #
 #
+#
+#Note if there is any media that can be added
+#to the Learn record.
+If [ //There is a picture to show if...
+reference::picture ≠ "" or
+reference::showMedia ≠ "" and reference::URL ≠ "" or
+reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ "" ]
+Set Variable [ $hasMediaThatCanBeAdded; Value:1 ]
+End If
 #
 #
 #
@@ -100,8 +109,9 @@ Sort Records [ ]
 End If
 #
 #Ask user if they would like to show the
-#reference's media if there is any to show.
-If [ $media = 1 and testlearn::picture = "" ]
+#reference's media if there is any to show, and
+#the learn record's media field is empty.
+If [ $media = 1 and testlearn::picture = "" and $hasMediaThatCanBeAdded ≠ "" ]
 If [ TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "Display reference's media? Learn layouts with an unused picture area can
 display reference media. Click any Learn record's picture-selection button (in QV window) to show/not show

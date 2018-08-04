@@ -1,5 +1,14 @@
-July 21, 2018 13:48:13 Library.fmp12 - addORremoveRefTagStep1 -1-
+August 3, 2018 19:25:21 Library - addORremoveRefTagStep1 -1-
 tagMenu: addORremoveRefTagStep1
+#
+#
+#
+#Exit script if it was started after the
+#loadTagRecord script finished, which
+#will be less than a second ago.
+If [ Get ( CurrentTime ) - $$ifScriptRunsHalfSecondAfterThisOneHaltIt < 1 ]
+Exit Script [ ]
+End If
 #
 #
 #
@@ -29,7 +38,7 @@ Show Custom Dialog [ Message: "Show this tag's picture or add this tag to the se
 End If
 If [ Get (LastMessageChoice) = 2 ]
 Set Variable [ $$stopOpenNewTextWindow ]
-Perform Script [ “showCitationPicture1inNewWindow (udpate)” ]
+Perform Script [ “showCitationPicture1inNewWindow” ]
 Exit Script [ ]
 End If
 If [ Get (LastMessageChoice) = 3 ]

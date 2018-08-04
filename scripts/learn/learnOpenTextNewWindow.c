@@ -1,4 +1,4 @@
-July 20, 2018 17:20:54 Library.fmp12 - learnOpenTextNewWindow -1-
+August 4, 2018 15:02:44 Library.fmp12 - learnOpenTextNewWindow -1-
 learn: learnOpenTextNewWindow
 If [ Get ( WindowMode ) = 1 ]
 Go to Field [ testlearn::note ]
@@ -68,9 +68,10 @@ Go to Field [ testlearn::note ]
 End If
 #
 #If the user in on an iDevice...
-If [ Get ( SystemPlatform ) = 3 ]
-Show Custom Dialog [ Message: "Use two-finger pinch-and-zoom gesture to make text easier to see and edit."; Default Button:
-“OK”, Commit: “Yes” ]
+If [ Get ( SystemPlatform ) = 3 and $$showPinchAndZoommessageOnlyOnce = "" ]
+Show Custom Dialog [ Message: "Use two-finger pinch-and-zoom gesture to make text easier to see and edit. (This mesages is
+shown once per session.)"; Default Button: “OK”, Commit: “Yes” ]
+Set Variable [ $$showPinchAndZoommessageOnlyOnce; Value:1 ]
 End If
 Pause/Resume Script [ Indefinitely ]
 #

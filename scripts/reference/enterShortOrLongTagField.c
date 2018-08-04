@@ -1,5 +1,13 @@
-July 20, 2018 21:51:35 Library.fmp12 - enterShortOrLongTagField -1-
+August 3, 2018 19:33:37 Library.fmp12 - enterShortOrLongTagField -1-
 reference: enterShortOrLongTagField
+#
+#
+#Exit script if it was started after the
+#loadTagRecord script finished, which
+#will be less than a second ago.
+If [ Get ( CurrentTime ) - $$ifScriptRunsHalfSecondAfterThisOneHaltIt < 1 ]
+Exit Script [ ]
+End If
 #
 #
 #Stops script when user is going to the Learn

@@ -5389,8 +5389,9 @@ Script Steps
     End If
     #
     #If the user in on an iDevice...
-    If [ Get ( SystemPlatform ) = 3 ]
-    Show Custom Dialog [ Message: "Use two-finger pinch-and-zoom gesture to make text easier to see and edit."; Default Button: “OK”, Commit: “Yes” ]
+    If [ Get ( SystemPlatform ) = 3 and $$showPinchAndZoommessageOnlyOnce = "" ]
+    Show Custom Dialog [ Message: "Use two-finger pinch-and-zoom gesture to make text easier to see and edit. (This mesages is shown once per session.)"; Default Button: “OK”, Commit: “Yes” ]
+    Set Variable [ $$showPinchAndZoommessageOnlyOnce; Value:1 ]
     End If
     Pause/Resume Script [ Indefinitely ]
     #
@@ -13486,9 +13487,11 @@ Layouts that use this script
     ReferenceAddToTag
     ReferenceAddToCopyright
     learn0
+    learnStuff0
     learn1
     learnStuff1
     learn2
+    learnStuff2
     learn3
     learnStuff3
     learn4
@@ -13549,13 +13552,19 @@ Script Steps
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
     #
+    #
     #Stop script if user clicked in the media field to
-    #navigate to this record, not to open the media
-    #window.
+    #navigate to this record, and the media window
+    #is empty.
     If [ $$stopOpenNewTextWindow = 1 ]
     Set Variable [ $$stopOpenNewTextWindow ]
+    #Open picture window if there is a picture
+    #to show.
+    If [ testlearn::kshowReferencedMedia = "" and testlearn::picture = "" and testlearnReportTags::kshowReferencedMedia = "" and testlearnReportTags::picture = "" ]
     Exit Script [ ]
     End If
+    End If
+    #
     #
     #If on the Tag Menus learn layout and there
     #is no media to show, exit this script.
@@ -14072,8 +14081,10 @@ Script Steps
 
 Fields used in this script
 
-    testlearn::picture
     testlearn::kshowReferencedMedia
+    testlearn::picture
+    testlearnReportTags::kshowReferencedMedia
+    testlearnReportTags::picture
     reference::picture
     reference::_Lreference
     TEMP::InventoryLibraryYN
@@ -14126,7 +14137,6 @@ Fields used in this script
     refLearnShowMedia::showMedia
     refLearnShowMedia::URL
     testlearnReportTags::_Ltestlearn
-    testlearnReportTags::picture
     refTestShowMedia::picture
     refTestShowMedia::kfileLocation
     refTestShowMedia::fileName
@@ -17169,6 +17179,14 @@ Script Steps
 
     #
     #
+    #Exit script if it was started after the
+    #loadTagRecord script finished, which
+    #will be less than a second ago.
+    If [ Get ( CurrentTime ) - $$ifScriptRunsHalfSecondAfterThisOneHaltIt < 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #
     #Stops script when user is going to the Learn
     #or Reference section, except for exit script
     #when user has navigated to a key tag menu
@@ -19538,7 +19556,7 @@ Script Steps
     #
     #Open copyright's website if user is on the
     #copyright tag menu.
-    If [ refTitle1::URL ≠ "" and $$citationMatch = "copyright" ]
+    If [ refTitle1::URL ≠ "" and $$citationMatch = "copyright" or refTitle1::URL ≠ "" and Get (WindowName) = "copyright" ]
     Open URL [ refTitle1::URL ] [ No dialog ]
     Exit Script [ ]
     End If
@@ -27562,6 +27580,15 @@ Script Steps
     #
     #
     #
+    #Exit script if it was started after the
+    #loadTagRecord script finished, which
+    #will be less than a second ago.
+    If [ Get ( CurrentTime ) - $$ifScriptRunsHalfSecondAfterThisOneHaltIt < 1 ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #
     #If this tag has a picture that is hidden, ask if
     #the user wants to see the picture or find
     #record's with this tag.
@@ -27707,6 +27734,12 @@ Script Steps
     #
     #
     #
+    #Note if there is any media that can be added
+    #to the Learn record.
+    If [ //There is a picture to show if... reference::picture ≠ "" or reference::showMedia ≠ "" and reference::URL ≠ "" or reference::showMedia[2] ≠ "" and reference::kfileLocation ≠ "" and reference::fileName ≠ "" ]
+    Set Variable [ $hasMediaThatCanBeAdded; Value:1 ]
+    End If
+    #
     #
     #
     #If tag user clicked has not yet been selected, then add it.
@@ -27739,8 +27772,9 @@ Script Steps
     End If
     #
     #Ask user if they would like to show the
-    #reference's media if there is any to show.
-    If [ $media = 1 and testlearn::picture = "" ]
+    #reference's media if there is any to show, and
+    #the learn record's media field is empty.
+    If [ $media = 1 and testlearn::picture = "" and $hasMediaThatCanBeAdded ≠ "" ]
     If [ TEMP::InventoryLibraryYN = "" ]
     Show Custom Dialog [ Message: "Display reference's media? Learn layouts with an unused picture area can display reference media. Click any Learn record's picture-selection button (in QV window) to show/not show reference media."; Default Button: “no”, Commit: “Yes”; Button 2: “yes”, Commit: “No” ]
     Else
@@ -27844,12 +27878,12 @@ Fields used in this script
     testlearn::orderInventoryGroupNumber
     testlearn::kcreference
     reference::lock
-    reference::_Lreference
     reference::picture
     reference::showMedia
     reference::URL
     reference::kfileLocation
     reference::fileName
+    reference::_Lreference
     testlearn::picture
     testlearn::kshowReferencedMedia
     reference::filterFind
@@ -37169,6 +37203,7 @@ Script Steps
     #Admin tasks.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
+    Set Variable [ $$ifScriptRunsHalfSecondAfterThisOneHaltIt ]
     #
     #When user has navigated to a key tag menu
     #record by clicking on the order-number
@@ -37297,8 +37332,30 @@ Script Steps
     #set to run.
     If [ $$citationMatch = "ref" or $$citationMatch = "key" or $$citationMatch = "node" ]
     Perform Script [ “enterShortOrLongTagField” ]
+    #
+    #If there is media, then open the media window,
+    #but if not then halt this script, just in case the
+    #user clicked on a button when navigating. The
+    #halt command will stop that button's script
+    #from running.
+    If [ $$citationMatch = "ref" and reference::picture = "" and reference::showMedia = "" and reference::showMedia[2] = "" and tagMenus::Kpicture1 = "" and tagMenus::match ≠ "testItem" ]
+    #
+    #Use this message when testing to see if this
+    #loadTagRecord script is halting other scripts
+    #that really need to run.
     // Show Custom Dialog [ Title: "halt"; Message: "halt"; Default Button: “OK”, Commit: “Yes” ]
     Halt Script
+    Else
+    #
+    #This variable is used by any scripts that where
+    #started by navigating to the current tag record
+    #which started this script, except the open
+    #media window script. The other scripts
+    #running right after this one will test if less than
+    #a second has past since this variable was set,
+    #and if so they will exit (not run).
+    Set Variable [ $$ifScriptRunsHalfSecondAfterThisOneHaltIt; Value:Get ( CurrentTime ) ]
+    End If
     End If
     #
     End If
@@ -37319,6 +37376,9 @@ Fields used in this script
     reference::_Lreference
     TEMP::layoutLmain
     tagMenus::notesOrCopyright
+    reference::picture
+    reference::showMedia
+    tagMenus::Kpicture1
 
 Scripts used in this script
 

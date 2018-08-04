@@ -1,10 +1,12 @@
-July 30, 2018 16:34:00 Library.fmp12 - openReferenceWebsite -1-
+August 1, 2018 17:14:36 Library.fmp12 - openReferenceWebsite -1-
 reference: openReferenceWebsite
 #
 #
 #Open copyright's website if user is on the
 #copyright tag menu.
-If [ refTitle1::URL ≠ "" and $$citationMatch = "copyright" ]
+If [ refTitle1::URL ≠ "" and $$citationMatch = "copyright"
+ or
+refTitle1::URL ≠ "" and Get (WindowName) = "copyright" ]
 Open URL [ refTitle1::URL ]
 [ No dialog ]
 Exit Script [ ]
