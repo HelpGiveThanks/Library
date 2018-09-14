@@ -1,4 +1,4 @@
-July 20, 2018 17:26:42 Library.fmp12 - gotoOtherLibrary -1-
+September 13, 2018 14:02:12 Library.fmp12 - gotoOtherLibrary -1-
 librarySetup: gotoOtherLibrary
 #
 #!!!!!!!!!! NOTE !!!!!!!!!!!!!
@@ -23,9 +23,11 @@ Open URL [ "fmp://%7e/" & Substitute ( MemorySwitch::name ; " " ; "%20" ) ]
 #
 If [ Get ( LastError ) ≠ 0 ]
 #If the library fails to open inform user why.
-Show Custom Dialog [ Message: "Click the folder icon (top left corner) to start a library and add it to this menu. The one you
-selected is not available on this device or its name was changed so this shortcut is being deleted."; Default Button: “OK”,
-Commit: “No” ]
+Show Custom Dialog [ Message: "The library you selected is not available on this device or its name was changed so its
+shortcut is being deleted."; Default Button: “OK”, Commit: “No” ]
+#Tell user how to add a library.
+Show Custom Dialog [ Message: "You can add it back after locating it using the add button."; Default Button: “OK”, Commit:
+“No” ]
 Delete Portal Row
 [ No dialog ]
 Exit Script [ ]
@@ -43,8 +45,7 @@ End If
 #this library name from the list.
 If [ MemorySwitch::path = "" ]
 Show Custom Dialog [ Message: "This library file cannot be found under the name " & MemorySwitch::name & ". It will be
-removed from this list. You can add it back by going to its folder on your PC and double clicking on it."; Default Button: “OK”,
-Commit: “No” ]
+removed from this list. You can add it back after locating it using the add button."; Default Button: “OK”, Commit: “No” ]
 #
 #This seems to work if just the portal row is
 #deleted. Further testing is needed to confirm.
@@ -135,8 +136,7 @@ End If
 #library list.
 If [ Get (LastError) = 5 ]
 Show Custom Dialog [ Message: "This library file cannot be found under the name " & MemorySwitch::name & ". It will be
-removed from this list. You can add it back by going to its folder on your PC and double clicking on it."; Default Button: “OK”,
-Commit: “No” ]
+removed from this list. You can add it back after locating it using the add button."; Default Button: “OK”, Commit: “No” ]
 #
 #This seems to work if just the portal row is
 #deleted. Further testing is needed to confirm.

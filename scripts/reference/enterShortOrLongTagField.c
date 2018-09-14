@@ -1,4 +1,4 @@
-August 3, 2018 19:33:37 Library.fmp12 - enterShortOrLongTagField -1-
+August 30, 2018 12:33:34 Library.fmp12 - enterShortOrLongTagField -1-
 reference: enterShortOrLongTagField
 #
 #
@@ -58,8 +58,9 @@ End If
 #
 Else
 #
-#If in idea mode, then just go the short field.
-Go to Object [ Object Name: "tag 2" ]
+#Open reference in a new window.
+Perform Script [ “viewReference (update) ” ]
+Exit Script [ ]
 End If
 #
 #
@@ -90,8 +91,9 @@ Exit Script [ ]
 #
 Else
 #
-#If in idea mode, then just go the short field.
-Go to Object [ Object Name: "tag 1" ]
+#Open reference in a new window.
+Perform Script [ “viewReference (update) ” ]
+Exit Script [ ]
 End If
 End If
 #

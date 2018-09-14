@@ -1,4 +1,4 @@
-January 11, 2018 19:24:38 Library.fmp12 - libraryTypeCheckBoxRepition2 -1-
+August 30, 2018 12:43:42 Library.fmp12 - libraryTypeCheckBoxRepition2 -1-
 librarySetup: libraryTypeCheckBoxRepition2
 #
 #Admin tasks.
@@ -25,7 +25,7 @@ Enter Find Mode [ ]
 Set Field [ testSubsectionGroup::_Lgroup; TEMP::klibrary ]
 Perform Find [ ]
 Set Field [ testSubsectionGroup::orderOrLibraryType; "" ]
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 #
 #Explain to user importance of sticking to the
 #library type choosen once they start creating
@@ -105,7 +105,7 @@ Go to Record/Request/Page
 End Loop
 #
 #
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 #
 #Explain to user importance of sticking to the
 #library type choosen once they start creating

@@ -1,4 +1,4 @@
-August 3, 2018 19:34:59 Library.fmp12 - showCitationPicture1inNewWindow -1-
+August 30, 2018 13:05:47 Library.fmp12 - showCitationPicture1inNewWindow -1-
 pictures: showCitationPicture1inNewWindow
 #
 #
@@ -61,8 +61,8 @@ Go to Field [ ]
 If [ reference::referenceHidePicture ≠ "" and Get (LayoutTableName) = "reference" and Get (WindowName) = "Tag Menus" and
 $openHIddenPicture = "" or
 reference::referenceHidePicture ≠ "" and Get (LayoutName) = "TestInfoReference" ]
-Go to Object [ Object Name: "tag 1" ]
 Set Variable [ $$stopGoToKeyTag; Value:1 ]
+Perform Script [ “viewReference” ]
 Exit Script [ ]
 Else If [ Get (LayoutTableName) = "tagMenus" and tagMenus::tagTestTextItemOrLongTagField ≠ "" ]
 Go to Object [ Object Name: "tag 1" ]

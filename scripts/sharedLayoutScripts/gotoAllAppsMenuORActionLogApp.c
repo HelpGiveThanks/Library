@@ -1,20 +1,26 @@
-July 21, 2018 12:53:50 Library.fmp12 - gotoAllAppsMenuORActionLogApp -1-
+September 10, 2018 16:32:19 Library.fmp12 - gotoAllAppsMenuO… -1-
 sharedLayoutScripts: gotoAllAppsMenuORActionLogApp
 #
 #
 #Ask user if they want to go the timer or
 #the all apps menu.
-Show Custom Dialog [ Message: "Open the Action Log (timer) or the all apps menu?"; Default Button: “timer”, Commit: “Yes”; Button
-2: “all apps”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+If [ Get (WindowName) ≠ "All Apps" ]
+Show Custom Dialog [ Message: "Open the Action Log (timer) or the all apps menu?"; Default Button: “timer”, Commit: “Yes”;
+Button 2: “all apps”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 2 ]
-Perform Script [ “allAppsMenu” ]
+Perform Script [ “allAppsMenu (udpate)” ]
 Exit Script [ ]
 End If
 #
 If [ Get ( LastMessageChoice ) = 3 ]
 Exit Script [ ]
 End If
+End If
 #
+If [ Get (WindowName) = "All Apps" ]
+Set Variable [ $$otherApps ]
+Close Window [ Current Window ]
+End If
 #
 #
 #BEGIN Find and record all open windows
@@ -26,10 +32,18 @@ Set Variable [ $windowAppWasClickedOn; Value:Get (WindowName) ]
 #
 #
 #Now figure out what other windows are open.
+#
+#Put this discovery process in order so that the
+#main windows our found after the Tag Menus
+#and Reference window, as only main windows
+#have the app button that triggered this script.
+#
 #There can be up to three windows open.
-#LEARN
+#
+#REFERENCE (NOTE: Change this window
+#name to references when time permits.)
 #Is this window open and not alread recorded?
-Select Window [ Name: "Learn"; Current file ]
+Select Window [ Name: "Reference"; Current file ]
 If [ Get (LastError) ≠ 112 //window is missing = 112
 and
 $windowAppWasClickedOn ≠ Get ( WindowName ) ]
@@ -40,10 +54,22 @@ Else
 Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
 End If
 End If
-#REFERENCE (NOTE: Change this window
-#name to references when time permits.)
+#TAG MENUS
 #Is this window open and not alread recorded?
-Select Window [ Name: "Reference"; Current file ]
+Select Window [ Name: "Tag Menus"; Current file ]
+If [ Get (LastError) ≠ 112 //window is missing = 112
+and
+$windowAppWasClickedOn ≠ Get ( WindowName ) ]
+#Is the second open window accounted for?
+If [ $windowAlsoOpen2 = "" ]
+Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+Else
+Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+End If
+End If
+#LEARN
+#Is this window open and not alread recorded?
+Select Window [ Name: "Learn"; Current file ]
 If [ Get (LastError) ≠ 112 //window is missing = 112
 and
 $windowAppWasClickedOn ≠ Get ( WindowName ) ]
@@ -96,19 +122,6 @@ End If
 #SHARE
 #Is this window open and not alread recorded?
 Select Window [ Name: "Share"; Current file ]
-If [ Get (LastError) ≠ 112 //window is missing = 112
-and
-$windowAppWasClickedOn ≠ Get ( WindowName ) ]
-#Is the second open window accounted for?
-If [ $windowAlsoOpen2 = "" ]
-Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
-Else
-Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
-End If
-End If
-#TAG MENUS
-#Is this window open and not alread recorded?
-Select Window [ Name: "Tag Menus"; Current file ]
 If [ Get (LastError) ≠ 112 //window is missing = 112
 and
 $windowAppWasClickedOn ≠ Get ( WindowName ) ]
@@ -178,7 +191,7 @@ Select Window [ Name: "Specific Action" ]
 If [ Get (LastError) = 112 ]
 Set Variable [ $notOpen; Value:1 + $notOpen ]
 End If
-Select Window [ Name: "HelpGiveThanks Apps" ]
+Select Window [ Name: "ActionLog" ]
 If [ Get (LastError) = 112 ]
 Set Variable [ $notOpen; Value:1 + $notOpen ]
 End If
@@ -193,9 +206,42 @@ Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog" ) ]
 [ No dialog ]
 End If
 #
+#This logic is the same for going to all apps in
+#each HGT application. So if you change it,
+#change it everywhere.
+If [ Get (LastError) = 5 ]
+Show Custom Dialog [ Message: "The ActionLog's name has been changed or it is not in its required folder:
+0penME_YourFilesAreHere."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "If the name is correct (ActionLog) and it is in the correct folder (0penME_YourFilesAreHere),
+then check if the file types are either all .fmp12 or . HFG2 files."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Click the HelpGiveThanks Website button to find out how to get a new copy of the ActionLog if
+needed."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Open the folder — 0penME_YourFilesAreHere — so you can check on this app, or put it in this
+folder?"; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No” ]
+If [ Get (LastMessageChoice) = 1 ]
+Open URL [ Substitute (
+Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) -
+Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) )
+ ; " " ; "%20" ) ]
+[ No dialog ]
+If [ Get ( LastError ) ≠ 0 ]
+#If that failes, try spaces.
+Open URL [ Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) -
+Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ]
+[ No dialog ]
+End If
 #
 If [ Get (LastError) = 5 ]
-Show Custom Dialog [ Message: "This library file needs to be put into the HGT folder. "; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "The folder name — 0penME_YourFilesAreHere — has been changed, or this folder
+has been moved."; Default Button: “OK”, Commit: “Yes” ]
+End If
+End If
 End If
 #
 #

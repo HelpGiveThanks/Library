@@ -91,8 +91,10 @@ about_GoToReviewOrEditWindow
 about_GoToWebsite
 about_Lock
 about_New
+addLibrary
 allAppsMenu
 changeLibraryName
+deleteLibraryFromAllAppsLibrariesList
 gotoBudgetPlanner
 gotoHeartWhisperer
 gotoHelpGiveThanksWebsite
@@ -222,8 +224,8 @@ startclose
 
 CHUNK_checkCreatorNodeAndPrimaryNode
 CHUNK_CopyrightLockedFields
-New Script
 closeLibrary
+restartDatabase
 startDatabase
 tagMenu
 
@@ -1187,6 +1189,21 @@ Script Steps
 
     #
     #
+    #
+    #
+    // If [ MemorySwitch::name = "" ]
+    Show Custom Dialog [ Message: "Most of these buttons open an application, library, or website when clicked, with the exception of the add, back, info, X, and ? buttons."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Click the add and X buttons to add and delete libraries from the Libraries list. Click info to open this app's info window. Click back to return to the previous interface, and ? to see this help."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "NOTE: Periodically check the HelpGiveThanks website to insure that you are using the most current version of each application and library. Version numbers are displayed vertically."; Default Button: “OK”, Commit: “Yes” ]
+    // Else
+    // Show Custom Dialog [ Message: "Click any button to open that application, library, or website. Click the add button to add libraries to the list of libraries that you can open."; Default Button: “OK”, Commit: “Yes” ]
+    // End If
+    Exit Script [ ]
+    #
+    #
+    #
+    #
+    #
     #Send general layout name and help column
     #number to the help script so it can take the
     #user to help for this layout and column.
@@ -1218,6 +1235,8 @@ Script Steps
 
 Fields used in this script
 
+    MemorySwitch::name
+
 Scripts used in this script
 
     help
@@ -1226,7 +1245,11 @@ Layouts used in this script
 
 Tables used in this script
 
+    MemorySwitch
+
 Table occurrences used by this script
+
+    MemorySwitch
 
 Custom Functions used by this script
 
@@ -9441,7 +9464,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [about_Lock]	Parent Folder: [librarySetup]	Next Script: [allAppsMenu]
+Previous Script: [about_Lock]	Parent Folder: [librarySetup]	Next Script: [addLibrary]
 Script Name	about_New
 Run script with full access privileges	Off
 Include In Menu	No
@@ -9531,7 +9554,111 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [about_New]	Parent Folder: [librarySetup]	Next Script: [changeLibraryName]
+Previous Script: [about_New]	Parent Folder: [librarySetup]	Next Script: [allAppsMenu]
+Script Name	addLibrary
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    allApps
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #!!!!!!!!!! NOTE !!!!!!!!!!!!!
+    #This script needs to be kept identical to the
+    #same script in all HGT apps.
+    #
+    #
+    #If on an iOS device ...
+    If [ Get ( SystemPlatform ) = 3 ]
+    #
+    #Tell user how to add a library.
+    Show Custom Dialog [ Message: "To add libraries to the All Apps menu, 1) click the circled v in the upper-left corner, and 2) select launch center. 3) In the bottom of the next window, click Device. 4) Now click on any library file to add it to the All Apps menu."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "FYI: An open library deleted from this list using the X button, cannot be added back to it until the library is closed and re-opened."; Default Button: “OK”, Commit: “Yes” ]
+    #
+    #Go to field is needed to insure first library
+    #added shows up after adding it.
+    Go to Field [ ]
+    #
+    #Halt the script so that the pause script
+    #command is disabled which will allow the user
+    #to click the blue circled arrow in the upper-
+    #left-hand corner of an iOS device.
+    Halt Script
+    #
+    #
+    #If on an desktop/laptop computer ...
+    Else
+    #
+    #Tell a user how to add a library.
+    Show Custom Dialog [ Message: "The Libraries folder will now open. To add libraries to the All Apps menu, double-click library files in it and its subfolders. (A library must be re-added if moved or if its name is changed.)"; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "FYI: An open library deleted from this list using the X button, cannot be added back to it until the library is closed and re-opened."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    #
+    #
+    #Open the folder where all libraries must be stored.
+    Open URL [ Substitute ( Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) & "/Libraries" ; " " ; "%20" ) ] [ No dialog ]
+    If [ Get ( LastError ) ≠ 0 ]
+    #If that failes, try spaces.
+    Open URL [ Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) & "/Libraries" ] [ No dialog ]
+    End If
+    #
+    #Open the folder where the libraries folder is
+    #supposed to be if the script step above fails to
+    #open this folder.
+    If [ Get (LastError) = 5 ]
+    Show Custom Dialog [ Message: "The Libraries folder name has been changed, or this folder has been moved. It belongs in the same folder as the Help, and reference files."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Open the folder it belongs in, so you can fix its name, or put it back in this folder?"; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    Open URL [ Substitute ( Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ; " " ; "%20" ) ]
+    If [ Get ( LastError ) ≠ 0 ]
+    #If that failes, try spaces.
+    Open URL [ Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ] [ No dialog ]
+    End If
+    End If
+    End If
+    #
+    #Go to field is needed to insure first library
+    #added shows up after adding it.
+    Go to Field [ ]
+    Refresh Window [ Flush cached join results; Flush cached external data ]
+    #
+    #Halt the script so that the pause script
+    #command is disabled which will allow the user
+    #to open library files.
+    Halt Script
+    #
+    #
+
+Fields used in this script
+
+    MemorySwitch::helpPath
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    MemorySwitch
+
+Table occurrences used by this script
+
+    MemorySwitch
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [addLibrary]	Parent Folder: [librarySetup]	Next Script: [changeLibraryName]
 Script Name	allAppsMenu
 Run script with full access privileges	Off
 Include In Menu	No
@@ -9561,11 +9688,47 @@ Script Steps
     Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
     Adjust Window [ Resize to Fit ]
     #
+    #If no libraries are detected then tell user why.
+    If [ MemorySwitch::name = "" ]
+    #
+    #If on an iOS device ...
+    If [ Get ( SystemPlatform ) = 3 ]
+    #
+    #Tell user how to add a library.
+    Show Custom Dialog [ Message: "To add libraries to the All Apps menu, 1) click the circled v in the upper-left corner, and 2) select launch center. 3) In the bottom of the next window, click Device. 4) Now click on any library file to add it to the All Apps menu."; Default Button: “OK”, Commit: “Yes” ]
+    #
+    #Go to field is needed to insure first library
+    #added shows up after adding it.
+    Go to Field [ ]
+    #
+    #Halt the script so that the pause script
+    #command is disabled which will allow the user
+    #to click the blue circled arrow in the upper-
+    #left-hand corner of an iOS device.
+    Halt Script
+    #
+    #
+    #If on an desktop/laptop computer ...
+    Else
+    #
+    #Tell a user how to add a library.
+    Show Custom Dialog [ Message: "To add libraries to the All Apps menu, click the add button, and then double-click on any library files that you wish to add (in the folder that will open after clicking the add button)."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
+    #
+    #Refresh to the window to update the libraries
+    #list, otherwise it might show libraries that have
+    #been deleted.
+    Refresh Window
+    #
+    #
     #Pause script so user has to close this window
     #before they are allowed to anything else.
     Pause/Resume Script [ Indefinitely ]
 
 Fields used in this script
+
+    MemorySwitch::name
 
 Scripts used in this script
 
@@ -9575,14 +9738,18 @@ Layouts used in this script
 
 Tables used in this script
 
+    MemorySwitch
+
 Table occurrences used by this script
+
+    MemorySwitch
 
 Custom Functions used by this script
 
 Custom menu set used by this script
 
 
-Previous Script: [allAppsMenu]	Parent Folder: [librarySetup]	Next Script: [gotoBudgetPlanner]
+Previous Script: [allAppsMenu]	Parent Folder: [librarySetup]	Next Script: [deleteLibraryFromAllAppsLibrariesList]
 Script Name	changeLibraryName
 Run script with full access privileges	Off
 Include In Menu	No
@@ -9664,7 +9831,50 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [changeLibraryName]	Parent Folder: [librarySetup]	Next Script: [gotoHeartWhisperer]
+Previous Script: [changeLibraryName]	Parent Folder: [librarySetup]	Next Script: [gotoBudgetPlanner]
+Script Name	deleteLibraryFromAllAppsLibrariesList
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+    allApps
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #
+    Show Custom Dialog [ Message: "Delete this library from the list? NOTE: This action will not delete the library itself, only your ability to open it from this list. You can always add it back by clicking the add button."; Default Button: “cancel”, Commit: “Yes”; Button 2: “delete”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 2 ]
+    Delete Portal Row [ No dialog ]
+    #
+    #Next two commands are essential for
+    #refreshing the portal so it does not show the
+    #library that was just deleted.
+    Go to Field [ ]
+    Refresh Window
+    End If
+    #
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [deleteLibraryFromAllAppsLibrariesList]	Parent Folder: [librarySetup]	Next Script: [gotoHeartWhisperer]
 Script Name	gotoBudgetPlanner
 Run script with full access privileges	Off
 Include In Menu	No
@@ -9691,12 +9901,34 @@ Script Steps
     Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "budgetplanner" ) ] [ No dialog ]
     End If
     #
+    #This logic is the same for going to all apps in
+    #each HGT application. So if you change it,
+    #change it everywhere.
+    If [ Get (LastError) = 5 ]
+    Show Custom Dialog [ Message: "The BudgentPlanner's name has been changed or it is not in its required folder: 0penME_YourFilesAreHere."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "If the name is correct (BudgentPlanner) and it is in the correct folder (0penME_YourFilesAreHere), then check if the file types are either all .fmp12 or . HFG2 files."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Click the HelpGiveThanks Website button to find out how to get a new copy of the BudgentPlanner if needed."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Open the folder — 0penME_YourFilesAreHere — so you can check on this app, or put it in this folder?"; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    Open URL [ Substitute ( Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ; " " ; "%20" ) ] [ No dialog ]
+    If [ Get ( LastError ) ≠ 0 ]
+    #If that failes, try spaces.
+    Open URL [ Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ] [ No dialog ]
+    End If
+    #
+    If [ Get (LastError) = 5 ]
+    Show Custom Dialog [ Message: "The folder name — 0penME_YourFilesAreHere — has been changed, or this folder has been moved."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
+    End If
+    #
     #Close all solutions window.
     If [ $$otherApps = 1 ]
     Set Variable [ $$otherApps ]
     Close Window [ Name: "All Apps"; Current file ]
     Halt Script
     End If
+    #
 
 Fields used in this script
 
@@ -9770,12 +10002,34 @@ Script Steps
     Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "heartwhisperer" ) ] [ No dialog ]
     End If
     #
+    #This logic is the same for going to all apps in
+    #each HGT application. So if you change it,
+    #change it everywhere.
+    If [ Get (LastError) = 5 ]
+    Show Custom Dialog [ Message: "The HeartWhisperer's name has been changed or it is not in its required folder: 0penME_YourFilesAreHere."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "If the name is correct (HeartWhisperer) and it is in the correct folder (0penME_YourFilesAreHere), then check if the file types are either all .fmp12 or . HFG2 files."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Click the HelpGiveThanks Website button to find out how to get a new copy of the HeartWhisperer if needed."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Open the folder — 0penME_YourFilesAreHere — so you can check on this app, or put it in this folder?"; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    Open URL [ Substitute ( Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ; " " ; "%20" ) ] [ No dialog ]
+    If [ Get ( LastError ) ≠ 0 ]
+    #If that failes, try spaces.
+    Open URL [ Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ] [ No dialog ]
+    End If
+    #
+    If [ Get (LastError) = 5 ]
+    Show Custom Dialog [ Message: "The folder name — 0penME_YourFilesAreHere — has been changed, or this folder has been moved."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
+    End If
+    #
     #Close all apps window.
     If [ $$otherApps = 1 ]
     Set Variable [ $$otherApps ]
     Close Window [ Name: "All Apps"; Current file ]
     Halt Script
     End If
+    #
 
 Fields used in this script
 
@@ -9910,7 +10164,9 @@ Script Steps
     #
     If [ Get ( LastError ) ≠ 0 ]
     #If the library fails to open inform user why.
-    Show Custom Dialog [ Message: "Click the folder icon (top left corner) to start a library and add it to this menu. The one you selected is not available on this device or its name was changed so this shortcut is being deleted."; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "The library you selected is not available on this device or its name was changed so its shortcut is being deleted."; Default Button: “OK”, Commit: “No” ]
+    #Tell user how to add a library.
+    Show Custom Dialog [ Message: "You can add it back after locating it using the add button."; Default Button: “OK”, Commit: “No” ]
     Delete Portal Row [ No dialog ]
     Exit Script [ ]
     End If
@@ -9926,7 +10182,7 @@ Script Steps
     #admin adds library manually with path), then delete
     #this library name from the list.
     If [ MemorySwitch::path = "" ]
-    Show Custom Dialog [ Message: "This library file cannot be found under the name " & MemorySwitch::name & ". It will be removed from this list. You can add it back by going to its folder on your PC and double clicking on it."; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "This library file cannot be found under the name " & MemorySwitch::name & ". It will be removed from this list. You can add it back after locating it using the add button."; Default Button: “OK”, Commit: “No” ]
     #
     #This seems to work if just the portal row is
     #deleted. Further testing is needed to confirm.
@@ -9996,7 +10252,7 @@ Script Steps
     #name has been changed, so delete it from the
     #library list.
     If [ Get (LastError) = 5 ]
-    Show Custom Dialog [ Message: "This library file cannot be found under the name " & MemorySwitch::name & ". It will be removed from this list. You can add it back by going to its folder on your PC and double clicking on it."; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "This library file cannot be found under the name " & MemorySwitch::name & ". It will be removed from this list. You can add it back after locating it using the add button."; Default Button: “OK”, Commit: “No” ]
     #
     #This seems to work if just the portal row is
     #deleted. Further testing is needed to confirm.
@@ -10283,7 +10539,8 @@ Script Steps
     #library type choosen once they start creating
     #records for it.
     Show Custom Dialog [ Message: "FYI: Records created in an inventory library, or an idea library, will cause minor problems if you switch the library they are in to the opposite library type."; Default Button: “OK”, Commit: “Yes” ]
-    Show Custom Dialog [ Message: "Choose the purpose for which you wish to use this library, and then don't change it (or you'll end up fixing a lot of minor problems)."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "IMPORTANT: If this library has over 500 learn records, resorting the records for use in inventory mode can take 10 minutes or much longer."; Default Button: “OK”, Commit: “Yes” ]
+    // Show Custom Dialog [ Message: "Choose the purpose for which you wish to use this library, and then don't change it (or you'll end up fixing a lot of minor problems)."; Default Button: “OK”, Commit: “Yes” ]
     #
     End If
     #
@@ -10497,6 +10754,7 @@ Run script with full access privileges	Off
 Include In Menu	Yes
 Layouts that use this script
 
+    allApps
     defaultSetup
 
 Scripts that use this script
@@ -13601,8 +13859,8 @@ Script Steps
     #user is taken to this long text field instead of
     #the picture window opening up.
     If [ reference::referenceHidePicture ≠ "" and Get (LayoutTableName) = "reference" and Get (WindowName) = "Tag Menus" and $openHIddenPicture = "" or reference::referenceHidePicture ≠ "" and Get (LayoutName) = "TestInfoReference" ]
-    Go to Object [ Object Name: "tag 1" ]
     Set Variable [ $$stopGoToKeyTag; Value:1 ]
+    Perform Script [ “viewReference” ]
     Exit Script [ ]
     Else If [ Get (LayoutTableName) = "tagMenus" and tagMenus::tagTestTextItemOrLongTagField ≠ "" ]
     Go to Object [ Object Name: "tag 1" ]
@@ -14148,6 +14406,7 @@ Fields used in this script
 
 Scripts used in this script
 
+    viewReference
     CHUNK_insertPictureOrMovie
 
 Layouts used in this script
@@ -17235,8 +17494,9 @@ Script Steps
     #
     Else
     #
-    #If in idea mode, then just go the short field.
-    Go to Object [ Object Name: "tag 2" ]
+    #Open reference in a new window.
+    Perform Script [ “viewReference” ]
+    Exit Script [ ]
     End If
     #
     #
@@ -17267,8 +17527,9 @@ Script Steps
     #
     Else
     #
-    #If in idea mode, then just go the short field.
-    Go to Object [ Object Name: "tag 1" ]
+    #Open reference in a new window.
+    Perform Script [ “viewReference” ]
+    Exit Script [ ]
     End If
     End If
     #
@@ -17295,6 +17556,7 @@ Fields used in this script
 Scripts used in this script
 
     exit
+    viewReference
 
 Layouts used in this script
 
@@ -21028,10 +21290,15 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    Reference
     ReferenceEDIT
+    learnMenu3CiteS
     ReferenceEDIT Copy
 
 Scripts that use this script
+
+    showCitationPicture1inNewWindow
+    enterShortOrLongTagField
 
 Script Definition
 Script Steps
@@ -21047,11 +21314,22 @@ Script Steps
     #Close this window just in case a copy of it
     #is open, and then open a new one.
     Close Window [ Name: "View Reference"; Current file ]
+    Set Variable [ $$stopLoadTagRecord; Value:1 ]
+    Set Variable [ $$stoploadCitation; Value:1 ]
     New Window [ Name: "View Reference"; Height: 431; Width: 331; Left: Case ( Get ( ScreenWidth ) > $width + 331 ; $width ; Get ( ScreenWidth ) - 331 ); Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+    #
+    #
+    If [ Get (LayoutName) ≠ "referenceEdit" ]
+    Set Variable [ $$hideReferenceButtons; Value:1 ]
+    End If
     #
     #Show just the record of interest.
     Go to Layout [ “ReferenceViewEDIT” (reference) ]
     Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
+    Set Variable [ $$stopLoadTagRecord ]
+    Set Variable [ $$stoploadCitation ]
+    Refresh Window
+    Set Variable [ $$hideReferenceButtons ]
     #
     // #Prevent the user doing anything else until
     // #they leave this window.
@@ -22496,6 +22774,7 @@ Run script with full access privileges	Off
 Include In Menu	No
 Layouts that use this script
 
+    allApps
     defaultSetup
     defaultTest
     defaultTestNewSection
@@ -22550,6 +22829,7 @@ Script Steps
     #
     #Ask user if they want to go the timer or
     #the all apps menu.
+    If [ Get (WindowName) ≠ "All Apps" ]
     Show Custom Dialog [ Message: "Open the Action Log (timer) or the all apps menu?"; Default Button: “timer”, Commit: “Yes”; Button 2: “all apps”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
     If [ Get ( LastMessageChoice ) = 2 ]
     Perform Script [ “allAppsMenu” ]
@@ -22559,7 +22839,12 @@ Script Steps
     If [ Get ( LastMessageChoice ) = 3 ]
     Exit Script [ ]
     End If
+    End If
     #
+    If [ Get (WindowName) = "All Apps" ]
+    Set Variable [ $$otherApps ]
+    Close Window [ Current Window ]
+    End If
     #
     #
     #BEGIN Find and record all open windows
@@ -22571,10 +22856,18 @@ Script Steps
     #
     #
     #Now figure out what other windows are open.
+    #
+    #Put this discovery process in order so that the
+    #main windows our found after the Tag Menus
+    #and Reference window, as only main windows
+    #have the app button that triggered this script.
+    #
     #There can be up to three windows open.
-    #LEARN
+    #
+    #REFERENCE (NOTE: Change this window
+    #name to references when time permits.)
     #Is this window open and not alread recorded?
-    Select Window [ Name: "Learn"; Current file ]
+    Select Window [ Name: "Reference"; Current file ]
     If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
     #Is the second open window accounted for?
     If [ $windowAlsoOpen2 = "" ]
@@ -22583,10 +22876,20 @@ Script Steps
     Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
     End If
     End If
-    #REFERENCE (NOTE: Change this window
-    #name to references when time permits.)
+    #TAG MENUS
     #Is this window open and not alread recorded?
-    Select Window [ Name: "Reference"; Current file ]
+    Select Window [ Name: "Tag Menus"; Current file ]
+    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
+    #Is the second open window accounted for?
+    If [ $windowAlsoOpen2 = "" ]
+    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
+    Else
+    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
+    End If
+    End If
+    #LEARN
+    #Is this window open and not alread recorded?
+    Select Window [ Name: "Learn"; Current file ]
     If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
     #Is the second open window accounted for?
     If [ $windowAlsoOpen2 = "" ]
@@ -22631,17 +22934,6 @@ Script Steps
     #SHARE
     #Is this window open and not alread recorded?
     Select Window [ Name: "Share"; Current file ]
-    If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
-    #Is the second open window accounted for?
-    If [ $windowAlsoOpen2 = "" ]
-    Set Variable [ $windowAlsoOpen2; Value:Get (WindowName) ]
-    Else
-    Set Variable [ $windowAlsoOpen3; Value:Get (WindowName) ]
-    End If
-    End If
-    #TAG MENUS
-    #Is this window open and not alread recorded?
-    Select Window [ Name: "Tag Menus"; Current file ]
     If [ Get (LastError) ≠ 112 //window is missing = 112 and $windowAppWasClickedOn ≠ Get ( WindowName ) ]
     #Is the second open window accounted for?
     If [ $windowAlsoOpen2 = "" ]
@@ -22704,7 +22996,7 @@ Script Steps
     If [ Get (LastError) = 112 ]
     Set Variable [ $notOpen; Value:1 + $notOpen ]
     End If
-    Select Window [ Name: "HelpGiveThanks Apps" ]
+    Select Window [ Name: "ActionLog" ]
     If [ Get (LastError) = 112 ]
     Set Variable [ $notOpen; Value:1 + $notOpen ]
     End If
@@ -22717,9 +23009,25 @@ Script Steps
     Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog" ) ] [ No dialog ]
     End If
     #
+    #This logic is the same for going to all apps in
+    #each HGT application. So if you change it,
+    #change it everywhere.
+    If [ Get (LastError) = 5 ]
+    Show Custom Dialog [ Message: "The ActionLog's name has been changed or it is not in its required folder: 0penME_YourFilesAreHere."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "If the name is correct (ActionLog) and it is in the correct folder (0penME_YourFilesAreHere), then check if the file types are either all .fmp12 or . HFG2 files."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Click the HelpGiveThanks Website button to find out how to get a new copy of the ActionLog if needed."; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "Open the folder — 0penME_YourFilesAreHere — so you can check on this app, or put it in this folder?"; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No” ]
+    If [ Get (LastMessageChoice) = 1 ]
+    Open URL [ Substitute ( Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ; " " ; "%20" ) ] [ No dialog ]
+    If [ Get ( LastError ) ≠ 0 ]
+    #If that failes, try spaces.
+    Open URL [ Left ( MemorySwitch::helpPath ; Length ( MemorySwitch::helpPath ) - Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ; Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ; Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ; Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ) ] [ No dialog ]
+    End If
     #
     If [ Get (LastError) = 5 ]
-    Show Custom Dialog [ Message: "This library file needs to be put into the HGT folder. "; Default Button: “OK”, Commit: “Yes” ]
+    Show Custom Dialog [ Message: "The folder name — 0penME_YourFilesAreHere — has been changed, or this folder has been moved."; Default Button: “OK”, Commit: “Yes” ]
+    End If
+    End If
     End If
     #
     #
@@ -23805,7 +24113,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [CHUNK_checkCreatorNodeAndPrimaryNode]	Parent Folder: [startclose]	Next Script: [New Script]
+Previous Script: [CHUNK_checkCreatorNodeAndPrimaryNode]	Parent Folder: [startclose]	Next Script: [closeLibrary]
 Script Name	CHUNK_CopyrightLockedFields
 Run script with full access privileges	Off
 Include In Menu	No
@@ -24485,33 +24793,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [CHUNK_CopyrightLockedFields]	Parent Folder: [startclose]	Next Script: [closeLibrary]
-Script Name	New Script
-Run script with full access privileges	Off
-Include In Menu	No
-Layouts that use this script
-
-Scripts that use this script
-
-Script Definition
-Script Steps
-
-Fields used in this script
-
-Scripts used in this script
-
-Layouts used in this script
-
-Tables used in this script
-
-Table occurrences used by this script
-
-Custom Functions used by this script
-
-Custom menu set used by this script
-
-
-Previous Script: [New Script]	Parent Folder: [startclose]	Next Script: [startDatabase]
+Previous Script: [CHUNK_CopyrightLockedFields]	Parent Folder: [startclose]	Next Script: [restartDatabase]
 Script Name	closeLibrary
 Run script with full access privileges	Off
 Include In Menu	No
@@ -24550,10 +24832,56 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [closeLibrary]	Parent Folder: [startclose]
-Script Name	startDatabase
+Previous Script: [closeLibrary]	Parent Folder: [startclose]	Next Script: [startDatabase]
+Script Name	restartDatabase
 Run script with full access privileges	Off
 Include In Menu	Yes
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    #
+    #This script is necessary to
+    #halt any scripts that may be running (paused).
+    #
+    #By placing the halt command in this script
+    #instead of the end of the start script, the All
+    #Apps window script, that is used to open
+    #libraries, will be able to finish and close its
+    #window, instead of being halted from doing so
+    #by this library's start script when it is opened
+    #from another apps All Apps window.
+    Perform Script [ “startDatabase” ]
+    #
+    #Halt any scripts that may be running after
+    #the user elects to restart the library.
+    Halt Script
+    #
+
+Fields used in this script
+
+Scripts used in this script
+
+    startDatabase
+
+Layouts used in this script
+
+Tables used in this script
+
+Table occurrences used by this script
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [restartDatabase]	Parent Folder: [startclose]
+Script Name	startDatabase
+Run script with full access privileges	Off
+Include In Menu	No
 Layouts that use this script
 
 Scripts that use this script
@@ -24561,6 +24889,7 @@ Scripts that use this script
     importDataFromABranchIntoThisMainLibrary
     newLibraryStep3A_makeEmptiedLibraryANewLibrary
     newLibraryStep3B_importLibraryIntoEmptiedLibrary
+    restartDatabase
 
 Script Definition
 Script Steps
@@ -24707,6 +25036,19 @@ Script Steps
     Exit Loop If [ ValueCount ( WindowNames ( Get ( FileName ) ) ) = 1 ]
     Close Window [ Current Window ]
     End Loop
+    #
+    #FileMakerGO has a bug and will not complete
+    #the gotoOtherLibrary script, when the library
+    #selected is not yet open. This step, closes
+    #that window.
+    // Close Window [ Name: "All Apps" ]
+    // Close Window [ Name: "All Apps" ]
+    // Close Window [ Name: "All Apps" ]
+    // Close Window [ Name: "All Apps" ]
+    // Close Window [ Name: "All Apps" ]
+    // Close Window [ Name: "All Apps" ]
+    // Close Window [ Name: "All Apps" ]
+    // Close Window [ Name: "All Apps" ]
     #
     #Set zoom level to 100%.
     Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
@@ -24861,6 +25203,16 @@ Script Steps
     Set Field [ MemorySwitch::currentLibraryWIndows[2]; "Tag Menus" ]
     Set Field [ MemorySwitch::currentLibraryWIndows[3]; "" ]
     Go to Layout [ “startMemorySwitch” (MemorySwitch) ]
+    #
+    #Recalculate help filepath. To do this,
+    #filemaker must create a new record which
+    #can then be deleted. The help filepath is a
+    #global record, and that means the
+    #recaclucated path will now be used for all
+    #memoryswitch records and scripts needing
+    #this path.
+    New Record/Request
+    Delete Record/Request [ No dialog ]
     Show All Records
     #
     Go to Record/Request/Page [ First ]
@@ -24900,9 +25252,9 @@ Script Steps
     #Go to the main layout.
     Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
     #
-    #Show regular menus if Admin logs and set the
+    #Show regular menus if Admin logs in and set
     #print page size for one long page so when
-    #generating PDFs for GitHub a scripts title will
+    #generating PDFs for GitHub a script's title will
     #be shown only once (it shows multiple times if
     #the script takes several letter size pages).
     Show/Hide Text Ruler [ Hide ]
@@ -24982,9 +25334,6 @@ Script Steps
     #
     #END: Open library.
     #
-    #Halt any scripts that may be running after
-    #the user elects to restart the library.
-    Halt Script
     #
 
 Fields used in this script

@@ -1,4 +1,4 @@
-January 11, 2018 19:21:46 Library.fmp12 - libraryTypeCheckBoxRepition1 -1-
+August 30, 2018 12:33:01 Library.fmp12 - libraryTypeCheckBoxRepition1 -1-
 librarySetup: libraryTypeCheckBoxRepition1
 #
 #Admin tasks.
@@ -25,7 +25,7 @@ Enter Find Mode [ ]
 Set Field [ testSubsectionGroup::_Lgroup; TEMP::klibrary ]
 Perform Find [ ]
 Set Field [ testSubsectionGroup::orderOrLibraryType; "" ]
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 #
 #Explain to user importance of sticking to the
 #library type choosen once they start creating
@@ -105,7 +105,7 @@ Go to Record/Request/Page
 End Loop
 #
 #
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 #
 #
 #Explain to user importance of sticking to the
@@ -113,7 +113,9 @@ Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
 #records for it.
 Show Custom Dialog [ Message: "FYI: Records created in an inventory library, or an idea library, will cause minor problems if you
 switch the library they are in to the opposite library type."; Default Button: “OK”, Commit: “Yes” ]
-Show Custom Dialog [ Message: "Choose the purpose for which you wish to use this library, and then don't change it (or you'll
+Show Custom Dialog [ Message: "IMPORTANT: If this library has over 500 learn records, resorting the records for use in
+inventory mode can take 10 minutes or much longer."; Default Button: “OK”, Commit: “Yes” ]
+// Show Custom Dialog [ Message: "Choose the purpose for which you wish to use this library, and then don't change it (or you'll
 end up fixing a lot of minor problems)."; Default Button: “OK”, Commit: “Yes” ]
 #
 End If

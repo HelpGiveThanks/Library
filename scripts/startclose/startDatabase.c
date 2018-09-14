@@ -1,4 +1,4 @@
-July 21, 2018 12:55:10 Library.fmp12 - startDatabase -1-
+September 13, 2018 14:05:51 Library.fmp12 - startDatabase -1-
 startclose: startDatabase
 #
 #PURPOSE: Manage the 4 script newLibrary
@@ -33,7 +33,7 @@ End If
 #step 3A (new library) or step 3B (upgrade old
 #library to this library's version)?
 If [ backup::newLibrary = "newLibrary" ]
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 Show Custom Dialog [ Message: "1) Create a new, empty library." & ¶ &
 "2) Import another library's records into version " & tempSetup::versionNumber & " of the library application."; Default Button:
 “new”, Commit: “Yes”; Button 2: “import”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
@@ -156,6 +156,19 @@ Exit Loop If [ ValueCount ( WindowNames ( Get ( FileName ) ) ) = 1 ]
 Close Window [ Current Window ]
 End Loop
 #
+#FileMakerGO has a bug and will not complete
+#the gotoOtherLibrary script, when the library
+#selected is not yet open. This step, closes
+#that window.
+// Close Window [ Name: "All Apps" ]
+// Close Window [ Name: "All Apps" ]
+// Close Window [ Name: "All Apps" ]
+// Close Window [ Name: "All Apps" ]
+// Close Window [ Name: "All Apps" ]
+// Close Window [ Name: "All Apps" ]
+// Close Window [ Name: "All Apps" ]
+// Close Window [ Name: "All Apps" ]
+#
 #Set zoom level to 100%.
 Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
 #
@@ -230,7 +243,7 @@ Set Field [ TEMP::userLibraryVersionNumber; testSubsectionGroup::versionNumber ]
 End If
 #
 #Re-title and re-size main library setup window.
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 Set Window Title [ Current Window; New Title: "Setup" ]
 Show/Hide Text Ruler
 [ Hide ]
@@ -245,7 +258,7 @@ Go to Field [ ]
 #them by date so focus is on most current
 #setup reference.
 Show All Records
-Sort Records [ Keep records in sorted order; Specified Sort Order: librarySetupReferenceMain::publicationDate; descending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: aboutLibraryMain::publicationDate; descending ]
 [ Restore; No dialog ]
 Go to Record/Request/Page
 [ First ]
@@ -322,6 +335,17 @@ Set Field [ MemorySwitch::currentLibraryWIndows; "Setup" ]
 Set Field [ MemorySwitch::currentLibraryWIndows[2]; "Tag Menus" ]
 Set Field [ MemorySwitch::currentLibraryWIndows[3]; "" ]
 Go to Layout [ “startMemorySwitch” (MemorySwitch) ]
+#
+#Recalculate help filepath. To do this,
+#filemaker must create a new record which
+#can then be deleted. The help filepath is a
+#global record, and that means the
+#recaclucated path will now be used for all
+#memoryswitch records and scripts needing
+#this path.
+New Record/Request
+Delete Record/Request
+[ No dialog ]
 Show All Records
 #
 Go to Record/Request/Page
@@ -362,11 +386,11 @@ Set Field [ MemorySwitch::currentLibraryName; TEMP::fileName ]
 Set Field [ MemorySwitch::versionLibrary; tempSetup::versionNumber ]
 #
 #Go to the main layout.
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 #
-#Show regular menus if Admin logs and set the
+#Show regular menus if Admin logs in and set
 #print page size for one long page so when
-#generating PDFs for GitHub a scripts title will
+#generating PDFs for GitHub a script's title will
 #be shown only once (it shows multiple times if
 #the script takes several letter size pages).
 Show/Hide Text Ruler
@@ -463,7 +487,4 @@ End If
 #
 #END: Open library.
 #
-#Halt any scripts that may be running after
-#the user elects to restart the library.
-Halt Script
 #
