@@ -1,11 +1,16 @@
-January 15, 2018 15:48:49 Library.fmp12 - gotoDefaultsOrReport -1-
+September 20, 2018 17:53:10 Library.fmp12 - gotoDefaultsOrReport -1-
 test: report: gotoDefaultsOrReport
 #
 #Select window Learn, in case the user clicked
 #the back button on the Test Tag Menu.
 Select Window [ Name: "Learn"; Current file ]
 #
-#
+#Prevent user who clicks a button in the tags
+#menu while this script is running from getting
+#a message asking them if they wish to pause
+#this script.
+Allow User Abort [ Off ]
+Set Error Capture [ On ]
 #
 #Set in copyAndpastTags script.
 Set Variable [ $$copyAndpastTagsRECORD ]
@@ -28,7 +33,7 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Show All Records
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “CHUNKcheckForDragPasteChanges” ]
+Perform Script [ “CHUNK_checkForDraggedPasteChanges” ]
 #
 #Go to default tags layout
 #and load up defaults.
@@ -39,7 +44,7 @@ Select Window [ Name: "References"; Current file ]
 Select Window [ Name: "Learn"; Current file ]
 Set Window Title [ Current Window; New Title: "Setup" ]
 Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
-Go to Layout [ “defaultSetup” (librarySetupReferenceMain) ]
+Go to Layout [ “defaultSetup” (aboutLibraryMain) ]
 #
 #Clear variables that where set
 #in other modules.
@@ -109,7 +114,7 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
 Show All Records
 Set Variable [ $$stopLoadTagRecord ]
-Perform Script [ “CHUNKcheckForDragPasteChanges” ]
+Perform Script [ “CHUNK_checkForDraggedPasteChanges” ]
 #
 #Now find discoveries for this report item.
 Set Variable [ $$stoploadtestinfo; Value:1 ]
