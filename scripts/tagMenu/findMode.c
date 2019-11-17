@@ -1,4 +1,4 @@
-July 21, 2018 14:12:18 Library.fmp12 - findMode -1-
+November 13, 2019 12:51:24 Library.fmp12 - findMode -1-
 tagMenu: findMode
 #
 #
@@ -166,6 +166,7 @@ Else
 End If
 #
 #Pause and wait until user is ready to perform find.
+Go to Field [ reference::referenceForReferenceFINDWindow ]
 Pause/Resume Script [ Indefinitely ]
 #
 #Load found tag as a last step.
@@ -236,6 +237,10 @@ Else
 End If
 #
 #Pause and wait until user is ready to perform find.
+Go to Field [ tagMenus::tag ]
+If [ Get (LastError) ≠ 0 ]
+Go to Field [ testlearn::note ]
+End If
 Pause/Resume Script [ Indefinitely ]
 #
 #Load found tag as a last step.
@@ -472,7 +477,7 @@ Set Variable [ $$findLayout ]
 If [ $$citationmatch = "cite" ]
 Perform Script [ “menuCitation” ]
 Else If [ $$citationmatch = "key" ]
-Perform Script [ “menuKey (udpate)” ]
+Perform Script [ “menuKey” ]
 Else If [ $$citationMatch = "node" ]
 Perform Script [ “menuNode” ]
 Else If [ $$citationMatch = "medium" ]
@@ -490,11 +495,12 @@ Perform Script [ “menuBrainstorm” ]
 Else If [ $$citationMatch = "test" ]
 Perform Script [ “menuTest” ]
 Else If [ $$citationMatch = "learn" ]
-Perform Script [ “menuLearn (udpate)” ]
+Perform Script [ “menuLearn” ]
 Else If [ $$citationMatch = "ref" ]
 Perform Script [ “menuReference” ]
 End If
 Set Variable [ $$stoploadCitation ]
 Exit Script [ ]
 End If
+#
 #

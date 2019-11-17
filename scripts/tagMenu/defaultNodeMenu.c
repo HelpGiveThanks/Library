@@ -1,4 +1,5 @@
-January 15, 2018 17:07:56 Library.fmp12 - defaultNodeMenu -1-
+October 31, 2019 17:51:21 Library.fmp12 - -1-
+defaultNodeMenu
 tagMenu: defaultNodeMenu
 #
 #Do not load tag records until the end of script
@@ -8,7 +9,7 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Make sure library's creator node and the
 #creator node's group exists.
-Perform Script [ “CHUNKcheckCreatorNodeAndPrimaryNode” ]
+Perform Script [ “CHUNK_checkCreatorNodeAndPrimaryNode” ]
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #
 #Set citationMatch to color menu button with inUse color.
@@ -116,4 +117,19 @@ Show Custom Dialog [ Message: "This message appears only per session. Restart th
 “OK”, Commit: “Yes” ]
 Set Variable [ $$showCreatorNodemessageOnlyOnce; Value:1 ]
 End If
+#
+#If there is only one node and it is the
+#Admin node, the inform the user that they
+#need to make a node for themselves.
+If [ $$AdminOnlyNode = 1 and Get ( AccountName ) ≠ "Admin" ]
+Show Custom Dialog [ Message: "NOTE: Log in as the Admin user if do not want to see these messages about creating a unique
+node for yourself."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Create a node/author record for yourself, so that you will have a unique ID associated with all
+the records that you create."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "1) Click new and enter your name. 2) Click the P button next to your name to select yourself
+as the creator of all new library records."; Default Button: “OK”, Commit: “Yes” ]
+Else
+Set Variable [ $$AdminOnlyNode ]
+End If
+#
 #

@@ -1,5 +1,7 @@
-July 21, 2018 14:17:17 Library.fmp12 - newTagMenuTagGroup -1-
+November 12, 2019 22:29:57 Library.fmp12 - -1-
+newTagMenuTagGroup
 tagMenu: newTagMenuTagGroup
+#
 #
 #Admin tasks.
 Allow User Abort [ Off ]
@@ -85,6 +87,7 @@ If [ $$citationMatch = "node" and Left (Get (LayoutName) ; 1) = "l"
 $$citationMatch = "node" and Left (Get (LayoutName) ; 1) = "d" ]
 Set Field [ tagMenus::kRecordCreatorNode; tagMenus::_Ltag ]
 Set Field [ tagMenus::textStyleOrCreatorNodeFlag; 123456789 ]
+Set Variable [ $$AdminOnlyNode ]
 #
 #
 #For all other tags, and for Reference Section
@@ -159,7 +162,7 @@ If [ $$citationMatch = "brainstorm" ]
 #
 #Set default copyright for tag.
 Set Field [ tagMenus::notesOrCopyright; TEMP::kdefaultCopyright ]
-Perform Script [ “loadBrainstormTags (udpate)” ]
+Perform Script [ “loadBrainstormTags” ]
 Else
 Set Variable [ $$doNotHaltOtherScripts ]
 End If
@@ -200,4 +203,5 @@ End If
 #
 #If not already in the field, then go to it now.
 Go to Field [ tagMenus::tag ]
+#
 #

@@ -1,4 +1,5 @@
-July 20, 2018 21:33:26 Library.fmp12 - catchFindReferenceErrorMessages -1-
+November 12, 2019 21:54:30 Library.fmp12 - -1-
+catchFindReferenceErrorMessages
 reference: catchFindReferenceErrorMessages
 #
 #This script is used by the findReference
@@ -28,6 +29,14 @@ Set Error Capture [ On ]
 Set Variable [ $$captureUserFindRequests; Value:1 ]
 Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
 Set Variable [ $$captureUserFindRequests ]
+#Due to a bug with FileMaker's timestamp field (that
+#does not allow a number and punctuation keyboard
+#to be shown users on iDevices) it is neccessary to
+#use a temporary text field to collect date and time
+#find requests, and then tranfer these to the timestamp
+#field when the user clicks the find button.
+Set Variable [ $$timestampCreateDate; Value:TEMPforFind::tempFindCreateDate ]
+Set Variable [ $$timestampModifyDate; Value:TEMPforFind::tempFindModifyDate ]
 #
 #
 #Enter the text field and exit it to see if a "user
@@ -122,32 +131,37 @@ End If
 #
 #Check the create date field to see if it is
 #improperly formatted.
-If [ $$r0 ≠ "" ]
+If [ $$timestampCreateDate ≠ "" ]
 #
-#Enter the create date field and exit it to see if a
+#Enter the timestamp field to see if an error is
+#created, and then exit it to see if a
 #"user cancelled action" = 1 error is generated.
 #SEE ABOVE BUG.
-Set Field [ reference::createDate; $$r0 ]
+Set Field [ reference::createDate; $$timestampCreateDate ]
+If [ Get (LastError) ≠ 0 ]
+Set Variable [ $timestampError; Value:1 ]
+End If
 Go to Field [ reference::createDate ]
 Go to Field [ ]
 #
 #If an error is produced...
-If [ Get (LastError) = 1 ]
-Set Field [ reference::createDate; $$r0 ]
+If [ Get (LastError) = 1 or $timestampError = 1 ]
+#Clear the error variable in case it is needed again.
+Set Variable [ $timestampError ]
+Set Field [ reference::createDate; "" ]
 #
 #Explain problems with enter date and time
 #and how this problem can be addressed.
-Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2016
+Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2020
 12:25:30."; Default Button: “OK”, Commit: “No” ]
-Show Custom Dialog [ Message: "You can replace the M/D/2016 H:M:S numbers with asterisks to, for example, search by
-year = */*/2016 *:*:*"; Default Button: “OK”, Commit: “No” ]
-Show Custom Dialog [ Message: "Click the 'less than' (or search before this date), 'more than' (or search after this date), or
-between dates search strategy buttons, and a properly formatted date search will be inserted for you to edit."; Default
-Button: “OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "You can replace numbers with asterisks to, for example, search to by year = */*/2020 *:*:
+*"; Default Button: “OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "Click the 'less than' ( < ), 'more than' ( > ), or between dates ( ... ) buttons to insert one of
+these date-search-strategies for you to edit."; Default Button: “OK”, Commit: “No” ]
 #
-#Return to the create date field and allow the
-#user to edit their find request.
-Go to Field [ reference::createDate ]
+#Return to the temporary timestamp text field
+#to allow the user to edit their find request.
+Go to Field [ TEMPforFind::tempFindCreateDate ]
 Pause/Resume Script [ Indefinitely ]
 #
 #If this script was activated by the user, which
@@ -165,38 +179,49 @@ Else If [ $$GoToField = "" ]
 Perform Script [ “findReferenceRecord” ]
 Exit Script [ ]
 End If
+Else
+#
+#If no error was produced then prepare
+#for a find and transfer the timestamp
+#request to the timestamp field.
+Set Field [ reference::createDate; $$timestampCreateDate ]
 End If
 End If
 #
 #
 #Check the modify date field to see if it is
 #improperly formatted.
-If [ $$r1 ≠ "" ]
+If [ $$timestampModifyDate≠ "" ]
 #
-#Enter the modify date field and exit it to see if
-#a "user cancelled action" = 1 error is generated.
+#Enter the timestamp field to see if an error is
+#created, and then exit it to see if a
+#"user cancelled action" = 1 error is generated.
 #SEE ABOVE BUG.
-Set Field [ reference::modifyDate; $$r1 ]
+Set Field [ reference::modifyDate; $$timestampModifyDate ]
+If [ Get (LastError) ≠ 0 ]
+Set Variable [ $timestampError; Value:1 ]
+End If
 Go to Field [ reference::modifyDate ]
 Go to Field [ ]
 #
 #If an error is produced...
-If [ Get (LastError) = 1 ]
-Set Field [ reference::modifyDate; $$r1 ]
+If [ Get (LastError) = 1 or $timestampError = 1 ]
+#Clear the error variable in case it is needed again.
+Set Variable [ $timestampError ]
+Set Field [ reference::modifyDate; "" ]
 #
 #Explain problems with enter date and time
 #and how this problem can be addressed.
-Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2016
+Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2020
 12:25:30."; Default Button: “OK”, Commit: “No” ]
-Show Custom Dialog [ Message: "You can replace the M/D/2016 H:M:S numbers with asterisks to, for example, search by
-year = */*/2016 *:*:*"; Default Button: “OK”, Commit: “No” ]
-Show Custom Dialog [ Message: "Click the 'less than' (or search before this date), 'more than' (or search after this date), or
-between dates search strategy buttons, and a properly formatted date search will be inserted for you to edit."; Default
-Button: “OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "You can replace numbers with asterisks to, for example, search to by year = */*/2020 *:*:
+*"; Default Button: “OK”, Commit: “No” ]
+Show Custom Dialog [ Message: "Click the 'less than' ( < ), 'more than' ( > ), or between dates ( ... ) buttons to insert one of
+these date-search-strategies for you to edit."; Default Button: “OK”, Commit: “No” ]
 #
-#Return to the modify date field and allow the
-#user to edit their find request.
-Go to Field [ reference::modifyDate ]
+#Return to the temporary timestamp text field
+#to allow the user to edit their find request.
+Go to Field [ TEMPforFind::tempFindModifyDate ]
 Pause/Resume Script [ Indefinitely ]
 #
 #If this script was activated by the user, which
@@ -214,6 +239,12 @@ Else If [ $$GoToField = "" ]
 Perform Script [ “findReferenceRecord” ]
 Exit Script [ ]
 End If
+Else
+#
+#If no error was produced then prepare
+#for a find and transfer the timestamp
+#request to the timestamp field.
+Set Field [ reference::modifyDate; $$timestampModifyDate ]
 End If
 End If
 #
@@ -279,10 +310,10 @@ If [ $$GoToField = "reference" ]
 Go to Field [ reference::referenceForReferenceFINDWindow ]
 #
 Else If [ $$GoToField = "createDate" ]
-Go to Field [ reference::createDate ]
+Go to Field [ TEMPforFind::tempFindCreateDate ]
 #
 Else If [ $$GoToField = "modifyDate" ]
-Go to Field [ reference::modifyDate ]
+Go to Field [ TEMPforFind::tempFindModifyDate ]
 #
 End If
 #

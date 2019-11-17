@@ -1,10 +1,28 @@
-July 24, 2018 17:32:49 Library.fmp12 - importDataFromABranchIntoThisMainLibrary -1-
+October 30, 2019 13:47:05 Library.fmp12 - -1-
+importDataFromABranchIntoThisMainLibrary
 libraryNewOrImport: importDataFromABranchIntoThisMainLibrary
 #
 #PURPOSE: Import records from another
 #library into this library file, and overwrites
 #existing records with imported library's
 #changes.
+#
+#
+#Inform the user the import will both add new
+#records and all overwrite existing records with
+#changes made in library being imported,
+#UNLESS they select the import Learn option.
+Show Custom Dialog [ Message: "Import and update only Learn records, or"
+& ¶ &
+"Import and update All records."; Default Button: “Learn”, Commit: “No”; Button 2: “All”, Commit: “No”; Button 3: “cancel”, Commit:
+“No” ]
+If [ Get ( LastMessageChoice ) = 3 ]
+Exit Script [ ]
+End If
+If [ Get ( LastMessageChoice ) = 1 ]
+Perform Script [ “importOnlyNewRecordsDoNotUpdateOldRecords (new)” ]
+Exit Script [ ]
+End If
 #
 #
 #Prevent user from importing data into a
@@ -48,13 +66,13 @@ End If
 #process can crash FileMaker which can
 #damage the main library file.
 Show Custom Dialog [ Message: "On some imports FileMaker crashes, so, a backup of this main Library file MUST be created before
-proceeding."; Default Button: “OK”, Commit: “No”; Button 2: “cancel”, Commit: “No” ]
+proceeding. Click OK to create a backup."; Default Button: “OK”, Commit: “No”; Button 2: “cancel”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Exit Script [ ]
 End If
 #
 #Create a copy of this library file.
-Save a Copy as [ ]
+Save a Copy as [ Create directories:No ]
 [ copy of current file ]
 If [ Get ( LastError ) = 1 ]
 Exit Script [ ]

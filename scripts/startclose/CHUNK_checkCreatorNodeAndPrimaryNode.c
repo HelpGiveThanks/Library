@@ -1,6 +1,6 @@
-January 10, 2018 15:45:46 Library.fmp12 - CHUNK_checkCreatorNodeAndPrimaryNode -1-
+November 13, 2019 12:54:26 Library.fmp12 - -1-
+CHUNK_checkCreatorNodeAndPrimaryNode
 startclose: CHUNK_checkCreatorNodeAndPrimaryNode
-#
 #PURPOSE: Restores library's creator node If
 #accidently deleted while in admin mode, and
 #checks to see if primary node's creator is locked.
@@ -61,8 +61,15 @@ Set Field [ tagTable::tagSpelling; $nodeName ]
 Set Field [ tagTable::kRecordCreatorNode; $node ]
 End If
 #
-#
-#
+#If there is only one node and it is the
+#Admin node, the inform the user that they
+#need to make a node for themselves.
+Enter Find Mode [ ]
+Set Field [ tagTable::textStyleOrCreatorNodeFlag; "123456789" ]
+Perform Find [ ]
+If [ Get (FoundCount) = 1 and tagTable::tag = "Administrator" ]
+Set Variable [ $$AdminOnlyNode; Value:1 ]
+End If
 #
 #See primary node's creator is locked.
 #

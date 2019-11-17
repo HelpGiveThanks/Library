@@ -1,4 +1,4 @@
-January 18, 2018 16:08:16 Library.fmp12 - gotoLearn -1-
+October 31, 2019 17:47:04 Library.fmp12 - gotoLearn -1-
 learn: gotoLearn
 #
 #Basic administration tasks.
@@ -51,7 +51,8 @@ Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::da
 testlearn::timestamp; descending ]
 [ Restore; No dialog ]
 Else
-Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::note; ascending ]
+Sort Records [ Keep records in sorted order; Specified Sort Order: testlearn::orderInventoryGroupNumber; ascending
+testlearn::note; ascending ]
 [ Restore; No dialog ]
 End If
 Go to Record/Request/Page
@@ -110,4 +111,21 @@ End If
 #Return to Learn window.
 Select Window [ Name: "Learn"; Current file ]
 Set Variable [ $$doNotHaltOtherScripts ]
+#
+#If there is only one node and it is the
+#Admin node, the inform the user that they
+#need to make a node for themselves.
+If [ $$AdminOnlyNode = 1 and Get ( AccountName ) ≠ "Admin" ]
+Show Custom Dialog [ Message: "NOTE: Log in as the Admin user if do not want to see these messages about creating a unique
+node for yourself."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Create a node/author record for yourself in the SetUp Section, so that you will have a unique
+ID associated with all the records that you create."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "This is not the Setup Section."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "1) Click back until you reach the Setup Section. 2) go to the Tag Menu window. 2) Click the
+node button."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "3) Click the P button next to your name to select yourself as the creator of all new library
+records."; Default Button: “OK”, Commit: “Yes” ]
+Else
+Set Variable [ $$AdminOnlyNode ]
+End If
 #

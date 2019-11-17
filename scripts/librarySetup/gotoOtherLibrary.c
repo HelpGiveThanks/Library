@@ -1,11 +1,32 @@
-September 13, 2018 14:02:12 Library.fmp12 - gotoOtherLibrary -1-
+October 8, 2018 14:59:21 Library.fmp12 - gotoOtherLibrary -1-
 librarySetup: gotoOtherLibrary
+#
+#
+#
+#DON'T WORRY!!! Ignore the $$path not found
+#error. :-) This path is dynamically set
+#at the end of this script. IF YOU CREATE
+#new apps for HGT, make sure to add the
+#otherLibrary $$path variable as an external
+#data source for those apps from the File menu:
+#File > Manage > External Data Sources
+#Name: otherLibrary
+#Details: File Path: $$path
+#
+#
 #
 #!!!!!!!!!! NOTE !!!!!!!!!!!!!
 #!!!!!!!!!! NOTE !!!!!!!!!!!!!
 #!!!!!!!!!! NOTE !!!!!!!!!!!!!
-#This script needs to be kept identical to the
-#same script in the ActionLog.
+#
+#This script needs to be kept identical
+#to the same script in ALL HGT Apps!
+#
+#!!!!!!!!!! NOTE !!!!!!!!!!!!!
+#!!!!!!!!!! NOTE !!!!!!!!!!!!!
+#!!!!!!!!!! NOTE !!!!!!!!!!!!!
+#
+#
 #
 #Because this portal is to external database it is
 #essential to get this record's path info for use in
@@ -83,16 +104,19 @@ Delete Portal Row
 Exit Script [ ]
 End If
 #
-#Select the current library windows if open and selected.
-If [ MemorySwitch::currentLibraryPath = $path ]
-Select Window [ Name: GetValue ( WindowNames ( Case ( Get ( SystemPlatform ) = - 2 ;
+#Not sure why this code is here anymore.
+#It was causing the browser to open once
+#I upgraded to FM17, and the script seems
+#to function without it, so I am disabling
+#it for now. Can delete it once beta
+#testing is done.
+// #Select the current library windows if open and selected.
+// If [ MemorySwitch::currentLibraryPath = $path ]
+// Select Window [ Name: GetValue ( WindowNames ( Case ( Get ( SystemPlatform ) = - 2 ;
 MemorySwitch::name ;
 MemorySwitch::name ) ) ; 1 ) ]
-Select Window [ Name: GetValue ( WindowNames ( Case ( Get ( SystemPlatform ) = - 2 ;
-MemorySwitch::name ;
-MemorySwitch::name ) ) ; 2 ) ]
-Select Window [ Name: MemorySwitch::currentLibraryWIndows ]
-End If
+// Select Window [ Name: MemorySwitch::currentLibraryWIndows ]
+// End If
 #
 #There is no harm in leaving multiple libraries
 #open, so just open the selected one if
@@ -104,7 +128,7 @@ End If
 // #If the library selected is not open, then close the current
 // #library, which means closing all of its windows, and
 // #then open the selected library.
-If [ MemorySwitch::currentLibraryPath ≠ $path or Get (LastError) = 112 ]
+If [ MemorySwitch::currentLibraryPath ≠ $path ]
 #
 // Set Variable [ $number; Value:1 ]
 // Loop
@@ -179,10 +203,20 @@ End If
 Set Field [ MemorySwitch::currentLibraryPath; $path ]
 Set Field [ MemorySwitch::currentLibraryName; $name ]
 #
-#Close other solutions window if open after selecting a library.
+#This variable is essential to allow this script to
+#activate the other library's script that will move
+#all that library's windows to the front.
+Set Variable [ $$path; Value:$path ]
+#
+#Close All Apps window if open after selecting a library.
 If [ $$otherApps = 1 ]
 Close Window [ Name: "All Apps"; Current file ]
 Set Variable [ $$otherApps ]
+#Perform the other library's window arranging script.
+#The <unknown> will change to otherLibrary once the
+#$$path variable above is defined.
+Perform Script [ <unknown> from file: “otherLibrary” (file not open) ]
 Halt Script
 End If
+#
 #

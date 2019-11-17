@@ -1,4 +1,5 @@
-July 21, 2018 14:11:41 Library.fmp12 - deleteNodeTag -1-
+November 12, 2019 22:42:31 Library.fmp12 - -1-
+deleteNodeTag
 tagMenu: deleteNodeTag
 #
 #
@@ -39,9 +40,9 @@ Set Error Capture [ On ]
 #
 #Open a new window and look for tag in both
 #primary and other node fields.
-New Window [ Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom
-Control Area: “Yes”; Resize: “Yes” ]
-// New Window [ Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+New Window [ Style: Document; Height: 1; Width: 1; Top: -10000; Left: -10000; Close: Yes; Minimize: Yes; Maximize: Yes; Resize:
+Yes ]
+// New Window [ Style: Document; Close: Yes; Minimize: Yes; Maximize: Yes; Resize: Yes ]
 #
 #See if this node is this library's creator.
 Go to Layout [ “tableTagGroup” (testSubsectionGroup) ]
@@ -63,15 +64,14 @@ End If
 #SETUP REFERENCE
 #See if node is used by any setup
 #reference records.
-Go to Layout [ “tableSetupReference” (librarySetupReferenceMain) ]
+Go to Layout [ “tableSetupReference” (aboutLibraryMain) ]
 Enter Find Mode [ ]
-Set Field [ librarySetupReferenceMain::kcreatorNode; $check ]
+Set Field [ aboutLibraryMain::kcreatorNode; $check ]
 Perform Find [ ]
 If [ Get (FoundCount) ≠ 0 ]
-Set Variable [ $setupReference; Value:Case ( Length ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::
-creatorName ) < 56 ;
- Left ( librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName ; 55 ) & "... |" ;
- librarySetupReferenceMain::name & " by " & librarySetupReferenceMain::creatorName & " |" ) ]
+Set Variable [ $setupReference; Value:Case ( Length ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ) < 56 ;
+ Left ( aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName ; 55 ) & "... |" ;
+ aboutLibraryMain::name & " by " & aboutLibraryMain::creatorName & " |" ) ]
 Set Variable [ $foundCount; Value:Get (FoundCount) ]
 End If
 #
@@ -124,7 +124,6 @@ Else If [ $inUse = "" ]
 Set Variable [ $inUse; Value:"Reference " & Get (FoundCount) ]
 End If
 End If
-#
 #
 #
 #
@@ -252,7 +251,6 @@ End If
 #
 #
 #
-#
 #TAG BRAINSTORM
 #See if node is used by any test result records.
 #Check in primary...
@@ -272,7 +270,6 @@ End If
 Set Variable [ $TagsHeader; Value:1 ]
 Set Variable [ $inuseTags; Value:1 ]
 End If
-#
 #
 #
 #
@@ -304,7 +301,6 @@ End If
 #
 #
 #
-#
 #TAG KEYWORD
 #See if node is used by any test result records.
 #Check in primary...
@@ -328,7 +324,6 @@ End If
 Set Variable [ $TagsHeader; Value:1 ]
 Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
 End If
-#
 #
 #
 #
@@ -390,7 +385,6 @@ End If
 #
 #
 #
-#
 #TAG PUBLICATION
 #See if node is used by any test result records.
 #Check in primary...
@@ -414,7 +408,6 @@ End If
 Set Variable [ $TagsHeader; Value:1 ]
 Set Variable [ $inuseTags; Value:$inuseTags + 1 ]
 End If
-#
 #
 #
 #
@@ -455,7 +448,6 @@ Perform Find [ ]
 If [ Get (FoundCount) ≠ 0 ]
 Set Variable [ $inUseTestSubject; Value:"Setup Test " & Get (FoundCount) ]
 End If
-#
 #
 #
 #
@@ -569,6 +561,7 @@ setup tag window and enter the password to unlock it."; Default Button: “OK”
 #"Also, ...."
 Set Variable [ $locked; Value:1 ]
 End If
+#
 #
 #
 #
@@ -793,6 +786,7 @@ End If
 #
 #
 #
+#
 If [ $primaryOtherOrTestSubjectNode ≠ "" or $locked ≠ "" or $inUse ≠ "" or $inUseTestSubject ≠ "" or $setupReference ≠ "" ]
 Halt Script
 End If
@@ -842,8 +836,8 @@ Exit Script [ ]
 #record must also be deleted if this is the last
 #record under it.
 Else If [ Get ( LastMessageChoice ) = 2 ]
-New Window [ Name: "delete tag"; Height: 1; Width: 1; Top: -10000; Left: -10000; Style: Document; Close: “Yes”; Minimize:
-“Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+New Window [ Style: Document; Name: "delete tag"; Height: 1; Width: 1; Top: -10000; Left: -10000; Close: Yes; Minimize:
+Yes; Maximize: Yes; Resize: Yes ]
 Go to Layout [ “tableTag” (tagTable) ]
 Enter Find Mode [ ]
 Set Field [ tagTable::kGroupOrTest; $group ]
@@ -856,6 +850,7 @@ If [ Get (FoundCount) ≠ 1 ]
 Close Window [ Name: "Delete Tag"; Current file ]
 Delete Record/Request
 [ No dialog ]
+Set Variable [ $$AdminOnlyNode ]
 Set Variable [ $delete ]
 Set Variable [ $group ]
 #
@@ -906,6 +901,7 @@ If [ Get ( LastMessageChoice ) = 2 ]
 #Delete tag.
 Delete Record/Request
 [ No dialog ]
+Set Variable [ $$AdminOnlyNode ]
 #
 #Delete group.
 Select Window [ Name: "delete tag"; Current file ]

@@ -1,4 +1,5 @@
-August 30, 2018 12:33:34 Library.fmp12 - enterShortOrLongTagField -1-
+November 13, 2019 12:59:21 Library.fmp12 - -1-
+enterShortOrLongTagField
 reference: enterShortOrLongTagField
 #
 #
@@ -59,7 +60,7 @@ End If
 Else
 #
 #Open reference in a new window.
-Perform Script [ “viewReference (update) ” ]
+Perform Script [ “viewReference” ]
 Exit Script [ ]
 End If
 #
@@ -92,11 +93,16 @@ Exit Script [ ]
 Else
 #
 #Open reference in a new window.
-Perform Script [ “viewReference (update) ” ]
+Perform Script [ “viewReference” ]
 Exit Script [ ]
 End If
 End If
 #
+#table Tag Menus layouts.
+If [ tagMenus::tag = "Administrator" and tagMenus::textStyleOrCreatorNodeFlag = "123456789" ]
+Show Custom Dialog [ Message: "NOTE: Use the name Administrator to inform users that you share your database with, that
+they need to …."; Default Button: “OK”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+End If
 #
 #Allow empty picture fields to be hidden, and
 #the tag's text box to appear longer, basically

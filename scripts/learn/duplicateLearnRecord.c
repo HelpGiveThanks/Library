@@ -1,5 +1,14 @@
-July 20, 2018 17:19:28 Library.fmp12 - duplicateLearnRecord -1-
+November 12, 2019 22:16:27 Library.fmp12 - -1-
+duplicateLearnRecord
 learn: duplicateLearnRecord
+#
+#
+#IMPORTANT: Leave the text field just in case the
+#user is in this field and has just been using the
+#mic to dictate text. If this script does not
+#exit the field first, then all text in the
+#field will be erased!!!
+Go to Field [ ]
 #
 #If in find mode, exit script.
 If [ $$findMode ≠ "" ]
@@ -25,10 +34,9 @@ If [ Get ( LastMessageChoice ) = 1 ]
 Set Variable [ $referenceCurrentRecord; Value:1 ]
 #
 #Mmm... Save this for another version.
-// Show Custom Dialog [ Message: "Duplicate current record's references (reference tags) too? Click 'yes' if in this followon
-note you will reference the same references."; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No”;
+// Show Custom Dialog [ Message: "Duplicate current record's references (reference tags) too? Click 'yes' if in this followon note you will reference the same references."; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No”;
 Button 3: “cancel”, Commit: “No” ]
-// #
+//
 // #If user wants to reference current record, note
 // #this and then ask if the want to also duplicate
 // #previous record's reference tags.
@@ -79,7 +87,7 @@ Set Variable [ $referenceOriginal; Value:testlearn::_Ltestlearn & "L" ]
 New Record/Request
 Set Field [ testlearn::kNodePrimary; TEMP::kdefaultNodePrimary ]
 Set Field [ testlearn::kRecordCreatorNode; TEMP::kdefaultNodePrimary ]
-Set Field [ testlearn::dateModify; Get ( CurrentTimeStamp ) ]
+Set Field [ testlearn::dateModify; Get ( CurrentTimestamp ) ]
 Set Field [ testlearn::kNodeOther; TEMP::kdefaultNodeOther ]
 Set Field [ testlearn::NodeOthers; TEMP::DEFAULTNodeOtherNames ]
 Set Field [ testlearn::kcopyright; TEMP::kdefaultCopyright ]
@@ -133,7 +141,7 @@ Substitute ( $$ref ; $removeRef & "¶" ; "" ) ;
 Substitute ( $$ref ; $removeRef; "" )
 ) ]
 // Set Variable [ $$ref; Value:testlearn::kcreference ]
-// #
+//
 // #Make sure the reference being removed also
 // #gets its picture removed from this learn
 // #record if it is being used.
@@ -167,4 +175,5 @@ Set Variable [ $$duplicateRecord; Value:1 ]
 #Open duplicate record in text window so
 #user can now edit it.
 Perform Script [ “learnOpenTextNewWindow” ]
+#
 #

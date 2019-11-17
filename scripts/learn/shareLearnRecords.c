@@ -1,4 +1,4 @@
-July 20, 2018 17:23:14 Library.fmp12 - shareLearnRecords -1-
+October 29, 2019 21:41:30 Library.fmp12 - shareLearnRecords -1-
 learn: shareLearnRecords
 #
 #
@@ -49,10 +49,9 @@ Set Variable [ $$stopLoadTagRecord; Value:1 ]
 #Open a new window to find learn records in.
 #(For testing, enable the window that is
 #not out of sight.)
-// New Window [ Name: "Share"; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize:
-“Yes” ]
-New Window [ Name: "Share"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”;
-Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+// New Window [ Style: Document; Name: "Share"; Close: Yes; Minimize: Yes; Maximize: Yes; Resize: Yes ]
+New Window [ Style: Document; Name: "Share"; Height: 1; Width: 1; Top: 10000; Left: 10000; Close: Yes; Minimize: Yes; Maximize:
+Yes; Resize: Yes ]
 Go to Layout [ “learnPreviewLayout” (testlearn) ]
 #
 #
@@ -459,8 +458,8 @@ End If
 #If the user wants to display them at the end,
 #open a new window to gather all learn
 #records' references.
-New Window [ Name: "Sbare"; Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”;
-Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+New Window [ Style: Document; Name: "Sbare"; Height: 1; Width: 1; Top: 10000; Left: 10000; Close: Yes; Minimize: Yes;
+Maximize: Yes; Resize: Yes ]
 Go to Layout [ “shareReferencesLast” (TEMP) ]
 #
 #Show all temp records and

@@ -1,5 +1,7 @@
-July 21, 2018 14:17:00 Library.fmp12 - newTagMenuTag -1-
+November 13, 2019 12:57:12 Library.fmp12 - -1-
+newTagMenuTag
 tagMenu: newTagMenuTag
+#
 #
 #Admin tasks.
 Set Error Capture [ On ]
@@ -51,6 +53,7 @@ If [ $$citationMatch = "node" and Left (Get (LayoutName) ; 1) = "l"
 $$citationMatch = "node" and Left (Get (LayoutName) ; 1) = "d" ]
 Set Field [ tagMenus::kRecordCreatorNode; tagMenus::_Ltag ]
 Set Field [ tagMenus::textStyleOrCreatorNodeFlag; 123456789 ]
+Set Variable [ $$AdminOnlyNode ]
 #
 #
 #For all other tags, and for Reference Section

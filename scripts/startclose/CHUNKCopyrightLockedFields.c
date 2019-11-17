@@ -1,4 +1,4 @@
-July 21, 2018 13:31:59 Library.fmp12 - CHUNK_CopyrightLockedFields -1-
+October 8, 2018 14:59:04 Library.fmp12 - CHUNK_CopyrightLockedFields -1-
 startclose: CHUNK_CopyrightLockedFields
 #
 #
@@ -160,6 +160,11 @@ Set Field [ testSubsectionGroup::nameSpellingEXCEPTForTestItemGroup; $name ]
 #records) by deleting them and then
 #recreating them.
 Go to Layout [ “tableTag” (tagTable) ]
+#
+#View as a form, instead of a table,
+#to give the user a nicer experience.
+View As
+[ View as Form ]
 Perform Find [ Specified Find Requests: Find Records; Criteria: tagTable::orderOrLock: “"lock"” ]
 [ Restore ]
 Delete All Records
@@ -1259,6 +1264,8 @@ Set Field [ tagTable::Ktitle1; 62820142315491333 ]
 Set Field [ tagTable::Kpicture1; 92020172259191500 ]
 #
 #
+View As
+[ View as Table ]
 Go to Field [ ]
 #
 #

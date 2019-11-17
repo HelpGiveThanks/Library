@@ -1,4 +1,5 @@
-July 24, 2018 23:59:57 Library.fmp12 - findLearnRecord -1-
+November 12, 2019 22:04:07 Library.fmp12 - -1-
+findLearnRecord
 learn: findLearnRecord
 #
 #
@@ -287,6 +288,7 @@ Enter Find Mode [ ]
 Go to Layout [ “learnFIND” (testlearn) ]
 Set Error Capture [ On ]
 Allow User Abort [ Off ]
+Go to Field [ testlearn::note ]
 Pause/Resume Script [ Indefinitely ]
 #
 End If
@@ -316,6 +318,18 @@ If [ Get (WindowMode) = 1 ]
 #records, but only Learn records have 'main'
 #added to their FilterFind field when created.
 Set Field [ testlearn::filterFind; "main" & ¶ ]
+#
+#Clear the temporary timestamp fields so their
+#information will not be part of the current
+#find request.
+#Due to a bug with FileMaker's timestamp field (that
+#does not allow a number and punctuation keyboard
+#to be shown users on iDevices) it is neccessary to
+#use a temporary text field to collect date and time
+#find requests, and then tranfer these to the timestamp
+#field when the user clicks the find button.
+Set Field [ TEMPforShare::tempFindCreateDate; "" ]
+Set Field [ TEMPforShare::tempFindModifyDate; "" ]
 #
 #Try to find the requested records.
 Perform Find [ ]
@@ -360,7 +374,7 @@ End If
 #Replace user's last find requests so the can
 #modify if they want to.
 Set Field [ testlearn::note; $$note ]
-Set Field [ testlearn::timestamp; $$timestamp ]
+Set Field [ TEMPforShare::tempFindCreateDate; $$timestamp ]
 Set Field [ testlearn::brainstormCasePoint; $$brainstormCasePoint ]
 #
 #Inform the user that their find request found
@@ -385,7 +399,6 @@ Pause/Resume Script [ Indefinitely ]
 #
 #Start this script over. SEE NOTE ABOVE.
 Perform Script [ “findLearnRecord” ]
-#
 #
 #If they cancel the find ...
 Else If [ Get ( LastMessageChoice ) = 1 ]
@@ -431,10 +444,14 @@ Scroll Window
 Go to Record/Request/Page
 [ First ]
 #
-#Clear user find request variables.
+#Clear user find request variables and temp fields.
 Set Variable [ $$note ]
 Set Variable [ $$timestamp ]
 Set Variable [ $$brainstormCasePoint ]
+#
+#Clear these two find request temp fields.
+Set Field [ TEMPforShare::tempFindCreateDate; "" ]
+Set Field [ TEMPforShare::tempFindModifyDate; "" ]
 #
 #Clear out all paused find scripts.
 Halt Script
@@ -443,4 +460,5 @@ Halt Script
 #!!! IMPORTANT !!! SAY WHAT !!! HERE YE, HERE YE !!!
 #
 #END identical find logic
+#
 #

@@ -1,5 +1,7 @@
-July 20, 2018 17:17:21 Library.fmp12 - cancelLearnAndRefFind -1-
+November 13, 2019 13:01:29 Library.fmp12 - -1-
+cancelLearnAndRefFind
 learn: cancelLearnAndRefFind
+#
 #
 #This script is used by the findLearnRecord
 #and findReferenceRecord scripts.
@@ -29,6 +31,8 @@ Set Error Capture [ On ]
 Set Field [ testlearn::note; "" ]
 Set Field [ testlearn::timestamp; "" ]
 Set Field [ testlearn::brainstormCasePoint; "" ]
+Set Field [ TEMPforShare::tempFindCreateDate; "" ]
+Set Field [ TEMPforShare::tempFindModifyDate; "" ]
 #
 Set Variable [ $$clearUserFindRequests; Value:1 ]
 Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
@@ -70,13 +74,16 @@ Enter Browse Mode
 #show (the records the user was looking at
 #before clicking find).
 If [ Get (FoundCount) = 0 ]
-Perform Script [ “findALL_LearnOrRefRecords (udpate)” ]
+Perform Script [ “findALL_LearnOrRefRecords” ]
 End If
 #
 #Clear user find request variables.
 Set Variable [ $$note ]
 Set Variable [ $$timestamp ]
 Set Variable [ $$brainstormCasePoint ]
+Set Variable [ $$timestampCreateDate ]
+Set Variable [ $$timestampModifyDate ]
+Set Variable [ $$clearUserFindRequests ]
 #
 #Clear out all the pause script requests,
 #unless this script was started by the help

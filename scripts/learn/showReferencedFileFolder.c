@@ -1,4 +1,5 @@
-July 20, 2018 17:23:58 Library.fmp12 - showReferencedFileFolder -1-
+November 4, 2018 15:50:22 Library.fmp12 - -1-
+showReferencedFileFolder
 learn: showReferencedFileFolder
 #
 #
@@ -8,66 +9,78 @@ If [ $$openReferencedWebsite = "" ]
 If [ ( Get (LayoutTableName) = "reference" and
  (
 //All fields required to find file in the main or x folders.
-reference::fileName ≠ "" and reference::kfileLocation ≠ "" and FilterValues ( reference::kfileLocation ; "8162011225605315" )
-≠ "8162011225605315" & ¶
+reference::fileName ≠ "" and reference::kfileLocation  ≠ "" and FilterValues ( reference::kfileLocation ; "8162011225605315" )  ≠  "8162011225605315" & ¶
  or
 //All fields required to a find file in a file path tag 'other' folder.
-reference::fileName ≠ "" and reference::kfileLocation ≠ "" and reference::kfolderpath ≠ ""
- ) ) = 0
+reference::fileName ≠ "" and reference::kfileLocation  ≠ "" and reference::kfolderpath ≠ ""
+ ) )  = 0
+
 and
+
 ( Get (LayoutTableName) = "tagMenus" and
  (
 //All fields required to find file in the main or x folders.
-$$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and FilterValues ( $$tagMenusFileLocation ;
-"8162011225605315" ) ≠ "8162011225605315" & ¶
+$$tagMenusFileName ≠ "" and $$tagMenusFileLocation  ≠ "" and FilterValues ( $$tagMenusFileLocation ; "8162011225605315" )  ≠  "8162011225605315" & ¶
  or
 //All fields required to a find file in a file path tag 'other' folder.
-$$tagMenusFileName ≠ "" and $$tagMenusFileLocation ≠ "" and $$tagMenusFilePath ≠ ""
+$$tagMenusFileName ≠ "" and $$tagMenusFileLocation  ≠ "" and $$tagMenusFilePath ≠ ""
  or
 //URL field is empty.
 $$tagMenusURL ≠ ""
- ) ) = 0
+ ) )  = 0
+
 and
+
 ( Get (LayoutTableName) = "testlearn" and
  (
 //Check if first reference record has media to show and that the user has not decided to show reference media.
+
 Case ( testlearn::kshowReferencedMedia = "" ;
+
 //All fields required to find file in the main or x folders.
-refLearn::fileName ≠ "" and refLearn::kfileLocation ≠ "" and FilterValues ( refLearn::kfileLocation ; "8162011225605315" ) ≠
-"8162011225605315" & ¶
+refLearn::fileName ≠ "" and refLearn::kfileLocation  ≠ "" and FilterValues ( refLearn::kfileLocation ; "8162011225605315" )  ≠  "8162011225605315" & ¶
  or
 //All fields required to find a file in a file path tag 'other' folder.
-refLearn::fileName ≠ "" and refLearn::kfileLocation ≠ "" and refLearn::kfolderpath ≠ "" )
+refLearn::fileName ≠ "" and refLearn::kfileLocation  ≠ "" and refLearn::kfolderpath ≠ "" )
+
 or
+
 //Check if the user has decided to show reference media.
+
 Case ( testlearn::kshowReferencedMedia ≠ "" ;
+
 //All fields required to find file in the main or x folders.
-refLearnShowMedia::fileName ≠ "" and refLearnShowMedia::kfileLocation ≠ "" and FilterValues ( refLearnShowMedia::
-kfileLocation ; "8162011225605315" ) ≠ "8162011225605315" & ¶
+refLearnShowMedia::fileName ≠ "" and refLearnShowMedia::kfileLocation  ≠ "" and FilterValues ( refLearnShowMedia::kfileLocation ; "8162011225605315" )  ≠  "8162011225605315" & ¶
  or
 //All fields required to find a file in a file path tag 'other' folder.
-refLearnShowMedia::fileName ≠ "" and refLearnShowMedia::kfileLocation ≠ "" and refLearnShowMedia::kfolderpath ≠ "" )
+refLearnShowMedia::fileName ≠ "" and refLearnShowMedia::kfileLocation  ≠ "" and refLearnShowMedia::kfolderpath ≠ "" )
 ) ) = 0
+
 and
+
 ( Get (LayoutTableName) = "testlearnReportTags" and
  (
 //Check if first reference record has media to show and that the user has not decided to show reference media.
+
 Case ( testlearnReportTags::kshowReferencedMedia = "" ;
+
 //All fields required to find file in the main or x folders.
-refTest::fileName ≠ "" and refTest::kfileLocation ≠ "" and FilterValues ( refTest::kfileLocation ; "8162011225605315" ) ≠
-"8162011225605315" & ¶
+refTest::fileName ≠ "" and refTest::kfileLocation  ≠ "" and FilterValues ( refTest::kfileLocation ; "8162011225605315" )  ≠  "8162011225605315" & ¶
  or
 //All fields required to find a file in a file path tag 'other' folder.
-refTest::fileName ≠ "" and refTest::kfileLocation ≠ "" and refTest::kfolderpath ≠ "" )
+refTest::fileName ≠ "" and refTest::kfileLocation  ≠ "" and refTest::kfolderpath ≠ "" )
+
 or
+
 //Check if the user has decided to show reference media.
+
 Case ( testlearnReportTags::kshowReferencedMedia ≠ "" ;
+
 //All fields required to find file in the main or x folders.
-refTestShowMedia::fileName ≠ "" and refTestShowMedia::kfileLocation ≠ "" and FilterValues ( refTestShowMedia::
-kfileLocation ; "8162011225605315" ) ≠ "8162011225605315" & ¶
+refTestShowMedia::fileName ≠ "" and refTestShowMedia::kfileLocation  ≠ "" and FilterValues ( refTestShowMedia::kfileLocation ; "8162011225605315" )  ≠  "8162011225605315" & ¶
  or
 //All fields required to find a file in a file path tag 'other' folder.
-refTestShowMedia::fileName ≠ "" and refTestShowMedia::kfileLocation ≠ "" and refTestShowMedia::kfolderpath ≠ "" )
+refTestShowMedia::fileName ≠ "" and refTestShowMedia::kfileLocation  ≠ "" and refTestShowMedia::kfolderpath ≠ "" )
 ) ) = 0 ]
 #
 #Stop script if the record has no file to open or
@@ -306,6 +319,18 @@ End If
 #
 #
 #
+#BUT FIRST...
+#Figure out how long the file extension is:
+#.fp7 = 4, .HFG2 = 5, .fmp12 = 6, etc.
+#This number will be used below to determine
+#the filepath minus the filename.
+Set Variable [ $fileExtensionNumber; Value:Case ( Middle ( Right ( MemorySwitch::helpPath ; 6 ) ; 0 ; 1 ) = "." ; 11 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 5 ) ; 0 ; 1 ) = "." ; 10 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 4 ) ; 0 ; 1 ) = "." ; 9 ;
+ Middle ( Right ( MemorySwitch::helpPath ; 3 ) ; 0 ; 1 ) = "." ; 8 ) ]
+#
+#
+#
 #BEGIN: REFERENCE LAYOUTS
 If [ Get ( LayoutTableName ) = "reference" ]
 #
@@ -374,20 +399,20 @@ If [ FilterValues ( reference::kfileLocation ; "8162011225532313" ) = "816201122
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & reference::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & reference::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & reference::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & reference::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -398,7 +423,7 @@ longer " & reference::fileName & "."
 ;
 "The x folder has been moved, deleted, or perhaps never created (something the user must do during setup). The
 library's x folder needs to be here " & Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get
-( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/"
+( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/"
 ); Default Button: “OK”, Commit: “Yes” ]
 End If
 Exit Script [ ]
@@ -408,20 +433,20 @@ Else If [ FilterValues ( reference::kfileLocation ; "8162011225558314" ) = "8162
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & reference::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & reference::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & reference::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & reference::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -554,20 +579,20 @@ If [ FilterValues ( $$tagMenusFileLocation ; "8162011225532313" ) = "81620112255
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & $$tagMenusFileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & $$tagMenusFileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & $$tagMenusFileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & $$tagMenusFileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -578,7 +603,7 @@ longer " & $$tagMenusFileName & "."
 ;
 "The x folder has been moved, deleted, or perhaps never created (something the user must do during setup). The
 library's x folder needs to be here " & Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get
-( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/"
+( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/"
 ); Default Button: “OK”, Commit: “Yes” ]
 End If
 Exit Script [ ]
@@ -588,20 +613,20 @@ Else If [ FilterValues ( $$tagMenusFileLocation ; "8162011225558314" ) = "816201
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & $$tagMenusFileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & $$tagMenusFileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & $$tagMenusFileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & $$tagMenusFileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -827,20 +852,20 @@ If [ FilterValues ( refLearnShowMedia::kfileLocation ; "8162011225532313" ) = "8
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & refLearnShowMedia::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & refLearnShowMedia::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes try %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & refLearnShowMedia::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & refLearnShowMedia::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -851,7 +876,7 @@ longer " & refLearnShowMedia::fileName & "."
 ;
 "The x folder has been moved, deleted, or perhaps never created (something the user must do during setup). The
 library's x folder needs to be here " & Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get
-( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/"
+( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/"
 ); Default Button: “OK”, Commit: “Yes” ]
 End If
 Exit Script [ ]
@@ -861,20 +886,20 @@ Else If [ FilterValues ( refLearnShowMedia::kfileLocation ; "8162011225558314" )
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & refLearnShowMedia::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & refLearnShowMedia::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & refLearnShowMedia::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & refLearnShowMedia::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -945,20 +970,20 @@ kshowReferencedMedia = "" ]
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & refLearn::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & refLearn::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & refLearn::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & refLearn::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -969,7 +994,7 @@ longer " & refLearn::fileName & "."
 ;
 "The x folder has been moved, deleted, or perhaps never created (something the user must do during setup). The
 library's x folder needs to be here " & Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get
-( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/"
+( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/"
 ); Default Button: “OK”, Commit: “Yes” ]
 End If
 Exit Script [ ]
@@ -980,20 +1005,20 @@ kshowReferencedMedia = "" ]
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & refLearn::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & refLearn::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & refLearn::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & refLearn::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -1218,20 +1243,20 @@ If [ FilterValues ( refTestShowMedia::kfileLocation ; "8162011225532313" ) = "81
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & refTestShowMedia::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & refTestShowMedia::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & refTestShowMedia::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & refTestShowMedia::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -1242,7 +1267,7 @@ longer " & refTestShowMedia::fileName & "."
 ;
 "The x folder has been moved, deleted, or perhaps never created (something the user must do during setup). The
 library's x folder needs to be here " & Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get
-( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/"
+( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/"
 ); Default Button: “OK”, Commit: “Yes” ]
 End If
 Exit Script [ ]
@@ -1252,20 +1277,20 @@ Else If [ FilterValues ( refTestShowMedia::kfileLocation ; "8162011225558314" ) 
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & refTestShowMedia::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & refTestShowMedia::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & refTestShowMedia::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & refTestShowMedia::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -1334,20 +1359,20 @@ kshowReferencedMedia = "" ]
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & refTest::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & refTest::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" & refTest::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" & refTest::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/" ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/" ; " " ; " " )
 ) ]
 [ No dialog ]
 End If
@@ -1358,7 +1383,7 @@ longer " & refTest::fileName & "."
 ;
 "The x folder has been moved, deleted, or perhaps never created (something the user must do during setup). The
 library's x folder needs to be here " & Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get
-( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - 11) & "x/"
+( FilePath ) ; 6 ; Length ( Get (FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & "x/"
 ); Default Button: “OK”, Commit: “Yes” ]
 End If
 Exit Script [ ]
@@ -1369,20 +1394,20 @@ kshowReferencedMedia = "" ]
 #Use %20 space substitutes.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & refTest::fileName ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & refTest::fileName ; " " ; "%20" )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; "%20" )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; "%20" )
 ) ]
 [ No dialog ]
 If [ Get ( LastError ) ≠ 0 ]
 #If that failes, try spaces.
 Open URL [ Case ( $openFolder = "" ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) & refTest::fileName ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) & refTest::fileName ; " " ; " " )
 ;
 Substitute ( Case ( Get ( SystemPlatform ) = - 2 ; "file:" ; "file:/" ) & Middle ( Get ( FilePath ) ; 6 ; Length ( Get
-(FilePath ) ) - Length ( Get (FileName ) ) - 11) ; " " ; " " )
+(FilePath ) ) - Length ( Get (FileName ) ) - $fileExtensionNumber) ; " " ; " " )
 ) ]
 [ No dialog ]
 End If

@@ -1,4 +1,4 @@
-September 13, 2018 14:05:51 Library.fmp12 - startDatabase -1-
+October 31, 2019 17:40:14 Library.fmp12 - startDatabase -1-
 startclose: startDatabase
 #
 #PURPOSE: Manage the 4 script newLibrary
@@ -170,7 +170,7 @@ End Loop
 // Close Window [ Name: "All Apps" ]
 #
 #Set zoom level to 100%.
-Set Zoom Level [ 100%; Camera: Back; Resolution: Full ]
+Set Zoom Level [ 100% ]
 #
 #Resize window just in case it is a 1x1 point window!
 Move/Resize Window [ Current Window; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
@@ -248,7 +248,7 @@ Set Window Title [ Current Window; New Title: "Setup" ]
 Show/Hide Text Ruler
 [ Hide ]
 If [ Get ( SystemPlatform ) = - 2 ]
-Move/Resize Window [ Current Window; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
+Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
 Else
 Move/Resize Window [ Current Window; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: 0 ]
 End If
@@ -274,24 +274,35 @@ Perform Script [ “CHUNK_CopyrightLockedFields” ]
 #Insure during last session, user didn't drag
 #new spellings into locked tag records.
 Set Variable [ $$stopLoadTagRecord; Value:1 ]
+#
+#View as a form, instead of a table,
+#to give the user a nicer experience.
 Go to Layout [ “ltagSCRIPTloops” (tagMenus) ]
+View As
+[ View as Form ]
 Show All Records
 Set Variable [ $$stopLoadTagRecord ]
 Perform Script [ “CHUNK_checkForDraggedPasteChanges” ]
 #
+#Return to list view for admin users.
+View As
+[ View as List ]
+#
 #Open Setup's Tag-Menus window.
 If [ Get ( SystemPlatform ) = - 2 ]
-New Window [ Name: "Tag Menus"; Height: Get (WindowDesktopHeight) - 21; Width: Get (ScreenWidth) / 2; Top: 0; Left: Get
-(ScreenWidth) / 2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize:
-“Yes” ]
+New Window [ Style: Document; Name: "Tag Menus"; Using layout: <Current Layout>; Height: Get (ScreenHeight); Width: Get
+(ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) / 2; Close: Yes; Minimize: Yes; Maximize: Yes; Resize: Yes; Menu Bar:
+No; Dim parent window: No; Toolbars: No ]
 Else
-New Window [ Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get (ScreenWidth) /
-2; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom Control Area: “Yes”; Resize: “Yes” ]
+New Window [ Style: Document; Name: "Tag Menus"; Height: Get (ScreenHeight); Width: Get (ScreenWidth) / 2; Top: 0; Left: Get
+(ScreenWidth) / 2; Close: Yes; Minimize: Yes; Maximize: Yes; Resize: Yes ]
 End If
 #
 #Show regular menus if Admin logs in only.
 If [ Get ( AccountName ) = "Admin" ]
 Go to Layout [ “defaultsAll” (tempSetup) ]
+Show/Hide Menubar
+[ Show ]
 Show/Hide Toolbars
 [ Hide ]
 Select Window [ Name: "Setup"; Current file ]
@@ -398,9 +409,18 @@ Show/Hide Text Ruler
 If [ Get ( AccountName ) = "Admin" ]
 Show/Hide Toolbars
 [ Hide ]
+Show/Hide Menubar
+[ Show ]
 Install Menu Set [ “[Standard FileMaker Menus]” ]
 Print Setup [ Orientation: Portrait; Paper size: 8.5" x 1000" ]
 [ Restore; No dialog ]
+Show Custom Dialog [ Message: "Welcome Admin user! Page setup for admin's is an extra-long page, so PDFs of scripts can
+be saved with zero page breaks for showing scripts on GitHub."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "IMPORTANT!!! Due to changes in FileMaker, script line-spaces no longer require # symbols,
+which are required to keep line spaces in GitHub."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Please add # and one space (spacebar click) to insure blank line spacing is maintained in any
+scripts that you edit! This includes old scripts! Please, add these # back into them. THANKS!!!"; Default Button: “OK”,
+Commit: “Yes” ]
 Else
 Show/Hide Toolbars
 [ Lock; Hide ]
@@ -483,6 +503,19 @@ Set Variable [ $$primaryNodeNameChangeCheck ]
 Set Variable [ $$libraryNameForNameChangeCheck ]
 Set Variable [ $$testSubjectNodeNameChangeCheck ]
 #
+End If
+#
+#If there is only one node and it is the
+#Admin node, the inform the user that they
+#need to make a node for themselves.
+If [ $$AdminOnlyNode = 1 ]
+Show Custom Dialog [ Message: "IMPORTANT! Do create a node/author record for yourself, so that you will have a unique ID
+associated with all the records that you create."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "When startup is complete 1) go to the Tag Menu window. 2) Click the node button. 3) Click
+the P button next to your name to select yourself as the creator of all new library records."; Default Button: “OK”, Commit:
+“Yes” ]
+Else
+Set Variable [ $$AdminOnlyNode ]
 End If
 #
 #END: Open library.

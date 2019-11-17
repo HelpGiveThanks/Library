@@ -1,11 +1,12 @@
-July 21, 2018 12:39:58 Library.fmp12 - CHUNK_findReferenceRecordUserFindRequests -1-
+November 13, 2019 13:04:41 Library.fmp12 - -1-
+CHUNK_findReferenceRecordUserFindRequests
 reference: CHUNK_findReferenceRecordUserFindRequests
 #
 #
 #Capture the user's current find requests.
 If [ $$captureUserFindRequests = 1 ]
-Set Variable [ $$r0; Value:reference::createDate ]
-Set Variable [ $$r1; Value:reference::modifyDate ]
+// Set Variable [ $$r0; Value:reference::createDate ]
+// Set Variable [ $$r1; Value:reference::modifyDate ]
 Set Variable [ $$r2; Value:reference::showInLearn ]
 Set Variable [ $$r3; Value:reference::incomplete ]
 Set Variable [ $$r4; Value:reference::referenceForReferenceFINDWindow ]
@@ -57,8 +58,8 @@ End If
 #
 #Put back the user's current find requests.
 If [ $$putBackUserFindRequests = 1 ]
-Set Field [ reference::createDate; $$r0 ]
-Set Field [ reference::modifyDate; $$r1 ]
+// Set Field [ reference::createDate; $$r0 ]
+// Set Field [ reference::modifyDate; $$r1 ]
 Set Field [ reference::showInLearn; $$r2 ]
 Set Field [ reference::incomplete; $$r3 ]
 Set Field [ reference::referenceForReferenceFINDWindow; $$r4 ]

@@ -1,4 +1,4 @@
-January 17, 2018 13:00:41 Library.fmp12 - gotoReference -1-
+October 31, 2019 17:49:43 Library.fmp12 - gotoReference -1-
 reference: gotoReference
 #
 #basic administration tasks
@@ -166,3 +166,23 @@ Scroll Window
 #
 #
 End If
+#
+#
+#If there is only one node and it is the
+#Admin node, the inform the user that they
+#need to make a node for themselves.
+If [ $$AdminOnlyNode = 1 and Get ( AccountName ) ≠ "Admin" ]
+Show Custom Dialog [ Message: "NOTE: Log in as the Admin user if do not want to see these messages about creating a unique
+node for yourself."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "Create a node/author record for yourself in the SetUp Section, so that you will have a unique
+ID associated with all the records that you create."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "This is not the Setup Section."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "1) Click back until you reach the Setup Section. 2) go to the Tag Menu window. 2) Click the
+node button."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "3) Click the P button next to your name to select yourself as the creator of all new library
+records."; Default Button: “OK”, Commit: “Yes” ]
+Else
+Set Variable [ $$AdminOnlyNode ]
+End If
+#
+#

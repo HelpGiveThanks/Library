@@ -1,4 +1,5 @@
-July 20, 2018 21:52:25 Library.fmp12 - findReferenceRecord -1-
+November 12, 2019 22:11:47 Library.fmp12 - -1-
+findReferenceRecord
 reference: findReferenceRecord
 #
 #
@@ -60,10 +61,10 @@ Go to Layout [ “ReferenceFIND” (reference) ]
 Else
 Go to Layout [ “ReferenceFINDstuff” (reference) ]
 End If
+Go to Field [ reference::referenceForReferenceFINDWindow ]
 Pause/Resume Script [ Indefinitely ]
 #
 End If
-#
 #
 #
 #If alread in find mode on the find layout ...
@@ -83,6 +84,20 @@ End If
 #SECOND If there are no invalid find requests
 #then perform the find.
 If [ Get (WindowMode) = 1 ]
+#
+#
+#Clear the temporary timestamp fields so their
+#information will not be part of the current
+#find request.
+#Due to a bug with FileMaker's timestamp field (that
+#does not allow a number and punctuation keyboard
+#to be shown users on iDevices) it is neccessary to
+#use a temporary text field to collect date and time
+#find requests, and then tranfer these to the timestamp
+#field when the user clicks the find button.
+Set Field [ TEMPforFind::tempFindCreateDate; "" ]
+Set Field [ TEMPforFind::tempFindModifyDate; "" ]
+#
 #
 #Try to find the requested records.
 Perform Find [ ]
@@ -143,6 +158,8 @@ End If
 Set Variable [ $$putBackUserFindRequests; Value:1 ]
 Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
 Set Variable [ $$putBackUserFindRequests ]
+Set Field [ TEMPforFind::tempFindCreateDate; $$timestampCreateDate ]
+Set Field [ TEMPforFind::tempFindModifyDate; $$timestampModifyDate ]
 #
 #Inform the user that their find request found
 #zero records.
@@ -209,6 +226,12 @@ Go to Record/Request/Page
 Set Variable [ $$clearUserFindRequests; Value:1 ]
 Perform Script [ “CHUNK_findReferenceRecordUserFindRequests” ]
 Set Variable [ $$clearUserFindRequests ]
+Set Variable [ $$timestampCreateDate ]
+Set Variable [ $$timestampModifyDate ]
+#
+#Clear these two find request temp fields.
+Set Field [ TEMPforFind::tempFindCreateDate; "" ]
+Set Field [ TEMPforFind::tempFindModifyDate; "" ]
 #
 #Clear out all paused find scripts.
 Halt Script
@@ -217,4 +240,5 @@ Halt Script
 #!!! IMPORTANT !!! SAY WHAT !!! HERE YE, HERE YE !!!
 #
 #END identical find logic
+#
 #

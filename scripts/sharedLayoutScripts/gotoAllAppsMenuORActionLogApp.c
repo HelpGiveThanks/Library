@@ -1,14 +1,15 @@
-September 10, 2018 16:32:19 Library.fmp12 - gotoAllAppsMenuO… -1-
+October 30, 2019 13:57:47 Librar.fmp12 - -1-
+gotoAllAppsMenuORActionLogApp
 sharedLayoutScripts: gotoAllAppsMenuORActionLogApp
 #
 #
 #Ask user if they want to go the timer or
 #the all apps menu.
 If [ Get (WindowName) ≠ "All Apps" ]
-Show Custom Dialog [ Message: "Open the Action Log (timer) or the all apps menu?"; Default Button: “timer”, Commit: “Yes”;
-Button 2: “all apps”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+Show Custom Dialog [ Message: "Open the Action Generator or the all apps menu?"; Default Button: “Generator”, Commit:
+“Yes”; Button 2: “all apps”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 2 ]
-Perform Script [ “allAppsMenu (udpate)” ]
+Perform Script [ “allAppsMenu” ]
 Exit Script [ ]
 End If
 #
@@ -171,7 +172,7 @@ Set Field [ MemorySwitch::currentLibraryWIndows[3]; $windowAlsoOpen3 ]
 #
 #Open using this url on iPad/iPhone.
 If [ Get ( SystemPlatform ) = 3 ]
-Open URL [ "fmp://%7e/ActionLog" ]
+Open URL [ "fmp://%7e/ActionGenerator" ]
 [ No dialog ]
 Exit Script [ ]
 Else
@@ -191,7 +192,7 @@ Select Window [ Name: "Specific Action" ]
 If [ Get (LastError) = 112 ]
 Set Variable [ $notOpen; Value:1 + $notOpen ]
 End If
-Select Window [ Name: "ActionLog" ]
+Select Window [ Name: "ActionGenerator" ]
 If [ Get (LastError) = 112 ]
 Set Variable [ $notOpen; Value:1 + $notOpen ]
 End If
@@ -200,9 +201,9 @@ End If
 #If ActionLog is not open on the desktop
 #computer, then open it.
 If [ $notOpen = 5 ]
-Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionlog" ) ]
+Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "ActionGenerator" ) ]
 [ No dialog ]
-Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "actionLog" ) ]
+Open URL [ Substitute ( MemorySwitch::helpPath ; "help" ; "ActionGenerator" ) ]
 [ No dialog ]
 End If
 #
@@ -210,10 +211,11 @@ End If
 #each HGT application. So if you change it,
 #change it everywhere.
 If [ Get (LastError) = 5 ]
-Show Custom Dialog [ Message: "The ActionLog's name has been changed or it is not in its required folder:
+Show Custom Dialog [ Message: "The ActionGenerator's name has been changed or it is not in its required folder:
 0penME_YourFilesAreHere."; Default Button: “OK”, Commit: “Yes” ]
-Show Custom Dialog [ Message: "If the name is correct (ActionLog) and it is in the correct folder (0penME_YourFilesAreHere),
-then check if the file types are either all .fmp12 or . HFG2 files."; Default Button: “OK”, Commit: “Yes” ]
+Show Custom Dialog [ Message: "If the name is correct (ActionGenerator) and it is in the correct folder
+(0penME_YourFilesAreHere), then check if the file types are either all .fmp12 or . HFG2 files."; Default Button: “OK”, Commit:
+“Yes” ]
 Show Custom Dialog [ Message: "Click the HelpGiveThanks Website button to find out how to get a new copy of the ActionLog if
 needed."; Default Button: “OK”, Commit: “Yes” ]
 Show Custom Dialog [ Message: "Open the folder — 0penME_YourFilesAreHere — so you can check on this app, or put it in this
