@@ -2909,7 +2909,7 @@ Script Steps
     #Explain problems with enter date and time
     #and how this problem can be addressed.
     Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2020 12:25:30."; Default Button: “OK”, Commit: “No” ]
-    Show Custom Dialog [ Message: "You can replace numbers with asterisks to, for example, search to by year = */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year  =  */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
     Show Custom Dialog [ Message: "Click the 'less than' ( < ), 'more than' ( > ), or between dates ( ... ) buttons to insert one of these date-search-strategies for you to edit."; Default Button: “OK”, Commit: “No” ]
     #
     #Return to the temporary timestamp text field
@@ -16164,7 +16164,7 @@ Script Steps
     #Explain problems with enter date and time
     #and how this problem can be addressed.
     Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2020 12:25:30."; Default Button: “OK”, Commit: “No” ]
-    Show Custom Dialog [ Message: "You can replace numbers with asterisks to, for example, search to by year = */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year  =  */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
     Show Custom Dialog [ Message: "Click the 'less than' ( < ), 'more than' ( > ), or between dates ( ... ) buttons to insert one of these date-search-strategies for you to edit."; Default Button: “OK”, Commit: “No” ]
     #
     #Return to the temporary timestamp text field
@@ -16221,7 +16221,7 @@ Script Steps
     #Explain problems with enter date and time
     #and how this problem can be addressed.
     Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2020 12:25:30."; Default Button: “OK”, Commit: “No” ]
-    Show Custom Dialog [ Message: "You can replace numbers with asterisks to, for example, search to by year = */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year  =  */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
     Show Custom Dialog [ Message: "Click the 'less than' ( < ), 'more than' ( > ), or between dates ( ... ) buttons to insert one of these date-search-strategies for you to edit."; Default Button: “OK”, Commit: “No” ]
     #
     #Return to the temporary timestamp text field
