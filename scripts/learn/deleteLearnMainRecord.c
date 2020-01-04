@@ -1,4 +1,4 @@
-July 20, 2018 17:18:53 Library.fmp12 - deleteLearnMainRecord -1-
+December 18, 2019 19:51:18 Library.fmp12 - deleteLearnMainRecord -1-
 learn: deleteLearnMainRecord
 #
 #
@@ -52,6 +52,143 @@ highlighted tags. 3) Click the square buttons next to each."; Default Button: �
 Exit Script [ ]
 End If
 #
+#
+#
+#
+#If the library is not an inventory library, and
+#if the record has references or links to other
+#Learn records, ask the user if they would like
+#to remove these or delete the selected record.
+If [ TEMP::InventoryLibraryYN = "" ]
+If [ refLearn::referenceShort ≠ ""
+ or
+refTestLearn::concatenateLong ≠ ""
+ or
+Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+#
+#
+# If references and links ...
+If [ refLearn::referenceShort ≠ "" and refTestLearn::concatenateLong ≠ ""
+ or
+refLearn::referenceShort ≠ "" and Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+Show Custom Dialog [ Message: "Remove record's references, links to other Learn records, or delete this record.
+NOTE: You be given the chance to cancel after answering this question."; Default Button: “references”, Commit:
+“Yes”; Button 2: “links”, Commit: “No”; Button 3: “delete”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 1 ]
+Set Variable [ $remove; Value:"1c" ]
+End If
+If [ Get ( LastMessageChoice ) = 2 ]
+Set Variable [ $remove; Value:"2c" ]
+End If
+#
+# If only references ...
+Else If [ refLearn::referenceShort ≠ "" ]
+Show Custom Dialog [ Message: "Remove record's references or delete this record."; Default Button: “references”,
+Commit: “Yes”; Button 2: “delete”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 1 ]
+Set Variable [ $remove; Value:1 ]
+End If
+#
+# If cancel is selected, then cancel this script.
+If [ Get ( LastMessageChoice ) = 3 ]
+Exit Script [ ]
+End If
+#
+# If only links ...
+Else If [ refTestLearn::concatenateLong ≠ ""
+ or
+Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+Show Custom Dialog [ Message: "Remove links to other Learn records or delete this record."; Default Button: “links”,
+Commit: “Yes”; Button 2: “delete”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 1 ]
+Set Variable [ $remove; Value:2 ]
+End If
+#
+# If cancel is selected, then cancel this script.
+If [ Get ( LastMessageChoice ) = 3 ]
+Exit Script [ ]
+End If
+End If
+#
+#
+#If they select references, then remove all
+#reference record ID numbers.
+If [ $remove = 1 or $remove = "1c" ]
+#
+If [ $remove = "1c" ]
+Show Custom Dialog [ Message: "Are you sure you want to remove this record's references?"; Default Button:
+“yes”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+#
+# If cancel is selected, then cancel this script.
+If [ Get ( LastMessageChoice ) = 2 ]
+Exit Script [ ]
+End If
+End If
+#
+Set Variable [ $$stoploadCitation; Value:1 ]
+Set Variable [ $count; Value:ValueCount ( testlearn::kcreference ) ]
+Loop
+If [ Filter ( GetValue ( testlearn::kcreference ; $count ) ; "L" ) ≠ "L" ]
+Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be
+done and if item is not removed, then the removal calc without the paragraph mark is used
+If ( ValueCount ( testlearn::kcreference) ≠ ValueCount ( Substitute ( testlearn::kcreference ; GetValue
+( testlearn::kcreference ; $count ) & "¶" ; "" ) ) ;
+Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ;
+Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ); "" )
+) ]
+End If
+Set Variable [ $count; Value:$count - 1 ]
+Exit Loop If [ $count = 0 ]
+End Loop
+Set Variable [ $$stoploadCitation ]
+#
+#Exit script once removal is completed.
+Perform Script [ “loadLearnOrRefMainRecord” ]
+Exit Script [ ]
+End If
+#
+#
+#If they select links, then remove all
+#Learn record ID numbers.
+If [ $remove = 2 or $remove = "2c" ]
+#
+If [ $remove = "2c" ]
+Show Custom Dialog [ Message: "Are you sure you want to remove this record's links to other Learn records?";
+Default Button: “yes”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+#
+# If cancel is selected, then cancel this script.
+If [ Get ( LastMessageChoice ) = 2 ]
+Exit Script [ ]
+End If
+End If
+#
+Set Variable [ $$stoploadCitation; Value:1 ]
+Set Variable [ $count; Value:ValueCount ( testlearn::kcreference ) ]
+Loop
+If [ Filter ( GetValue ( testlearn::kcreference ; $count ) ; "L" ) = "L" ]
+Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be
+done and if item is not removed, then the removal calc without the paragraph mark is used
+If ( ValueCount ( testlearn::kcreference) ≠ ValueCount ( Substitute ( testlearn::kcreference ; GetValue
+( testlearn::kcreference ; $count ) & "¶" ; "" ) ) ;
+Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ;
+Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ); "" )
+) ]
+End If
+Set Variable [ $count; Value:$count - 1 ]
+Exit Loop If [ $count = 0 ]
+End Loop
+Set Variable [ $$stoploadCitation ]
+#
+#Exit script once removal is completed.
+Perform Script [ “loadLearnOrRefMainRecord” ]
+Exit Script [ ]
+End If
+End If
+End If
+#
+#
+#
+#
 #Prevent all record load scripts (they slow down
 #this script and are uneccessary).
 Set Variable [ $$stoploadCitation; Value:1 ]
@@ -71,8 +208,7 @@ Set Error Capture [ On ]
 #
 #Open a new window and look for record being
 #cited or used as a reference by another record.
-New Window [ Height: 1; Width: 1; Top: 10000; Left: 10000; Style: Document; Close: “Yes”; Minimize: “Yes”; Maximize: “Yes”; Zoom
-Control Area: “Yes”; Resize: “Yes” ]
+New Window [ Style: Document; Height: 1; Width: 1; Top: 10000; Left: 10000; Close: Yes; Minimize: Yes; Maximize: Yes; Resize: Yes ]
 #
 #See if learn record is used by any learn
 #records as a reference.
@@ -310,4 +446,5 @@ Set Variable [ $$stopLoadCitation ]
 Set Variable [ $$stopLoadTagRecord ]
 #
 Perform Script [ “loadLearnOrRefMainRecord” ]
+#
 #

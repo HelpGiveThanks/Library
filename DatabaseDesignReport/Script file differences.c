@@ -8,6 +8,7 @@ subsectionLoop
 tagGroupLoop
 tagLoop
 unlinkFoundLearnRecords
+unlinkFoundLearnRecords Copy
 help
 
 help
@@ -806,7 +807,7 @@ Custom Functions used by this script
 Custom menu set used by this script
 
 
-Previous Script: [tagLoop]	Parent Folder: [dataCleanUpScripts]
+Previous Script: [tagLoop]	Parent Folder: [dataCleanUpScripts]	Next Script: [unlinkFoundLearnRecords Copy]
 Script Name	unlinkFoundLearnRecords
 Run script with full access privileges	Off
 Include In Menu	No
@@ -822,6 +823,52 @@ Script Steps
     Set Variable [ $count; Value:ValueCount ( testlearn::kcreference ) ]
     Loop
     If [ Filter ( GetValue ( testlearn::kcreference ; $count ) ; "L" ) = "L" ]
+    Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( testlearn::kcreference) ≠ ValueCount ( Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ) ; Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ; Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ); "" ) ) ]
+    End If
+    Set Variable [ $count; Value:$count - 1 ]
+    Exit Loop If [ $count = 0 ]
+    End Loop
+    Go to Record/Request/Page [ Next ]
+    End Loop
+    Set Variable [ $$stoploadCitation ]
+
+Fields used in this script
+
+    testlearn::kcreference
+
+Scripts used in this script
+
+Layouts used in this script
+
+Tables used in this script
+
+    testlearn
+
+Table occurrences used by this script
+
+    testlearn
+
+Custom Functions used by this script
+
+Custom menu set used by this script
+
+
+Previous Script: [unlinkFoundLearnRecords]	Parent Folder: [dataCleanUpScripts]
+Script Name	unlinkFoundLearnRecords Copy
+Run script with full access privileges	Off
+Include In Menu	No
+Layouts that use this script
+
+Scripts that use this script
+
+Script Definition
+Script Steps
+
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    Loop
+    Set Variable [ $count; Value:ValueCount ( testlearn::kcreference ) ]
+    Loop
+    If [ Filter ( GetValue ( testlearn::kcreference ; $count ) ; "L" ) ≠ "L" ]
     Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( testlearn::kcreference) ≠ ValueCount ( Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ) ; Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ; Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ); "" ) ) ]
     End If
     Set Variable [ $count; Value:$count - 1 ]
@@ -2909,7 +2956,7 @@ Script Steps
     #Explain problems with enter date and time
     #and how this problem can be addressed.
     Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2020 12:25:30."; Default Button: “OK”, Commit: “No” ]
-    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year  =  */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year = */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
     Show Custom Dialog [ Message: "Click the 'less than' ( < ), 'more than' ( > ), or between dates ( ... ) buttons to insert one of these date-search-strategies for you to edit."; Default Button: “OK”, Commit: “No” ]
     #
     #Return to the temporary timestamp text field
@@ -3237,6 +3284,8 @@ Scripts that use this script
 Script Definition
 Script Steps
 
+    #
+    #
     #If node that created this record as its primary
     #creator is currenlty locked then stop script,
     #inform user.
@@ -3244,14 +3293,17 @@ Script Steps
     Show Custom Dialog [ Message: "The node that created this record, " & tagTLNodePrimary::tag & ", is locked, so all this node's records are locked too. Go back to Setup to unlock it."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
+    #
     #If in find mode, exit script.
     If [ $$findMode ≠ "" ]
     Show Custom Dialog [ Message: "Currently in find mode. Click done in the tag menus window to exit find mode, and then click this button."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
+    #
     #Exit field so user can see red delete
     #formatting later on.
     Go to Field [ ]
+    #
     #If either the brainstorm or test fields are filled show
     #message below.
     If [ testlearn::kcbrainstorm ≠ "" and testlearn::kctestSubsectionInfo ≠ "" ]
@@ -3272,9 +3324,122 @@ Script Steps
     Show Custom Dialog [ Message: "Tagged by test tags. Remove these tags to delete. 1) Click the 'test' button. 2) Scroll to the highlighted tags. 3) Click the square buttons next to each."; Default Button: “OK”, Commit: “Yes” ]
     Exit Script [ ]
     End If
+    #
+    #
+    #
+    #
+    #If the library is not an inventory library, and
+    #if the record has references or links to other
+    #Learn records, ask the user if they would like
+    #to remove these or delete the selected record.
+    If [ TEMP::InventoryLibraryYN = "" ]
+    If [ refLearn::referenceShort ≠ "" or refTestLearn::concatenateLong ≠ "" or Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+    #
+    #
+    # If references and links ...
+    If [ refLearn::referenceShort ≠ "" and refTestLearn::concatenateLong ≠ "" or refLearn::referenceShort ≠ "" and Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+    Show Custom Dialog [ Message: "Remove record's references, links to other Learn records, or delete this record. NOTE: You be given the chance to cancel after answering this question."; Default Button: “references”, Commit: “Yes”; Button 2: “links”, Commit: “No”; Button 3: “delete”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $remove; Value:"1c" ]
+    End If
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Set Variable [ $remove; Value:"2c" ]
+    End If
+    #
+    # If only references ...
+    Else If [ refLearn::referenceShort ≠ "" ]
+    Show Custom Dialog [ Message: "Remove record's references or delete this record."; Default Button: “references”, Commit: “Yes”; Button 2: “delete”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $remove; Value:1 ]
+    End If
+    #
+    # If cancel is selected, then cancel this script.
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Exit Script [ ]
+    End If
+    #
+    # If only links ...
+    Else If [ refTestLearn::concatenateLong ≠ "" or Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+    Show Custom Dialog [ Message: "Remove links to other Learn records or delete this record."; Default Button: “links”, Commit: “Yes”; Button 2: “delete”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+    If [ Get ( LastMessageChoice ) = 1 ]
+    Set Variable [ $remove; Value:2 ]
+    End If
+    #
+    # If cancel is selected, then cancel this script.
+    If [ Get ( LastMessageChoice ) = 3 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    #
+    #If they select references, then remove all
+    #reference record ID numbers.
+    If [ $remove = 1 or $remove = "1c" ]
+    #
+    If [ $remove = "1c" ]
+    Show Custom Dialog [ Message: "Are you sure you want to remove this record's references?"; Default Button: “yes”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    #
+    # If cancel is selected, then cancel this script.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    Set Variable [ $count; Value:ValueCount ( testlearn::kcreference ) ]
+    Loop
+    If [ Filter ( GetValue ( testlearn::kcreference ; $count ) ; "L" ) ≠ "L" ]
+    Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( testlearn::kcreference) ≠ ValueCount ( Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ) ; Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ; Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ); "" ) ) ]
+    End If
+    Set Variable [ $count; Value:$count - 1 ]
+    Exit Loop If [ $count = 0 ]
+    End Loop
+    Set Variable [ $$stoploadCitation ]
+    #
+    #Exit script once removal is completed.
+    Perform Script [ “loadLearnOrRefMainRecord” ]
+    Exit Script [ ]
+    End If
+    #
+    #
+    #If they select links, then remove all
+    #Learn record ID numbers.
+    If [ $remove = 2 or $remove = "2c" ]
+    #
+    If [ $remove = "2c" ]
+    Show Custom Dialog [ Message: "Are you sure you want to remove this record's links to other Learn records?"; Default Button: “yes”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+    #
+    # If cancel is selected, then cancel this script.
+    If [ Get ( LastMessageChoice ) = 2 ]
+    Exit Script [ ]
+    End If
+    End If
+    #
+    Set Variable [ $$stoploadCitation; Value:1 ]
+    Set Variable [ $count; Value:ValueCount ( testlearn::kcreference ) ]
+    Loop
+    If [ Filter ( GetValue ( testlearn::kcreference ; $count ) ; "L" ) = "L" ]
+    Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and if item is not removed, then the removal calc without the paragraph mark is used If ( ValueCount ( testlearn::kcreference) ≠ ValueCount ( Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ) ; Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ; Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ); "" ) ) ]
+    End If
+    Set Variable [ $count; Value:$count - 1 ]
+    Exit Loop If [ $count = 0 ]
+    End Loop
+    Set Variable [ $$stoploadCitation ]
+    #
+    #Exit script once removal is completed.
+    Perform Script [ “loadLearnOrRefMainRecord” ]
+    Exit Script [ ]
+    End If
+    End If
+    End If
+    #
+    #
+    #
+    #
     #Prevent all record load scripts (they slow down
     #this script and are uneccessary).
     Set Variable [ $$stoploadCitation; Value:1 ]
+    #
     #Set variables to conditionally format section to
     #be deleted, and its record number so if the
     #user cancels the delete, the system can return
@@ -3282,19 +3447,23 @@ Script Steps
     Set Variable [ $delete; Value:testlearn::_Ltestlearn ]
     Set Variable [ $deleteName; Value:testlearn::_Number ]
     Set Variable [ $recordNumber; Value:Get (RecordNumber) ]
+    #
     #Because there may be no records found, stop
     #the system from informing the user of this.
     Allow User Abort [ Off ]
     Set Error Capture [ On ]
+    #
     #Open a new window and look for record being
     #cited or used as a reference by another record.
     New Window [ Style: Document; Height: 1; Width: 1; Top: 10000; Left: 10000; Close: Yes; Minimize: Yes; Maximize: Yes; Resize: Yes ]
+    #
     #See if learn record is used by any learn
     #records as a reference.
     Go to Layout [ “tableTestLearn” (testlearn) ]
     Enter Find Mode [ ]
     Set Field [ testlearn::kcreference; $delete ]
     Perform Find [ ]
+    #
     If [ Get (LastError) ≠ 401 ]
     If [ $inUse ≠ "" ]
     Set Variable [ $addToInUse; Value:$inUse ]
@@ -3303,6 +3472,7 @@ Script Steps
     Set Variable [ $inUse; Value:Get (FoundCount) & " Learn" ]
     End If
     End If
+    #
     #See if learn record is used by any tag records
     #as a picture. NOTE: The ability to add learn
     #record pictures is no longer possible since
@@ -3347,6 +3517,7 @@ Script Steps
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
     End If
+    #
     If [ $tagFound1 + $tagFound2 + $tagFound3 ≠ 0 ]
     If [ $inUse ≠ "" ]
     Set Variable [ $addToInUse; Value:$inUse ]
@@ -3355,11 +3526,13 @@ Script Steps
     Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " tag menu picture(s) (" & $tagName & ")" ]
     End If
     End If
+    #
     Set Variable [ $tagFound1 ]
     Set Variable [ $tagFound2 ]
     Set Variable [ $tagFound3 ]
     Set Variable [ $tagNameADD ]
     Set Variable [ $tagName ]
+    #
     #See if learn record is used by any tag records
     #as a web link. NOTE: Since version 3 this
     #function is no longer available.
@@ -3403,6 +3576,7 @@ Script Steps
     Go to Record/Request/Page [ Next; Exit after last ]
     End Loop
     End If
+    #
     If [ $tagFound1 + $tagFound2 + $tagFound3 ≠ 0 ]
     If [ $inUse ≠ "" ]
     Set Variable [ $addToInUse; Value:$inUse ]
@@ -3411,14 +3585,22 @@ Script Steps
     Set Variable [ $inUse; Value:($tagFound1 + $tagFound2 + $tagFound3) & " tag menu link(s) (" & $tagName & ")" ]
     End If
     End If
+    #
     Set Variable [ $tagFound1 ]
     Set Variable [ $tagFound2 ]
     Set Variable [ $tagFound3 ]
     Set Variable [ $tagNameADD ]
     Set Variable [ $tagName ]
+    #
+    #
     Close Window [ Current Window ]
+    #
+    #
+    #
+    #
     #Report on findings and if none found
     #delete record.
+    #
     #If record was found tell user.
     If [ $inUse ≠ "" ]
     Set Variable [ $delete ]
@@ -3433,6 +3615,7 @@ Script Steps
     Set Variable [ $$stopLoadTagRecord ]
     Exit Script [ ]
     End If
+    #
     #If the record being deleted was not found in
     #use make sure the user really wants it deleted.
     Set Variable [ $group ]
@@ -3444,6 +3627,7 @@ Script Steps
     End If
     Set Variable [ $group; Value:tagMenus::kGroupOrTest ]
     Set Variable [ $deleteGroup; Value:tagMenuGroup::name ]
+    #
     #If the user cancels, stop the delete.
     If [ Get ( LastMessageChoice ) = 1 ]
     Go to Field [ ]
@@ -3455,9 +3639,11 @@ Script Steps
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
     Exit Script [ ]
+    #
     #If the user says yes, then delete the record.
     Else If [ Get ( LastMessageChoice ) = 2 ]
     Delete Record/Request [ No dialog ]
+    #
     End If
     Set Variable [ $delete ]
     Set Variable [ $group ]
@@ -3465,7 +3651,10 @@ Script Steps
     Set Variable [ $$addTagToCitation ]
     Set Variable [ $$stopLoadCitation ]
     Set Variable [ $$stopLoadTagRecord ]
+    #
     Perform Script [ “loadLearnOrRefMainRecord” ]
+    #
+    #
 
 Fields used in this script
 
@@ -3474,9 +3663,11 @@ Fields used in this script
     testlearn::kcbrainstorm
     testlearn::kctestSubsectionInfo
     TEMP::InventoryLibraryYN
+    refLearn::referenceShort
+    refTestLearn::concatenateLong
+    testlearn::kcreference
     testlearn::_Ltestlearn
     testlearn::_Number
-    testlearn::kcreference
     tagTable::Kpicture1
     tagTable::tag
     tagTable::Kpicture2
@@ -3499,15 +3690,19 @@ Layouts used in this script
 Tables used in this script
 
     TEMP
+    reference
     tag
     tag
     tag
     tagGroup
     testlearn
+    testlearn
 
 Table occurrences used by this script
 
     TEMP
+    refLearn
+    refTestLearn
     tagMenuGroup
     tagMenus
     tagTLNodePrimary
@@ -16164,7 +16359,7 @@ Script Steps
     #Explain problems with enter date and time
     #and how this problem can be addressed.
     Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2020 12:25:30."; Default Button: “OK”, Commit: “No” ]
-    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year  =  */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year = */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
     Show Custom Dialog [ Message: "Click the 'less than' ( < ), 'more than' ( > ), or between dates ( ... ) buttons to insert one of these date-search-strategies for you to edit."; Default Button: “OK”, Commit: “No” ]
     #
     #Return to the temporary timestamp text field
@@ -16221,7 +16416,7 @@ Script Steps
     #Explain problems with enter date and time
     #and how this problem can be addressed.
     Show Custom Dialog [ Message: "Date searches must include both date and time entered like this" & ¶ & "1/5/2020 12:25:30."; Default Button: “OK”, Commit: “No” ]
-    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year  =  */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
+    Show Custom Dialog [ Message: "You can replace numbers with asterisks, for example, to search by year = */*/2020 *:*:*"; Default Button: “OK”, Commit: “No” ]
     Show Custom Dialog [ Message: "Click the 'less than' ( < ), 'more than' ( > ), or between dates ( ... ) buttons to insert one of these date-search-strategies for you to edit."; Default Button: “OK”, Commit: “No” ]
     #
     #Return to the temporary timestamp text field
