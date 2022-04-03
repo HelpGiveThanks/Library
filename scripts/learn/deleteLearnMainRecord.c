@@ -1,4 +1,4 @@
-December 18, 2019 19:51:18 Library.fmp12 - deleteLearnMainRecord -1-
+April 2, 2022 14:55:09 Library.fmp12 - deleteLearnMainRecord -1-
 learn: deleteLearnMainRecord
 #
 #
@@ -67,45 +67,77 @@ refTestLearn::concatenateLong ≠ ""
 Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
 #
 #
-# If references and links ...
+# If there are references and links ...
 If [ refLearn::referenceShort ≠ "" and refTestLearn::concatenateLong ≠ ""
  or
 refLearn::referenceShort ≠ "" and Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
-Show Custom Dialog [ Message: "Remove record's references, links to other Learn records, or delete this record.
-NOTE: You be given the chance to cancel after answering this question."; Default Button: “references”, Commit:
-“Yes”; Button 2: “links”, Commit: “No”; Button 3: “delete”, Commit: “No” ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Set Variable [ $remove; Value:"1c" ]
-End If
-If [ Get ( LastMessageChoice ) = 2 ]
-Set Variable [ $remove; Value:"2c" ]
-End If
-#
-# If only references ...
-Else If [ refLearn::referenceShort ≠ "" ]
-Show Custom Dialog [ Message: "Remove record's references or delete this record."; Default Button: “references”,
-Commit: “Yes”; Button 2: “delete”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
-If [ Get ( LastMessageChoice ) = 1 ]
-Set Variable [ $remove; Value:1 ]
-End If
+Show Custom Dialog [ Message: "1 Remove record's references and/or links to other Learn records, OR 2 delete this
+record."; Default Button: “cancel”, Commit: “Yes”; Button 2: “2 delete”, Commit: “No”; Button 3: “1 remove”, Commit:
+“No” ]
 #
 # If cancel is selected, then cancel this script.
-If [ Get ( LastMessageChoice ) = 3 ]
+If [ Get ( LastMessageChoice ) = 1 ]
 Exit Script [ ]
 End If
 #
-# If only links ...
-Else If [ refTestLearn::concatenateLong ≠ ""
- or
-Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
-Show Custom Dialog [ Message: "Remove links to other Learn records or delete this record."; Default Button: “links”,
-Commit: “Yes”; Button 2: “delete”, Commit: “No”; Button 3: “cancel”, Commit: “No” ]
+#If references and/or links option is selected...
+If [ Get ( LastMessageChoice ) = 3 ]
+#
+Show Custom Dialog [ Message: "Remove record's references?"; Default Button: “cancel”, Commit: “Yes”; Button
+2: “no”, Commit: “No”; Button 3: “yes”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 3 ]
+Set Variable [ $removeREF; Value:"1c" ]
+End If
+#
+#If cancel is selected, then cancel this script.
 If [ Get ( LastMessageChoice ) = 1 ]
-Set Variable [ $remove; Value:2 ]
+Exit Script [ ]
+End If
+#
+Show Custom Dialog [ Message: "Remove record's links? (FYI: Yes No buttons are reversed to prevent
+accidental yes clicks :)"; Default Button: “cancel”, Commit: “Yes”; Button 2: “yes”, Commit: “No”; Button 3: “no”,
+Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 2 ]
+Set Variable [ $removeLINKS; Value:"2c" ]
+End If
+#
+#If cancel is selected, then cancel this script.
+If [ Get ( LastMessageChoice ) = 1 ]
+Exit Script [ ]
+End If
+#
+#If neither references or links was selected for removal,
+#then exit the script.
+If [ $removeREF = "" and $removeLINKS = "" ]
+Exit Script [ ]
+End If
+End If
+#
+# If there are only references ...
+Else If [ refLearn::referenceShort ≠ "" ]
+Show Custom Dialog [ Message: "1 Remove record's references OR 2 delete this record?"; Default Button: “cancel”,
+Commit: “Yes”; Button 2: “2 delete”, Commit: “No”; Button 3: “1 remove”, Commit: “No” ]
+If [ Get ( LastMessageChoice ) = 3 ]
+Set Variable [ $removeREF; Value:"1c" ]
 End If
 #
 # If cancel is selected, then cancel this script.
+If [ Get ( LastMessageChoice ) = 1 ]
+Exit Script [ ]
+End If
+#
+# If there are only links ...
+Else If [ refTestLearn::concatenateLong ≠ ""
+ or
+Filter ( testlearn::kcreference ; "L" ) ≠ "" ]
+Show Custom Dialog [ Message: "1 Remove record's links to other learn records, OR 2 delete this record?"; Default
+Button: “cancel”, Commit: “Yes”; Button 2: “2 delete”, Commit: “No”; Button 3: “1 remove”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 3 ]
+Set Variable [ $removeLINKS; Value:"2c" ]
+End If
+#
+# If cancel is selected, then cancel this script.
+If [ Get ( LastMessageChoice ) = 1 ]
 Exit Script [ ]
 End If
 End If
@@ -113,14 +145,15 @@ End If
 #
 #If they select references, then remove all
 #reference record ID numbers.
-If [ $remove = 1 or $remove = "1c" ]
+If [ $remove = 1 or $removeREF = "1c" ]
 #
-If [ $remove = "1c" ]
+If [ $removeREF = "1c" ]
 Show Custom Dialog [ Message: "Are you sure you want to remove this record's references?"; Default Button:
-“yes”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+“cancel”, Commit: “Yes”; Button 2: “removeRefs”, Commit: “No” ]
 #
-# If cancel is selected, then cancel this script.
-If [ Get ( LastMessageChoice ) = 2 ]
+# If cancel is selected and the option to remove links is blank,
+#then cancel this script.
+If [ Get ( LastMessageChoice ) = 1 and $removeLINKS ≠ "2c" ]
 Exit Script [ ]
 End If
 End If
@@ -143,21 +176,23 @@ End Loop
 Set Variable [ $$stoploadCitation ]
 #
 #Exit script once removal is completed.
+If [ $removeLINKS ≠ "2c" ]
 Perform Script [ “loadLearnOrRefMainRecord” ]
 Exit Script [ ]
+End If
 End If
 #
 #
 #If they select links, then remove all
 #Learn record ID numbers.
-If [ $remove = 2 or $remove = "2c" ]
+If [ $remove = 2 or $removeLINKS = "2c" ]
 #
-If [ $remove = "2c" ]
+If [ $removeLINKS = "2c" ]
 Show Custom Dialog [ Message: "Are you sure you want to remove this record's links to other Learn records?";
-Default Button: “yes”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+Default Button: “cancel”, Commit: “Yes”; Button 2: “removeLinks”, Commit: “No” ]
 #
 # If cancel is selected, then cancel this script.
-If [ Get ( LastMessageChoice ) = 2 ]
+If [ Get ( LastMessageChoice ) = 1 ]
 Exit Script [ ]
 End If
 End If
@@ -411,8 +446,8 @@ If [ Filter ( testlearn::kcreference ; "L" ) ≠ "" and TEMP::InventoryLibraryYN
 or
 $$LinkedLearnRecords ≠ "" and TEMP::InventoryLibraryYN = "" ]
 Show Custom Dialog [ Message: "NOTE: This record has links to other learn records. Are you sure you want to delete it? To
-see them 1) click 'cancel'. 2) Click 'find' (above). 3) Click 'linked' in the popup window."; Default Button: “cancel”, Commit:
-“Yes”; Button 2: “delete”, Commit: “No” ]
+see them 1) click 'cancel', and then: 2) Click 'find' (above). 3) Click 'linked' in the popup window."; Default Button: “cancel”,
+Commit: “Yes”; Button 2: “delete”, Commit: “No” ]
 Else
 Show Custom Dialog [ Message: "Delete current record?"; Default Button: “cancel”, Commit: “No”; Button 2: “delete”, Commit:
 “No” ]
