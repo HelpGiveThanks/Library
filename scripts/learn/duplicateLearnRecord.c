@@ -1,4 +1,4 @@
-July 27, 2022 11:31:52 Library.fmp12 - duplicateLearnRecord -1-
+July 27, 2022 16:28:07 Library.fmp12 - duplicateLearnRecord -1-
 learn: duplicateLearnRecord
 #
 #
@@ -22,20 +22,37 @@ Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Give user duplicate record options.
 If [ TEMP::InventoryLibraryYN = "" ]
-Show Custom Dialog [ Message: "Duplicate this record to continue capturing ideas, thoughts, etc. that link to the current record
-MINUS its tagged references?"; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No”; Button 3: “cancel”,
-Commit: “No” ]
 #
-#If user wants to reference current record, note
-#this and then ask if the want to also duplicate
-#previous record's reference tags.
-If [ Get ( LastMessageChoice ) = 1 ]
-Set Variable [ $referenceCurrentRecord; Value:1 ]
-End If
+# If the record has tagged references ask this:
+If [ refLearn::referenceShort ≠ "" ]
+Show Custom Dialog [ Message: "Duplicate this record to continue capturing ideas, thoughts, etc. that link to the current
+record plus or minus its tagged references?"; Default Button: “minus”, Commit: “Yes”; Button 2: “plus”, Commit: “No”;
+Button 3: “cancel”, Commit: “No” ]
 #
 #If user cancels, then exit script.
 If [ Get ( LastMessageChoice ) = 3 ]
 Exit Script [ ]
+End If
+#
+#For now, let's test just duplicating the record
+#if there are no tagged references.
+// # If the record DOES NOT have tagged references ask this:
+Else If [ refLearn::referenceShort = "" ]
+// Show Custom Dialog [ Message: "Duplicate this record to continue capturing ideas, thoughts, etc. that link to the current
+record?"; Default Button: “yes”, Commit: “Yes”; Button 2: “cancel”, Commit: “No” ]
+Set Variable [ $justDuplcateRecord; Value:1 ]
+// #
+// #If user cancels, then exit script.
+// If [ Get ( LastMessageChoice ) = 2 ]
+// Exit Script [ ]
+// End If
+End If
+#
+#If user wants to reference current record, note
+#this and then ask if the want to also duplicate
+#previous record's reference tags.
+If [ Get ( LastMessageChoice ) = 1 or $justDuplcateRecord = 1 ]
+Set Variable [ $referenceCurrentRecord; Value:1 ]
 End If
 End If
 #
@@ -152,4 +169,6 @@ Set Variable [ $$duplicateRecord; Value:1 ]
 #user can now edit it.
 Perform Script [ “learnOpenTextNewWindow” ]
 #
+Scroll Window
+[ Home ]
 #
