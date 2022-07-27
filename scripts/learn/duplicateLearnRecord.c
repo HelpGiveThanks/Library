@@ -1,9 +1,8 @@
-November 12, 2019 22:16:27 Library.fmp12 - -1-
-duplicateLearnRecord
+July 27, 2022 11:31:52 Library.fmp12 - duplicateLearnRecord -1-
 learn: duplicateLearnRecord
 #
 #
-#IMPORTANT: Leave the text field just in case the
+#IMPORTANT: Exit the text field just in case the
 #user is in this field and has just been using the
 #mic to dictate text. If this script does not
 #exit the field first, then all text in the
@@ -23,26 +22,15 @@ Perform Script [ “stopNewRecordsBeingCreatedByLockedNode” ]
 #
 #Give user duplicate record options.
 If [ TEMP::InventoryLibraryYN = "" ]
-Show Custom Dialog [ Message: "Duplicate and reference current record? Click 'yes' if the duplicate is for capturing ideas,
-thoughts, etc. that link to the current record."; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No”; Button 3:
-“cancel”, Commit: “No” ]
+Show Custom Dialog [ Message: "Duplicate this record to continue capturing ideas, thoughts, etc. that link to the current record
+MINUS its tagged references?"; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No”; Button 3: “cancel”,
+Commit: “No” ]
 #
 #If user wants to reference current record, note
 #this and then ask if the want to also duplicate
 #previous record's reference tags.
 If [ Get ( LastMessageChoice ) = 1 ]
 Set Variable [ $referenceCurrentRecord; Value:1 ]
-#
-#Mmm... Save this for another version.
-// Show Custom Dialog [ Message: "Duplicate current record's references (reference tags) too? Click 'yes' if in this followon note you will reference the same references."; Default Button: “yes”, Commit: “Yes”; Button 2: “no”, Commit: “No”;
-Button 3: “cancel”, Commit: “No” ]
-//
-// #If user wants to reference current record, note
-// #this and then ask if the want to also duplicate
-// #previous record's reference tags.
-// If [ Get ( LastMessageChoice ) = 1 ]
-// Set Variable [ $referenceReferences; Value:1 ]
-// End If
 End If
 #
 #If user cancels, then exit script.
@@ -108,49 +96,37 @@ Set Field [ testlearn::note; $note ]
 Set Field [ testlearn::brainstormCasePoint; $point ]
 Set Variable [ $$stoploadCitation ]
 #
-#If user selects to reference current record in
-#the duplicate record, then add its key to
-#list (if any) of other referenced Learn record keys
-#that are referenced by the current record.
+#If the user does not want to keep tagged
+#references then remove them.
 If [ $referenceCurrentRecord = 1 ]
 Set Field [ testlearn::kcreference; $referenceOriginal & ¶ & $reference ]
 Set Field [ testlearn::kshowReferencedMedia; $showReferencedMedia ]
 #
-#If the user does not want to reference the orginal
-#record, then do not add its key to any referenced
-#Learn record keys (referenced by the orginal record).
+Set Variable [ $$stoploadCitation; Value:1 ]
+Set Variable [ $count; Value:ValueCount ( testlearn::kcreference ) ]
+Loop
+If [ Filter ( GetValue ( testlearn::kcreference ; $count ) ; "L" ) ≠ "L" ]
+Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and if
+item is not removed, then the removal calc without the paragraph mark is used
+If ( ValueCount ( testlearn::kcreference) ≠ ValueCount ( Substitute ( testlearn::kcreference ; GetValue ( testlearn::
+kcreference ; $count ) & "¶" ; "" ) ) ;
+Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ) & "¶" ; "" ) ;
+Substitute ( testlearn::kcreference ; GetValue ( testlearn::kcreference ; $count ); "" )
+) ]
+End If
+Set Variable [ $count; Value:$count - 1 ]
+Exit Loop If [ $count = 0 ]
+End Loop
+Set Variable [ $$stoploadCitation ]
+#
+#If the user wants to keep tagged references
+#then do not remove them.
 Else If [ Get ( LastMessageChoice ) = 2 or
 TEMP::InventoryLibraryYN ≠ "" ]
-Set Field [ testlearn::kcreference; $reference ]
+Set Field [ testlearn::kcreference; $referenceOriginal & ¶ & $reference ]
 Set Field [ testlearn::kshowReferencedMedia; $showReferencedMedia ]
+#
 End If
-#
-#
-#Save this removal of reference tags for
-#another version. The code as written doesn't
-#do the job, and was copied from another
-#do the job, and was copied from another
-// If [ ]
-// Set Variable [ $referenceNumber; Value:1 ]
-// Loop
-// If [ Filter ( GetValue ( testlearn::kcreference ; 1 ) ; "L" ) = "L" ]
-// Set Field [ testlearn::kcreference; //last item in list has no paragraph mark, so a valuecount test needs to be done and
-if item is not removed, then the removal calc without the paragraph mark is used
-If ( ValueCount ( $$ref) ≠ ValueCount ( Substitute ( $$ref ; $removeRef & "¶" ; "" ) ) ;
-Substitute ( $$ref ; $removeRef & "¶" ; "" ) ;
-Substitute ( $$ref ; $removeRef; "" )
-) ]
-// Set Variable [ $$ref; Value:testlearn::kcreference ]
-//
-// #Make sure the reference being removed also
-// #gets its picture removed from this learn
-// #record if it is being used.
-// If [ $removeRef = testlearn::kshowReferencedMedia ]
-// Set Field [ testlearn::kshowReferencedMedia; "" ]
-// End If
-// End If
-// End Loop
-// End If
 #
 #
 #Sort the new record to the top of window, and
