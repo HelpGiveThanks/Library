@@ -1,4 +1,4 @@
-April 2, 2022 14:55:09 Library.fmp12 - deleteLearnMainRecord -1-
+March 6, 2023 15:21:09 HallucinationQualityManagement_David.fmp12 - deleteLearnMainRecord -1-
 learn: deleteLearnMainRecord
 #
 #
@@ -94,9 +94,9 @@ If [ Get ( LastMessageChoice ) = 1 ]
 Exit Script [ ]
 End If
 #
-Show Custom Dialog [ Message: "Remove record's links? (FYI: Yes No buttons are reversed to prevent
-accidental yes clicks :)"; Default Button: “cancel”, Commit: “Yes”; Button 2: “yes”, Commit: “No”; Button 3: “no”,
-Commit: “No” ]
+Show Custom Dialog [ Message: "Are you sure you want to remove record's links? (FYI: Yes No buttons are
+reversed to prevent accidental yes clicks :)"; Default Button: “cancel”, Commit: “Yes”; Button 2: “yes”, Commit:
+“No”; Button 3: “no”, Commit: “No” ]
 If [ Get ( LastMessageChoice ) = 2 ]
 Set Variable [ $removeLINKS; Value:"2c" ]
 End If
